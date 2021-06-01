@@ -1,0 +1,83 @@
+package com.app.skillontario.utils;
+
+import android.content.Context;
+import android.content.SharedPreferences;
+
+import com.app.skillontario.baseClasses.AppController;
+
+
+public class MySharedPreference {
+
+    private static MySharedPreference object;
+    private static final String MyPREFERENCES = "taxVoltsPrefs";
+    private SharedPreferences sharedpreferences;
+
+
+    public static MySharedPreference getInstance() {
+        if (object == null) {
+            object = new MySharedPreference(AppController.context);
+        }
+        return object;
+    }
+
+    private MySharedPreference(Context mContext) {
+        sharedpreferences = mContext.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
+    }
+
+
+    //************************** getter setter for string data ***************************
+    public void setStringData(String key, String value) {
+        SharedPreferences.Editor editor = sharedpreferences.edit();
+        editor.putString(key, value);
+        editor.apply();
+    }
+
+    public String getStringData(String key) {
+        return sharedpreferences.getString(key, "");
+    }
+
+    public String getStringDataDoc(String key) {
+        return sharedpreferences.getString(key, null);
+    }
+
+
+    //************************** getter setter for Int data ***************************
+    public void setIntData(String key, int value) {
+        SharedPreferences.Editor editor = sharedpreferences.edit();
+        editor.putInt(key, value);
+        editor.apply();
+    }
+
+    public int getIntData(String key) {
+        return sharedpreferences.getInt(key, 1);
+    }
+
+
+    //******************************** getter setter for boolean data ***********************************
+    public void setBooleanData(String key, boolean value) {
+        SharedPreferences.Editor editor = sharedpreferences.edit();
+        editor.putBoolean(key, value);
+        editor.apply();
+    }
+
+    public Boolean getBooleanData(String key) {
+        return sharedpreferences.getBoolean(key, false);
+    }
+
+
+    //************************ Clear All SharedPreference Values **********************
+    public void clearSharedPrefs() {
+        SharedPreferences.Editor editor = sharedpreferences.edit();
+        editor.clear();      //its clear all data.
+        editor.apply();
+    }
+
+
+    //************************ Clear Particular SharedPreference Values **********************
+    public void removeData(String key) {
+        SharedPreferences.Editor editor = sharedpreferences.edit();
+        editor.remove(key);
+        editor.apply();
+    }
+
+}

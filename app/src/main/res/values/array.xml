@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+
+    <array name="schoolDesignation">
+        <item>None</item>
+        <item>Private</item>
+        <item>Commercial</item>
+        <item>Instructor</item>
+        <item>Helicopter</item>
+        <item>Instrument</item>
+        <item>Other</item>
+    </array>
+
+
+</resources>

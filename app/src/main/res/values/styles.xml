@@ -1,0 +1,189 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="ActivityThemes" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:launchMode">singleTop</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="MyTransparentTheme" parent="AppTheme">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+
+    <style name="MyDialogTheme" parent="AppTheme">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+
+    <style name="SuffixDialog" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:background">@color/transparent</item>
+    </style>
+
+    <style name="CardStyle">
+        <item name="android:layout_marginStart">@dimen/_10sdp</item>
+        <item name="android:layout_marginEnd">@dimen/_10sdp</item>
+        <item name="android:layout_marginTop">@dimen/_10sdp</item>
+        <item name="android:layout_marginBottom">@dimen/_10sdp</item>
+        <item name="cardCornerRadius">@dimen/_10sdp</item>
+        <item name="cardElevation">@dimen/_5sdp</item>
+    </style>
+
+    <style name="CardHeadingText">
+        <item name="android:textColor">@color/textColorDark</item>
+        <item name="android:fontFamily">@font/sf_pro_semibold</item>
+        <item name="android:textSize">@dimen/_16sdp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="CardAmountText">
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:fontFamily">@font/sf_pro_bold</item>
+        <item name="android:textSize">@dimen/_20sdp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_marginStart">@dimen/_10sdp</item>
+        <item name="android:layout_marginEnd">@dimen/_5sdp</item>
+        <item name="android:layout_marginTop">@dimen/_10sdp</item>
+        <item name="android:layout_marginBottom">@dimen/_10sdp</item>
+    </style>
+
+    <style name="CardContentText">
+        <item name="android:textColor">@color/textColorDark</item>
+        <item name="android:fontFamily">@font/sf_pro_regular</item>
+        <item name="android:textSize">@dimen/_12sdp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_marginStart">@dimen/_10sdp</item>
+        <item name="android:layout_marginEnd">@dimen/_10sdp</item>
+        <item name="android:layout_marginTop">@dimen/_10sdp</item>
+    </style>
+
+    <style name="ButtonDark">
+        <item name="android:fontFamily">@font/sf_pro_regular</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:padding">@dimen/_10sdp</item>
+        <item name="android:textSize">@dimen/_14ssp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_marginStart">@dimen/_25sdp</item>
+        <item name="android:layout_marginEnd">@dimen/_25sdp</item>
+        <item name="android:layout_marginTop">@dimen/_10sdp</item>
+        <item name="android:layout_marginBottom">@dimen/_10sdp</item>
+        <item name="android:background">@drawable/rounded_corner_without_border</item>
+        <item name="android:backgroundTint">@color/colorAccent</item>
+    </style>
+
+    <style name="CardButtonGreen">
+        <item name="android:fontFamily">@font/sf_pro_regular</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:padding">@dimen/_10sdp</item>
+        <item name="android:textSize">@dimen/_14ssp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_marginStart">@dimen/_25sdp</item>
+        <item name="android:layout_marginEnd">@dimen/_25sdp</item>
+        <item name="android:layout_marginTop">@dimen/_10sdp</item>
+        <item name="android:layout_marginBottom">@dimen/_10sdp</item>
+        <item name="android:background">@drawable/rounded_corner_without_border</item>
+    </style>
+
+    <style name="NormalButtonGreen">
+        <item name="android:fontFamily">@font/sf_pro_regular</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:padding">@dimen/_10sdp</item>
+        <item name="android:textSize">@dimen/_15ssp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_marginStart">@dimen/_10sdp</item>
+        <item name="android:layout_marginEnd">@dimen/_10sdp</item>
+        <item name="android:layout_marginTop">@dimen/_10sdp</item>
+        <item name="android:layout_marginBottom">@dimen/_10sdp</item>
+        <item name="android:background">@drawable/rounded_corner_without_border</item>
+    </style>
+
+    <style name="HeadingTextForm">
+        <item name="android:fontFamily">@font/sf_pro_regular</item>
+        <item name="android:textColor">@color/textColorHeading</item>
+        <item name="android:textSize">@dimen/_13ssp</item>
+        <item name="android:layout_marginStart">@dimen/_10sdp</item>
+        <item name="android:layout_marginEnd">@dimen/_10sdp</item>
+        <item name="android:layout_marginTop">@dimen/_20sdp</item>
+    </style>
+
+    <style name="EditTextBG">
+        <item name="android:fontFamily">@font/sf_pro_regular</item>
+        <item name="android:textColor">@color/textColorHeading</item>
+        <item name="android:padding">@dimen/_10sdp</item>
+        <item name="android:textSize">@dimen/_14sdp</item>
+        <item name="android:inputType">phone</item>
+        <item name="android:digits">1234567890.</item>
+        <item name="android:layout_marginStart">@dimen/_10sdp</item>
+        <item name="android:layout_marginEnd">@dimen/_10sdp</item>
+        <item name="android:layout_marginTop">@dimen/_10sdp</item>
+        <item name="android:background">@drawable/edit_text_background</item>
+    </style>
+
+    <style name="EditTextGeneral">
+        <item name="android:fontFamily">@font/sf_pro_regular</item>
+        <item name="android:textColor">@color/textColorHeading</item>
+        <item name="android:padding">@dimen/_10sdp</item>
+        <item name="android:textSize">@dimen/_14sdp</item>
+        <item name="android:layout_marginStart">@dimen/_10sdp</item>
+        <item name="android:layout_marginEnd">@dimen/_10sdp</item>
+        <item name="android:layout_marginTop">@dimen/_10sdp</item>
+        <item name="android:background">@drawable/edit_text_background</item>
+    </style>
+
+    <style name="EditTextInsideCard">
+        <item name="android:fontFamily">@font/sf_pro_regular</item>
+        <item name="android:textColor">@color/textColorHeading</item>
+        <item name="android:padding">@dimen/_10sdp</item>
+        <item name="android:textSize">@dimen/_14sdp</item>
+        <item name="android:layout_marginTop">@dimen/_5sdp</item>
+        <item name="android:background">@drawable/rounded_corner_with_border</item>
+    </style>
+
+    <style name="TabLayoutStyle">
+        <item name="tabBackground">@drawable/selected_tab</item>
+        <item name="tabIndicatorColor">@color/transparent</item>
+        <item name="tabSelectedTextColor">@color/white</item>
+        <item name="tabTextColor">@color/textColorHeading</item>
+        <item name="tabMaxWidth">0dp</item>
+        <item name="tabGravity">fill</item>
+        <item name="tabMode">fixed</item>
+    </style>
+
+    <style name="OneTabLayout">
+        <item name="tabIndicatorColor">@color/transparent</item>
+        <item name="tabSelectedTextColor">@color/white</item>
+        <item name="tabTextColor">@color/textColorHeading</item>
+        <item name="tabMaxWidth">0dp</item>
+        <item name="tabGravity">fill</item>
+        <item name="tabMode">fixed</item>
+    </style>
+
+    <style name="CustomSwitch" parent="Widget.AppCompat.CompoundButton.Switch">
+        <item name="android:button">@drawable/custom_switch_button</item>
+        <item name="android:layout_marginTop">@dimen/_15sdp</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:background">@null</item>
+        <item name="android:thumb">@null</item>
+        <item name="android:track">@null</item>
+
+    </style>
+
+</resources>

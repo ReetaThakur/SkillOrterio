@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:padding="@dimen/_4sdp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_190sdp"
+            android:layout_marginLeft="@dimen/_36sdp">
+
+            <ImageView
+                android:layout_width="@dimen/_222sdp"
+                android:layout_height="@dimen/_172sdp"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/language_image"></ImageView>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="false"
+                android:layout_alignParentBottom="true"
+                android:background="@drawable/ic_choose_language"></ImageView>
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/_36sdp"
+            android:layout_marginTop="@dimen/_36sdp"
+            android:layout_marginRight="@dimen/_36sdp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:lineSpacingExtra="@dimen/_4sdp"
+                android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+                android:textSize="@dimen/_12sdp"></TextView>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:src="@drawable/ic_rectangle"></ImageView>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:src="@drawable/ic_group_language_eng"
+                    android:layout_height="wrap_content"></ImageView>
+
+                <ImageView
+                    android:layout_width="@dimen/_113sdp"
+                    android:src="@drawable/language_img_eng"
+                    android:layout_height="wrap_content"></ImageView>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:src="@drawable/ic_group_language_fr"
+                    android:layout_height="wrap_content"></ImageView>
+
+                <ImageView
+                    android:layout_width="@dimen/_113sdp"
+                    android:src="@drawable/language_img_fr"
+                    android:layout_height="wrap_content"></ImageView>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</layout>

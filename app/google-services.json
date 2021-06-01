@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "632124998898",
+    "project_id": "taxvolt-18d3a",
+    "storage_bucket": "taxvolt-18d3a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:632124998898:android:6b5e058627f4d67427bc6b",
+        "android_client_info": {
+          "package_name": "com.app.skillontario"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "632124998898-42mq2qbqulcdjehm0vujl8tfaju1ohec.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.appstudio.taxvolt",
+            "certificate_hash": "289c8f0204591dd2e50e8381a77eb209a741f917"
+          }
+        },
+        {
+          "client_id": "632124998898-f491il9rvtm6dbv605udu7s1bi7gfhqf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBQq81AGmuQgrWuCwNBLcU_-oVR-Obla4g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "632124998898-f491il9rvtm6dbv605udu7s1bi7gfhqf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
