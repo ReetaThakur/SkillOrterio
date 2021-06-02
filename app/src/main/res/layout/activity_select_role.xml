@@ -17,25 +17,26 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/_6sdp"
                 android:orientation="vertical">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_190sdp"
+                    android:layout_height="@dimen/_210sdp"
                     android:layout_marginLeft="@dimen/_36sdp">
 
                     <ImageView
                         android:layout_width="@dimen/_222sdp"
                         android:layout_height="@dimen/_172sdp"
                         android:layout_alignParentRight="true"
-                        android:background="@drawable/language_image"></ImageView>
+                        android:background="@drawable/select_role"></ImageView>
 
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="false"
                         android:layout_alignParentBottom="true"
-                        android:background="@drawable/ic_choose_language"></ImageView>
+                        android:background="@drawable/ic_select_your_role"></ImageView>
 
                 </RelativeLayout>
 
@@ -66,15 +67,35 @@
                         android:layout_marginTop="@dimen/_16sdp">
 
                         <ImageView
-                            android:id="@+id/image_view_english"
+                            android:id="@+id/image_view_student"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/ic_group_language_eng"></ImageView>
+                            android:layout_height="@dimen/_101sdp"
+                            android:src="@drawable/ic_green_alpha_layer"></ImageView>
+
 
                         <ImageView
-                            android:layout_width="@dimen/_113sdp"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_91sdp"
+                            android:src="@drawable/ic_rectangle_white"></ImageView>
+
+                        <ImageView
+                            android:layout_width="@dimen/_144sdp"
+                            android:layout_height="@dimen/_91sdp"
+                            android:src="@drawable/student_img"></ImageView>
+
+                        <TextView
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:src="@drawable/language_img_eng"></ImageView>
+                            android:layout_alignParentRight="true"
+                            android:layout_centerInParent="true"
+                            android:layout_marginRight="@dimen/_16sdp"
+                            android:drawableRight="@drawable/ic_arrow"
+                            android:drawablePadding="@dimen/_16sdp"
+                            android:fontFamily="@font/poppins_regular"
+                            android:gravity="center"
+                            android:text="@string/student"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_20sdp" />
 
                     </RelativeLayout>
 
@@ -84,15 +105,34 @@
                         android:layout_marginTop="@dimen/_16sdp">
 
                         <ImageView
-                            android:id="@+id/image_view_french"
+                            android:id="@+id/image_view_parent"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/ic_group_language_fr"></ImageView>
+                            android:layout_height="@dimen/_101sdp"
+                            android:src="@drawable/ic_green_alpha_layer"></ImageView>
 
                         <ImageView
-                            android:layout_width="@dimen/_113sdp"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_91sdp"
+                            android:src="@drawable/ic_rectangle_white"></ImageView>
+
+                        <ImageView
+                            android:layout_width="@dimen/_155sdp"
+                            android:layout_height="@dimen/_91sdp"
+                            android:src="@drawable/parent_img"></ImageView>
+
+                        <TextView
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:src="@drawable/language_img_fr"></ImageView>
+                            android:layout_alignParentRight="true"
+                            android:layout_centerInParent="true"
+                            android:layout_marginRight="@dimen/_16sdp"
+                            android:drawableRight="@drawable/ic_arrow"
+                            android:drawablePadding="@dimen/_30sdp"
+                            android:fontFamily="@font/poppins_regular"
+                            android:gravity="center"
+                            android:text="@string/parent"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_20sdp" />
 
                     </RelativeLayout>
 

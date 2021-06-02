@@ -40,13 +40,13 @@ public class FragmentTransections {
     }
 
 
-    public static String getCurrentFragmentTag(Activity context, int id) {
+ /*   public static String getCurrentFragmentTag(Activity context, int id) {
         String tag = "";
 
         tag = ((AppCompatActivity) context).getSupportFragmentManager().findFragmentById(R.id.fragment_container).getTag();
 
         return tag;
-    }
+    }*/
 
     public static Fragment getCurrentFragment(Activity context, int id) {
         Fragment fragment;

@@ -5,8 +5,11 @@
     <color name="colorAccent">#354356</color>
 
 
+    <color name="buttonColor">#346EF6</color>
+
     <color name="white">#ffffff</color>
     <color name="black">#000000</color>
+    <color name="black_light">#9399B1</color>
     <color name="red">#E65555</color>
     <color name="grey">#E5E5E5</color>
     <color name="darkGrey">#333333</color>
@@ -18,7 +21,7 @@
     <color name="textColorDark">#354356</color>
     <color name="textColorHeading">#51606E</color>
     <color name="textColorNormal">#546270</color>
-    <color name="textColorVeryLight">#959DA7</color>
+    <color name="textColorVeryLight">#717C85</color>
 
 
     <color name="otpBoxColor">#D1DAE7</color>
