@@ -4,7 +4,9 @@ package com.app.skillontario.activities;
 import android.content.Intent;
 import android.os.Handler;
 
+import com.app.skillontario.SignIn.WelcomeActivity;
 import com.app.skillontario.baseClasses.BaseActivity;
+import com.app.skillontario.constants.AppConstants;
 import com.app.skillontario.utils.MySharedPreference;
 import com.app.skillorterio.R;
 
@@ -55,12 +57,12 @@ public class SplashActivity extends BaseActivity {
             finishAffinity();
         } else {
             if (MySharedPreference.getInstance().getBooleanData(IS_TUTORIAL_LEARN)) {
-               /* Intent intent = new Intent(this, HomeLoginActivity.class);
+                Intent intent = new Intent(this, SelectLanguage.class);
                 intent.putExtra(AppConstants.LOGIN_TYPE, "new");
-                startActivity(intent);*/
+                startActivity(intent);
                 finishAffinity();
             } else {
-                startActivity(new Intent(this, SelectLanguage.class));
+                startActivity(new Intent(this, WelcomeActivity.class));
                 finishAffinity();
             }
         }

@@ -26,6 +26,7 @@ public class TermsOfServicesActivity extends BaseActivity {
     protected int getLayoutById() {
         return R.layout.activity_terms_of_services;
     }
+
     @Override
     public void onBackPressed() {
         super.onBackPressed();

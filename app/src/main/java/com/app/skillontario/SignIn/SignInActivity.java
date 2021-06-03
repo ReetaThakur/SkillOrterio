@@ -1,35 +1,32 @@
-package com.app.skillontario.signup;
+package com.app.skillontario.SignIn;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.content.res.AppCompatResources;
-import androidx.core.content.res.ResourcesCompat;
 
-import android.content.Intent;
-import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
-import android.widget.Toast;
 
-import com.app.skillontario.SignIn.SignInActivity;
 import com.app.skillontario.baseClasses.BaseActivity;
+import com.app.skillontario.signup.SignUpActivity;
 import com.app.skillorterio.R;
-import com.app.skillorterio.databinding.ActivitySelectRoleBinding;
+import com.app.skillorterio.databinding.ActivitySignInBinding;
 import com.app.skillorterio.databinding.ActivitySignUpBinding;
 
-public class SignUpActivity extends BaseActivity {
+public class SignInActivity extends BaseActivity {
 
-    private ActivitySignUpBinding binding;
+    private ActivitySignInBinding binding;
     Drawable myIcon;
 
     @Override
     protected void initUi() {
         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_from_left);
-        binding = (ActivitySignUpBinding) viewBaseBinding;
+        binding = (ActivitySignInBinding) viewBaseBinding;
 
-        myIcon = AppCompatResources.getDrawable(SignUpActivity.this, R.drawable.ic_edit_text_rectangle);
+        myIcon = AppCompatResources.getDrawable(SignInActivity.this, R.drawable.ic_edit_text_rectangle);
+
         binding.etMail.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View view, boolean hasFocus) {
@@ -52,30 +49,7 @@ public class SignUpActivity extends BaseActivity {
             }
         });
 
-        binding.etConfirmPassword.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View view, boolean hasFocus) {
-                if (hasFocus) {
-                    enableFocusEditText(binding.rlConfirmPassword, binding.etConfirmPassword, hasFocus);
-                } else {
-                    enableFocusEditText(binding.rlConfirmPassword, binding.etConfirmPassword, hasFocus);
-                }
-            }
-        });
 
-        binding.tvSignIN.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(SignUpActivity.this, SignInActivity.class));
-            }
-        });
-
-        binding.tvHaveAnAccount.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(SignUpActivity.this, SignInActivity.class));
-            }
-        });
     }
 
     void enableFocusEditText(RelativeLayout relativeLayout, EditText editText, boolean val) {
@@ -87,7 +61,7 @@ public class SignUpActivity extends BaseActivity {
 
     @Override
     protected int getLayoutById() {
-        return R.layout.activity_sign_up;
+        return R.layout.activity_sign_in;
     }
 
     @Override

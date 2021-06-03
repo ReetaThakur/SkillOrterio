@@ -6,8 +6,11 @@
 
 
     <color name="buttonColor">#346EF6</color>
+    <color name="walk_buttonColor">#0A7AFF</color>
 
     <color name="white">#ffffff</color>
+    <color name="white_walk">#D6D6D6</color>
+    <color name="text_error_color">#FF9F0A</color>
     <color name="black">#000000</color>
     <color name="black_light">#9399B1</color>
     <color name="red">#E65555</color>
@@ -22,6 +25,7 @@
     <color name="textColorHeading">#51606E</color>
     <color name="textColorNormal">#546270</color>
     <color name="textColorVeryLight">#717C85</color>
+    <color name="textColorMid">#9399B1</color>
 
 
     <color name="otpBoxColor">#D1DAE7</color>

@@ -7,6 +7,8 @@ import android.graphics.Bitmap;
 import android.os.Environment;
 import android.text.Editable;
 import android.util.Log;
+import android.view.Window;
+import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Toast;
 
@@ -23,7 +25,6 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 
-
 public class Utils {
 
     /**
@@ -35,6 +36,15 @@ public class Utils {
             inputMethodManager.hideSoftInputFromWindow(activity.getCurrentFocus().getWindowToken(), 0);
         } catch (Exception e) {
             // Crashlytics.logException(e);
+        }
+    }
+
+    public static void changeStatusBarColor(Context context, Activity activity) {
+        if (android.os.Build.VERSION.SDK_INT >= 21) {
+            Window window = activity.getWindow();
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            window.setStatusBarColor(ContextCompat.getColor(context, R.color.white));
         }
     }
 
@@ -100,8 +110,6 @@ public class Utils {
         Bitmap newBitmap = Bitmap.createScaledBitmap(realImage, width, height, filter);
         return newBitmap;
     }
-
-
 
 
     public static void showSuccessSnackBar(Context context, String msgStr) {
@@ -173,8 +181,6 @@ public class Utils {
         }
         return digits;
     }
-
-
 
 
 }
