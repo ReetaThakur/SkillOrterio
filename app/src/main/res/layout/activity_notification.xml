@@ -442,6 +442,63 @@
                         </LinearLayout>
                     </LinearLayout>
 
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_16sdp"
+                        android:orientation="vertical">
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/ic_rectangle_copy"
+                            android:orientation="horizontal">
+
+                            <RelativeLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="@dimen/_4sdp"
+                                android:background="@drawable/ic_rectangle_background">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerInParent="true"
+                                    android:layout_gravity="center_vertical"
+                                    android:contentDescription="1"
+                                    android:padding="@dimen/_10sdp"
+                                    android:src="@drawable/ic_contact_us" />
+
+                            </RelativeLayout>
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/_8ssp"
+                                android:layout_weight="1"
+                                android:drawablePadding="@dimen/_15sdp"
+                                android:fontFamily="@font/poppins_medium"
+                                android:gravity="center_vertical"
+                                android:paddingTop="@dimen/_15sdp"
+                                android:paddingBottom="@dimen/_15sdp"
+                                android:text="@string/contact_us"
+                                android:textColor="@color/text_color_dark"
+                                android:textSize="@dimen/_16sdp" />
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:contentDescription="1"
+                                android:padding="@dimen/_10sdp"
+                                android:src="@drawable/ic_notification_back" />
+
+                        </LinearLayout>
+                    </LinearLayout>
+
                 </LinearLayout>
             </LinearLayout>
         </ScrollView>
