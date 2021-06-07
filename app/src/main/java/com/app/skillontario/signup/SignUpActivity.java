@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import com.app.skillontario.MainActivity;
 import com.app.skillontario.SignIn.SignInActivity;
 import com.app.skillontario.baseClasses.BaseActivity;
 import com.app.skillorterio.R;
@@ -74,6 +75,13 @@ public class SignUpActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(SignUpActivity.this, SignInActivity.class));
+            }
+        });
+
+        binding.cvSignUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(SignUpActivity.this, MainActivity.class));
             }
         });
     }

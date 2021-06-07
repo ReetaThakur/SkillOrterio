@@ -15,4 +15,9 @@ public class AppConstants {
     public static final int SUPPORT_PAYMENT = 1000;
 
     public static final String LOGIN_TYPE = "";
+
+    public static final String HOME = "HOME";
+    public static final String Tab2 = "Tab2";
+    public static final String Tab3 = "Tab3";
+    public static final String Tab4 = "Tab4";
 }

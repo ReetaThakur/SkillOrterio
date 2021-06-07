@@ -546,6 +546,12 @@
     <string name="privacy_policy">Privacy Policy</string>
 
     <string name="fran_ais">Français</string>
+    <string name="home">Home</string>
+    <string name="news">News</string>
+    <string name="Inbox">Inbox</string>
+    <string name="event">Event</string>
+    <string name="tab3">Tab3</string>
+    <string name="tab4">Tab4</string>
 
 
 </resources>
