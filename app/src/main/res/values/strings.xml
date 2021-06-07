@@ -552,6 +552,12 @@
     <string name="event">Event</string>
     <string name="tab3">Tab3</string>
     <string name="tab4">Tab4</string>
+    <string name="find_your_dream_career">Find your \nDream Career</string>
+    <string name="search">Search</string>
+    <string name="set_your_filter">Set your filter</string>
+    <string name="choose_your_sector">Choose your Sector</string>
+    <string name="Education">Education</string>
+    <string name="training">Training</string>
 
 
 </resources>

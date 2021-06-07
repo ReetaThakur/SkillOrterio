@@ -10,7 +10,149 @@
         android:background="@color/white"
         android:orientation="vertical">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#F0FBFF"
+            android:orientation="vertical">
 
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_18sdp"
+                android:layout_marginTop="@dimen/_24sdp"
+                android:layout_marginRight="@dimen/_18sdp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_regular"
+                    android:text="@string/find_your_dream_career"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_24sdp"></TextView>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_notification_home"></ImageView>
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_18sdp"
+                android:background="@drawable/ic_rectangle__home_search">
+
+
+                <ImageView
+                    android:id="@+id/im"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/_6sdp"
+                    android:padding="@dimen/_10sdp"
+                    android:src="@drawable/ic_search"></ImageView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/im"
+                    android:text="@string/search"
+                    android:textColor="@color/search_text_color"
+                    android:textSize="@dimen/_12sdp"></TextView>
+
+                <RelativeLayout
+                    android:id="@+id/rl_filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/_6sdp"
+                    android:background="@drawable/ic_rectangle__search_img_back">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/ic_search_white"></ImageView>
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_marginBottom="@dimen/_4sdp"
+            android:layout_height="match_parent"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_18sdp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:text="Popular Careers"
+                    android:textColor="#3E454A"
+                    android:textSize="@dimen/_14sdp"></TextView>
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recy_popular_careers"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_18sdp"
+                    android:layout_marginRight="@dimen/_18sdp"
+                    android:divider="@null"
+                    android:orientation="horizontal"
+                    android:scrollbars="none"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:reverseLayout="false"></androidx.recyclerview.widget.RecyclerView>
+
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_18sdp"
+                    android:layout_marginTop="@dimen/_18sdp"
+                    android:layout_marginRight="@dimen/_18sdp"
+                    android:src="@drawable/take_quiz"></ImageView>
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_18sdp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:text="Recent Events"
+                    android:textColor="#3E454A"
+                    android:textSize="@dimen/_14sdp"></TextView>
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recy_recent_event"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_18sdp"
+                    android:layout_marginRight="@dimen/_18sdp"
+                    android:divider="@null"
+                    android:orientation="horizontal"
+                    android:scrollbars="none"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:reverseLayout="false"></androidx.recyclerview.widget.RecyclerView>
+            </LinearLayout>
+        </ScrollView>
     </LinearLayout>
 
 </layout>
