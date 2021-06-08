@@ -10,7 +10,9 @@
         android:background="@color/white"
         android:orientation="vertical">
 
-        <include android:id="@+id/tab" layout="@layout/even_tool_bt"/>
+        <include
+            android:id="@+id/tab"
+            layout="@layout/even_tool_bt" />
 
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
@@ -19,40 +21,50 @@
             android:background="@color/white">
 
             <LinearLayout
-                android:id="@+id/eventL"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_15sdp"
-                android:layout_marginRight="@dimen/_10sdp"
-                android:layout_marginLeft="@dimen/_10sdp"
-                android:visibility="gone"
                 android:orientation="vertical">
 
-
-                <include layout="@layout/events_item"/>
-                <include layout="@layout/events_item"/>
-                <include layout="@layout/events_item"/>
-                <include layout="@layout/events_item"/>
-                <include layout="@layout/events_item"/>
-
-
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/newsL"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_15sdp"
-                android:layout_marginRight="@dimen/_10sdp"
-                android:layout_marginLeft="@dimen/_10sdp"
-
-                android:orientation="vertical">
-
-                <include layout="@layout/news_item"/>
-                <include layout="@layout/news_item"/>
+                <LinearLayout
+                    android:id="@+id/eventL"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:layout_marginRight="@dimen/_10sdp"
+                    android:orientation="vertical"
+                    android:visibility="gone">
 
 
+                    <include layout="@layout/events_item" />
+
+                    <include layout="@layout/events_item" />
+
+                    <include layout="@layout/events_item" />
+
+                    <include layout="@layout/events_item" />
+
+                    <include layout="@layout/events_item" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/newsL"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:layout_marginRight="@dimen/_10sdp"
+
+                    android:orientation="vertical">
+
+                    <include layout="@layout/news_item" />
+
+                    <include layout="@layout/news_item" />
+
+
+                </LinearLayout>
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>
 

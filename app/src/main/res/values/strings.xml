@@ -559,6 +559,10 @@
     <string name="Education">Education</string>
     <string name="training">Training</string>
     <string name="general_carpente_r">General \nCarpenter</string>
+    <string name="events">Events</string>
+    <string name="s_temp_1">Canadian universities and colleges provide a wide range of scholarships to meritorious international students to help them fund their studies.</string>
+    <string name="s_temp_2">"Apart from this, many scholarships, grants and bursaries are also offered by the Canadian government, public and private establishments. Before you apply to any of these scholarships, do check the eligibility and criteria, along with the closing date. "</string>
+    <string name="scoller_and">Scholarship  and Financial Aid</string>
 
 
 </resources>

@@ -1,13 +1,10 @@
 package com.app.skillontario.activities;
 
-import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
-import android.os.Bundle;
 
 import com.app.skillontario.baseClasses.BaseActivity;
 import com.app.skillorterio.R;
-import com.app.skillorterio.databinding.ActivitySelectLanguageBinding;
+
 import com.app.skillorterio.databinding.ActivityTermsOfServicesBinding;
 
 public class TermsOfServicesActivity extends BaseActivity {
