@@ -23,8 +23,8 @@ class WelcomeActivity : BaseActivity() {
         binding = viewBaseBinding as ActivityWelcomeBinding
 
         binding!!.llNext.setOnClickListener {
-            if (binding!!.viewPager.currentItem == 2) {
-                openLoginPage()
+            if (binding!!.viewPager.currentItem == 3) {
+                  openLoginPage()
             } else
                 binding!!.viewPager.currentItem = binding!!.viewPager.currentItem + 1
         }
@@ -55,14 +55,14 @@ class WelcomeActivity : BaseActivity() {
                 else
                     binding!!.ivPrev.visibility = View.VISIBLE*/
 
-                if (position == 2) {
+                if (position == 3) {
                     binding!!.tvNext.setText("Get Started")
-                  //  binding!!.tvNext.visibility = View.GONE
-                   // binding!!.tvStarted.visibility = View.VISIBLE
+                    //  binding!!.tvNext.visibility = View.GONE
+                    // binding!!.tvStarted.visibility = View.VISIBLE
                 } else {
                     binding!!.tvNext.setText("Next")
-                  //  binding!!.tvNext.visibility = View.VISIBLE
-                   // binding!!.tvStarted.visibility = View.GONE
+                    //  binding!!.tvNext.visibility = View.VISIBLE
+                    // binding!!.tvStarted.visibility = View.GONE
                 }
 
             }
@@ -77,7 +77,7 @@ class WelcomeActivity : BaseActivity() {
         private val inflater: LayoutInflater = mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
 
         override fun getCount(): Int {
-            return 3
+            return 4
         }
 
         override fun isViewFromObject(view: View, `object`: Any): Boolean {
@@ -90,21 +90,12 @@ class WelcomeActivity : BaseActivity() {
                 view = inflater.inflate(R.layout.step_1, container, false)
             } else if (position == 1) {
                 view = inflater.inflate(R.layout.step_2, container, false)
-              /*  val tvPhone = view.findViewById<View>(R.id.tv_call)
-                val tvWeb = view.findViewById<View>(R.id.tv_open_web)
-                tvPhone.setOnClickListener {
-                    callOnNumber(context as WelcomeActivity, "18336297653")
-                }
 
-                tvWeb.setOnClickListener {
-                    val intent = Intent(context, TNCActivity::class.java)
-                    intent.putExtra("title", "")
-                    intent.putExtra("url", "https://go.maxsold.com/sell-with-maxsold")
-                    context.startActivity(intent)
-                }*/
 
             } else if (position == 2) {
                 view = inflater.inflate(R.layout.step_3, container, false)
+            } else if (position == 3) {
+                view = inflater.inflate(R.layout.step_4, container, false)
             }
 
             if (view != null) {
@@ -126,5 +117,33 @@ class WelcomeActivity : BaseActivity() {
 
     public fun callOnNumbers() {
 
+    }
+
+    override fun onWindowFocusChanged(hasFocus: Boolean) {
+        super.onWindowFocusChanged(hasFocus)
+        if (hasFocus) hideSystemUI()
+    }
+
+    private fun hideSystemUI() {
+        // Enables regular immersive mode.
+        // For "lean back" mode, remove SYSTEM_UI_FLAG_IMMERSIVE.
+        // Or for "sticky immersive," replace it with SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+        window.decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_IMMERSIVE
+                // Set the content to appear under the system bars so that the
+                // content doesn't resize when the system bars hide and show.
+                or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                // Hide the nav bar and status bar
+                or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                or View.SYSTEM_UI_FLAG_FULLSCREEN)
+    }
+
+    // Shows the system bars by removing all the flags
+// except for the ones that make the content appear under the system bars.
+    private fun showSystemUI() {
+        window.decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN)
     }
 }

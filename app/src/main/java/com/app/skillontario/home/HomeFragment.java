@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.util.Log;
 import android.view.View;
 
+import com.app.skillontario.activities.NotificationActivity;
+import com.app.skillontario.activities.SearchActivity;
 import com.app.skillontario.adapter.PopularCareerAdapter;
 import com.app.skillontario.baseClasses.BaseFragment;
 import com.app.skillontario.utils.RecyclerItemClickListener;
@@ -28,12 +30,11 @@ public class HomeFragment extends BaseFragment {
         showPopularCareerRecycler();
         showRecentRecycler();
 
-        binding.rlFilter.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getActivity(), HomeFilterActivity.class));
-            }
-        });
+        binding.rlFilter.setOnClickListener(v -> startActivity(new Intent(getActivity(), HomeFilterActivity.class)));
+
+        binding.imgNotification.setOnClickListener(v -> startActivity(new Intent(getActivity(), NotificationActivity.class)));
+
+        binding.rlSearch.setOnClickListener(v -> startActivity(new Intent(getActivity(), SearchActivity.class)));
     }
 
 

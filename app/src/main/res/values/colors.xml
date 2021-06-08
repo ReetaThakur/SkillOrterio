@@ -37,4 +37,19 @@
     <color name="search_text_color">#8E9EA7</color>
 
 
+    <color name="home_color1">#FFF0EF</color>
+    <color name="home_color2">#FFFFFF</color>
+
+
+    <color name="home_oval_color1">#FF9F89</color>
+    <color name="home_oval_color2">#FFD789</color>
+    <color name="home_oval_color3">#5E5CE6</color>
+
+
+    <color name="noti_color1">#FFEBEB</color>
+    <color name="noti_color2">#EBEBFF</color>
+    <color name="noti_color3">#EBFFF0</color>
+    <color name="noti_color4">#EFF7FF</color>
+
+
 </resources>

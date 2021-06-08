@@ -8,30 +8,21 @@ import androidx.core.content.ContextCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.app.skillontario.MainActivity;
 import com.app.skillorterio.R;
-import com.app.skillorterio.databinding.AdapterPopularCarrerBinding;
+import com.app.skillorterio.databinding.AdapterSearchBinding;
+import com.app.skillorterio.databinding.AdapterSearchBinding;
 
 import org.jetbrains.annotations.NotNull;
 
-public class PopularCareerAdapter extends RecyclerView.Adapter<PopularCareerAdapter.ViewHolder> {
+public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder> {
 
 
     Context context;
-    boolean popular = false;
-    private int[] imageArray = {
-            R.drawable.recy1,
-            R.drawable.recy2
-    };
 
-    private int[] imageArray1 = {
-            R.drawable.recent_event,
-            R.drawable.recent_event
-    };
 
-    public PopularCareerAdapter(Context context, boolean popular) {
+    public SearchAdapter(Context context) {
         this.context = context;
-        this.popular = popular;
+
     }
 
 
@@ -42,14 +33,11 @@ public class PopularCareerAdapter extends RecyclerView.Adapter<PopularCareerAdap
 
     @Override
     public int getItemCount() {
-        if (popular)
-            return imageArray.length;
-        else
-            return imageArray1.length;
+        return 4;
     }
 
     @Override
-    public void onBindViewHolder(final PopularCareerAdapter.ViewHolder viewHolder, final int position) {
+    public void onBindViewHolder(final SearchAdapter.ViewHolder viewHolder, final int position) {
        /* if (popular)
             viewHolder.binding.imageView.setImageResource(imageArray[position]);
         else
@@ -62,35 +50,39 @@ public class PopularCareerAdapter extends RecyclerView.Adapter<PopularCareerAdap
         });*/
 
         if (position == 0) {
-            viewHolder.binding.imgBackground.setColorFilter(ContextCompat.getColor(context, R.color.home_color1));
+            //viewHolder.binding.imgBackground.setColorFilter(ContextCompat.getColor(context, R.color.home_color1));
             viewHolder.binding.imgOvl.setColorFilter(ContextCompat.getColor(context, R.color.home_oval_color1));
             viewHolder.binding.imagePerson.setImageResource(R.drawable.home_main_img1);
 
-        } else {
-            viewHolder.binding.imgBackground.setColorFilter(ContextCompat.getColor(context, R.color.home_color2));
+        } else if (position == 1) {
             viewHolder.binding.imgOvl.setColorFilter(ContextCompat.getColor(context, R.color.home_oval_color2));
             viewHolder.binding.imagePerson.setImageResource(R.drawable.home_main_img2);
+        } else {
+            //  viewHolder.binding.imgBackground.setColorFilter(ContextCompat.getColor(context, R.color.home_color2));
+            viewHolder.binding.imgOvl.setColorFilter(ContextCompat.getColor(context, R.color.home_oval_color3));
+            viewHolder.binding.imagePerson.setImageResource(R.drawable.home_main_img3);
         }
+
 
     }
 
     @NotNull
     @Override
-    public PopularCareerAdapter.ViewHolder onCreateViewHolder(@NotNull ViewGroup parent, int position) {
-        AdapterPopularCarrerBinding binding = DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()), R.layout.adapter_popular_carrer, parent, false);
+    public SearchAdapter.ViewHolder onCreateViewHolder(@NotNull ViewGroup parent, int position) {
+        AdapterSearchBinding binding = DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()), R.layout.adapter_search, parent, false);
         parent.setId(position);
         parent.setFocusable(false);
         parent.setFocusableInTouchMode(false);
 
-        return new PopularCareerAdapter.ViewHolder(binding);
+        return new SearchAdapter.ViewHolder(binding);
     }
 
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
-        private AdapterPopularCarrerBinding binding;
+        private AdapterSearchBinding binding;
 
-        public ViewHolder(AdapterPopularCarrerBinding view) {
+        public ViewHolder(AdapterSearchBinding view) {
             super(view.getRoot());
             binding = view;
         }

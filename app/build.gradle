@@ -19,11 +19,11 @@ repositories {
     maven { url "https://jitpack.io" }
 }
 
-repositories {
+/*repositories {
     maven {
         url 'https://customers.pspdfkit.com/maven/'
     }
-}
+}*/
 
 android {
     compileSdkVersion 30
@@ -136,17 +136,17 @@ dependencies {
     kapt 'com.github.bumptech.glide:compiler:4.11.0'
 
     //youtube player
-    implementation 'com.pierfrancescosoffritti.androidyoutubeplayer:core:10.0.5'
+   // implementation 'com.pierfrancescosoffritti.androidyoutubeplayer:core:10.0.5'
 
     //Image Picker and cropper
     implementation 'com.zhihu.android:matisse:0.5.3-beta3'
-    implementation 'com.github.yalantis:ucrop:2.2.6'
-    implementation('com.theartofdev.edmodo:android-image-cropper:2.8.+') {
+   // implementation 'com.github.yalantis:ucrop:2.2.6'
+  /*  implementation('com.theartofdev.edmodo:android-image-cropper:2.8.+') {
         exclude group: 'com.android.support', module: '*'
-    }
+    }*/
 
     //PDF rendering
-    implementation 'com.github.barteksc:android-pdf-viewer:2.8.2'
+   // implementation 'com.github.barteksc:android-pdf-viewer:2.8.2'
 
     //page indicators
     implementation 'com.romandanylyk:pageindicatorview:1.0.3'
@@ -156,7 +156,7 @@ dependencies {
 
     // PDF Sign
     //Docusign Key - 91be1136-c3f7-48e6-b39c-11dfbd9c2e1a
-    implementation 'com.tom_roush:pdfbox-android:1.8.10.1'
+    //implementation 'com.tom_roush:pdfbox-android:1.8.10.1'
     //implementation 'id.zelory:compressor:3.0.0'
 
     //debugImplementation because LeakCanary should only run in debug builds.
@@ -173,7 +173,7 @@ dependencies {
     //Dimensions
     implementation 'com.intuit.ssp:ssp-android:1.0.6'
     implementation 'com.intuit.sdp:sdp-android:1.0.6'
-    implementation 'com.stripe:stripe-android:16.0.1'
+    //implementation 'com.stripe:stripe-android:16.0.1'
 
     //permissions
     implementation 'com.karumi:dexter:6.2.1'

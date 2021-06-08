@@ -32,10 +32,12 @@
                     android:textSize="@dimen/_24sdp"></TextView>
 
                 <ImageView
+                    android:id="@+id/img_notification"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
+                    android:padding="@dimen/_10sdp"
                     android:src="@drawable/ic_notification_home"></ImageView>
 
             </RelativeLayout>
@@ -47,24 +49,32 @@
                 android:layout_margin="@dimen/_18sdp"
                 android:background="@drawable/ic_rectangle__home_search">
 
-
-                <ImageView
-                    android:id="@+id/im"
-                    android:layout_width="wrap_content"
+                <RelativeLayout
+                    android:id="@+id/rl_search"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="@dimen/_6sdp"
-                    android:padding="@dimen/_10sdp"
-                    android:src="@drawable/ic_search"></ImageView>
+                    android:layout_centerInParent="true"
+                    android:layout_marginRight="@dimen/_10sdp"
+                    android:layout_toLeftOf="@+id/rl_filter">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_toRightOf="@+id/im"
-                    android:text="@string/search"
-                    android:textColor="@color/search_text_color"
-                    android:textSize="@dimen/_12sdp"></TextView>
+                    <ImageView
+                        android:id="@+id/im"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/_6sdp"
+                        android:padding="@dimen/_10sdp"
+                        android:src="@drawable/ic_search"></ImageView>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@+id/im"
+                        android:text="@string/search"
+                        android:textColor="@color/search_text_color"
+                        android:textSize="@dimen/_12sdp"></TextView>
+                </RelativeLayout>
 
                 <RelativeLayout
                     android:id="@+id/rl_filter"
@@ -89,8 +99,8 @@
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_marginBottom="@dimen/_4sdp"
             android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/_4sdp"
             android:scrollbars="none">
 
             <LinearLayout
@@ -102,7 +112,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/_18sdp"
-                    android:fontFamily="@font/poppins_regular"
+                    android:fontFamily="@font/poppins_medium"
                     android:text="Popular Careers"
                     android:textColor="#3E454A"
                     android:textSize="@dimen/_14sdp"></TextView>
@@ -134,7 +144,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/_18sdp"
-                    android:fontFamily="@font/poppins_regular"
+                    android:fontFamily="@font/poppins_medium"
                     android:text="Recent Events"
                     android:textColor="#3E454A"
                     android:textSize="@dimen/_14sdp"></TextView>
