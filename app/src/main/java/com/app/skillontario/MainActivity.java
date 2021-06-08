@@ -117,6 +117,7 @@ public class MainActivity extends BaseActivity {
             updateBottomBar(AppConstants.HOME);
             binding.viewPager.setCurrentItem(0, true);
         } else {
+            overridePendingTransition(R.anim.slide_in_from_left, R.anim.slide_out_from_right);
             super.onBackPressed();
         }
     }
@@ -192,4 +193,6 @@ public class MainActivity extends BaseActivity {
     protected int getLayoutById() {
         return R.layout.activity_main;
     }
+
+
 }

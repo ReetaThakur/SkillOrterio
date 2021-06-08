@@ -3,46 +3,45 @@ package com.app.skillontario.activities;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.view.View;
 
 import com.app.skillontario.adapter.NotificationAdapter;
-import com.app.skillontario.adapter.PopularCareerAdapter;
+import com.app.skillontario.adapter.SearchAdapter;
 import com.app.skillontario.baseClasses.BaseActivity;
 import com.app.skillontario.utils.RecyclerItemClickListener;
 import com.app.skillorterio.R;
 import com.app.skillorterio.databinding.ActivityNotificationBinding;
-import com.app.skillorterio.databinding.ActivitySettingBinding;
+import com.app.skillorterio.databinding.ActivitySearchBinding;
 
-public class NotificationActivity extends BaseActivity {
+public class SearchActivity extends BaseActivity {
 
-    private ActivityNotificationBinding binding;
-    private NotificationAdapter adapter;
+    private ActivitySearchBinding binding;
+    private SearchAdapter adapter;
 
     @Override
     protected void initUi() {
         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_from_left);
-        binding = (ActivityNotificationBinding) viewBaseBinding;
+        binding = (ActivitySearchBinding) viewBaseBinding;
 
-        binding.actionBar.tvTitle.setText("Notifications");
-        showNotificationRecycler();
+        binding.actionBar.tvTitle.setText("Search");
+        showSearchRecycler();
 
         binding.actionBar.ivBack.setOnClickListener(v -> onBackPressed());
 
     }
 
-    private void showNotificationRecycler() {
-        binding.recyNotification.setHasFixedSize(true);
-        adapter = new NotificationAdapter(NotificationActivity.this);
-        binding.recyNotification.setAdapter(adapter);
+    private void showSearchRecycler() {
+        binding.recySearch.setHasFixedSize(true);
+        adapter = new SearchAdapter(SearchActivity.this);
+        binding.recySearch.setAdapter(adapter);
 
-        binding.recyNotification.addOnItemTouchListener(new RecyclerItemClickListener(NotificationActivity.this, (view, position) -> {
+        binding.recySearch.addOnItemTouchListener(new RecyclerItemClickListener(SearchActivity.this, (view, position) -> {
 
         }));
     }
 
     @Override
     protected int getLayoutById() {
-        return R.layout.activity_notification;
+        return R.layout.activity_search;
     }
 
     @Override
