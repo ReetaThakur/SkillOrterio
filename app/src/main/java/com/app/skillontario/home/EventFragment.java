@@ -1,5 +1,7 @@
 package com.app.skillontario.home;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.view.View;
 
 import com.app.skillontario.baseClasses.BaseFragment;
@@ -15,10 +17,19 @@ public class EventFragment extends BaseFragment {
         // Required empty public constructor
     }
 
-
     @Override
     protected void initUi() {
         binding = (FragmentEventBinding) viewDataBinding;
+
+        binding.tab.tv1.setOnClickListener(v->{
+            binding.eventL.setVisibility(View.VISIBLE);
+            binding.newsL.setVisibility(View.GONE);
+        });binding.tab.tv2.setOnClickListener(v->{
+            binding.newsL.setVisibility(View.VISIBLE);
+            binding.eventL.setVisibility(View.GONE);
+        });
+
+        binding.newsL.setOnClickListener(v-> startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.skillsontario.com"))));
     }
 
     @Override
