@@ -1,0 +1,204 @@
+import java.util.regex.Matcher
+import java.util.regex.Pattern
+
+apply plugin: 'com.android.application'
+apply plugin: 'com.google.gms.google-services'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'com.google.firebase.firebase-perf'
+apply plugin: 'com.google.firebase.crashlytics'
+
+repositories {
+    mavenCentral()
+    maven { url "https://mint.splunk.com/gradle/" }
+    google()
+}
+
+repositories {
+    jcenter()
+    maven { url "https://jitpack.io" }
+}
+
+repositories {
+    maven {
+        url 'https://customers.pspdfkit.com/maven/'
+    }
+}
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.2"
+
+    defaultConfig {
+        applicationId "com.app.skillontario"
+        minSdkVersion 21
+        multiDexEnabled true
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+        resConfigs "en"
+        flavorDimensions "default"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        ndk {
+            //abiFilters "armeabi-v7a" //, "x86", "arm64-v8a"
+            abiFilters 'armeabi-v7a', 'arm64-v8a', 'x86','x86_64'
+        }
+    }
+
+    signingConfigs {
+        config {
+            keyAlias 'skills'
+            keyPassword 'skills@12'
+            storeFile file('../keystore.jks')
+            storePassword 'skills@12'
+        }
+    }
+
+    dataBinding {
+        enabled = true
+    }
+
+    dexOptions {
+        javaMaxHeapSize "6g"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
+            signingConfig signingConfigs.config
+
+            applicationVariants.all { variant ->
+                variant.outputs.each { output ->
+                    def name = "skillsontario_" + getCurrentFlavor() + "_" + variant.buildType.name +
+                            "_" + variant.mergedFlavor.versionName + "_" +
+                            variant.mergedFlavor.versionCode + "_" +
+                            getDate() + ".apk"
+                    output.outputFileName = name
+                }
+            }
+        }
+
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    productFlavors {
+
+        development {
+            buildConfigField "String", "BASE_URL", '"http://ec2-13-234-249-108.ap-south-1.compute.amazonaws.com:1851/"'
+        }
+
+
+        production {
+            buildConfigField "String", "BASE_URL", '"https://api.taxvolt.com/"'
+        }
+
+
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+}
+
+dependencies {
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.1'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.3.5'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.3.5'
+    testImplementation 'junit:junit:4.13'
+    androidTestImplementation 'androidx.test:runner:1.3.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    implementation "androidx.cardview:cardview:1.0.0"
+
+    implementation "androidx.recyclerview:recyclerview:1.1.0"
+    implementation 'com.android.support:multidex:1.0.3'
+    implementation platform('com.google.firebase:firebase-bom:26.1.1')
+    implementation 'com.google.firebase:firebase-analytics'
+    implementation 'com.google.firebase:firebase-messaging'
+    //Api connection
+    implementation 'com.squareup.retrofit2:retrofit:2.8.1'
+    implementation 'com.squareup.retrofit2:converter-gson:2.8.1'
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.6.0'
+
+    //image loading
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+    kapt 'com.github.bumptech.glide:compiler:4.11.0'
+
+    //youtube player
+    implementation 'com.pierfrancescosoffritti.androidyoutubeplayer:core:10.0.5'
+
+    //Image Picker and cropper
+    implementation 'com.zhihu.android:matisse:0.5.3-beta3'
+    implementation 'com.github.yalantis:ucrop:2.2.6'
+    implementation('com.theartofdev.edmodo:android-image-cropper:2.8.+') {
+        exclude group: 'com.android.support', module: '*'
+    }
+
+    //PDF rendering
+    implementation 'com.github.barteksc:android-pdf-viewer:2.8.2'
+
+    //page indicators
+    implementation 'com.romandanylyk:pageindicatorview:1.0.3'
+
+    // Stripe SDK
+    // implementation 'com.stripe:stripe-android:15.1.0'
+
+    // PDF Sign
+    //Docusign Key - 91be1136-c3f7-48e6-b39c-11dfbd9c2e1a
+    implementation 'com.tom_roush:pdfbox-android:1.8.10.1'
+    //implementation 'id.zelory:compressor:3.0.0'
+
+    //debugImplementation because LeakCanary should only run in debug builds.
+//    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.3'
+
+    //firebase api
+    implementation 'com.google.firebase:firebase-crashlytics:17.3.0'
+    implementation 'com.google.firebase:firebase-analytics:18.0.0'
+    //implementation 'com.google.firebase:firebase-analytics:17.5.0'
+    // implementation 'com.crashlytics.sdk.android:crashlytics:2.10.1'
+    // Add the dependency for the Performance Monitoring library
+    implementation 'com.google.firebase:firebase-perf:19.0.8'
+
+    //Dimensions
+    implementation 'com.intuit.ssp:ssp-android:1.0.6'
+    implementation 'com.intuit.sdp:sdp-android:1.0.6'
+    implementation 'com.stripe:stripe-android:16.0.1'
+
+    //permissions
+    implementation 'com.karumi:dexter:6.2.1'
+    //implementation 'com.pspdfkit:pspdfkit:6.5.3'
+}
+
+apply plugin: 'com.google.gms.google-services'
+apply plugin: 'kotlin-android-extensions'
+
+def getCurrentFlavor() {
+    Gradle gradle = getGradle()
+    String tskReqStr = gradle.getStartParameter().getTaskRequests().toString()
+    Pattern pattern
+    pattern = Pattern.compile("assemble(\\w+)(Release|Debug)")
+    Matcher matcher = pattern.matcher(tskReqStr)
+    if (matcher.find()) {
+        return matcher.group(1).toLowerCase()
+    } else {
+        println "NO MATCH FOUND"
+        return ""
+    }
+}
+
+static def getDate() {
+    def date = new Date()
+    def formattedDate = date.format('yyyy-MM-dd')
+    return formattedDate
+}
