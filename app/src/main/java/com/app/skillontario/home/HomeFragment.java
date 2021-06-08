@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.util.Log;
 import android.view.View;
 
+import com.app.skillontario.activities.JobDetailsActivity;
 import com.app.skillontario.activities.NotificationActivity;
 import com.app.skillontario.activities.SearchActivity;
 import com.app.skillontario.adapter.PopularCareerAdapter;
@@ -44,7 +45,7 @@ public class HomeFragment extends BaseFragment {
         binding.recyPopularCareers.setAdapter(adapter);
 
         binding.recyPopularCareers.addOnItemTouchListener(new RecyclerItemClickListener(getActivity(), (view, position) -> {
-
+            startActivity(new Intent(getActivity(), JobDetailsActivity.class));
         }));
     }
 
