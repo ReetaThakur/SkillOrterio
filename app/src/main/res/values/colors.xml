@@ -34,6 +34,7 @@
     <color name="lightGreenColor">#7BD9AC</color>
     <color name="text_color_dark">#272F35</color>
     <color name="tab_selected">#ffffff</color>
+    <color name="search_text_color">#8E9EA7</color>
 
 
 </resources>

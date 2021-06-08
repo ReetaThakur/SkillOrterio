@@ -7,20 +7,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <ImageView
+        <TextView
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_65sdp"
-            android:layout_alignParentBottom="true"
-            android:background="@color/transparent"
-            android:paddingTop="@dimen/_17sdp"
-            android:scaleType="fitXY"
-            android:src="@drawable/ic_rectangle_tab" />
+            android:layout_height="@dimen/_4sdp"
+            android:layout_above="@+id/ll_bottom_bar"
+            android:background="@drawable/gradient_black"></TextView>
 
         <LinearLayout
             android:id="@+id/ll_bottom_bar"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_65sdp"
             android:layout_alignParentBottom="true"
+            android:background="@color/white"
             android:gravity="center_vertical"
             android:orientation="horizontal"
             android:padding="@dimen/_5sdp">
@@ -55,7 +53,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
-                        android:layout_marginLeft="@dimen/_4sdp"
+                        android:layout_marginLeft="@dimen/_6sdp"
                         android:layout_toRightOf="@+id/img_home"
                         android:fontFamily="@font/sf_pro_bold"
                         android:singleLine="true"
@@ -94,7 +92,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
-                        android:layout_marginLeft="@dimen/_4sdp"
+                        android:layout_marginLeft="@dimen/_6sdp"
                         android:layout_toRightOf="@+id/img_home"
                         android:fontFamily="@font/sf_pro_bold"
                         android:singleLine="true"
@@ -134,7 +132,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
-                        android:layout_marginLeft="@dimen/_4sdp"
+                        android:layout_marginLeft="@dimen/_6sdp"
                         android:layout_toRightOf="@+id/img_home"
                         android:fontFamily="@font/sf_pro_bold"
                         android:singleLine="true"
@@ -174,7 +172,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
-                        android:layout_marginLeft="@dimen/_4sdp"
+                        android:layout_marginLeft="@dimen/_6sdp"
                         android:layout_toRightOf="@+id/img_home"
                         android:fontFamily="@font/sf_pro_bold"
                         android:singleLine="true"

@@ -12,6 +12,7 @@ import com.app.skillontario.home.Tab4Fragment;
 import com.app.skillorterio.R;
 import com.app.skillorterio.databinding.ActivityMainBinding;
 
+
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
@@ -149,14 +150,10 @@ public class MainActivity extends BaseActivity {
             binding.bottomNavBar.tv4.setVisibility(View.GONE);
 
 
-            binding.bottomNavBar.imgHome.setColorFilter(ContextCompat.getColor(MainActivity.this, R.color.tab_text_color),
-                    android.graphics.PorterDuff.Mode.MULTIPLY);
-            binding.bottomNavBar.imgEvent.setColorFilter(ContextCompat.getColor(MainActivity.this, R.color.white),
-                    android.graphics.PorterDuff.Mode.MULTIPLY);
-            binding.bottomNavBar.imgTab3.setColorFilter(ContextCompat.getColor(MainActivity.this, R.color.tab_text_color),
-                    android.graphics.PorterDuff.Mode.MULTIPLY);
-            binding.bottomNavBar.imgTab4.setColorFilter(ContextCompat.getColor(MainActivity.this, R.color.tab_text_color),
-                    android.graphics.PorterDuff.Mode.MULTIPLY);
+            binding.bottomNavBar.imgHome.setColorFilter(ContextCompat.getColor(MainActivity.this, R.color.tab_text_color));
+            binding.bottomNavBar.imgEvent.setColorFilter(ContextCompat.getColor(MainActivity.this, R.color.white));
+            binding.bottomNavBar.imgTab3.setColorFilter(ContextCompat.getColor(MainActivity.this, R.color.tab_text_color));
+            binding.bottomNavBar.imgTab4.setColorFilter(ContextCompat.getColor(MainActivity.this, R.color.tab_text_color));
         } else if (pos == 2) {
             binding.bottomNavBar.lin1.setBackgroundResource(0);
             binding.bottomNavBar.lin2.setBackgroundResource(0);
@@ -168,14 +165,10 @@ public class MainActivity extends BaseActivity {
             binding.bottomNavBar.tv3.setVisibility(View.VISIBLE);
             binding.bottomNavBar.tv4.setVisibility(View.GONE);
 
-            binding.bottomNavBar.imgHome.setColorFilter(ContextCompat.getColor(MainActivity.this, R.color.tab_text_color),
-                    android.graphics.PorterDuff.Mode.MULTIPLY);
-            binding.bottomNavBar.imgEvent.setColorFilter(ContextCompat.getColor(MainActivity.this, R.color.tab_text_color),
-                    android.graphics.PorterDuff.Mode.MULTIPLY);
-            binding.bottomNavBar.imgTab3.setColorFilter(ContextCompat.getColor(MainActivity.this, R.color.white),
-                    android.graphics.PorterDuff.Mode.MULTIPLY);
-            binding.bottomNavBar.imgTab4.setColorFilter(ContextCompat.getColor(MainActivity.this, R.color.tab_text_color),
-                    android.graphics.PorterDuff.Mode.MULTIPLY);
+            binding.bottomNavBar.imgHome.setColorFilter(ContextCompat.getColor(MainActivity.this, R.color.tab_text_color));
+            binding.bottomNavBar.imgEvent.setColorFilter(ContextCompat.getColor(MainActivity.this, R.color.tab_text_color));
+            binding.bottomNavBar.imgTab3.setColorFilter(ContextCompat.getColor(MainActivity.this, R.color.white));
+            binding.bottomNavBar.imgTab4.setColorFilter(ContextCompat.getColor(MainActivity.this, R.color.tab_text_color));
         } else if (pos == 3) {
             binding.bottomNavBar.lin1.setBackgroundResource(0);
             binding.bottomNavBar.lin2.setBackgroundResource(0);
@@ -187,14 +180,10 @@ public class MainActivity extends BaseActivity {
             binding.bottomNavBar.tv3.setVisibility(View.GONE);
             binding.bottomNavBar.tv4.setVisibility(View.VISIBLE);
 
-            binding.bottomNavBar.imgHome.setColorFilter(ContextCompat.getColor(MainActivity.this, R.color.tab_text_color),
-                    android.graphics.PorterDuff.Mode.MULTIPLY);
-            binding.bottomNavBar.imgEvent.setColorFilter(ContextCompat.getColor(MainActivity.this, R.color.tab_text_color),
-                    android.graphics.PorterDuff.Mode.MULTIPLY);
-            binding.bottomNavBar.imgTab3.setColorFilter(ContextCompat.getColor(MainActivity.this, R.color.tab_text_color),
-                    android.graphics.PorterDuff.Mode.MULTIPLY);
-            binding.bottomNavBar.imgTab4.setColorFilter(ContextCompat.getColor(MainActivity.this, R.color.white),
-                    android.graphics.PorterDuff.Mode.MULTIPLY);
+            binding.bottomNavBar.imgHome.setColorFilter(ContextCompat.getColor(MainActivity.this, R.color.tab_text_color));
+            binding.bottomNavBar.imgEvent.setColorFilter(ContextCompat.getColor(MainActivity.this, R.color.tab_text_color));
+            binding.bottomNavBar.imgTab3.setColorFilter(ContextCompat.getColor(MainActivity.this, R.color.tab_text_color));
+            binding.bottomNavBar.imgTab4.setColorFilter(ContextCompat.getColor(MainActivity.this, R.color.white));
         }
 
     }
