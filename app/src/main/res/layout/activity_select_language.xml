@@ -9,7 +9,7 @@
         android:orientation="vertical"
         android:padding="@dimen/_4sdp">
 
-        <ScrollView
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scrollbars="none">
@@ -30,12 +30,15 @@
                         android:layout_alignParentRight="true"
                         android:background="@drawable/language_image"></ImageView>
 
-                    <ImageView
+                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="false"
                         android:layout_alignParentBottom="true"
-                        android:background="@drawable/ic_choose_language"></ImageView>
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="@string/choose_language"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_30sdp"></TextView>
 
                 </RelativeLayout>
 
@@ -43,15 +46,17 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="@dimen/_36sdp"
-                    android:layout_marginTop="@dimen/_36sdp"
+                    android:layout_marginTop="@dimen/_18sdp"
                     android:layout_marginRight="@dimen/_36sdp"
                     android:orientation="vertical">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_regular"
                         android:lineSpacingExtra="@dimen/_4sdp"
                         android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+                        android:textColor="#9399B1"
                         android:textSize="@dimen/_12sdp"></TextView>
 
                     <ImageView
@@ -69,12 +74,42 @@
                             android:id="@+id/image_view_english"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:src="@drawable/ic_group_language_eng"></ImageView>
+                            android:src="@drawable/ic_group_lang_new"></ImageView>
 
                         <ImageView
+                            android:id="@+id/im1"
                             android:layout_width="@dimen/_113sdp"
                             android:layout_height="wrap_content"
                             android:src="@drawable/language_img_eng"></ImageView>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="@dimen/_10sdp"
+                            android:layout_marginRight="@dimen/_16sdp"
+                            android:layout_toRightOf="@+id/im1">
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:fontFamily="@font/poppins_regular"
+                                android:text="English"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_12sdp"></TextView>
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="@dimen/_10sdp"
+                                android:rotation="180"
+                                android:src="@drawable/ic_back"></ImageView>
+                        </RelativeLayout>
+
 
                     </RelativeLayout>
 
@@ -87,18 +122,48 @@
                             android:id="@+id/image_view_french"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:src="@drawable/ic_group_language_fr"></ImageView>
+                            android:src="@drawable/ic_group_lang_new"></ImageView>
 
                         <ImageView
+                            android:id="@+id/im2"
                             android:layout_width="@dimen/_113sdp"
                             android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_14sdp"
                             android:src="@drawable/language_img_fr"></ImageView>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="@dimen/_10sdp"
+                            android:layout_marginRight="@dimen/_16sdp"
+                            android:layout_toRightOf="@+id/im2">
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:fontFamily="@font/poppins_regular"
+                                android:text="Français"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_12sdp"></TextView>
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="@dimen/_10sdp"
+                                android:rotation="180"
+                                android:src="@drawable/ic_back"></ImageView>
+                        </RelativeLayout>
 
                     </RelativeLayout>
 
                 </LinearLayout>
 
             </LinearLayout>
-        </ScrollView>
+        </androidx.core.widget.NestedScrollView>
     </LinearLayout>
 </layout>

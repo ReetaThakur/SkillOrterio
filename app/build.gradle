@@ -180,6 +180,7 @@ dependencies {
     //implementation 'com.pspdfkit:pspdfkit:6.5.3'
 
     implementation project(':expandable-recyclerview-adapter')
+    implementation project(':tagadapter')
 }
 
 apply plugin: 'com.google.gms.google-services'

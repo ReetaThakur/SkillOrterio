@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="student">Student</string>
-    <string name="new_account">Create a \nNew Account</string>
-    <string name="signup">Signup</string>
-    <string name="welcome_to_skills_ontario">Welcome to Skills Ontario</string>
-    <string name="email_has_been_sent">Email has been Sent</string>
-</resources>

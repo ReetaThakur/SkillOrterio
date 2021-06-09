@@ -34,7 +34,6 @@
                     android:id="@+id/lin1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/_6sdp"
                     android:background="@drawable/ic_rectangle__tab_background"
                     android:gravity="center"
                     android:orientation="horizontal">
@@ -59,7 +58,7 @@
                         android:singleLine="true"
                         android:text="@string/home"
                         android:textColor="@color/white"
-                        android:textSize="@dimen/_9sdp" />
+                        android:textSize="@dimen/_8ssp" />
                 </LinearLayout>
             </RelativeLayout>
 
@@ -74,7 +73,6 @@
                     android:id="@+id/lin2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/_6sdp"
                     android:gravity="center"
                     android:orientation="horizontal">
 
@@ -98,7 +96,7 @@
                         android:singleLine="true"
                         android:text="@string/event"
                         android:textColor="@color/white"
-                        android:textSize="@dimen/_9sdp"
+                        android:textSize="@dimen/_8ssp"
                         android:visibility="gone" />
                 </LinearLayout>
             </RelativeLayout>
@@ -107,14 +105,13 @@
                 android:id="@+id/rl_tab3"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
+                android:layout_weight="1.1"
                 android:gravity="center">
 
                 <LinearLayout
                     android:id="@+id/lin3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/_6sdp"
                     android:gravity="center"
                     android:orientation="horizontal">
 
@@ -138,7 +135,7 @@
                         android:singleLine="true"
                         android:text="@string/tab3"
                         android:textColor="@color/white"
-                        android:textSize="@dimen/_9sdp"
+                        android:textSize="@dimen/_8ssp"
                         android:visibility="gone" />
                 </LinearLayout>
             </RelativeLayout>
@@ -147,14 +144,13 @@
                 android:id="@+id/rl_tab4"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
+                android:layout_weight="1.1"
                 android:gravity="center">
 
                 <LinearLayout
                     android:id="@+id/lin4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/_6sdp"
                     android:gravity="center"
                     android:orientation="horizontal">
 
@@ -178,7 +174,7 @@
                         android:singleLine="true"
                         android:text="@string/tab4"
                         android:textColor="@color/white"
-                        android:textSize="@dimen/_9sdp"
+                        android:textSize="@dimen/_8ssp"
                         android:visibility="gone" />
                 </LinearLayout>
             </RelativeLayout>

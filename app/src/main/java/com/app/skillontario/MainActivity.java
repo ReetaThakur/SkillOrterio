@@ -5,9 +5,11 @@ import com.app.skillontario.adapter.TabAdapter;
 import com.app.skillontario.baseClasses.BaseActivity;
 import com.app.skillontario.constants.AppConstants;
 
+import com.app.skillontario.home.DashboardFragment;
 import com.app.skillontario.home.EventFragment;
 import com.app.skillontario.home.HomeFragment;
-import com.app.skillontario.home.Tab3Fragment;
+import com.app.skillontario.home.ResourcesFragment;
+
 import com.app.skillontario.home.Tab4Fragment;
 import com.app.skillorterio.R;
 import com.app.skillorterio.databinding.ActivityMainBinding;
@@ -39,8 +41,8 @@ public class MainActivity extends BaseActivity {
         tabAdapter = new TabAdapter(getSupportFragmentManager(), FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
         tabAdapter.addFragment(new HomeFragment(), AppConstants.HOME);
         tabAdapter.addFragment(new EventFragment(), AppConstants.Tab2);
-        tabAdapter.addFragment(new Tab3Fragment(), AppConstants.Tab3);
-        tabAdapter.addFragment(new Tab4Fragment(), AppConstants.Tab4);
+        tabAdapter.addFragment(new ResourcesFragment(), AppConstants.Tab3);
+        tabAdapter.addFragment(new DashboardFragment(), AppConstants.Tab4);
 
         binding.viewPager.setAdapter(tabAdapter);
         binding.tabs.setupWithViewPager(binding.viewPager);
@@ -88,7 +90,7 @@ public class MainActivity extends BaseActivity {
 
         switch (selection) {
             case AppConstants.HOME:
-               // setTint(binding.bottomNavBar.imgHome, R.color.tab_selected);
+                // setTint(binding.bottomNavBar.imgHome, R.color.tab_selected);
                 setBackgroundImageOnTab(0);
                 break;
             case AppConstants.Tab2:
@@ -141,7 +143,7 @@ public class MainActivity extends BaseActivity {
             binding.bottomNavBar.imgTab4.setColorFilter(ContextCompat.getColor(MainActivity.this, R.color.tab_text_color));
         } else if (pos == 1) {
             binding.bottomNavBar.lin1.setBackgroundResource(0);
-            binding.bottomNavBar.lin2.setBackgroundResource(R.drawable.ic_rectangle__tab_background);
+            binding.bottomNavBar.lin2.setBackgroundResource(R.drawable.tab_2_background);
             binding.bottomNavBar.lin3.setBackgroundResource(0);
             binding.bottomNavBar.lin4.setBackgroundResource(0);
 
@@ -158,7 +160,7 @@ public class MainActivity extends BaseActivity {
         } else if (pos == 2) {
             binding.bottomNavBar.lin1.setBackgroundResource(0);
             binding.bottomNavBar.lin2.setBackgroundResource(0);
-            binding.bottomNavBar.lin3.setBackgroundResource(R.drawable.ic_rectangle__tab_background);
+            binding.bottomNavBar.lin3.setBackgroundResource(R.drawable.tab_3_background);
             binding.bottomNavBar.lin4.setBackgroundResource(0);
 
             binding.bottomNavBar.tv1.setVisibility(View.GONE);
@@ -174,7 +176,7 @@ public class MainActivity extends BaseActivity {
             binding.bottomNavBar.lin1.setBackgroundResource(0);
             binding.bottomNavBar.lin2.setBackgroundResource(0);
             binding.bottomNavBar.lin3.setBackgroundResource(0);
-            binding.bottomNavBar.lin4.setBackgroundResource(R.drawable.ic_rectangle__tab_background);
+            binding.bottomNavBar.lin4.setBackgroundResource(R.drawable.tab_4_background);
 
             binding.bottomNavBar.tv1.setVisibility(View.GONE);
             binding.bottomNavBar.tv2.setVisibility(View.GONE);

@@ -14,6 +14,7 @@ import com.app.skillorterio.R;
 import static com.app.skillontario.constants.SharedPrefsConstants.IS_LOGIN;
 import static com.app.skillontario.constants.SharedPrefsConstants.IS_TUTORIAL_LEARN;
 
+
 public class SplashActivity extends BaseActivity {
     private Handler mHandler = new Handler();
     String TAG = "SkillOntario";
