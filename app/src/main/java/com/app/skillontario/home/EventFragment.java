@@ -33,8 +33,8 @@ public class EventFragment extends BaseFragment {
             binding.eventL.setVisibility(View.VISIBLE);
             binding.newsL.setVisibility(View.GONE);
         });binding.tab.tv2.setOnClickListener(v->{
-            setTint(binding.tab.tv1, R.color.buttonColor);
-            setTint(binding.tab.tv2,  R.color.white);
+            setTint(binding.tab.tv1, R.color.white);
+            setTint(binding.tab.tv2,  R.color.buttonColor);
             binding.newsL.setVisibility(View.VISIBLE);
             binding.eventL.setVisibility(View.GONE);
         });
