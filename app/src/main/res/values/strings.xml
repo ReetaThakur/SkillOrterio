@@ -565,6 +565,9 @@
     <string name="scoller_and">Scholarship  and Financial Aid</string>
     <string name="child">Mazenga Building Group Ltd. is a Toronto- construction management firm established  provide clients with an unmatched level of attention, and customized style.</string>
     <string name="helpful_and_relevant_resources">Helpful and Relevant Resources</string>
+    <string name="lbl_g_partner">Government Partners</string>
+    <string name="lbl_p_partner">Premium Partners</string>
+    <string name="lbl_platinum_partner">Platinum Partners</string>
 
 
 </resources>
