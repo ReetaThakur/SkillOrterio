@@ -32,6 +32,7 @@
             android:name="com.app.skillontario.activities.NotificationActivity"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
+        <activity android:name="com.app.skillontario.quiz.QuizAc"></activity>
         <activity
             android:name="com.app.skillontario.home.HomeFilterActivity"
             android:screenOrientation="portrait"

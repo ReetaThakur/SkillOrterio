@@ -33,7 +33,7 @@
                     android:layout_marginTop="@dimen/_15sdp"
                     android:layout_marginRight="@dimen/_10sdp"
                     android:orientation="vertical"
-                    android:visibility="gone">
+                   >
 
 
                     <include layout="@layout/events_item" />
@@ -56,7 +56,7 @@
                     android:layout_marginLeft="@dimen/_10sdp"
                     android:layout_marginTop="@dimen/_15sdp"
                     android:layout_marginRight="@dimen/_10sdp"
-
+                    android:visibility="gone"
                     android:orientation="vertical">
 
                     <include layout="@layout/news_item" />
