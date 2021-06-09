@@ -178,6 +178,8 @@ dependencies {
     //permissions
     implementation 'com.karumi:dexter:6.2.1'
     //implementation 'com.pspdfkit:pspdfkit:6.5.3'
+
+    implementation project(':expandable-recyclerview-adapter')
 }
 
 apply plugin: 'com.google.gms.google-services'

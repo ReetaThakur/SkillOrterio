@@ -67,8 +67,8 @@
             tools:ignore="LockedOrientationActivity" />
         <activity
             android:name="com.app.skillontario.SignIn.SignInActivity"
-            android:launchMode="singleTop"
             android:screenOrientation="portrait"
+            android:launchMode="singleTop"
             tools:ignore="LockedOrientationActivity" />
         <activity
             android:name="com.app.skillontario.SignIn.WelcomeActivity"
