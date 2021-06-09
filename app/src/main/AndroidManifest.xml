@@ -23,15 +23,16 @@
         android:theme="@style/ActivityThemes"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name="com.app.skillontario.quiz.TakeQuizAc"></activity>
         <activity
             android:name="com.app.skillontario.activities.SearchActivity"
             android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity"></activity>
+            tools:ignore="LockedOrientationActivity" />
         <activity
             android:name="com.app.skillontario.activities.NotificationActivity"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
-        <activity android:name="com.app.skillontario.quiz.QuizAc"></activity>
+        <activity android:name="com.app.skillontario.quiz.QuizAc" />
         <activity
             android:name="com.app.skillontario.home.HomeFilterActivity"
             android:screenOrientation="portrait"
@@ -66,8 +67,8 @@
             tools:ignore="LockedOrientationActivity" />
         <activity
             android:name="com.app.skillontario.SignIn.SignInActivity"
-            android:screenOrientation="portrait"
             android:launchMode="singleTop"
+            android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
             android:name="com.app.skillontario.SignIn.WelcomeActivity"
