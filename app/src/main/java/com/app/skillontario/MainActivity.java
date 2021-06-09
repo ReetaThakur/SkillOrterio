@@ -88,7 +88,7 @@ public class MainActivity extends BaseActivity {
 
         switch (selection) {
             case AppConstants.HOME:
-                //   setTint(binding.bottomNavBar.imgHome, R.color.tab_selected);
+               // setTint(binding.bottomNavBar.imgHome, R.color.tab_selected);
                 setBackgroundImageOnTab(0);
                 break;
             case AppConstants.Tab2:

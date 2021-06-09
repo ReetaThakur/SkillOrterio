@@ -1,14 +1,9 @@
 package com.app.skillontario.quiz;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentStatePagerAdapter;
-
-import android.os.Bundle;
-
 import com.app.skillontario.adapter.TabAdapter;
 import com.app.skillontario.baseClasses.BaseActivity;
 import com.app.skillorterio.R;
-import com.app.skillorterio.databinding.ActivityHelpBinding;
 import com.app.skillorterio.databinding.QuizAcBinding;
 
 public class QuizAc extends BaseActivity {
@@ -21,9 +16,7 @@ public class QuizAc extends BaseActivity {
         binding = (QuizAcBinding) viewBaseBinding;
 
         setAdapter();
-
     }
-
 
     private void setAdapter() {
         tabAdapter = new TabAdapter(getSupportFragmentManager(), FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
@@ -40,11 +33,9 @@ public class QuizAc extends BaseActivity {
 
        /*
         binding.viewPager.setPagingEnabled(false);
-        binding.viewPager.setOffscreenPageLimit(4);*/
-
-
+        binding.viewPager.setOffscreenPageLimit(4);
+        */
     }
-
 
 
     @Override
@@ -56,6 +47,5 @@ public class QuizAc extends BaseActivity {
     public void onBackPressed() {
         super.onBackPressed();
         overridePendingTransition(R.anim.slide_in_from_left, R.anim.slide_out_from_right);
-
     }
 }
