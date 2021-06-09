@@ -7,7 +7,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/white"
+
+
         android:gravity="center"
         android:orientation="vertical">
 
@@ -15,9 +16,10 @@
             android:id="@+id/ivHolder"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+
             android:layout_centerInParent="true"
-            android:scaleType="centerInside"
-            android:src="@drawable/ic_n_data_carrer_quiz_r" />
+
+            android:src="@drawable/temp_quiz" />
 
     </LinearLayout>
 
