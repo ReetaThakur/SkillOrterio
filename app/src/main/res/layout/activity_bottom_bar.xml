@@ -8,7 +8,7 @@
         android:layout_height="match_parent"
         tools:context="com.app.skillontario.BottomBarActivity">
 
-        <androidx.viewpager.widget.ViewPager
+        <com.app.skillontario.customUi.CustomViewPager
             android:id="@+id/view_pager"
             android:layout_width="0dp"
             android:layout_height="0dp"
@@ -36,41 +36,49 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:bt_active="true"
-                app:bt_colorActive="@color/red"
-                app:bt_colorInactive="@color/tab1_active_color"
+                android:layout_weight="1"
+                app:bt_colorActive="@color/white"
+                app:bt_colorInactive="@color/tab1_inactive_color"
                 app:bt_icon="@drawable/ic_tab_home"
+                app:bt_titleSize="14sp"
                 app:bt_shape="@drawable/background_tab1"
                 app:bt_title="@string/home" />
 
             <com.gauravk.bubblenavigation.BubbleToggleView
-                android:id="@+id/l_item_search"
+                android:id="@+id/l_item_event"
+                android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:bt_badgeBackgroundColor="@color/white"
                 app:bt_colorActive="@color/white"
-                app:bt_colorInactive="@color/tab2_active_color"
+                app:bt_colorInactive="@color/tab1_inactive_color"
                 app:bt_icon="@drawable/ic_tab_news"
-                app:bt_shape="@drawable/background_tab1"
+                app:bt_titleSize="14sp"
+                app:bt_shape="@drawable/background_tab2"
                 app:bt_title="@string/events" />
 
             <com.gauravk.bubblenavigation.BubbleToggleView
-                android:id="@+id/l_item_profile_list"
+                android:id="@+id/l_item_resource"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:bt_colorActive="@color/white"
-                app:bt_colorInactive="@color/tab3_active_color"
+                android:layout_weight="1"
+                app:bt_colorInactive="@color/tab1_inactive_color"
                 app:bt_icon="@drawable/ic_tab_event"
-                app:bt_shape="@drawable/background_tab1"
+                app:bt_titleSize="14sp"
+                app:bt_shape="@drawable/background_tab3"
                 app:bt_title="@string/resources" />
 
             <com.gauravk.bubblenavigation.BubbleToggleView
-                android:id="@+id/l_item_notification"
+                android:id="@+id/l_item_dashboard"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:bt_colorActive="@color/white"
-                app:bt_colorInactive="@color/tab4_active_color"
+                android:layout_weight="1"
+                app:bt_colorInactive="@color/tab1_inactive_color"
                 app:bt_icon="@drawable/ic_tab_last"
-                app:bt_shape="@drawable/background_tab1"
+                app:bt_titleSize="14sp"
+                app:bt_shape="@drawable/background_tab4"
                 app:bt_title="@string/notification" />
 
 

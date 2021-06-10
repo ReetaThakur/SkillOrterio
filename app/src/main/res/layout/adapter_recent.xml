@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_160sdp"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/recent_back"></ImageView>
+
+        <ImageView
+            android:id="@+id/img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_25sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:src="@drawable/recent_image"></ImageView>
+
+        <TextView
+            android:id="@+id/tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_8ssp"
+            android:layout_marginTop="@dimen/_22sdp"
+            android:layout_toRightOf="@+id/img"
+            android:fontFamily="@font/poppins_medium"
+            android:text="@string/discovery_day_cornwell_sdg"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_14sdp"></TextView>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="@dimen/_30sdp"
+            android:layout_marginRight="@dimen/_18sdp"
+            android:background="@drawable/ic_rectangle__half_cut">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@drawable/ic_shape__half_cut"></ImageView>
+
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv"
+            android:layout_marginLeft="@dimen/_8ssp"
+            android:layout_toRightOf="@+id/img"
+            android:background="@drawable/ic_rectangle__10_recent"
+            android:padding="@dimen/_6sdp"
+            android:text="Young Women’s Initiatives"
+            android:textColor="#FF9F0A"
+            android:textSize="@dimen/_9sdp"></TextView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/img"
+            android:layout_marginLeft="@dimen/_32sdp"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:layout_marginRight="@dimen/_32sdp"
+            android:background="@drawable/line1"></TextView>
+
+    </RelativeLayout>
+
+
+</layout>

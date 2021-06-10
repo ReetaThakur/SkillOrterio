@@ -2,7 +2,7 @@
     <string name="app_name">Skills Ontario</string>
     <string name="sign_in">Sign In</string>
     <string name="txt_continue">Continue</string>
-    <string name="notification">Notification</string>
+    <string name="notification">Notification  </string>
     <string name="security">Security</string>
     <string name="language">Language</string>
     <string name="leave_feedback">Leave Feedback</string>
@@ -546,7 +546,7 @@
     <string name="privacy_policy">Privacy Policy</string>
 
     <string name="fran_ais">Français</string>
-    <string name="home">Home</string>
+    <string name="home">Home  </string>
     <string name="news">News</string>
     <string name="Inbox">Inbox</string>
     <string name="event">Event</string>
@@ -559,7 +559,7 @@
     <string name="Education">Education</string>
     <string name="training">Training</string>
     <string name="general_carpente_r">General \nCarpenter</string>
-    <string name="events">Events</string>
+    <string name="events">Events  </string>
     <string name="s_temp_1">Canadian universities and colleges provide a wide range of scholarships to meritorious international students to help them fund their studies.</string>
     <string name="s_temp_2">"Apart from this, many scholarships, grants and bursaries are also offered by the Canadian government, public and private establishments. Before you apply to any of these scholarships, do check the eligibility and criteria, along with the closing date. "</string>
     <string name="scoller_and">Scholarship  and Financial Aid</string>
@@ -571,7 +571,10 @@
     <string name="reset">Reset</string>
     <string name="apply_filter">Apply Filter</string>
     <string name="choose_language">Choose \nLanguage</string>
-    <string name="resources">Resources</string>
+    <string name="resources">Resources  </string>
+    <string name="discover_a_suitable_career">Discover a \nSuitable Career</string>
+    <string name="discovery_day_cornwell_sdg">Discovery \nday cornwall SDG</string>
+    <string name="start_career_quiz">Start \nCareer Quiz</string>
 
 
 </resources>

@@ -19,9 +19,9 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/_18sdp"
+                android:layout_marginLeft="@dimen/_16sdp"
                 android:layout_marginTop="@dimen/_24sdp"
-                android:layout_marginRight="@dimen/_18sdp">
+                android:layout_marginRight="@dimen/_16sdp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -46,7 +46,7 @@
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_18sdp"
+                android:layout_margin="@dimen/_16sdp"
                 android:background="@drawable/ic_rectangle__home_search">
 
                 <RelativeLayout
@@ -111,7 +111,9 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/_18sdp"
+                    android:layout_marginBottom="@dimen/_8ssp"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:layout_marginLeft="@dimen/_16sdp"
                     android:fontFamily="@font/poppins_medium"
                     android:text="Popular Careers"
                     android:textColor="#3E454A"
@@ -122,8 +124,7 @@
                     android:id="@+id/recy_popular_careers"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/_18sdp"
-                    android:layout_marginRight="@dimen/_18sdp"
+                    android:layout_marginLeft="@dimen/_16sdp"
                     android:divider="@null"
                     android:orientation="horizontal"
                     android:scrollbars="none"
@@ -131,19 +132,68 @@
                     app:reverseLayout="false"></androidx.recyclerview.widget.RecyclerView>
 
 
-                <ImageView
+                <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/_18sdp"
-                    android:layout_marginTop="@dimen/_18sdp"
-                    android:layout_marginRight="@dimen/_18sdp"
-                    android:src="@drawable/take_quiz"></ImageView>
+                    android:layout_height="@dimen/_120sdp"
+                    android:layout_marginLeft="@dimen/_16sdp"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:layout_marginRight="@dimen/_16sdp"
+                    app:cardBackgroundColor="#605EEB"
+                    app:cardCornerRadius="@dimen/_10sdp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:id="@+id/ibn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/home_img_"></ImageView>
+
+                        <TextView
+                            android:id="@+id/tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="-20dp"
+                            android:layout_marginTop="@dimen/_20sdp"
+                            android:layout_marginRight="@dimen/_16sdp"
+                            android:layout_toRightOf="@+id/ibn"
+                            android:fontFamily="@font/poppins_medium"
+                            android:text="@string/discover_a_suitable_career"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_13sdp"></TextView>
+
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/tv"
+                            android:layout_marginLeft="-20dp"
+                            android:layout_marginTop="@dimen/_12sdp"
+                            android:layout_toRightOf="@+id/ibn"
+                            android:background="@drawable/ic_rectangle__take_quiz"
+                            android:padding="@dimen/_4sdp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:fontFamily="@font/poppins_medium"
+                                android:text="Take Quiz"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/_11sdp"></TextView>
+                        </RelativeLayout>
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
 
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/_18sdp"
+                    android:layout_marginLeft="@dimen/_16sdp"
+                    android:layout_marginTop="@dimen/_16sdp"
                     android:fontFamily="@font/poppins_medium"
                     android:text="Recent Events"
                     android:textColor="#3E454A"
@@ -154,8 +204,6 @@
                     android:id="@+id/recy_recent_event"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/_18sdp"
-                    android:layout_marginRight="@dimen/_18sdp"
                     android:divider="@null"
                     android:orientation="horizontal"
                     android:scrollbars="none"

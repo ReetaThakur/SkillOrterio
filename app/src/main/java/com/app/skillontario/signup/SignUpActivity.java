@@ -1,23 +1,18 @@
 package com.app.skillontario.signup;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.content.res.AppCompatResources;
-import androidx.core.content.res.ResourcesCompat;
 
 import android.content.Intent;
-import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
-import android.widget.Toast;
 
-import com.app.skillontario.MainActivity;
+import com.app.skillontario.BottomBarActivity;
 import com.app.skillontario.SignIn.SignInActivity;
+import com.app.skillontario.activities.TakeQuizActivity;
 import com.app.skillontario.baseClasses.BaseActivity;
 import com.app.skillorterio.R;
-import com.app.skillorterio.databinding.ActivitySelectRoleBinding;
 import com.app.skillorterio.databinding.ActivitySignUpBinding;
 
 public class SignUpActivity extends BaseActivity {
@@ -81,7 +76,8 @@ public class SignUpActivity extends BaseActivity {
         binding.cvSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(SignUpActivity.this, MainActivity.class));
+                startActivity(new Intent(SignUpActivity.this, BottomBarActivity.class));
+              //  startActivity(new Intent(SignUpActivity.this, TakeQuizActivity.class));
             }
         });
     }

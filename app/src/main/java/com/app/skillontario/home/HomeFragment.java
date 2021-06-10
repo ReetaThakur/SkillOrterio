@@ -8,6 +8,7 @@ import com.app.skillontario.activities.JobDetailsActivity;
 import com.app.skillontario.activities.NotificationActivity;
 import com.app.skillontario.activities.SearchActivity;
 import com.app.skillontario.adapter.PopularCareerAdapter;
+import com.app.skillontario.adapter.RecentEventsAdapter;
 import com.app.skillontario.baseClasses.BaseFragment;
 import com.app.skillontario.utils.RecyclerItemClickListener;
 import com.app.skillorterio.R;
@@ -17,7 +18,8 @@ import com.app.skillorterio.databinding.FragmentHomeBinding;
 public class HomeFragment extends BaseFragment {
 
     private FragmentHomeBinding binding;
-    PopularCareerAdapter adapter, adapter1;
+    PopularCareerAdapter adapter;
+    RecentEventsAdapter adapter1;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -52,7 +54,7 @@ public class HomeFragment extends BaseFragment {
 
     private void showRecentRecycler() {
         binding.recyRecentEvent.setHasFixedSize(true);
-        adapter1 = new PopularCareerAdapter(getActivity(), false);
+        adapter1 = new RecentEventsAdapter(getActivity(), false);
         binding.recyRecentEvent.setAdapter(adapter1);
 
         binding.recyRecentEvent.addOnItemTouchListener(new RecyclerItemClickListener(getActivity(), (view, position) -> {

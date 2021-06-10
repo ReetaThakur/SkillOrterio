@@ -5,8 +5,6 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="@dimen/_250sdp"
         android:layout_height="@dimen/_145sdp"
-        android:layout_marginLeft="@dimen/_8sdp"
-        android:layout_marginRight="@dimen/_8sdp"
         android:orientation="vertical">
 
         <RelativeLayout
@@ -84,7 +82,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_marginTop="@dimen/_16sdp"
-                    android:layout_marginRight="@dimen/_16sdp"
+                    android:layout_marginRight="@dimen/_8ssp"
                     android:src="@drawable/ic_home_main_batch"></ImageView>
 
                 <TextView
