@@ -34,10 +34,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:fontFamily="@font/poppins_regular"
-                    android:gravity="center"
                     android:text="@string/skip"
-                    android:textAllCaps="true"
+                    android:textAllCaps="false"
                     android:textColor="@color/white"
                     android:textSize="@dimen/_10sdp"
                     app:layout_constraintBottom_toTopOf="@+id/view_pager" />
@@ -65,11 +63,10 @@
                         android:id="@+id/tv_next"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/poppins_regular"
                         android:gravity="center"
                         android:padding="@dimen/_7sdp"
                         android:text="@string/next"
-                        android:textAllCaps="true"
+                        android:textAllCaps="false"
                         android:textColor="@color/white"
                         android:textSize="@dimen/_18sdp" />
                 </LinearLayout>

@@ -22,25 +22,26 @@
             android:paddingEnd="@dimen/_45sdp"
             android:paddingBottom="@dimen/_30sdp">
 
-             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_10sdp"
-                android:layout_marginEnd="@dimen/_10sdp"
-                android:fontFamily="@font/poppins_bold"
-                android:text="The standard Lorem Ipsum passage"
-                android:textColor="@color/white"
-                android:textSize="@dimen/_20sdp" />
-
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_10sdp"
                 android:layout_marginEnd="@dimen/_10sdp"
+                android:fontFamily="@font/poppins_bold"
+                android:text="@string/the_standard_lorem_ipsum_passage"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_28sdp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
                 android:fontFamily="@font/poppins_medium"
                 android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
-                android:textColor="@color/white"
-                android:textSize="@dimen/_10sdp" />
+                android:textColor="#D6D6D6"
+                android:textSize="@dimen/_14sdp" />
         </LinearLayout>
     </RelativeLayout>
 

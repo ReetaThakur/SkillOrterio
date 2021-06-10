@@ -111,9 +111,9 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/_8ssp"
-                    android:layout_marginTop="@dimen/_16sdp"
                     android:layout_marginLeft="@dimen/_16sdp"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:layout_marginBottom="@dimen/_8ssp"
                     android:fontFamily="@font/poppins_medium"
                     android:text="Popular Careers"
                     android:textColor="#3E454A"
@@ -209,6 +209,69 @@
                     android:scrollbars="none"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     app:reverseLayout="false"></androidx.recyclerview.widget.RecyclerView>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_120sdp"
+                    android:layout_marginLeft="@dimen/_16sdp"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:layout_marginRight="@dimen/_16sdp">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/group"></ImageView>
+
+                    <TextView
+                        android:id="@+id/tvExplore"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_margin="@dimen/_12sdp"
+                        android:background="@drawable/group_back"
+                        android:drawableRight="@drawable/group_back_white"
+                        android:gravity="center"
+                        android:paddingRight="@dimen/_10sdp"
+                        android:text="Explore"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_10sdp"></TextView>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_toLeftOf="@+id/tvExplore"
+                        android:fontFamily="@font/poppins_medium"
+                        android:text="@string/the_john_lepping_memorial_scholarship"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12sdp"></TextView>
+
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_16sdp"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="Recent News"
+                    android:textColor="#3E454A"
+                    android:textSize="@dimen/_14sdp"></TextView>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recy_news"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_16sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:divider="@null"
+                    android:orientation="horizontal"
+                    android:scrollbars="none"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:reverseLayout="false"></androidx.recyclerview.widget.RecyclerView>
+
+
             </LinearLayout>
         </ScrollView>
     </LinearLayout>

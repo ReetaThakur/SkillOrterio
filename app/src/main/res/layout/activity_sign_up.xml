@@ -17,9 +17,9 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginBottom="@dimen/_16sdp"
                 android:layout_marginLeft="@dimen/_16sdp"
                 android:layout_marginRight="@dimen/_16sdp"
+                android:layout_marginBottom="@dimen/_16sdp"
                 android:orientation="vertical">
 
                 <ImageView
@@ -51,8 +51,7 @@
                     android:id="@+id/rl_email"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_25sdp"
-                    >
+                    android:layout_marginTop="@dimen/_25sdp">
 
                     <androidx.appcompat.widget.AppCompatEditText
                         android:id="@+id/et_mail"
@@ -60,7 +59,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="1dp"
-                        android:drawableRight="@drawable/ic_ic_image"
                         android:hint="@string/email_address"
                         android:imeOptions="actionNext"
                         android:inputType="textEmailAddress|textVisiblePassword" />
@@ -70,8 +68,7 @@
                     android:id="@+id/rl_password"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_16sdp"
-                    >
+                    android:layout_marginTop="@dimen/_16sdp">
 
                     <androidx.appcompat.widget.AppCompatEditText
                         android:id="@+id/et_password"
@@ -89,8 +86,7 @@
                     android:id="@+id/rl_confirm_password"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_16sdp"
-                    >
+                    android:layout_marginTop="@dimen/_16sdp">
 
                     <androidx.appcompat.widget.AppCompatEditText
                         android:id="@+id/et_confirm_password"

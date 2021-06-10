@@ -58,7 +58,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="1dp"
-                        android:drawableRight="@drawable/ic_ic_image"
                         android:hint="@string/email_address"
                         android:imeOptions="actionNext"
                         android:inputType="textEmailAddress|textVisiblePassword" />
@@ -75,7 +74,8 @@
                         android:fontFamily="@font/poppins_regular"
                         android:text="@string/couldn_t_find_your_email_address"
                         android:textColor="@color/text_error_color"
-                        android:textSize="@dimen/_8ssp"></TextView>
+                        android:textSize="@dimen/_8ssp"
+                        android:visibility="gone"></TextView>
 
                 </RelativeLayout>
 
@@ -114,7 +114,8 @@
                             android:fontFamily="@font/poppins_regular"
                             android:text="@string/incorrect_password"
                             android:textColor="@color/text_error_color"
-                            android:textSize="@dimen/_8ssp"></TextView>
+                            android:textSize="@dimen/_8ssp"
+                            android:visibility="gone"></TextView>
 
                         <TextView
                             android:layout_width="match_parent"

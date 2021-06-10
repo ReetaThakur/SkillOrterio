@@ -576,6 +576,9 @@
     <string name="discovery_day_cornwell_sdg">Discovery \nday cornwall SDG</string>
     <string name="start_career_quiz">Start \nCareer Quiz</string>
     <string name="this_quiz_is_a_fun_career_exploration_tool">This quiz is a fun career exploration tool!</string>
+    <string name="the_standard_lorem_ipsum_passage">The standard Lorem Ipsum passage</string>
+    <string name="select_your_role">Select \nyour Role</string>
+    <string name="the_john_lepping_memorial_scholarship">The John Lepping \nMemorial Scholarship</string>
 
 
 </resources>

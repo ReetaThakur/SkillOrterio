@@ -99,11 +99,11 @@
                     android:id="@+id/textMoney"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
                     android:layout_below="@+id/textWork"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginTop="@dimen/_8ssp"
                     android:fontFamily="@font/poppins_regular"
                     android:gravity="center_vertical"
+                    android:textSize="@dimen/_8ssp"
                     android:text="$20 - $48 per hour"
                     android:textColor="#6A5856"></TextView>
 
