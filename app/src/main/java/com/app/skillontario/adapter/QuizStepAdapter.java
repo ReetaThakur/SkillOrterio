@@ -57,7 +57,7 @@ int count;
     @Override
     public void onBindViewHolder(final QuizStepAdapter.ViewHolder viewHolder, final int position) {
 
-        if(count==4){
+        if(count==2){
             viewHolder.bindingb.ivOption.setImageResource(optBimg[position]);
             viewHolder.bindingb.tvTitle.setText(optB[position]);
             if (hold.equals(String.valueOf(position))) {
@@ -89,7 +89,7 @@ int count;
     @NotNull
     @Override
     public QuizStepAdapter.ViewHolder onCreateViewHolder(@NotNull ViewGroup parent, int position) {
-        if (count==4) {
+        if (count==2) {
             QuizStepItemBBinding binding = DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()),
                     R.layout.quiz_step_item_b, parent, false);
             return new QuizStepAdapter.ViewHolder(binding);

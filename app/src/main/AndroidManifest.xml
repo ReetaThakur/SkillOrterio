@@ -23,7 +23,9 @@
         android:theme="@style/ActivityThemes"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name="com.app.skillontario.quiz.QuizStepAc"></activity>
+        <activity android:name="com.app.skillontario.activities.EditProfileAc"></activity>
+        <activity android:name="com.app.skillontario.activities.NewsDetailAc" />
+        <activity android:name="com.app.skillontario.quiz.QuizStepAc" />
         <activity android:name="com.app.skillontario.quiz.TakeQuizAc">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -106,7 +108,7 @@
         <activity
             android:name="com.app.skillontario.activities.SplashActivity"
             android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity"></activity>
+            tools:ignore="LockedOrientationActivity" />
 
         <provider
             android:name="com.app.skillontario.utils.GenericFileProvider"

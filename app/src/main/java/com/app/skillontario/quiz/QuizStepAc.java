@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import com.app.skillontario.adapter.QuizStepAdapter;
 import com.app.skillontario.adapter.TabAdapter;
@@ -59,14 +60,22 @@ public class QuizStepAc extends BaseActivity {
 
     private void validate() {
         QuizStepAdapter quizStepAdapter=new QuizStepAdapter(getApplicationContext(),count);
-        if(count==4){
+        binding.rvItems.setVisibility(View.VISIBLE);
+        binding.progressQues.setVisibility(View.GONE);
+        if(count==2){
             RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(this, 2);
             binding.rvItems.setLayoutManager(mLayoutManager);
-        }else {
+            binding.rvItems.setAdapter(quizStepAdapter);
+        }
+        else if(count==4){
+            binding.rvItems.setVisibility(View.GONE);
+            binding.progressQues.setVisibility(View.VISIBLE);
+        } else {
             RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL,false);
             binding.rvItems.setLayoutManager(mLayoutManager);
+            binding.rvItems.setAdapter(quizStepAdapter);
         }
-        binding.rvItems.setAdapter(quizStepAdapter);
+
     }
 
 

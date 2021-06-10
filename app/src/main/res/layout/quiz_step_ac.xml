@@ -120,11 +120,20 @@
                     android:layout_width="match_parent"
                     android:orientation="vertical"
                     android:layout_marginTop="@dimen/_5sdp"
+android:visibility="gone"
                     tools:itemCount="4"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     android:layout_height="match_parent"
                     />
 
+                <LinearLayout
+                    android:id="@+id/progressQues"
+                    android:visibility="visible"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                <include
+                    layout="@layout/quiz_progress_ui"/>
+                </LinearLayout>
 
 
             </LinearLayout>
