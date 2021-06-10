@@ -179,6 +179,9 @@ dependencies {
     implementation 'com.karumi:dexter:6.2.1'
     //implementation 'com.pspdfkit:pspdfkit:6.5.3'
 
+    //bottombar
+    implementation 'com.gauravk.bubblenavigation:bubblenavigation:1.0.7'
+
     implementation project(':expandable-recyclerview-adapter')
     implementation project(':tagadapter')
 }
