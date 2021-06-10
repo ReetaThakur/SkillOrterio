@@ -1,9 +1,14 @@
 package com.app.skillontario.home;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.view.View;
+import android.view.Window;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -14,6 +19,7 @@ import com.app.skillontario.baseClasses.BaseFragment;
 import com.app.skillorterio.R;
 import com.app.skillorterio.databinding.FragmentEventBinding;
 import com.app.skillorterio.databinding.FragmentHomeBinding;
+import com.bumptech.glide.Glide;
 
 public class EventFragment extends BaseFragment {
 
@@ -39,8 +45,24 @@ public class EventFragment extends BaseFragment {
             binding.eventL.setVisibility(View.GONE);
         });
 
+        binding.eOne.ivCal.setOnClickListener(view1 -> openD());
+
         binding.eventL.setOnClickListener(v-> startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.skillsontario.com"))));
     }
+
+    private void openD() {
+        Dialog dialogMood = new Dialog(getActivity());
+        dialogMood.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialogMood.setCancelable(true);
+        if (dialogMood.getWindow() != null) {
+            dialogMood.getWindow()
+                    .setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        }
+        dialogMood.setContentView(R.layout.news_dialog);
+        dialogMood.findViewById(R.id.done).setOnClickListener(view1 -> dialogMood.dismiss());
+        dialogMood.show();
+    }
+
 
     private void setTint(TextView imageView, int color_) {
            DrawableCompat.setTint(imageView.getBackground(), ContextCompat.getColor(getActivity(), color_));
@@ -49,6 +71,9 @@ public class EventFragment extends BaseFragment {
            else
                imageView.setTextColor(getResources().getColor(R.color.black));
     }
+
+
+
 
     @Override
     protected int getLayoutById() {

@@ -9,6 +9,10 @@
     <color name="buttonColor1">#0A7AFF</color>
     <color name="walk_buttonColor">#0A7AFF</color>
 
+    <color name="unselect">#FF8686</color>
+    <color name="select">#6ADE87</color>
+    <color name="layer_select">#34C759</color>
+
     <color name="white">#ffffff</color>
     <color name="tab_text_color">#6E7F96</color>
     <color name="white_walk">#D6D6D6</color>
@@ -16,7 +20,9 @@
     <color name="black">#000000</color>
     <color name="black_light">#9399B1</color>
     <color name="red">#E65555</color>
+    <color name="black_semi">#4E5967</color>
     <color name="grey">#E5E5E5</color>
+    <color name="red">#FD1807</color>
     <color name="darkGrey">#333333</color>
 
     <color name="backgroundColor">#F3F5F9</color>

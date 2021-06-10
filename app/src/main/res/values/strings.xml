@@ -565,6 +565,9 @@
     <string name="scoller_and">Scholarship  and Financial Aid</string>
     <string name="child">Mazenga Building Group Ltd. is a Toronto- construction management firm established  provide clients with an unmatched level of attention, and customized style.</string>
     <string name="helpful_and_relevant_resources">Helpful and Relevant Resources</string>
+    <string name="take_qz">You haven’t take a career quiz yet. Once completed, The results will get saved here</string>
+    <string name="take_qz_ttl">Career Quiz Results</string>
+    <string name="q_temp">How does meeting new people everyday, and making small talk make you feel?</string>
     <string name="reset">Reset</string>
     <string name="apply_filter">Apply Filter</string>
     <string name="choose_language">Choose \nLanguage</string>

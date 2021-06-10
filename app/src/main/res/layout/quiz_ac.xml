@@ -12,7 +12,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="fitXY"
-            android:src="@drawable/splash"/>
+            android:src="@drawable/quiz_bg"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -20,7 +20,37 @@
             android:gravity="center_horizontal"
             android:orientation="vertical">
 
+  <LinearLayout
 
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_200sdp"
+                android:layout_alignParentBottom="true"
+                android:gravity="center"
+                android:orientation="vertical"
+                 >
+      <ImageView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+
+          android:src="@drawable/logo_wt"/>
+      <TextView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:fontFamily="@font/poppins_medium"
+          android:gravity="center"
+          android:padding="@dimen/_5sdp"
+          android:text="Congratulations!"
+          android:textColor="#FF9191"
+          android:textSize="@dimen/_16sdp" />
+      <TextView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:fontFamily="@font/poppins_regular"
+          android:gravity="center"
+          android:text="Careers Suitable for you"
+          android:textColor="#8A90A2"
+          android:textSize="@dimen/_13sdp" />
+  </LinearLayout>
 
             <androidx.viewpager.widget.ViewPager
                 android:id="@+id/view_pager"
@@ -32,9 +62,10 @@
             <LinearLayout
                 android:id="@+id/bottom_view"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_100sdp"
+                android:layout_height="@dimen/_200sdp"
                 android:layout_alignParentBottom="true"
-                android:gravity="center"
+                android:gravity="center|bottom"
+                android:paddingBottom="@dimen/_15sdp"
                 android:orientation="horizontal"
                  >
 
@@ -58,10 +89,9 @@
                             android:layout_height="@dimen/_40sdp"
                             android:fontFamily="@font/poppins_regular"
                             android:gravity="center"
-                           android:drawableRight="@drawable/ic_share"
+                           android:drawableRight="@drawable/invite"
                             android:padding="@dimen/_5sdp"
-                            android:text="Ok Got It"
-                            android:textAllCaps="true"
+                            android:text="Share result"
                             android:textColor="@color/white"
                             android:textSize="@dimen/_12sdp" />
                     </LinearLayout>
@@ -86,10 +116,9 @@
                             android:layout_height="@dimen/_40sdp"
                             android:fontFamily="@font/poppins_regular"
                             android:gravity="center"
-                            android:drawableRight="@drawable/ic_share"
+                            android:drawableRight="@drawable/ic_share_white"
                             android:padding="@dimen/_5sdp"
                             android:text="Send Invite"
-                            android:textAllCaps="true"
                             android:textColor="@color/white"
                             android:textSize="@dimen/_12sdp" />
                     </LinearLayout>

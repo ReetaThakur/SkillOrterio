@@ -36,22 +36,7 @@ public class QuizChildFragment extends BaseFragment {
                 if (type == null)
                     type = "";
                 if (type.equalsIgnoreCase("1")) {
-                    binding.ivHolder.setImageResource(R.drawable.n1);
-
-                } else if (type.equalsIgnoreCase("2")) {
-                    binding.ivHolder.setImageResource(R.drawable.n2);
-
-                } else if (type.equalsIgnoreCase("3")) {
-                    binding.ivHolder.setImageResource(R.drawable.n3);
-
-                } else if (type.equalsIgnoreCase("4")) {
-                    binding.ivHolder.setImageResource(R.drawable.n1);
-
-                } else if (type.equalsIgnoreCase("5")) {
-                    binding.ivHolder.setImageResource(R.drawable.n2);
-
-                } else if (type.equalsIgnoreCase("6")) {
-                    binding.ivHolder.setImageResource(R.drawable.n1);
+                  //  binding.ivHolder.setImageResource(R.drawable.n1);
                 }
 
             } catch (Exception ex) {
