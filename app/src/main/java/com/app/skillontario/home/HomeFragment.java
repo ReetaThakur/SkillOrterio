@@ -9,6 +9,7 @@ import com.app.skillontario.activities.NotificationActivity;
 import com.app.skillontario.activities.SearchActivity;
 import com.app.skillontario.adapter.PopularCareerAdapter;
 import com.app.skillontario.adapter.RecentEventsAdapter;
+import com.app.skillontario.adapter.RecentNewsAdapter;
 import com.app.skillontario.baseClasses.BaseFragment;
 import com.app.skillontario.utils.RecyclerItemClickListener;
 import com.app.skillorterio.R;
@@ -20,6 +21,7 @@ public class HomeFragment extends BaseFragment {
     private FragmentHomeBinding binding;
     PopularCareerAdapter adapter;
     RecentEventsAdapter adapter1;
+    RecentNewsAdapter adapter2;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -32,6 +34,7 @@ public class HomeFragment extends BaseFragment {
         adapter = new PopularCareerAdapter(getActivity(), true);
         showPopularCareerRecycler();
         showRecentRecycler();
+        showRecentNewsRecycler();
 
         binding.rlFilter.setOnClickListener(v -> startActivity(new Intent(getActivity(), HomeFilterActivity.class)));
 
@@ -58,6 +61,16 @@ public class HomeFragment extends BaseFragment {
         binding.recyRecentEvent.setAdapter(adapter1);
 
         binding.recyRecentEvent.addOnItemTouchListener(new RecyclerItemClickListener(getActivity(), (view, position) -> {
+
+        }));
+    }
+
+    private void showRecentNewsRecycler() {
+        binding.recyNews.setHasFixedSize(true);
+        adapter2 = new RecentNewsAdapter(getActivity(), false);
+        binding.recyNews.setAdapter(adapter2);
+
+        binding.recyNews.addOnItemTouchListener(new RecyclerItemClickListener(getActivity(), (view, position) -> {
 
         }));
     }

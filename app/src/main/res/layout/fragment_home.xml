@@ -245,7 +245,8 @@
                         android:fontFamily="@font/poppins_medium"
                         android:text="@string/the_john_lepping_memorial_scholarship"
                         android:textColor="@color/black"
-                        android:textSize="@dimen/_12sdp"></TextView>
+                        android:textSize="@dimen/_12sdp"
+                        android:visibility="gone"></TextView>
 
                 </RelativeLayout>
 

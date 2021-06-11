@@ -61,6 +61,7 @@
             android:textSize="@dimen/_9sdp"></TextView>
 
         <TextView
+            android:id="@+id/line"
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_below="@+id/img"
@@ -68,6 +69,48 @@
             android:layout_marginTop="@dimen/_12sdp"
             android:layout_marginRight="@dimen/_32sdp"
             android:background="@drawable/line1"></TextView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/line"
+            android:layout_marginLeft="@dimen/_30sdp"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_6sdp"
+                android:src="@drawable/loaction"></ImageView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_8ssp"
+                android:fontFamily="@font/poppins_medium"
+                android:text="@string/_294_albert_street_suite_201_ottawa_canda"
+                android:textColor="#1E212F"
+                android:textSize="@dimen/_10sdp"></TextView>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_6sdp"
+                android:layout_marginTop="@dimen/_6sdp"
+                android:src="@drawable/clock"></ImageView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:fontFamily="@font/poppins_medium"
+                android:text="@string/may_15_2021_02_00_pm"
+                android:textColor="#1E212F"
+                android:textSize="@dimen/_10sdp"></TextView>
+
+
+        </LinearLayout>
 
     </RelativeLayout>
 
