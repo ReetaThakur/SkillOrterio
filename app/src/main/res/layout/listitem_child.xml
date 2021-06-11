@@ -12,6 +12,7 @@
         android:layout_centerVertical="true"
         android:layout_toLeftOf="@+id/group_item_indicator"
         android:fontFamily="@font/poppins_regular"
+        android:paddingBottom="@dimen/_12sdp"
         android:textColor="#9399B1"
         android:textSize="@dimen/_10sdp"></TextView>
 
