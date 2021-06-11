@@ -70,6 +70,7 @@
     <string name="occupation">Occupation</string>
     <string name="are_you_a_canadian_citizen">Are you a Canadian citizen?</string>
     <string name="date_of_birth">Date of Birth<sup><small>*</small></sup></string>
+    <string name="date_of_birth_">Date of Birth</string>
     <string name="mailing_address">Mailing Address</string>
     <string name="country">Country<sup><small>*</small></sup></string>
     <string name="address_number_and_street">Address (Number and Street)</string>
@@ -407,6 +408,7 @@
     <string name="first_name_">First Name</string>
     <string name="initial">Middle Initial</string>
     <string name="last_name">Last Name<sup><small>*</small></sup></string>
+    <string name="last_name_">Last Name</string>
     <string name="title">Title</string>
     <string name="social_insurance_number">Social Insurance Number<sup><small>*</small></sup></string>
     <string name="po_box">PO Box</string>
@@ -581,6 +583,10 @@
     <string name="the_john_lepping_memorial_scholarship">The John Lepping \nMemorial Scholarship</string>
     <string name="_294_albert_street_suite_201_ottawa_canda">294 Albert Street,\nSuite 201 Ottawa, canda</string>
     <string name="may_15_2021_02_00_pm">May 15, 2021\n02:00 pm</string>
+    <string name="temp_nd">SpaceX launched 52 more Starlink satellites to orbit on Saturday</string>
+    <string name="tempd">SpaceX successfully launched another 52 Starlink internet broadband satellites into orbit on Saturday, less than one week after it sent up the last batch. A small satellite from startup Capella Space and a Tyvak observation satellite also hitched a ride on the launch, which took off from Kennedy Space Center in Florida on Saturday evening.</string>
+    <string name="email">Email</string>
+    <string name="gender">Gender</string>
 
 
 </resources>

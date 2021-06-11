@@ -3,23 +3,26 @@
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_45sdp"
-        android:layout_marginBottom="@dimen/_5sdp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+     android:layout_margin="@dimen/_5sdp"
         android:orientation="vertical">
 
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_90sdp"
+            android:gravity="center"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="8dp">
         <RelativeLayout
             android:id="@+id/row"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-           android:padding="@dimen/_5sdp"
-            android:background="@drawable/edit_text_background"
-            >
+            android:layout_height="wrap_content" >
 
             <RelativeLayout
                 android:id="@+id/lay"
-                android:layout_width="@dimen/_35sdp"
-                android:layout_height="@dimen/_34sdp"
+                android:layout_width="@dimen/_120sdp"
+                android:layout_height="@dimen/_70sdp"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="@dimen/_6sdp"
                 android:layout_marginTop="@dimen/_6sdp">
@@ -29,8 +32,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
-                    android:tint="@color/unselect"
-                    android:src="@drawable/ic_notification_adapter_background"></ImageView>
+                    android:src="@drawable/relax"></ImageView>
 
                 <TextView
                     android:id="@+id/tvOption"
@@ -41,6 +43,7 @@
                     android:textSize="@dimen/_14sdp"
                     android:fontFamily="@font/poppins_bold"
                     android:textColor="@color/white"
+                    android:visibility="gone"
                     />
 
 
@@ -60,9 +63,24 @@
                     android:id="@+id/tvTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:paddingRight="@dimen/_5sdp"
                     android:fontFamily="@font/poppins_medium"
-                    android:text="New Content"
-                    android:textColor="@color/black_semi"
+                    android:text="Not Satisfied with the Results?"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_12sdp" />
+
+                <TextView
+                    android:id="@+id/tvRetake"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_28sdp"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="Retake Quiz"
+                    android:paddingRight="@dimen/_15sdp"
+                    android:paddingLeft="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:gravity="center"
+                    android:background="@drawable/rec_retake"
+                    android:textColor="@color/white"
                     android:textSize="@dimen/_12sdp" />
 
 
@@ -71,6 +89,7 @@
             </LinearLayout>
 
         </RelativeLayout>
+        </androidx.cardview.widget.CardView>
 
 
 
