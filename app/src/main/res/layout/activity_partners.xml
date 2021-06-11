@@ -34,6 +34,7 @@
                     android:fontFamily="@font/poppins_regular"/>
 
                 <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvGP"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_10sdp"
@@ -49,6 +50,7 @@
                     android:fontFamily="@font/poppins_regular"/>
 
                 <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvPP"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_10sdp"
@@ -64,6 +66,7 @@
                     android:fontFamily="@font/poppins_regular"/>
 
                 <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvPLP"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_10sdp"

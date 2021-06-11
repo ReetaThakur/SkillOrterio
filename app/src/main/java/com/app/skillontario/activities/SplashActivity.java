@@ -6,6 +6,7 @@ import android.os.Handler;
 import android.view.View;
 
 import com.app.skillontario.SignIn.WelcomeActivity;
+import com.app.skillontario.adapter.PartnersAdapter;
 import com.app.skillontario.baseClasses.BaseActivity;
 import com.app.skillontario.constants.AppConstants;
 import com.app.skillontario.utils.MySharedPreference;
@@ -63,7 +64,7 @@ public class SplashActivity extends BaseActivity {
                 startActivity(intent);
                 finishAffinity();
             } else {
-                startActivity(new Intent(this, WelcomeActivity.class));
+                startActivity(new Intent(this, PartnersActivity.class));
                 finishAffinity();
             }
         }
