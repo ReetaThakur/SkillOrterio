@@ -23,32 +23,7 @@
         android:theme="@style/ActivityThemes"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name="com.app.skillontario.activities.BookmarkAc"></activity>
-        <activity android:name="com.app.skillontario.activities.ContactUsAc" />
-        <activity android:name="com.app.skillontario.activities.EditProfileAc" />
-        <activity android:name="com.app.skillontario.activities.NewsDetailAc" />
-
-        <activity android:name="com.app.skillontario.quiz.TakeQuizAc" />
-
-
-        <activity android:name="com.app.skillontario.activities.TakeQuizActivity"></activity>
-        <activity
-            android:name="com.app.skillontario.BottomBarActivity"
-            android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity" />
-        <activity
-            android:name="com.app.skillontario.activities.ResourcesDetailsActivity"
-            android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity" />
-        <activity
-            android:name="com.app.skillontario.activities.JobDetailsActivity"
-            android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity" />
-        <activity
-            android:name="com.app.skillontario.quiz.QuizStepAc"
-            android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity" />
-
+        <activity android:name="com.app.skillontario.activities.JobDetailsActivity"></activity>
         <activity
             android:name="com.app.skillontario.activities.SearchActivity"
             android:screenOrientation="portrait"
@@ -57,7 +32,11 @@
             android:name="com.app.skillontario.activities.NotificationActivity"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
-        <activity android:name="com.app.skillontario.quiz.QuizAc" />
+        <activity
+            android:name="com.app.skillontario.activities.PartnersActivity"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity android:name="com.app.skillontario.quiz.QuizAc"></activity>
         <activity
             android:name="com.app.skillontario.home.HomeFilterActivity"
             android:screenOrientation="portrait"

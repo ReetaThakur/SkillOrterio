@@ -57,7 +57,7 @@
     <color name="noti_color2">#EBEBFF</color>
     <color name="noti_color3">#EBFFF0</color>
     <color name="noti_color4">#EFF7FF</color>
-
+    <color name="red">#E65555</color>
 
     <color name="tab1_active_color">#587BD8</color>
     <color name="tab2_active_color">#F3728B</color>
