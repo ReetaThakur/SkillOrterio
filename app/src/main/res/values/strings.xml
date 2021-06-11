@@ -21,8 +21,8 @@
     <string name="new_to_taxvolt_create_an_account">New to TaxVolt<font color="#1E8755"><b> Create an Account.</b></font>?<sup><font size="11">®</font></sup></string>
     <string name="by_tapping_sign_in_you_agree_to_our">By tapping Sign In, You agree to our</string>
     <string name="underlined_license_agreement"><u>License Agreement</u></string>
-    <string name="terms_Of_services">Terms Of Services</string>
-    <string name="underlined_privacy_policy">Privacy Notice.</string>
+    <string name="terms_Of_services"><u>Terms Of Services</u></string>
+    <string name="underlined_privacy_policy"><u>Privacy Notice.</u></string>
     <string name="confirm_password">Confirm Password</string>
     <string name="email_address">Email</string>
     <string name="already_a_taxvolt_sign_in">Already a TaxVolt<font size="11"><sup>®</sup></font>? <font color="#1E8755"><b>Sign In.</b></font></string>
@@ -530,8 +530,7 @@
     <string name="Accept">Accept</string>
     <string name="terms_text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s,</string>
     <string name="term1">It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</string>
-    <string name="welcome_to_skills_ontario">Welcome
-        to Skills Ontario</string>
+    <string name="welcome_to_skills_ontario">Welcome \nto Skills Ontario</string>
     <string name="couldn_t_find_your_email_address">Couldn\'t find your email address</string>
     <string name="incorrect_password">Incorrect password</string>
 
@@ -590,6 +589,7 @@
     <string name="tempd">SpaceX successfully launched another 52 Starlink internet broadband satellites into orbit on Saturday, less than one week after it sent up the last batch. A small satellite from startup Capella Space and a Tyvak observation satellite also hitched a ride on the launch, which took off from Kennedy Space Center in Florida on Saturday evening.</string>
     <string name="email">Email</string>
     <string name="gender">Gender</string>
+    <string name="dash">Dashboard</string>
 
 
 </resources>

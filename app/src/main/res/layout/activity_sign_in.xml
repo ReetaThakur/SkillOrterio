@@ -25,32 +25,32 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_12sdp"
-                    android:src="@drawable/signup_logo"></ImageView>
+                    android:src="@drawable/skills_logo"></ImageView>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_6sdp"
+                    android:layout_marginTop="40dp"
                     android:fontFamily="@font/poppins_regular"
                     android:text="@string/welcome_to_skills_ontario"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/_20sdp" />
+                    android:textSize="40sp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_16sdp"
+                    android:layout_marginTop="6dp"
                     android:fontFamily="@font/poppins_regular"
                     android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
                     android:textColor="@color/black_light"
-                    android:textSize="@dimen/_12sdp" />
+                    android:textSize="14sp" />
 
 
                 <RelativeLayout
                     android:id="@+id/rl_email"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_25sdp">
+                    android:layout_marginTop="26dp">
 
                     <androidx.appcompat.widget.AppCompatEditText
                         android:id="@+id/et_mail"
@@ -58,9 +58,12 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="1dp"
+                        android:fontFamily="@font/poppins_regular"
                         android:hint="@string/email_address"
                         android:imeOptions="actionNext"
-                        android:inputType="textEmailAddress|textVisiblePassword" />
+                        android:inputType="textEmailAddress|textVisiblePassword"
+                        android:textColor="@color/black"
+                        android:textSize="16sp" />
 
                     <TextView
                         android:id="@+id/tv_email_error"
@@ -74,7 +77,7 @@
                         android:fontFamily="@font/poppins_regular"
                         android:text="@string/couldn_t_find_your_email_address"
                         android:textColor="@color/text_error_color"
-                        android:textSize="@dimen/_8ssp"
+                        android:textSize="12sp"
                         android:visibility="gone"></TextView>
 
                 </RelativeLayout>
@@ -92,9 +95,12 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="1dp"
                         android:drawableRight="@drawable/ic_ic_image"
+                        android:fontFamily="@font/poppins_regular"
                         android:hint="@string/password"
                         android:imeOptions="actionNext"
-                        android:inputType="textPassword" />
+                        android:inputType="textPassword"
+                        android:textColor="@color/black"
+                        android:textSize="16sp" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -114,7 +120,7 @@
                             android:fontFamily="@font/poppins_regular"
                             android:text="@string/incorrect_password"
                             android:textColor="@color/text_error_color"
-                            android:textSize="@dimen/_8ssp"
+                            android:textSize="12sp"
                             android:visibility="gone"></TextView>
 
                         <TextView
@@ -128,7 +134,7 @@
                             android:gravity="end"
                             android:text="@string/forgot_password"
                             android:textColor="@color/black"
-                            android:textSize="@dimen/_8ssp"></TextView>
+                            android:textSize="15sp"></TextView>
 
                     </LinearLayout>
                 </RelativeLayout>
@@ -158,14 +164,14 @@
                             android:text="@string/sign_in"
                             android:textAllCaps="true"
                             android:textColor="@color/white"
-                            android:textSize="@dimen/_18sdp" />
+                            android:textSize="18sp" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_16sdp"
+                    android:layout_marginTop="95sp"
                     android:orientation="horizontal">
 
                     <TextView
@@ -176,7 +182,7 @@
                         android:gravity="center"
                         android:text="Have an account? "
                         android:textColor="@color/textColorVeryLight"
-                        android:textSize="@dimen/_10sdp" />
+                        android:textSize="12sp" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -185,7 +191,7 @@
                         android:gravity="center"
                         android:text="Sign Up"
                         android:textColor="#49FDA7"
-                        android:textSize="@dimen/_10sdp" />
+                        android:textSize="12sp" />
 
                     <TextView
                         android:id="@+id/tv_continue_as_guest"
@@ -198,7 +204,7 @@
                         android:gravity="end"
                         android:text="Continue As Guest "
                         android:textColor="@color/textColorVeryLight"
-                        android:textSize="@dimen/_10sdp" />
+                        android:textSize="12sp" />
 
                 </LinearLayout>
             </LinearLayout>

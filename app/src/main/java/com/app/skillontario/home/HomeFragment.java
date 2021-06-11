@@ -11,6 +11,7 @@ import com.app.skillontario.adapter.PopularCareerAdapter;
 import com.app.skillontario.adapter.RecentEventsAdapter;
 import com.app.skillontario.adapter.RecentNewsAdapter;
 import com.app.skillontario.baseClasses.BaseFragment;
+import com.app.skillontario.quiz.TakeQuizAc;
 import com.app.skillontario.utils.RecyclerItemClickListener;
 import com.app.skillorterio.R;
 import com.app.skillorterio.databinding.FragmentHomeBinding;
@@ -35,6 +36,8 @@ public class HomeFragment extends BaseFragment {
         showPopularCareerRecycler();
         showRecentRecycler();
         showRecentNewsRecycler();
+
+        binding.rlTakeQuiz.setOnClickListener(v -> startActivity(new Intent(getActivity(), TakeQuizAc.class)));
 
         binding.rlFilter.setOnClickListener(v -> startActivity(new Intent(getActivity(), HomeFilterActivity.class)));
 

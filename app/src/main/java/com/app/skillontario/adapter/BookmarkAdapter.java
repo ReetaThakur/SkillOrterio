@@ -38,7 +38,7 @@ int[] dra=new int[]{R.drawable.home_main_img1,R.drawable.temp_b1,R.drawable.temp
 
     @Override
     public void onBindViewHolder(final BookmarkAdapter.ViewHolder viewHolder, final int position) {
-        viewHolder.binding.imageView.setImageResource(dra[position]);
+        viewHolder.binding.imagePerson.setImageResource(dra[position]);
 
 
     }
