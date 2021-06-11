@@ -1,6 +1,7 @@
 package com.app.skillontario.activities;
 
 import com.app.skillontario.adapter.NotificationAdapter;
+import com.app.skillontario.adapter.PartnersAdapter;
 import com.app.skillontario.baseClasses.BaseActivity;
 import com.app.skillontario.utils.RecyclerItemClickListener;
 import com.app.skillorterio.R;
@@ -9,7 +10,7 @@ import com.app.skillorterio.databinding.ActivityNotificationBinding;
 public class PartnersActivity extends BaseActivity {
 
     private ActivityNotificationBinding binding;
-    private NotificationAdapter adapter;
+    private PartnersAdapter adapter;
 
     @Override
     protected void initUi() {
@@ -24,18 +25,18 @@ public class PartnersActivity extends BaseActivity {
     }
 
     private void showNotificationRecycler() {
-        binding.recyNotification.setHasFixedSize(true);
-        adapter = new NotificationAdapter(PartnersActivity.this);
-        binding.recyNotification.setAdapter(adapter);
+       // binding.recyNotification.setHasFixedSize(true);
+       // adapter = new PartnersAdapter(PartnersActivity.this);
+       // binding.recyNotification.setAdapter(adapter);
 
-        binding.recyNotification.addOnItemTouchListener(new RecyclerItemClickListener(PartnersActivity.this, (view, position) -> {
+       // binding.recyNotification.addOnItemTouchListener(new RecyclerItemClickListener(PartnersActivity.this, (view, position) -> {
 
-        }));
+      //  }));
     }
 
     @Override
     protected int getLayoutById() {
-        return R.layout.activity_notification;
+        return R.layout.activity_partners;
     }
 
     @Override
