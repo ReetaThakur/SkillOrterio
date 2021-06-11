@@ -27,14 +27,10 @@
         <activity android:name="com.app.skillontario.activities.ContactUsAc" />
         <activity android:name="com.app.skillontario.activities.EditProfileAc" />
         <activity android:name="com.app.skillontario.activities.NewsDetailAc" />
-        <activity android:name="com.app.skillontario.quiz.QuizStepAc" />
-        <activity android:name="com.app.skillontario.quiz.TakeQuizAc">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name="com.app.skillontario.quiz.TakeQuizAc" />
+
+
         <activity android:name="com.app.skillontario.activities.TakeQuizActivity"></activity>
         <activity
             android:name="com.app.skillontario.BottomBarActivity"
