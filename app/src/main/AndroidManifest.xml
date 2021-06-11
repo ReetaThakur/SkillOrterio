@@ -52,10 +52,7 @@
             android:name="com.app.skillontario.quiz.QuizStepAc"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
-        <activity
-            android:name="com.app.skillontario.quiz.TakeQuizAc"
-            android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity" />
+
         <activity
             android:name="com.app.skillontario.activities.SearchActivity"
             android:screenOrientation="portrait"
