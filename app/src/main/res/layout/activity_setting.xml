@@ -90,6 +90,7 @@
                     android:background="@drawable/setting_shadow">
 
                     <LinearLayout
+                        android:id="@+id/l_change_password"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginRight="@dimen/_16sdp"
@@ -245,6 +246,7 @@
                         android:background="@drawable/setting_shadow">
 
                         <LinearLayout
+                            android:id="@+id/l_terms"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginRight="@dimen/_16sdp"
@@ -308,6 +310,7 @@
                         android:background="@drawable/setting_shadow">
 
                         <LinearLayout
+                            android:id="@+id/l_help"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginRight="@dimen/_16sdp"
@@ -371,6 +374,7 @@
                         android:background="@drawable/setting_shadow">
 
                         <LinearLayout
+                            android:id="@+id/l_feedback"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginRight="@dimen/_16sdp"
@@ -434,6 +438,7 @@
                         android:background="@drawable/setting_shadow">
 
                         <LinearLayout
+                            android:id="@+id/l_privacy"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginRight="@dimen/_16sdp"
@@ -506,6 +511,7 @@
 
 
                             <LinearLayout
+                                android:id="@+id/l_contactUS"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:background="@drawable/ic_rectangle_copy"

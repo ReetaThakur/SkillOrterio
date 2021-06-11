@@ -3,12 +3,14 @@ package com.app.skillontario.SignIn;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.content.res.AppCompatResources;
 
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 
+import com.app.skillontario.BottomBarActivity;
 import com.app.skillontario.baseClasses.BaseActivity;
 import com.app.skillontario.signup.SignUpActivity;
 import com.app.skillorterio.R;
@@ -46,6 +48,27 @@ public class SignInActivity extends BaseActivity {
                 } else {
                     enableFocusEditText(binding.rlPassword, binding.etPassword, hasFocus);
                 }
+            }
+        });
+
+        binding.cvSignIn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(SignInActivity.this, BottomBarActivity.class));
+            }
+        });
+
+        binding.forgot.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(SignInActivity.this, ResetPasswordActivity.class));
+            }
+        });
+
+        binding.tvHaveAnAccount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(SignInActivity.this, SignUpActivity.class));
             }
         });
 

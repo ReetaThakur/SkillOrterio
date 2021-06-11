@@ -3,6 +3,7 @@ package com.app.skillontario.SignIn;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.content.res.AppCompatResources;
 
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
@@ -37,12 +38,7 @@ public class ResetPasswordActivity extends BaseActivity {
             }
         });
 
-        binding.cvSignIn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                
-            }
-        });
+        binding.cvSignIn.setOnClickListener(v -> startActivity(new Intent(ResetPasswordActivity.this, SignInActivity.class)));
 
     }
 
