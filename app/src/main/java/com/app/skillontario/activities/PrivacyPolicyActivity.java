@@ -23,7 +23,7 @@ public class PrivacyPolicyActivity extends BaseActivity {
 
     @Override
     protected int getLayoutById() {
-        return R.layout.activity_terms_of_services;
+        return R.layout.activity_privacy_policy;
     }
 
     @Override

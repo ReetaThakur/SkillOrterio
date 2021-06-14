@@ -2,6 +2,7 @@ package com.app.skillontario.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -39,7 +40,7 @@ public class JobDetailsActivity extends BaseActivity {
         binding.recyVideo.setAdapter(videoAdapter);
 
         binding.recyVideo.addOnItemTouchListener(new RecyclerItemClickListener(JobDetailsActivity.this, (view, position) -> {
-
+            startActivity(new Intent(JobDetailsActivity.this, PlayVideoActivity.class));
         }));
     }
 

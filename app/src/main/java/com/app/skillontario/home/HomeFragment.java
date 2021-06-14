@@ -1,11 +1,15 @@
 package com.app.skillontario.home;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.util.Log;
 import android.view.View;
 
 import com.app.skillontario.activities.JobDetailsActivity;
+import com.app.skillontario.activities.NewsDetailAc;
 import com.app.skillontario.activities.NotificationActivity;
+import com.app.skillontario.activities.ScholarDetailAc;
+import com.app.skillontario.activities.ScholarOneAc;
 import com.app.skillontario.activities.SearchActivity;
 import com.app.skillontario.adapter.PopularCareerAdapter;
 import com.app.skillontario.adapter.RecentEventsAdapter;
@@ -37,6 +41,10 @@ public class HomeFragment extends BaseFragment {
         showRecentRecycler();
         showRecentNewsRecycler();
 
+        binding.imgExpolre.setOnClickListener(v -> {
+            startActivity(new Intent(getActivity(), ScholarOneAc.class));
+        });
+
         binding.rlTakeQuiz.setOnClickListener(v -> startActivity(new Intent(getActivity(), TakeQuizAc.class)));
 
         binding.rlFilter.setOnClickListener(v -> startActivity(new Intent(getActivity(), HomeFilterActivity.class)));
@@ -64,7 +72,7 @@ public class HomeFragment extends BaseFragment {
         binding.recyRecentEvent.setAdapter(adapter1);
 
         binding.recyRecentEvent.addOnItemTouchListener(new RecyclerItemClickListener(getActivity(), (view, position) -> {
-
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.skillsontario.com")));
         }));
     }
 
@@ -74,7 +82,7 @@ public class HomeFragment extends BaseFragment {
         binding.recyNews.setAdapter(adapter2);
 
         binding.recyNews.addOnItemTouchListener(new RecyclerItemClickListener(getActivity(), (view, position) -> {
-
+            startActivity(new Intent(getActivity(), NewsDetailAc.class));
         }));
     }
 

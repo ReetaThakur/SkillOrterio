@@ -92,7 +92,8 @@
                 android:layout_alignParentBottom="true"
                 android:background="#F6FAFF"
                 android:gravity="center"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:visibility="gone">
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cv_signUp"

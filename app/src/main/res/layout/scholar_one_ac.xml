@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white"
-        android:orientation="vertical"
-        android:padding="@dimen/_4sdp">
+        android:orientation="vertical">
 
 
         <include
@@ -18,38 +16,74 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginLeft="@dimen/_15sdp"
-            android:layout_marginRight="@dimen/_15sdp"
             android:orientation="vertical">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_15sdp"
                 android:layout_marginTop="@dimen/_6sdp"
                 android:fontFamily="@font/poppins_regular"
                 android:text="@string/scoller_and"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_25sdp"></TextView>
+                android:textSize="35sp"></TextView>
 
-            <ScrollView
+            <androidx.core.widget.NestedScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_16sdp"
-               >
+                android:scrollbars="none">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
-                <include layout="@layout/scoller_item"/>
-                <include layout="@layout/scoller_item"/>
-                <include layout="@layout/scoller_item"/>
-                <include layout="@layout/scoller_item"/>
-                <include layout="@layout/scoller_item"/>
-                <include layout="@layout/scoller_item"/>
-                <include layout="@layout/scoller_item"/>
+
+                    <include
+                        layout="@layout/scollar_item1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="0dp" />
+
+                    <include
+                        layout="@layout/scollar_item1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="-50dp" />
+
+                    <include
+                        layout="@layout/scollar_item1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="-50dp" />
+
+
+                    <include
+                        layout="@layout/scollar_item1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="-50dp" />
+
+                    <include
+                        layout="@layout/scollar_item1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="-50dp" />
+
+                    <include
+                        layout="@layout/scollar_item1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="-50dp" />
+
+                    <include
+                        layout="@layout/scollar_item1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="-50dp" />
+
                 </LinearLayout>
 
-            </ScrollView>
+            </androidx.core.widget.NestedScrollView>
 
 
         </LinearLayout>

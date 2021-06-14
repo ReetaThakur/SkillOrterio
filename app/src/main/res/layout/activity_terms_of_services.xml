@@ -91,6 +91,7 @@
                 android:layout_alignParentBottom="true"
                 android:background="#F6FAFF"
                 android:gravity="center"
+                android:visibility="gone"
                 android:orientation="vertical">
 
                 <androidx.cardview.widget.CardView
