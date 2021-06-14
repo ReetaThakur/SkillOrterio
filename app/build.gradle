@@ -182,6 +182,7 @@ dependencies {
 
     //bottombar
     implementation 'com.gauravk.bubblenavigation:bubblenavigation:1.0.7'
+    implementation 'com.github.HamidrezaAmz:MagicalExoPlayer:2.0.7'
 
     implementation project(':expandable-recyclerview-adapter')
     implementation project(':tagadapter')

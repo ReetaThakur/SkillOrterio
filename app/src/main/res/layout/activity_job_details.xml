@@ -51,7 +51,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_16sdp"
-                    android:layout_marginRight="@dimen/_12sdp"
+                    android:layout_marginRight="@dimen/_16sdp"
                     android:layout_toLeftOf="@+id/img_1"
                     android:src="@drawable/ic_job_uppar1"
                     app:tint="@color/white"></ImageView>
@@ -79,9 +79,9 @@
                 android:paddingTop="@dimen/_2sdp"
                 android:paddingRight="@dimen/_10sdp"
                 android:text="Construction"
-                android:textAllCaps="true"
+                android:textAllCaps="false"
                 android:textColor="@color/white"
-                android:textSize="@dimen/_8ssp"></TextView>
+                android:textSize="14sp"></TextView>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -90,7 +90,7 @@
                 android:fontFamily="@font/poppins_medium"
                 android:text="General Carpenter"
                 android:textColor="#272F35"
-                android:textSize="@dimen/_16sdp"></TextView>
+                android:textSize="27sp"></TextView>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -99,7 +99,7 @@
                 android:fontFamily="@font/poppins_regular"
                 android:text="$20 - $48 per hour"
                 android:textColor="#9399B1"
-                android:textSize="@dimen/_12sdp"></TextView>
+                android:textSize="17sp"></TextView>
 
             <TextView
                 android:layout_width="match_parent"
@@ -144,8 +144,8 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins_medium"
                     android:text="@string/helpful_and_relevant_resources"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_24sdp"></TextView>
+                    android:textColor="#272F35"
+                    android:textSize="27sp"></TextView>
 
 
                 <androidx.recyclerview.widget.RecyclerView

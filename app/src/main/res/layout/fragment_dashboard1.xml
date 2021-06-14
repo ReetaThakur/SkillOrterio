@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="0dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="240dp"
+                android:background="@drawable/ic_bg"
+                android:scaleType="centerCrop"></ImageView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_16sdp"
+                    android:layout_marginTop="@dimen/_80sdp"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="Robert Frost Pattinson"
+                    android:textColor="@color/black"
+                    android:textSize="19sp"></TextView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_16sdp"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="Elementary School"
+                    android:textColor="#8FA1B5"
+                    android:textSize="17sp"></TextView>
+
+                <TextView
+                    android:id="@+id/editProfile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_16sdp"
+                    android:layout_marginTop="@dimen/_6sdp"
+                    android:background="@drawable/ic_rectangle__dashboard"
+                    android:fontFamily="@font/poppins_medium"
+                    android:gravity="center"
+                    android:padding="@dimen/_6sdp"
+                    android:text="Edit Profile"
+                    android:textColor="#0A7AFF"
+                    android:textSize="@dimen/_12sdp"></TextView>
+            </LinearLayout>
+        </RelativeLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/_6sdp"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="139dp"
+                    android:background="@drawable/ic_group__dashboard_background">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="68dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="27dp"
+                        android:layout_marginRight="20dp">
+
+                        <RelativeLayout
+                            android:id="@+id/rl_takeQuiz"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="6dp">
+
+                            <RelativeLayout
+                                android:id="@+id/rl1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:background="@drawable/ic_rectangle__4_dash">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerInParent="true"
+                                    android:src="@drawable/ic_shape__dash1"></ImageView>
+
+                            </RelativeLayout>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_marginLeft="@dimen/_16sdp"
+                                android:layout_toRightOf="@+id/rl1"
+                                android:fontFamily="@font/poppins_regular"
+                                android:text="Career Quiz Results"
+                                android:textColor="#272F35"
+                                android:textSize="@dimen/_14sdp"></TextView>
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="@dimen/_16sdp"
+                                android:src="@drawable/ic_notification_back"></ImageView>
+
+                        </RelativeLayout>
+
+
+                    </RelativeLayout>
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="139dp"
+                    android:layout_marginTop="-50dp"
+                    android:background="@drawable/ic_group__dashboard_background">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="68dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="27dp"
+                        android:layout_marginRight="20dp">
+
+                        <RelativeLayout
+                            android:id="@+id/rl_bookmark"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="6dp">
+
+                            <RelativeLayout
+                                android:id="@+id/rl2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:background="@drawable/ic_rectangle__4_dash"
+                                android:backgroundTint="#FFF9EE">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerInParent="true"
+                                    android:src="@drawable/ic_shape__dash2"></ImageView>
+
+                            </RelativeLayout>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_marginLeft="@dimen/_16sdp"
+                                android:layout_toRightOf="@+id/rl2"
+                                android:fontFamily="@font/poppins_regular"
+                                android:text="Bookmarked Careers"
+                                android:textColor="#272F35"
+                                android:textSize="@dimen/_14sdp"></TextView>
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="@dimen/_16sdp"
+                                android:src="@drawable/ic_notification_back"></ImageView>
+                        </RelativeLayout>
+
+
+                    </RelativeLayout>
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="139dp"
+                    android:layout_marginTop="-50dp"
+                    android:background="@drawable/ic_group__dashboard_background">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="68dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="27dp"
+                        android:layout_marginRight="20dp">
+
+                        <RelativeLayout
+                            android:id="@+id/rl_patner"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="6dp">
+
+                            <RelativeLayout
+                                android:id="@+id/rl3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:background="@drawable/ic_rectangle__4_dash"
+                                android:backgroundTint="#EDEDFF">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerInParent="true"
+                                    android:src="@drawable/ic_shape__dash4"></ImageView>
+
+                            </RelativeLayout>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_marginLeft="@dimen/_16sdp"
+                                android:layout_toRightOf="@+id/rl3"
+                                android:fontFamily="@font/poppins_regular"
+                                android:text="Partners"
+                                android:textColor="#272F35"
+                                android:textSize="@dimen/_14sdp"></TextView>
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="@dimen/_16sdp"
+                                android:src="@drawable/ic_notification_back"></ImageView>
+
+                        </RelativeLayout>
+
+
+                    </RelativeLayout>
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="139dp"
+                    android:layout_marginTop="-50dp"
+                    android:background="@drawable/ic_group__dashboard_background">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="68dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="27dp"
+                        android:layout_marginRight="20dp">
+
+                        <RelativeLayout
+                            android:id="@+id/rl_setting"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="6dp">
+
+
+                            <RelativeLayout
+                                android:id="@+id/rl4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:background="@drawable/ic_rectangle__4_dash"
+                                android:backgroundTint="#FFD9D7">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerInParent="true"
+                                    android:src="@drawable/ic_shape__dash3"></ImageView>
+
+                            </RelativeLayout>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_marginLeft="@dimen/_16sdp"
+                                android:layout_toRightOf="@+id/rl4"
+                                android:fontFamily="@font/poppins_regular"
+                                android:text="Settings"
+                                android:textColor="#272F35"
+                                android:textSize="@dimen/_14sdp"></TextView>
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="@dimen/_16sdp"
+                                android:src="@drawable/ic_notification_back"></ImageView>
+
+                        </RelativeLayout>
+
+
+                    </RelativeLayout>
+                </RelativeLayout>
+
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
+</layout>

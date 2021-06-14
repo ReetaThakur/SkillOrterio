@@ -21,7 +21,7 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_210sdp"
+                    android:layout_height="@dimen/_220sdp" 
                     android:layout_marginLeft="@dimen/_36sdp">
 
                     <ImageView
@@ -35,7 +35,7 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="false"
                         android:layout_alignParentBottom="true"
-                        android:layout_marginTop="@dimen/_16sdp"
+                        android:layout_marginTop="@dimen/_20sdp"
                         android:fontFamily="@font/poppins_regular"
                         android:text="@string/select_your_role"
                         android:textColor="@color/black"

@@ -26,8 +26,8 @@
             android:maxLines="1"
             android:paddingStart="@dimen/_32sdp"
             android:paddingEnd="@dimen/_32sdp"
-            android:textColor="@color/textColorDark"
-            android:textSize="@dimen/_15ssp" />
+            android:textColor="@color/black"
+            android:textSize="24sp" />
 
         <RelativeLayout
             android:id="@+id/iv_reset"

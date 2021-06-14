@@ -11,12 +11,13 @@ import com.app.skillontario.activities.SettingActivity;
 import com.app.skillontario.baseClasses.BaseFragment;
 import com.app.skillontario.quiz.TakeQuizAc;
 import com.app.skillorterio.R;
+import com.app.skillorterio.databinding.FragmentDashboard1Binding;
 import com.app.skillorterio.databinding.FragmentDashboardBinding;
 
 
 public class DashboardFragment extends BaseFragment {
 
-    private FragmentDashboardBinding binding;
+    private FragmentDashboard1Binding binding;
 
     public DashboardFragment() {
         // Required empty public constructor
@@ -25,7 +26,7 @@ public class DashboardFragment extends BaseFragment {
 
     @Override
     protected void initUi() {
-        binding = (FragmentDashboardBinding) viewDataBinding;
+        binding = (FragmentDashboard1Binding) viewDataBinding;
 
         binding.rlSetting.setOnClickListener(v -> startActivity(new Intent(getActivity(), SettingActivity.class)));
 
@@ -41,7 +42,7 @@ public class DashboardFragment extends BaseFragment {
 
     @Override
     protected int getLayoutById() {
-        return R.layout.fragment_dashboard;
+        return R.layout.fragment_dashboard1;
     }
 
     @Override

@@ -74,14 +74,14 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/dd">
+                    android:background="@drawable/ic_group__dashboard_background">
 
                     <RelativeLayout
                         android:id="@+id/rl_takeQuiz"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="@dimen/_20sdp"
-                        android:background="@drawable/rect_dash">
+                       >
 
                         <RelativeLayout
                             android:id="@+id/rl1"

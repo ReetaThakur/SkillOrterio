@@ -3,27 +3,28 @@
 
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:layout_width="@dimen/_250sdp"
-        android:layout_height="@dimen/_145sdp"
+        android:layout_width="312dp"
+        android:layout_height="172dp"
+        android:layout_marginRight="@dimen/_16sdp"
         android:orientation="vertical">
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_125sdp"
-            android:layout_alignParentBottom="true">
+            android:layout_height="match_parent">
 
             <ImageView
-                android:layout_width="@dimen/_245sdp"
-                android:layout_height="@dimen/_125sdp"
-                android:layout_marginBottom="@dimen/_4sdp"
-                android:src="@drawable/ic_home_main2"></ImageView>
+                android:layout_width="302dp"
+                android:layout_height="148dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/ic_home_main2"></ImageView>
 
             <RelativeLayout
                 android:id="@+id/mainLay"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_centerVertical="true"
-                android:layout_marginRight="@dimen/_10sdp">
+                android:layout_width="302dp"
+                android:layout_height="134dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="10dp">
 
                 <ImageView
                     android:id="@+id/img_background"
@@ -39,6 +40,63 @@
                     android:layout_marginLeft="@dimen/_16sdp"
                     android:layout_marginTop="@dimen/_8ssp"
                     android:src="@drawable/ic_home_main_oval"></ImageView>
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="148dp">
+
+
+                    <TextView
+                        android:id="@+id/textCons"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="17dp"
+                        android:background="@drawable/ic_home_main_tag"
+                        android:fontFamily="@font/poppins_regular"
+                        android:gravity="center"
+                        android:paddingLeft="@dimen/_6sdp"
+                        android:paddingTop="@dimen/_2sdp"
+                        android:paddingRight="@dimen/_10sdp"
+                        android:text="Construction"
+                        android:textAllCaps="true"
+                        android:textColor="@color/white"
+                        android:textSize="10sp"></TextView>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginTop="@dimen/_16sdp"
+                        android:layout_marginRight="@dimen/_8ssp"
+                        android:src="@drawable/ic_home_main_batch"></ImageView>
+
+                    <TextView
+                        android:id="@+id/textWork"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/textCons"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="@font/poppins_medium"
+                        android:text="@string/general_carpente_r"
+                        android:textColor="@color/black"
+                        android:textSize="17sp"></TextView>
+
+                    <TextView
+                        android:id="@+id/textMoney"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/textWork"
+                        android:layout_marginTop="@dimen/_4sdp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:gravity="center_vertical"
+                        android:text="$20 - $48 per hour"
+                        android:textColor="#6A5856"
+                        android:textSize="13sp"></TextView>
+
+                </RelativeLayout>
+
             </RelativeLayout>
         </RelativeLayout>
 
@@ -46,70 +104,15 @@
             android:layout_width="wrap_content"
             android:layout_height="@dimen/_135sdp">
 
-            <ImageView
-                android:id="@+id/imagePerson"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:src="@drawable/home_main_img1"></ImageView>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="@dimen/_8ssp"
-                android:layout_marginTop="@dimen/_28sdp"
-                android:layout_marginRight="@dimen/_16sdp"
-                android:layout_toRightOf="@+id/imagePerson">
-
-
-                <TextView
-                    android:id="@+id/textCons"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_16sdp"
-                    android:background="@drawable/ic_home_main_tag"
-                    android:fontFamily="@font/poppins_regular"
-                    android:gravity="center"
-                    android:paddingLeft="@dimen/_6sdp"
-                    android:paddingTop="@dimen/_2sdp"
-                    android:paddingRight="@dimen/_10sdp"
-                    android:text="Construction"
-                    android:textAllCaps="true"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/_8ssp"></TextView>
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginTop="@dimen/_16sdp"
-                    android:layout_marginRight="@dimen/_8ssp"
-                    android:src="@drawable/ic_home_main_batch"></ImageView>
-
-                <TextView
-                    android:id="@+id/textWork"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/textCons"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:fontFamily="@font/poppins_medium"
-                    android:text="@string/general_carpente_r"
-                    android:textColor="@color/black"></TextView>
-
-                <TextView
-                    android:id="@+id/textMoney"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:layout_below="@+id/textWork"
-                    android:fontFamily="@font/poppins_regular"
-                    android:gravity="center_vertical"
-                    android:textSize="@dimen/_8ssp"
-                    android:text="$20 - $48 per hour"
-                    android:textColor="#6A5856"></TextView>
-
-            </RelativeLayout>
 
         </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/imagePerson"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="10dp"
+            android:src="@drawable/home_main_img1"></ImageView>
 
     </RelativeLayout>
 

@@ -30,7 +30,7 @@
             android:fontFamily="@font/poppins_medium"
             android:text="@string/discovery_day_cornwell_sdg"
             android:textColor="@color/black"
-            android:textSize="@dimen/_14sdp"></TextView>
+            android:textSize="16sp"></TextView>
 
         <RelativeLayout
             android:layout_width="wrap_content"
@@ -58,7 +58,7 @@
             android:padding="@dimen/_6sdp"
             android:text="Young Women’s Initiatives"
             android:textColor="#FF9F0A"
-            android:textSize="@dimen/_9sdp"></TextView>
+            android:textSize="9sp"></TextView>
 
         <TextView
             android:id="@+id/line"
@@ -91,7 +91,7 @@
                 android:fontFamily="@font/poppins_medium"
                 android:text="@string/_294_albert_street_suite_201_ottawa_canda"
                 android:textColor="#1E212F"
-                android:textSize="@dimen/_10sdp"></TextView>
+                android:textSize="12sp"></TextView>
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -107,7 +107,7 @@
                 android:fontFamily="@font/poppins_medium"
                 android:text="@string/may_15_2021_02_00_pm"
                 android:textColor="#1E212F"
-                android:textSize="@dimen/_10sdp"></TextView>
+                android:textSize="12sp"></TextView>
 
 
         </LinearLayout>

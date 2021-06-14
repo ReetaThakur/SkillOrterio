@@ -58,7 +58,7 @@
 
                         <TextView
                             android:layout_width="0dp"
-                            android:layout_height="wrap_content"
+                            android:layout_height="match_parent"
                             android:layout_marginLeft="@dimen/_8ssp"
                             android:layout_weight="1"
                             android:drawablePadding="@dimen/_15sdp"
@@ -68,7 +68,7 @@
                             android:paddingBottom="@dimen/_15sdp"
                             android:text="@string/notification"
                             android:textColor="@color/text_color_dark"
-                            android:textSize="@dimen/_14sdp" />
+                            android:textSize="15sp" />
 
                         <ImageView
                             android:id="@+id/iv_notification"
@@ -124,7 +124,7 @@
 
                             <TextView
                                 android:layout_width="0dp"
-                                android:layout_height="wrap_content"
+                                android:layout_height="match_parent"
                                 android:layout_marginLeft="@dimen/_8ssp"
                                 android:layout_weight="1"
                                 android:drawablePadding="@dimen/_15sdp"
@@ -134,7 +134,7 @@
                                 android:paddingBottom="@dimen/_15sdp"
                                 android:text="@string/change_password"
                                 android:textColor="@color/text_color_dark"
-                                android:textSize="@dimen/_14sdp" />
+                                android:textSize="15sp" />
 
                             <ImageView
                                 android:layout_width="wrap_content"
@@ -186,7 +186,7 @@
 
                             <TextView
                                 android:layout_width="0dp"
-                                android:layout_height="wrap_content"
+                                android:layout_height="match_parent"
                                 android:layout_marginLeft="@dimen/_8ssp"
                                 android:layout_weight="1"
                                 android:drawablePadding="@dimen/_15sdp"
@@ -196,7 +196,7 @@
                                 android:paddingBottom="@dimen/_15sdp"
                                 android:text="@string/language"
                                 android:textColor="@color/text_color_dark"
-                                android:textSize="@dimen/_14sdp" />
+                                android:textSize="15sp" />
 
                             <LinearLayout
                                 android:layout_width="wrap_content"
@@ -218,7 +218,7 @@
                                     android:text="@string/english"
                                     android:textAllCaps="true"
                                     android:textColor="@color/white"
-                                    android:textSize="@dimen/_8ssp"></TextView>
+                                    android:textSize="11sp"></TextView>
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -232,7 +232,7 @@
                                     android:text="@string/fran_ais"
                                     android:textAllCaps="true"
                                     android:textColor="@color/black"
-                                    android:textSize="@dimen/_8ssp"></TextView>
+                                    android:textSize="11sp"></TextView>
 
 
                             </LinearLayout>
@@ -280,7 +280,7 @@
 
                                 <TextView
                                     android:layout_width="0dp"
-                                    android:layout_height="wrap_content"
+                                    android:layout_height="match_parent"
                                     android:layout_marginLeft="@dimen/_8ssp"
                                     android:layout_weight="1"
                                     android:drawablePadding="@dimen/_15sdp"
@@ -288,9 +288,9 @@
                                     android:gravity="center_vertical"
                                     android:paddingTop="@dimen/_15sdp"
                                     android:paddingBottom="@dimen/_15sdp"
-                                    android:text="@string/terms_Of_services"
+                                    android:text="Terms of Service"
                                     android:textColor="@color/text_color_dark"
-                                    android:textSize="@dimen/_14sdp" />
+                                    android:textSize="15sp" />
 
                                 <ImageView
                                     android:layout_width="wrap_content"
@@ -344,7 +344,7 @@
 
                                 <TextView
                                     android:layout_width="0dp"
-                                    android:layout_height="wrap_content"
+                                    android:layout_height="match_parent"
                                     android:layout_marginLeft="@dimen/_8ssp"
                                     android:layout_weight="1"
                                     android:drawablePadding="@dimen/_15sdp"
@@ -354,7 +354,7 @@
                                     android:paddingBottom="@dimen/_15sdp"
                                     android:text="@string/help"
                                     android:textColor="@color/text_color_dark"
-                                    android:textSize="@dimen/_14sdp" />
+                                    android:textSize="15sp" />
 
                                 <ImageView
                                     android:layout_width="wrap_content"
@@ -408,7 +408,7 @@
 
                                 <TextView
                                     android:layout_width="0dp"
-                                    android:layout_height="wrap_content"
+                                    android:layout_height="match_parent"
                                     android:layout_marginLeft="@dimen/_8ssp"
                                     android:layout_weight="1"
                                     android:drawablePadding="@dimen/_15sdp"
@@ -418,7 +418,7 @@
                                     android:paddingBottom="@dimen/_15sdp"
                                     android:text="@string/feedback"
                                     android:textColor="@color/text_color_dark"
-                                    android:textSize="@dimen/_14sdp" />
+                                    android:textSize="15sp" />
 
                                 <ImageView
                                     android:layout_width="wrap_content"
@@ -472,7 +472,7 @@
 
                                 <TextView
                                     android:layout_width="0dp"
-                                    android:layout_height="wrap_content"
+                                    android:layout_height="match_parent"
                                     android:layout_marginLeft="@dimen/_8ssp"
                                     android:layout_weight="1"
                                     android:drawablePadding="@dimen/_15sdp"
@@ -482,7 +482,7 @@
                                     android:paddingBottom="@dimen/_15sdp"
                                     android:text="@string/privacy_policy"
                                     android:textColor="@color/text_color_dark"
-                                    android:textSize="@dimen/_14sdp" />
+                                    android:textSize="15sp" />
 
                                 <ImageView
                                     android:layout_width="wrap_content"
@@ -537,7 +537,7 @@
 
                                 <TextView
                                     android:layout_width="0dp"
-                                    android:layout_height="wrap_content"
+                                    android:layout_height="match_parent"
                                     android:layout_marginLeft="@dimen/_8ssp"
                                     android:layout_weight="1"
                                     android:drawablePadding="@dimen/_15sdp"
@@ -547,7 +547,7 @@
                                     android:paddingBottom="@dimen/_15sdp"
                                     android:text="@string/contact_us"
                                     android:textColor="@color/text_color_dark"
-                                    android:textSize="@dimen/_14sdp" />
+                                    android:textSize="15sp" />
 
                                 <ImageView
                                     android:layout_width="wrap_content"

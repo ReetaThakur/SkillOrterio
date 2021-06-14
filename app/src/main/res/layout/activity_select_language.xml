@@ -21,7 +21,7 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_190sdp"
+                    android:layout_height="@dimen/_200sdp"
                     android:layout_marginLeft="@dimen/_36sdp">
 
                     <ImageView
@@ -82,7 +82,7 @@
 
                             <ImageView
                                 android:id="@+id/im1"
-                                android:layout_width="@dimen/_113sdp"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentBottom="true"
                                 android:src="@drawable/language_img_eng"></ImageView>
@@ -123,9 +123,10 @@
 
                             <ImageView
                                 android:id="@+id/im2"
-                                android:layout_width="@dimen/_113sdp"
+                                android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:layout_alignParentBottom="true"
+                                android:paddingRight="-55dp"
                                 android:scaleType="fitEnd"
                                 android:src="@drawable/language_img_fr"></ImageView>
 
