@@ -23,7 +23,7 @@ public class PlayVideoActivity extends BaseActivity {
         //binding.actionBar.tvTitle.setText(R.string.help);
         HashMap<String, String> extraHeaders = new HashMap<>();
         extraHeaders.put("foo", "bar");
-        binding.andExoPlayerView.setSource("https://www.rmp-streaming.com/media/big-buck-bunny-360p.mp4", extraHeaders);
+        binding.andExoPlayerView.setSource(" https://youtu.be/YNLyc5gn8FU", extraHeaders);
     }
 
     @Override
