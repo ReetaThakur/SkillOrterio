@@ -8,6 +8,7 @@ import android.view.View;
 
 import com.app.skillontario.baseClasses.BaseActivity;
 import com.app.skillontario.constants.AppConstants;
+import com.app.skillontario.utils.MySharedPreference;
 import com.app.skillorterio.R;
 import com.app.skillorterio.databinding.ActivitySelectLanguageBinding;
 
@@ -23,12 +24,13 @@ public class SelectLanguage extends BaseActivity {
         binding = (ActivitySelectLanguageBinding) viewBaseBinding;
 
         binding.imageViewEnglish.setOnClickListener(v -> {
+            changeLocale("en",this);
             startActivity(new Intent(SelectLanguage.this, SelectRoleActivity.class));
             finishAffinity();
         });
 
         binding.imageViewFrench.setOnClickListener(v -> {
-            changeLan("");
+            changeLocale("fr",this);
             startActivity(new Intent(SelectLanguage.this, SelectRoleActivity.class));
             finishAffinity();
         });
@@ -39,7 +41,7 @@ public class SelectLanguage extends BaseActivity {
             if (lang.equalsIgnoreCase(""))
                 return;
             Locale myLocale = new Locale(lang);//Set Selected Locale
-            CommonFunctions.myPreference.setString(context, AppConstants.LANGUAGE, lang);
+            MySharedPreference.getInstance().setStringData(AppConstants.LANGUAGE, lang);
             Locale.setDefault(myLocale);//set new locale as default
             Configuration config = new Configuration();//get Configuration
             config.locale = myLocale;//set config locale as selected locale
