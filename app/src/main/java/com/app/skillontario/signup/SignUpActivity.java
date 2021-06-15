@@ -26,12 +26,14 @@ public class SignUpActivity extends BaseActivity implements ApiResponseErrorCall
     private ActivitySignUpBinding binding;
     Drawable myIcon;
     private SignUpModel signUpModel;
+    ApiResponseErrorCallback apiResponseErrorCallback;
 
     @Override
     protected void initUi() {
         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_from_left);
         binding = (ActivitySignUpBinding) viewBaseBinding;
         signUpModel = new SignUpModel(SignUpActivity.this);
+        apiResponseErrorCallback = this;
 
         myIcon = AppCompatResources.getDrawable(SignUpActivity.this, R.drawable.ic_edit_text_rectangle);
         binding.etMail.setOnFocusChangeListener(new View.OnFocusChangeListener() {
@@ -91,8 +93,8 @@ public class SignUpActivity extends BaseActivity implements ApiResponseErrorCall
                 signUpModel.setPassword(binding.etPassword.getText().toString().trim());
                 signUpModel.setConfirmPassword(binding.etConfirmPassword.getText().toString().trim());
 
-                /*API_INTERFACE.registerUser(RequestBodyGenerator.registerUser(signUpModel)).enqueue(
-                        new ApiCallBack<>(this, this, 20, true));*/
+                API_INTERFACE.registerUser(RequestBodyGenerator.registerUser(signUpModel)).enqueue(
+                        new ApiCallBack<>(SignUpActivity.this, apiResponseErrorCallback, 01, false));
             }
         });
     }
@@ -118,7 +120,9 @@ public class SignUpActivity extends BaseActivity implements ApiResponseErrorCall
 
     @Override
     public void getApiResponse(Object responseObject, int flag) {
+        if (flag == 01) {
 
+        }
     }
 
     @Override
