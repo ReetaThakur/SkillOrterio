@@ -65,17 +65,20 @@ public class CustomAlertDialog extends Dialog implements View.OnClickListener {
     }
 
     private void initView() {
-        TextView confirm_msg_txt = findViewById(R.id.msg_txt);
-        TextView confirm_head_txt = findViewById(R.id.heading_txt);
-        TextView ok_btn = findViewById(R.id.ok_btn);
+        try {
+            TextView confirm_msg_txt = findViewById(R.id.msg_txt);
+            TextView confirm_head_txt = findViewById(R.id.heading_txt);
+            TextView ok_btn = findViewById(R.id.ok_btn);
 
-        confirm_msg_txt.setText(msg);
-        ok_btn.setOnClickListener(this);
+            confirm_msg_txt.setText(msg);
+            ok_btn.setOnClickListener(this);
 
-        if (head != null)
-            confirm_head_txt.setText(head);
-        else
-            confirm_head_txt.setText("");
+            if (head != null)
+                confirm_head_txt.setText(head);
+            else
+                confirm_head_txt.setText("");
+        }catch (Exception e){}
+
     }
 
     @Override
