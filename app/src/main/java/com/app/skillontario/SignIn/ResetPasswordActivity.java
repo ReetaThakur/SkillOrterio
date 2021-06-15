@@ -10,10 +10,15 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 
+import com.app.skillontario.apiConnection.ApiCallBack;
+import com.app.skillontario.apiConnection.ApiResponseErrorCallback;
+import com.app.skillontario.apiConnection.RequestBodyGenerator;
 import com.app.skillontario.baseClasses.BaseActivity;
 import com.app.skillorterio.R;
 import com.app.skillorterio.databinding.ActivityResetPasswordBinding;
 import com.app.skillorterio.databinding.ActivitySignInBinding;
+
+import static com.app.skillontario.constants.ApiConstants.API_INTERFACE;
 
 public class ResetPasswordActivity extends BaseActivity {
 
@@ -40,6 +45,21 @@ public class ResetPasswordActivity extends BaseActivity {
 
         binding.cvSignIn.setOnClickListener(v -> startActivity(new Intent(ResetPasswordActivity.this, SignInActivity.class)));
 
+    }
+
+    private void resetPass() {
+        API_INTERFACE.registerUser(RequestBodyGenerator.forgotPassword(binding.etMail.getText().toString())).enqueue(
+                new ApiCallBack<>(this, new ApiResponseErrorCallback() {
+                    @Override
+                    public void getApiResponse(Object responseObject, int flag) {
+
+                    }
+
+                    @Override
+                    public void getApiError(Throwable t, int flag) {
+
+                    }
+                }, 01, false));
     }
 
     void enableFocusEditText(RelativeLayout relativeLayout, EditText editText, boolean val) {
