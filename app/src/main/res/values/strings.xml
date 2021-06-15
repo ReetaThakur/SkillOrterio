@@ -590,6 +590,7 @@
     <string name="email">Email</string>
     <string name="gender">Gender</string>
     <string name="dash">Dashboard</string>
+    <string name="no_internet_msg">Please Check your internet connection.</string>
 
 
 </resources>

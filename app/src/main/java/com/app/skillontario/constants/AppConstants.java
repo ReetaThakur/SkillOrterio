@@ -10,7 +10,7 @@ public class AppConstants {
     public static final String FIREBASE_TOKEN = "FIREBASE_TOKEN";
     public static final String NOTIFICATION_COUNT = "NOTIFICATION_COUNT";
     public static final String IS_WALK_THROUGH = "IS_WALK_THROUGH";
-
+    public static final String AUTH_TOKEN = "AUTH_TOKEN";
     public static final int LOGOUT = 100;
     public static final int SUPPORT_PAYMENT = 1000;
 

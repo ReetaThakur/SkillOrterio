@@ -9,7 +9,7 @@ import com.app.skillontario.baseClasses.AppController;
 public class MySharedPreference {
 
     private static MySharedPreference object;
-    private static final String MyPREFERENCES = "taxVoltsPrefs";
+    private static final String MyPREFERENCES = "SkillsOntarioPrefs";
     private SharedPreferences sharedpreferences;
 
 
