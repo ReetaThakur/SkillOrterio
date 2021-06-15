@@ -1,11 +1,12 @@
 package com.app.skillontario.constants;
 
 
-
+import com.app.skillontario.apiConnection.ApiClient;
+import com.app.skillontario.apiConnection.ApiInterface;
 
 public interface ApiConstants {
 
-    //ApiInterface API_INTERFACE = ApiClient.getClient().create(ApiInterface.class);
+    ApiInterface API_INTERFACE = ApiClient.getClient().create(ApiInterface.class);
 
     int LOGIN = 100;
     int SIGNUP = 101;

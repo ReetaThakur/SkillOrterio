@@ -19,12 +19,12 @@ import retrofit2.http.PartMap;
 import retrofit2.http.Path;
 
 
-public interface ApiServices {
+public interface ApiInterface {
 
     //***********************Login/Logout APIS********************/
 
-    //@POST("user/signin")
-   // Call<BaseResponseModel<LoginResponse>> login(@Body HashMap<String, Object> body);
+    @POST("user/register")
+    Call<BaseResponseModel> registerUser(@Body HashMap<String, Object> body);
 
     @POST("user/reset-password")
     Call<BaseResponseModel> forgotPassword(@Body HashMap<String, Object> body);
@@ -36,10 +36,7 @@ public interface ApiServices {
     Call<BaseResponseModel> logout(@Body HashMap<String, Object> body);
 
 
-
     //***********************Notification APIS********************/
-
-
 
 
     //**********************Images APIS***************/

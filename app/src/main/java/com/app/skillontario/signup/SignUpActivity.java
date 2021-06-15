@@ -11,19 +11,27 @@ import android.widget.RelativeLayout;
 import com.app.skillontario.BottomBarActivity;
 import com.app.skillontario.SignIn.SignInActivity;
 import com.app.skillontario.activities.TakeQuizActivity;
+import com.app.skillontario.apiConnection.ApiCallBack;
+import com.app.skillontario.apiConnection.ApiResponseErrorCallback;
+import com.app.skillontario.apiConnection.RequestBodyGenerator;
 import com.app.skillontario.baseClasses.BaseActivity;
+import com.app.skillontario.models.SignUpModel;
 import com.app.skillorterio.R;
 import com.app.skillorterio.databinding.ActivitySignUpBinding;
 
-public class SignUpActivity extends BaseActivity {
+import static com.app.skillontario.constants.ApiConstants.API_INTERFACE;
+
+public class SignUpActivity extends BaseActivity implements ApiResponseErrorCallback {
 
     private ActivitySignUpBinding binding;
     Drawable myIcon;
+    private SignUpModel signUpModel;
 
     @Override
     protected void initUi() {
         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_from_left);
         binding = (ActivitySignUpBinding) viewBaseBinding;
+        signUpModel = new SignUpModel(SignUpActivity.this);
 
         myIcon = AppCompatResources.getDrawable(SignUpActivity.this, R.drawable.ic_edit_text_rectangle);
         binding.etMail.setOnFocusChangeListener(new View.OnFocusChangeListener() {
@@ -76,8 +84,15 @@ public class SignUpActivity extends BaseActivity {
         binding.cvSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(SignUpActivity.this, BottomBarActivity.class));
-              //  startActivity(new Intent(SignUpActivity.this, TakeQuizActivity.class));
+                // startActivity(new Intent(SignUpActivity.this, BottomBarActivity.class));
+                //  startActivity(new Intent(SignUpActivity.this, TakeQuizActivity.class));
+
+                signUpModel.setEmail(binding.etMail.getText().toString().trim());
+                signUpModel.setPassword(binding.etPassword.getText().toString().trim());
+                signUpModel.setConfirmPassword(binding.etConfirmPassword.getText().toString().trim());
+
+                /*API_INTERFACE.registerUser(RequestBodyGenerator.registerUser(signUpModel)).enqueue(
+                        new ApiCallBack<>(this, this, 20, true));*/
             }
         });
     }
@@ -101,4 +116,13 @@ public class SignUpActivity extends BaseActivity {
 
     }
 
+    @Override
+    public void getApiResponse(Object responseObject, int flag) {
+
+    }
+
+    @Override
+    public void getApiError(Throwable t, int flag) {
+
+    }
 }
