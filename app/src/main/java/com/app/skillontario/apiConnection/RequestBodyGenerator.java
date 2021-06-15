@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.provider.Settings;
 
 import com.app.skillontario.baseClasses.AppController;
+import com.app.skillontario.models.SignUpModel;
 import com.app.skillontario.utils.MySharedPreference;
 
 import java.util.ArrayList;
@@ -26,6 +27,19 @@ public class RequestBodyGenerator {
 
         return object;
     }
+
+    public static HashMap<String, Object> registerUser(SignUpModel signUpModel) {
+        HashMap<String, Object> object = new HashMap<>();
+
+        object.put("username", signUpModel.getUserName());
+        object.put("email", signUpModel.getEmail());
+        object.put("mobile", signUpModel.getMobile());
+        object.put("password", signUpModel.getPassword());
+        object.put("cpassword", signUpModel.getConfirmPassword());
+
+        return object;
+    }
+
 
     public static HashMap<String, Object> forgotPassword(String email) {
         HashMap<String, Object> object = new HashMap<>();

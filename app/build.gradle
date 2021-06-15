@@ -90,12 +90,12 @@ android {
     productFlavors {
 
         development {
-            buildConfigField "String", "BASE_URL", '"http://ec2-13-234-249-108.ap-south-1.compute.amazonaws.com:3100/"'
+            buildConfigField "String", "BASE_URL", '"http://ec2-13-234-249-108.ap-south-1.compute.amazonaws.com:3100/api/"'
         }
 
 
         production {
-            buildConfigField "String", "BASE_URL", '"https://api.taxvolt.com/"'
+            buildConfigField "String", "BASE_URL", '"http://ec2-13-234-249-108.ap-south-1.compute.amazonaws.com:3100/api/"'
         }
 
 

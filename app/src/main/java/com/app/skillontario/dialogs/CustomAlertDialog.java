@@ -31,38 +31,23 @@ import static com.google.firebase.analytics.FirebaseAnalytics.Event.LOGIN;
 
 public class CustomAlertDialog extends Dialog implements View.OnClickListener {
 
-    private final Context context;
-    private final int image;
-    private final int requestCode;
-    private final String msg;
-    private final String head;
-    private final String postText;
-    private final String negText;
+    private Context context;
+    private String msg, head;
     private ConfirmDialogCallback dialogCallback;
 
-    public CustomAlertDialog(@NonNull Context context, String msg, String heading, String posText,
-                             String negText, int image, ConfirmDialogCallback dialogCallback, int requestCode) {
+    public CustomAlertDialog(@NonNull Context context, String msg, String heading) {
         super(context);
         this.context = context;
         this.msg = msg;
         this.head = heading;
-        this.postText = posText;
-        this.negText = negText;
-        this.image = image;
-        this.requestCode = requestCode;
-        this.dialogCallback = dialogCallback;
     }
 
-    public CustomAlertDialog(@NonNull Context context, String msg, String heading, String posText,
-                             String negText, int image, int requestCode) {
+    public CustomAlertDialog(@NonNull Context context, String msg, String heading, ConfirmDialogCallback dialogCallback) {
         super(context);
         this.context = context;
         this.msg = msg;
         this.head = heading;
-        this.postText = posText;
-        this.negText = negText;
-        this.image = image;
-        this.requestCode = requestCode;
+        this.dialogCallback = dialogCallback;
     }
 
     @Override
@@ -70,7 +55,8 @@ public class CustomAlertDialog extends Dialog implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.dialog_custom_alert);
-        Objects.requireNonNull(getWindow()).setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT);
+        getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT);
+
         getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
         setCanceledOnTouchOutside(false);
 
@@ -79,68 +65,39 @@ public class CustomAlertDialog extends Dialog implements View.OnClickListener {
     }
 
     private void initView() {
-        TextView msgText = findViewById(R.id.msg_txt);
-        TextView headingText = findViewById(R.id.heading_txt);
-        TextView posBtn = findViewById(R.id.positive_btn);
-        TextView negBtn = findViewById(R.id.negative_btn);
-        ImageView imageView = findViewById(R.id.dialog_image);
+        TextView confirm_msg_txt = findViewById(R.id.msg_txt);
+        TextView confirm_head_txt = findViewById(R.id.heading_txt);
+        TextView ok_btn = findViewById(R.id.ok_btn);
 
-        posBtn.setOnClickListener(this);
-        negBtn.setOnClickListener(this);
+        confirm_msg_txt.setText(msg);
+        ok_btn.setOnClickListener(this);
 
-        msgText.setText(msg);
-        headingText.setText(head != null ? head : "");
-        posBtn.setText(postText != null ? postText : "");
-        negBtn.setText(negText != null ? negText : "");
-
-        headingText.setVisibility(head != null ? View.VISIBLE : View.GONE);
-        posBtn.setVisibility(postText != null ? View.VISIBLE : View.GONE);
-        negBtn.setVisibility(negText != null ? View.VISIBLE : View.GONE);
-
-        if (image != 0) {
-            try {
-                imageView.setImageDrawable(ContextCompat.getDrawable(context, image));
-                imageView.setVisibility(View.VISIBLE);
-            } catch (OutOfMemoryError w) {
-                imageView.setVisibility(View.GONE);
-            } catch (Exception e) {
-                imageView.setVisibility(View.GONE);
-            }
-
-        } else
-            imageView.setVisibility(View.GONE);
-
-        if (msg.equalsIgnoreCase("You logged in other device. Please log in again."))
-            headingText.setText("Session Expired");
-
+        if (head != null)
+            confirm_head_txt.setText(head);
+        else
+            confirm_head_txt.setText("");
     }
-
 
     @Override
     public void onClick(View view) {
-        if (view.getId() == R.id.positive_btn) {
-            if (msg.equalsIgnoreCase("You logged in other device. Please log in again.")) {
-                MySharedPreference.getInstance().clearSharedPrefs();
-                MySharedPreference.getInstance().setBooleanData(IS_WALK_THROUGH, true);
-                context.startActivity(new Intent(context, SignInActivity.class));
-                ((Activity) context).finishAffinity();
-            } else if (dialogCallback != null)
-                dialogCallback.onPositiveClick(requestCode);
-            dismiss();
-        } else if (view.getId() == R.id.negative_btn) {
-            if (dialogCallback != null)
-                dialogCallback.onNegativeClick(requestCode);
-            dismiss();
+        if (view.getId() == R.id.ok_btn) {
+            onBackPressed();
+            /*if (dialogCallback != null)
+                dialogCallback.onPositiveClick(FILE_SUBMITTED);*/
         }
-
     }
 
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        if (msg.equalsIgnoreCase("Please log in again")) {
-            MySharedPreference.getInstance().setBooleanData(LOGIN, false);
+        if (msg.equalsIgnoreCase(context.getString(R.string.session_espired_msg))) {
+            Intent intent = new Intent(context, SignInActivity.class);
+            intent.putExtra(AppConstants.LOGIN_TYPE, "new");
+            context.startActivity(intent);
+            MySharedPreference.getInstance().clearSharedPrefs();
+            MySharedPreference.getInstance().setBooleanData(SharedPrefsConstants.IS_LOGIN, false);
             ((Activity) context).finishAffinity();
+
         } else {
             if (dialogCallback != null)
                 dialogCallback.onPositiveClick(1);

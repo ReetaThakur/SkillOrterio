@@ -3,44 +3,46 @@ package com.app.skillontario.apiConnection;
 
 import android.text.TextUtils;
 import android.util.Log;
-
 import com.app.skillontario.utils.MySharedPreference;
 import com.app.skillorterio.BuildConfig;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
+import okhttp3.Credentials;
 import okhttp3.Interceptor;
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
+import okhttp3.Response;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-import static com.app.skillontario.constants.AppConstants.AUTH_TOKEN;
+import static com.app.skillontario.constants.SharedPrefsConstants.ACCESS_TOKEN;
 
 
 public class ApiClient {
-
     private static Retrofit retrofit = null;
 
     public static Retrofit getClient() {
 
+        HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
+        interceptor.level(HttpLoggingInterceptor.Level.BODY);
+
         OkHttpClient.Builder client = new OkHttpClient.Builder()
-                .connectTimeout(30, TimeUnit.SECONDS)
                 .addNetworkInterceptor(addHeaders())
-                .addInterceptor(new BasicAuthInterceptor("3xaUser!@3#", "9raPass@3!)#@done"))
+                .addInterceptor(interceptor)
+                .addInterceptor(new ForbiddenInterceptor("admin", "1234adm2"))
+                .connectTimeout(30, TimeUnit.SECONDS)
                 .readTimeout(30, TimeUnit.SECONDS);
 
-        HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
-        loggingInterceptor.level(HttpLoggingInterceptor.Level.BODY);
-        client.interceptors().add(0,loggingInterceptor);
 
-        if (retrofit==null) {
+        if (retrofit == null) {
             retrofit = new Retrofit.Builder()
                     .baseUrl(BuildConfig.BASE_URL)
                     .client(client.build())
@@ -50,24 +52,7 @@ public class ApiClient {
         return retrofit;
     }
 
-    /**
-     * Add custom headers
-     * @return Header Interceptor
-     */
-    private static Interceptor addHeaders() {
-        return chain -> {
-            String accessToken;
-            Request.Builder request = chain.request().newBuilder();
-            if (!TextUtils.isEmpty(MySharedPreference.getInstance().getStringData(AUTH_TOKEN))) {
-                accessToken = MySharedPreference.getInstance().getStringData(AUTH_TOKEN);
-                Log.e("accessToken", accessToken);
-                request.addHeader("x-access-token", accessToken);
-            }
-            return chain.proceed(request.build());
-        };
-    }
-
-    public static RequestBody getRequestValue(JSONObject requestObject){
+    public static RequestBody getRequestValue(JSONObject requestObject) {
         try {
             return RequestBody.create(new JSONObject(String.valueOf(requestObject)).toString(),
                     MediaType.parse("application/json; charset=utf-8"));
@@ -78,9 +63,43 @@ public class ApiClient {
     }
 
     public static RequestBody toRequestBody(String value) {
-        RequestBody body=null;
-        if(value!=null)
-            body= RequestBody.create(value, MediaType.parse("text/plain"));
+        RequestBody body = null;
+        if (value != null)
+            body = RequestBody.create(value, MediaType.parse("text/plain"));
         return body;
+    }
+
+    private static class ForbiddenInterceptor implements Interceptor {
+        private String credentials;
+
+        public ForbiddenInterceptor(String user, String password) {
+            this.credentials = Credentials.basic(user, password);
+        }
+
+        @Override
+        public Response intercept(Chain chain) throws IOException {
+            Request request = chain.request();
+            Request authenticatedRequest = request.newBuilder()
+                    .header("Authorization", credentials).build();
+            return chain.proceed(authenticatedRequest);
+        }
+    }
+
+    private static Interceptor addHeaders() {
+
+        return chain -> {
+            String accessToken = "";
+            Request.Builder request = chain.request().newBuilder();
+            if (!TextUtils.isEmpty(MySharedPreference.getInstance().getStringData(ACCESS_TOKEN))) {
+                accessToken = MySharedPreference.getInstance().getStringData(ACCESS_TOKEN);
+                request.addHeader("accessToken", accessToken);
+                Log.e("ACCESS TOKEN->", accessToken);
+            }
+
+           /* if (!SharedPrefsConstants.SampleAccessToken.equalsIgnoreCase("")) {
+                request.addHeader("accessToken", SharedPrefsConstants.SampleAccessToken);
+            }*/
+            return chain.proceed(request.build());
+        };
     }
 }
