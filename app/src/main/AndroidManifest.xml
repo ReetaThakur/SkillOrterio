@@ -25,7 +25,7 @@
         tools:ignore="GoogleAppIndexingWarning">
         <activity
             android:name="com.app.skillontario.activities.PlayVideoActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"></activity>
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name="com.app.skillontario.activities.JobDetailsActivity"
             android:screenOrientation="portrait"

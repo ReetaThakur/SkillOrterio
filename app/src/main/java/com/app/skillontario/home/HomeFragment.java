@@ -11,6 +11,7 @@ import com.app.skillontario.activities.NotificationActivity;
 import com.app.skillontario.activities.ScholarDetailAc;
 import com.app.skillontario.activities.ScholarOneAc;
 import com.app.skillontario.activities.SearchActivity;
+import com.app.skillontario.activities.TakeQuizActivity;
 import com.app.skillontario.adapter.PopularCareerAdapter;
 import com.app.skillontario.adapter.RecentEventsAdapter;
 import com.app.skillontario.adapter.RecentNewsAdapter;
@@ -45,7 +46,7 @@ public class HomeFragment extends BaseFragment {
             startActivity(new Intent(getActivity(), ScholarOneAc.class));
         });
 
-        binding.rlTakeQuiz.setOnClickListener(v -> startActivity(new Intent(getActivity(), TakeQuizAc.class)));
+        binding.rlTakeQuiz.setOnClickListener(v -> startActivity(new Intent(getActivity(), TakeQuizActivity.class)));
 
         binding.rlFilter.setOnClickListener(v -> startActivity(new Intent(getActivity(), HomeFilterActivity.class)));
 

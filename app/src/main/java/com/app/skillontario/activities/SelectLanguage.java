@@ -1,13 +1,17 @@
 package com.app.skillontario.activities;
 
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.view.View;
 
 import com.app.skillontario.baseClasses.BaseActivity;
 import com.app.skillontario.constants.AppConstants;
 import com.app.skillorterio.R;
 import com.app.skillorterio.databinding.ActivitySelectLanguageBinding;
+
+import java.util.Locale;
 
 public class SelectLanguage extends BaseActivity {
 
@@ -24,9 +28,26 @@ public class SelectLanguage extends BaseActivity {
         });
 
         binding.imageViewFrench.setOnClickListener(v -> {
+            changeLan("");
             startActivity(new Intent(SelectLanguage.this, SelectRoleActivity.class));
             finishAffinity();
         });
+    }
+
+    public static void changeLocale(final String lang, Context context) {
+        try {
+            if (lang.equalsIgnoreCase(""))
+                return;
+            Locale myLocale = new Locale(lang);//Set Selected Locale
+            CommonFunctions.myPreference.setString(context, AppConstants.LANGUAGE, lang);
+            Locale.setDefault(myLocale);//set new locale as default
+            Configuration config = new Configuration();//get Configuration
+            config.locale = myLocale;//set config locale as selected locale
+            context.getResources().updateConfiguration(config, context.getResources().getDisplayMetrics());//Update the config
+
+        } catch (Exception er) {
+            er.getMessage();
+        }
     }
 
     @Override
@@ -40,4 +61,6 @@ public class SelectLanguage extends BaseActivity {
         overridePendingTransition(R.anim.slide_in_from_left, R.anim.slide_out_from_right);
 
     }
+    
+    
 }

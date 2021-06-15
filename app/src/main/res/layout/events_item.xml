@@ -4,9 +4,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/eventRow"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
+        android:onClick="onClickId"
         android:layout_margin="@dimen/_5sdp"
         android:layout_marginBottom="@dimen/_5sdp"
         app:cardCornerRadius="7dp"
@@ -76,6 +78,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:scaleType="centerCrop"
+                android:onClick="onClickId"
                 android:padding="@dimen/_7sdp"
                 android:src="@drawable/event_calender"
                 tools:ignore="ContentDescription" />
