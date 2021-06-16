@@ -70,7 +70,7 @@ Scholarship Award"
                             android:fontFamily="@font/poppins_medium"
                             android:text="@string/s_temp_1"
                             android:textColor="#4A4F64"
-                            android:textSize="@dimen/_14sdp" />
+                            android:textSize="@dimen/_13sdp" />
 
 
                         <TextView
@@ -80,7 +80,7 @@ Scholarship Award"
                             android:fontFamily="@font/poppins_regular"
                             android:text="@string/s_temp_2"
                             android:textColor="#4A4F64"
-                            android:textSize="@dimen/_13sdp" />
+                            android:textSize="@dimen/_12sdp" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -89,7 +89,7 @@ Scholarship Award"
                             android:fontFamily="@font/poppins_regular"
                             android:text="@string/s_temp_2"
                             android:textColor="#4A4F64"
-                            android:textSize="@dimen/_13sdp" />
+                            android:textSize="@dimen/_12sdp" />
 
 
 
@@ -124,7 +124,7 @@ Scholarship Award"
                         android:drawablePadding="@dimen/_10sdp"
                         android:textAllCaps="true"
                         android:textColor="@color/white"
-                        android:textSize="@dimen/_18sdp" />
+                        android:textSize="@dimen/_16sdp" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
         </LinearLayout>
