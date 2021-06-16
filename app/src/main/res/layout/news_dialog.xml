@@ -12,10 +12,10 @@
 
         <androidx.cardview.widget.CardView
 
-            android:layout_width="match_parent"
+            android:layout_width="@dimen/_290sdp"
             android:layout_height="@dimen/_350sdp"
             app:cardCornerRadius="@dimen/_15sdp"
-            android:layout_margin="@dimen/_10sdp"
+
             android:layout_centerInParent="true"
             android:backgroundTint="@color/white"
             app:cardElevation="@dimen/_15sdp">

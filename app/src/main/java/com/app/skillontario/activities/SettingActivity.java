@@ -7,12 +7,18 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.app.skillontario.SignIn.ChangePasswordActivity;
+import com.app.skillontario.apiConnection.ApiCallBack;
+import com.app.skillontario.apiConnection.ApiResponseErrorCallback;
+import com.app.skillontario.apiConnection.RequestBodyGenerator;
 import com.app.skillontario.baseClasses.BaseActivity;
+import com.app.skillontario.signup.SignUpActivity;
 import com.app.skillorterio.R;
 import com.app.skillorterio.databinding.ActivityNotificationBinding;
 import com.app.skillorterio.databinding.ActivitySelectRoleBinding;
 import com.app.skillorterio.databinding.ActivitySettingBinding;
 import com.app.skillorterio.databinding.ActivityTermsOfServicesBinding;
+
+import static com.app.skillontario.constants.ApiConstants.API_INTERFACE;
 
 public class SettingActivity extends BaseActivity {
 
@@ -38,8 +44,25 @@ public class SettingActivity extends BaseActivity {
 
         binding.lTerms.setOnClickListener(v -> startActivity(new Intent(SettingActivity.this, TermsOfServicesActivity.class)));
 
+        binding.ivNotification.setOnClickListener(v->apiOnOff());
 
     }
+
+    private void apiOnOff() {
+        API_INTERFACE.registerUser(RequestBodyGenerator.userID()).enqueue(
+                new ApiCallBack<>(this, new ApiResponseErrorCallback() {
+                    @Override
+                    public void getApiResponse(Object responseObject, int flag) {
+
+                    }
+
+                    @Override
+                    public void getApiError(Throwable t, int flag) {
+
+                    }
+                }, 01, false));
+    }
+
 
     @Override
     protected int getLayoutById() {

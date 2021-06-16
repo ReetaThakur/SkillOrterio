@@ -47,6 +47,12 @@ public class RequestBodyGenerator {
         return object;
     }
 
+    public static HashMap<String, Object> userID() {
+        HashMap<String, Object> object = new HashMap<>();
+        object.put("userId", MySharedPreference.getInstance().getStringData(USER_ID));
+        return object;
+    }
+
     public static HashMap<String, Object> changePassword(String password, String oldPassword) {
 
         HashMap<String, Object> object = new HashMap<>();

@@ -15,13 +15,16 @@ import android.widget.TextView;
 import androidx.core.content.ContextCompat;
 import androidx.core.graphics.drawable.DrawableCompat;
 
+import com.app.skillontario.activities.NewsDetailAc;
+import com.app.skillontario.baseClasses.BaseActivity;
 import com.app.skillontario.baseClasses.BaseFragment;
+import com.app.skillontario.callbacks.XmlClickable;
 import com.app.skillorterio.R;
 import com.app.skillorterio.databinding.FragmentEventBinding;
 import com.app.skillorterio.databinding.FragmentHomeBinding;
 import com.bumptech.glide.Glide;
 
-public class EventFragment extends BaseFragment {
+public class EventFragment extends BaseFragment implements XmlClickable {
 
     private FragmentEventBinding binding;
 
@@ -32,7 +35,7 @@ public class EventFragment extends BaseFragment {
     @Override
     protected void initUi() {
         binding = (FragmentEventBinding) viewDataBinding;
-
+        setPhase(this);
         binding.tab.tv1.setOnClickListener(v->{
             setTint(binding.tab.tv1,  R.color.buttonColor);
             setTint(binding.tab.tv2, R.color.white);
@@ -45,9 +48,9 @@ public class EventFragment extends BaseFragment {
             binding.eventL.setVisibility(View.GONE);
         });
 
-        binding.eOne.ivCal.setOnClickListener(view1 -> openD());
 
-        binding.eventL.setOnClickListener(v-> startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.skillsontario.com"))));
+
+
     }
 
     private void openD() {
@@ -83,5 +86,18 @@ public class EventFragment extends BaseFragment {
     @Override
     public void onClick(View view) {
 
+    }
+
+
+
+    @Override
+    public void myClickMethod(View v) {
+        if(v.getId()==R.id.ivCal){
+            openD();
+        }else if(v.getId()==R.id.row){
+            startActivity(new Intent(getActivity(), NewsDetailAc.class));
+        }else if(v.getId()==R.id.eventRow){
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.skillsontario.com")));
+        }
     }
 }

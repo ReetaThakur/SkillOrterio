@@ -22,6 +22,7 @@ import androidx.databinding.ViewDataBinding;
 
 import com.app.skillontario.activities.SplashActivity;
 
+import com.app.skillontario.callbacks.XmlClickable;
 import com.app.skillontario.utils.LocaleManager;
 import com.app.skillontario.utils.topSnackBar.TSnackBar;
 import com.app.skillorterio.R;
@@ -36,6 +37,7 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
     private static ProgressDialog dialog;
     protected ViewDataBinding viewBaseBinding;
     private List<Uri> mSelected;
+    private XmlClickable xmlClickable;
 
     @Override
     protected void attachBaseContext(Context base) {
@@ -57,6 +59,8 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
         viewBaseBinding = DataBindingUtil.setContentView(this, getLayoutById());
 
         initUi();
+
+
     }
 
     @Override
@@ -90,6 +94,8 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
     public void onClick(View view) {
 
     }
+
+
 
     protected int getColorFromResource(int colorId) {
         return ContextCompat.getColor(this, colorId);
@@ -146,5 +152,11 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
         super.onActivityResult(requestCode, resultCode, data);
 
     }
+
+    public void onClickId(View view) {
+        xmlClickable=BaseFragment.xmlClickable;
+        xmlClickable.myClickMethod(view);
+    }
+
 
 }

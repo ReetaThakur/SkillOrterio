@@ -16,6 +16,7 @@ import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import androidx.fragment.app.Fragment;
 
+import com.app.skillontario.callbacks.XmlClickable;
 import com.app.skillorterio.R;
 
 import org.jetbrains.annotations.NotNull;
@@ -27,11 +28,17 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
     protected Context mContext;
     protected ViewDataBinding viewDataBinding;
     private static ProgressDialog dialog;
+    public static XmlClickable xmlClickable;
 
     @Override
     public void onAttach(@NotNull Context context) {
         super.onAttach(context);
         mContext = context;
+
+    }
+
+    public  void getView(View v){
+
     }
 
     @Override
@@ -107,4 +114,7 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
 
     }
 
+    public void setPhase(XmlClickable phase){
+        xmlClickable=phase;
+    }
 }

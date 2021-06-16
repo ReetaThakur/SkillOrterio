@@ -1,5 +1,6 @@
 package com.app.skillontario.activities;
 
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.view.View;
 import android.widget.EditText;
@@ -25,10 +26,8 @@ public class ScholarOneAc extends BaseActivity {
 
         myIcon = AppCompatResources.getDrawable(ScholarOneAc.this, R.drawable.ic_edit_text_rectangle);
 
-
+        binding.rclick.setOnClickListener(v-> startActivity(new Intent(this,ScholarDetailAc.class)));
     }
-
-   
 
 
     @Override
