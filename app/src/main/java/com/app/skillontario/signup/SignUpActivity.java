@@ -8,9 +8,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 
-import com.app.skillontario.BottomBarActivity;
 import com.app.skillontario.SignIn.SignInActivity;
-import com.app.skillontario.activities.TakeQuizActivity;
 import com.app.skillontario.apiConnection.ApiCallBack;
 import com.app.skillontario.apiConnection.ApiResponseErrorCallback;
 import com.app.skillontario.apiConnection.RequestBodyGenerator;

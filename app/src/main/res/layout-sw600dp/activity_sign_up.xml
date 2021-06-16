@@ -31,7 +31,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_8ssp"
                     android:fontFamily="@font/poppins_regular"
                     android:text="@string/new_account"
                     android:textColor="@color/black"
@@ -40,18 +40,19 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
                     android:fontFamily="@font/poppins_regular"
-                    android:lineSpacingExtra="10dp"
+                    android:lineSpacingExtra="8dp"
                     android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
                     android:textColor="@color/black_light"
-                    android:textSize="24sp" />
+                    android:textSize="18sp" />
 
 
                 <RelativeLayout
                     android:id="@+id/rl_email"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_24sdp">
+                    android:layout_marginTop="@dimen/_20sdp">
 
                     <androidx.appcompat.widget.AppCompatEditText
                         android:id="@+id/et_mail"
@@ -71,7 +72,7 @@
                     android:id="@+id/rl_password"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_16sdp">
+                    android:layout_marginTop="@dimen/_14sdp">
 
                     <androidx.appcompat.widget.AppCompatEditText
                         android:id="@+id/et_password"
@@ -92,7 +93,7 @@
                     android:id="@+id/rl_confirm_password"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_16sdp">
+                    android:layout_marginTop="@dimen/_14sdp">
 
                     <androidx.appcompat.widget.AppCompatEditText
                         android:id="@+id/et_confirm_password"
@@ -114,7 +115,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/_6sdp"
-                    android:layout_marginTop="@dimen/_16sdp"
+                    android:layout_marginTop="@dimen/_14sdp"
                     android:orientation="horizontal">
 
                     <ImageView
