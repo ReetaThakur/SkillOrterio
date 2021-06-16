@@ -79,8 +79,7 @@
                         <TextView
                             android:id="@+id/ok_btn"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:padding="@dimen/_10sdp"
+                            android:layout_height="@dimen/_35sdp"
                             android:background="@drawable/rounded_corner_without_border"
                             android:fontFamily="@font/sf_pro_regular"
                             android:gravity="center"

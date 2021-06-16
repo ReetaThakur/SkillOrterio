@@ -4,7 +4,7 @@
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_150sdp"
+        android:layout_height="@dimen/_130sdp"
         android:orientation="vertical">
 
         <ImageView
@@ -12,48 +12,49 @@
             android:layout_height="match_parent"
             android:layout_alignParentBottom="true"
             android:layout_marginTop="@dimen/_10sdp"
-            android:background="@drawable/bookmar_shadow"></ImageView>
+            android:background="@drawable/bookmar_shadow" />
 
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_110sdp"
+            android:layout_height="match_parent"
             android:layout_alignParentBottom="true"
             android:layout_marginRight="@dimen/_10sdp"
             android:layout_marginBottom="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_5sdp"
             app:cardBackgroundColor="@color/white"
             app:cardCornerRadius="@dimen/_10sdp"
             app:cardElevation="0dp">
 
 
-            <ImageView
-                android:id="@+id/img_ovl"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/_16sdp"
-                android:src="@drawable/ic_home_main_oval"></ImageView>
+
 
         </androidx.cardview.widget.CardView>
 
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:padding="@dimen/_10sdp">
 
             <ImageView
-                android:id="@+id/imagePerson"
-                android:layout_width="wrap_content"
+                android:id="@+id/img_ovl"
+                android:layout_width="@dimen/_90sdp"
                 android:layout_height="match_parent"
-                android:layout_alignParentBottom="true"
-                android:layout_marginBottom="@dimen/_10sdp"
-                android:scaleType="fitEnd"
-                android:src="@drawable/home_main_img1"></ImageView>
+                android:paddingBottom="@dimen/_20sdp"
+                android:src="@drawable/ic_home_main_oval" />
+            <ImageView
+                android:id="@+id/imagePerson"
+                android:layout_width="@dimen/_90sdp"
+                android:layout_height="match_parent"
+                android:paddingTop="@dimen/_6sdp"
+                android:src="@drawable/home_main_img1" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="@dimen/_16sdp"
-                android:layout_marginTop="@dimen/_28sdp"
                 android:layout_marginRight="@dimen/_4sdp"
                 android:layout_toRightOf="@+id/imagePerson">
 
@@ -72,16 +73,17 @@
                     android:text="Construction"
                     android:textAllCaps="true"
                     android:textColor="@color/white"
-                    android:textSize="10sp"></TextView>
+                    android:textSize="@dimen/_10sdp"></TextView>
 
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
                     android:layout_alignParentRight="true"
                     android:layout_marginTop="@dimen/_16sdp"
                     android:layout_marginRight="@dimen/_8ssp"
+                    android:padding="@dimen/_3sdp"
                     android:src="@drawable/ic_home_main_batch"
-                    app:tint="#FF9F0A"></ImageView>
+                    app:tint="#FF9F0A" />
 
                 <TextView
                     android:id="@+id/textWork"
@@ -92,7 +94,7 @@
                     android:fontFamily="@font/poppins_medium"
                     android:text="@string/general_carpente_r"
                     android:textColor="#272F35"
-                    android:textSize="17sp"></TextView>
+                    android:textSize="@dimen/_11sdp"></TextView>
 
                 <TextView
                     android:id="@+id/textMoney"
@@ -104,7 +106,7 @@
                     android:gravity="center_vertical"
                     android:text="$20 - $48 per hour"
                     android:textColor="#6A5856"
-                    android:textSize="13sp"></TextView>
+                    android:textSize="@dimen/_9sdp"></TextView>
 
             </RelativeLayout>
         </RelativeLayout>
