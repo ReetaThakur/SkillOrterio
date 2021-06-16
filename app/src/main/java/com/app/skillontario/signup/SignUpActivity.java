@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 
+import com.app.skillontario.BottomBarActivity;
 import com.app.skillontario.SignIn.SignInActivity;
 import com.app.skillontario.apiConnection.ApiCallBack;
 import com.app.skillontario.apiConnection.ApiResponseErrorCallback;
@@ -84,15 +85,14 @@ public class SignUpActivity extends BaseActivity implements ApiResponseErrorCall
         binding.cvSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // startActivity(new Intent(SignUpActivity.this, BottomBarActivity.class));
-                //  startActivity(new Intent(SignUpActivity.this, TakeQuizActivity.class));
-
-                signUpModel.setEmail(binding.etMail.getText().toString().trim());
+                 startActivity(new Intent(SignUpActivity.this, BottomBarActivity.class));
+              
+               /* signUpModel.setEmail(binding.etMail.getText().toString().trim());
                 signUpModel.setPassword(binding.etPassword.getText().toString().trim());
                 signUpModel.setConfirmPassword(binding.etConfirmPassword.getText().toString().trim());
 
                 API_INTERFACE.registerUser(RequestBodyGenerator.registerUser(signUpModel)).enqueue(
-                        new ApiCallBack<>(SignUpActivity.this, apiResponseErrorCallback, 01, false));
+                        new ApiCallBack<>(SignUpActivity.this, apiResponseErrorCallback, 01, false));*/
             }
         });
     }
