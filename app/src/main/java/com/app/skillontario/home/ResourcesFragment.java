@@ -24,11 +24,11 @@ public class ResourcesFragment extends BaseFragment {
 
         binding.layResorce.llMain.setOnClickListener(v -> startActivity(new Intent(getActivity(), ResourcesDetailsActivity.class)));
 
-        binding.layResorce.llMain1.setOnClickListener(v -> startActivity(new Intent(getActivity(), ResourcesDetailsActivity.class)));
+        binding.layResorce.ll1Main.setOnClickListener(v -> startActivity(new Intent(getActivity(), ResourcesDetailsActivity.class)));
 
-        binding.layResorce.llMain2.setOnClickListener(v -> startActivity(new Intent(getActivity(), ResourcesDetailsActivity.class)));
+        binding.layResorce.ll2Main.setOnClickListener(v -> startActivity(new Intent(getActivity(), ResourcesDetailsActivity.class)));
 
-        binding.layResorce.llMain3.setOnClickListener(v -> startActivity(new Intent(getActivity(), ResourcesDetailsActivity.class)));
+        binding.layResorce.ll3Main.setOnClickListener(v -> startActivity(new Intent(getActivity(), ResourcesDetailsActivity.class)));
     }
 
     @Override

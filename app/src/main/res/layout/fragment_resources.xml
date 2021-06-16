@@ -32,21 +32,14 @@
                 <LinearLayout
                     android:id="@+id/newsL"
                     android:layout_width="match_parent"
+                    android:layout_marginTop="10dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/_10sdp"
-                    android:layout_marginRight="@dimen/_10sdp"
                     android:orientation="vertical"
                     android:visibility="visible">
 
                     <include
                         android:id="@+id/layResorce"
                         layout="@layout/resources_item" />
-
-                    <include layout="@layout/resources_item" />
-
-                    <include layout="@layout/resources_item" />
-
-                    <include layout="@layout/resources_item" />
 
 
                 </LinearLayout>

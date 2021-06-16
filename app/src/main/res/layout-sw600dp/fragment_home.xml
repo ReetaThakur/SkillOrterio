@@ -134,7 +134,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_120sdp"
+                    android:layout_height="@dimen/_90sdp"
                     android:layout_marginLeft="@dimen/_16sdp"
                     android:layout_marginTop="@dimen/_16sdp"
                     android:layout_marginRight="@dimen/_16sdp"
@@ -164,12 +164,12 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="10dp"
-                                android:layout_marginTop="@dimen/_20sdp"
+                                android:layout_marginTop="@dimen/_8ssp"
                                 android:layout_marginRight="@dimen/_16sdp"
                                 android:fontFamily="@font/poppins_medium"
                                 android:text="@string/discover_a_suitable_career"
                                 android:textColor="@color/white"
-                                android:textSize="@dimen/_13sdp"></TextView>
+                                android:textSize="@dimen/_10sdp"></TextView>
 
 
                             <RelativeLayout
@@ -178,7 +178,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_below="@+id/tv"
                                 android:layout_marginLeft="10dp"
-                                android:layout_marginTop="@dimen/_12sdp"
+                                android:layout_marginTop="@dimen/_8ssp"
                                 android:background="@drawable/ic_rectangle__take_quiz"
                                 android:padding="@dimen/_4sdp">
 
@@ -186,10 +186,13 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_centerInParent="true"
+                                    android:layout_marginTop="1dp"
                                     android:fontFamily="@font/poppins_medium"
+                                    android:paddingLeft="@dimen/_16sdp"
+                                    android:paddingRight="@dimen/_16sdp"
                                     android:text="Take Quiz"
                                     android:textColor="@color/white"
-                                    android:textSize="@dimen/_11sdp"></TextView>
+                                    android:textSize="@dimen/_10sdp"></TextView>
                             </RelativeLayout>
                         </RelativeLayout>
                     </LinearLayout>
@@ -211,6 +214,7 @@
                     android:id="@+id/recy_recent_event"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/_12sdp"
                     android:divider="@null"
                     android:orientation="horizontal"
                     android:scrollbars="none"
@@ -226,10 +230,10 @@
 
                     <ImageView
                         android:id="@+id/img_expolre"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/group"></ImageView>
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_110sdp"
+                        android:background="@drawable/memorial_tab"
+                        android:scaleType="centerCrop"></ImageView>
 
                     <TextView
                         android:id="@+id/tvExplore"
@@ -240,6 +244,7 @@
                         android:background="@drawable/group_back"
                         android:drawableRight="@drawable/group_back_white"
                         android:gravity="center"
+                        android:visibility="invisible"
                         android:paddingRight="@dimen/_10sdp"
                         android:text="Explore"
                         android:textColor="@color/white"

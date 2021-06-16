@@ -21,14 +21,14 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_195sdp"
+                    android:layout_height="@dimen/_180sdp"
                     android:layout_marginLeft="@dimen/_36sdp">
 
                     <ImageView
-                        android:layout_width="@dimen/_202sdp"
-                        android:layout_height="@dimen/_152sdp"
+                        android:layout_width="@dimen/_195sdp"
+                        android:layout_height="@dimen/_125sdp"
                         android:layout_alignParentRight="true"
-                        android:background="@drawable/select_role"></ImageView>
+                        android:src="@drawable/select_role"></ImageView>
 
                     <TextView
                         android:layout_width="wrap_content"

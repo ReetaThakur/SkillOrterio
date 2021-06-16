@@ -11,7 +11,7 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="143dp"
+            android:layout_height="153dp"
             android:layout_marginLeft="@dimen/_10sdp"
             android:background="@drawable/ic_group_copy_3_res">
 
@@ -24,23 +24,24 @@
 
                 <ImageView
                     android:id="@+id/ivItem"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/_16sdp"
+                    android:layout_width="@dimen/_54sdp"
+                    android:layout_height="@dimen/_54sdp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/_6sdp"
+                    android:layout_marginRight="@dimen/_6sdp"
                     android:src="@drawable/resources"
                     tools:ignore="ContentDescription" />
 
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="@dimen/_16sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
                     android:layout_toRightOf="@+id/ivItem"
                     android:layout_weight="1"
                     android:orientation="vertical">
 
                     <TextView
-
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppins_regular"
@@ -48,7 +49,7 @@
                         android:paddingLeft="@dimen/_15sdp"
                         android:text="National Skilled Trades and Technology Week 2019, Burnaby, B.C."
                         android:textColor="@color/black"
-                        android:textSize="14sp" />
+                        android:textSize="19sp" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -59,7 +60,7 @@
                         android:gravity="center"
                         android:text="May 15, 2021  "
                         android:textColor="@color/black_light"
-                        android:textSize="13sp" />
+                        android:textSize="16sp" />
 
 
                 </LinearLayout>
@@ -68,10 +69,9 @@
 
         </RelativeLayout>
 
-
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="143dp"
+            android:layout_height="153dp"
             android:layout_marginLeft="@dimen/_10sdp"
             android:background="@drawable/ic_group_copy_3_res">
 
@@ -84,23 +84,24 @@
 
                 <ImageView
                     android:id="@+id/ivItem1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/_16sdp"
+                    android:layout_width="@dimen/_54sdp"
+                    android:layout_height="@dimen/_54sdp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/_6sdp"
+                    android:layout_marginRight="@dimen/_6sdp"
                     android:src="@drawable/resources"
                     tools:ignore="ContentDescription" />
 
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="@dimen/_16sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
                     android:layout_toRightOf="@+id/ivItem1"
                     android:layout_weight="1"
                     android:orientation="vertical">
 
                     <TextView
-
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppins_regular"
@@ -108,7 +109,7 @@
                         android:paddingLeft="@dimen/_15sdp"
                         android:text="National Skilled Trades and Technology Week 2019, Burnaby, B.C."
                         android:textColor="@color/black"
-                        android:textSize="14sp" />
+                        android:textSize="19sp" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -119,7 +120,7 @@
                         android:gravity="center"
                         android:text="May 15, 2021  "
                         android:textColor="@color/black_light"
-                        android:textSize="13sp" />
+                        android:textSize="16sp" />
 
 
                 </LinearLayout>
@@ -129,11 +130,9 @@
         </RelativeLayout>
 
 
-
-
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="143dp"
+            android:layout_height="153dp"
             android:layout_marginLeft="@dimen/_10sdp"
             android:background="@drawable/ic_group_copy_3_res">
 
@@ -146,23 +145,24 @@
 
                 <ImageView
                     android:id="@+id/ivItem2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/_16sdp"
+                    android:layout_width="@dimen/_54sdp"
+                    android:layout_height="@dimen/_54sdp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/_6sdp"
+                    android:layout_marginRight="@dimen/_6sdp"
                     android:src="@drawable/resources"
                     tools:ignore="ContentDescription" />
 
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="@dimen/_16sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
                     android:layout_toRightOf="@+id/ivItem2"
                     android:layout_weight="1"
                     android:orientation="vertical">
 
                     <TextView
-
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppins_regular"
@@ -170,7 +170,7 @@
                         android:paddingLeft="@dimen/_15sdp"
                         android:text="National Skilled Trades and Technology Week 2019, Burnaby, B.C."
                         android:textColor="@color/black"
-                        android:textSize="14sp" />
+                        android:textSize="19sp" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -181,7 +181,7 @@
                         android:gravity="center"
                         android:text="May 15, 2021  "
                         android:textColor="@color/black_light"
-                        android:textSize="13sp" />
+                        android:textSize="16sp" />
 
 
                 </LinearLayout>
@@ -192,10 +192,9 @@
 
 
 
-
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="143dp"
+            android:layout_height="153dp"
             android:layout_marginLeft="@dimen/_10sdp"
             android:background="@drawable/ic_group_copy_3_res">
 
@@ -208,23 +207,24 @@
 
                 <ImageView
                     android:id="@+id/ivItem3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/_16sdp"
+                    android:layout_width="@dimen/_54sdp"
+                    android:layout_height="@dimen/_54sdp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/_6sdp"
+                    android:layout_marginRight="@dimen/_6sdp"
                     android:src="@drawable/resources"
                     tools:ignore="ContentDescription" />
 
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="@dimen/_16sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
                     android:layout_toRightOf="@+id/ivItem3"
                     android:layout_weight="1"
                     android:orientation="vertical">
 
                     <TextView
-
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppins_regular"
@@ -232,7 +232,7 @@
                         android:paddingLeft="@dimen/_15sdp"
                         android:text="National Skilled Trades and Technology Week 2019, Burnaby, B.C."
                         android:textColor="@color/black"
-                        android:textSize="14sp" />
+                        android:textSize="19sp" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -243,7 +243,7 @@
                         android:gravity="center"
                         android:text="May 15, 2021  "
                         android:textColor="@color/black_light"
-                        android:textSize="13sp" />
+                        android:textSize="16sp" />
 
 
                 </LinearLayout>
@@ -253,11 +253,9 @@
         </RelativeLayout>
 
 
-
-
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="143dp"
+            android:layout_height="153dp"
             android:layout_marginLeft="@dimen/_10sdp"
             android:background="@drawable/ic_group_copy_3_res">
 
@@ -270,23 +268,24 @@
 
                 <ImageView
                     android:id="@+id/ivItem4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/_16sdp"
+                    android:layout_width="@dimen/_54sdp"
+                    android:layout_height="@dimen/_54sdp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/_6sdp"
+                    android:layout_marginRight="@dimen/_6sdp"
                     android:src="@drawable/resources"
                     tools:ignore="ContentDescription" />
 
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="@dimen/_16sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
                     android:layout_toRightOf="@+id/ivItem4"
                     android:layout_weight="1"
                     android:orientation="vertical">
 
                     <TextView
-
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppins_regular"
@@ -294,7 +293,7 @@
                         android:paddingLeft="@dimen/_15sdp"
                         android:text="National Skilled Trades and Technology Week 2019, Burnaby, B.C."
                         android:textColor="@color/black"
-                        android:textSize="14sp" />
+                        android:textSize="19sp" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -305,7 +304,7 @@
                         android:gravity="center"
                         android:text="May 15, 2021  "
                         android:textColor="@color/black_light"
-                        android:textSize="13sp" />
+                        android:textSize="16sp" />
 
 
                 </LinearLayout>
@@ -314,11 +313,9 @@
 
         </RelativeLayout>
 
-
-
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="143dp"
+            android:layout_height="153dp"
             android:layout_marginLeft="@dimen/_10sdp"
             android:background="@drawable/ic_group_copy_3_res">
 
@@ -331,23 +328,24 @@
 
                 <ImageView
                     android:id="@+id/ivItem5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/_16sdp"
+                    android:layout_width="@dimen/_54sdp"
+                    android:layout_height="@dimen/_54sdp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/_6sdp"
+                    android:layout_marginRight="@dimen/_6sdp"
                     android:src="@drawable/resources"
                     tools:ignore="ContentDescription" />
 
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="@dimen/_16sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
                     android:layout_toRightOf="@+id/ivItem5"
                     android:layout_weight="1"
                     android:orientation="vertical">
 
                     <TextView
-
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppins_regular"
@@ -355,7 +353,7 @@
                         android:paddingLeft="@dimen/_15sdp"
                         android:text="National Skilled Trades and Technology Week 2019, Burnaby, B.C."
                         android:textColor="@color/black"
-                        android:textSize="14sp" />
+                        android:textSize="19sp" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -366,7 +364,7 @@
                         android:gravity="center"
                         android:text="May 15, 2021  "
                         android:textColor="@color/black_light"
-                        android:textSize="13sp" />
+                        android:textSize="16sp" />
 
 
                 </LinearLayout>
@@ -374,7 +372,6 @@
 
 
         </RelativeLayout>
-
 
 
     </LinearLayout>

@@ -21,14 +21,14 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_180sdp"
+                    android:layout_height="@dimen/_170sdp"
                     android:layout_marginLeft="@dimen/_36sdp">
 
                     <ImageView
                         android:layout_width="@dimen/_182sdp"
-                        android:layout_height="@dimen/_152sdp"
+                        android:layout_height="@dimen/_135sdp"
                         android:layout_alignParentRight="true"
-                        android:background="@drawable/language_image"></ImageView>
+                        android:src="@drawable/language_image"></ImageView>
 
                     <TextView
                         android:layout_width="wrap_content"
