@@ -19,7 +19,7 @@
             android:fontFamily="@font/poppins_regular"
             android:text="@string/temp_nd"
             android:textColor="@color/black"
-            android:textSize="24sp" />
+            android:textSize="@dimen/_15sdp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -29,7 +29,7 @@
             android:gravity="center"
             android:text="May 15, 2021  | 02:00 pm "
             android:textColor="@color/black_light"
-            android:textSize="13sp" />
+            android:textSize="@dimen/_9sdp" />
 
         <ImageView
             android:layout_width="match_parent"
@@ -48,7 +48,7 @@
             android:fontFamily="@font/poppins_regular"
             android:text="@string/tempd"
             android:textColor="@color/black_light"
-            android:textSize="15sp" />
+            android:textSize="@dimen/_11sdp" />
 
 
     </LinearLayout>

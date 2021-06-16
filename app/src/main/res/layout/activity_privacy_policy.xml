@@ -51,7 +51,7 @@
                             android:text="Privacy
                             Notice"
                             android:textColor="@color/black"
-                            android:textSize="@dimen/_36sdp"></TextView>
+                            android:textSize="@dimen/_30sdp"></TextView>
 
                         <TextView
                             android:layout_width="match_parent"

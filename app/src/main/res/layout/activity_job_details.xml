@@ -70,7 +70,7 @@
             <TextView
                 android:id="@+id/textCons"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/_20sdp"
                 android:layout_marginTop="@dimen/_16sdp"
                 android:background="@drawable/ic_home_main_tag"
                 android:fontFamily="@font/poppins_regular"
@@ -81,7 +81,7 @@
                 android:text="Construction"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
-                android:textSize="14sp"></TextView>
+                android:textSize="@dimen/_10sdp"></TextView>
 
             <TextView
                 android:layout_width="wrap_content"
