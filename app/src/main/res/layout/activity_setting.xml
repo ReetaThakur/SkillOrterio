@@ -5,7 +5,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#F4F4FF"
+        android:background="@color/white"
         android:orientation="vertical">
 
         <include
@@ -15,6 +15,7 @@
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="#F4F4FF"
 
             android:scrollbars="none">
 
@@ -22,19 +23,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/_16sdp"
-                android:layout_marginRight="@dimen/_16sdp"
                 android:layout_marginTop="@dimen/_16sdp"
+                android:layout_marginRight="@dimen/_16sdp"
                 android:layout_marginBottom="@dimen/_20sdp"
                 android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_50sdp"
-                    android:padding="@dimen/_5sdp"
-
                     android:layout_marginBottom="@dimen/_10sdp"
+
                     android:background="@drawable/ic_rectangle_copy"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:padding="@dimen/_5sdp">
 
                     <RelativeLayout
                         android:layout_width="wrap_content"
@@ -82,10 +83,10 @@
                     android:id="@+id/l_change_password"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_50sdp"
-                    android:padding="@dimen/_5sdp"
                     android:layout_marginBottom="@dimen/_10sdp"
                     android:background="@drawable/ic_rectangle_copy"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:padding="@dimen/_5sdp">
 
                     <RelativeLayout
                         android:layout_width="wrap_content"
@@ -130,10 +131,10 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_50sdp"
-                    android:padding="@dimen/_5sdp"
                     android:layout_marginBottom="@dimen/_10sdp"
                     android:background="@drawable/ic_rectangle_copy"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:padding="@dimen/_5sdp">
 
                     <RelativeLayout
                         android:layout_width="wrap_content"
@@ -177,10 +178,10 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
+                            android:layout_marginRight="@dimen/_6sdp"
                             android:background="@drawable/ic_lang_rectangle"
                             android:fontFamily="@font/poppins_medium"
                             android:gravity="center"
-                            android:layout_marginRight="@dimen/_6sdp"
                             android:padding="@dimen/_6sdp"
                             android:text="@string/english"
                             android:textAllCaps="true"
@@ -209,10 +210,10 @@
                     android:id="@+id/l_terms"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_50sdp"
-                    android:padding="@dimen/_5sdp"
                     android:layout_marginBottom="@dimen/_10sdp"
                     android:background="@drawable/ic_rectangle_copy"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:padding="@dimen/_5sdp">
 
                     <RelativeLayout
                         android:layout_width="wrap_content"
@@ -258,10 +259,10 @@
                     android:id="@+id/l_help"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_50sdp"
-                    android:padding="@dimen/_5sdp"
                     android:layout_marginBottom="@dimen/_10sdp"
                     android:background="@drawable/ic_rectangle_copy"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:padding="@dimen/_5sdp">
 
                     <RelativeLayout
                         android:layout_width="wrap_content"
@@ -307,10 +308,10 @@
                     android:id="@+id/l_feedback"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_50sdp"
-                    android:padding="@dimen/_5sdp"
                     android:layout_marginBottom="@dimen/_10sdp"
                     android:background="@drawable/ic_rectangle_copy"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:padding="@dimen/_5sdp">
 
                     <RelativeLayout
                         android:layout_width="wrap_content"
@@ -356,10 +357,10 @@
                     android:id="@+id/l_privacy"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_50sdp"
-                    android:padding="@dimen/_5sdp"
                     android:layout_marginBottom="@dimen/_10sdp"
                     android:background="@drawable/ic_rectangle_copy"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:padding="@dimen/_5sdp">
 
                     <RelativeLayout
                         android:layout_width="wrap_content"
@@ -405,10 +406,10 @@
                     android:id="@+id/l_contactUS"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="@dimen/_5sdp"
                     android:layout_marginBottom="@dimen/_10sdp"
                     android:background="@drawable/ic_rectangle_copy"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:padding="@dimen/_5sdp">
 
                     <RelativeLayout
                         android:layout_width="wrap_content"
