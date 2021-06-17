@@ -12,6 +12,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -56,11 +58,17 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
         }
+
         viewBaseBinding = DataBindingUtil.setContentView(this, getLayoutById());
-
+        backButton();
         initUi();
+    }
 
-
+    public void backButton(){
+       ImageView ivBack=findViewById(R.id.iv_back);
+       if (ivBack!=null){
+           ivBack.setOnClickListener(v->finish());
+       }
     }
 
     @Override

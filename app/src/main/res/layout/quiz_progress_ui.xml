@@ -4,7 +4,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
 
         android:background="@android:color/transparent">
 
@@ -19,18 +19,20 @@
 
             <ImageView
                 android:id="@+id/ivNoData"
-                android:layout_width="@dimen/_50sdp"
-                android:layout_height="@dimen/_60sdp"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_45sdp"
                 android:src="@drawable/smile"
                 tools:ignore="ContentDescription" />
 
-
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
 
 
             <SeekBar
                 android:id="@+id/myProgress"
                 android:layout_width="match_parent"
-                android:layout_marginTop="@dimen/_40sdp"
 
                 android:progressBackgroundTint="@color/white"
                 android:progressTint="#34C759"
@@ -58,7 +60,7 @@ android:thumb="@drawable/thumb"
                     android:fontFamily="@font/poppins_regular"
                     android:text="Excited"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/_12sdp" />
+                    android:textSize="@dimen/_11sdp" />
                 <TextView
                     android:id="@+id/tv2"
                     android:layout_width="match_parent"
@@ -69,7 +71,7 @@ android:thumb="@drawable/thumb"
                     android:fontFamily="@font/poppins_regular"
                     android:text="Indifferent"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/_12sdp" />
+                    android:textSize="@dimen/_11sdp" />
 
 
             </LinearLayout>

@@ -37,10 +37,11 @@
                         android:fontFamily="@font/poppins_bold"
                         android:text="@string/start_career_quiz"
                         android:textColor="@color/white"
-                        android:textSize="@dimen/_35sdp"></TextView>
+                        android:textSize="@dimen/_30sdp"></TextView>
 
 
                     <ImageView
+                        android:id="@+id/iv_back"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="@dimen/_16sdp"
@@ -80,15 +81,17 @@
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_400sdp"
+                    android:layout_height="wrap_content"
                     android:layout_margin="@dimen/_16sdp"
                     android:minWidth="@dimen/_100sdp"
                     app:cardBackgroundColor="@color/white"
                     app:cardCornerRadius="@dimen/_10sdp"
                     app:cardElevation="0dp">
 
-                    <RelativeLayout
+                    <LinearLayout
                         android:layout_width="match_parent"
+                        android:orientation="vertical"
+                        android:gravity="center_horizontal"
                         android:layout_height="match_parent">
 
                         <ImageView
@@ -106,6 +109,7 @@
                             android:fontFamily="@font/poppins_medium"
                             android:text="@string/discover_a_suitable_career"
                             android:textColor="@color/black"
+                            android:layout_marginTop="@dimen/_20sdp"
                             android:textSize="@dimen/_24sdp"></TextView>
 
 
@@ -113,6 +117,7 @@
                             android:id="@+id/tv_take_quiz"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_20sdp"
                             android:layout_alignParentBottom="true"
                             android:layout_centerHorizontal="true"
                             android:layout_margin="@dimen/_16sdp"
@@ -123,7 +128,7 @@
                             android:textColor="@color/white"
                             android:textSize="@dimen/_18sdp"></TextView>
 
-                    </RelativeLayout>
+                    </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
 

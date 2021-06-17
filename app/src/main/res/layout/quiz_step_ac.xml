@@ -43,7 +43,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_35sdp"
+                    android:layout_height="@dimen/_30sdp"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:orientation="horizontal">
                     <LinearLayout
@@ -72,17 +72,17 @@
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:gravity="center"
-                            android:layout_marginTop="@dimen/_4sdp"
+                            android:paddingTop="@dimen/_2sdp"
                             android:fontFamily="@font/poppins_bold"
                             android:text="1/10"
                             android:singleLine="true"
                             android:textColor="#272F35"
-                            android:textSize="@dimen/_12sdp" />
+                            android:textSize="@dimen/_11sdp" />
 
                     </LinearLayout>
                     <ImageView
                         android:id="@+id/close"
-                        android:layout_width="@dimen/_35sdp"
+                        android:layout_width="@dimen/_30sdp"
                         android:layout_height="match_parent"
                         android:padding="@dimen/_10sdp"
                         android:backgroundTint="@color/white"
@@ -104,7 +104,7 @@
                     android:text="General"
                     android:textAllCaps="true"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/_10sdp"></TextView>
+                    android:textSize="@dimen/_9sdp" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -113,7 +113,7 @@
                     android:fontFamily="@font/poppins_bold"
                     android:text="@string/q_temp"
                     android:textColor="#272F35"
-                    android:textSize="@dimen/_12sdp" />
+                    android:textSize="@dimen/_11sdp" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rvItems"
@@ -142,7 +142,7 @@ android:visibility="gone"
             <LinearLayout
                 android:id="@+id/done"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_40sdp"
+                android:layout_height="@dimen/_35sdp"
                 android:gravity="center"
                 android:background="@drawable/ic_rectangle__done_button"
                 android:layout_marginTop="@dimen/_5sdp"
@@ -150,17 +150,21 @@ android:visibility="gone"
 
                 <TextView
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:fontFamily="@font/poppins_regular"
                     android:gravity="center"
-                    android:padding="@dimen/_10sdp"
-                    android:drawableTint="@color/white"
-                    android:drawableRight="@drawable/ic_arrow"
-                    android:text="@string/next"
-                    android:drawablePadding="@dimen/_5sdp"
+                  android:text="@string/next"
+                    android:paddingTop="@dimen/_2sdp"
                     android:textAllCaps="true"
                     android:textColor="@color/white"
                     android:textSize="@dimen/_14ssp" />
+
+                <ImageView
+                    android:layout_width="@dimen/_30sdp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:src="@drawable/ic_arrow"
+                    android:padding="@dimen/_6sdp"
+                    android:tint="@color/white"/>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
