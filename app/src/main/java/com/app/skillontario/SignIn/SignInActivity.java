@@ -29,14 +29,11 @@ public class SignInActivity extends BaseActivity {
 
         myIcon = AppCompatResources.getDrawable(SignInActivity.this, R.drawable.ic_edit_text_rectangle);
 
-        binding.etMail.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View view, boolean hasFocus) {
-                if (hasFocus) {
-                    enableFocusEditText(binding.rlEmail, binding.etMail, hasFocus);
-                } else {
-                    enableFocusEditText(binding.rlEmail, binding.etMail, hasFocus);
-                }
+        binding.etMail.setOnFocusChangeListener((view, hasFocus) -> {
+            if (hasFocus) {
+                enableFocusEditText(binding.rlEmail, binding.etMail, hasFocus);
+            } else {
+                enableFocusEditText(binding.rlEmail, binding.etMail, hasFocus);
             }
         });
 
@@ -71,6 +68,10 @@ public class SignInActivity extends BaseActivity {
                 startActivity(new Intent(SignInActivity.this, SignUpActivity.class));
             }
         });
+
+        binding.tvContinueAsGuest.setOnClickListener(v -> startActivity(new Intent(SignInActivity.this, BottomBarActivity.class)));
+        binding.tvHaveAnAccount.setOnClickListener(v -> startActivity(new Intent(SignInActivity.this, SignUpActivity.class)));
+        binding.tvHaveAnAccount1.setOnClickListener(v -> startActivity(new Intent(SignInActivity.this, SignUpActivity.class)));
 
 
     }

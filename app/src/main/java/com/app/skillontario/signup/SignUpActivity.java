@@ -10,6 +10,8 @@ import android.widget.RelativeLayout;
 
 import com.app.skillontario.BottomBarActivity;
 import com.app.skillontario.SignIn.SignInActivity;
+import com.app.skillontario.activities.PrivacyPolicyActivity;
+import com.app.skillontario.activities.TermsOfServicesActivity;
 import com.app.skillontario.apiConnection.ApiCallBack;
 import com.app.skillontario.apiConnection.ApiResponseErrorCallback;
 import com.app.skillontario.apiConnection.RequestBodyGenerator;
@@ -85,7 +87,7 @@ public class SignUpActivity extends BaseActivity implements ApiResponseErrorCall
         binding.cvSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                 startActivity(new Intent(SignUpActivity.this, BottomBarActivity.class));
+                startActivity(new Intent(SignUpActivity.this, BottomBarActivity.class));
               
                /* signUpModel.setEmail(binding.etMail.getText().toString().trim());
                 signUpModel.setPassword(binding.etPassword.getText().toString().trim());
@@ -95,6 +97,12 @@ public class SignUpActivity extends BaseActivity implements ApiResponseErrorCall
                         new ApiCallBack<>(SignUpActivity.this, apiResponseErrorCallback, 01, false));*/
             }
         });
+
+        binding.tvAgreement.setOnClickListener(v -> startActivity(new Intent(SignUpActivity.this, TermsOfServicesActivity.class)));
+
+        binding.tvPrivacy.setOnClickListener(v -> startActivity(new Intent(SignUpActivity.this, PrivacyPolicyActivity.class)));
+
+        binding.tvContinueAsGuest.setOnClickListener(v -> startActivity(new Intent(SignUpActivity.this, BottomBarActivity.class)));
     }
 
     void enableFocusEditText(RelativeLayout relativeLayout, EditText editText, boolean val) {
