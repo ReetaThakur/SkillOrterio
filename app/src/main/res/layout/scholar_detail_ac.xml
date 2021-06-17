@@ -22,8 +22,6 @@
             android:layout_marginRight="@dimen/_15sdp"
             android:orientation="vertical">
 
-
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -46,8 +44,9 @@
                         android:orientation="vertical">
 
                         <ImageView
-                            android:layout_width="@dimen/_150sdp"
-                            android:layout_height="@dimen/_90sdp"
+                            android:layout_width="@dimen/_130sdp"
+
+                            android:layout_height="@dimen/_70sdp"
                             android:src="@drawable/scholler">
 
                         </ImageView>
@@ -61,16 +60,16 @@
 Scholarship Award"
                             android:textColor="@color/black"
                             android:gravity="center"
-                            android:textSize="@dimen/_20sdp"></TextView>
+                            android:textSize="@dimen/_18sdp" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/_16sdp"
+                            android:layout_marginTop="@dimen/_10sdp"
                             android:fontFamily="@font/poppins_medium"
                             android:text="@string/s_temp_1"
                             android:textColor="#4A4F64"
-                            android:textSize="@dimen/_13sdp" />
+                            android:textSize="@dimen/_12sdp" />
 
 
                         <TextView
@@ -80,7 +79,7 @@ Scholarship Award"
                             android:fontFamily="@font/poppins_regular"
                             android:text="@string/s_temp_2"
                             android:textColor="#4A4F64"
-                            android:textSize="@dimen/_12sdp" />
+                            android:textSize="@dimen/_11sdp" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -89,7 +88,7 @@ Scholarship Award"
                             android:fontFamily="@font/poppins_regular"
                             android:text="@string/s_temp_2"
                             android:textColor="#4A4F64"
-                            android:textSize="@dimen/_12sdp" />
+                            android:textSize="@dimen/_11sdp" />
 
 
 
@@ -98,30 +97,35 @@ Scholarship Award"
             </LinearLayout>
 
 
+
             <androidx.cardview.widget.CardView
                 android:id="@+id/cv_signIn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_24sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
                 android:backgroundTint="@color/buttonColor"
                 app:cardCornerRadius="@dimen/_10sdp"
                 app:cardElevation="@dimen/_5sdp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="@dimen/_38sdp"
                     android:gravity="center"
                     android:orientation="horizontal">
 
+                    <ImageView
+                        android:layout_width="@dimen/_20sdp"
+                        android:layout_height="@dimen/_20sdp"
+                        android:padding="@dimen/_2sdp"
+                        android:src="@drawable/ic_done_white"
+                        android:layout_marginRight="@dimen/_5sdp"/>
                     <TextView
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:fontFamily="@font/poppins_regular"
                         android:gravity="center"
-                        android:padding="@dimen/_10sdp"
-                        android:drawableLeft="@drawable/ic_done_white"
-                        android:text="Visit Website"
-                        android:drawablePadding="@dimen/_10sdp"
+                         android:text="Visit Website"
                         android:textAllCaps="true"
                         android:textColor="@color/white"
                         android:textSize="@dimen/_16sdp" />

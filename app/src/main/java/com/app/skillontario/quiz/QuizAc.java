@@ -4,6 +4,8 @@ import android.content.Intent;
 
 import androidx.core.app.ShareCompat;
 import androidx.fragment.app.FragmentStatePagerAdapter;
+
+import com.app.skillontario.MainActivity;
 import com.app.skillontario.adapter.TabAdapter;
 import com.app.skillontario.baseClasses.BaseActivity;
 import com.app.skillorterio.R;
@@ -26,6 +28,7 @@ public class QuizAc extends BaseActivity {
                     .startChooser();
         });
         binding.retake.tvRetake.setOnClickListener(v->startActivity(new Intent(this, QuizStepAc.class)));
+        binding.home.setOnClickListener(v->startActivity(new Intent(this, MainActivity.class)));
 
         setAdapter();
     }
@@ -48,6 +51,7 @@ public class QuizAc extends BaseActivity {
         binding.viewPager.setOffscreenPageLimit(4);
         */
     }
+
 
 
     @Override

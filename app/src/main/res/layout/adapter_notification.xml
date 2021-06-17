@@ -53,7 +53,7 @@
                     android:fontFamily="@font/poppins_medium"
                     android:text="New Content"
                     android:textColor="@color/black"
-                    android:textSize="16sp"></TextView>
+                    android:textSize="@dimen/_12sdp"></TextView>
 
                 <TextView
                     android:id="@+id/tv_desc"
@@ -62,7 +62,7 @@
                     android:fontFamily="@font/poppins_regular"
                     android:text="Lorem Ipsum is simply dummy text of the printing and typesetting."
                     android:textColor="#9399B1"
-                    android:textSize="12sp"></TextView>
+                    android:textSize="@dimen/_9sdp"></TextView>
 
 
             </LinearLayout>

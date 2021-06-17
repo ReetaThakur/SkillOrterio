@@ -39,16 +39,16 @@
                         android:fontFamily="@font/poppins_bold"
                         android:text="@string/start_career_quiz"
                         android:textColor="@color/white"
-                        android:textSize="@dimen/_35sdp"></TextView>
+                        android:textSize="@dimen/_25sdp" />
 
 
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="@dimen/_30sdp"
+                        android:layout_height="@dimen/_30sdp"
                         android:layout_margin="@dimen/_16sdp"
-                        android:padding="@dimen/_16sdp"
+                        android:padding="@dimen/_8sdp"
                         android:src="@drawable/ic_back"
-                        app:tint="@color/white"></ImageView>
+                        app:tint="@color/white" />
 
                 </RelativeLayout>
 
@@ -67,7 +67,7 @@
                     android:fontFamily="@font/poppins_medium"
                     android:text="Popular Careers"
                     android:textColor="#818F99"
-                    android:textSize="@dimen/_14sdp"></TextView>
+                    android:textSize="@dimen/_13sdp" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recy_quiz"
@@ -78,11 +78,11 @@
                     android:orientation="horizontal"
                     android:scrollbars="none"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    app:reverseLayout="false"></androidx.recyclerview.widget.RecyclerView>
+                    app:reverseLayout="false" />
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_400sdp"
+                    android:layout_height="@dimen/_300sdp"
                     android:layout_margin="@dimen/_16sdp"
                     android:minWidth="@dimen/_100sdp"
                     app:cardBackgroundColor="@color/white"
@@ -98,7 +98,7 @@
                             android:layout_height="wrap_content"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="@dimen/_12sdp"
-                            android:src="@drawable/ic_group_job_image"></ImageView>
+                            android:src="@drawable/ic_group_job_image" />
 
                         <TextView
                             android:layout_width="match_parent"
@@ -108,13 +108,13 @@
                             android:fontFamily="@font/poppins_medium"
                             android:text="@string/discover_a_suitable_career"
                             android:textColor="@color/black"
-                            android:textSize="@dimen/_24sdp"></TextView>
+                            android:textSize="@dimen/_22sdp" />
 
 
                         <TextView
                             android:id="@+id/tv_take_quiz"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                            android:layout_height="@dimen/_35sdp"
                             android:layout_alignParentBottom="true"
                             android:layout_centerHorizontal="true"
                             android:layout_margin="@dimen/_16sdp"
@@ -123,7 +123,7 @@
                             android:gravity="center"
                             android:text="Take Quiz"
                             android:textColor="@color/white"
-                            android:textSize="@dimen/_18sdp"></TextView>
+                            android:textSize="@dimen/_18sdp" />
 
                     </RelativeLayout>
 

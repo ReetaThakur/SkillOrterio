@@ -12,24 +12,25 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/video"></ImageView>
+            android:src="@drawable/video" />
 
         <ImageView
+            android:id="@+id/ivPlay"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:src="@drawable/ic_play"></ImageView>
+            android:src="@drawable/ic_play" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:layout_marginLeft="@dimen/_12sdp"
-            android:layout_marginBottom="@dimen/_16sdp"
+            android:layout_below="@+id/ivPlay"
+            android:padding="@dimen/_5sdp"
             android:fontFamily="@font/poppins_medium"
             android:text="Job Interview Video "
             android:textColor="@color/white"
-            android:textSize="@dimen/_12sdp"></TextView>
+            android:textSize="@dimen/_12sdp" />
 
     </RelativeLayout>
 
