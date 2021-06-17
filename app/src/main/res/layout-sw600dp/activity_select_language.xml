@@ -109,7 +109,7 @@
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/_85sdp"
-                        android:layout_marginTop="@dimen/_12sdp"
+                        android:layout_marginTop="@dimen/_6sdp"
                         android:background="@drawable/c1">
 
                         <RelativeLayout

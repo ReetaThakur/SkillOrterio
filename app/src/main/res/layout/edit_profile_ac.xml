@@ -117,14 +117,14 @@
                                 android:id="@+id/bt1"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="RadioButton" />
+                                android:text="I identify as female" />
 
                             <RadioButton
                                 android:id="@+id/bt2"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="@dimen/_5sdp"
-                                android:text="RadioButton" />
+                                android:text="I don't identify as female" />
                         </RadioGroup>
 
                         <ImageView

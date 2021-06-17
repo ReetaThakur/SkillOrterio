@@ -40,7 +40,7 @@
 
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="40dp"
+                        android:layout_height="50dp"
                         android:background="@color/white">
 
                         <TextView
@@ -49,7 +49,7 @@
                             android:background="@color/white"
                             android:text="Government Partners"
                             android:textColor="@color/black"
-                            android:textSize="14sp"></TextView>
+                            android:textSize="25sp"></TextView>
                     </RelativeLayout>
 
 
@@ -70,7 +70,7 @@
 
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="40dp"
+                        android:layout_height="50dp"
                         android:background="@color/white">
 
                         <TextView
@@ -79,7 +79,7 @@
                             android:background="@color/white"
                             android:text="Premium Partners"
                             android:textColor="@color/black"
-                            android:textSize="14sp"></TextView>
+                            android:textSize="25sp"></TextView>
                     </RelativeLayout>
 
 
@@ -93,12 +93,12 @@
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                         android:scaleType="fitXY"
+                        android:scaleType="fitXY"
                         android:src="@drawable/platinum"></ImageView>
 
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="40dp"
+                        android:layout_height="50dp"
                         android:background="@color/white">
 
                         <TextView
@@ -107,7 +107,7 @@
                             android:background="@color/white"
                             android:text="Platinum Partners"
                             android:textColor="@color/black"
-                            android:textSize="14sp"></TextView>
+                            android:textSize="25sp"></TextView>
                     </RelativeLayout>
 
 

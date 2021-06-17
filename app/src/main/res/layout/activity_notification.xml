@@ -44,14 +44,36 @@
                 android:background="@drawable/ic_notification_background_white"
                 android:orientation="vertical">
 
-                <TextView
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/_16sdp"
-                    android:fontFamily="@font/poppins_regular"
-                    android:text="You have 14 new Notifications"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_10sdp"></TextView>
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="You have"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_10sdp"></TextView>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text=" 14 "
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_10sdp"></TextView>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="new Notifications"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_10sdp"></TextView>
+                </LinearLayout>
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recy_notification"

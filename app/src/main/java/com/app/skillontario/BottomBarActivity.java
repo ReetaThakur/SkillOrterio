@@ -40,7 +40,7 @@ public class BottomBarActivity extends BaseActivity {
         tabAdapter.addFragment(new ResourcesFragment(), AppConstants.Tab3);
         tabAdapter.addFragment(new DashboardFragment(), AppConstants.Tab4);
 
-        binding.bottomNavigationViewLinear.setTypeface(Typeface.createFromAsset(getAssets(), "poppins_regular.ttf"));
+       // binding.bottomNavigationViewLinear.setTypeface(Typeface.createFromAsset(getAssets(), "poppins_regular.ttf"));
 
         binding.bottomNavigationViewLinear.setBadgeValue(0, null);
         binding.bottomNavigationViewLinear.setBadgeValue(1, null); //invisible badge
@@ -61,10 +61,7 @@ public class BottomBarActivity extends BaseActivity {
 
             @Override
             public void onPageSelected(int i) {
-                binding.bottomNavigationViewLinear.setBadgeValue(0, null);
-                binding.bottomNavigationViewLinear.setBadgeValue(1, null); //invisible badge
-                binding.bottomNavigationViewLinear.setBadgeValue(2, null);
-                binding.bottomNavigationViewLinear.setBadgeValue(3, null);
+
                 binding.bottomNavigationViewLinear.setCurrentActiveItem(i);
             }
 

@@ -48,36 +48,37 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/poppins_regular"
-                            android:text="Terms Of Services"
+                            android:text="Terms
+                            of Services"
                             android:textColor="@color/black"
-                            android:textSize="@dimen/_36sdp"></TextView>
+                            android:textSize="32sp"></TextView>
 
                         <TextView
-                            android:layout_marginTop="@dimen/_16sdp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_16sdp"
                             android:fontFamily="@font/poppins_regular"
                             android:text="@string/terms_text"
                             android:textColor="@color/black"
-                            android:textSize="@dimen/_18sdp"></TextView>
+                            android:textSize="16sp"></TextView>
 
                         <TextView
-                            android:layout_marginTop="@dimen/_12sdp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_12sdp"
                             android:fontFamily="@font/poppins_regular"
                             android:text="@string/term1"
                             android:textColor="@color/black"
-                            android:textSize="@dimen/_12sdp"></TextView>
+                            android:textSize="13sp"></TextView>
 
                         <TextView
-                            android:layout_marginTop="@dimen/_12sdp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_12sdp"
                             android:fontFamily="@font/poppins_regular"
                             android:text="@string/term1"
                             android:textColor="@color/black"
-                            android:textSize="@dimen/_12sdp"></TextView>
+                            android:textSize="13sp"></TextView>
 
                     </LinearLayout>
                 </ScrollView>
@@ -91,8 +92,8 @@
                 android:layout_alignParentBottom="true"
                 android:background="#F6FAFF"
                 android:gravity="center"
-                android:visibility="gone"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:visibility="gone">
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cv_signUp"

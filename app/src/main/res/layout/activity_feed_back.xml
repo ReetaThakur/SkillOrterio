@@ -104,10 +104,10 @@
                         android:fontFamily="@font/poppins_regular"
                         android:gravity="center"
                         android:padding="@dimen/_10sdp"
-                        android:text="@string/save_password"
+                        android:text="Confirm"
                         android:textAllCaps="true"
                         android:textColor="@color/white"
-                        android:textSize="@dimen/_18sdp" />
+                        android:textSize="18sp" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
