@@ -10,6 +10,7 @@
 
         <LinearLayout
             android:id="@+id/llMain"
+            android:background="@color/white"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_5sdp"
@@ -23,8 +24,7 @@
                 android:layout_width="@dimen/_75sdp"
                 android:layout_height="@dimen/_79sdp"
                 android:gravity="center"
-                app:cardCornerRadius="5dp"
-                app:cardElevation="5dp">
+               >
                 <ImageView
                     android:id="@+id/ivItem"
                     android:layout_width="match_parent"

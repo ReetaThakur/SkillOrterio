@@ -50,7 +50,7 @@
                             android:fontFamily="@font/poppins_medium"
                             android:text="@string/terms_text"
                             android:textColor="@color/black"
-                            android:textSize="@dimen/_18sdp"></TextView>
+                            android:textSize="16sp"></TextView>
 
                         <TextView
                             android:layout_width="match_parent"
@@ -59,7 +59,7 @@
                             android:fontFamily="@font/poppins_regular"
                             android:text="@string/term1"
                             android:textColor="@color/black"
-                            android:textSize="@dimen/_12sdp"></TextView>
+                            android:textSize="13sp"></TextView>
 
                         <TextView
                             android:layout_width="match_parent"
@@ -68,7 +68,7 @@
                             android:fontFamily="@font/poppins_regular"
                             android:text="@string/term1"
                             android:textColor="@color/black"
-                            android:textSize="@dimen/_12sdp"></TextView>
+                            android:textSize="13sp"></TextView>
 
                     </LinearLayout>
                 </ScrollView>
