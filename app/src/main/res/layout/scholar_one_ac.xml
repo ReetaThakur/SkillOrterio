@@ -31,6 +31,7 @@
             <androidx.core.widget.NestedScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="#F4F4FF"
                 android:scrollbars="none">
 
                 <LinearLayout
@@ -40,47 +41,26 @@
                     android:orientation="vertical">
 
                     <include
-                        layout="@layout/scollar_item1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="0dp" />
+                        layout="@layout/scollar_item1"  />
 
                     <include
-                        layout="@layout/scollar_item1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="-50dp" />
+                        layout="@layout/scollar_item1"  />
 
                     <include
-                        layout="@layout/scollar_item1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="-50dp" />
+                        layout="@layout/scollar_item1"  />
 
 
                     <include
-                        layout="@layout/scollar_item1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="-50dp" />
+                        layout="@layout/scollar_item1"  />
 
                     <include
-                        layout="@layout/scollar_item1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="-50dp" />
+                        layout="@layout/scollar_item1" />
 
                     <include
-                        layout="@layout/scollar_item1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="-50dp" />
+                        layout="@layout/scollar_item1"  />
 
                     <include
-                        layout="@layout/scollar_item1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="-50dp" />
+                        layout="@layout/scollar_item1"  />
 
                 </LinearLayout>
 
