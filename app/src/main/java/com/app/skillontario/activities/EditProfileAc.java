@@ -55,6 +55,7 @@ public class EditProfileAc extends BaseActivity {
                 .setTextSize(14f)
                 .setCornerRadius(20f)
                 .setPadding(16)
+                .setTextGravity(10)
                 .setMarginRight(16)
                 .setMarginLeft(16)
                 .setText("Diversity, inclusion, and representation are top priorities for Skills Ontario. We work with communities across the province to ensure that we are providing equitable opportunities for all youth and building a diverse and robust skilled workforce. To better understand our impact and reach")
