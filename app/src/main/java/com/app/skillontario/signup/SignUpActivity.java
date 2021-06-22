@@ -4,6 +4,7 @@ import androidx.appcompat.content.res.AppCompatResources;
 
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
@@ -16,6 +17,7 @@ import com.app.skillontario.apiConnection.ApiCallBack;
 import com.app.skillontario.apiConnection.ApiResponseErrorCallback;
 import com.app.skillontario.apiConnection.RequestBodyGenerator;
 import com.app.skillontario.baseClasses.BaseActivity;
+import com.app.skillontario.baseClasses.BaseResponseModel;
 import com.app.skillontario.models.SignUpModel;
 import com.app.skillorterio.R;
 import com.app.skillorterio.databinding.ActivitySignUpBinding;
@@ -87,14 +89,14 @@ public class SignUpActivity extends BaseActivity implements ApiResponseErrorCall
         binding.cvSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(SignUpActivity.this, BottomBarActivity.class));
-              
-               /* signUpModel.setEmail(binding.etMail.getText().toString().trim());
+                //startActivity(new Intent(SignUpActivity.this, BottomBarActivity.class));
+
+                signUpModel.setEmail(binding.etMail.getText().toString().trim());
                 signUpModel.setPassword(binding.etPassword.getText().toString().trim());
                 signUpModel.setConfirmPassword(binding.etConfirmPassword.getText().toString().trim());
 
                 API_INTERFACE.registerUser(RequestBodyGenerator.registerUser(signUpModel)).enqueue(
-                        new ApiCallBack<>(SignUpActivity.this, apiResponseErrorCallback, 01, false));*/
+                        new ApiCallBack<>(SignUpActivity.this, apiResponseErrorCallback, 01, false));
             }
         });
 
@@ -127,7 +129,8 @@ public class SignUpActivity extends BaseActivity implements ApiResponseErrorCall
     @Override
     public void getApiResponse(Object responseObject, int flag) {
         if (flag == 01) {
-
+            BaseResponseModel response = (BaseResponseModel) responseObject;
+            Log.d("Sunny", " res " + response);
         }
     }
 

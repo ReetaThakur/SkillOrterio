@@ -1,13 +1,21 @@
 package com.app.skillontario.adapter;
 
+import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.net.Uri;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 
 import androidx.core.content.ContextCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.app.skillontario.baseClasses.AppController;
 import com.app.skillorterio.R;
 import com.app.skillorterio.databinding.AdapterRecentBinding;
 import com.app.skillorterio.databinding.AdapterRecentBinding;
@@ -72,6 +80,23 @@ public class RecentEventsAdapter extends RecyclerView.Adapter<RecentEventsAdapte
             viewHolder.binding.imagePerson.setImageResource(R.drawable.home_main_img2);
         }*/
 
+        viewHolder.binding.ivCal.setOnClickListener(v -> openD());
+
+        viewHolder.binding.eventRow.setOnClickListener(v -> context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.skillsontario.com"))));
+
+    }
+
+    private void openD() {
+        Dialog dialogMood = new Dialog(context);
+        dialogMood.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialogMood.setCancelable(true);
+        if (dialogMood.getWindow() != null) {
+            dialogMood.getWindow()
+                    .setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        }
+        dialogMood.setContentView(R.layout.news_dialog);
+        dialogMood.findViewById(R.id.done).setOnClickListener(view1 -> dialogMood.dismiss());
+        dialogMood.show();
     }
 
     @NotNull

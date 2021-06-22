@@ -29,9 +29,9 @@ public class TakeQuizActivity extends BaseActivity {
         adapter = new QuizAdapter(TakeQuizActivity.this, true);
         binding.recyQuiz.setAdapter(adapter);
 
-        binding.recyQuiz.addOnItemTouchListener(new RecyclerItemClickListener(TakeQuizActivity.this, (view, position) -> {
+      /*  binding.recyQuiz.addOnItemTouchListener(new RecyclerItemClickListener(TakeQuizActivity.this, (view, position) -> {
             startActivity(new Intent(this, JobDetailsActivity.class));
-        }));
+        }));*/
     }
 
 

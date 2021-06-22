@@ -47,6 +47,7 @@
 
     <color name="home_color1">#FFF0EF</color>
     <color name="home_color2">#FFFFFF</color>
+    <color name="bookmark_fill_color">#FF9F0A</color>
 
 
     <color name="home_oval_color1">#FF9F89</color>

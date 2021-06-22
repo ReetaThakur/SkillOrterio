@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.app.skillontario.SignIn.WelcomeActivity;
 import com.app.skillontario.baseClasses.BaseActivity;
 import com.app.skillontario.signup.SignUpActivity;
 import com.app.skillorterio.R;

@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.view.View;
 
+import com.app.skillontario.SignIn.WelcomeActivity;
 import com.app.skillontario.baseClasses.BaseActivity;
 import com.app.skillontario.constants.AppConstants;
 import com.app.skillontario.utils.MySharedPreference;
@@ -25,13 +26,13 @@ public class SelectLanguage extends BaseActivity {
 
         binding.imageViewEnglish.setOnClickListener(v -> {
             changeLocale("en",this);
-            startActivity(new Intent(SelectLanguage.this, SelectRoleActivity.class));
+            startActivity(new Intent(SelectLanguage.this, WelcomeActivity.class));
             finishAffinity();
         });
 
         binding.imageViewFrench.setOnClickListener(v -> {
             changeLocale("fr",this);
-            startActivity(new Intent(SelectLanguage.this, SelectRoleActivity.class));
+            startActivity(new Intent(SelectLanguage.this, WelcomeActivity.class));
             finishAffinity();
         });
     }

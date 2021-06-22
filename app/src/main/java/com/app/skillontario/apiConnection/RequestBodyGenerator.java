@@ -31,11 +31,23 @@ public class RequestBodyGenerator {
     public static HashMap<String, Object> registerUser(SignUpModel signUpModel) {
         HashMap<String, Object> object = new HashMap<>();
 
-        object.put("username", signUpModel.getUserName());
-        object.put("email", signUpModel.getEmail());
-        object.put("mobile", signUpModel.getMobile());
-        object.put("password", signUpModel.getPassword());
-        object.put("cpassword", signUpModel.getConfirmPassword());
+        object.put("email", "mk70@mailinator.com");
+        object.put("password", "mk@123");
+        object.put("fname", "");
+        object.put("lname", "");
+        object.put("gender", "");
+
+        object.put("school", "");
+        object.put("city", "");
+        object.put("province", "");
+        object.put("dob", "1970-01-01");
+        object.put("deviceType", "IOS");
+        object.put("deviceId", "999999-0000-000");
+        object.put("userType", "2");
+        object.put("notifyStatus", "1");
+        object.put("terms", "1");
+        object.put("fcmToken", "SSDDFFGGG");
+        object.put("status", "");
 
         return object;
     }

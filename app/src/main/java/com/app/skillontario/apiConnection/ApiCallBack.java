@@ -48,13 +48,16 @@ public class ApiCallBack<T> implements Callback<T>, ConfirmDialogCallback {
         dismissDialog();
         if (response.isSuccessful()) {
             BaseResponseModel model = (BaseResponseModel) response.body();
-            if (model != null && model.getStatus()) {
-                responseErrorCallback.getApiResponse(response.body(), flag);
-            } else if (model != null && model.getError().getErrorCode() == 5) {
-                new CustomAlertDialog(context, context.getResources().getString(R.string.session_espired_msg),
-                        context.getResources().getString((R.string.session_expired))).show();
-            } else
-                responseErrorCallback.getApiResponse(response.body(), flag);
+            try {
+                if (model != null && model.getStatus() == 200) {
+                    responseErrorCallback.getApiResponse(response.body(), flag);
+                } else if (model != null && model.getError().getErrorCode() == 5) {
+                    new CustomAlertDialog(context, context.getResources().getString(R.string.session_espired_msg),
+                            context.getResources().getString((R.string.session_expired))).show();
+                } else
+                    responseErrorCallback.getApiResponse(response.body(), flag);
+            } catch (Exception e) {
+            }
 
         } else
             Utils.showToast(context, "Server Not Responding");

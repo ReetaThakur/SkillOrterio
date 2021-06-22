@@ -7,8 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.viewpager.widget.ViewPager.OnPageChangeListener
 import com.app.skillontario.activities.SelectLanguage
+import com.app.skillontario.activities.SelectRoleActivity
 import com.app.skillontario.baseClasses.BaseActivity
 import com.app.skillontario.constants.AppConstants
+import com.app.skillontario.signup.SignUpActivity
 import com.app.skillontario.utils.MySharedPreference
 import com.app.skillontario.utils.Utils
 import com.app.skillorterio.R
@@ -41,7 +43,7 @@ class WelcomeActivity : BaseActivity() {
 
     private fun openLoginPage() {
         MySharedPreference.getInstance().setBooleanData(AppConstants.IS_WALK_THROUGH, true)
-        startActivity(Intent(this, SelectLanguage::class.java))
+        startActivity(Intent(this, SelectRoleActivity::class.java))
         finishAffinity()
     }
 

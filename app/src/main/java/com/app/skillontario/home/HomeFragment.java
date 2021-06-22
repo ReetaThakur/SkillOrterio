@@ -61,9 +61,9 @@ public class HomeFragment extends BaseFragment {
         adapter = new PopularCareerAdapter(getActivity(), true);
         binding.recyPopularCareers.setAdapter(adapter);
 
-        binding.recyPopularCareers.addOnItemTouchListener(new RecyclerItemClickListener(getActivity(), (view, position) -> {
+       /* binding.recyPopularCareers.addOnItemTouchListener(new RecyclerItemClickListener(getActivity(), (view, position) -> {
             startActivity(new Intent(getActivity(), JobDetailsActivity.class));
-        }));
+        }));*/
     }
 
 
@@ -72,9 +72,9 @@ public class HomeFragment extends BaseFragment {
         adapter1 = new RecentEventsAdapter(getActivity(), false);
         binding.recyRecentEvent.setAdapter(adapter1);
 
-        binding.recyRecentEvent.addOnItemTouchListener(new RecyclerItemClickListener(getActivity(), (view, position) -> {
-            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.skillsontario.com")));
-        }));
+      /*  binding.recyRecentEvent.addOnItemTouchListener(new RecyclerItemClickListener(getActivity(), (view, position) -> {
+
+        }));*/
     }
 
     private void showRecentNewsRecycler() {

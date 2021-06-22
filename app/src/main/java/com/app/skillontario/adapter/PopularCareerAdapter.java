@@ -1,7 +1,9 @@
 package com.app.skillontario.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.core.content.ContextCompat;
@@ -9,6 +11,7 @@ import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.app.skillontario.MainActivity;
+import com.app.skillontario.activities.JobDetailsActivity;
 import com.app.skillorterio.R;
 import com.app.skillorterio.databinding.AdapterPopularCarrerBinding;
 
@@ -18,6 +21,7 @@ public class PopularCareerAdapter extends RecyclerView.Adapter<PopularCareerAdap
 
 
     Context context;
+    boolean clickBookmark = false;
     boolean popular = false;
     private int[] imageArray = {
             R.drawable.recy1,
@@ -72,6 +76,21 @@ public class PopularCareerAdapter extends RecyclerView.Adapter<PopularCareerAdap
             viewHolder.binding.imagePerson.setImageResource(R.drawable.home_main_img2);
         }
 
+        viewHolder.binding.imagePerson.setOnClickListener(v -> context.startActivity(new Intent(context, JobDetailsActivity.class)));
+        viewHolder.binding.mainLay.setOnClickListener(v -> context.startActivity(new Intent(context, JobDetailsActivity.class)));
+
+        viewHolder.binding.ivBookmark.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (clickBookmark) {
+                    clickBookmark = false;
+                    viewHolder.binding.ivBookmark.setImageResource(R.drawable.ic_home_main_batch);
+                } else {
+                    clickBookmark=true;
+                    viewHolder.binding.ivBookmark.setImageResource(R.drawable.ic_bookmark_fill);
+                }
+            }
+        });
     }
 
     @NotNull

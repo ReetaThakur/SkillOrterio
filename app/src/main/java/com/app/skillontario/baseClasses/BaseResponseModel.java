@@ -8,76 +8,29 @@ import java.io.Serializable;
 public class BaseResponseModel<T>  implements Serializable {
 
     @Expose
-    @SerializedName("result")
-    public T data;
-
-    @Expose
     @SerializedName("error")
-    public Error error;
+    private Error error;
 
     @Expose
     @SerializedName("status")
-    public boolean status;
-
-    @Expose
-    @SerializedName("hasMore")
-    public boolean hasMore;
+    private int status;
 
     @Expose
     @SerializedName("message")
     public String message;
 
     @Expose
-    @SerializedName("thumPath")
-    public String thumbPath;
+    @SerializedName("isSinValid")
+    public Boolean isSinValid;
 
-    public T getData() {
-        return data;
-    }
+    @Expose
+    @SerializedName("isSinValidInteger")
+    public Boolean isSinValidInteger;
 
-    public void setData(T data) {
-        this.data = data;
-    }
+    @Expose
+    @SerializedName("result")
+    public T result;
 
-    public Error getError() {
-        return error;
-    }
-
-    public void setError(Error error) {
-        this.error = error;
-    }
-
-    public boolean getStatus() {
-        return status;
-    }
-
-    public void setStatus(boolean status) {
-        this.status = status;
-    }
-
-    public boolean isHasMore() {
-        return hasMore;
-    }
-
-    public void setHasMore(boolean hasMore) {
-        this.hasMore = hasMore;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
-    public String getThumbPath() {
-        return thumbPath;
-    }
-
-    public void setThumbPath(String thumbPath) {
-        this.thumbPath = thumbPath;
-    }
 
     public static class Error {
         @Expose
@@ -87,22 +40,22 @@ public class BaseResponseModel<T>  implements Serializable {
         @SerializedName("errorCode")
         private int errorCode;
 
-        public void setMessage(String message) {
-            this.message = message;
+        public String getMessage() {
+            return message;
         }
 
         public int getErrorCode() {
             return errorCode;
         }
 
-        public void setErrorCode(int errorCode) {
-            this.errorCode = errorCode;
-        }
-
-        public String getMessage() {
-            return message;
-        }
+    }
 
 
+    public Error getError() {
+        return error;
+    }
+
+    public int getStatus() {
+        return status;
     }
 }

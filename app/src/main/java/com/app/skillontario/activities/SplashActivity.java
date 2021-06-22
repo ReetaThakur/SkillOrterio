@@ -65,7 +65,7 @@ public class SplashActivity extends BaseActivity {
                 startActivity(intent);
                 finishAffinity();
             } else {
-                startActivity(new Intent(this, WelcomeActivity.class));
+                startActivity(new Intent(this, SelectLanguage.class));
                 finishAffinity();
             }
         }

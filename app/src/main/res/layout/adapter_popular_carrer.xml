@@ -65,6 +65,7 @@
                         android:textSize="10sp"></TextView>
 
                     <ImageView
+                        android:id="@+id/iv_bookmark"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"

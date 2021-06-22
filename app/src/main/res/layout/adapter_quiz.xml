@@ -8,7 +8,7 @@
         android:orientation="vertical">
 
     <RelativeLayout
-
+        android:id="@+id/ly_main"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_130sdp"
         android:orientation="vertical">
@@ -82,6 +82,7 @@
                     android:textSize="@dimen/_10sdp"></TextView>
 
                 <ImageView
+                    android:id="@+id/iv_bookmark"
                     android:layout_width="@dimen/_20sdp"
                     android:layout_height="@dimen/_20sdp"
                     android:layout_alignParentRight="true"
