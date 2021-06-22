@@ -66,10 +66,11 @@ public class FeedBackActivity extends BaseActivity {
             }
         });
 
-        binding.cvSavePassword.setOnClickListener(new View.OnClickListener() {
+        binding.cvSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                showToast("Send feedback");
+                onBackPressed();
             }
         });
     }

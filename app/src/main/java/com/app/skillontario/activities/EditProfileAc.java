@@ -9,6 +9,7 @@ import android.widget.Toast;
 import androidx.core.content.ContextCompat;
 
 import com.app.skillontario.baseClasses.BaseActivity;
+import com.app.skillontario.dialogs.DialogWithMsg;
 import com.app.skillorterio.R;
 import com.app.skillorterio.databinding.EditProfileAcBinding;
 import com.skydoves.balloon.ArrowOrientation;
@@ -20,6 +21,7 @@ import com.skydoves.balloon.BalloonSizeSpec;
 public class EditProfileAc extends BaseActivity {
     private EditProfileAcBinding binding;
     Balloon balloon;
+    DialogWithMsg dialogWithMsg;
 
     @Override
     protected void initUi() {
@@ -34,14 +36,29 @@ public class EditProfileAc extends BaseActivity {
         showPopUp();
 
         binding.ivInfo.setOnClickListener(v -> {
-            showPopUp();
+          /*  showPopUp();
             if (balloon.isShowing()) {
                 balloon.dismiss();
             } else {
                 balloon.showAlignBottom(binding.ivInfo);
+            }*/
+
+            showDilog();
+        });
+
+        binding.done.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //showToast("Profile saved");
+                onBackPressed();
             }
         });
 
+    }
+
+    void showDilog() {
+        dialogWithMsg = new DialogWithMsg(EditProfileAc.this, 0, "", getString(R.string.demo_), "OK", null);
+        dialogWithMsg.show();
     }
 
     void showPopUp() {

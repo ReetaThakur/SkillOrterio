@@ -206,6 +206,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:divider="@null"
+                    android:layout_marginRight="@dimen/_16sdp"
+                    android:layout_marginLeft="@dimen/_16sdp"
                     android:orientation="horizontal"
                     android:scrollbars="none"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"

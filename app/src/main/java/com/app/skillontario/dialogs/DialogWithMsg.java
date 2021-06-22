@@ -68,15 +68,16 @@ public class DialogWithMsg extends Dialog {
         binding.confirmMsgTxt.setText(Html.fromHtml(content));
         binding.okBtn.setText(actionMsg);
 
-        binding.ivDialogImage.setImageDrawable(ContextCompat.getDrawable(context, imageId));
+        if (imageId != 0)
+            binding.ivDialogImage.setImageDrawable(ContextCompat.getDrawable(context, imageId));
 
         binding.ivClose.setOnClickListener(v -> {
-            callback.onNegativeClick(requestCode);
+          //  callback.onNegativeClick(requestCode);
             dismiss();
         });
 
         binding.okBtn.setOnClickListener(view -> {
-            callback.onPositiveClick(requestCode);
+           // callback.onPositiveClick(requestCode);
             dismiss();
         });
     }

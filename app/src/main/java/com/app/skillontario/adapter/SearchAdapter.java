@@ -2,6 +2,7 @@ package com.app.skillontario.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.core.content.ContextCompat;
@@ -18,7 +19,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
 
 
     Context context;
-
+    boolean clickBookmark = false;
 
     public SearchAdapter(Context context) {
         this.context = context;
@@ -62,6 +63,17 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
             viewHolder.binding.imgOvl.setColorFilter(ContextCompat.getColor(context, R.color.home_oval_color3));
             viewHolder.binding.imagePerson.setImageResource(R.drawable.home_main_img3);
         }
+
+        viewHolder.binding.imgBookmark.setOnClickListener(v -> {
+            if (clickBookmark) {
+                clickBookmark = false;
+                viewHolder.binding.imgBookmark.setImageResource(R.drawable.ic_home_main_batch);
+            } else {
+                clickBookmark = true;
+                viewHolder.binding.imgBookmark.setImageResource(R.drawable.ic_bookmark_fill);
+            }
+
+        });
 
 
     }

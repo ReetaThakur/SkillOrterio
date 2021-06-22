@@ -34,9 +34,9 @@ public class SearchActivity extends BaseActivity {
         adapter = new SearchAdapter(SearchActivity.this);
         binding.recySearch.setAdapter(adapter);
 
-        binding.recySearch.addOnItemTouchListener(new RecyclerItemClickListener(SearchActivity.this, (view, position) -> {
+      /*  binding.recySearch.addOnItemTouchListener(new RecyclerItemClickListener(SearchActivity.this, (view, position) -> {
 
-        }));
+        }));*/
     }
 
     @Override

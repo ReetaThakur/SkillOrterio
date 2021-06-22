@@ -40,11 +40,12 @@ public class QuizStepAc extends BaseActivity {
      countNotify();
         });
         binding.close.setOnClickListener(v->{
-            if(count==1){
+           /* if(count==1){
                 return;
             }
             count--;
-            countNotify();
+            countNotify();*/
+            onBackPressed();
         });
     }
 

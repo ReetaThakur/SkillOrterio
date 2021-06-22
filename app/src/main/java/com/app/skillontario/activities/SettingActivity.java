@@ -3,6 +3,7 @@ package com.app.skillontario.activities;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 
@@ -23,6 +24,7 @@ import static com.app.skillontario.constants.ApiConstants.API_INTERFACE;
 public class SettingActivity extends BaseActivity {
 
     private ActivitySettingBinding binding;
+    boolean notiOnOff = false;
 
     @Override
     protected void initUi() {
@@ -44,23 +46,34 @@ public class SettingActivity extends BaseActivity {
 
         binding.lTerms.setOnClickListener(v -> startActivity(new Intent(SettingActivity.this, TermsOfServicesActivity.class)));
 
-        binding.ivNotification.setOnClickListener(v->apiOnOff());
 
-    }
+        binding.ivNotification.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (notiOnOff) {
+                    notiOnOff = false;
+                    binding.ivNotification.setImageResource(R.drawable.ic_notification_on);
+                } else {
+                    notiOnOff = true;
+                    binding.ivNotification.setImageResource(R.drawable.ic_notification_off);
+                }
+            }
+        });
 
-    private void apiOnOff() {
-        API_INTERFACE.registerUser(RequestBodyGenerator.userID()).enqueue(
-                new ApiCallBack<>(this, new ApiResponseErrorCallback() {
-                    @Override
-                    public void getApiResponse(Object responseObject, int flag) {
+        binding.tvSettingEnglish.setOnClickListener(v -> {
+            binding.tvSettingEnglish.setTextColor(Color.parseColor("#ffffff"));
+            binding.tvSettingFrench.setTextColor(Color.parseColor("#000000"));
+            binding.tvSettingEnglish.setBackgroundResource(R.drawable.ic_lang_rectangle);
+            binding.tvSettingFrench.setBackgroundResource(R.drawable.ic_lang_rectangle_transparent);
+        });
 
-                    }
+        binding.tvSettingFrench.setOnClickListener(v -> {
+            binding.tvSettingEnglish.setTextColor(Color.parseColor("#000000"));
+            binding.tvSettingFrench.setTextColor(Color.parseColor("#ffffff"));
+            binding.tvSettingFrench.setBackgroundResource(R.drawable.ic_lang_rectangle);
+            binding.tvSettingEnglish.setBackgroundResource(R.drawable.ic_lang_rectangle_transparent);
+        });
 
-                    @Override
-                    public void getApiError(Throwable t, int flag) {
-
-                    }
-                }, 01, false));
     }
 
 

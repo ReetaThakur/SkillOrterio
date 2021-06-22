@@ -1,6 +1,7 @@
 package com.app.skillontario.quiz;
 
 import android.content.Intent;
+import android.net.Uri;
 
 import androidx.core.app.ShareCompat;
 import androidx.fragment.app.FragmentStatePagerAdapter;
@@ -26,6 +27,10 @@ public class QuizAc extends BaseActivity {
                     .setChooserTitle(getResources().getText(R.string.app_name))
                     .setText("https://www.skillsontario.com")
                     .startChooser();
+        });
+
+        binding.sendInvite.setOnClickListener(v->{
+            onShareClicked();
         });
         binding.retake.tvRetake.setOnClickListener(v->startActivity(new Intent(this, QuizStepAc.class)));
         binding.home.setOnClickListener(v->startActivity(new Intent(this, MainActivity.class)));
@@ -63,5 +68,19 @@ public class QuizAc extends BaseActivity {
     public void onBackPressed() {
         super.onBackPressed();
         overridePendingTransition(R.anim.slide_in_from_left, R.anim.slide_out_from_right);
+    }
+
+    private void onShareClicked() {
+
+        String link = "https://play.google.com/store/apps/details?id=com.whatsapp";
+
+        Uri uri = Uri.parse(link);
+
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("text/plain");
+        intent.putExtra(Intent.EXTRA_TEXT, link.toString());
+        intent.putExtra(Intent.EXTRA_TITLE, "Sample App");
+
+        startActivity(Intent.createChooser(intent, "Share Link"));
     }
 }

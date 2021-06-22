@@ -56,10 +56,10 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/_15sdp"
                             android:fontFamily="@font/poppins_medium"
+                            android:gravity="center"
                             android:text="Darren L. Buium
 Scholarship Award"
                             android:textColor="@color/black"
-                            android:gravity="center"
                             android:textSize="@dimen/_18sdp" />
 
                         <TextView
@@ -91,15 +91,13 @@ Scholarship Award"
                             android:textSize="@dimen/_11sdp" />
 
 
-
                     </LinearLayout>
                 </ScrollView>
             </LinearLayout>
 
 
-
             <androidx.cardview.widget.CardView
-                android:id="@+id/cv_signIn"
+                android:id="@+id/cv_visit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_10sdp"
@@ -117,15 +115,17 @@ Scholarship Award"
                     <ImageView
                         android:layout_width="@dimen/_20sdp"
                         android:layout_height="@dimen/_20sdp"
+                        android:layout_marginRight="@dimen/_5sdp"
                         android:padding="@dimen/_2sdp"
-                        android:src="@drawable/ic_done_white"
-                        android:layout_marginRight="@dimen/_5sdp"/>
+                        android:src="@drawable/ic_web"
+                        app:tint="@color/white" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:fontFamily="@font/poppins_regular"
+                        android:fontFamily="@font/poppins_medium"
                         android:gravity="center"
-                         android:text="Visit Website"
+                        android:text="Visit Website"
                         android:textAllCaps="true"
                         android:textColor="@color/white"
                         android:textSize="@dimen/_16sdp" />

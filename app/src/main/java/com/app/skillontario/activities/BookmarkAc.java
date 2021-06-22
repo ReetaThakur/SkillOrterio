@@ -3,6 +3,7 @@ package com.app.skillontario.activities;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 
 import com.app.skillontario.adapter.BookmarkAdapter;
 import com.app.skillontario.baseClasses.BaseActivity;
@@ -10,7 +11,7 @@ import com.app.skillorterio.R;
 import com.app.skillorterio.databinding.BookmarkAcBinding;
 import com.app.skillorterio.databinding.ContactUsAcBinding;
 
-public class BookmarkAc  extends BaseActivity {
+public class BookmarkAc extends BaseActivity {
     private BookmarkAcBinding binding;
 
     @Override
@@ -19,6 +20,7 @@ public class BookmarkAc  extends BaseActivity {
         binding = (BookmarkAcBinding) viewBaseBinding;
 
         binding.actionBar.tvTitle.setText("Bookmarked");
+        binding.actionBar.ivBack.setOnClickListener(v -> onBackPressed());
 
         binding.rvItems.setAdapter(new BookmarkAdapter(this));
 

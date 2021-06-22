@@ -84,7 +84,7 @@
             </RelativeLayout>
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/cv_savePassword"
+                android:id="@+id/cv_send"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_36sdp"

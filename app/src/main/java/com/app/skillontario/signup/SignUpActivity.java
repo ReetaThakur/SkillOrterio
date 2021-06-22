@@ -89,14 +89,14 @@ public class SignUpActivity extends BaseActivity implements ApiResponseErrorCall
         binding.cvSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //startActivity(new Intent(SignUpActivity.this, BottomBarActivity.class));
+                startActivity(new Intent(SignUpActivity.this, BottomBarActivity.class));
 
-                signUpModel.setEmail(binding.etMail.getText().toString().trim());
+               /* signUpModel.setEmail(binding.etMail.getText().toString().trim());
                 signUpModel.setPassword(binding.etPassword.getText().toString().trim());
                 signUpModel.setConfirmPassword(binding.etConfirmPassword.getText().toString().trim());
 
                 API_INTERFACE.registerUser(RequestBodyGenerator.registerUser(signUpModel)).enqueue(
-                        new ApiCallBack<>(SignUpActivity.this, apiResponseErrorCallback, 01, false));
+                        new ApiCallBack<>(SignUpActivity.this, apiResponseErrorCallback, 01, false));*/
             }
         });
 
@@ -130,7 +130,7 @@ public class SignUpActivity extends BaseActivity implements ApiResponseErrorCall
     public void getApiResponse(Object responseObject, int flag) {
         if (flag == 01) {
             BaseResponseModel response = (BaseResponseModel) responseObject;
-            Log.d("Sunny", " res " + response);
+           // Log.d("Sunny", " res " + response);
         }
     }
 

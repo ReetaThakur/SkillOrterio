@@ -19,8 +19,8 @@
 
             <ImageView
                 android:id="@+id/img_ovl"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="@dimen/_80sdp"
+                android:layout_height="@dimen/_80sdp"
                 android:layout_marginLeft="@dimen/_16sdp"
                 android:src="@drawable/ic_home_main_oval"></ImageView>
 
@@ -36,15 +36,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
-                android:src="@drawable/home_main_img1"></ImageView>
+                android:scaleType="fitStart"
+                android:src="@drawable/tab_img_person"></ImageView>
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="@dimen/_16sdp"
+                android:layout_marginLeft="@dimen/_135sdp"
                 android:layout_marginTop="@dimen/_28sdp"
-                android:layout_marginRight="@dimen/_4sdp"
-                android:layout_toRightOf="@+id/imagePerson">
+                android:layout_marginRight="@dimen/_4sdp">
 
 
                 <TextView
@@ -61,12 +61,12 @@
                     android:text="Construction"
                     android:textAllCaps="true"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/_8ssp"></TextView>
+                    android:textSize="16sp"></TextView>
 
                 <ImageView
                     android:id="@+id/img_bookmark"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="@dimen/_18sdp"
+                    android:layout_height="@dimen/_18sdp"
                     android:layout_alignParentRight="true"
                     android:layout_marginTop="@dimen/_16sdp"
                     android:layout_marginRight="@dimen/_8ssp"
@@ -80,7 +80,8 @@
                     android:layout_marginTop="@dimen/_10sdp"
                     android:fontFamily="@font/poppins_medium"
                     android:text="@string/general_carpente_r"
-                    android:textColor="@color/black"></TextView>
+                    android:textColor="@color/black"
+                    android:textSize="20sp"></TextView>
 
                 <TextView
                     android:id="@+id/textMoney"
@@ -88,11 +89,11 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/textWork"
                     android:layout_alignParentBottom="true"
-                    android:layout_marginTop="@dimen/_8ssp"
                     android:fontFamily="@font/poppins_regular"
                     android:gravity="center_vertical"
                     android:text="$20 - $48 per hour"
-                    android:textColor="#6A5856"></TextView>
+                    android:textColor="#6A5856"
+                    android:textSize="16sp"></TextView>
 
             </RelativeLayout>
         </RelativeLayout>

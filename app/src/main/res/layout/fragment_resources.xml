@@ -16,7 +16,7 @@
             android:fontFamily="@font/poppins_regular"
             android:text="@string/resources"
             android:textColor="@color/black"
-            android:textSize="@dimen/_24sdp"></TextView>
+            android:textSize="24sp"></TextView>
 
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
