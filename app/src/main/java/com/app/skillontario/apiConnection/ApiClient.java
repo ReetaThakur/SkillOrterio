@@ -37,7 +37,7 @@ public class ApiClient {
         OkHttpClient.Builder client = new OkHttpClient.Builder()
                 .addNetworkInterceptor(addHeaders())
                 .addInterceptor(interceptor)
-                .addInterceptor(new ForbiddenInterceptor("admin", "1234adm2"))
+                .addInterceptor(new ForbiddenInterceptor("3xaUser!@3#", "9raPass@3!)#@done"))
                 .connectTimeout(30, TimeUnit.SECONDS)
                 .readTimeout(30, TimeUnit.SECONDS);
 
