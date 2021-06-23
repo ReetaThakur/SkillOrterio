@@ -33,6 +33,7 @@ public class SignUpActivity extends BaseActivity implements ApiResponseErrorCall
     Drawable myIcon;
     private SignUpModel signUpModel;
     ApiResponseErrorCallback apiResponseErrorCallback;
+    private boolean verifyImage = false;
 
 
     @Override
@@ -108,13 +109,14 @@ public class SignUpActivity extends BaseActivity implements ApiResponseErrorCall
 
             if (binding.etPassword.getTransformationMethod().equals(PasswordTransformationMethod.getInstance())) {
                 // ((ImageView(view)).setImageResource(R.drawable.hide_password);
-
+                binding.imgEyePassword.setImageResource(R.drawable.ic_ic_image);
                 //Show Password
                 binding.etPassword.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
             } else {
                 // ((ImageView) (view)).setImageResource(R.drawable.show_password);
 
                 //Hide Password
+                binding.imgEyePassword.setImageResource(R.drawable.ic_close_eye);
                 binding.etPassword.setTransformationMethod(PasswordTransformationMethod.getInstance());
 
             }
@@ -125,17 +127,28 @@ public class SignUpActivity extends BaseActivity implements ApiResponseErrorCall
 
             if (binding.etConfirmPassword.getTransformationMethod().equals(PasswordTransformationMethod.getInstance())) {
                 // ((ImageView(view)).setImageResource(R.drawable.hide_password);
-
+                binding.imgEyeConfirmPassword.setImageResource(R.drawable.ic_ic_image);
                 //Show Password
                 binding.etConfirmPassword.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
             } else {
                 // ((ImageView) (view)).setImageResource(R.drawable.show_password);
 
                 //Hide Password
+                binding.imgEyeConfirmPassword.setImageResource(R.drawable.ic_close_eye);
                 binding.etConfirmPassword.setTransformationMethod(PasswordTransformationMethod.getInstance());
 
             }
 
+        });
+
+        binding.imgVerify.setOnClickListener(v -> {
+            if (verifyImage) {
+                verifyImage = false;
+                binding.imgVerify.setImageResource(R.drawable.ic_not_verified);
+            } else {
+                verifyImage = true;
+                binding.imgVerify.setImageResource(R.drawable.ic_done_signup);
+            }
         });
 
         binding.tvAgreement.setOnClickListener(v -> startActivity(new Intent(SignUpActivity.this, TermsOfServicesActivity.class)));

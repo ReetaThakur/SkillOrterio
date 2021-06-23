@@ -48,8 +48,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/poppins_regular"
-                            android:text="Privacy
-                            Notice"
+                            android:text="@string/privacy_notice"
                             android:textColor="@color/black"
                             android:textSize="32sp"></TextView>
 

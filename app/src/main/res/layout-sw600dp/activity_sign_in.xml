@@ -112,7 +112,7 @@
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
                         android:layout_marginRight="@dimen/_16sdp"
-                        android:src="@drawable/ic_ic_image"></ImageView>
+                        android:src="@drawable/ic_close_eye"></ImageView>
                 </RelativeLayout>
 
                 <LinearLayout

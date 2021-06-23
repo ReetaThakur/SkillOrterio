@@ -2,15 +2,18 @@ package com.app.skillontario.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import com.app.skillontario.adapter.NotificationAdapter;
 import com.app.skillontario.adapter.SearchAdapter;
 import com.app.skillontario.baseClasses.BaseActivity;
+import com.app.skillontario.home.HomeFilterActivity;
 import com.app.skillontario.utils.RecyclerItemClickListener;
 import com.app.skillorterio.R;
-import com.app.skillorterio.databinding.ActivityNotificationBinding;
 import com.app.skillorterio.databinding.ActivitySearchBinding;
+
 
 public class SearchActivity extends BaseActivity {
 
@@ -26,6 +29,9 @@ public class SearchActivity extends BaseActivity {
         showSearchRecycler();
 
         binding.actionBar.ivBack.setOnClickListener(v -> onBackPressed());
+        binding.rlFilter.setOnClickListener(v -> {
+            startActivity(new Intent(SearchActivity.this, HomeFilterActivity.class));
+        });
 
     }
 

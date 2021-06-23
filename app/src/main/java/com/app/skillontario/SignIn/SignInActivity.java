@@ -80,13 +80,14 @@ public class SignInActivity extends BaseActivity {
 
             if (binding.etPassword.getTransformationMethod().equals(PasswordTransformationMethod.getInstance())) {
                 // ((ImageView(view)).setImageResource(R.drawable.hide_password);
-
+                binding.imgEyePassword.setImageResource(R.drawable.ic_ic_image);
                 //Show Password
                 binding.etPassword.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
             } else {
                 // ((ImageView) (view)).setImageResource(R.drawable.show_password);
 
                 //Hide Password
+                binding.imgEyePassword.setImageResource(R.drawable.ic_close_eye);
                 binding.etPassword.setTransformationMethod(PasswordTransformationMethod.getInstance());
 
             }

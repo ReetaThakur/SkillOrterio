@@ -4,8 +4,8 @@
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
+        android:layout_height="@dimen/_120sdp"
         android:layout_marginBottom="@dimen/_6sdp"
-        android:layout_height="@dimen/_140sdp"
         android:orientation="vertical">
 
 
@@ -20,8 +20,8 @@
 
             <ImageView
                 android:id="@+id/img_ovl"
-                android:layout_width="@dimen/_80sdp"
-                android:layout_height="@dimen/_80sdp"
+                android:layout_width="@dimen/_70sdp"
+                android:layout_height="@dimen/_70sdp"
                 android:layout_marginLeft="@dimen/_16sdp"
                 android:src="@drawable/ic_home_main_oval"></ImageView>
 
@@ -34,17 +34,17 @@
 
             <ImageView
                 android:id="@+id/imagePerson"
-                android:layout_width="@dimen/_135sdp"
-                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
-                android:scaleType="fitXY"
+                android:scaleType="fitStart"
                 android:src="@drawable/tab_img_person"></ImageView>
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="@dimen/_140sdp"
-                android:layout_marginTop="@dimen/_28sdp"
+                android:layout_marginLeft="@dimen/_120sdp"
+                android:layout_marginTop="@dimen/_16sdp"
                 android:layout_marginRight="@dimen/_4sdp">
 
 
@@ -62,7 +62,7 @@
                     android:text="Construction"
                     android:textAllCaps="true"
                     android:textColor="@color/white"
-                    android:textSize="16sp"></TextView>
+                    android:textSize="18sp"></TextView>
 
                 <ImageView
                     android:id="@+id/img_bookmark"
@@ -82,7 +82,7 @@
                     android:fontFamily="@font/poppins_medium"
                     android:text="@string/general_carpente_r"
                     android:textColor="@color/black"
-                    android:textSize="20sp"></TextView>
+                    android:textSize="22sp"></TextView>
 
                 <TextView
                     android:id="@+id/textMoney"
@@ -94,7 +94,7 @@
                     android:gravity="center_vertical"
                     android:text="$20 - $48 per hour"
                     android:textColor="#6A5856"
-                    android:textSize="16sp"></TextView>
+                    android:textSize="18sp"></TextView>
 
             </RelativeLayout>
         </RelativeLayout>

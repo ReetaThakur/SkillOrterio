@@ -6,15 +6,14 @@
         android:layout_width="wrap_content"
         android:layout_height="@dimen/_120sdp"
         android:layout_marginLeft="@dimen/_8sdp"
-        android:layout_marginRight="@dimen/_8sdp"
         android:layout_marginTop="@dimen/_16sdp"
+        android:layout_marginRight="@dimen/_8sdp"
         android:orientation="vertical">
 
         <ImageView
             android:layout_width="@dimen/_250sdp"
             android:layout_height="wrap_content"
-            android:scaleType="fitXY"
-            android:src="@drawable/video1" />
+            android:background="@drawable/video1" />
 
         <ImageView
             android:id="@+id/ivPlay"

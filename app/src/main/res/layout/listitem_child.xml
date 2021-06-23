@@ -15,6 +15,6 @@
         android:lineSpacingExtra="2dp"
         android:paddingBottom="@dimen/_12sdp"
         android:textColor="#9399B1"
-        android:textSize="14sp"></TextView>
+        android:textSize="15sp"></TextView>
 
 </LinearLayout>

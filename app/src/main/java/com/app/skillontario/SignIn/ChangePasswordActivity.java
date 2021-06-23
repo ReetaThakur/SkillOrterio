@@ -77,13 +77,14 @@ public class ChangePasswordActivity extends BaseActivity {
 
             if (binding.etOldPassword.getTransformationMethod().equals(PasswordTransformationMethod.getInstance())) {
                 // ((ImageView(view)).setImageResource(R.drawable.hide_password);
-
+                binding.imgEyePassword.setImageResource(R.drawable.ic_ic_image);
                 //Show Password
                 binding.etOldPassword.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
             } else {
                 // ((ImageView) (view)).setImageResource(R.drawable.show_password);
 
                 //Hide Password
+                binding.imgEyePassword.setImageResource(R.drawable.ic_close_eye);
                 binding.etOldPassword.setTransformationMethod(PasswordTransformationMethod.getInstance());
 
             }
