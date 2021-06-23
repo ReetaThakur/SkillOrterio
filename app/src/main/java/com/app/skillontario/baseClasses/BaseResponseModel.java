@@ -64,7 +64,11 @@ public class BaseResponseModel<T>  implements Serializable {
     }
 
     public String getMessage() {
-        return message;
+        if (message == null||message.isEmpty()) {
+            return "";
+        } else {
+            return message;
+        }
     }
 
     public void setMessage(String message) {

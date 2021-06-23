@@ -46,7 +46,9 @@ public class ApiCallBack<T> implements Callback<T>, ConfirmDialogCallback {
     @Override
     public void onResponse(@NotNull Call<T> call, Response<T> response) {
         dismissDialog();
+
         if (response.isSuccessful()) {
+            Log.d("yugal res  ", response.toString());
             BaseResponseModel model = (BaseResponseModel) response.body();
             if (model != null && model.getStatus()) {
                 responseErrorCallback.getApiResponse(response.body(), flag);

@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Environment;
+import android.provider.Settings;
 import android.text.Editable;
 import android.util.Log;
 import android.view.Window;
@@ -21,9 +22,11 @@ import com.app.skillontario.utils.topSnackBar.TSnackBar;
 import com.app.skillorterio.R;
 
 import java.io.FileOutputStream;
-import java.util.ArrayList;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
-
+import java.util.Date;
 
 public class Utils {
 
@@ -182,5 +185,33 @@ public class Utils {
         return digits;
     }
 
+    public static String getDeviceId(Context context) {
+        String m_deviceId = Settings.Secure.getString(context.getContentResolver(),
+                Settings.Secure.ANDROID_ID);
+        return m_deviceId;
+    }
 
+
+    public static String DateFormate(String date) {
+        String newDateString = "2021-06-22 11:11 AM";
+        try {
+            newDateString = convert(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+
+        return newDateString;
+    }
+
+    public static String convert(String dateString) throws ParseException {
+        System.out.println("Given date is " + dateString);
+//2021-10-01T00:00:00.000Z
+        DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:sss'Z'");
+        Date date = sdf.parse(dateString);
+/*
+        System.out.println("MM/dd/yyyy formatted date : " + new SimpleDateFormat("MMM dd  yyyy hh:mm aaa").format(date));
+        System.out.println("yyyy-MM-dd formatted date : " + new SimpleDateFormat("yyyy-MM-dd").format(date));*/
+        return "" + new SimpleDateFormat("MMM dd  yyyy hh:mm aaa").format(date);
+    }
 }

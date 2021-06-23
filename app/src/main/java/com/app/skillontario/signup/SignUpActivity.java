@@ -3,10 +3,16 @@ package com.app.skillontario.signup;
 import androidx.appcompat.content.res.AppCompatResources;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.provider.Settings;
+import android.telephony.TelephonyManager;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.app.skillontario.BottomBarActivity;
 import com.app.skillontario.SignIn.SignInActivity;
@@ -16,11 +22,18 @@ import com.app.skillontario.apiConnection.ApiCallBack;
 import com.app.skillontario.apiConnection.ApiResponseErrorCallback;
 import com.app.skillontario.apiConnection.RequestBodyGenerator;
 import com.app.skillontario.baseClasses.BaseActivity;
+import com.app.skillontario.baseClasses.BaseResponseModel;
+import com.app.skillontario.constants.SharedPrefsConstants;
+import com.app.skillontario.models.RegistrationModal;
 import com.app.skillontario.models.SignUpModel;
+import com.app.skillontario.utils.MySharedPreference;
+import com.app.skillontario.utils.Utils;
 import com.app.skillorterio.R;
 import com.app.skillorterio.databinding.ActivitySignUpBinding;
 
+import static android.content.Intent.FLAG_ACTIVITY_CLEAR_TOP;
 import static com.app.skillontario.constants.ApiConstants.API_INTERFACE;
+import static com.app.skillontario.utils.Utils.getDeviceId;
 
 public class SignUpActivity extends BaseActivity implements ApiResponseErrorCallback {
 
@@ -28,13 +41,14 @@ public class SignUpActivity extends BaseActivity implements ApiResponseErrorCall
     Drawable myIcon;
     private SignUpModel signUpModel;
     ApiResponseErrorCallback apiResponseErrorCallback;
-
+    String emailPattern = "^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,4})$";
     @Override
     protected void initUi() {
         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_from_left);
         binding = (ActivitySignUpBinding) viewBaseBinding;
         signUpModel = new SignUpModel(SignUpActivity.this);
         apiResponseErrorCallback = this;
+        MySharedPreference.getInstance().setBooleanData(SharedPrefsConstants.IS_HEADER, false);
 
         myIcon = AppCompatResources.getDrawable(SignUpActivity.this, R.drawable.ic_edit_text_rectangle);
         binding.etMail.setOnFocusChangeListener(new View.OnFocusChangeListener() {
@@ -87,14 +101,26 @@ public class SignUpActivity extends BaseActivity implements ApiResponseErrorCall
         binding.cvSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(SignUpActivity.this, BottomBarActivity.class));
-              
-               /* signUpModel.setEmail(binding.etMail.getText().toString().trim());
-                signUpModel.setPassword(binding.etPassword.getText().toString().trim());
-                signUpModel.setConfirmPassword(binding.etConfirmPassword.getText().toString().trim());
+                if (binding.etMail.getText().toString().trim().equals("")) {
+                    binding.etMail.setError(getString(R.string.please_enter_email_address));
+                } else if (!(binding.etMail.getText().toString().trim().matches(emailPattern))) {
+                    binding.etMail.setError(getString(R.string.please_enter_valid_email_address));
+                } else if (binding.etPassword.getText().toString().trim().equals("")) {
+                    binding.etPassword.setError(getString(R.string.please_enter_password));
+                } else if (binding.etConfirmPassword.getText().toString().trim().equals("")) {
+                    binding.etConfirmPassword.setError(getString(R.string.please_confirm_password));
+                } else if (!binding.etConfirmPassword.getText().toString().equalsIgnoreCase(binding.etPassword.getText().toString())) {
+                    Toast.makeText(SignUpActivity.this, getString(R.string.password_not_match), Toast.LENGTH_SHORT).show();
+                } else {
 
-                API_INTERFACE.registerUser(RequestBodyGenerator.registerUser(signUpModel)).enqueue(
-                        new ApiCallBack<>(SignUpActivity.this, apiResponseErrorCallback, 01, false));*/
+                    String usertype = MySharedPreference.getInstance().getStringData(SharedPrefsConstants.USER_TYPE);
+                    signUpModel.setEmail(binding.etMail.getText().toString().trim());
+                    signUpModel.setPassword(binding.etPassword.getText().toString().trim());
+                    signUpModel.setConfirmPassword(binding.etConfirmPassword.getText().toString().trim());
+                    API_INTERFACE.registerUser(RequestBodyGenerator.registerUser(signUpModel,getDeviceId(SignUpActivity.this),usertype)).enqueue(
+                            new ApiCallBack<>(SignUpActivity.this, apiResponseErrorCallback, 01, true));
+
+                }
             }
         });
 
@@ -127,12 +153,21 @@ public class SignUpActivity extends BaseActivity implements ApiResponseErrorCall
     @Override
     public void getApiResponse(Object responseObject, int flag) {
         if (flag == 01) {
-
+            BaseResponseModel<RegistrationModal> responseModel = (BaseResponseModel<RegistrationModal>) responseObject;
+            if(responseModel.getStatus()){
+                MySharedPreference.getInstance().setStringData(SharedPrefsConstants.USER_TOKEN,responseModel.getData().getToken());
+                MySharedPreference.getInstance().setStringData(SharedPrefsConstants.USER_ID,responseModel.getData().getId());
+                Intent intent=new Intent(SignUpActivity.this, BottomBarActivity.class);
+                intent.setFlags(FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                startActivity(intent);
+            }else {
+                Utils.showToast(this, responseModel.getMessage());
+            }
         }
     }
 
     @Override
     public void getApiError(Throwable t, int flag) {
-
+        Log.d("yugal error  ", t.toString());
     }
 }

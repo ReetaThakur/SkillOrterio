@@ -7,7 +7,10 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.app.skillontario.baseClasses.BaseActivity;
+import com.app.skillontario.constants.AppConstants;
+import com.app.skillontario.constants.SharedPrefsConstants;
 import com.app.skillontario.signup.SignUpActivity;
+import com.app.skillontario.utils.MySharedPreference;
 import com.app.skillorterio.R;
 import com.app.skillorterio.databinding.ActivitySelectLanguageBinding;
 import com.app.skillorterio.databinding.ActivitySelectRoleBinding;
@@ -21,11 +24,20 @@ public class SelectRoleActivity extends BaseActivity {
         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_from_left);
         binding = (ActivitySelectRoleBinding) viewBaseBinding;
 
-        binding.imageViewParent.setOnClickListener(v ->
-                startActivity(new Intent(SelectRoleActivity.this, SignUpActivity.class)));
+        binding.imageViewParent.setOnClickListener(v->{
 
-        binding.imageViewStudent.setOnClickListener(v ->
-                startActivity(new Intent(SelectRoleActivity.this, SignUpActivity.class)));
+                MySharedPreference.getInstance().setStringData(SharedPrefsConstants.USER_TYPE, "3");
+                startActivity(new Intent(SelectRoleActivity.this, SignUpActivity.class));
+        });
+
+
+
+        binding.imageViewStudent.setOnClickListener(v-> {
+
+                MySharedPreference.getInstance().setStringData(SharedPrefsConstants.USER_TYPE, "2");
+                startActivity(new Intent(SelectRoleActivity.this, SignUpActivity.class));
+        });
+
     }
 
     @Override

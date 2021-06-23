@@ -12,6 +12,10 @@ public class SharedPrefsConstants {
     public static final String USER_EMAIL = "USER_EMAIL";
     public static final String ACCESS_TOKEN = "ACCESS_TOKEN";
     public static final String IS_NOTIFICATION = "IS_NOTIFICATION";
+    public static final String USER_TOKEN = "USER_TOKEN";
+    public static final String USER_TYPE = "USER_TYPE";
+    public static final String IS_HEADER = "IS_HEADER";
+
 
 
 

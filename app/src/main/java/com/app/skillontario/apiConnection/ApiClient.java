@@ -3,6 +3,8 @@ package com.app.skillontario.apiConnection;
 
 import android.text.TextUtils;
 import android.util.Log;
+
+import com.app.skillontario.constants.SharedPrefsConstants;
 import com.app.skillontario.utils.MySharedPreference;
 import com.app.skillorterio.BuildConfig;
 
@@ -24,6 +26,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 import static com.app.skillontario.constants.SharedPrefsConstants.ACCESS_TOKEN;
+import static com.app.skillontario.constants.SharedPrefsConstants.USER_TOKEN;
 
 
 public class ApiClient {
@@ -37,7 +40,7 @@ public class ApiClient {
         OkHttpClient.Builder client = new OkHttpClient.Builder()
                 .addNetworkInterceptor(addHeaders())
                 .addInterceptor(interceptor)
-                .addInterceptor(new ForbiddenInterceptor("admin", "1234adm2"))
+                .addInterceptor(new ForbiddenInterceptor("3xaUser!@3#", "9raPass@3!)#@done"))
                 .connectTimeout(30, TimeUnit.SECONDS)
                 .readTimeout(30, TimeUnit.SECONDS);
 
@@ -90,12 +93,14 @@ public class ApiClient {
         return chain -> {
             String accessToken = "";
             Request.Builder request = chain.request().newBuilder();
-            if (!TextUtils.isEmpty(MySharedPreference.getInstance().getStringData(ACCESS_TOKEN))) {
-                accessToken = MySharedPreference.getInstance().getStringData(ACCESS_TOKEN);
-                request.addHeader("accessToken", accessToken);
-                Log.e("ACCESS TOKEN->", accessToken);
+            if(MySharedPreference.getInstance().getBooleanData(SharedPrefsConstants.IS_HEADER)) {
+                if (!TextUtils.isEmpty(MySharedPreference.getInstance().getStringData(USER_TOKEN))) {
+                    accessToken = MySharedPreference.getInstance().getStringData(USER_TOKEN);
+                    request.addHeader("x-access-token", accessToken);
+                    request.addHeader("lang","eng");
+                    Log.e("ACCESS TOKEN->", accessToken);
+                }
             }
-
            /* if (!SharedPrefsConstants.SampleAccessToken.equalsIgnoreCase("")) {
                 request.addHeader("accessToken", SharedPrefsConstants.SampleAccessToken);
             }*/

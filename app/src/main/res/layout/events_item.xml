@@ -100,6 +100,7 @@
                 tools:ignore="ContentDescription" />
 
             <TextView
+                android:id="@+id/tvAdd"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -122,8 +123,7 @@
                 android:minWidth="@dimen/_190sdp"
                 android:paddingLeft="@dimen/_2sdp"
                 android:fontFamily="@font/poppins_regular"
-                android:text="May 15, 2021
-02:00 pm "
+                android:text="May 15, 2021 02:00 pm "
                 android:textColor="@color/black"
                 android:textSize="@dimen/_8sdp" />
 

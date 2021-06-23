@@ -2,6 +2,9 @@ package com.app.skillontario.apiConnection;
 
 
 import com.app.skillontario.baseClasses.BaseResponseModel;
+import com.app.skillontario.models.EventsModal;
+import com.app.skillontario.models.NewsModal;
+import com.app.skillontario.models.RegistrationModal;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -24,7 +27,7 @@ public interface ApiInterface {
     //***********************Login/Logout APIS********************/
 
     @POST("user/register")
-    Call<BaseResponseModel> registerUser(@Body HashMap<String, Object> body);
+    Call<BaseResponseModel<RegistrationModal>> registerUser(@Body HashMap<String, Object> body);
 
     @POST("user/reset-password")
     Call<BaseResponseModel> forgotPassword(@Body HashMap<String, Object> body);
@@ -42,6 +45,12 @@ public interface ApiInterface {
     //**********************Images APIS***************/
     @POST("lot/remove-image")
     Call<BaseResponseModel> deleteImages(@Body HashMap<String, Object> body);
+
+    @POST("event/list")
+    Call<BaseResponseModel<ArrayList<EventsModal>>> getevent(@Body HashMap<String, Object> body);
+
+    @POST("event/list")
+    Call<BaseResponseModel<ArrayList<NewsModal>>> getNews(@Body HashMap<String, Object> body);
 
     @Multipart
     @POST("upload/image")

@@ -8,7 +8,12 @@ import android.widget.Toast;
 
 import androidx.core.content.ContextCompat;
 
+import com.app.skillontario.apiConnection.ApiCallBack;
+import com.app.skillontario.apiConnection.RequestBodyGenerator;
 import com.app.skillontario.baseClasses.BaseActivity;
+import com.app.skillontario.constants.SharedPrefsConstants;
+import com.app.skillontario.signup.SignUpActivity;
+import com.app.skillontario.utils.MySharedPreference;
 import com.app.skillorterio.R;
 import com.app.skillorterio.databinding.EditProfileAcBinding;
 import com.skydoves.balloon.ArrowOrientation;
@@ -16,6 +21,9 @@ import com.skydoves.balloon.ArrowPositionRules;
 import com.skydoves.balloon.Balloon;
 import com.skydoves.balloon.BalloonAnimation;
 import com.skydoves.balloon.BalloonSizeSpec;
+
+import static com.app.skillontario.constants.ApiConstants.API_INTERFACE;
+import static com.app.skillontario.utils.Utils.getDeviceId;
 
 public class EditProfileAc extends BaseActivity {
     private EditProfileAcBinding binding;
@@ -41,7 +49,15 @@ public class EditProfileAc extends BaseActivity {
                 balloon.showAlignBottom(binding.ivInfo);
             }
         });
+        binding.done.setOnClickListener(v->{
+            if (binding.etFirstName.getText().toString().trim().equals("")) {
+                binding.etFirstName.setError(getString(R.string.enter_first_name));
+            } else if (!(binding.etLastName.getText().toString().trim().matches(""))) {
+                binding.etLastName.setError(getString(R.string.enter_last_name));
+            } else {
 
+            }
+        });
     }
 
     void showPopUp() {
