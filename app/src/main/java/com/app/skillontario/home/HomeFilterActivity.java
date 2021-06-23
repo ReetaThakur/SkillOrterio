@@ -71,7 +71,7 @@ public class HomeFilterActivity extends BaseActivity implements KeywordSelected 
         binding.rcvKeywordsEducation.addOnItemTouchListener(new RecyclerItemClickListener(HomeFilterActivity.this, (view, position) -> {
             Log.d("Sunny", " pos   " + position);
             list1.add(position);
-            adapter1.getClickPosition(list,1);
+            adapter1.getClickPosition(list, 1);
         }));
 
         binding.rcvKeywordsTraining.setLayoutManager(linearLayoutManager2);
@@ -79,8 +79,18 @@ public class HomeFilterActivity extends BaseActivity implements KeywordSelected 
         binding.rcvKeywordsTraining.addOnItemTouchListener(new RecyclerItemClickListener(HomeFilterActivity.this, (view, position) -> {
             Log.d("Sunny", " pos   " + position);
             list2.add(position);
-            adapter2.getClickPosition(list,2);
+            adapter2.getClickPosition(list, 2);
         }));
+
+        binding.actionBar.ivReset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                list.clear();
+                adapter.getClickPosition(list, 0);
+                adapter1.getClickPosition(list, 0);
+                adapter2.getClickPosition(list, 0);
+            }
+        });
 
         /*binding.rcvKeywordsTraining.setLayoutManager(new GridLayoutManager(this, 2, GridLayoutManager.HORIZONTAL, false));
         binding.rcvKeywordsTraining.setAdapter(new KeywordsAdapter(this, this, sub));

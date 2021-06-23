@@ -1,6 +1,7 @@
 package com.app.skillontario.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ShareCompat;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -24,6 +25,7 @@ public class JobDetailsActivity extends BaseActivity {
 
     private ActivityJobDetailsBinding binding;
     ExpandRecyclerAdapter adapter;
+    private boolean clickBookMark = false;
 
     @Override
     protected void initUi() {
@@ -42,6 +44,31 @@ public class JobDetailsActivity extends BaseActivity {
         binding.recyVideo.addOnItemTouchListener(new RecyclerItemClickListener(JobDetailsActivity.this, (view, position) -> {
             startActivity(new Intent(JobDetailsActivity.this, PlayVideoActivity.class));
         }));
+
+
+        binding.imgBookmark.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (clickBookMark) {
+                    clickBookMark = false;
+                    binding.imgBookmark.setImageResource(R.drawable.ic_job_uppar1);
+                } else {
+                    clickBookMark = true;
+                    binding.imgBookmark.setImageResource(R.drawable.job_bookmark_click);
+                }
+            }
+        });
+
+        binding.imgShare.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ShareCompat.IntentBuilder.from(JobDetailsActivity.this)
+                        .setType("text/plain")
+                        .setChooserTitle(getResources().getText(R.string.app_name))
+                        .setText("https://www.skillsontario.com")
+                        .startChooser();
+            }
+        });
     }
 
     private void showExpandRecycler() {

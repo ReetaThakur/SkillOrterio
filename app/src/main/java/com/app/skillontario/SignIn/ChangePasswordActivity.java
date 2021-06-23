@@ -5,6 +5,8 @@ import androidx.appcompat.content.res.AppCompatResources;
 
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
@@ -70,6 +72,59 @@ public class ChangePasswordActivity extends BaseActivity {
                 onBackPressed();
             }
         });
+
+        binding.imgEyePassword.setOnClickListener(v -> {
+
+            if (binding.etOldPassword.getTransformationMethod().equals(PasswordTransformationMethod.getInstance())) {
+                // ((ImageView(view)).setImageResource(R.drawable.hide_password);
+
+                //Show Password
+                binding.etOldPassword.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+            } else {
+                // ((ImageView) (view)).setImageResource(R.drawable.show_password);
+
+                //Hide Password
+                binding.etOldPassword.setTransformationMethod(PasswordTransformationMethod.getInstance());
+
+            }
+
+        });
+
+        binding.imgNewPassword.setOnClickListener(v -> {
+
+            if (binding.etNewPassword.getTransformationMethod().equals(PasswordTransformationMethod.getInstance())) {
+                // ((ImageView(view)).setImageResource(R.drawable.hide_password);
+
+                //Show Password
+                binding.etNewPassword.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+            } else {
+                // ((ImageView) (view)).setImageResource(R.drawable.show_password);
+
+                //Hide Password
+                binding.etNewPassword.setTransformationMethod(PasswordTransformationMethod.getInstance());
+
+            }
+
+        });
+
+        binding.imgConfirmPassword.setOnClickListener(v -> {
+
+            if (binding.etConfirmPassword.getTransformationMethod().equals(PasswordTransformationMethod.getInstance())) {
+                // ((ImageView(view)).setImageResource(R.drawable.hide_password);
+
+                //Show Password
+                binding.etConfirmPassword.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+            } else {
+                // ((ImageView) (view)).setImageResource(R.drawable.show_password);
+
+                //Hide Password
+                binding.etConfirmPassword.setTransformationMethod(PasswordTransformationMethod.getInstance());
+
+            }
+
+        });
+
+
     }
 
     void enableFocusEditText(RelativeLayout relativeLayout, boolean val) {

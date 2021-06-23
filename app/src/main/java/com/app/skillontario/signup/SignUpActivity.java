@@ -4,9 +4,12 @@ import androidx.appcompat.content.res.AppCompatResources;
 
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import com.app.skillontario.BottomBarActivity;
@@ -30,6 +33,7 @@ public class SignUpActivity extends BaseActivity implements ApiResponseErrorCall
     Drawable myIcon;
     private SignUpModel signUpModel;
     ApiResponseErrorCallback apiResponseErrorCallback;
+
 
     @Override
     protected void initUi() {
@@ -100,6 +104,40 @@ public class SignUpActivity extends BaseActivity implements ApiResponseErrorCall
             }
         });
 
+        binding.imgEyePassword.setOnClickListener(v -> {
+
+            if (binding.etPassword.getTransformationMethod().equals(PasswordTransformationMethod.getInstance())) {
+                // ((ImageView(view)).setImageResource(R.drawable.hide_password);
+
+                //Show Password
+                binding.etPassword.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+            } else {
+                // ((ImageView) (view)).setImageResource(R.drawable.show_password);
+
+                //Hide Password
+                binding.etPassword.setTransformationMethod(PasswordTransformationMethod.getInstance());
+
+            }
+
+        });
+
+        binding.imgEyeConfirmPassword.setOnClickListener(v -> {
+
+            if (binding.etConfirmPassword.getTransformationMethod().equals(PasswordTransformationMethod.getInstance())) {
+                // ((ImageView(view)).setImageResource(R.drawable.hide_password);
+
+                //Show Password
+                binding.etConfirmPassword.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+            } else {
+                // ((ImageView) (view)).setImageResource(R.drawable.show_password);
+
+                //Hide Password
+                binding.etConfirmPassword.setTransformationMethod(PasswordTransformationMethod.getInstance());
+
+            }
+
+        });
+
         binding.tvAgreement.setOnClickListener(v -> startActivity(new Intent(SignUpActivity.this, TermsOfServicesActivity.class)));
 
         binding.tvPrivacy.setOnClickListener(v -> startActivity(new Intent(SignUpActivity.this, PrivacyPolicyActivity.class)));
@@ -130,7 +168,7 @@ public class SignUpActivity extends BaseActivity implements ApiResponseErrorCall
     public void getApiResponse(Object responseObject, int flag) {
         if (flag == 01) {
             BaseResponseModel response = (BaseResponseModel) responseObject;
-           // Log.d("Sunny", " res " + response);
+            // Log.d("Sunny", " res " + response);
         }
     }
 

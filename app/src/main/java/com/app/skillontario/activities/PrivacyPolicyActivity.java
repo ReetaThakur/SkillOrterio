@@ -18,7 +18,7 @@ public class PrivacyPolicyActivity extends BaseActivity {
         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_from_left);
         binding = (ActivityPrivacyPolicyBinding) viewBaseBinding;
 
-
+        binding.actionBar.ivBack.setOnClickListener(v -> onBackPressed());
     }
 
     @Override

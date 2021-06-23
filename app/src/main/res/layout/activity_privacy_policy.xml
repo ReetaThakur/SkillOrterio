@@ -58,6 +58,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/_16sdp"
                             android:fontFamily="@font/poppins_regular"
+                            android:lineSpacingExtra="@dimen/_4sdp"
                             android:text="@string/terms_text"
                             android:textColor="@color/black"
                             android:textSize="16sp"></TextView>
@@ -67,6 +68,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/_12sdp"
                             android:fontFamily="@font/poppins_regular"
+                            android:lineSpacingExtra="@dimen/_4sdp"
                             android:text="@string/term1"
                             android:textColor="@color/black"
                             android:textSize="13sp"></TextView>
@@ -76,6 +78,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/_12sdp"
                             android:fontFamily="@font/poppins_regular"
+                            android:lineSpacingExtra="@dimen/_4sdp"
                             android:text="@string/term1"
                             android:textColor="@color/black"
                             android:textSize="13sp"></TextView>

@@ -1,6 +1,7 @@
 package com.app.skillontario.activities;
 
 
+import android.view.View;
 
 import com.app.skillontario.baseClasses.BaseActivity;
 import com.app.skillorterio.R;
@@ -15,6 +16,8 @@ public class TermsOfServicesActivity extends BaseActivity {
     protected void initUi() {
         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_from_left);
         binding = (ActivityTermsOfServicesBinding) viewBaseBinding;
+
+        binding.actionBar.ivBack.setOnClickListener(v -> onBackPressed());
 
 
     }

@@ -1,6 +1,7 @@
 package com.app.skillontario.activities;
 
 import android.content.Intent;
+import android.view.View;
 
 import com.app.skillontario.adapter.QuizAdapter;
 import com.app.skillontario.baseClasses.BaseActivity;
@@ -20,6 +21,7 @@ public class TakeQuizActivity extends BaseActivity {
         binding = (ActivityTakeQuizBinding) viewBaseBinding;
         binding.tvTakeQuiz.setOnClickListener(v->startActivity(new Intent(this, QuizStepAc.class)));
 
+        binding.ivBack.setOnClickListener(v -> onBackPressed());
         showPopularCareerRecycler();
     }
 

@@ -50,7 +50,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
             notifyItemChanged(selected_position);
         });*/
 
-        if (position == 0) {
+       /* if (position == 0) {
             //viewHolder.binding.imgBackground.setColorFilter(ContextCompat.getColor(context, R.color.home_color1));
             viewHolder.binding.imgOvl.setColorFilter(ContextCompat.getColor(context, R.color.home_oval_color1));
             viewHolder.binding.imagePerson.setImageResource(R.drawable.home_main_img1);
@@ -62,7 +62,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
             //  viewHolder.binding.imgBackground.setColorFilter(ContextCompat.getColor(context, R.color.home_color2));
             viewHolder.binding.imgOvl.setColorFilter(ContextCompat.getColor(context, R.color.home_oval_color3));
             viewHolder.binding.imagePerson.setImageResource(R.drawable.home_main_img3);
-        }
+        }*/
 
         viewHolder.binding.imgBookmark.setOnClickListener(v -> {
             if (clickBookmark) {

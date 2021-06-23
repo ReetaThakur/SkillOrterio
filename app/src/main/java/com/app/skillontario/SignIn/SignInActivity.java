@@ -6,6 +6,8 @@ import androidx.appcompat.content.res.AppCompatResources;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
@@ -73,6 +75,23 @@ public class SignInActivity extends BaseActivity {
         binding.tvHaveAnAccount.setOnClickListener(v -> startActivity(new Intent(SignInActivity.this, SignUpActivity.class)));
         binding.tvHaveAnAccount1.setOnClickListener(v -> startActivity(new Intent(SignInActivity.this, SignUpActivity.class)));
 
+
+        binding.imgEyePassword.setOnClickListener(v -> {
+
+            if (binding.etPassword.getTransformationMethod().equals(PasswordTransformationMethod.getInstance())) {
+                // ((ImageView(view)).setImageResource(R.drawable.hide_password);
+
+                //Show Password
+                binding.etPassword.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+            } else {
+                // ((ImageView) (view)).setImageResource(R.drawable.show_password);
+
+                //Hide Password
+                binding.etPassword.setTransformationMethod(PasswordTransformationMethod.getInstance());
+
+            }
+
+        });
 
     }
 

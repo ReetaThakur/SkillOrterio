@@ -27,7 +27,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/_16sdp"
-                    android:layout_marginTop="@dimen/_80sdp"
+                    android:layout_marginTop="@dimen/_70sdp"
                     android:fontFamily="@font/poppins_medium"
                     android:text="Robert Frost Pattinson"
                     android:textColor="@color/black"
@@ -51,7 +51,10 @@
                     android:background="@drawable/ic_rectangle__dashboard"
                     android:fontFamily="@font/poppins_medium"
                     android:gravity="center"
-                    android:padding="@dimen/_6sdp"
+                    android:paddingLeft="@dimen/_12sdp"
+                    android:paddingTop="@dimen/_6sdp"
+                    android:paddingRight="@dimen/_12sdp"
+                    android:paddingBottom="@dimen/_6sdp"
                     android:text="Edit Profile"
                     android:textColor="#0A7AFF"
                     android:textSize="@dimen/_12sdp"></TextView>
@@ -133,7 +136,7 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="139dp"
-                    android:layout_marginTop="-50dp"
+                    android:layout_marginTop="-30dp"
                     android:background="@drawable/ic_group__dashboard_background">
 
                     <RelativeLayout
@@ -194,7 +197,7 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="139dp"
-                    android:layout_marginTop="-50dp"
+                    android:layout_marginTop="-30dp"
                     android:background="@drawable/ic_group__dashboard_background">
 
                     <RelativeLayout
@@ -256,7 +259,7 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="139dp"
-                    android:layout_marginTop="-50dp"
+                    android:layout_marginTop="-30dp"
                     android:background="@drawable/ic_group__dashboard_background">
 
                     <RelativeLayout

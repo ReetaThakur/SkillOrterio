@@ -117,7 +117,7 @@
                     android:fontFamily="@font/poppins_medium"
                     android:text="Popular Careers"
                     android:textColor="#3E454A"
-                    android:textSize="15sp"></TextView>
+                    android:textSize="@dimen/_12sdp"></TextView>
 
 
                 <androidx.recyclerview.widget.RecyclerView
@@ -207,14 +207,15 @@
                     android:fontFamily="@font/poppins_medium"
                     android:text="Recent Events"
                     android:textColor="#3E454A"
-                    android:textSize="15sp"></TextView>
+                    android:textSize="@dimen/_12sdp"></TextView>
 
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recy_recent_event"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="@dimen/_12sdp"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:layout_marginRight="@dimen/_10sdp"
                     android:divider="@null"
                     android:orientation="horizontal"
                     android:scrollbars="none"
@@ -244,11 +245,11 @@
                         android:background="@drawable/group_back"
                         android:drawableRight="@drawable/group_back_white"
                         android:gravity="center"
-                        android:visibility="invisible"
                         android:paddingRight="@dimen/_10sdp"
                         android:text="Explore"
                         android:textColor="@color/white"
-                        android:textSize="@dimen/_10sdp"></TextView>
+                        android:textSize="@dimen/_10sdp"
+                        android:visibility="invisible"></TextView>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -271,7 +272,7 @@
                     android:fontFamily="@font/poppins_medium"
                     android:text="Recent News"
                     android:textColor="#3E454A"
-                    android:textSize="@dimen/_14sdp"></TextView>
+                    android:textSize="@dimen/_12sdp"></TextView>
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recy_news"

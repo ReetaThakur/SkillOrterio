@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:padding="@dimen/_4sdp">
+
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginBottom="-210dp"
+            android:maxHeight="@dimen/_170sdp"
+            android:paddingLeft="@dimen/_20sdp"
+            android:paddingRight="@dimen/_20sdp"
+            android:scaleType="fitXY"
+            android:src="@drawable/quiz_banner1" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:layout_marginRight="@dimen/_15sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:layout_weight="1"
+                android:background="@drawable/quiz_step_rec"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/_10sdp"
+                android:paddingRight="@dimen/_10sdp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="@dimen/_10sdp"
+                        android:layout_weight="1"
+                        android:background="@drawable/ic_quiz_step_progress_bg"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <ProgressBar
+                            android:id="@+id/myProgress"
+                            style="@android:style/Widget.ProgressBar.Horizontal"
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/_10sdp"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:layout_marginEnd="@dimen/_7sdp"
+                            android:layout_weight="1"
+                            android:max="10"
+                            android:progress="1"
+                            android:progressBackgroundTint="@color/white"
+                            android:progressTint="@color/buttonColor"
+                            tools:ignore="NestedWeights" />
+
+                        <TextView
+                            android:id="@+id/tvCount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:fontFamily="@font/poppins_bold"
+                            android:gravity="center"
+                            android:paddingTop="@dimen/_2sdp"
+                            android:singleLine="true"
+                            android:text="1/10"
+                            android:textColor="#272F35"
+                            android:textSize="@dimen/_11sdp" />
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/close"
+                        android:layout_width="@dimen/_30sdp"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/ic_rectangle_background"
+                        android:backgroundTint="@color/white"
+                        android:padding="@dimen/_10sdp"
+                        android:src="@drawable/ic_cross" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/textCons"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/ic_home_main_tag"
+                    android:backgroundTint="#FF9F0A"
+                    android:fontFamily="@font/poppins_regular"
+                    android:gravity="center"
+                    android:paddingLeft="@dimen/_6sdp"
+                    android:paddingTop="@dimen/_2sdp"
+                    android:paddingRight="@dimen/_10sdp"
+                    android:text="General"
+                    android:textAllCaps="true"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_9sdp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:fontFamily="@font/poppins_bold"
+                    android:text="@string/q_temp"
+                    android:textColor="#272F35"
+                    android:textSize="@dimen/_11sdp" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvItems"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:orientation="vertical"
+                    android:visibility="gone"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:itemCount="4"
+                    tools:listitem="@layout/quiz_step_item_a" />
+
+                <LinearLayout
+                    android:id="@+id/progressQues"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="visible">
+
+                    <include layout="@layout/quiz_progress_ui" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/done"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_35sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:background="@drawable/ic_rectangle__done_button"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/poppins_regular"
+                    android:gravity="center"
+                    android:paddingTop="@dimen/_2sdp"
+                    android:text="@string/next"
+                    android:textAllCaps="true"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_14ssp" />
+
+                <ImageView
+                    android:layout_width="@dimen/_30sdp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:padding="@dimen/_6sdp"
+                    android:src="@drawable/ic_arrow"
+                    android:tint="@color/white" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</layout>

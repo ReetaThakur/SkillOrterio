@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="@dimen/_5sdp">
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="@dimen/_28sdp"
+            android:layout_height="@dimen/_28sdp"
+            android:padding="@dimen/_7sdp"
+            android:src="@drawable/ic_back" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="@dimen/_16sdp"
+            android:ellipsize="end"
+            android:fontFamily="@font/sf_pro_semibold"
+            android:gravity="left"
+            android:maxLines="1"
+            android:paddingStart="@dimen/_32sdp"
+            android:paddingEnd="@dimen/_32sdp"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_13sdp" />
+
+        <RelativeLayout
+            android:id="@+id/iv_reset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/ic_reset"
+            android:gravity="center"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/reset"
+                android:paddingTop="@dimen/_4sdp"
+                android:paddingBottom="@dimen/_4sdp"
+                android:paddingRight="@dimen/_8ssp"
+                android:paddingLeft="@dimen/_8ssp"
+                android:textColor="#0A7AFF"
+                android:textSize="@dimen/_10sdp"></TextView>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+</layout>

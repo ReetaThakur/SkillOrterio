@@ -19,7 +19,7 @@ import com.app.skillorterio.databinding.TakeQuizAcBinding;
 
 public class QuizStepAc extends BaseActivity {
     private QuizStepAcBinding binding;
-    int count=1;
+    int count = 1;
 
     @Override
     protected void initUi() {
@@ -31,15 +31,15 @@ public class QuizStepAc extends BaseActivity {
     }
 
     private void next() {
-        binding.done.setOnClickListener(v->{
-            if(count==binding.myProgress.getMax()){
+        binding.done.setOnClickListener(v -> {
+            if (count == binding.myProgress.getMax()) {
                 startActivity(new Intent(this, QuizAc.class));
                 return;
             }
             count++;
-     countNotify();
+            countNotify();
         });
-        binding.close.setOnClickListener(v->{
+        binding.close.setOnClickListener(v -> {
            /* if(count==1){
                 return;
             }
@@ -51,34 +51,32 @@ public class QuizStepAc extends BaseActivity {
 
     private void countNotify() {
         binding.myProgress.setProgress(count);
-        binding.tvCount.setText(count+"/"+binding.myProgress.getMax());
-        if(count==3){
+        binding.tvCount.setText(count + "/" + binding.myProgress.getMax());
+        if (count == 3) {
 
-        }else {
+        } else {
             validate();
         }
     }
 
     private void validate() {
-        QuizStepAdapter quizStepAdapter=new QuizStepAdapter(getApplicationContext(),count);
+        QuizStepAdapter quizStepAdapter = new QuizStepAdapter(getApplicationContext(), count);
         binding.rvItems.setVisibility(View.VISIBLE);
         binding.progressQues.setVisibility(View.GONE);
-        if(count==2){
+        if (count == 2) {
             RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(this, 2);
             binding.rvItems.setLayoutManager(mLayoutManager);
             binding.rvItems.setAdapter(quizStepAdapter);
-        }
-        else if(count==4){
+        } else if (count == 4) {
             binding.rvItems.setVisibility(View.GONE);
             binding.progressQues.setVisibility(View.VISIBLE);
         } else {
-            RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL,false);
+            RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
             binding.rvItems.setLayoutManager(mLayoutManager);
             binding.rvItems.setAdapter(quizStepAdapter);
         }
 
     }
-
 
 
     @Override

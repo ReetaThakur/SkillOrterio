@@ -20,6 +20,8 @@ public class HelpActivity extends BaseActivity {
 
         binding.actionBar.tvTitle.setText(R.string.help);
 
+
+        binding.actionBar.ivBack.setOnClickListener(v -> onBackPressed());
     }
 
     @Override

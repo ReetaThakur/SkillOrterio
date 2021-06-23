@@ -43,6 +43,7 @@
 
 
                     <ImageView
+                        android:id="@+id/iv_back"
                         android:layout_width="@dimen/_30sdp"
                         android:layout_height="@dimen/_30sdp"
                         android:layout_margin="@dimen/_16sdp"

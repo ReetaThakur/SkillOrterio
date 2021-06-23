@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.app.skillontario.BottomBarActivity">
+
+        <com.app.skillontario.customUi.CustomViewPager
+            android:id="@+id/view_pager"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@id/bottom_navigation_view_linear"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <com.gauravk.bubblenavigation.BubbleNavigationLinearView
+            android:id="@+id/bottom_navigation_view_linear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:elevation="8dp"
+            android:orientation="horizontal"
+            android:padding="24dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <com.gauravk.bubblenavigation.BubbleToggleView
+                android:id="@+id/l_item_home"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:bt_active="true"
+                android:layout_weight="1"
+                app:bt_colorActive="@color/white"
+                app:bt_colorInactive="@color/tab1_inactive_color"
+                app:bt_icon="@drawable/ic_tab_home"
+                app:bt_titleSize="14sp"
+                app:bt_shape="@drawable/background_tab1"
+                app:bt_title="@string/home" />
+
+            <com.gauravk.bubblenavigation.BubbleToggleView
+                android:id="@+id/l_item_event"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:bt_badgeBackgroundColor="@color/white"
+                app:bt_colorActive="@color/white"
+                app:bt_colorInactive="@color/tab1_inactive_color"
+                app:bt_icon="@drawable/ic_tab_news"
+                app:bt_titleSize="14sp"
+                app:bt_shape="@drawable/background_tab2"
+                app:bt_title="@string/events" />
+
+            <com.gauravk.bubblenavigation.BubbleToggleView
+                android:id="@+id/l_item_resource"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:bt_colorActive="@color/white"
+                android:layout_weight="1"
+                app:bt_colorInactive="@color/tab1_inactive_color"
+                app:bt_icon="@drawable/ic_tab_event"
+                app:bt_titleSize="14sp"
+                app:bt_shape="@drawable/background_tab3"
+                app:bt_title="@string/resources" />
+
+            <com.gauravk.bubblenavigation.BubbleToggleView
+                android:id="@+id/l_item_dashboard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:bt_colorActive="@color/white"
+                android:layout_weight="1"
+                app:bt_colorInactive="@color/tab1_inactive_color"
+                app:bt_icon="@drawable/ic_tab_last"
+                app:bt_titleSize="14sp"
+                app:bt_shape="@drawable/background_tab4"
+                app:bt_title="@string/dash" />
+
+
+        </com.gauravk.bubblenavigation.BubbleNavigationLinearView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -47,7 +47,7 @@
                         app:tint="@color/white"></ImageView>
 
                     <ImageView
-                        android:id="@+id/img_1"
+                        android:id="@+id/img_share"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
@@ -57,13 +57,13 @@
                         app:tint="@color/white"></ImageView>
 
                     <ImageView
+                        android:id="@+id/imgBookmark"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_16sdp"
                         android:layout_marginRight="@dimen/_16sdp"
-                        android:layout_toLeftOf="@+id/img_1"
-                        android:src="@drawable/ic_job_uppar1"
-                        app:tint="@color/white"></ImageView>
+                        android:layout_toLeftOf="@+id/img_share"
+                        android:src="@drawable/ic_job_uppar1"></ImageView>
 
                 </RelativeLayout>
             </RelativeLayout>
@@ -128,8 +128,8 @@
             <androidx.core.widget.NestedScrollView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="@dimen/_16sdp"
                 android:layout_marginLeft="@dimen/_16sdp"
+                android:layout_marginTop="@dimen/_16sdp"
                 android:layout_marginRight="@dimen/_4sdp"
                 android:scrollbars="none">
 
@@ -170,6 +170,7 @@
                         android:id="@+id/recy_video"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_16sdp"
                         android:divider="@null"
                         android:orientation="horizontal"
                         android:scrollbars="none"
