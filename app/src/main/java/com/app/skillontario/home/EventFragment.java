@@ -226,26 +226,26 @@ public class EventFragment extends BaseFragment implements XmlClickable, ApiResp
             if (page == 1) {
                 eventsModalArrayList.clear();
             }
-            if (responseModel.getStatus()) {
-                if(responseModel.getData().size()>0&&responseModel.getData()!=null) {
-                    eventsModalArrayList.addAll(responseModel.getData());
+            if (responseModel.getStatus()==200) {
+                if(responseModel.getOutput().size()>0&&responseModel.getOutput()!=null) {
+                    eventsModalArrayList.addAll(responseModel.getOutput());
                     eventAdapter = new EventAdapter(eventsModalArrayList, getActivity());
                     binding.recyRecentEvent.setAdapter(eventAdapter);
                     page = page + 1;
                 }
-                hasMore = responseModel.isHasMore();
+               // hasMore = responseModel.isHasMore();
             } else {
                 Utils.showToast(getActivity(), responseModel.getMessage());
             }
         } else if (flag == 11) {
             BaseResponseModel<ArrayList<EventsModal>> responseModel = (BaseResponseModel<ArrayList<EventsModal>>) responseObject;
-            if (responseModel.getStatus()) {
-                if(responseModel.getData().size()>0&&responseModel.getData()!=null) {
-                    eventsModalArrayList.addAll(responseModel.getData());
+            if (responseModel.getStatus()==200) {
+                if(responseModel.getOutput().size()>0&&responseModel.getOutput()!=null) {
+                    eventsModalArrayList.addAll(responseModel.getOutput());
                     eventAdapter.notifyDataSetChanged();
                     page = page + 1;
                 }
-                hasMore = responseModel.isHasMore();
+               // hasMore = responseModel.isHasMore();
             } else {
                 Utils.showToast(getActivity(), responseModel.getMessage());
             }
@@ -254,14 +254,14 @@ public class EventFragment extends BaseFragment implements XmlClickable, ApiResp
             if (new_page == 1) {
                 newsModalArrayList.clear();
             }
-            if (responseModel.getStatus()) {
-                if(responseModel.getData().size()>0&&responseModel.getData()!=null) {
-                    newsModalArrayList.addAll(responseModel.getData());
+            if (responseModel.getStatus()==200) {
+                if(responseModel.getOutput().size()>0&&responseModel.getOutput()!=null) {
+                    newsModalArrayList.addAll(responseModel.getOutput());
                     newsAdapter = new NewsAdapter(newsModalArrayList, getActivity());
                     binding.rcyNews.setAdapter(newsAdapter);
                     new_page = new_page++;
                 }
-                hasMore = responseModel.isHasMore();
+               // hasMore = responseModel.isHasMore();
             } else {
                 Utils.showToast(getActivity(), responseModel.getMessage());
             }

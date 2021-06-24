@@ -216,9 +216,9 @@ public class SignUpActivity extends BaseActivity implements ApiResponseErrorCall
     public void getApiResponse(Object responseObject, int flag) {
         if (flag == 01) {
             BaseResponseModel<RegistrationModal> responseModel = (BaseResponseModel<RegistrationModal>) responseObject;
-            if (responseModel.getStatus()) {
-                MySharedPreference.getInstance().setStringData(SharedPrefsConstants.USER_TOKEN, responseModel.getData().getToken());
-                MySharedPreference.getInstance().setStringData(SharedPrefsConstants.USER_ID, responseModel.getData().getId());
+            if (responseModel.getStatus()==200) {
+                MySharedPreference.getInstance().setStringData(SharedPrefsConstants.USER_TOKEN, responseModel.getOutput().getToken());
+                MySharedPreference.getInstance().setStringData(SharedPrefsConstants.USER_ID, responseModel.getOutput().getId());
                 Intent intent = new Intent(SignUpActivity.this, BottomBarActivity.class);
                 intent.setFlags(FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
                 startActivity(intent);

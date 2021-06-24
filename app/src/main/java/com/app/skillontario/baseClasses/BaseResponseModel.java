@@ -8,59 +8,63 @@ import java.io.Serializable;
 public class BaseResponseModel<T> implements Serializable {
 
     @Expose
-    @SerializedName("result")
-    public T data;
-
-    @Expose
     @SerializedName("error")
-    public Error error;
+    private Error error;
 
     @Expose
     @SerializedName("status")
-    public boolean status;
-
-    @Expose
-    @SerializedName("hasMore")
-    public boolean hasMore;
+    private int status;
 
     @Expose
     @SerializedName("message")
     public String message;
 
     @Expose
-    @SerializedName("thumPath")
-    public String thumbPath;
+    @SerializedName("isSinValid")
+    public Boolean isSinValid;
 
-    public T getData() {
-        return data;
+    @Expose
+    @SerializedName("isSinValidInteger")
+    public Boolean isSinValidInteger;
+
+    @Expose
+    @SerializedName("output")
+    public T output;
+
+
+    public static class Error {
+        @Expose
+        @SerializedName("message")
+        private String message;
+        @Expose
+        @SerializedName("errorCode")
+        private int errorCode;
+
+        public String getMessage() {
+            return message;
+        }
+
+        public int getErrorCode() {
+            return errorCode;
+        }
+
     }
 
-    public void setData(T data) {
-        this.data = data;
-    }
 
     public Error getError() {
         return error;
+    }
+
+    public int getStatus() {
+        return status;
     }
 
     public void setError(Error error) {
         this.error = error;
     }
 
-    public boolean getStatus() {
-        return status;
-    }
-
-    public void setStatus(boolean status) {
+    public void setStatus(int status) {
         this.status = status;
-    }
-
-    public boolean isHasMore() {
-        return hasMore;
-    }
-
-    public void setHasMore(boolean hasMore) {
-        this.hasMore = hasMore;
     }
 
     public String getMessage() {
@@ -71,52 +75,27 @@ public class BaseResponseModel<T> implements Serializable {
         this.message = message;
     }
 
-    public String getThumbPath() {
-        return thumbPath;
+    public Boolean getSinValid() {
+        return isSinValid;
     }
 
-    public void setThumbPath(String thumbPath) {
-        this.thumbPath = thumbPath;
+    public void setSinValid(Boolean sinValid) {
+        isSinValid = sinValid;
     }
 
-    public static class Error {
-        @Expose
-        @SerializedName("message")
-        private String message;
-        @Expose
-        @SerializedName("errorCode")
-        private int errorCode;
-
-        public void setMessage(String message) {
-            this.message = message;
-        }
-
-        public int getErrorCode() {
-            return errorCode;
-        }
-
-        public void setErrorCode(int errorCode) {
-            this.errorCode = errorCode;
-        }
-
-        public String getMessage() {
-            return message;
-        }
+    public Boolean getSinValidInteger() {
+        return isSinValidInteger;
     }
 
-    @Expose
-    @SerializedName("totalCount")
-    public int totalCount;
-
-    public boolean isStatus() {
-        return status;
+    public void setSinValidInteger(Boolean sinValidInteger) {
+        isSinValidInteger = sinValidInteger;
     }
 
-    public int getTotalCount() {
-        return totalCount;
+    public T getOutput() {
+        return output;
     }
 
-    public void setTotalCount(int totalCount) {
-        this.totalCount = totalCount;
+    public void setOutput(T output) {
+        this.output = output;
     }
 }
