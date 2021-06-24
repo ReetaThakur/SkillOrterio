@@ -47,4 +47,7 @@ public interface ApiInterface {
     @POST("upload/image")
     Call<BaseResponseModel> uploadFile(@PartMap Map<String, Object> params, @Part MultipartBody.Part image);
 
+
+    @POST("career/list")
+    Call<BaseResponseModel> getCareerList(@Body HashMap<String, Object> body);
 }

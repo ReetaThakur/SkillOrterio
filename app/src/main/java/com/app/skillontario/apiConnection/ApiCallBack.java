@@ -46,6 +46,7 @@ public class ApiCallBack<T> implements Callback<T>, ConfirmDialogCallback {
     @Override
     public void onResponse(@NotNull Call<T> call, Response<T> response) {
         dismissDialog();
+
         if (response.isSuccessful()) {
             BaseResponseModel model = (BaseResponseModel) response.body();
             try {
@@ -59,6 +60,8 @@ public class ApiCallBack<T> implements Callback<T>, ConfirmDialogCallback {
             } catch (Exception e) {
             }
 
+        } else if (((BaseResponseModel) response.body()).getStatus() == 500) {
+            Utils.showToast(context, ((BaseResponseModel) response.body()).message);
         } else
             Utils.showToast(context, "Server Not Responding");
 
