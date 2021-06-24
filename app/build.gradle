@@ -189,7 +189,7 @@ dependencies {
     implementation 'com.github.HamidrezaAmz:MagicalExoPlayer:2.0.7'
 
     implementation project(':expandable-recyclerview-adapter')
-  /*  implementation project(':tagadapter')*/
+    implementation project(':tagadapter')
     implementation 'com.github.pwittchen:infinitescroll:0.0.1'
     implementation 'com.squareup.picasso:picasso:2.5.2'
 }

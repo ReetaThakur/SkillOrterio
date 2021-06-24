@@ -13,18 +13,17 @@ import com.app.skillontario.callbacks.KeywordSelected;
 import com.app.skillontario.utils.RecyclerItemClickListener;
 import com.app.skillorterio.R;
 import com.app.skillorterio.databinding.ActivityHomeFilterBinding;
-
-/*import dev.amin.tagadapter.Tag;
-import dev.amin.tagadapter.TagAdapter;*/
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import dev.amin.tagadapter.Tag;
+import dev.amin.tagadapter.TagAdapter;
+
 public class HomeFilterActivity extends BaseActivity implements KeywordSelected {
 
     private ActivityHomeFilterBinding binding;
-   // private TagAdapter adapter, adapter1, adapter2;
+    private TagAdapter adapter, adapter1, adapter2;
     //  public static HashMap<Integer, Object> hashMapList = new HashMap<>();
     ArrayList<Integer> list = new ArrayList<>();
     ArrayList<Integer> list1 = new ArrayList<>();
@@ -35,9 +34,9 @@ public class HomeFilterActivity extends BaseActivity implements KeywordSelected 
         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_from_left);
         binding = (ActivityHomeFilterBinding) viewBaseBinding;
 
-   //     adapter = new TagAdapter(getList(), HomeFilterActivity.this);
-   /*     adapter1 = new TagAdapter(getList1(), HomeFilterActivity.this);
-        adapter2 = new TagAdapter(getList2(), HomeFilterActivity.this);*/
+        adapter = new TagAdapter(getList(), HomeFilterActivity.this);
+        adapter1 = new TagAdapter(getList1(), HomeFilterActivity.this);
+        adapter2 = new TagAdapter(getList2(), HomeFilterActivity.this);
         list.clear();
         list1.clear();
         list2.clear();
@@ -57,7 +56,7 @@ public class HomeFilterActivity extends BaseActivity implements KeywordSelected 
         LinearLayoutManager linearLayoutManager1 = new LinearLayoutManager(this);
         LinearLayoutManager linearLayoutManager2 = new LinearLayoutManager(this);
 
-/*
+
 
         binding.rcvKeywords.setLayoutManager(linearLayoutManager);
         binding.rcvKeywords.setAdapter(adapter);
@@ -82,7 +81,7 @@ public class HomeFilterActivity extends BaseActivity implements KeywordSelected 
             list2.add(position);
             adapter2.getClickPosition(list, 2);
         }));
-*/
+
 
         binding.actionBar.ivReset.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -120,7 +119,7 @@ public class HomeFilterActivity extends BaseActivity implements KeywordSelected 
 
     }
 
- /*   private List<Tag> getList() {
+   private List<Tag> getList() {
         List<Tag> sub = new ArrayList<>();
         sub.add(new Tag("Construction"));
         sub.add(new Tag("Industrial"));
@@ -131,9 +130,9 @@ public class HomeFilterActivity extends BaseActivity implements KeywordSelected 
 
         return sub;
 
-    }*/
+    }
 
-   /* private List<Tag> getList1() {
+   private List<Tag> getList1() {
         List<Tag> sub = new ArrayList<>();
         sub.add(new Tag("Bachelor of Technology"));
         sub.add(new Tag("Graduate"));
@@ -142,8 +141,8 @@ public class HomeFilterActivity extends BaseActivity implements KeywordSelected 
         return sub;
 
     }
-*/
-   /* private List<Tag> getList2() {
+
+    private List<Tag> getList2() {
         List<Tag> sub = new ArrayList<>();
         sub.add(new Tag("Option 01"));
         sub.add(new Tag("Option 02"));
@@ -151,6 +150,6 @@ public class HomeFilterActivity extends BaseActivity implements KeywordSelected 
 
         return sub;
 
-    }*/
+    }
 
 }

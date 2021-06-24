@@ -43,11 +43,25 @@ public class RequestBodyGenerator {
         object.put("dob", "1990-01-01");
         object.put("deviceType", "Android");
         object.put("deviceId", divece);
-        object.put("userType", userType);
+        object.put("userType", "2");
         object.put("notifyStatus", "1");
         object.put("terms", "1");
         object.put("fcmToken", "SSDDFFGGG123");
         object.put("status", "");
+
+        return object;
+    }
+
+    public static HashMap<String, Object> setCareerList(int pageNo) {
+        HashMap<String, Object> object = new HashMap<>();
+
+        object.put("cId", "");
+        object.put("search", "");
+        object.put("page", String.valueOf(pageNo));
+        object.put("pageLimit", "");
+        object.put("userId", "");
+        object.put("filter", "");
+
 
         return object;
     }

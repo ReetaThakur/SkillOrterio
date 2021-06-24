@@ -226,7 +226,7 @@ public class EventFragment extends BaseFragment implements XmlClickable, ApiResp
             if (page == 1) {
                 eventsModalArrayList.clear();
             }
-            if (responseModel.getStatus()==200) {
+            if (responseModel.getStatus()) {
                 if(responseModel.getOutput().size()>0&&responseModel.getOutput()!=null) {
                     eventsModalArrayList.addAll(responseModel.getOutput());
                     eventAdapter = new EventAdapter(eventsModalArrayList, getActivity());
@@ -239,7 +239,7 @@ public class EventFragment extends BaseFragment implements XmlClickable, ApiResp
             }
         } else if (flag == 11) {
             BaseResponseModel<ArrayList<EventsModal>> responseModel = (BaseResponseModel<ArrayList<EventsModal>>) responseObject;
-            if (responseModel.getStatus()==200) {
+            if (responseModel.getStatus()) {
                 if(responseModel.getOutput().size()>0&&responseModel.getOutput()!=null) {
                     eventsModalArrayList.addAll(responseModel.getOutput());
                     eventAdapter.notifyDataSetChanged();
@@ -254,7 +254,7 @@ public class EventFragment extends BaseFragment implements XmlClickable, ApiResp
             if (new_page == 1) {
                 newsModalArrayList.clear();
             }
-            if (responseModel.getStatus()==200) {
+            if (responseModel.getStatus()) {
                 if(responseModel.getOutput().size()>0&&responseModel.getOutput()!=null) {
                     newsModalArrayList.addAll(responseModel.getOutput());
                     newsAdapter = new NewsAdapter(newsModalArrayList, getActivity());

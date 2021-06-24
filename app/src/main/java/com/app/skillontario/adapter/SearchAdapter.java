@@ -1,29 +1,41 @@
 package com.app.skillontario.adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 
-import androidx.core.content.ContextCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.app.skillontario.baseClasses.BaseResponseModel;
+import com.app.skillontario.models.careerListModel.CareerListDetails;
 import com.app.skillorterio.R;
-import com.app.skillorterio.databinding.AdapterSearchBinding;
 import com.app.skillorterio.databinding.AdapterSearchBinding;
 
 import org.jetbrains.annotations.NotNull;
+
+import java.util.ArrayList;
 
 public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder> {
 
 
     Context context;
     boolean clickBookmark = false;
+    ArrayList<CareerListDetails> list = new ArrayList<>();
 
-    public SearchAdapter(Context context) {
+    public SearchAdapter(Context context, ArrayList<CareerListDetails> list) {
         this.context = context;
+        this.list = list;
+    }
 
+    public void addList(ArrayList<CareerListDetails> listDetail) {
+        if (listDetail != null) {
+            if (listDetail.size() > 0) {
+                this.list.addAll(listDetail);
+                notifyDataSetChanged();
+            }
+        }
     }
 
 
@@ -34,35 +46,17 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
 
     @Override
     public int getItemCount() {
-        return 4;
+        return list.size();
     }
 
     @Override
     public void onBindViewHolder(final SearchAdapter.ViewHolder viewHolder, final int position) {
-       /* if (popular)
-            viewHolder.binding.imageView.setImageResource(imageArray[position]);
-        else
-            viewHolder.binding.imageView.setImageResource(imageArray1[position]);*/
 
-        /*viewHolder.binding.lay.setOnClickListener(v -> {
-            notifyItemChanged(selected_position);
-            selected_position = position;
-            notifyItemChanged(selected_position);
-        });*/
 
-       /* if (position == 0) {
-            //viewHolder.binding.imgBackground.setColorFilter(ContextCompat.getColor(context, R.color.home_color1));
-            viewHolder.binding.imgOvl.setColorFilter(ContextCompat.getColor(context, R.color.home_oval_color1));
-            viewHolder.binding.imagePerson.setImageResource(R.drawable.home_main_img1);
+        viewHolder.binding.textCons.setText(list.get(position).getJobSector());
+        viewHolder.binding.textWork.setText(list.get(position).getJobProfile());
+        viewHolder.binding.textMoney.setText(list.get(position).getFee());
 
-        } else if (position == 1) {
-            viewHolder.binding.imgOvl.setColorFilter(ContextCompat.getColor(context, R.color.home_oval_color2));
-            viewHolder.binding.imagePerson.setImageResource(R.drawable.home_main_img2);
-        } else {
-            //  viewHolder.binding.imgBackground.setColorFilter(ContextCompat.getColor(context, R.color.home_color2));
-            viewHolder.binding.imgOvl.setColorFilter(ContextCompat.getColor(context, R.color.home_oval_color3));
-            viewHolder.binding.imagePerson.setImageResource(R.drawable.home_main_img3);
-        }*/
 
         viewHolder.binding.imgBookmark.setOnClickListener(v -> {
             if (clickBookmark) {

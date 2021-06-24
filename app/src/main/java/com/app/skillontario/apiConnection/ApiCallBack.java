@@ -13,6 +13,7 @@ import android.view.WindowManager;
 import com.app.skillontario.baseClasses.BaseResponseModel;
 import com.app.skillontario.callbacks.ConfirmDialogCallback;
 import com.app.skillontario.dialogs.CustomAlertDialog;
+import com.app.skillontario.models.careerListModel.CareerListOutput;
 import com.app.skillontario.utils.Utils;
 import com.app.skillorterio.R;
 
@@ -48,20 +49,38 @@ public class ApiCallBack<T> implements Callback<T>, ConfirmDialogCallback {
         dismissDialog();
 
         if (response.isSuccessful()) {
-            Log.d("yugal res  ", response.toString());
-            BaseResponseModel model = (BaseResponseModel) response.body();
-            try {
-                if (model != null && model.getStatus() == 200) {
-                    responseErrorCallback.getApiResponse(response.body(), flag);
-                } else if (model != null && model.getError().getErrorCode() == 5) {
-                    new CustomAlertDialog(context, context.getResources().getString(R.string.session_espired_msg),
-                            context.getResources().getString((R.string.session_expired))).show();
-                } else
-                    responseErrorCallback.getApiResponse(response.body(), flag);
-            } catch (Exception e) {
+
+            if (flag == 969) {
+                CareerListOutput model = (CareerListOutput) response.body();
+                try {
+                    if (model != null && model.getStatus()) {
+                        responseErrorCallback.getApiResponse(response.body(), flag);
+                    } else if (model != null && model.getStatus() == false) {
+                        responseErrorCallback.getApiResponse(response.body(), flag);
+                    } else
+                        responseErrorCallback.getApiResponse(response.body(), flag);
+                } catch (Exception e) {
+                }
+            } else {
+
+                BaseResponseModel model = (BaseResponseModel) response.body();
+                try {
+                    if (model != null && model.getStatus()) {
+                        responseErrorCallback.getApiResponse(response.body(), flag);
+                    } else if (model != null && model.getStatus() == false) {
+                        responseErrorCallback.getApiResponse(response.body(), flag);
+                    } else if (model != null && model.getError().getErrorCode() == 5) {
+                        new CustomAlertDialog(context, context.getResources().getString(R.string.session_espired_msg),
+                                context.getResources().getString((R.string.session_expired))).show();
+                    } else if (model != null && model.getError().getErrorCode() == 500) {
+
+                    } else
+                        responseErrorCallback.getApiResponse(response.body(), flag);
+                } catch (Exception e) {
+                }
             }
 
-        } else if (((BaseResponseModel) response.body()).getStatus() == 500) {
+        } else if (((BaseResponseModel) response.body()).getStatus()) {
             Utils.showToast(context, ((BaseResponseModel) response.body()).message);
         } else
             Utils.showToast(context, "Server Not Responding");

@@ -17,7 +17,7 @@
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/_18sdp"
+            android:layout_margin="@dimen/_16sdp"
             android:background="@drawable/ic_rectangle__home_search">
 
 
@@ -58,17 +58,32 @@
 
         </RelativeLayout>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recy_search"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/_18sdp"
-            android:divider="@null"
-            android:orientation="vertical"
-            android:scrollbars="none"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:reverseLayout="false"></androidx.recyclerview.widget.RecyclerView>
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/_16sdp"
+            android:orientation="vertical">
 
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recy_search"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@+id/progress_bar"
+                android:layout_weight="1"
+                android:divider="@null"
+                android:orientation="vertical"
+                android:scrollbars="none"
+                app:reverseLayout="false"></androidx.recyclerview.widget.RecyclerView>
 
+            <ProgressBar
+                android:id="@+id/progress_bar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:visibility="gone" />
+
+        </LinearLayout>
     </LinearLayout>
 </layout>

@@ -5,6 +5,8 @@ import com.app.skillontario.baseClasses.BaseResponseModel;
 import com.app.skillontario.models.EventsModal;
 import com.app.skillontario.models.NewsModal;
 import com.app.skillontario.models.RegistrationModal;
+import com.app.skillontario.models.careerListModel.CareerListDetails;
+import com.app.skillontario.models.careerListModel.CareerListOutput;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -58,5 +60,5 @@ public interface ApiInterface {
 
 
     @POST("career/list")
-    Call<BaseResponseModel> getCareerList(@Body HashMap<String, Object> body);
+    Call<BaseResponseModel<ArrayList<CareerListDetails>>> getCareerList(@Body HashMap<String, Object> body);
 }

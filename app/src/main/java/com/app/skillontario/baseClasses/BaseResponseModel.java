@@ -13,7 +13,7 @@ public class BaseResponseModel<T> implements Serializable {
 
     @Expose
     @SerializedName("status")
-    private int status;
+    private boolean status;
 
     @Expose
     @SerializedName("message")
@@ -28,9 +28,36 @@ public class BaseResponseModel<T> implements Serializable {
     public Boolean isSinValidInteger;
 
     @Expose
-    @SerializedName("output")
+    @SerializedName("result")
     public T output;
 
+    @Expose
+    @SerializedName("hasMore")
+    public boolean hasMore;
+
+    @Expose
+    @SerializedName("totalCount")
+    public int totalCount;
+
+    public boolean isStatus() {
+        return status;
+    }
+
+    public boolean isHasMore() {
+        return hasMore;
+    }
+
+    public void setHasMore(boolean hasMore) {
+        this.hasMore = hasMore;
+    }
+
+    public int getTotalCount() {
+        return totalCount;
+    }
+
+    public void setTotalCount(int totalCount) {
+        this.totalCount = totalCount;
+    }
 
     public static class Error {
         @Expose
@@ -55,7 +82,7 @@ public class BaseResponseModel<T> implements Serializable {
         return error;
     }
 
-    public int getStatus() {
+    public boolean getStatus() {
         return status;
     }
 
@@ -63,7 +90,7 @@ public class BaseResponseModel<T> implements Serializable {
         this.error = error;
     }
 
-    public void setStatus(int status) {
+    public void setStatus(boolean status) {
         this.status = status;
     }
 
