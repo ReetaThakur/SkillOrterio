@@ -48,6 +48,7 @@ public class ApiCallBack<T> implements Callback<T>, ConfirmDialogCallback {
         dismissDialog();
 
         if (response.isSuccessful()) {
+            Log.d("yugal res  ", response.toString());
             BaseResponseModel model = (BaseResponseModel) response.body();
             try {
                 if (model != null && model.getStatus() == 200) {

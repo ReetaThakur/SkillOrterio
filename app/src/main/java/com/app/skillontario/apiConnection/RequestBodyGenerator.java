@@ -5,6 +5,7 @@ import android.provider.Settings;
 
 import com.app.skillontario.baseClasses.AppController;
 import com.app.skillontario.models.SignUpModel;
+import com.app.skillontario.requestmodal.GetEventRequest;
 import com.app.skillontario.utils.MySharedPreference;
 
 import java.util.ArrayList;
@@ -28,25 +29,24 @@ public class RequestBodyGenerator {
         return object;
     }
 
-    public static HashMap<String, Object> registerUser(SignUpModel signUpModel) {
+    public static HashMap<String, Object> registerUser(SignUpModel signUpModel, String divece, String userType) {
         HashMap<String, Object> object = new HashMap<>();
 
-        object.put("email", "mk70@mailinator.com");
-        object.put("password", "mk@123");
+        object.put("email", signUpModel.getEmail());
+        object.put("password", signUpModel.getPassword());
         object.put("fname", "");
         object.put("lname", "");
         object.put("gender", "");
-
         object.put("school", "");
         object.put("city", "");
         object.put("province", "");
-        object.put("dob", "1970-01-01");
-        object.put("deviceType", "IOS");
-        object.put("deviceId", "999999-0000-000");
-        object.put("userType", "2");
+        object.put("dob", "1990-01-01");
+        object.put("deviceType", "Android");
+        object.put("deviceId", divece);
+        object.put("userType", userType);
         object.put("notifyStatus", "1");
         object.put("terms", "1");
-        object.put("fcmToken", "SSDDFFGGG");
+        object.put("fcmToken", "SSDDFFGGG123");
         object.put("status", "");
 
         return object;
@@ -123,4 +123,13 @@ public class RequestBodyGenerator {
         return object;
     }
 
+    public static HashMap<String, Object> getEvent(GetEventRequest getEventRequest) {
+        HashMap<String, Object> object = new HashMap<>();
+        object.put("eType", getEventRequest.geteType());
+        object.put("eventId", getEventRequest.getEventId());
+        object.put("page", getEventRequest.getPage());
+        object.put("pageLimit", getEventRequest.getPageLimit());
+        object.put("search", getEventRequest.getSearch());
+        return object;
+    }
 }

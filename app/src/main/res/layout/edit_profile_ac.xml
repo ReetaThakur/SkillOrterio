@@ -30,6 +30,7 @@
                     android:layout_marginBottom="@dimen/_15sdp">
 
                     <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/et_First_Name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_10sdp"
@@ -59,6 +60,7 @@
                     android:layout_marginBottom="@dimen/_15sdp">
 
                     <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/et_Last_name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_10sdp"
@@ -257,6 +259,7 @@
                     android:layout_marginBottom="@dimen/_15sdp">
 
                     <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/et_Windsor"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_10sdp"
@@ -286,6 +289,7 @@
                     android:layout_marginBottom="@dimen/_15sdp">
 
                     <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/et_country"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_10sdp"
@@ -295,8 +299,6 @@
                         android:paddingLeft="@dimen/_15sdp"
                         android:text="Ontario"
                         android:textColor="@color/black" />
-
-
                 </RelativeLayout>
 
 
