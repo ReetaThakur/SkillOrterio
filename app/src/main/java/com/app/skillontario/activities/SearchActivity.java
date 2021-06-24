@@ -46,8 +46,8 @@ public class SearchActivity extends BaseActivity implements ApiResponseErrorCall
             startActivity(new Intent(SearchActivity.this, HomeFilterActivity.class));
         });
 
-        callApiList(pageNo);
-        setPagination();
+        //callApiList(pageNo);
+       // setPagination();
     }
 
     void callApiList(int pageNo) {

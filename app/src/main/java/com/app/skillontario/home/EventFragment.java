@@ -57,8 +57,8 @@ public class EventFragment extends BaseFragment implements XmlClickable, ApiResp
     LinearLayoutManager linearLayoutManager,linearLayoutManagernew;
     GetEventRequest getEventRequest,getEventRequestNews;
     ApiResponseErrorCallback apiResponseErrorCallback;
-    ArrayList<EventsModal> eventsModalArrayList;
-    ArrayList<NewsModal> newsModalArrayList;
+    ArrayList<EventsModal> eventsModalArrayList=new ArrayList<>();
+    ArrayList<NewsModal> newsModalArrayList=new ArrayList<>();
     EventAdapter eventAdapter;
     NewsAdapter newsAdapter;
     boolean hasMore = true;
@@ -103,16 +103,24 @@ public class EventFragment extends BaseFragment implements XmlClickable, ApiResp
         getEventRequest.setPage(String.valueOf(page));
         getEventRequest.setPageLimit(String.valueOf(Total_count));
         getEventRequest.setSearch("");
-        API_INTERFACE.getevent(RequestBodyGenerator.getEvent(getEventRequest)).enqueue(
-                new ApiCallBack<>(getActivity(), apiResponseErrorCallback, 10, true));
+
+       /* API_INTERFACE.getevent(RequestBodyGenerator.getEvent(getEventRequest)).enqueue(
+                new ApiCallBack<>(getActivity(), apiResponseErrorCallback, 10, true));*/
 
         getEventRequestNews.seteType("news");
         getEventRequestNews.setEventId("");
         getEventRequestNews.setPage(String.valueOf(new_page));
         getEventRequestNews.setPageLimit(String.valueOf(new_Total_count));
         getEventRequestNews.setSearch("");
-        API_INTERFACE.getNews(RequestBodyGenerator.getEvent(getEventRequestNews)).enqueue(
-                new ApiCallBack<>(getActivity(), apiResponseErrorCallback, 12, false));
+        /*API_INTERFACE.getNews(RequestBodyGenerator.getEvent(getEventRequestNews)).enqueue(
+                new ApiCallBack<>(getActivity(), apiResponseErrorCallback, 12, false));*/
+
+
+        eventAdapter = new EventAdapter(eventsModalArrayList, getActivity());
+        binding.recyRecentEvent.setAdapter(eventAdapter);
+
+        newsAdapter = new NewsAdapter(newsModalArrayList, getActivity());
+        binding.rcyNews.setAdapter(newsAdapter);
 
     }
 
@@ -135,8 +143,8 @@ public class EventFragment extends BaseFragment implements XmlClickable, ApiResp
                     getEventRequest1.setPage(String.valueOf(page));
                     getEventRequest1.setPageLimit(String.valueOf(Total_count));
                     getEventRequest1.setSearch("");
-                    API_INTERFACE.registerUser(RequestBodyGenerator.getEvent(getEventRequest1)).enqueue(
-                            new ApiCallBack<>(getActivity(), apiResponseErrorCallback, 11, true));
+                   /* API_INTERFACE.registerUser(RequestBodyGenerator.getEvent(getEventRequest1)).enqueue(
+                            new ApiCallBack<>(getActivity(), apiResponseErrorCallback, 11, true));*/
 
                 } else {
                     nextdata = true;

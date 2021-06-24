@@ -46,16 +46,16 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
 
     @Override
     public int getItemCount() {
-        return list.size();
+        return 4;
     }
 
     @Override
     public void onBindViewHolder(final SearchAdapter.ViewHolder viewHolder, final int position) {
 
 
-        viewHolder.binding.textCons.setText(list.get(position).getJobSector());
+     /*   viewHolder.binding.textCons.setText(list.get(position).getJobSector());
         viewHolder.binding.textWork.setText(list.get(position).getJobProfile());
-        viewHolder.binding.textMoney.setText(list.get(position).getFee());
+        viewHolder.binding.textMoney.setText(list.get(position).getFee());*/
 
 
         viewHolder.binding.imgBookmark.setOnClickListener(v -> {

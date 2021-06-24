@@ -33,14 +33,14 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.MyViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        Picasso.with(activity).load(eventsModalArrayList.get(position).getEvtImage()).into(holder.eventsItemBinding.ivItem);
-        holder.eventsItemBinding.tvHead.setText(eventsModalArrayList.get(position).getEvtTitle());
-        holder.eventsItemBinding.tvAdd.setText(eventsModalArrayList.get(position).getEvtVenue());
+       // Picasso.with(activity).load(eventsModalArrayList.get(position).getEvtImage()).into(holder.eventsItemBinding.ivItem);
+       // holder.eventsItemBinding.tvHead.setText(eventsModalArrayList.get(position).getEvtTitle());
+       // holder.eventsItemBinding.tvAdd.setText(eventsModalArrayList.get(position).getEvtVenue());
     }
 
     @Override
     public int getItemCount() {
-        return eventsModalArrayList.size();
+        return 10;
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {

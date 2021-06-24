@@ -36,14 +36,14 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.MyViewHolder>{
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
    //  holder..ivItem
-        Picasso.with(activity).load(newsModalArrayList.get(position).getNewsImage()).into(holder.newsItemBinding.ivItem);
-        holder.newsItemBinding.tvHead.setText(newsModalArrayList.get(position).getNewsTitle());
-            holder.newsItemBinding.tvDate.setText(Utils.DateFormate(newsModalArrayList.get(position).getNewsDate()));
+      //  Picasso.with(activity).load(newsModalArrayList.get(position).getNewsImage()).into(holder.newsItemBinding.ivItem);
+      //  holder.newsItemBinding.tvHead.setText(newsModalArrayList.get(position).getNewsTitle());
+          //  holder.newsItemBinding.tvDate.setText(Utils.DateFormate(newsModalArrayList.get(position).getNewsDate()));
     }
 
     @Override
     public int getItemCount() {
-        return newsModalArrayList.size();
+        return 10;
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {

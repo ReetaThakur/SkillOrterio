@@ -109,7 +109,7 @@ public class SignUpActivity extends BaseActivity implements ApiResponseErrorCall
         binding.cvSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (binding.etMail.getText().toString().trim().equals("")) {
+       /*         if (binding.etMail.getText().toString().trim().equals("")) {
                     binding.etMail.setError(getString(R.string.please_enter_email_address));
                 } else if (!(binding.etMail.getText().toString().trim().matches(emailPattern))) {
                     binding.etMail.setError(getString(R.string.please_enter_valid_email_address));
@@ -129,7 +129,9 @@ public class SignUpActivity extends BaseActivity implements ApiResponseErrorCall
                             new ApiCallBack<>(SignUpActivity.this, apiResponseErrorCallback, 01, true));
                   //  startActivity(new Intent(SignUpActivity.this, BottomBarActivity.class));
 
-                }
+                }*/
+
+                startActivity(new Intent(SignUpActivity.this, BottomBarActivity.class));
             }
         });
 
