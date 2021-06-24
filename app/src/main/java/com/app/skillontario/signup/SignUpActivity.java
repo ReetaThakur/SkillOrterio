@@ -125,16 +125,11 @@ public class SignUpActivity extends BaseActivity implements ApiResponseErrorCall
                     signUpModel.setEmail(binding.etMail.getText().toString().trim());
                     signUpModel.setPassword(binding.etPassword.getText().toString().trim());
                     signUpModel.setConfirmPassword(binding.etConfirmPassword.getText().toString().trim());
-                    API_INTERFACE.registerUser(RequestBodyGenerator.registerUser(signUpModel,getDeviceId(SignUpActivity.this),usertype)).enqueue(
+                    API_INTERFACE.registerUser(RequestBodyGenerator.registerUser(signUpModel, getDeviceId(SignUpActivity.this), usertype)).enqueue(
                             new ApiCallBack<>(SignUpActivity.this, apiResponseErrorCallback, 01, true));
-                startActivity(new Intent(SignUpActivity.this, BottomBarActivity.class));
+                    startActivity(new Intent(SignUpActivity.this, BottomBarActivity.class));
 
-                signUpModel.setEmail(binding.etMail.getText().toString().trim());
-                signUpModel.setPassword(binding.etPassword.getText().toString().trim());
-                signUpModel.setConfirmPassword(binding.etConfirmPassword.getText().toString().trim());
-
-                API_INTERFACE.registerUser(RequestBodyGenerator.registerUser(signUpModel)).enqueue(
-                        new ApiCallBack<>(SignUpActivity.this, apiResponseErrorCallback, 01, false));
+                }
             }
         });
 
@@ -181,15 +176,21 @@ public class SignUpActivity extends BaseActivity implements ApiResponseErrorCall
             } else {
                 verifyImage = true;
                 binding.imgVerify.setImageResource(R.drawable.ic_done_signup);
-                }
             }
+
         });
 
-        binding.tvAgreement.setOnClickListener(v -> startActivity(new Intent(SignUpActivity.this, TermsOfServicesActivity.class)));
+        binding.tvAgreement.setOnClickListener(v ->
 
-        binding.tvPrivacy.setOnClickListener(v -> startActivity(new Intent(SignUpActivity.this, PrivacyPolicyActivity.class)));
+                startActivity(new Intent(SignUpActivity.this, TermsOfServicesActivity.class)));
 
-        binding.tvContinueAsGuest.setOnClickListener(v -> startActivity(new Intent(SignUpActivity.this, BottomBarActivity.class)));
+        binding.tvPrivacy.setOnClickListener(v ->
+
+                startActivity(new Intent(SignUpActivity.this, PrivacyPolicyActivity.class)));
+
+        binding.tvContinueAsGuest.setOnClickListener(v ->
+
+                startActivity(new Intent(SignUpActivity.this, BottomBarActivity.class)));
     }
 
     void enableFocusEditText(RelativeLayout relativeLayout, EditText editText, boolean val) {
@@ -215,13 +216,13 @@ public class SignUpActivity extends BaseActivity implements ApiResponseErrorCall
     public void getApiResponse(Object responseObject, int flag) {
         if (flag == 01) {
             BaseResponseModel<RegistrationModal> responseModel = (BaseResponseModel<RegistrationModal>) responseObject;
-            if(responseModel.getStatus()){
-                MySharedPreference.getInstance().setStringData(SharedPrefsConstants.USER_TOKEN,responseModel.getData().getToken());
-                MySharedPreference.getInstance().setStringData(SharedPrefsConstants.USER_ID,responseModel.getData().getId());
-                Intent intent=new Intent(SignUpActivity.this, BottomBarActivity.class);
+            if (responseModel.getStatus()) {
+                MySharedPreference.getInstance().setStringData(SharedPrefsConstants.USER_TOKEN, responseModel.getData().getToken());
+                MySharedPreference.getInstance().setStringData(SharedPrefsConstants.USER_ID, responseModel.getData().getId());
+                Intent intent = new Intent(SignUpActivity.this, BottomBarActivity.class);
                 intent.setFlags(FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
                 startActivity(intent);
-            }else {
+            } else {
                 Utils.showToast(this, responseModel.getMessage());
             }
         }

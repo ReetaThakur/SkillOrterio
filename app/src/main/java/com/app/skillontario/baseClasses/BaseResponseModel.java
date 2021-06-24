@@ -5,32 +5,79 @@ import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
 
-public class BaseResponseModel<T>  implements Serializable {
+public class BaseResponseModel<T> implements Serializable {
+
+    @Expose
+    @SerializedName("result")
+    public T data;
 
     @Expose
     @SerializedName("error")
-    private Error error;
+    public Error error;
 
     @Expose
     @SerializedName("status")
-    private int status;
+    public boolean status;
+
+    @Expose
+    @SerializedName("hasMore")
+    public boolean hasMore;
 
     @Expose
     @SerializedName("message")
     public String message;
 
     @Expose
-    @SerializedName("isSinValid")
-    public Boolean isSinValid;
+    @SerializedName("thumPath")
+    public String thumbPath;
 
-    @Expose
-    @SerializedName("isSinValidInteger")
-    public Boolean isSinValidInteger;
+    public T getData() {
+        return data;
+    }
 
-    @Expose
-    @SerializedName("result")
-    public T result;
+    public void setData(T data) {
+        this.data = data;
+    }
 
+    public Error getError() {
+        return error;
+    }
+
+    public void setError(Error error) {
+        this.error = error;
+    }
+
+    public boolean getStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
+    }
+
+    public boolean isHasMore() {
+        return hasMore;
+    }
+
+    public void setHasMore(boolean hasMore) {
+        this.hasMore = hasMore;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public String getThumbPath() {
+        return thumbPath;
+    }
+
+    public void setThumbPath(String thumbPath) {
+        this.thumbPath = thumbPath;
+    }
 
     public static class Error {
         @Expose
@@ -40,22 +87,36 @@ public class BaseResponseModel<T>  implements Serializable {
         @SerializedName("errorCode")
         private int errorCode;
 
-        public String getMessage() {
-            return message;
+        public void setMessage(String message) {
+            this.message = message;
         }
 
         public int getErrorCode() {
             return errorCode;
         }
 
+        public void setErrorCode(int errorCode) {
+            this.errorCode = errorCode;
+        }
+
+        public String getMessage() {
+            return message;
+        }
     }
 
+    @Expose
+    @SerializedName("totalCount")
+    public int totalCount;
 
-    public Error getError() {
-        return error;
-    }
-
-    public int getStatus() {
+    public boolean isStatus() {
         return status;
+    }
+
+    public int getTotalCount() {
+        return totalCount;
+    }
+
+    public void setTotalCount(int totalCount) {
+        this.totalCount = totalCount;
     }
 }
