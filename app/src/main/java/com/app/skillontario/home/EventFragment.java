@@ -47,7 +47,7 @@ import static android.content.Intent.FLAG_ACTIVITY_CLEAR_TOP;
 import static com.app.skillontario.constants.ApiConstants.API_INTERFACE;
 import static com.app.skillontario.utils.Utils.getDeviceId;
 
-public class EventFragment extends BaseFragment implements XmlClickable, ApiResponseErrorCallback {
+public class EventFragment extends BaseFragment implements XmlClickable {
 
     private FragmentEventBinding binding;
     int Total_count = 6;
@@ -56,7 +56,7 @@ public class EventFragment extends BaseFragment implements XmlClickable, ApiResp
     int new_page = 1;
     LinearLayoutManager linearLayoutManager,linearLayoutManagernew;
     GetEventRequest getEventRequest,getEventRequestNews;
-    ApiResponseErrorCallback apiResponseErrorCallback;
+  //  ApiResponseErrorCallback apiResponseErrorCallback;
     ArrayList<EventsModal> eventsModalArrayList=new ArrayList<>();
     ArrayList<NewsModal> newsModalArrayList=new ArrayList<>();
     EventAdapter eventAdapter;
@@ -74,7 +74,7 @@ public class EventFragment extends BaseFragment implements XmlClickable, ApiResp
         setPhase(this);
         getEventRequest = new GetEventRequest(getActivity());
         getEventRequestNews = new GetEventRequest(getActivity());
-        apiResponseErrorCallback = this;
+       // apiResponseErrorCallback = this;
         eventsModalArrayList = new ArrayList<>();
         newsModalArrayList = new ArrayList<>();
         binding.tab.tv1.setOnClickListener(v -> {
@@ -92,11 +92,11 @@ public class EventFragment extends BaseFragment implements XmlClickable, ApiResp
         MySharedPreference.getInstance().setBooleanData(SharedPrefsConstants.IS_HEADER, true);
         linearLayoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
         binding.recyRecentEvent.setLayoutManager(linearLayoutManager);
-        binding.recyRecentEvent.addOnScrollListener(createInfiniteScrollListener());
+       // binding.recyRecentEvent.addOnScrollListener(createInfiniteScrollListener());
 
         linearLayoutManagernew = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
         binding.rcyNews.setLayoutManager(linearLayoutManagernew);
-        binding.rcyNews.addOnScrollListener(createInfiniteScrollListenerNews());
+      //  binding.rcyNews.addOnScrollListener(createInfiniteScrollListenerNews());
 
         getEventRequest.seteType("event");
         getEventRequest.setEventId("");
@@ -104,16 +104,13 @@ public class EventFragment extends BaseFragment implements XmlClickable, ApiResp
         getEventRequest.setPageLimit(String.valueOf(Total_count));
         getEventRequest.setSearch("");
 
-       /* API_INTERFACE.getevent(RequestBodyGenerator.getEvent(getEventRequest)).enqueue(
-                new ApiCallBack<>(getActivity(), apiResponseErrorCallback, 10, true));*/
 
         getEventRequestNews.seteType("news");
         getEventRequestNews.setEventId("");
         getEventRequestNews.setPage(String.valueOf(new_page));
         getEventRequestNews.setPageLimit(String.valueOf(new_Total_count));
         getEventRequestNews.setSearch("");
-        /*API_INTERFACE.getNews(RequestBodyGenerator.getEvent(getEventRequestNews)).enqueue(
-                new ApiCallBack<>(getActivity(), apiResponseErrorCallback, 12, false));*/
+
 
 
         eventAdapter = new EventAdapter(eventsModalArrayList, getActivity());
@@ -124,62 +121,8 @@ public class EventFragment extends BaseFragment implements XmlClickable, ApiResp
 
     }
 
-    private InfiniteScrollListener createInfiniteScrollListener() {
-        return new InfiniteScrollListener(Total_count, (LinearLayoutManager) binding.recyRecentEvent.getLayoutManager()) {
-            @Override
-            public void onScrolledToEnd(final int firstVisibleItemPosition) {
-                // load your items here
-                // logic of loading items will be different depending on your specific use case
-                // when new items are loaded, combine old and new items, pass them to your adapter
-                // and call refreshView(...) method from InfiniteScrollListener class to refresh RecyclerView
-                //  refreshView(recyclerView, new MyAdapter(items), firstVisibleItemPosition);
 
-                if (hasMore && nextdata) {
-                    nextdata = false;
-                    hasMore = false;
-                    GetEventRequest  getEventRequest1 = new GetEventRequest(getActivity());
-                    getEventRequest1.seteType("event");
-                    getEventRequest1.setEventId("");
-                    getEventRequest1.setPage(String.valueOf(page));
-                    getEventRequest1.setPageLimit(String.valueOf(Total_count));
-                    getEventRequest1.setSearch("");
-                   /* API_INTERFACE.registerUser(RequestBodyGenerator.getEvent(getEventRequest1)).enqueue(
-                            new ApiCallBack<>(getActivity(), apiResponseErrorCallback, 11, true));*/
 
-                } else {
-                    nextdata = true;
-                }
-            }
-        };
-    }
-    private InfiniteScrollListener createInfiniteScrollListenerNews() {
-        return new InfiniteScrollListener(Total_count, (LinearLayoutManager) binding.recyRecentEvent.getLayoutManager()) {
-            @Override
-            public void onScrolledToEnd(final int firstVisibleItemPosition) {
-                // load your items here
-                // logic of loading items will be different depending on your specific use case
-                // when new items are loaded, combine old and new items, pass them to your adapter
-                // and call refreshView(...) method from InfiniteScrollListener class to refresh RecyclerView
-                //  refreshView(recyclerView, new MyAdapter(items), firstVisibleItemPosition);
-
-              /*  if (hasMore && nextdata) {
-                    nextdata = false;
-                    hasMore = false;
-                    GetEventRequest  getEventRequest1 = new GetEventRequest(getActivity());
-                    getEventRequest1.seteType("news");
-                    getEventRequest1.setEventId("");
-                    getEventRequest1.setPage(String.valueOf(new_page));
-                    getEventRequest1.setPageLimit(String.valueOf(new_Total_count));
-                    getEventRequest1.setSearch("");
-                    API_INTERFACE.registerUser(RequestBodyGenerator.getEvent(getEventRequest1)).enqueue(
-                            new ApiCallBack<>(getActivity(), apiResponseErrorCallback, 11, true));
-
-                } else {
-                    nextdata = true;
-                }*/
-            }
-        };
-    }
 
     private void openD() {
         Dialog dialogMood = new Dialog(getActivity());
@@ -227,57 +170,5 @@ public class EventFragment extends BaseFragment implements XmlClickable, ApiResp
     }
 
 
-    @Override
-    public void getApiResponse(Object responseObject, int flag) {
-        if (flag == 10) {
-            BaseResponseModel<ArrayList<EventsModal>> responseModel = (BaseResponseModel<ArrayList<EventsModal>>) responseObject;
-            if (page == 1) {
-                eventsModalArrayList.clear();
-            }
-            if (responseModel.getStatus()) {
-                if(responseModel.getOutput().size()>0&&responseModel.getOutput()!=null) {
-                    eventsModalArrayList.addAll(responseModel.getOutput());
-                    eventAdapter = new EventAdapter(eventsModalArrayList, getActivity());
-                    binding.recyRecentEvent.setAdapter(eventAdapter);
-                    page = page + 1;
-                }
-               // hasMore = responseModel.isHasMore();
-            } else {
-                Utils.showToast(getActivity(), responseModel.getMessage());
-            }
-        } else if (flag == 11) {
-            BaseResponseModel<ArrayList<EventsModal>> responseModel = (BaseResponseModel<ArrayList<EventsModal>>) responseObject;
-            if (responseModel.getStatus()) {
-                if(responseModel.getOutput().size()>0&&responseModel.getOutput()!=null) {
-                    eventsModalArrayList.addAll(responseModel.getOutput());
-                    eventAdapter.notifyDataSetChanged();
-                    page = page + 1;
-                }
-               // hasMore = responseModel.isHasMore();
-            } else {
-                Utils.showToast(getActivity(), responseModel.getMessage());
-            }
-        }else if(flag==12){
-            BaseResponseModel<ArrayList<NewsModal>> responseModel = (BaseResponseModel<ArrayList<NewsModal>>) responseObject;
-            if (new_page == 1) {
-                newsModalArrayList.clear();
-            }
-            if (responseModel.getStatus()) {
-                if(responseModel.getOutput().size()>0&&responseModel.getOutput()!=null) {
-                    newsModalArrayList.addAll(responseModel.getOutput());
-                    newsAdapter = new NewsAdapter(newsModalArrayList, getActivity());
-                    binding.rcyNews.setAdapter(newsAdapter);
-                    new_page = new_page++;
-                }
-               // hasMore = responseModel.isHasMore();
-            } else {
-                Utils.showToast(getActivity(), responseModel.getMessage());
-            }
-        }
-    }
 
-    @Override
-    public void getApiError(Throwable t, int flag) {
-
-    }
 }
