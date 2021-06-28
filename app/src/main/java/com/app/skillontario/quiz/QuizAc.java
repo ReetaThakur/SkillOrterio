@@ -7,21 +7,26 @@ import androidx.core.app.ShareCompat;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
 import com.app.skillontario.MainActivity;
+import com.app.skillontario.activities.NewsDetailAc;
+import com.app.skillontario.adapter.AdapterCong;
+import com.app.skillontario.adapter.RecentNewsAdapter;
 import com.app.skillontario.adapter.TabAdapter;
 import com.app.skillontario.baseClasses.BaseActivity;
+import com.app.skillontario.utils.RecyclerItemClickListener;
 import com.app.skillorterio.R;
 import com.app.skillorterio.databinding.QuizAcBinding;
 
 public class QuizAc extends BaseActivity {
     private TabAdapter tabAdapter;
     private QuizAcBinding binding;
+    AdapterCong adapter2;
 
     @Override
     protected void initUi() {
         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_from_left);
         binding = (QuizAcBinding) viewBaseBinding;
 
-        binding.share.setOnClickListener(v->{
+        binding.share.setOnClickListener(v -> {
             ShareCompat.IntentBuilder.from(this)
                     .setType("text/plain")
                     .setChooserTitle(getResources().getText(R.string.app_name))
@@ -29,34 +34,37 @@ public class QuizAc extends BaseActivity {
                     .startChooser();
         });
 
-        binding.sendInvite.setOnClickListener(v->{
+        binding.sendInvite.setOnClickListener(v -> {
             onShareClicked();
         });
-        binding.retake.tvRetake.setOnClickListener(v->startActivity(new Intent(this, QuizStepAc.class)));
-        binding.home.setOnClickListener(v->startActivity(new Intent(this, MainActivity.class)));
+        binding.retake.tvRetake.setOnClickListener(v -> startActivity(new Intent(this, QuizStepAc.class)));
+        binding.home.setOnClickListener(v -> startActivity(new Intent(this, MainActivity.class)));
 
-        setAdapter();
+        //setAdapter();
+        showRecycler();
     }
 
-    private void setAdapter() {
-        tabAdapter = new TabAdapter(getSupportFragmentManager(), FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
-        tabAdapter.addFragment(new QuizChildFragment("1"), "");
-        tabAdapter.addFragment(new QuizChildFragment("2"), "");
-        tabAdapter.addFragment(new QuizChildFragment("3"), "");
-        tabAdapter.addFragment(new QuizChildFragment("4"), "");
-        tabAdapter.addFragment(new QuizChildFragment("5"), "");
+    private void showRecycler() {
+        binding.recyCong.setHasFixedSize(true);
+        adapter2 = new AdapterCong(QuizAc.this);
+        binding.recyCong.setAdapter(adapter2);
 
+        binding.recyCong.addOnItemTouchListener(new RecyclerItemClickListener(QuizAc.this, (view, position) -> {
 
-
-        binding.viewPager.setAdapter(tabAdapter);
-       // binding.tab.setupWithViewPager(binding.viewPager, true);
-
-       /*
-        binding.viewPager.setPagingEnabled(false);
-        binding.viewPager.setOffscreenPageLimit(4);
-        */
+        }));
     }
 
+/*   private void setAdapter() {
+       tabAdapter = new TabAdapter(getSupportFragmentManager(), FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
+       tabAdapter.addFragment(new QuizChildFragment("1"), "");
+       tabAdapter.addFragment(new QuizChildFragment("2"), "");
+       tabAdapter.addFragment(new QuizChildFragment("3"), "");
+       tabAdapter.addFragment(new QuizChildFragment("4"), "");
+       tabAdapter.addFragment(new QuizChildFragment("5"), "");
+
+
+       binding.viewPager.setAdapter(tabAdapter);
+   }*/
 
 
     @Override

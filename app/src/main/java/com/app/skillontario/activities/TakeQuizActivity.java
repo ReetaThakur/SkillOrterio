@@ -1,7 +1,10 @@
 package com.app.skillontario.activities;
 
+import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
 import android.view.View;
+import android.view.Window;
 
 import com.app.skillontario.adapter.QuizAdapter;
 import com.app.skillontario.baseClasses.BaseActivity;
@@ -19,7 +22,31 @@ public class TakeQuizActivity extends BaseActivity {
     protected void initUi() {
         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_from_left);
         binding = (ActivityTakeQuizBinding) viewBaseBinding;
-        binding.tvTakeQuiz.setOnClickListener(v->startActivity(new Intent(this, QuizStepAc.class)));
+        //  binding.tvTakeQuiz.setOnClickListener(v->startActivity(new Intent(this, QuizStepAc.class)));
+
+        binding.tvTakeQuiz.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    Dialog dialog = new Dialog(TakeQuizActivity.this, android.R.style.Theme_Light);
+                    dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+                    dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                    dialog.setContentView(R.layout.quiz_transparent_view);
+
+                    dialog.findViewById(R.id.tv_gotit).setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            startActivity(new Intent(TakeQuizActivity.this, QuizStepAc.class));
+                            dialog.dismiss();
+                        }
+                    });
+                    dialog.show();
+                }catch (Exception e){
+                    startActivity(new Intent(TakeQuizActivity.this, QuizStepAc.class));
+                }
+
+            }
+        });
 
         binding.ivBack.setOnClickListener(v -> onBackPressed());
         showPopularCareerRecycler();

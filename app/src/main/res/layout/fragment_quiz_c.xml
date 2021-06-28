@@ -5,55 +5,53 @@
     tools:context="com.app.skillontario.home.Tab4Fragment">
 
     <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-         >
-
+        android:layout_width="@dimen/_240sdp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/_12sdp"
+        android:layout_marginRight="@dimen/_12sdp">
 
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/_300sdp"
-            android:orientation="vertical"
             android:layout_centerInParent="true"
-            android:layout_marginRight="@dimen/_30sdp"
-            android:layout_marginLeft="@dimen/_30sdp"
-            >
+            android:orientation="vertical">
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:gravity="center_horizontal"
                     android:layout_marginTop="@dimen/_35sdp"
-                    android:orientation="vertical"
+                    android:layout_weight="1"
                     android:background="@drawable/rec_quiz_tanks"
-                    android:layout_weight="1">
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
 
                     <ImageView
 
                         android:layout_width="@dimen/_130sdp"
                         android:layout_height="@dimen/_130sdp"
-                        android:paddingLeft="@dimen/_15sdp"
                         android:layout_marginTop="@dimen/_10sdp"
-                         android:src="@drawable/ic_home_main_oval" />
+                        android:paddingLeft="@dimen/_15sdp"
+                        android:src="@drawable/ic_home_main_oval" />
 
 
                 </LinearLayout>
+
                 <ImageView
                     android:id="@+id/ivHolder"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginEnd="@dimen/_5sdp"
                     android:layout_marginStart="@dimen/_5sdp"
-                    android:src="@drawable/home_main_img1" />
+                    android:layout_marginEnd="@dimen/_5sdp"
+                    android:src="@drawable/tab_img_person" />
 
 
             </RelativeLayout>
-
 
 
             <LinearLayout
@@ -61,50 +59,49 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/rec_bottom_white"
                 android:gravity="center"
-                android:paddingBottom="@dimen/_5sdp"
-                android:paddingTop="@dimen/_5sdp"
                 android:orientation="vertical"
-                >
+                android:paddingTop="@dimen/_5sdp"
+                android:paddingBottom="@dimen/_5sdp">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_5sdp"
+                    android:background="@drawable/arrow_head_two"
                     android:fontFamily="@font/poppins_medium"
                     android:gravity="center"
-                    android:layout_margin="@dimen/_5sdp"
-                    android:paddingEnd="@dimen/_20sdp"
                     android:paddingStart="@dimen/_20sdp"
                     android:paddingTop="@dimen/_3sdp"
-                    android:background="@drawable/arrow_head_two"
+                    android:paddingEnd="@dimen/_20sdp"
                     android:paddingBottom="@dimen/_3sdp"
-                    android:text="Congratulations"
+                    android:singleLine="true"
+                    android:text="Construction"
                     android:textAllCaps="true"
-                    android:singleLine="true"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/_12sdp" />
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppins_medium"
-                    android:gravity="center"
-                    android:text="General Carpenter"
-                    android:textColor="@color/black"
-                    android:singleLine="true"
-                    android:textSize="@dimen/_16sdp" />
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppins_medium"
-                    android:gravity="center"
+                    android:textSize="14sp" />
 
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_medium"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:text="General Carpenter"
+                    android:textColor="#272F35"
+                    android:textSize="@dimen/_18sdp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_medium"
+                    android:gravity="center"
                     android:text="$20 - $48 per hour"
                     android:textColor="@color/black_light"
-                    android:textSize="@dimen/_10sdp" />
+                    android:textSize="14sp" />
             </LinearLayout>
 
 
         </LinearLayout>
-
-
 
 
     </RelativeLayout>

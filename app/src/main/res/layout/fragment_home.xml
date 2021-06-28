@@ -64,14 +64,15 @@
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="@dimen/_6sdp"
                         android:padding="@dimen/_10sdp"
-                        android:src="@drawable/ic_search"></ImageView>
+                        android:src="@drawable/ic_search"
+                        app:tint="#D3E3ED"></ImageView>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
                         android:layout_toRightOf="@+id/im"
-                        android:text="@string/search"
+                        android:text="Search careers"
                         android:textColor="@color/search_text_color"
                         android:textSize="@dimen/_12sdp"></TextView>
                 </RelativeLayout>
@@ -214,7 +215,7 @@
                     app:reverseLayout="false"></androidx.recyclerview.widget.RecyclerView>
 
                 <RelativeLayout
-                    android:layout_width="349dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/_16sdp"
                     android:layout_marginTop="@dimen/_16sdp"
@@ -222,7 +223,7 @@
 
                     <ImageView
                         android:id="@+id/img_expolre"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:scaleType="centerCrop"
                         android:src="@drawable/group"></ImageView>

@@ -7,7 +7,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#F6FAFF"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:paddingTop="@dimen/_10sdp">
 
         <include
             android:id="@+id/action_bar"
@@ -17,7 +18,9 @@
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/_16sdp"
+            android:layout_marginLeft="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:layout_marginRight="@dimen/_16sdp"
             android:background="@drawable/ic_rectangle__home_search">
 
 
@@ -35,8 +38,9 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_toRightOf="@+id/im"
-                android:text="@string/search"
-                android:textColor="@color/search_text_color"
+                android:text="General"
+                android:fontFamily="@font/poppins_regular"
+                android:textColor="@color/black"
                 android:textSize="@dimen/_12sdp"></TextView>
 
             <RelativeLayout

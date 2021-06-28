@@ -106,9 +106,9 @@
                     android:paddingTop="@dimen/_2sdp"
                     android:paddingRight="@dimen/_10sdp"
                     android:text="General"
-                    android:textAllCaps="true"
+                    android:textAllCaps="false"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/_9sdp" />
+                    android:textSize="@dimen/_10sdp" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -117,7 +117,7 @@
                     android:fontFamily="@font/poppins_bold"
                     android:text="@string/q_temp"
                     android:textColor="#272F35"
-                    android:textSize="@dimen/_11sdp" />
+                    android:textSize="@dimen/_14sdp" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rvItems"
@@ -145,7 +145,7 @@
             <LinearLayout
                 android:id="@+id/done"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_35sdp"
+                android:layout_height="@dimen/_40sdp"
                 android:layout_marginTop="@dimen/_5sdp"
                 android:background="@drawable/ic_rectangle__done_button"
                 android:gravity="center"

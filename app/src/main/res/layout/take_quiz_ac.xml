@@ -8,7 +8,7 @@
         android:background="@color/white"
 
         android:orientation="vertical"
-        android:padding="@dimen/_4sdp">
+        android:paddingTop="@dimen/_10sdp">
 
 
         <include
@@ -25,7 +25,6 @@
             android:orientation="vertical">
 
 
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -34,7 +33,9 @@
                 android:orientation="vertical"
                 android:padding="@dimen/_4sdp">
 
-             <include android:id="@+id/noData" layout="@layout/no_data_found"/>
+                <include
+                    android:id="@+id/noData"
+                    layout="@layout/no_data_found" />
 
 
             </LinearLayout>
@@ -43,23 +44,25 @@
             <LinearLayout
                 android:id="@+id/done"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_40sdp"
-                android:gravity="center"
+                android:layout_height="@dimen/_45sdp"
+                android:layout_marginLeft="@dimen/_36sdp"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:layout_marginRight="@dimen/_36sdp"
                 android:background="@drawable/ic_rectangle__done_button"
-                android:layout_marginTop="@dimen/_24sdp"
+                android:gravity="center"
                 android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppins_regular"
+                    android:drawablePadding="@dimen/_5sdp"
+                    android:fontFamily="@font/poppins_medium"
                     android:gravity="center"
                     android:padding="@dimen/_10sdp"
                     android:text="Take Quiz"
-                    android:drawablePadding="@dimen/_5sdp"
                     android:textAllCaps="true"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/_14ssp" />
+                    android:textSize="@dimen/_16sdp" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

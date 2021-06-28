@@ -57,8 +57,7 @@
                             android:layout_marginTop="@dimen/_15sdp"
                             android:fontFamily="@font/poppins_medium"
                             android:gravity="center"
-                            android:text="Darren L. Buium
-Scholarship Award"
+                            android:text="@string/darren_l_buium_scholarship_award"
                             android:textColor="@color/black"
                             android:textSize="@dimen/_18sdp" />
 

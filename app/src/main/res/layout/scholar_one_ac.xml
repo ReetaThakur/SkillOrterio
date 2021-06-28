@@ -26,41 +26,37 @@
                 android:fontFamily="@font/poppins_regular"
                 android:text="@string/scoller_and"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_25sdp"></TextView>
+                android:textSize="35sp"></TextView>
 
             <androidx.core.widget.NestedScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#F4F4FF"
+                android:paddingTop="@dimen/_16sdp"
+                android:paddingRight="@dimen/_6sdp"
                 android:scrollbars="none">
 
                 <LinearLayout
                     android:id="@+id/rclick"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_marginBottom="@dimen/_50sdp"
                     android:orientation="vertical">
 
-                    <include
-                        layout="@layout/scollar_item1"  />
+                    <include layout="@layout/scollar_item1" />
 
-                    <include
-                        layout="@layout/scollar_item1"  />
+                    <include layout="@layout/scollar_item1" />
 
-                    <include
-                        layout="@layout/scollar_item1"  />
+                    <include layout="@layout/scollar_item1" />
 
 
-                    <include
-                        layout="@layout/scollar_item1"  />
+                    <include layout="@layout/scollar_item1" />
 
-                    <include
-                        layout="@layout/scollar_item1" />
+                    <include layout="@layout/scollar_item1" />
 
-                    <include
-                        layout="@layout/scollar_item1"  />
+                    <include layout="@layout/scollar_item1" />
 
-                    <include
-                        layout="@layout/scollar_item1"  />
+                    <include layout="@layout/scollar_item1" />
 
                 </LinearLayout>
 

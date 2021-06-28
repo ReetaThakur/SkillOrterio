@@ -7,7 +7,7 @@
         android:layout_height="match_parent"
         android:background="@color/white"
         android:orientation="vertical"
-        android:padding="@dimen/_4sdp">
+        android:paddingTop="@dimen/_10sdp">
 
 
         <include
@@ -16,7 +16,8 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/_4sdp">
 
             <WebView
                 android:id="@+id/webview"

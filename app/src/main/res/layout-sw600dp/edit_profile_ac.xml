@@ -45,7 +45,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/_20sdp"
                         android:background="@color/white"
-                        android:fontFamily="@font/poppins_regular"
+                        android:fontFamily="@font/poppins_medium"
                         android:gravity="center_vertical"
                         android:paddingLeft="@dimen/_10sdp"
                         android:paddingRight="@dimen/_10sdp"
@@ -74,7 +74,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/_20sdp"
                         android:background="@color/white"
-                        android:fontFamily="@font/poppins_regular"
+                        android:fontFamily="@font/poppins_medium"
                         android:gravity="center_vertical"
                         android:paddingLeft="@dimen/_10sdp"
                         android:paddingRight="@dimen/_10sdp"
@@ -92,12 +92,12 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@color/white"
-                        android:fontFamily="@font/poppins_regular"
+                        android:fontFamily="@font/poppins_medium"
                         android:gravity="center_vertical"
                         android:paddingRight="@dimen/_10sdp"
                         android:text="@string/gender"
                         android:textColor="@color/black"
-                        android:textSize="@dimen/_13sdp" />
+                        android:textSize="@dimen/_10sdp" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -160,7 +160,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/_20sdp"
                         android:background="@color/white"
-                        android:fontFamily="@font/poppins_regular"
+                        android:fontFamily="@font/poppins_medium"
                         android:gravity="center_vertical"
                         android:paddingLeft="@dimen/_10sdp"
                         android:paddingRight="@dimen/_10sdp"
@@ -177,12 +177,12 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@color/white"
-                        android:fontFamily="@font/poppins_regular"
+                        android:fontFamily="@font/poppins_medium"
                         android:gravity="center_vertical"
                         android:paddingRight="@dimen/_10sdp"
                         android:text="School"
                         android:textColor="@color/black"
-                        android:textSize="@dimen/_13sdp" />
+                        android:textSize="@dimen/_10sdp" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -199,11 +199,11 @@
                             android:background="@drawable/edit_text_background"
                             android:backgroundTint="@color/layer_select"
 
-                            android:fontFamily="@font/poppins_regular"
+                            android:fontFamily="@font/poppins_medium"
                             android:gravity="center"
                             android:text="Elementary School"
                             android:textColor="@color/white"
-                            android:textSize="@dimen/_13sdp" />
+                            android:textSize="@dimen/_10sdp" />
 
                         <TextView
                             android:id="@+id/s2"
@@ -212,11 +212,11 @@
                             android:layout_marginLeft="@dimen/_2sdp"
                             android:layout_weight="1"
                             android:background="@drawable/edit_text_background"
-                            android:fontFamily="@font/poppins_regular"
+                            android:fontFamily="@font/poppins_medium"
                             android:gravity="center"
                             android:text="High School"
                             android:textColor="@color/black"
-                            android:textSize="@dimen/_13sdp" />
+                            android:textSize="@dimen/_10sdp" />
 
                     </LinearLayout>
 
@@ -243,7 +243,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/_20sdp"
                         android:background="@color/white"
-                        android:fontFamily="@font/poppins_regular"
+                        android:fontFamily="@font/poppins_medium"
                         android:gravity="center_vertical"
                         android:paddingLeft="@dimen/_10sdp"
                         android:paddingRight="@dimen/_10sdp"
@@ -272,7 +272,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/_20sdp"
                         android:background="@color/white"
-                        android:fontFamily="@font/poppins_regular"
+                        android:fontFamily="@font/poppins_medium"
                         android:gravity="center_vertical"
                         android:paddingLeft="@dimen/_10sdp"
                         android:paddingRight="@dimen/_10sdp"
@@ -316,7 +316,7 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/ic_rectangle__done_button"
                 android:drawablePadding="@dimen/_5sdp"
-                android:fontFamily="@font/poppins_regular"
+                android:fontFamily="@font/poppins_medium"
                 android:gravity="center"
                 android:paddingTop="@dimen/_10sdp"
                 android:paddingBottom="@dimen/_10sdp"

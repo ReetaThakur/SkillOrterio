@@ -46,12 +46,13 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/_20sdp"
                         android:background="@color/white"
-                        android:fontFamily="@font/poppins_regular"
+                        android:fontFamily="@font/poppins_medium"
                         android:gravity="center_vertical"
                         android:paddingLeft="@dimen/_10sdp"
                         android:paddingRight="@dimen/_10sdp"
                         android:text="@string/first_name_"
-                        android:textColor="@color/black" />
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -76,12 +77,13 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/_20sdp"
                         android:background="@color/white"
-                        android:fontFamily="@font/poppins_regular"
+                        android:fontFamily="@font/poppins_medium"
                         android:gravity="center_vertical"
                         android:paddingLeft="@dimen/_10sdp"
                         android:paddingRight="@dimen/_10sdp"
                         android:text="@string/last_name_"
-                        android:textColor="@color/black" />
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
                 </RelativeLayout>
 
 
@@ -94,12 +96,12 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@color/white"
-                        android:fontFamily="@font/poppins_regular"
+                        android:fontFamily="@font/poppins_medium"
                         android:gravity="center_vertical"
                         android:paddingRight="@dimen/_10sdp"
                         android:text="@string/gender"
                         android:textColor="@color/black"
-                        android:textSize="@dimen/_13sdp" />
+                        android:textSize="14sp" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -119,14 +121,18 @@
                                 android:id="@+id/bt1"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="I identify as female" />
+                                android:fontFamily="@font/poppins_medium"
+                                android:text="I identify as female"
+                                android:textSize="12sp" />
 
                             <RadioButton
                                 android:id="@+id/bt2"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="@dimen/_5sdp"
-                                android:text="I don't identify as female" />
+                                android:fontFamily="@font/poppins_medium"
+                                android:text="I don't identify as female"
+                                android:textSize="12sp" />
                         </RadioGroup>
 
                         <ImageView
@@ -162,12 +168,13 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/_20sdp"
                         android:background="@color/white"
-                        android:fontFamily="@font/poppins_regular"
+                        android:fontFamily="@font/poppins_medium"
                         android:gravity="center_vertical"
                         android:paddingLeft="@dimen/_10sdp"
                         android:paddingRight="@dimen/_10sdp"
                         android:text="@string/email"
-                        android:textColor="@color/black" />
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -179,12 +186,12 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@color/white"
-                        android:fontFamily="@font/poppins_regular"
+                        android:fontFamily="@font/poppins_medium"
                         android:gravity="center_vertical"
                         android:paddingRight="@dimen/_10sdp"
                         android:text="School"
                         android:textColor="@color/black"
-                        android:textSize="@dimen/_13sdp" />
+                        android:textSize="14sp" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -201,11 +208,11 @@
                             android:background="@drawable/edit_text_background"
                             android:backgroundTint="@color/layer_select"
 
-                            android:fontFamily="@font/poppins_regular"
+                            android:fontFamily="@font/poppins_medium"
                             android:gravity="center"
                             android:text="Elementary School"
                             android:textColor="@color/white"
-                            android:textSize="@dimen/_13sdp" />
+                            android:textSize="14sp" />
 
                         <TextView
                             android:id="@+id/s2"
@@ -214,11 +221,11 @@
                             android:layout_marginLeft="@dimen/_2sdp"
                             android:layout_weight="1"
                             android:background="@drawable/edit_text_background"
-                            android:fontFamily="@font/poppins_regular"
+                            android:fontFamily="@font/poppins_medium"
                             android:gravity="center"
                             android:text="High School"
                             android:textColor="@color/black"
-                            android:textSize="@dimen/_13sdp" />
+                            android:textSize="14sp" />
 
                     </LinearLayout>
 
@@ -245,12 +252,13 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/_20sdp"
                         android:background="@color/white"
-                        android:fontFamily="@font/poppins_regular"
+                        android:fontFamily="@font/poppins_medium"
                         android:gravity="center_vertical"
                         android:paddingLeft="@dimen/_10sdp"
                         android:paddingRight="@dimen/_10sdp"
                         android:text="@string/date_of_birth_"
-                        android:textColor="@color/black" />
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -275,12 +283,13 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/_20sdp"
                         android:background="@color/white"
-                        android:fontFamily="@font/poppins_regular"
+                        android:fontFamily="@font/poppins_medium"
                         android:gravity="center_vertical"
                         android:paddingLeft="@dimen/_10sdp"
                         android:paddingRight="@dimen/_10sdp"
                         android:text="City and State/Province"
-                        android:textColor="@color/black" />
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -318,12 +327,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:drawablePadding="@dimen/_5sdp"
-                android:fontFamily="@font/poppins_regular"
+                android:fontFamily="@font/poppins_medium"
                 android:gravity="center"
                 android:text="Save Profile"
                 android:textAllCaps="true"
                 android:textColor="@color/white"
-                android:textSize="@dimen/_14ssp" />
+                android:textSize="18sp" />
         </LinearLayout>
 
 

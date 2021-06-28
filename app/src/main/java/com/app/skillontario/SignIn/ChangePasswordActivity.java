@@ -95,13 +95,14 @@ public class ChangePasswordActivity extends BaseActivity {
 
             if (binding.etNewPassword.getTransformationMethod().equals(PasswordTransformationMethod.getInstance())) {
                 // ((ImageView(view)).setImageResource(R.drawable.hide_password);
-
+                binding.imgNewPassword.setImageResource(R.drawable.ic_ic_image);
                 //Show Password
                 binding.etNewPassword.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
             } else {
                 // ((ImageView) (view)).setImageResource(R.drawable.show_password);
 
                 //Hide Password
+                binding.imgNewPassword.setImageResource(R.drawable.ic_close_eye);
                 binding.etNewPassword.setTransformationMethod(PasswordTransformationMethod.getInstance());
 
             }
@@ -112,13 +113,14 @@ public class ChangePasswordActivity extends BaseActivity {
 
             if (binding.etConfirmPassword.getTransformationMethod().equals(PasswordTransformationMethod.getInstance())) {
                 // ((ImageView(view)).setImageResource(R.drawable.hide_password);
-
+                binding.imgConfirmPassword.setImageResource(R.drawable.ic_ic_image);
                 //Show Password
                 binding.etConfirmPassword.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
             } else {
                 // ((ImageView) (view)).setImageResource(R.drawable.show_password);
 
                 //Hide Password
+                binding.imgConfirmPassword.setImageResource(R.drawable.ic_close_eye);
                 binding.etConfirmPassword.setTransformationMethod(PasswordTransformationMethod.getInstance());
 
             }

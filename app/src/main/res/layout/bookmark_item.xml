@@ -19,14 +19,12 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_alignParentBottom="true"
+            android:layout_marginTop="@dimen/_5sdp"
             android:layout_marginRight="@dimen/_10sdp"
             android:layout_marginBottom="@dimen/_10sdp"
-            android:layout_marginTop="@dimen/_5sdp"
             app:cardBackgroundColor="@color/white"
             app:cardCornerRadius="@dimen/_10sdp"
             app:cardElevation="0dp">
-
-
 
 
         </androidx.cardview.widget.CardView>
@@ -44,12 +42,13 @@
                 android:layout_height="match_parent"
                 android:paddingBottom="@dimen/_20sdp"
                 android:src="@drawable/ic_home_main_oval" />
+
             <ImageView
                 android:id="@+id/imagePerson"
                 android:layout_width="@dimen/_90sdp"
                 android:layout_height="match_parent"
                 android:paddingTop="@dimen/_6sdp"
-                android:src="@drawable/home_main_img1" />
+                android:src="@drawable/tab_img_person" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -82,8 +81,7 @@
                     android:layout_marginTop="@dimen/_16sdp"
                     android:layout_marginRight="@dimen/_8ssp"
                     android:padding="@dimen/_3sdp"
-                    android:src="@drawable/ic_home_main_batch"
-                    app:tint="#FF9F0A" />
+                    android:src="@drawable/ic_bookmarkfill" />
 
                 <TextView
                     android:id="@+id/textWork"

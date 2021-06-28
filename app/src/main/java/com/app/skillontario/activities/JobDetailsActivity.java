@@ -82,11 +82,9 @@ public class JobDetailsActivity extends BaseActivity {
         list.add(new SampleGroupBean(childList, "Where they Work"));
         list.add(new SampleGroupBean(childList, "Advice"));
         list.add(new SampleGroupBean(childList, "Education Required"));
-        list.add(new SampleGroupBean(childList, "Education Required"));
-        list.add(new SampleGroupBean(childList, "Education Required"));
-        list.add(new SampleGroupBean(childList, "Education Required"));
-        list.add(new SampleGroupBean(childList, "Education Required"));
-        list.add(new SampleGroupBean(childList, "Education Required"));
+        list.add(new SampleGroupBean(childList, "Training Required"));
+        list.add(new SampleGroupBean(childList, "Experience Required"));
+
 
         binding.recyExpand.setHasFixedSize(true);
         binding.recyExpand.setNestedScrollingEnabled(false);

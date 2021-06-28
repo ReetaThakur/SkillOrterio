@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -49,16 +50,17 @@
                     android:padding="@dimen/_5sdp"
                     android:text="Congratulations!"
                     android:textColor="#FF9191"
-                    android:textSize="@dimen/_15sdp" />
+                    android:textSize="@dimen/_24sdp" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="-6dp"
                     android:fontFamily="@font/poppins_regular"
                     android:gravity="center"
                     android:text="Careers Suitable for you"
                     android:textColor="#8A90A2"
-                    android:textSize="@dimen/_12sdp" />
+                    android:textSize="@dimen/_14sdp" />
             </LinearLayout>
 
             <androidx.core.widget.NestedScrollView
@@ -71,11 +73,23 @@
                     android:layout_height="match_parent"
                     android:orientation="vertical">
 
-                    <androidx.viewpager.widget.ViewPager
-                        android:id="@+id/view_pager"
+                    <!--  <androidx.viewpager.widget.ViewPager
+                          android:id="@+id/view_pager"
+                          android:layout_width="match_parent"
+                          android:layout_height="@dimen/_310sdp"
+                          android:minHeight="@dimen/_150sdp" />-->
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recy_cong"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/_310sdp"
-                        android:minHeight="@dimen/_150sdp" />
+                        android:layout_height="wrap_content"
+                        android:divider="@null"
+                        android:minHeight="@dimen/_150sdp"
+                        android:orientation="horizontal"
+                        android:scrollbars="none"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        app:reverseLayout="false"></androidx.recyclerview.widget.RecyclerView>
+
 
                     <LinearLayout
                         android:id="@+id/bottom_view"
@@ -124,6 +138,7 @@
                                         android:id="@+id/share"
                                         android:layout_width="match_parent"
                                         android:layout_height="@dimen/_40sdp"
+                                        android:layout_marginRight="@dimen/_6sdp"
                                         android:drawableRight="@drawable/ic_share_white"
                                         android:fontFamily="@font/poppins_regular"
                                         android:gravity="center"
@@ -154,6 +169,7 @@
                                         android:id="@+id/sendInvite"
                                         android:layout_width="match_parent"
                                         android:layout_height="@dimen/_40sdp"
+                                        android:layout_marginRight="@dimen/_6sdp"
                                         android:drawableRight="@drawable/invite"
                                         android:fontFamily="@font/poppins_regular"
                                         android:gravity="center"

@@ -3,11 +3,17 @@ package com.app.skillontario.activities;
 
 import androidx.appcompat.content.res.AppCompatResources;
 
+import android.app.Dialog;
+import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
 import android.widget.RelativeLayout;
+
 import com.app.skillontario.baseClasses.BaseActivity;
+import com.app.skillontario.quiz.QuizStepAc;
 import com.app.skillorterio.R;
 import com.app.skillorterio.databinding.ActivityChangePasswordBinding;
 import com.app.skillorterio.databinding.ActivityFeedBackBinding;
@@ -69,8 +75,23 @@ public class FeedBackActivity extends BaseActivity {
         binding.cvSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showToast("Send feedback");
-                onBackPressed();
+                try {
+                    Dialog dialog = new Dialog(FeedBackActivity.this, android.R.style.Theme_Light);
+                    // dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+                    dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                    dialog.setContentView(R.layout.dialog_feedback);
+
+                    dialog.findViewById(R.id.ok_btn).setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            dialog.dismiss();
+                        }
+                    });
+                    dialog.show();
+                } catch (Exception e) {
+                    onBackPressed();
+                }
+
             }
         });
     }

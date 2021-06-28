@@ -6,7 +6,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:paddingTop="@dimen/_10sdp">
 
         <include
             android:id="@+id/action_bar"
@@ -159,7 +160,6 @@
                         android:layout_height="match_parent"
                         android:layout_marginLeft="@dimen/_8ssp"
                         android:layout_weight="1"
-                        android:drawablePadding="@dimen/_15sdp"
                         android:fontFamily="@font/poppins_medium"
                         android:gravity="center_vertical"
                         android:text="@string/language"
@@ -170,7 +170,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="@dimen/_30sdp"
                         android:layout_gravity="center"
-                        android:layout_marginRight="@dimen/_10sdp"
+                        android:layout_marginRight="@dimen/_6sdp"
                         android:background="@drawable/ic_language_background"
                         android:orientation="horizontal">
 

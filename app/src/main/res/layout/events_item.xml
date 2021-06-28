@@ -11,8 +11,8 @@
         android:layout_marginBottom="@dimen/_5sdp"
         android:gravity="center"
         android:onClick="onClickId"
-        app:cardCornerRadius="7dp"
-        app:cardElevation="7dp">
+        app:cardCornerRadius="16dp"
+        app:cardElevation="10dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -55,7 +55,7 @@
                         android:id="@+id/tvHead"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/poppins_regular"
+                        android:fontFamily="@font/poppins_medium"
                         android:paddingLeft="@dimen/_15sdp"
                         android:text="Discovery day cornwell SDG"
                         android:textColor="@color/black"
@@ -80,6 +80,7 @@
                     android:id="@+id/ivCal"
                     android:layout_width="60dp"
                     android:layout_height="46dp"
+                    android:layout_marginRight="-8dp"
                     android:onClick="onClickId"
                     android:padding="@dimen/_7sdp"
                     android:scaleType="centerCrop"
@@ -111,7 +112,7 @@
                     android:fontFamily="@font/poppins_regular"
                     android:paddingLeft="@dimen/_2sdp"
                     android:text="294 Albert Street,\nSuite 201 Ottawa, canda"
-                    android:textColor="@color/black"
+                    android:textColor="#1E212F"
                     android:textSize="@dimen/_8sdp" />
 
                 <ImageView
@@ -130,7 +131,7 @@
                     android:minWidth="@dimen/_190sdp"
                     android:paddingLeft="@dimen/_2sdp"
                     android:text="May 15, 2021 02:00 pm "
-                    android:textColor="@color/black"
+                    android:textColor="#1E212F"
                     android:textSize="@dimen/_8sdp" />
 
 

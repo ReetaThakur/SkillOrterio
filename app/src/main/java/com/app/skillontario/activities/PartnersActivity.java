@@ -34,11 +34,6 @@ public class PartnersActivity extends BaseActivity {
 
     private void showRecycler() {
 
-
-
-
-
-
     }
 
     @Override

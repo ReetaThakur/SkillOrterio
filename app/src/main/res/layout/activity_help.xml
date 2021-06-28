@@ -7,7 +7,7 @@
         android:layout_height="match_parent"
         android:background="@color/white"
         android:orientation="vertical"
-        android:padding="@dimen/_4sdp">
+        android:paddingTop="@dimen/_10sdp">
 
 
         <include
@@ -47,8 +47,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/_16sdp"
-                            android:lineSpacingExtra="@dimen/_4sdp"
                             android:fontFamily="@font/poppins_regular"
+                            android:lineSpacingExtra="@dimen/_4sdp"
                             android:text="@string/terms_text"
                             android:textColor="@color/black"
                             android:textSize="16sp"></TextView>
@@ -56,9 +56,9 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/_12sdp"
-                            android:lineSpacingExtra="@dimen/_4sdp"
+                            android:layout_marginTop="@dimen/_16sdp"
                             android:fontFamily="@font/poppins_regular"
+                            android:lineSpacingExtra="@dimen/_4sdp"
                             android:text="@string/term1"
                             android:textColor="@color/black"
                             android:textSize="13sp"></TextView>
@@ -66,9 +66,9 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/_12sdp"
-                            android:lineSpacingExtra="@dimen/_4sdp"
+                            android:layout_marginTop="@dimen/_16sdp"
                             android:fontFamily="@font/poppins_regular"
+                            android:lineSpacingExtra="@dimen/_4sdp"
                             android:text="@string/term1"
                             android:textColor="@color/black"
                             android:textSize="13sp"></TextView>

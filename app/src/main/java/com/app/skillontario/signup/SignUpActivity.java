@@ -54,6 +54,7 @@ public class SignUpActivity extends BaseActivity implements ApiResponseErrorCall
     protected void initUi() {
         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_from_left);
         binding = (ActivitySignUpBinding) viewBaseBinding;
+        Utils.hideKeyBoard(SignUpActivity.this);
         signUpModel = new SignUpModel(SignUpActivity.this);
         apiResponseErrorCallback = this;
         MySharedPreference.getInstance().setBooleanData(SharedPrefsConstants.IS_HEADER, false);

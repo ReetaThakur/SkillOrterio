@@ -15,6 +15,7 @@ import android.widget.RelativeLayout;
 import com.app.skillontario.BottomBarActivity;
 import com.app.skillontario.baseClasses.BaseActivity;
 import com.app.skillontario.signup.SignUpActivity;
+import com.app.skillontario.utils.Utils;
 import com.app.skillorterio.R;
 import com.app.skillorterio.databinding.ActivitySignInBinding;
 import com.app.skillorterio.databinding.ActivitySignUpBinding;
@@ -28,6 +29,8 @@ public class SignInActivity extends BaseActivity {
     protected void initUi() {
         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_from_left);
         binding = (ActivitySignInBinding) viewBaseBinding;
+
+        Utils.hideKeyBoard(SignInActivity.this);
 
         myIcon = AppCompatResources.getDrawable(SignInActivity.this, R.drawable.ic_edit_text_rectangle);
 

@@ -6,7 +6,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#181A20"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:paddingTop="@dimen/_10sdp">
 
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
@@ -24,9 +25,10 @@
                     android:layout_height="@dimen/_280sdp">
 
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_240sdp"
                         android:layout_alignParentRight="true"
+                        android:layout_marginLeft="@dimen/_40sdp"
                         android:src="@drawable/quiz_main"></ImageView>
 
                     <TextView
@@ -90,9 +92,9 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:orientation="vertical"
+                        android:layout_height="match_parent"
                         android:gravity="center_horizontal"
-                        android:layout_height="match_parent">
+                        android:orientation="vertical">
 
                         <ImageView
                             android:layout_width="wrap_content"
@@ -106,10 +108,10 @@
                             android:layout_height="wrap_content"
                             android:layout_above="@+id/tv_take_quiz"
                             android:layout_marginLeft="@dimen/_16sdp"
+                            android:layout_marginTop="@dimen/_20sdp"
                             android:fontFamily="@font/poppins_medium"
                             android:text="@string/discover_a_suitable_career"
                             android:textColor="@color/black"
-                            android:layout_marginTop="@dimen/_20sdp"
                             android:textSize="@dimen/_24sdp"></TextView>
 
 
@@ -117,10 +119,10 @@
                             android:id="@+id/tv_take_quiz"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/_20sdp"
                             android:layout_alignParentBottom="true"
                             android:layout_centerHorizontal="true"
                             android:layout_margin="@dimen/_16sdp"
+                            android:layout_marginTop="@dimen/_20sdp"
                             android:background="@drawable/take_quiz_"
                             android:fontFamily="@font/poppins_bold"
                             android:gravity="center"

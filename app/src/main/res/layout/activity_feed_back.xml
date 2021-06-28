@@ -7,7 +7,7 @@
         android:layout_height="match_parent"
         android:background="@color/white"
         android:orientation="vertical"
-        android:padding="@dimen/_4sdp">
+        android:paddingTop="@dimen/_10sdp">
 
 
         <include
@@ -35,7 +35,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="1dp"
-                    android:hint="@string/email_address"
+                    android:hint="Email Address"
                     android:imeOptions="actionNext"
                     android:inputType="textEmailAddress|textVisiblePassword" />
 
@@ -87,7 +87,7 @@
                 android:id="@+id/cv_send"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_36sdp"
+                android:layout_marginTop="@dimen/_66sdp"
                 android:backgroundTint="@color/buttonColor"
                 app:cardCornerRadius="@dimen/_10sdp"
                 app:cardElevation="@dimen/_5sdp">

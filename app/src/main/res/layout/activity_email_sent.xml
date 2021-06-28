@@ -7,7 +7,7 @@
         android:layout_height="match_parent"
         android:background="@color/white"
         android:orientation="vertical"
-        android:padding="@dimen/_4sdp">
+        android:paddingTop="@dimen/_10sdp">
 
 
         <include

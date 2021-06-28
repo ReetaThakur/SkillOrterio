@@ -21,13 +21,13 @@
             android:layout_centerInParent="true"
             android:layout_marginLeft="@dimen/_16sdp"
             android:ellipsize="end"
-            android:fontFamily="@font/sf_pro_semibold"
+            android:fontFamily="@font/poppins_regular"
             android:gravity="left"
             android:maxLines="1"
             android:paddingStart="@dimen/_32sdp"
             android:paddingEnd="@dimen/_32sdp"
             android:textColor="@color/black"
-            android:textSize="@dimen/_13sdp" />
+            android:textSize="24sp" />
 
         <RelativeLayout
             android:id="@+id/iv_reset"

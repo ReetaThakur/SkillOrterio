@@ -3,7 +3,9 @@ package com.app.skillontario.activities;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
 
 import com.app.skillontario.baseClasses.BaseActivity;
 import com.app.skillontario.quiz.QuizStepAc;
@@ -19,8 +21,8 @@ public class NewsDetailAc extends BaseActivity {
         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_from_left);
         binding = (NewsDetailAcBinding) viewBaseBinding;
 
+        binding.cvWebsite.setOnClickListener(v -> startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.skillsontario.com"))));
     }
-
 
 
     @Override

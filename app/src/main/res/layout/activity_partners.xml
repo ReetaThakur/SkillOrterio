@@ -6,7 +6,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:paddingTop="@dimen/_10sdp">
 
         <include
             android:id="@+id/action_bar"
@@ -47,6 +48,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="@color/white"
+                            android:fontFamily="@font/poppins_medium"
                             android:text="Government Partners"
                             android:textColor="@color/black"
                             android:textSize="14sp"></TextView>
@@ -77,6 +79,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="@color/white"
+                            android:fontFamily="@font/poppins_medium"
                             android:text="Premium Partners"
                             android:textColor="@color/black"
                             android:textSize="14sp"></TextView>
@@ -93,7 +96,7 @@
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                         android:scaleType="fitXY"
+                        android:scaleType="fitXY"
                         android:src="@drawable/platinum"></ImageView>
 
                     <RelativeLayout
@@ -105,6 +108,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="@color/white"
+                            android:fontFamily="@font/poppins_medium"
                             android:text="Platinum Partners"
                             android:textColor="@color/black"
                             android:textSize="14sp"></TextView>
