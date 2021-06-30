@@ -36,14 +36,14 @@ public class JobDetailsActivity extends BaseActivity {
 
         showExpandRecycler();
 
-        VideoAdapter videoAdapter = new VideoAdapter();
+        VideoAdapter videoAdapter = new VideoAdapter(JobDetailsActivity.this);
         binding.recyVideo.setHasFixedSize(true);
         binding.recyVideo.setNestedScrollingEnabled(false);
         binding.recyVideo.setAdapter(videoAdapter);
 
-        binding.recyVideo.addOnItemTouchListener(new RecyclerItemClickListener(JobDetailsActivity.this, (view, position) -> {
-            startActivity(new Intent(JobDetailsActivity.this, PlayVideoActivity.class));
-        }));
+       /* binding.recyVideo.addOnItemTouchListener(new RecyclerItemClickListener(JobDetailsActivity.this, (view, position) -> {
+
+        }));*/
 
 
         binding.imgBookmark.setOnClickListener(new View.OnClickListener() {

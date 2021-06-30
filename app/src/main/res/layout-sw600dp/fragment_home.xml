@@ -64,14 +64,15 @@
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="@dimen/_6sdp"
                         android:padding="@dimen/_10sdp"
-                        android:src="@drawable/ic_search"></ImageView>
+                        android:src="@drawable/ic_search"
+                        app:tint="#D3E3ED"></ImageView>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
                         android:layout_toRightOf="@+id/im"
-                        android:text="@string/search"
+                        android:text="Search careers"
                         android:textColor="@color/search_text_color"
                         android:textSize="@dimen/_12sdp"></TextView>
                 </RelativeLayout>
@@ -124,7 +125,7 @@
                     android:id="@+id/recy_popular_careers"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/_16sdp"
+                    android:layout_marginLeft="@dimen/_12sdp"
                     android:divider="@null"
                     android:orientation="horizontal"
                     android:scrollbars="none"
@@ -188,11 +189,12 @@
                                     android:layout_centerInParent="true"
                                     android:layout_marginTop="1dp"
                                     android:fontFamily="@font/poppins_medium"
-                                    android:paddingLeft="@dimen/_16sdp"
-                                    android:paddingRight="@dimen/_16sdp"
+                                    android:gravity="center"
+                                    android:paddingLeft="@dimen/_10sdp"
+                                    android:paddingRight="@dimen/_10sdp"
                                     android:text="Take Quiz"
                                     android:textColor="@color/white"
-                                    android:textSize="@dimen/_10sdp"></TextView>
+                                    android:textSize="@dimen/_8sdp"></TextView>
                             </RelativeLayout>
                         </RelativeLayout>
                     </LinearLayout>

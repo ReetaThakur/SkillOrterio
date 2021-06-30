@@ -148,7 +148,7 @@
 
                         <ImageView
                             android:id="@+id/ibn"
-                            android:layout_width="wrap_content"
+                            android:layout_width="@dimen/_160sdp"
                             android:layout_height="match_parent"
                             android:scaleType="fitXY"
                             android:src="@drawable/home_img_"></ImageView>
@@ -157,14 +157,14 @@
                             android:id="@+id/tv"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="-20dp"
+                            android:layout_marginLeft="-24dp"
                             android:layout_marginTop="@dimen/_20sdp"
                             android:layout_marginRight="@dimen/_16sdp"
                             android:layout_toRightOf="@+id/ibn"
                             android:fontFamily="@font/poppins_medium"
                             android:text="@string/discover_a_suitable_career"
                             android:textColor="@color/white"
-                            android:textSize="@dimen/_13sdp"></TextView>
+                            android:textSize="@dimen/_12sdp"></TextView>
 
 
                         <RelativeLayout
@@ -172,7 +172,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/tv"
-                            android:layout_marginLeft="-20dp"
+                            android:layout_marginLeft="-24dp"
                             android:layout_marginTop="@dimen/_12sdp"
                             android:layout_toRightOf="@+id/ibn"
                             android:background="@drawable/ic_rectangle__take_quiz"
@@ -185,7 +185,7 @@
                                 android:fontFamily="@font/poppins_medium"
                                 android:text="Take Quiz"
                                 android:textColor="@color/white"
-                                android:textSize="@dimen/_11sdp"></TextView>
+                                android:textSize="@dimen/_9sdp"></TextView>
                         </RelativeLayout>
                     </RelativeLayout>
                 </androidx.cardview.widget.CardView>
@@ -263,7 +263,7 @@
                     android:fontFamily="@font/poppins_medium"
                     android:text="Recent News"
                     android:textColor="#3E454A"
-                    android:textSize="@dimen/_14sdp"></TextView>
+                    android:textSize="15sp"></TextView>
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recy_news"

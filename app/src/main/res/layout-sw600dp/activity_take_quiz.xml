@@ -46,7 +46,8 @@
                         android:id="@+id/iv_back"
                         android:layout_width="@dimen/_30sdp"
                         android:layout_height="@dimen/_30sdp"
-                        android:layout_margin="@dimen/_16sdp"
+                        android:layout_marginTop="@dimen/_16sdp"
+                        android:layout_marginLeft="@dimen/_10sdp"
                         android:padding="@dimen/_8sdp"
                         android:src="@drawable/ic_back"
                         app:tint="@color/white" />
@@ -54,7 +55,7 @@
                 </RelativeLayout>
 
                 <TextView
-                    android:layout_width="@dimen/_80sdp"
+                    android:layout_width="@dimen/_50sdp"
                     android:layout_height="2dp"
                     android:layout_marginLeft="@dimen/_18sdp"
                     android:layout_marginTop="@dimen/_4sdp"

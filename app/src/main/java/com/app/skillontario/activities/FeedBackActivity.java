@@ -77,7 +77,7 @@ public class FeedBackActivity extends BaseActivity {
             public void onClick(View v) {
                 try {
                     Dialog dialog = new Dialog(FeedBackActivity.this, android.R.style.Theme_Light);
-                    // dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+                    dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
                     dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
                     dialog.setContentView(R.layout.dialog_feedback);
 

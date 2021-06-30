@@ -20,6 +20,7 @@
             android:layout_height="match_parent"
             android:layout_marginLeft="@dimen/_15sdp"
             android:layout_marginRight="@dimen/_15sdp"
+            android:layout_marginBottom="@dimen/_16sdp"
             android:orientation="vertical">
 
             <LinearLayout

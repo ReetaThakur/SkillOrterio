@@ -31,8 +31,6 @@
             <androidx.core.widget.NestedScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#F4F4FF"
-                android:paddingTop="@dimen/_16sdp"
                 android:paddingRight="@dimen/_6sdp"
                 android:scrollbars="none">
 
@@ -42,6 +40,11 @@
                     android:layout_height="match_parent"
                     android:layout_marginBottom="@dimen/_50sdp"
                     android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_height="wrap_content"></TextView>
 
                     <include layout="@layout/scollar_item1" />
 

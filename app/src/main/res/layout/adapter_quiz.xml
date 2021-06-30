@@ -3,123 +3,119 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="@dimen/_270sdp"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-    <RelativeLayout
-        android:id="@+id/ly_main"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_130sdp"
-        android:orientation="vertical">
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_alignParentBottom="true"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:background="@drawable/quiz_black" />
-
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_alignParentBottom="true"
-            android:layout_marginRight="@dimen/_10sdp"
-            android:layout_marginBottom="@dimen/_10sdp"
-            android:layout_marginTop="@dimen/_5sdp"
-            app:cardBackgroundColor="@color/quiz_pink"
-            app:cardCornerRadius="@dimen/_10sdp"
-            app:cardElevation="0dp">
-
-
-
-
-        </androidx.cardview.widget.CardView>
-
-
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/_10sdp"
-            android:padding="@dimen/_10sdp">
-
-            <ImageView
-                android:id="@+id/img_ovl"
-                android:layout_width="@dimen/_90sdp"
-                android:layout_height="match_parent"
-                android:paddingBottom="@dimen/_20sdp"
-                android:src="@drawable/ic_home_main_oval" />
-            <ImageView
-                android:id="@+id/imagePerson"
-                android:layout_width="@dimen/_90sdp"
-                android:layout_height="match_parent"
-                android:paddingTop="@dimen/_6sdp"
-                android:src="@drawable/home_main_img1" />
+            android:layout_height="@dimen/_140sdp">
 
             <RelativeLayout
+                android:id="@+id/ly_main"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="@dimen/_16sdp"
-                android:layout_marginRight="@dimen/_4sdp"
-                android:layout_toRightOf="@+id/imagePerson">
+                android:layout_height="@dimen/_120sdp"
+                android:layout_alignParentBottom="true"
+                android:orientation="vertical">
 
 
-                <TextView
-                    android:id="@+id/textCons"
-                    android:layout_width="wrap_content"
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginRight="@dimen/_10sdp"
+                    app:cardBackgroundColor="@color/quiz_pink"
+                    app:cardCornerRadius="@dimen/_10sdp"
+                    app:cardElevation="0dp">
+
+
+                </androidx.cardview.widget.CardView>
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_16sdp"
-                    android:background="@drawable/ic_home_main_tag"
-                    android:fontFamily="@font/poppins_regular"
-                    android:gravity="center"
-                    android:paddingLeft="@dimen/_6sdp"
-                    android:paddingTop="@dimen/_2sdp"
-                    android:paddingRight="@dimen/_10sdp"
-                    android:text="Construction"
-                    android:textAllCaps="true"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/_10sdp"></TextView>
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:padding="@dimen/_10sdp">
 
-                <ImageView
-                    android:id="@+id/iv_bookmark"
-                    android:layout_width="@dimen/_20sdp"
-                    android:layout_height="@dimen/_20sdp"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginTop="@dimen/_16sdp"
-                    android:layout_marginRight="@dimen/_8ssp"
-                    android:padding="@dimen/_3sdp"
-                    android:src="@drawable/ic_home_main_batch"
-                    />
+                    <ImageView
+                        android:id="@+id/img_ovl"
+                        android:layout_width="@dimen/_90sdp"
+                        android:layout_height="match_parent"
+                        android:paddingBottom="@dimen/_20sdp"
+                        android:src="@drawable/ic_home_main_oval" />
 
-                <TextView
-                    android:id="@+id/textWork"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/textCons"
-                    android:layout_marginTop="@dimen/_2sdp"
-                    android:fontFamily="@font/poppins_medium"
-                    android:text="@string/general_carpente_r"
-                    android:textColor="#272F35"
-                    android:textSize="@dimen/_11sdp"></TextView>
 
-                <TextView
-                    android:id="@+id/textMoney"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/textWork"
-                    android:layout_marginTop="@dimen/_8ssp"
-                    android:fontFamily="@font/poppins_regular"
-                    android:gravity="center_vertical"
-                    android:text="$20 - $48 per hour"
-                    android:textColor="#6A5856"
-                    android:textSize="@dimen/_9sdp"></TextView>
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="@dimen/_115sdp"
+                        android:layout_marginRight="@dimen/_4sdp">
+
+
+                        <TextView
+                            android:id="@+id/textCons"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_16sdp"
+                            android:background="@drawable/ic_home_main_tag"
+                            android:fontFamily="@font/poppins_regular"
+                            android:gravity="center"
+                            android:paddingLeft="@dimen/_6sdp"
+                            android:paddingTop="@dimen/_2sdp"
+                            android:paddingRight="@dimen/_10sdp"
+                            android:text="Construction"
+                            android:textAllCaps="true"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_8ssp"></TextView>
+
+                        <ImageView
+                            android:id="@+id/iv_bookmark"
+                            android:layout_width="@dimen/_20sdp"
+                            android:layout_height="@dimen/_20sdp"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginTop="@dimen/_16sdp"
+                            android:layout_marginRight="@dimen/_8ssp"
+                            android:padding="@dimen/_3sdp"
+                            android:src="@drawable/ic_home_main_batch" />
+
+                        <TextView
+                            android:id="@+id/textWork"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/textCons"
+                            android:layout_marginTop="@dimen/_2sdp"
+                            android:fontFamily="@font/poppins_medium"
+                            android:text="@string/general_carpente_r"
+                            android:textColor="#272F35"
+                            android:textSize="@dimen/_12sdp"></TextView>
+
+                        <TextView
+                            android:id="@+id/textMoney"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/textWork"
+                            android:layout_marginTop="@dimen/_8ssp"
+                            android:fontFamily="@font/poppins_regular"
+                            android:gravity="center_vertical"
+                            android:text="$20 - $48 per hour"
+                            android:textColor="#6A5856"
+                            android:textSize="@dimen/_9sdp"></TextView>
+
+                    </RelativeLayout>
+                </RelativeLayout>
+
 
             </RelativeLayout>
+
+            <ImageView
+                android:id="@+id/imagePerson"
+                android:layout_width="@dimen/_115sdp"
+                android:layout_height="match_parent"
+                android:scaleType="fitEnd"
+                android:src="@drawable/home_main_img1" />
         </RelativeLayout>
-
-    </RelativeLayout>
-
     </LinearLayout>
 
 </layout>

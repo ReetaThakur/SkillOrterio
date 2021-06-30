@@ -1,7 +1,9 @@
 package com.app.skillontario.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.core.content.ContextCompat;
@@ -9,6 +11,8 @@ import androidx.databinding.DataBindingUtil;
 import androidx.databinding.adapters.AdapterViewBindingAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.app.skillontario.activities.JobDetailsActivity;
+import com.app.skillontario.activities.PlayVideoActivity;
 import com.app.skillorterio.R;
 import com.app.skillorterio.databinding.VideoAdapterBinding;
 import com.app.skillorterio.databinding.VideoAdapterBinding;
@@ -18,6 +22,7 @@ import org.jetbrains.annotations.NotNull;
 public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> {
 
 
+    Context context;
     private int[] imageArray = {
             R.drawable.recy1,
             R.drawable.recy2
@@ -28,8 +33,8 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> 
             R.drawable.recent_event
     };
 
-    public VideoAdapter() {
-
+    public VideoAdapter(Context context) {
+        this.context = context;
     }
 
 
@@ -56,6 +61,13 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> 
             notifyItemChanged(selected_position);
         });*/
 
+
+        viewHolder.binding.ivPlay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                context.startActivity(new Intent(context, PlayVideoActivity.class));
+            }
+        });
 
     }
 

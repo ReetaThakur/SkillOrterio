@@ -16,8 +16,7 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="@dimen/_4sdp">
+            android:layout_height="match_parent">
 
             <WebView
                 android:id="@+id/webview"
@@ -49,39 +48,39 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/poppins_regular"
-                            android:text="@string/privacy_notice"
+                            android:text="@string/terms_of_services"
                             android:textColor="@color/black"
-                            android:textSize="@dimen/_22sdp"></TextView>
+                            android:textSize="32sp"></TextView>
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/_16sdp"
-                            android:fontFamily="@font/poppins_regular"
                             android:lineSpacingExtra="@dimen/_4sdp"
+                            android:fontFamily="@font/poppins_regular"
                             android:text="@string/terms_text"
                             android:textColor="@color/black"
-                            android:textSize="16sp"></TextView>
+                            android:textSize="@dimen/_13sdp"></TextView>
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/_12sdp"
-                            android:fontFamily="@font/poppins_regular"
                             android:lineSpacingExtra="@dimen/_4sdp"
+                            android:fontFamily="@font/poppins_regular"
                             android:text="@string/term1"
                             android:textColor="@color/black"
-                            android:textSize="13sp"></TextView>
+                            android:textSize="@dimen/_9sdp"></TextView>
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/_12sdp"
-                            android:fontFamily="@font/poppins_regular"
                             android:lineSpacingExtra="@dimen/_4sdp"
+                            android:fontFamily="@font/poppins_regular"
                             android:text="@string/term1"
                             android:textColor="@color/black"
-                            android:textSize="13sp"></TextView>
+                            android:textSize="@dimen/_9sdp"></TextView>
 
                     </LinearLayout>
                 </ScrollView>

@@ -50,7 +50,8 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="@dimen/_120sdp">
+                android:layout_marginLeft="@dimen/_120sdp"
+                android:layout_marginRight="@dimen/_1sdp">
 
 
                 <TextView
@@ -68,13 +69,13 @@
                     android:text="Construction"
                     android:textAllCaps="true"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/_8sdp"></TextView>
+                    android:textSize="@dimen/_10sdp"></TextView>
 
                 <ImageView
-                    android:layout_width="@dimen/_20sdp"
-                    android:layout_height="@dimen/_20sdp"
+                    android:layout_width="@dimen/_22sdp"
+                    android:layout_height="@dimen/_26sdp"
                     android:layout_alignParentRight="true"
-                    android:layout_marginTop="@dimen/_16sdp"
+                    android:layout_marginTop="@dimen/_12sdp"
                     android:padding="@dimen/_3sdp"
                     android:src="@drawable/ic_bookmarkfill" />
 
@@ -87,19 +88,19 @@
                     android:fontFamily="@font/poppins_medium"
                     android:text="@string/general_carpente_r"
                     android:textColor="#272F35"
-                    android:textSize="@dimen/_12sdp"></TextView>
+                    android:textSize="@dimen/_13sdp"></TextView>
 
                 <TextView
                     android:id="@+id/textMoney"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/textWork"
-                    android:layout_marginTop="@dimen/_8ssp"
+                    android:layout_marginTop="@dimen/_4sdp"
                     android:fontFamily="@font/poppins_regular"
                     android:gravity="center_vertical"
                     android:text="$20 - $48 per hour"
                     android:textColor="#6A5856"
-                    android:textSize="@dimen/_9sdp"></TextView>
+                    android:textSize="@dimen/_10sdp"></TextView>
 
             </RelativeLayout>
         </RelativeLayout>

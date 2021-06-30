@@ -88,6 +88,13 @@
                     tools:ignore="ContentDescription" />
             </LinearLayout>
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_marginRight="@dimen/_16sdp"
+                android:layout_marginLeft="@dimen/_16sdp"
+                android:background="@drawable/line1"
+                android:layout_height="1dp"></TextView>
+
             <LinearLayout
 
                 android:layout_width="match_parent"

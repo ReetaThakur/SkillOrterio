@@ -7,10 +7,12 @@
         android:id="@+id/eventRow"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/_6sdp"
+        android:layout_margin="@dimen/_5sdp"
+        android:layout_marginBottom="@dimen/_5sdp"
         android:gravity="center"
-        app:cardCornerRadius="@dimen/_6sdp"
-        app:cardElevation="7dp">
+        android:onClick="onClickId"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="10dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -53,7 +55,7 @@
                         android:id="@+id/tvHead"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/poppins_regular"
+                        android:fontFamily="@font/poppins_medium"
                         android:paddingLeft="@dimen/_15sdp"
                         android:text="Discovery day cornwell SDG"
                         android:textColor="@color/black"
@@ -65,7 +67,7 @@
                         android:layout_marginLeft="@dimen/_15sdp"
                         android:background="@drawable/rec_ylo"
                         android:fontFamily="@font/poppins_regular"
-                        android:gravity="left"
+                        android:gravity="center"
                         android:padding="@dimen/_5sdp"
                         android:text="Young Women’s Initiatives"
                         android:textColor="#FF9F0A"
@@ -76,8 +78,10 @@
 
                 <ImageView
                     android:id="@+id/ivCal"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="60dp"
+                    android:layout_height="46dp"
+                    android:layout_marginRight="-8dp"
+                    android:onClick="onClickId"
                     android:padding="@dimen/_7sdp"
                     android:scaleType="centerCrop"
                     android:src="@drawable/event_calender"
@@ -86,10 +90,10 @@
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginLeft="@dimen/_16sdp"
                 android:layout_marginRight="@dimen/_16sdp"
-                android:background="@drawable/line1"></TextView>
+                android:layout_marginLeft="@dimen/_16sdp"
+                android:background="@drawable/line1"
+                android:layout_height="2dp"></TextView>
 
             <LinearLayout
 
@@ -108,13 +112,14 @@
                     tools:ignore="ContentDescription" />
 
                 <TextView
+                    android:id="@+id/tvAdd"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:fontFamily="@font/poppins_regular"
                     android:paddingLeft="@dimen/_2sdp"
                     android:text="294 Albert Street,\nSuite 201 Ottawa, canda"
-                    android:textColor="@color/black"
+                    android:textColor="#1E212F"
                     android:textSize="@dimen/_8sdp" />
 
                 <ImageView
@@ -132,9 +137,8 @@
                     android:fontFamily="@font/poppins_regular"
                     android:minWidth="@dimen/_190sdp"
                     android:paddingLeft="@dimen/_2sdp"
-                    android:text="May 15, 2021
-02:00 pm "
-                    android:textColor="@color/black"
+                    android:text="May 15, 2021 02:00 pm "
+                    android:textColor="#1E212F"
                     android:textSize="@dimen/_8sdp" />
 
 
