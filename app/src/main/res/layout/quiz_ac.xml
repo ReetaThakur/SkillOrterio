@@ -144,7 +144,7 @@
                                         android:fontFamily="@font/poppins_regular"
                                         android:gravity="center"
                                         android:padding="@dimen/_5sdp"
-                                        android:text="Share result"
+                                        android:text="Share Result"
                                         android:textColor="@color/white"
                                         android:textSize="@dimen/_12sdp" />
                                 </LinearLayout>
