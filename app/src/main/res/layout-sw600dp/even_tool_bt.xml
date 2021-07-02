@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_80sdp"
+
+        android:background="#F0FBFF"
+        android:orientation="horizontal"
+        android:padding="@dimen/_20sdp">
+
+        <TextView
+            android:id="@+id/tv1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/rec_blue_left"
+            android:fontFamily="@font/poppins_regular"
+            android:gravity="center"
+            android:text="@string/events"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_14sdp" />
+
+        <TextView
+            android:id="@+id/tv2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/rec_blue_right"
+            android:backgroundTint="@color/white"
+            android:fontFamily="@font/poppins_regular"
+            android:gravity="center"
+            android:text="@string/news"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_14sdp" />
+    </LinearLayout>
+</layout>

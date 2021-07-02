@@ -194,28 +194,27 @@
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cv_signUp"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="@dimen/_45sdp"
                     android:layout_marginTop="@dimen/_16sdp"
                     android:backgroundTint="@color/buttonColor"
                     app:cardCornerRadius="@dimen/_10sdp"
-                    app:cardElevation="@dimen/_5sdp">
+                    app:cardElevation="0dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:gravity="center"
                         android:orientation="horizontal">
 
                         <TextView
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/poppins_regular"
+                            android:layout_height="match_parent"
+                            android:fontFamily="@font/poppins_medium"
                             android:gravity="center"
-                            android:padding="@dimen/_10sdp"
                             android:text="@string/signup"
                             android:textAllCaps="true"
                             android:textColor="@color/white"
-                            android:textSize="28sp" />
+                            android:textSize="@dimen/_16sdp" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 

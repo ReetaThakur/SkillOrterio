@@ -26,18 +26,19 @@
 
                 <RelativeLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="@dimen/_55sdp"
+                    android:layout_height="@dimen/_63sdp"
                     android:layout_marginBottom="@dimen/_15sdp">
 
                     <androidx.appcompat.widget.AppCompatEditText
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="@dimen/_50sdp"
                         android:layout_marginTop="@dimen/_10sdp"
                         android:background="@drawable/ic_rec_line"
                         android:imeOptions="actionNext"
                         android:inputType="textEmailAddress|textVisiblePassword"
                         android:paddingLeft="@dimen/_15sdp"
                         android:text="Robert Frost"
+                        android:textSize="@dimen/_16sdp"
                         android:textColor="@color/black" />
 
                     <TextView
@@ -50,17 +51,19 @@
                         android:paddingLeft="@dimen/_10sdp"
                         android:paddingRight="@dimen/_10sdp"
                         android:text="@string/first_name_"
-                        android:textColor="@color/black" />
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_11sdp" />
                 </RelativeLayout>
 
                 <RelativeLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="@dimen/_55sdp"
+                    android:layout_height="@dimen/_63sdp"
                     android:layout_marginBottom="@dimen/_15sdp">
 
                     <androidx.appcompat.widget.AppCompatEditText
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="@dimen/_50sdp"
+                        android:textSize="@dimen/_16sdp"
                         android:layout_marginTop="@dimen/_10sdp"
                         android:background="@drawable/ic_rec_line"
                         android:imeOptions="actionNext"
@@ -79,7 +82,8 @@
                         android:paddingLeft="@dimen/_10sdp"
                         android:paddingRight="@dimen/_10sdp"
                         android:text="@string/last_name_"
-                        android:textColor="@color/black" />
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_11sdp" />
                 </RelativeLayout>
 
 
@@ -97,7 +101,7 @@
                         android:paddingRight="@dimen/_10sdp"
                         android:text="@string/gender"
                         android:textColor="@color/black"
-                        android:textSize="@dimen/_10sdp" />
+                        android:textSize="@dimen/_12sdp" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -117,14 +121,16 @@
                                 android:id="@+id/bt1"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="I identify as female" />
+                                android:text="I identify as female"
+                                android:textSize="@dimen/_10sdp" />
 
                             <RadioButton
                                 android:id="@+id/bt2"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="@dimen/_5sdp"
-                                android:text="I don't identify as female" />
+                                android:text="I don't identify as female"
+                                android:textSize="@dimen/_10sdp" />
                         </RadioGroup>
 
                         <ImageView
@@ -141,15 +147,16 @@
 
                 <RelativeLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="@dimen/_55sdp"
+                    android:layout_height="@dimen/_63sdp"
                     android:layout_marginBottom="@dimen/_15sdp">
 
                     <androidx.appcompat.widget.AppCompatEditText
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="@dimen/_50sdp"
                         android:layout_marginTop="@dimen/_10sdp"
                         android:background="@drawable/ic_rec_line"
                         android:imeOptions="actionNext"
+                        android:textSize="@dimen/_16sdp"
                         android:inputType="textEmailAddress|textVisiblePassword"
                         android:paddingLeft="@dimen/_15sdp"
                         android:text=" Pattinson_robert@gmail.com"
@@ -165,7 +172,8 @@
                         android:paddingLeft="@dimen/_10sdp"
                         android:paddingRight="@dimen/_10sdp"
                         android:text="@string/email"
-                        android:textColor="@color/black" />
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_11sdp" />
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -182,7 +190,7 @@
                         android:paddingRight="@dimen/_10sdp"
                         android:text="School"
                         android:textColor="@color/black"
-                        android:textSize="@dimen/_10sdp" />
+                        android:textSize="@dimen/_12sdp" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -203,7 +211,7 @@
                             android:gravity="center"
                             android:text="Elementary School"
                             android:textColor="@color/white"
-                            android:textSize="@dimen/_10sdp" />
+                            android:textSize="@dimen/_12sdp" />
 
                         <TextView
                             android:id="@+id/s2"
@@ -216,7 +224,7 @@
                             android:gravity="center"
                             android:text="High School"
                             android:textColor="@color/black"
-                            android:textSize="@dimen/_10sdp" />
+                            android:textSize="@dimen/_12sdp" />
 
                     </LinearLayout>
 
@@ -224,15 +232,16 @@
 
                 <RelativeLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="@dimen/_55sdp"
+                    android:layout_height="@dimen/_63sdp"
                     android:layout_marginBottom="@dimen/_15sdp">
 
                     <androidx.appcompat.widget.AppCompatEditText
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="@dimen/_50sdp"
                         android:layout_marginTop="@dimen/_10sdp"
                         android:background="@drawable/ic_rec_line"
                         android:imeOptions="actionNext"
+                        android:textSize="@dimen/_16sdp"
                         android:inputType="textEmailAddress|textVisiblePassword"
                         android:paddingLeft="@dimen/_15sdp"
                         android:text="october 27, 1998"
@@ -248,18 +257,20 @@
                         android:paddingLeft="@dimen/_10sdp"
                         android:paddingRight="@dimen/_10sdp"
                         android:text="@string/date_of_birth_"
-                        android:textColor="@color/black" />
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_11sdp" />
                 </RelativeLayout>
 
                 <RelativeLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="@dimen/_55sdp"
+                    android:layout_height="@dimen/_63sdp"
                     android:layout_marginBottom="@dimen/_15sdp">
 
                     <androidx.appcompat.widget.AppCompatEditText
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="@dimen/_50sdp"
                         android:layout_marginTop="@dimen/_10sdp"
+                        android:textSize="@dimen/_16sdp"
                         android:background="@drawable/ic_rec_line"
                         android:imeOptions="actionNext"
                         android:inputType="textEmailAddress|textVisiblePassword"
@@ -277,20 +288,22 @@
                         android:paddingLeft="@dimen/_10sdp"
                         android:paddingRight="@dimen/_10sdp"
                         android:text="City and State/Province"
-                        android:textColor="@color/black" />
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_11sdp" />
                 </RelativeLayout>
 
                 <RelativeLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="@dimen/_55sdp"
+                    android:layout_height="@dimen/_63sdp"
                     android:layout_marginBottom="@dimen/_15sdp">
 
                     <androidx.appcompat.widget.AppCompatEditText
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="@dimen/_50sdp"
                         android:layout_marginTop="@dimen/_10sdp"
                         android:background="@drawable/ic_rec_line"
                         android:imeOptions="actionNext"
+                        android:textSize="@dimen/_16sdp"
                         android:inputType="textEmailAddress|textVisiblePassword"
                         android:paddingLeft="@dimen/_15sdp"
                         android:text="Ontario"
@@ -323,7 +336,7 @@
                 android:text="Save Profile"
                 android:textAllCaps="true"
                 android:textColor="@color/white"
-                android:textSize="@dimen/_14ssp" />
+                android:textSize="@dimen/_15sdp" />
         </LinearLayout>
 
     </LinearLayout>

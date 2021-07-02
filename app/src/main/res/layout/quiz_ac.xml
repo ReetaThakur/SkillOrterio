@@ -127,7 +127,7 @@
                                 android:layout_weight="1"
                                 android:backgroundTint="@color/buttonColor"
                                 app:cardCornerRadius="@dimen/_10sdp"
-                                app:cardElevation="@dimen/_5sdp">
+                                app:cardElevation="0dp">
 
                                 <LinearLayout
                                     android:layout_width="match_parent"
@@ -158,7 +158,7 @@
                                 android:layout_weight="1"
                                 android:backgroundTint="#34C759"
                                 app:cardCornerRadius="@dimen/_10sdp"
-                                app:cardElevation="@dimen/_5sdp">
+                                app:cardElevation="0dp">
 
                                 <LinearLayout
                                     android:layout_width="match_parent"

@@ -10,10 +10,10 @@
         android:paddingTop="@dimen/_10sdp">
 
         <ScrollView
-            android:layout_above="@+id/by"
             android:id="@+id/scroll"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_above="@+id/by"
             android:scrollbars="none">
 
             <LinearLayout
@@ -41,8 +41,8 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:lineSpacingExtra="10dp"
                     android:fontFamily="@font/poppins_regular"
+                    android:lineSpacingExtra="10dp"
                     android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
                     android:textColor="@color/black_light"
                     android:textSize="24sp" />
@@ -66,7 +66,6 @@
                         android:inputType="textEmailAddress|textVisiblePassword"
                         android:textColor="@color/black"
                         android:textSize="16sp" />
-
 
 
                 </RelativeLayout>
@@ -155,28 +154,27 @@
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cv_signIn"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="@dimen/_45sdp"
                     android:layout_marginTop="@dimen/_24sdp"
                     android:backgroundTint="@color/buttonColor"
                     app:cardCornerRadius="@dimen/_10sdp"
-                    app:cardElevation="@dimen/_5sdp">
+                    app:cardElevation="0dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:gravity="center"
                         android:orientation="horizontal">
 
                         <TextView
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/poppins_regular"
+                            android:layout_height="match_parent"
+                            android:fontFamily="@font/poppins_medium"
                             android:gravity="center"
-                            android:padding="@dimen/_10sdp"
                             android:text="@string/sign_in"
                             android:textAllCaps="true"
                             android:textColor="@color/white"
-                            android:textSize="28sp" />
+                            android:textSize="@dimen/_16sdp" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
@@ -185,9 +183,9 @@
         </ScrollView>
 
         <LinearLayout
+            android:id="@+id/by"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/by"
             android:layout_alignParentBottom="true"
             android:layout_margin="@dimen/_16sdp"
             android:orientation="horizontal">

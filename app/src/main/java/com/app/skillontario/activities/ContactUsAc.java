@@ -1,5 +1,9 @@
 package com.app.skillontario.activities;
 
+import android.content.Intent;
+import android.net.Uri;
+import android.view.View;
+
 import com.app.skillontario.baseClasses.BaseActivity;
 import com.app.skillorterio.R;
 import com.app.skillorterio.databinding.ContactUsAcBinding;
@@ -14,6 +18,29 @@ public class ContactUsAc extends BaseActivity {
 
         binding.actionBar.tvTitle.setText("Contact Us");
 
+        binding.phone.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_DIAL);
+                intent.setData(Uri.parse("tel:0123456789"));
+                startActivity(intent);
+            }
+        });
+
+        binding.email.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    Intent intent = new Intent(Intent.ACTION_SENDTO);
+                    intent.setData(Uri.parse("mailto:")); // only email apps should handle this
+                    intent.putExtra(Intent.EXTRA_EMAIL, new String[]{"example.gmail.com"});
+                    intent.putExtra(Intent.EXTRA_SUBJECT, "App feedback");
+                    startActivity(intent);
+                } catch (android.content.ActivityNotFoundException ex) {
+                    //ToastUtil.showShortToast(getActivity(), "There are no email client installed on your device.");
+                }
+            }
+        });
 
     }
 

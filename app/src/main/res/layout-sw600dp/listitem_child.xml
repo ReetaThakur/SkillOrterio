@@ -12,13 +12,12 @@
         android:layout_centerVertical="true"
         android:paddingLeft="@dimen/_16sdp"
         android:paddingRight="@dimen/_16sdp"
-        android:text="@string/student"
         android:layout_toLeftOf="@+id/group_item_indicator"
         android:fontFamily="@font/poppins_regular"
         android:lineSpacingExtra="2dp"
         android:paddingBottom="@dimen/_12sdp"
         android:textAlignment="textStart"
         android:textColor="#9399B1"
-        android:textSize="14sp"></TextView>
+        android:textSize="@dimen/_14sdp"></TextView>
 
 </LinearLayout>

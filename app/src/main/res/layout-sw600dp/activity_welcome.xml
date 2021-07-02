@@ -46,7 +46,7 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/llNext"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="@dimen/_45sdp"
                 android:layout_alignParentBottom="true"
                 android:layout_margin="@dimen/_36sdp"
                 android:backgroundTint="@color/buttonColor"
@@ -68,7 +68,7 @@
                         android:text="@string/next"
                         android:textAllCaps="false"
                         android:textColor="@color/white"
-                        android:textSize="20sp" />
+                        android:textSize="@dimen/_18sdp" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
