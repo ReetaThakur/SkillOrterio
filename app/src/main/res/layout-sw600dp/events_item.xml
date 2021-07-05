@@ -78,11 +78,9 @@
 
                 <ImageView
                     android:id="@+id/ivCal"
-                    android:layout_width="60dp"
-                    android:layout_height="46dp"
-                    android:layout_marginRight="-8dp"
-                    android:onClick="onClickId"
-                    android:padding="@dimen/_7sdp"
+                    android:layout_width="@dimen/_44sdp"
+                    android:layout_height="@dimen/_28sdp"
+                    android:padding="@dimen/_4sdp"
                     android:scaleType="centerCrop"
                     android:src="@drawable/event_calender"
                     tools:ignore="ContentDescription" />
@@ -90,10 +88,10 @@
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_marginRight="@dimen/_16sdp"
+                android:layout_height="2dp"
                 android:layout_marginLeft="@dimen/_16sdp"
-                android:background="@drawable/line1"
-                android:layout_height="2dp"></TextView>
+                android:layout_marginRight="@dimen/_16sdp"
+                android:background="@drawable/line1"></TextView>
 
             <LinearLayout
 

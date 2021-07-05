@@ -21,9 +21,13 @@ public class ContactUsAc extends BaseActivity {
         binding.phone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_DIAL);
-                intent.setData(Uri.parse("tel:0123456789"));
-                startActivity(intent);
+                try {
+                    Intent intent = new Intent(Intent.ACTION_DIAL);
+                    intent.setData(Uri.parse("tel:0123456789"));
+                    startActivity(intent);
+                } catch (Exception e) {
+                }
+
             }
         });
 
@@ -38,6 +42,7 @@ public class ContactUsAc extends BaseActivity {
                     startActivity(intent);
                 } catch (android.content.ActivityNotFoundException ex) {
                     //ToastUtil.showShortToast(getActivity(), "There are no email client installed on your device.");
+                } catch (Exception e) {
                 }
             }
         });
