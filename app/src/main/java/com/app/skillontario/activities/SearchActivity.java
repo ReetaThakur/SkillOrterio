@@ -1,6 +1,9 @@
 package com.app.skillontario.activities;
 
+import android.content.Context;
 import android.content.Intent;
+import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -14,6 +17,7 @@ import com.app.skillontario.baseClasses.BaseActivity;
 import com.app.skillontario.baseClasses.BaseResponseModel;
 import com.app.skillontario.home.HomeFilterActivity;
 import com.app.skillontario.models.careerListModel.CareerListDetails;
+import com.app.skillontario.utils.Utils;
 import com.app.skillorterio.R;
 import com.app.skillorterio.databinding.ActivitySearchBinding;
 
@@ -46,8 +50,24 @@ public class SearchActivity extends BaseActivity implements ApiResponseErrorCall
             startActivity(new Intent(SearchActivity.this, HomeFilterActivity.class));
         });
 
+        binding.im.setOnClickListener(v -> {
+            try {
+                InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0);
+            } catch (Exception e) {
+            }
+        });
+
+        binding.tvS.setOnClickListener(v -> {
+            try {
+                InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0);
+            } catch (Exception e) {
+            }
+        });
+
         //callApiList(pageNo);
-       // setPagination();
+        // setPagination();
     }
 
     void callApiList(int pageNo) {

@@ -167,7 +167,7 @@
                     android:layout_height="@dimen/_30sdp"
                     android:padding="@dimen/_6sdp"
                     android:src="@drawable/ic_arrow"
-                    android:tint="@color/white" />
+                    app:tint="@color/white" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

@@ -25,13 +25,13 @@ public class SelectLanguage extends BaseActivity {
         binding = (ActivitySelectLanguageBinding) viewBaseBinding;
 
         binding.imageViewEnglish.setOnClickListener(v -> {
-            changeLocale("en",this);
+            changeLocale("en", this);
             startActivity(new Intent(SelectLanguage.this, WelcomeActivity.class));
             finishAffinity();
         });
 
         binding.imageViewFrench.setOnClickListener(v -> {
-            changeLocale("fr",this);
+            changeLocale("fr", this);
             startActivity(new Intent(SelectLanguage.this, WelcomeActivity.class));
             finishAffinity();
         });
@@ -64,6 +64,6 @@ public class SelectLanguage extends BaseActivity {
         overridePendingTransition(R.anim.slide_in_from_left, R.anim.slide_out_from_right);
 
     }
-    
-    
+
+
 }

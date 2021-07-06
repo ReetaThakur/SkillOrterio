@@ -123,10 +123,10 @@ public class HomeFilterActivity extends BaseActivity implements KeywordSelected 
         List<Tag> sub = new ArrayList<>();
         sub.add(new Tag("Construction"));
         sub.add(new Tag("Industrial"));
-        sub.add(new Tag("Manufacturing & Engineering"));
-        sub.add(new Tag("Services"));
-        sub.add(new Tag("Information Technology"));
-        sub.add(new Tag("Transportation"));
+        sub.add(new Tag("Motive Power"));
+        sub.add(new Tag("Service"));
+        sub.add(new Tag("Technology"));
+        sub.add(new Tag("Education"));
 
         return sub;
 
@@ -134,9 +134,10 @@ public class HomeFilterActivity extends BaseActivity implements KeywordSelected 
 
    private List<Tag> getList1() {
         List<Tag> sub = new ArrayList<>();
-        sub.add(new Tag("Bachelor of Technology"));
-        sub.add(new Tag("Graduate"));
-        sub.add(new Tag("Bachelor of Computer Applications"));
+        sub.add(new Tag("Apprenticeship"));
+        sub.add(new Tag("Secondary School Diploma"));
+        sub.add(new Tag("College Diploma"));
+        sub.add(new Tag("University Degree"));
 
         return sub;
 
@@ -144,9 +145,9 @@ public class HomeFilterActivity extends BaseActivity implements KeywordSelected 
 
     private List<Tag> getList2() {
         List<Tag> sub = new ArrayList<>();
-        sub.add(new Tag("Option 01"));
-        sub.add(new Tag("Option 02"));
-        sub.add(new Tag("Option 03"));
+        sub.add(new Tag("Yes"));
+        sub.add(new Tag("No"));
+       // sub.add(new Tag("Option 03"));
 
         return sub;
 

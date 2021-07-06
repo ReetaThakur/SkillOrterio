@@ -28,7 +28,7 @@
                 android:layout_marginStart="@dimen/_10sdp"
                 android:layout_marginEnd="@dimen/_10sdp"
                 android:fontFamily="@font/poppins_bold"
-                android:text="@string/the_standard_lorem_ipsum_passage"
+                android:text="What’s your dream career?"
                 android:textColor="@color/white"
                 android:textSize="@dimen/_24sdp" />
 
@@ -39,7 +39,7 @@
                 android:layout_marginTop="@dimen/_4sdp"
                 android:layout_marginEnd="@dimen/_10sdp"
                 android:fontFamily="@font/poppins_medium"
-                android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+                android:text="Take our quiz and find out which pathways may be right for you."
                 android:textColor="#D6D6D6"
                 android:textSize="@dimen/_12sdp" />
         </LinearLayout>

@@ -56,12 +56,14 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_16sdp"
                     android:layout_marginTop="-6dp"
+                    android:layout_marginRight="@dimen/_16sdp"
                     android:fontFamily="@font/poppins_regular"
                     android:gravity="center"
-                    android:text="Careers Suitable for you"
+                    android:text="These careers might be a good fit for you."
                     android:textColor="#8A90A2"
-                    android:textSize="@dimen/_14sdp" />
+                    android:textSize="@dimen/_12sdp" />
             </LinearLayout>
 
             <androidx.core.widget.NestedScrollView

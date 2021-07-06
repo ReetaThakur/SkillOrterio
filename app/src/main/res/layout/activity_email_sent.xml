@@ -82,7 +82,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins_regular"
                     android:gravity="center"
-                    android:text="Didn’t receive password? "
+                    android:text="Didn't receive password? "
                     android:textColor="@color/textColorVeryLight"
                     android:textSize="14sp" />
 
@@ -92,7 +92,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins_regular"
                     android:gravity="center"
-                    android:text="Resend"
+                    android:text="Resend."
                     android:textColor="@color/lightGreenColor"
                     android:textSize="14sp" />
 

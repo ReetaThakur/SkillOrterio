@@ -57,7 +57,8 @@
                         android:lineSpacingExtra="@dimen/_4sdp"
                         android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
                         android:textColor="#9399B1"
-                        android:textSize="@dimen/_12sdp"></TextView>
+                        android:textSize="@dimen/_12sdp"
+                        android:visibility="gone"></TextView>
 
                     <ImageView
                         android:layout_width="wrap_content"
@@ -139,7 +140,7 @@
                                 android:drawableRight="@drawable/back_right"
                                 android:drawablePadding="@dimen/_16sdp"
                                 android:fontFamily="@font/poppins_regular"
-                                android:text="Français"
+                                android:text="Francais"
                                 android:textColor="@color/black"
                                 android:textSize="@dimen/_14sdp"></TextView>
 

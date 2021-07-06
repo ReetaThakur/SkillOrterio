@@ -47,16 +47,13 @@ public class SettingActivity extends BaseActivity {
         binding.lTerms.setOnClickListener(v -> startActivity(new Intent(SettingActivity.this, TermsOfServicesActivity.class)));
 
 
-        binding.ivNotification.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (notiOnOff) {
-                    notiOnOff = false;
-                    binding.ivNotification.setImageResource(R.drawable.ic_notification_on);
-                } else {
-                    notiOnOff = true;
-                    binding.ivNotification.setImageResource(R.drawable.ic_notification_off);
-                }
+        binding.ivNotification.setOnClickListener(v -> {
+            if (notiOnOff) {
+                notiOnOff = false;
+                binding.ivNotification.setImageResource(R.drawable.ic_notification_on);
+            } else {
+                notiOnOff = true;
+                binding.ivNotification.setImageResource(R.drawable.ic_notification_off);
             }
         });
 

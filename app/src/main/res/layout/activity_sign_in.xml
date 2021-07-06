@@ -196,7 +196,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_regular"
                 android:gravity="center"
-                android:text="Have an account? "
+                android:text="Don't have an account? "
                 android:textColor="@color/textColorVeryLight"
                 android:textSize="12sp" />
 

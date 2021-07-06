@@ -43,7 +43,7 @@
                 android:layout_marginTop="@dimen/_4sdp"
                 android:layout_marginRight="@dimen/_24sdp"
                 android:gravity="center"
-                android:text="We’ll give you a few suggestions of careers that would be a good fit for you, but don’t forget that the skilled trades technologies offer many opportunities"
+                android:text="@string/demo_1"
                 android:textColor="#9399B1"
                 android:textSize="@dimen/_14sdp"></TextView>
 

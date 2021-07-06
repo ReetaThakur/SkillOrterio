@@ -42,7 +42,8 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins_regular"
                     android:lineSpacingExtra="10dp"
-                    android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+                    android:text="Creating an account saves your information and lets you bookmark careers you're interested in!
+"
                     android:textColor="@color/black_light"
                     android:textSize="14sp" />
 

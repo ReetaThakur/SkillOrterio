@@ -52,6 +52,7 @@
                     android:fontFamily="@font/poppins_medium"
                     android:gravity="center"
                     android:padding="@dimen/_6sdp"
+                    android:textAllCaps="true"
                     android:text="Edit Profile"
                     android:textColor="#0A7AFF"
                     android:textSize="@dimen/_12sdp"></TextView>

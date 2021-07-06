@@ -53,19 +53,23 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
             viewHolder.binding.imageBackground.setColorFilter(ContextCompat.getColor(context, R.color.noti_color1));
             viewHolder.binding.imageView.setImageResource(R.drawable.ic_shape__noti1);
             viewHolder.binding.tvTitle.setText("New Content");
+            viewHolder.binding.tvDesc.setText("Read about scholarships, news stories, and more!");
 
         } else if (position == 1) {
             viewHolder.binding.imageBackground.setColorFilter(ContextCompat.getColor(context, R.color.noti_color2));
             viewHolder.binding.imageView.setImageResource(R.drawable.ic_shape__noti2);
             viewHolder.binding.tvTitle.setText("New Events");
+            viewHolder.binding.tvDesc.setText("Check out events recently announced by Skills Ontario.");
         } else if (position == 2) {
             viewHolder.binding.imageBackground.setColorFilter(ContextCompat.getColor(context, R.color.noti_color3));
             viewHolder.binding.imageView.setImageResource(R.drawable.ic_shape__noti3);
             viewHolder.binding.tvTitle.setText("Upcoming Events");
+            viewHolder.binding.tvDesc.setText("Mark your calendar for these events!");
         } else if (position == 3) {
             viewHolder.binding.imageBackground.setColorFilter(ContextCompat.getColor(context, R.color.noti_color4));
             viewHolder.binding.imageView.setImageResource(R.drawable.ic_shape__noti4);
             viewHolder.binding.tvTitle.setText("Broadcast Notification");
+            viewHolder.binding.tvDesc.setText("Mark your calendar for these events!");
         }
 
     }

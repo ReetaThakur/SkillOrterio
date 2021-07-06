@@ -80,10 +80,7 @@ public class JobDetailsActivity extends BaseActivity {
         list.add(new SampleGroupBean(childList, "Job Description"));
         list.add(new SampleGroupBean(childList, "Job Responsibilities"));
         list.add(new SampleGroupBean(childList, "Where they Work"));
-        list.add(new SampleGroupBean(childList, "Advice"));
-        list.add(new SampleGroupBean(childList, "Education Required"));
-        list.add(new SampleGroupBean(childList, "Training Required"));
-        list.add(new SampleGroupBean(childList, "Experience Required"));
+        list.add(new SampleGroupBean(childList, "Education/Training Required"));
 
 
         binding.recyExpand.setHasFixedSize(true);

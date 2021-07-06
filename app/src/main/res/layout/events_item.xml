@@ -57,7 +57,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppins_medium"
                         android:paddingLeft="@dimen/_15sdp"
-                        android:text="Discovery day cornwell SDG"
+                        android:text="@string/discovery_day_cornwall_amp_sdg"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_13sdp" />
 

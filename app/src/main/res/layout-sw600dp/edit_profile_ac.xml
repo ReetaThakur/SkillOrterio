@@ -121,7 +121,7 @@
                                 android:id="@+id/bt1"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="I identify as female"
+                                android:text="I identify as female."
                                 android:textSize="@dimen/_10sdp" />
 
                             <RadioButton
@@ -129,7 +129,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="@dimen/_5sdp"
-                                android:text="I don't identify as female"
+                                android:text="I don't identify as female."
                                 android:textSize="@dimen/_10sdp" />
                         </RadioGroup>
 
@@ -209,7 +209,7 @@
 
                             android:fontFamily="@font/poppins_medium"
                             android:gravity="center"
-                            android:text="Elementary School"
+                            android:text="Primary School"
                             android:textColor="@color/white"
                             android:textSize="@dimen/_12sdp" />
 
@@ -222,7 +222,7 @@
                             android:background="@drawable/edit_text_background"
                             android:fontFamily="@font/poppins_medium"
                             android:gravity="center"
-                            android:text="High School"
+                            android:text="Secondary School"
                             android:textColor="@color/black"
                             android:textSize="@dimen/_12sdp" />
 
