@@ -150,7 +150,7 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/poppins_regular"
                             android:gravity="center"
-                            android:text="By continuing, You agree to Skills Ontario "
+                            android:text="By continuing, you agree to Skills Ontario's"
                             android:textColor="@color/textColorVeryLight"
                             android:textSize="13sp" />
 
