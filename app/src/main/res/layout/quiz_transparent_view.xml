@@ -9,7 +9,7 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_400sdp"
+            android:layout_height="@dimen/_425sdp"
             android:layout_alignParentBottom="true"
             android:background="@color/white">
 
@@ -40,9 +40,10 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tv1"
                 android:layout_marginLeft="@dimen/_24sdp"
-                android:layout_marginTop="@dimen/_4sdp"
+                android:layout_marginTop="@dimen/_10sdp"
                 android:layout_marginRight="@dimen/_24sdp"
                 android:gravity="center"
+                android:lineSpacingExtra="@dimen/_2sdp"
                 android:text="@string/demo_1"
                 android:textColor="#9399B1"
                 android:textSize="@dimen/_14sdp"></TextView>
