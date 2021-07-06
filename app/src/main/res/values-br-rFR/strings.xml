@@ -1,8 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Skills Ontario</string>
     <string name="sign_in">Sign In</string>
     <string name="txt_continue">Continue</string>
-
+    <string name="notification">Notification  </string>
     <string name="security">Security</string>
     <string name="language">Language</string>
     <string name="leave_feedback">Leave Feedback</string>
@@ -574,7 +575,7 @@
     <string name="q_temp">How does meeting new people everyday, and making small talk make you feel?</string>
     <string name="reset">Reset</string>
     <string name="apply_filter">Apply Filter</string>
-    <string name="choose_language">Choose \nLanguage</string>
+    <string name="choose_language">Choisir la \nlangue</string>
     <string name="resources">Resources  </string>
     <string name="discover_a_suitable_career">Discover a \nSuitable Career</string>
     <string name="discovery_day_cornwell_sdg">Discovery \nday cornwall SDG</string>
