@@ -2,7 +2,10 @@ package com.app.skillontario.signup;
 
 import androidx.appcompat.content.res.AppCompatResources;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.provider.Settings;
@@ -20,6 +23,7 @@ import android.widget.Toast;
 
 import com.app.skillontario.BottomBarActivity;
 import com.app.skillontario.SignIn.SignInActivity;
+import com.app.skillontario.SignIn.WelcomeActivity;
 import com.app.skillontario.activities.PrivacyPolicyActivity;
 import com.app.skillontario.activities.TermsOfServicesActivity;
 import com.app.skillontario.apiConnection.ApiCallBack;
@@ -35,6 +39,8 @@ import com.app.skillontario.utils.MySharedPreference;
 import com.app.skillontario.utils.Utils;
 import com.app.skillorterio.R;
 import com.app.skillorterio.databinding.ActivitySignUpBinding;
+
+import java.util.Locale;
 
 import static android.content.Intent.FLAG_ACTIVITY_CLEAR_TOP;
 import static com.app.skillontario.constants.ApiConstants.API_INTERFACE;
@@ -57,6 +63,9 @@ public class SignUpActivity extends BaseActivity implements ApiResponseErrorCall
         Utils.hideKeyBoard(SignUpActivity.this);
         signUpModel = new SignUpModel(SignUpActivity.this);
         apiResponseErrorCallback = this;
+
+      //  setLocale(SignUpActivity.this, "");
+
         MySharedPreference.getInstance().setBooleanData(SharedPrefsConstants.IS_HEADER, false);
 
         myIcon = AppCompatResources.getDrawable(SignUpActivity.this, R.drawable.ic_edit_text_rectangle);
@@ -235,5 +244,14 @@ public class SignUpActivity extends BaseActivity implements ApiResponseErrorCall
     @Override
     public void getApiError(Throwable t, int flag) {
         Log.d("yugal error  ", t.toString());
+    }
+
+    public void setLocale(Activity activity, String languageCode) {
+        Locale locale = new Locale("fr");
+        Locale.setDefault(locale);
+        Configuration config = new Configuration();
+        config.locale = locale;
+        getResources().updateConfiguration(config,
+                getResources().getDisplayMetrics());
     }
 }

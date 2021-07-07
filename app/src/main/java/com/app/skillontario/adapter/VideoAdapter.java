@@ -2,6 +2,7 @@ package com.app.skillontario.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -45,7 +46,7 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> 
 
     @Override
     public int getItemCount() {
-        return 4;
+        return 2;
     }
 
     @Override
@@ -65,7 +66,16 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> 
         viewHolder.binding.ivPlay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                context.startActivity(new Intent(context, PlayVideoActivity.class));
+                if (position == 1)
+                    context.startActivity(new Intent(context, PlayVideoActivity.class));
+                else {
+                    try {
+                        Intent intent = new Intent(Intent.ACTION_VIEW);
+                        intent.setData(Uri.parse("https://www.youtube.com/watch?v=SNNT8r7G6mE"));
+                        context.startActivity(intent);
+                    } catch (Exception e) {
+                    }
+                }
             }
         });
 

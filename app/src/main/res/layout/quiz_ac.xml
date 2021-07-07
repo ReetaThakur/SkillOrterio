@@ -30,41 +30,6 @@
             android:gravity="center_horizontal"
             android:orientation="vertical">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_130sdp"
-                android:layout_alignParentBottom="true"
-                android:gravity="center|bottom"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:layout_width="@dimen/_30sdp"
-                    android:layout_height="@dimen/_40sdp"
-
-                    android:src="@drawable/logo_wt" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppins_medium"
-                    android:gravity="center"
-                    android:padding="@dimen/_5sdp"
-                    android:text="Congratulations!"
-                    android:textColor="#FF9191"
-                    android:textSize="@dimen/_24sdp" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/_16sdp"
-                    android:layout_marginTop="-6dp"
-                    android:layout_marginRight="@dimen/_16sdp"
-                    android:fontFamily="@font/poppins_regular"
-                    android:gravity="center"
-                    android:text="These careers might be a good fit for you."
-                    android:textColor="#8A90A2"
-                    android:textSize="@dimen/_12sdp" />
-            </LinearLayout>
 
             <androidx.core.widget.NestedScrollView
                 android:layout_width="match_parent"
@@ -76,6 +41,42 @@
                     android:layout_height="match_parent"
                     android:orientation="vertical">
 
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_130sdp"
+                        android:layout_alignParentBottom="true"
+                        android:gravity="center|bottom"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="@dimen/_30sdp"
+                            android:layout_height="@dimen/_40sdp"
+
+                            android:src="@drawable/logo_wt" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_medium"
+                            android:gravity="center"
+                            android:padding="@dimen/_5sdp"
+                            android:text="Congratulations!"
+                            android:textColor="#FF9191"
+                            android:textSize="@dimen/_24sdp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/_16sdp"
+                            android:layout_marginTop="-6dp"
+                            android:layout_marginRight="@dimen/_16sdp"
+                            android:fontFamily="@font/poppins_regular"
+                            android:gravity="center"
+                            android:text="These careers might be a good fit for you."
+                            android:textColor="#8A90A2"
+                            android:textSize="@dimen/_12sdp" />
+                    </LinearLayout>
+
                     <!--  <androidx.viewpager.widget.ViewPager
                           android:id="@+id/view_pager"
                           android:layout_width="match_parent"
@@ -86,6 +87,7 @@
                         android:id="@+id/recy_cong"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_6sdp"
                         android:divider="@null"
                         android:minHeight="@dimen/_150sdp"
                         android:orientation="horizontal"

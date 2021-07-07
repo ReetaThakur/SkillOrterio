@@ -57,8 +57,8 @@
                         android:lineSpacingExtra="@dimen/_4sdp"
                         android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
                         android:textColor="#9399B1"
-                        android:visibility="gone"
-                        android:textSize="@dimen/_12sdp"></TextView>
+                        android:textSize="@dimen/_12sdp"
+                        android:visibility="gone"></TextView>
 
                     <ImageView
                         android:layout_width="wrap_content"
@@ -89,13 +89,13 @@
                                 android:src="@drawable/language_img_eng"></ImageView>
 
                             <TextView
-                                android:layout_width="wrap_content"
+                                android:layout_width="@dimen/_95sdp"
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentRight="true"
                                 android:layout_centerVertical="true"
                                 android:layout_marginRight="@dimen/_16sdp"
                                 android:drawableRight="@drawable/back_right"
-                                android:drawablePadding="@dimen/_16sdp"
+                                android:drawablePadding="@dimen/_8sdp"
                                 android:fontFamily="@font/poppins_regular"
                                 android:text="English"
                                 android:textColor="@color/black"
@@ -132,13 +132,13 @@
                                 android:src="@drawable/language_img_fr"></ImageView>
 
                             <TextView
-                                android:layout_width="wrap_content"
+                                android:layout_width="@dimen/_95sdp"
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentRight="true"
                                 android:layout_centerVertical="true"
                                 android:layout_marginRight="@dimen/_16sdp"
                                 android:drawableRight="@drawable/back_right"
-                                android:drawablePadding="@dimen/_16sdp"
+                                android:drawablePadding="@dimen/_8sdp"
                                 android:fontFamily="@font/poppins_regular"
                                 android:text="Francais"
                                 android:textColor="@color/black"

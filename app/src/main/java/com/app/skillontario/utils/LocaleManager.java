@@ -15,7 +15,6 @@ public class LocaleManager {
     private static final String LANGUAGE_KEY = "Language";
 
     private static LocaleManager mLocaleManager;
-    private static Context context;
 
     private LocaleManager() {
     }
@@ -29,7 +28,6 @@ public class LocaleManager {
     }
 
     public Context setLocale(Context c) {
-        context = c;
         return updateResources(c, getLanguage());
     }
 
@@ -41,11 +39,13 @@ public class LocaleManager {
     private void persistLanguage(String language) {
         // use commit() instead of apply(), because sometimes we kill the application process immediately
         // which will prevent apply() to finish
-        MySharedPreference.getInstance().setStringData(LANGUAGE_KEY, language);
+
+       /* AppPreferences.Companion.getMIntance()
+                .setStringInSharedPreference(LANGUAGE_KEY, language);*/
     }
 
     private Context updateResources(Context context, String language) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Locale locale = new Locale(language);
             Locale.setDefault(locale);
 
@@ -54,7 +54,7 @@ public class LocaleManager {
             config.setLocale(locale);
             context = context.createConfigurationContext(config);
             return context;
-        }else
+        } else
             return context;
     }
 
@@ -68,10 +68,12 @@ public class LocaleManager {
     }
 
     private String getLanguage() {
-        String lang = MySharedPreference.getInstance().getStringData(LANGUAGE_KEY);
+       /* String lang = AppPreferences.Companion.getMIntance()
+                .getStringFromSharedPreferce(LANGUAGE_KEY);
         if (TextUtils.isEmpty(lang)) {
             lang = LANGUAGE_ENGLISH;
         }
-        return lang;
+        return lang;*/
+        return LANGUAGE_ENGLISH;
     }
 }

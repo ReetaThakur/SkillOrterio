@@ -136,7 +136,7 @@ dependencies {
     //image loading
     implementation 'com.github.bumptech.glide:glide:4.11.0'
     kapt 'com.github.bumptech.glide:compiler:4.11.0'
-
+    implementation 'me.grantland:autofittextview:0.2.+'
     //youtube player
    // implementation 'com.pierfrancescosoffritti.androidyoutubeplayer:core:10.0.5'
 

@@ -45,6 +45,7 @@
                     android:lineSpacingExtra="8dp"
                     android:text="Creating an account saves your information and lets you bookmark careers you're interested in!
 "
+                    android:textAlignment="textStart"
                     android:textColor="@color/black_light"
                     android:textSize="18sp" />
 

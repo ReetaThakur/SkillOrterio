@@ -11,6 +11,7 @@
             android:id="@+id/iv_back"
             android:layout_width="@dimen/_28sdp"
             android:layout_height="@dimen/_28sdp"
+            android:layout_marginLeft="@dimen/_8sdp"
             android:padding="@dimen/_7sdp"
             android:src="@drawable/ic_back" />
 
@@ -43,11 +44,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="@string/reset"
-                android:paddingTop="@dimen/_4sdp"
-                android:paddingBottom="@dimen/_4sdp"
-                android:paddingRight="@dimen/_8ssp"
                 android:paddingLeft="@dimen/_8ssp"
+                android:paddingTop="@dimen/_4sdp"
+                android:paddingRight="@dimen/_8ssp"
+                android:paddingBottom="@dimen/_4sdp"
+                android:text="@string/reset"
                 android:textColor="#0A7AFF"
                 android:textSize="@dimen/_10sdp"></TextView>
 
