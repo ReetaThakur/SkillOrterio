@@ -135,7 +135,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_120sdp"
+                    android:layout_height="@dimen/_110sdp"
                     android:layout_marginLeft="@dimen/_16sdp"
                     android:layout_marginTop="@dimen/_16sdp"
                     android:layout_marginRight="@dimen/_16sdp"
@@ -221,12 +221,13 @@
                     android:layout_marginTop="@dimen/_16sdp"
                     android:layout_marginRight="@dimen/_16sdp">
 
+
                     <ImageView
                         android:id="@+id/img_expolre"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/group"></ImageView>
+                        android:layout_height="158dp"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/group12"></ImageView>
 
                     <TextView
                         android:id="@+id/tvExplore"
@@ -243,15 +244,16 @@
                         android:textSize="@dimen/_10sdp"></TextView>
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_28sdp"
                         android:layout_marginTop="@dimen/_10sdp"
                         android:layout_toLeftOf="@+id/tvExplore"
                         android:fontFamily="@font/poppins_medium"
-                        android:text="@string/the_john_lepping_memorial_scholarship"
+                        android:text="Opportunities &amp; Scholarships"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_12sdp"
-                        android:visibility="gone"></TextView>
+                        android:visibility="visible"></TextView>
 
                 </RelativeLayout>
 

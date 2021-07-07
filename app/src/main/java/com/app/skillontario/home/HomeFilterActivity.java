@@ -13,17 +13,22 @@ import com.app.skillontario.callbacks.KeywordSelected;
 import com.app.skillontario.utils.RecyclerItemClickListener;
 import com.app.skillorterio.R;
 import com.app.skillorterio.databinding.ActivityHomeFilterBinding;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import dev.amin.tagadapter.Chack.TagAdapter1;
 import dev.amin.tagadapter.Tag;
 import dev.amin.tagadapter.TagAdapter;
+import dev.amin.tagadapter.check2.TagAdapter2;
 
 public class HomeFilterActivity extends BaseActivity implements KeywordSelected {
 
     private ActivityHomeFilterBinding binding;
-    private TagAdapter adapter, adapter1, adapter2;
+    private TagAdapter adapter;
+    private TagAdapter1 adapter1;
+    private TagAdapter2 adapter2;
     //  public static HashMap<Integer, Object> hashMapList = new HashMap<>();
     ArrayList<Integer> list = new ArrayList<>();
     ArrayList<Integer> list1 = new ArrayList<>();
@@ -35,8 +40,8 @@ public class HomeFilterActivity extends BaseActivity implements KeywordSelected 
         binding = (ActivityHomeFilterBinding) viewBaseBinding;
 
         adapter = new TagAdapter(getList(), HomeFilterActivity.this);
-        adapter1 = new TagAdapter(getList1(), HomeFilterActivity.this);
-        adapter2 = new TagAdapter(getList2(), HomeFilterActivity.this);
+        adapter1 = new TagAdapter1(getList1(), HomeFilterActivity.this);
+        adapter2 = new TagAdapter2(getList2(), HomeFilterActivity.this);
         list.clear();
         list1.clear();
         list2.clear();
@@ -57,7 +62,6 @@ public class HomeFilterActivity extends BaseActivity implements KeywordSelected 
         LinearLayoutManager linearLayoutManager2 = new LinearLayoutManager(this);
 
 
-
         binding.rcvKeywords.setLayoutManager(linearLayoutManager);
         binding.rcvKeywords.setAdapter(adapter);
         binding.rcvKeywords.addOnItemTouchListener(new RecyclerItemClickListener(HomeFilterActivity.this, (view, position) -> {
@@ -70,16 +74,18 @@ public class HomeFilterActivity extends BaseActivity implements KeywordSelected 
         binding.rcvKeywordsEducation.setAdapter(adapter1);
         binding.rcvKeywordsEducation.addOnItemTouchListener(new RecyclerItemClickListener(HomeFilterActivity.this, (view, position) -> {
             Log.d("Sunny", " pos   " + position);
+         //   list1.clear();
             list1.add(position);
-            adapter1.getClickPosition(list, 1);
+            adapter1.getClickPosition(list1, 1);
         }));
 
         binding.rcvKeywordsTraining.setLayoutManager(linearLayoutManager2);
         binding.rcvKeywordsTraining.setAdapter(adapter2);
         binding.rcvKeywordsTraining.addOnItemTouchListener(new RecyclerItemClickListener(HomeFilterActivity.this, (view, position) -> {
             Log.d("Sunny", " pos   " + position);
+           // list2.clear();
             list2.add(position);
-            adapter2.getClickPosition(list, 2);
+            adapter2.getClickPosition(list2, 2);
         }));
 
 
@@ -87,6 +93,8 @@ public class HomeFilterActivity extends BaseActivity implements KeywordSelected 
             @Override
             public void onClick(View v) {
                 list.clear();
+                list1.clear();
+                list2.clear();
                 adapter.getClickPosition(list, 0);
                 adapter1.getClickPosition(list, 0);
                 adapter2.getClickPosition(list, 0);
@@ -119,7 +127,7 @@ public class HomeFilterActivity extends BaseActivity implements KeywordSelected 
 
     }
 
-   private List<Tag> getList() {
+    private List<Tag> getList() {
         List<Tag> sub = new ArrayList<>();
         sub.add(new Tag("Construction"));
         sub.add(new Tag("Industrial"));
@@ -132,7 +140,7 @@ public class HomeFilterActivity extends BaseActivity implements KeywordSelected 
 
     }
 
-   private List<Tag> getList1() {
+    private List<Tag> getList1() {
         List<Tag> sub = new ArrayList<>();
         sub.add(new Tag("Apprenticeship"));
         sub.add(new Tag("Secondary School Diploma"));
@@ -147,7 +155,7 @@ public class HomeFilterActivity extends BaseActivity implements KeywordSelected 
         List<Tag> sub = new ArrayList<>();
         sub.add(new Tag("Yes"));
         sub.add(new Tag("No"));
-       // sub.add(new Tag("Option 03"));
+        // sub.add(new Tag("Option 03"));
 
         return sub;
 

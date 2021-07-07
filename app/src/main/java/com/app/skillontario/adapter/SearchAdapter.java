@@ -1,13 +1,16 @@
 package com.app.skillontario.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.app.skillontario.activities.JobDetailsActivity;
 import com.app.skillontario.baseClasses.BaseResponseModel;
 import com.app.skillontario.models.careerListModel.CareerListDetails;
 import com.app.skillorterio.R;
@@ -68,6 +71,8 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
             }
 
         });
+
+        viewHolder.binding.cdH.setOnClickListener(v -> context.startActivity(new Intent(context, JobDetailsActivity.class)));
 
 
     }

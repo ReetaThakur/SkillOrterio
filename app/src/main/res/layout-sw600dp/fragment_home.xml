@@ -226,7 +226,7 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="@dimen/_90sdp"
                     android:layout_marginLeft="@dimen/_16sdp"
                     android:layout_marginTop="@dimen/_16sdp"
                     android:layout_marginRight="@dimen/_16sdp">
@@ -234,12 +234,13 @@
                     <ImageView
                         android:id="@+id/img_expolre"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/_110sdp"
-                        android:background="@drawable/memorial_tab"
-                        android:scaleType="centerCrop"></ImageView>
+                        android:layout_height="match_parent"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/group12"></ImageView>
 
                     <TextView
                         android:id="@+id/tvExplore"
+                        android:paddingLeft="@dimen/_10sdp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
@@ -247,22 +248,23 @@
                         android:background="@drawable/group_back"
                         android:drawableRight="@drawable/group_back_white"
                         android:gravity="center"
+                        android:drawablePadding="@dimen/_4sdp"
                         android:paddingRight="@dimen/_10sdp"
                         android:text="Explore"
                         android:textColor="@color/white"
-                        android:textSize="@dimen/_10sdp"
-                        android:visibility="invisible"></TextView>
+                        android:textSize="@dimen/_8sdp"></TextView>
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginLeft="@dimen/_28sdp"
+                        android:layout_marginTop="@dimen/_4sdp"
                         android:layout_toLeftOf="@+id/tvExplore"
                         android:fontFamily="@font/poppins_medium"
-                        android:text="@string/the_john_lepping_memorial_scholarship"
+                        android:text="Opportunities &amp; Scholarships"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_12sdp"
-                        android:visibility="gone"></TextView>
+                        android:visibility="visible"></TextView>
 
                 </RelativeLayout>
 
