@@ -14,7 +14,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_5sdp"
-            android:layout_marginBottom="-210dp"
+            android:layout_marginBottom="-260dp"
             android:maxHeight="@dimen/_170sdp"
             android:paddingLeft="@dimen/_20sdp"
             android:paddingRight="@dimen/_20sdp"
@@ -125,7 +125,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginTop="@dimen/_5sdp"
                     android:orientation="vertical"
-                    android:visibility="gone"
+                    android:visibility="visible"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     tools:itemCount="4"
                     tools:listitem="@layout/quiz_step_item_a" />
@@ -134,7 +134,7 @@
                     android:id="@+id/progressQues"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:visibility="visible">
+                    android:visibility="gone">
 
                     <include layout="@layout/quiz_progress_ui" />
                 </LinearLayout>
