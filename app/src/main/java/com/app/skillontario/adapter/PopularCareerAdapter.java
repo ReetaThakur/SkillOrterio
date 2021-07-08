@@ -68,12 +68,12 @@ public class PopularCareerAdapter extends RecyclerView.Adapter<PopularCareerAdap
         if (position == 0) {
             viewHolder.binding.imgBackground.setColorFilter(ContextCompat.getColor(context, R.color.home_color1));
             viewHolder.binding.imgOvl.setColorFilter(ContextCompat.getColor(context, R.color.home_oval_color1));
-            viewHolder.binding.imagePerson.setImageResource(R.drawable.home_main_img1);
+            viewHolder.binding.imagePerson.setImageResource(R.drawable.home_person);
 
         } else {
             viewHolder.binding.imgBackground.setColorFilter(ContextCompat.getColor(context, R.color.home_color2));
             viewHolder.binding.imgOvl.setColorFilter(ContextCompat.getColor(context, R.color.home_oval_color2));
-            viewHolder.binding.imagePerson.setImageResource(R.drawable.home_main_img2);
+            viewHolder.binding.imagePerson.setImageResource(R.drawable.home_person1);
         }
 
         viewHolder.binding.imagePerson.setOnClickListener(v -> context.startActivity(new Intent(context, JobDetailsActivity.class)));

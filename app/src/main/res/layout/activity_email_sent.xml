@@ -43,7 +43,7 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/cv_signIn"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_45sdp"
+                android:layout_height="50dp"
                 android:layout_marginTop="@dimen/_36sdp"
                 android:background="@drawable/ic_rectangle__change_pass"
                 app:cardBackgroundColor="#346EF6"

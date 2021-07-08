@@ -39,7 +39,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/tmp_event"
+                        android:src="@drawable/disccovery"
                         tools:ignore="ContentDescription" />
                 </androidx.cardview.widget.CardView>
 

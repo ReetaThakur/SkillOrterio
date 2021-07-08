@@ -24,19 +24,19 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="@dimen/_90sdp"
+                    android:layout_height="@dimen/_70sdp"
                     android:layout_marginTop="@dimen/_12sdp"
                     android:src="@drawable/skills_logo"></ImageView>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="40dp"
+                    android:layout_marginTop="24dp"
                     android:fontFamily="@font/poppins_regular"
                     android:text="@string/welcome_to_skills_ontario"
                     android:textColor="@color/black"
-                    android:textSize="40sp" />
+                    android:textSize="35sp" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -154,7 +154,7 @@
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cv_signIn"
                     android:layout_width="match_parent"
-                    android:layout_height="60dp"
+                    android:layout_height="50dp"
                     android:layout_marginTop="@dimen/_24sdp"
                     android:backgroundTint="@color/buttonColor"
                     app:cardCornerRadius="@dimen/_10sdp"

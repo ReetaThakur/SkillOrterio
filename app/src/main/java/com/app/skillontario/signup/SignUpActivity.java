@@ -64,7 +64,7 @@ public class SignUpActivity extends BaseActivity implements ApiResponseErrorCall
         signUpModel = new SignUpModel(SignUpActivity.this);
         apiResponseErrorCallback = this;
 
-      //  setLocale(SignUpActivity.this, "");
+        //  setLocale(SignUpActivity.this, "");
 
         MySharedPreference.getInstance().setBooleanData(SharedPrefsConstants.IS_HEADER, false);
 
@@ -141,7 +141,10 @@ public class SignUpActivity extends BaseActivity implements ApiResponseErrorCall
 
                 }*/
 
-                startActivity(new Intent(SignUpActivity.this, BottomBarActivity.class));
+                if (verifyImage)
+                    startActivity(new Intent(SignUpActivity.this, BottomBarActivity.class));
+                else
+                    showToast(getString(R.string.notice));
             }
         });
 
@@ -183,6 +186,7 @@ public class SignUpActivity extends BaseActivity implements ApiResponseErrorCall
 
         binding.imgVerify.setOnClickListener(v -> {
             if (verifyImage) {
+
                 verifyImage = false;
                 binding.imgVerify.setImageResource(R.drawable.ic_not_verified);
             } else {

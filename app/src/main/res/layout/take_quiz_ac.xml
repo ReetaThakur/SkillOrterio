@@ -44,7 +44,7 @@
             <LinearLayout
                 android:id="@+id/done"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_45sdp"
+                android:layout_height="50dp"
                 android:layout_marginLeft="@dimen/_36sdp"
                 android:layout_marginTop="@dimen/_16sdp"
                 android:layout_marginRight="@dimen/_36sdp"
@@ -58,7 +58,6 @@
                     android:drawablePadding="@dimen/_5sdp"
                     android:fontFamily="@font/poppins_medium"
                     android:gravity="center"
-                    android:padding="@dimen/_10sdp"
                     android:text="Take Quiz"
                     android:textAllCaps="true"
                     android:textColor="@color/white"

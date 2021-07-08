@@ -1,5 +1,9 @@
 package com.app.skillontario.activities;
 
+import android.content.Intent;
+import android.net.Uri;
+import android.view.View;
+
 import com.app.skillontario.adapter.NotificationAdapter;
 import com.app.skillontario.adapter.PartnersAdapter;
 import com.app.skillontario.adapter.PartnersPlatinumAdapter;
@@ -26,15 +30,33 @@ public class PartnersActivity extends BaseActivity {
         binding = (ActivityPartnersBinding) viewBaseBinding;
 
         binding.actionBar.tvTitle.setText("Partners");
-        showRecycler();
+
 
         binding.actionBar.ivBack.setOnClickListener(v -> onBackPressed());
 
+        binding.id1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.skillsontario.com")));
+            }
+        });
+
+        binding.id2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.skillsontario.com")));
+            }
+        });
+
+        binding.id3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.skillsontario.com")));
+            }
+        });
+
     }
 
-    private void showRecycler() {
-
-    }
 
     @Override
     protected int getLayoutById() {

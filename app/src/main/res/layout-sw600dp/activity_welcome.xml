@@ -48,7 +48,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_45sdp"
                 android:layout_alignParentBottom="true"
-                android:layout_margin="@dimen/_36sdp"
+                android:layout_margin="@dimen/_16sdp"
                 android:backgroundTint="@color/buttonColor"
                 app:cardCornerRadius="@dimen/_10sdp"
                 app:cardElevation="0dp">

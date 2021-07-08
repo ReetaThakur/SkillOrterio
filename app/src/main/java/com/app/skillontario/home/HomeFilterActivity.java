@@ -134,7 +134,7 @@ public class HomeFilterActivity extends BaseActivity implements KeywordSelected 
         sub.add(new Tag("Motive Power"));
         sub.add(new Tag("Service"));
         sub.add(new Tag("Technology"));
-        sub.add(new Tag("Education"));
+       // sub.add(new Tag("Education"));
 
         return sub;
 

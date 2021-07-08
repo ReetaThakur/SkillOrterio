@@ -7,7 +7,7 @@
         android:layout_height="match_parent"
         android:background="@color/white"
         android:orientation="vertical"
-        android:paddingTop="@dimen/_10sdp">
+        android:padding="@dimen/_4sdp">
 
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
@@ -21,14 +21,14 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_170sdp"
-                    android:layout_marginLeft="@dimen/_36sdp">
+                    android:layout_height="@dimen/_200sdp"
+                    android:layout_marginLeft="@dimen/_24sdp">
 
                     <ImageView
-                        android:layout_width="@dimen/_182sdp"
-                        android:layout_height="@dimen/_135sdp"
+                        android:layout_width="@dimen/_222sdp"
+                        android:layout_height="@dimen/_172sdp"
                         android:layout_alignParentRight="true"
-                        android:src="@drawable/language_image"></ImageView>
+                        android:background="@drawable/language_image"></ImageView>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -45,7 +45,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="@dimen/_36sdp"
+                    android:layout_marginLeft="@dimen/_24sdp"
                     android:layout_marginTop="@dimen/_18sdp"
                     android:layout_marginRight="@dimen/_16sdp"
                     android:orientation="vertical">
@@ -61,47 +61,66 @@
                         android:visibility="gone"></TextView>
 
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_16sdp"
+                        android:layout_width="@dimen/_60sdp"
+                        android:layout_height="@dimen/_5sdp"
+                        android:layout_marginTop="@dimen/_8sdp"
                         android:src="@drawable/ic_rectangle"></ImageView>
+
 
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/_85sdp"
+                        android:layout_height="@dimen/_100sdp"
                         android:layout_marginTop="@dimen/_16sdp"
-                        android:background="@drawable/c1">
+                        android:layout_marginRight="@dimen/_8sdp">
 
-                        <RelativeLayout
-                            android:id="@+id/image_view_english"
+
+                        <androidx.cardview.widget.CardView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:layout_marginRight="@dimen/_14sdp"
-                            android:layout_marginBottom="@dimen/_14sdp"
-                            android:background="@drawable/c2">
+                            android:layout_marginLeft="@dimen/_2sdp"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:layout_marginRight="@dimen/_5sdp"
+                            android:layout_marginBottom="@dimen/_5sdp"
+                            app:cardCornerRadius="8dp"
+                            app:cardElevation="10dp">
+
+                            <LinearLayout
+                                android:id="@+id/image_view_english"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:padding="2dp"
+                                android:weightSum="2">
 
 
-                            <ImageView
-                                android:id="@+id/im1"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_alignParentBottom="true"
-                                android:src="@drawable/language_img_eng"></ImageView>
+                                <ImageView
+                                    android:id="@+id/im1"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentBottom="true"
+                                    android:layout_weight="1"
+                                    android:scaleType="centerCrop"
+                                    android:src="@drawable/language_img_eng"></ImageView>
 
-                            <TextView
-                                android:layout_width="@dimen/_100sdp"
-                                android:layout_height="wrap_content"
-                                android:layout_alignParentRight="true"
-                                android:layout_centerVertical="true"
-                                android:layout_marginRight="@dimen/_16sdp"
-                                android:drawableRight="@drawable/back_right"
-                                android:drawablePadding="@dimen/_16sdp"
-                                android:fontFamily="@font/poppins_regular"
-                                android:text="English"
-                                android:textColor="@color/black"
-                                android:textSize="@dimen/_14sdp"></TextView>
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_centerVertical="true"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginLeft="@dimen/_12sdp"
+                                    android:layout_marginRight="@dimen/_8sdp"
+                                    android:layout_weight="1"
+                                    android:drawableRight="@drawable/back_right"
+                                    android:drawablePadding="@dimen/_8sdp"
+                                    android:fontFamily="@font/poppins_regular"
+                                    android:text="English"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/_14sdp"></TextView>
 
-                        </RelativeLayout>
+                            </LinearLayout>
+
+
+                        </androidx.cardview.widget.CardView>
 
 
                     </RelativeLayout>
@@ -109,42 +128,58 @@
 
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/_85sdp"
-                        android:layout_marginTop="@dimen/_6sdp"
-                        android:background="@drawable/c1">
+                        android:layout_height="@dimen/_100sdp"
+                        android:layout_marginTop="@dimen/_16sdp"
+                        android:layout_marginRight="@dimen/_8sdp">
 
-                        <RelativeLayout
-                            android:id="@+id/image_view_french"
+
+                        <androidx.cardview.widget.CardView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:layout_marginRight="@dimen/_14sdp"
-                            android:layout_marginBottom="@dimen/_14sdp"
-                            android:background="@drawable/c2">
+                            android:layout_marginLeft="@dimen/_2sdp"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:layout_marginRight="@dimen/_5sdp"
+                            android:layout_marginBottom="@dimen/_5sdp"
+                            app:cardCornerRadius="8dp"
+                            app:cardElevation="10dp">
 
-
-                            <ImageView
-                                android:id="@+id/im2"
-                                android:layout_width="wrap_content"
+                            <LinearLayout
+                                android:id="@+id/image_view_french"
+                                android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:layout_alignParentBottom="true"
-                                android:paddingRight="-55dp"
-                                android:scaleType="fitEnd"
-                                android:src="@drawable/language_img_fr"></ImageView>
+                                android:padding="2dp"
+                                android:weightSum="2">
 
-                            <TextView
-                                android:layout_width="@dimen/_100sdp"
-                                android:layout_height="wrap_content"
-                                android:layout_alignParentRight="true"
-                                android:layout_centerVertical="true"
-                                android:layout_marginRight="@dimen/_16sdp"
-                                android:drawableRight="@drawable/back_right"
-                                android:drawablePadding="@dimen/_16sdp"
-                                android:fontFamily="@font/poppins_regular"
-                                android:text="Francais"
-                                android:textColor="@color/black"
-                                android:textSize="@dimen/_14sdp"></TextView>
 
-                        </RelativeLayout>
+                                <ImageView
+                                    android:id="@+id/im2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentBottom="true"
+                                    android:layout_weight="1"
+                                    android:scaleType="centerCrop"
+                                    android:src="@drawable/language_img_fr"></ImageView>
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_centerVertical="true"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginLeft="@dimen/_12sdp"
+                                    android:layout_marginRight="@dimen/_8sdp"
+                                    android:layout_weight="1"
+                                    android:drawableRight="@drawable/back_right"
+                                    android:drawablePadding="@dimen/_8sdp"
+                                    android:fontFamily="@font/poppins_regular"
+                                    android:text="Francais"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/_14sdp"></TextView>
+
+                            </LinearLayout>
+
+
+                        </androidx.cardview.widget.CardView>
 
 
                     </RelativeLayout>

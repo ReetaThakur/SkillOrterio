@@ -108,7 +108,7 @@
             android:layout_marginLeft="@dimen/_10sdp"
             android:layout_marginBottom="@dimen/_10sdp"
             android:scaleType="fitStart"
-            android:src="@drawable/home_main_img1"></ImageView>
+            android:src="@drawable/home_person"></ImageView>
 
     </RelativeLayout>
 

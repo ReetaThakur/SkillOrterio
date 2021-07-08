@@ -10,6 +10,7 @@
 
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/cdH"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_110sdp"
             android:layout_alignParentBottom="true"
@@ -38,7 +39,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:scaleType="fitStart"
-                android:src="@drawable/tab_img_person"></ImageView>
+                android:src="@drawable/home_person"></ImageView>
 
             <RelativeLayout
                 android:layout_width="match_parent"

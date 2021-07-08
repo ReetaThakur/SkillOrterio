@@ -48,7 +48,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:scaleType="centerCrop"
-                            android:src="@drawable/n1"
+                            android:src="@drawable/res_news"
                             tools:ignore="ContentDescription" />
                     </androidx.cardview.widget.CardView>
 

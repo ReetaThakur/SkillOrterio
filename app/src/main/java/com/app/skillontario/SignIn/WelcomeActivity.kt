@@ -43,7 +43,7 @@ class WelcomeActivity : BaseActivity() {
 
     private fun openLoginPage() {
         MySharedPreference.getInstance().setBooleanData(AppConstants.IS_WALK_THROUGH, true)
-        startActivity(Intent(this, SelectRoleActivity::class.java))
+        startActivity(Intent(this, SignUpActivity::class.java))
         finishAffinity()
     }
 

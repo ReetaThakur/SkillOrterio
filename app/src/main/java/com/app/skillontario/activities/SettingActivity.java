@@ -71,6 +71,21 @@ public class SettingActivity extends BaseActivity {
             binding.tvSettingEnglish.setBackgroundResource(R.drawable.ic_lang_rectangle_transparent);
         });
 
+        binding.cvSignIn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(SettingActivity.this, SelectLanguage.class);        // Specify any activity here e.g. home or splash or login etc
+                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                i.putExtra("EXIT", true);
+                startActivity(i);
+                finish();
+            }
+        });
+
+
+
     }
 
 

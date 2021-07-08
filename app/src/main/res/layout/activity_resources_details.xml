@@ -96,6 +96,7 @@ NSTTW is a key date in the annual Skills/Compétences Canada (SCC) calendar. The
                             android:layout_height="@dimen/_55sdp"
                             android:layout_marginTop="@dimen/_16sdp"
                             android:backgroundTint="#F6FAFF"
+                            android:visibility="gone"
                             app:cardCornerRadius="@dimen/_10sdp"
                             app:cardElevation="0dp">
 
@@ -131,8 +132,9 @@ NSTTW is a key date in the annual Skills/Compétences Canada (SCC) calendar. The
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/_55sdp"
                             android:layout_marginTop="@dimen/_16sdp"
-                            android:backgroundTint="#F6FAFF"
                             android:layout_marginBottom="@dimen/_16sdp"
+                            android:backgroundTint="#F6FAFF"
+                            android:visibility="gone"
                             app:cardCornerRadius="@dimen/_10sdp"
                             app:cardElevation="0dp">
 
@@ -181,7 +183,7 @@ NSTTW is a key date in the annual Skills/Compétences Canada (SCC) calendar. The
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cv_website"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="50dp"
                     android:layout_marginLeft="@dimen/_24sdp"
                     android:layout_marginRight="@dimen/_24sdp"
                     android:backgroundTint="@color/buttonColor"
@@ -191,7 +193,7 @@ NSTTW is a key date in the annual Skills/Compétences Canada (SCC) calendar. The
 
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="60dp"
+                        android:layout_height="50dp"
                         android:gravity="center">
 
                         <TextView

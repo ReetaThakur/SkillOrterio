@@ -66,10 +66,10 @@
 
                     <ImageView
                         android:id="@+id/iv_bookmark"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="@dimen/_12sdp"
+                        android:layout_height="@dimen/_16sdp"
                         android:layout_alignParentRight="true"
-                        android:layout_marginTop="@dimen/_16sdp"
+                        android:layout_marginTop="@dimen/_12sdp"
                         android:layout_marginRight="@dimen/_8ssp"
                         android:src="@drawable/ic_home_main_batch"></ImageView>
 
@@ -112,8 +112,10 @@
             android:id="@+id/imagePerson"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:layout_marginRight="@dimen/_60sdp"
             android:layout_marginBottom="10dp"
-            android:src="@drawable/home_main_img1"></ImageView>
+            android:scaleType="fitStart"
+            android:src="@drawable/home_person"></ImageView>
 
     </RelativeLayout>
 

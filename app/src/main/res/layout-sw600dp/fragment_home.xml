@@ -152,13 +152,13 @@
                             android:id="@+id/ibn"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:background="@drawable/home_img_"></ImageView>
+                            android:layout_weight="0.9"
+                            android:background="@drawable/home_nds"></ImageView>
 
                         <RelativeLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:layout_weight="1">
+                            android:layout_weight="1.1">
 
                             <TextView
                                 android:id="@+id/tv"
@@ -240,15 +240,15 @@
 
                     <TextView
                         android:id="@+id/tvExplore"
-                        android:paddingLeft="@dimen/_10sdp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
                         android:layout_margin="@dimen/_12sdp"
                         android:background="@drawable/group_back"
                         android:drawableRight="@drawable/group_back_white"
-                        android:gravity="center"
                         android:drawablePadding="@dimen/_4sdp"
+                        android:gravity="center"
+                        android:paddingLeft="@dimen/_10sdp"
                         android:paddingRight="@dimen/_10sdp"
                         android:text="Explore"
                         android:textColor="@color/white"

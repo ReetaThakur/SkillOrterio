@@ -96,6 +96,7 @@ NSTTW is a key date in the annual Skills/Compétences Canada (SCC) calendar. The
                             android:layout_height="@dimen/_55sdp"
                             android:layout_marginTop="@dimen/_16sdp"
                             android:backgroundTint="#F6FAFF"
+                            android:visibility="gone"
                             app:cardCornerRadius="@dimen/_10sdp"
                             app:cardElevation="0dp">
 
@@ -128,6 +129,7 @@ NSTTW is a key date in the annual Skills/Compétences Canada (SCC) calendar. The
 
 
                         <androidx.cardview.widget.CardView
+                            android:visibility="gone"
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/_55sdp"
                             android:layout_marginTop="@dimen/_16sdp"

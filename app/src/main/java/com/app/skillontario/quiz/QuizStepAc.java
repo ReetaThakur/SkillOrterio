@@ -52,11 +52,9 @@ public class QuizStepAc extends BaseActivity {
     private void countNotify() {
         binding.myProgress.setProgress(count);
         binding.tvCount.setText(count + "/" + binding.myProgress.getMax());
-        if (count == 3) {
 
-        } else {
             validate();
-        }
+
     }
 
     private void validate() {
@@ -67,7 +65,7 @@ public class QuizStepAc extends BaseActivity {
             RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(this, 2);
             binding.rvItems.setLayoutManager(mLayoutManager);
             binding.rvItems.setAdapter(quizStepAdapter);
-        } else if (count == 4) {
+        } else if (count == 3) {
             binding.rvItems.setVisibility(View.GONE);
             binding.progressQues.setVisibility(View.VISIBLE);
         } else {

@@ -63,14 +63,15 @@
                     android:gravity="center"
                     android:paddingLeft="@dimen/_6sdp"
                     android:paddingTop="@dimen/_2sdp"
-                    android:paddingBottom="@dimen/_2sdp"
                     android:paddingRight="@dimen/_10sdp"
+                    android:paddingBottom="@dimen/_2sdp"
                     android:text="Construction"
                     android:textAllCaps="true"
                     android:textColor="@color/white"
                     android:textSize="@dimen/_8sdp"></TextView>
 
                 <ImageView
+                    android:id="@+id/imgBookmark"
                     android:layout_width="@dimen/_20sdp"
                     android:layout_height="@dimen/_20sdp"
                     android:layout_alignParentRight="true"
@@ -110,7 +111,7 @@
             android:layout_width="@dimen/_120sdp"
             android:layout_height="@dimen/_140sdp"
             android:layout_marginBottom="@dimen/_10sdp"
-            android:src="@drawable/tab_img_person" />
+            android:src="@drawable/home_person" />
 
     </RelativeLayout>
 

@@ -29,7 +29,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="@dimen/_6sdp"
                     android:layout_marginRight="@dimen/_6sdp"
-                    android:src="@drawable/resources"
+                    android:src="@drawable/res_girl"
                     tools:ignore="ContentDescription" />
 
 
@@ -90,7 +90,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="@dimen/_6sdp"
                     android:layout_marginRight="@dimen/_6sdp"
-                    android:src="@drawable/resources"
+                    android:src="@drawable/res_girl"
                     tools:ignore="ContentDescription" />
 
 
@@ -150,7 +150,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="@dimen/_6sdp"
                     android:layout_marginRight="@dimen/_6sdp"
-                    android:src="@drawable/resources"
+                    android:src="@drawable/res_girl"
                     tools:ignore="ContentDescription" />
 
 
@@ -210,7 +210,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="@dimen/_6sdp"
                     android:layout_marginRight="@dimen/_6sdp"
-                    android:src="@drawable/resources"
+                    android:src="@drawable/res_girl"
                     tools:ignore="ContentDescription" />
 
 
@@ -270,7 +270,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="@dimen/_6sdp"
                     android:layout_marginRight="@dimen/_6sdp"
-                    android:src="@drawable/resources"
+                    android:src="@drawable/res_girl"
                     tools:ignore="ContentDescription" />
 
 
@@ -330,7 +330,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="@dimen/_6sdp"
                     android:layout_marginRight="@dimen/_6sdp"
-                    android:src="@drawable/resources"
+                    android:src="@drawable/res_girl"
                     tools:ignore="ContentDescription" />
 
 

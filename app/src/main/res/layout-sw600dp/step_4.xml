@@ -19,7 +19,7 @@
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="@dimen/_66sdp"
             android:orientation="vertical"
-            android:paddingStart="@dimen/_30sdp"
+            android:paddingStart="@dimen/_16sdp"
             android:paddingBottom="@dimen/_30sdp">
 
             <TextView

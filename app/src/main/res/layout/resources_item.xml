@@ -11,7 +11,7 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="143dp"
+            android:layout_height="@dimen/_120sdp"
             android:layout_marginLeft="@dimen/_10sdp"
             android:background="@drawable/ic_group_copy_3_res">
 
@@ -22,20 +22,22 @@
                 android:layout_marginRight="@dimen/_12sdp"
                 android:layout_marginBottom="@dimen/_12sdp">
 
+
                 <ImageView
                     android:id="@+id/ivItem"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="@dimen/_100sdp"
+                    android:layout_height="match_parent"
                     android:layout_margin="@dimen/_16sdp"
-                    android:src="@drawable/resources"
+                    android:scaleType="fitStart"
+                    android:src="@drawable/res_girl"
                     tools:ignore="ContentDescription" />
 
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/_90sdp"
                     android:layout_marginTop="@dimen/_16sdp"
-                    android:layout_toRightOf="@+id/ivItem"
                     android:layout_weight="1"
                     android:orientation="vertical">
 
@@ -71,7 +73,7 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="143dp"
+            android:layout_height="@dimen/_120sdp"
             android:layout_marginLeft="@dimen/_10sdp"
             android:background="@drawable/ic_group_copy_3_res">
 
@@ -84,18 +86,19 @@
 
                 <ImageView
                     android:id="@+id/ivItem1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="@dimen/_100sdp"
+                    android:layout_height="match_parent"
                     android:layout_margin="@dimen/_16sdp"
-                    android:src="@drawable/resources"
-                    tools:ignore="ContentDescription" />
+                    android:scaleType="fitStart"
+                    android:src="@drawable/res_girl"
+                    tools:ignore="ContentDescription"  />
 
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginTop="@dimen/_16sdp"
-                    android:layout_toRightOf="@+id/ivItem1"
+                    android:layout_marginLeft="@dimen/_90sdp"
                     android:layout_weight="1"
                     android:orientation="vertical">
 
@@ -129,11 +132,9 @@
         </RelativeLayout>
 
 
-
-
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="143dp"
+            android:layout_height="@dimen/_120sdp"
             android:layout_marginLeft="@dimen/_10sdp"
             android:background="@drawable/ic_group_copy_3_res">
 
@@ -146,18 +147,19 @@
 
                 <ImageView
                     android:id="@+id/ivItem2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="@dimen/_100sdp"
+                    android:layout_height="match_parent"
                     android:layout_margin="@dimen/_16sdp"
-                    android:src="@drawable/resources"
-                    tools:ignore="ContentDescription" />
+                    android:scaleType="fitStart"
+                    android:src="@drawable/res_girl"
+                    tools:ignore="ContentDescription"  />
 
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginTop="@dimen/_16sdp"
-                    android:layout_toRightOf="@+id/ivItem2"
+                   android:layout_marginLeft="@dimen/_90sdp"
                     android:layout_weight="1"
                     android:orientation="vertical">
 
@@ -191,11 +193,9 @@
         </RelativeLayout>
 
 
-
-
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="143dp"
+            android:layout_height="@dimen/_120sdp"
             android:layout_marginLeft="@dimen/_10sdp"
             android:background="@drawable/ic_group_copy_3_res">
 
@@ -208,18 +208,19 @@
 
                 <ImageView
                     android:id="@+id/ivItem3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="@dimen/_100sdp"
+                    android:layout_height="match_parent"
                     android:layout_margin="@dimen/_16sdp"
-                    android:src="@drawable/resources"
-                    tools:ignore="ContentDescription" />
+                    android:scaleType="fitStart"
+                    android:src="@drawable/res_girl"
+                    tools:ignore="ContentDescription"  />
 
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginTop="@dimen/_16sdp"
-                    android:layout_toRightOf="@+id/ivItem3"
+                   android:layout_marginLeft="@dimen/_90sdp"
                     android:layout_weight="1"
                     android:orientation="vertical">
 
@@ -253,11 +254,9 @@
         </RelativeLayout>
 
 
-
-
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="143dp"
+            android:layout_height="@dimen/_120sdp"
             android:layout_marginLeft="@dimen/_10sdp"
             android:background="@drawable/ic_group_copy_3_res">
 
@@ -270,18 +269,19 @@
 
                 <ImageView
                     android:id="@+id/ivItem4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="@dimen/_100sdp"
+                    android:layout_height="match_parent"
                     android:layout_margin="@dimen/_16sdp"
-                    android:src="@drawable/resources"
-                    tools:ignore="ContentDescription" />
+                    android:scaleType="fitStart"
+                    android:src="@drawable/res_girl"
+                    tools:ignore="ContentDescription"  />
 
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginTop="@dimen/_16sdp"
-                    android:layout_toRightOf="@+id/ivItem4"
+                    android:layout_marginLeft="@dimen/_90sdp"
                     android:layout_weight="1"
                     android:orientation="vertical">
 
@@ -315,10 +315,9 @@
         </RelativeLayout>
 
 
-
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="143dp"
+            android:layout_height="@dimen/_120sdp"
             android:layout_marginLeft="@dimen/_10sdp"
             android:background="@drawable/ic_group_copy_3_res">
 
@@ -331,10 +330,11 @@
 
                 <ImageView
                     android:id="@+id/ivItem5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="@dimen/_100sdp"
+                    android:layout_height="match_parent"
                     android:layout_margin="@dimen/_16sdp"
-                    android:src="@drawable/resources"
+                    android:scaleType="fitStart"
+                    android:src="@drawable/res_girl"
                     tools:ignore="ContentDescription" />
 
 
@@ -342,7 +342,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginTop="@dimen/_16sdp"
-                    android:layout_toRightOf="@+id/ivItem5"
+                    android:layout_marginLeft="@dimen/_90sdp"
                     android:layout_weight="1"
                     android:orientation="vertical">
 
@@ -374,7 +374,6 @@
 
 
         </RelativeLayout>
-
 
 
     </LinearLayout>
