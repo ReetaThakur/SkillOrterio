@@ -27,6 +27,8 @@ import com.app.skillorterio.databinding.ActivitySettingBinding;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.app.skillontario.adapter.PopularCareerAdapter.numberOfPerson;
+
 public class JobDetailsActivity extends BaseActivity {
 
     private ActivityJobDetailsBinding binding;
@@ -37,6 +39,59 @@ public class JobDetailsActivity extends BaseActivity {
     protected void initUi() {
         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_from_left);
         binding = (ActivityJobDetailsBinding) viewBaseBinding;
+
+        try {
+            if (numberOfPerson == 0)
+                binding.imageP.setImageResource(R.drawable.new_person1);
+            else if (numberOfPerson == 1)
+                binding.imageP.setImageResource(R.drawable.new_person2);
+            else if (numberOfPerson == 2)
+                binding.imageP.setImageResource(R.drawable.hkj);
+            else if (numberOfPerson == 3)
+                binding.imageP.setImageResource(R.drawable.new_person4);
+            else if (numberOfPerson == 4)
+                binding.imageP.setImageResource(R.drawable.new_person5);
+            else if (numberOfPerson == 5)
+                binding.imageP.setImageResource(R.drawable.new_person6);
+            else if (numberOfPerson == 6)
+                binding.imageP.setImageResource(R.drawable.new_person1);
+            else
+                binding.imageP.setImageResource(R.drawable.new_person1);
+
+
+        } catch (Exception e) {
+        }
+
+        try {
+            if (numberOfPerson == 0) {
+                binding.textCons.setText("Photographer");
+                binding.textWork.setText("Photographer");
+            } else if (numberOfPerson == 1) {
+                binding.textCons.setText("Industrial");
+                binding.textWork.setText("General Machinist");
+            } else if (numberOfPerson == 2) {
+                binding.textCons.setText("Service");
+                binding.textWork.setText("Horticultural Technician");
+            } else if (numberOfPerson == 3) {
+                binding.textCons.setText("Industrial");
+                binding.textWork.setText("Industrial Mechanic");
+            } else if (numberOfPerson == 4) {
+                binding.textCons.setText("Motive Power");
+                binding.textWork.setText("Truck and Coach Technician");
+            } else if (numberOfPerson == 5) {
+                binding.textCons.setText("Service");
+                binding.textWork.setText("Child & Youth Worker");
+            } else if (numberOfPerson == 6) {
+                binding.textCons.setText("Photographer");
+                binding.textWork.setText("Photographer");
+            } else {
+                binding.textCons.setText("Photographer");
+                binding.textWork.setText("Photographer");
+            }
+
+
+        } catch (Exception e) {
+        }
 
         binding.imgBack.setOnClickListener(v -> onBackPressed());
         // binding.obs.setScrollViewListener(this::onScrollChanged);
@@ -56,7 +111,7 @@ public class JobDetailsActivity extends BaseActivity {
                     @Override
                     public void onScrollChanged() {
                         if (binding.tvsSroll.getChildAt(0).getBottom()
-                                <= (binding.tvsSroll.getHeight() + binding.tvsSroll.getScrollY())+binding.tvsSroll.getScrollY()) {
+                                <= (binding.tvsSroll.getHeight() + binding.tvsSroll.getScrollY()) + binding.tvsSroll.getScrollY()) {
                             //scroll view is at bottom
 
                             changeColor(binding.imgBookmark, true);
@@ -97,7 +152,7 @@ public class JobDetailsActivity extends BaseActivity {
             }
         });
 
-      //  changeColor(binding.imgBack, false);
+        //  changeColor(binding.imgBack, false);
     }
 
 

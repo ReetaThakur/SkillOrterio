@@ -23,6 +23,9 @@ public class PartnersActivity extends BaseActivity {
 
     private ActivityPartnersBinding binding;
     private PartnersAdapter adapter;
+    String threeMLink = "https://www.3mcanada.ca/3M/en_CA/company-ca/";
+    String centennLinks = "https://www.centennialcollege.ca/";
+    String defaultLinks = "https://www.skillsontario.com";
 
     @Override
     protected void initUi() {
@@ -37,21 +40,49 @@ public class PartnersActivity extends BaseActivity {
         binding.id1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.skillsontario.com")));
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(defaultLinks)));
             }
         });
 
-        binding.id2.setOnClickListener(new View.OnClickListener() {
+        binding.image3M.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.skillsontario.com")));
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(threeMLink)));
+            }
+        });
+
+        binding.imageCentra.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(centennLinks)));
+            }
+        });
+
+        binding.id4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(defaultLinks)));
+            }
+        });
+
+        binding.id5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(defaultLinks)));
+            }
+        });
+
+        binding.id6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(defaultLinks)));
             }
         });
 
         binding.id3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.skillsontario.com")));
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(defaultLinks)));
             }
         });
 

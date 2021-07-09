@@ -60,9 +60,16 @@
                                 android:orientation="horizontal"
                                 android:weightSum="3">
 
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:padding="@dimen/_10sdp"
+                                    android:layout_height="match_parent"
+                                    android:src="@drawable/bhi"></ImageView>
+
                                 <RelativeLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
+                                    android:visibility="gone"
                                     android:layout_weight="1">
 
                                     <ImageView
@@ -78,6 +85,7 @@
                                 <RelativeLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
+                                    android:visibility="gone"
                                     android:layout_weight="1">
 
                                     <ImageView
@@ -91,6 +99,7 @@
                                 <RelativeLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
+                                    android:visibility="gone"
                                     android:layout_weight="1">
 
                                     <ImageView

@@ -26,7 +26,7 @@ import java.util.ArrayList;
 import static com.app.skillontario.constants.ApiConstants.API_INTERFACE;
 
 
-public class SearchActivity extends BaseActivity implements ApiResponseErrorCallback {
+public class SearchActivity extends BaseActivity  {
 
     private ActivitySearchBinding binding;
     private SearchAdapter adapter;
@@ -66,14 +66,10 @@ public class SearchActivity extends BaseActivity implements ApiResponseErrorCall
             }
         });
 
-        //callApiList(pageNo);
-        // setPagination();
+
     }
 
-    void callApiList(int pageNo) {
-        API_INTERFACE.getCareerList(RequestBodyGenerator.setCareerList(1)).enqueue(
-                new ApiCallBack<>(SearchActivity.this, this, 9691, true));
-    }
+
 
     private void showSearchRecycler() {
         ArrayList<CareerListDetails> list = new ArrayList<>();
@@ -86,33 +82,6 @@ public class SearchActivity extends BaseActivity implements ApiResponseErrorCall
         }));*/
     }
 
-    private void setPagination() {
-        binding.recySearch.addOnScrollListener(new RecyclerView.OnScrollListener() {
-
-            @Override
-            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
-                super.onScrolled(recyclerView, dx, dy);
-                if (dy > 0) {
-                    int visibleItemCount = linearLayoutManager.getChildCount();
-                    int totalItemCount = linearLayoutManager.getItemCount();
-                    int firstVisibleItemPosition = linearLayoutManager.findFirstVisibleItemPosition();
-
-                    if (!isLoading && hasNext) {
-                        if ((visibleItemCount + firstVisibleItemPosition) >= totalItemCount) {
-                            isLoading = true;
-                            ++pageNo;
-                            callApiList(pageNo);
-                        }
-                    }
-                }
-            }
-
-            @Override
-            public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
-                super.onScrollStateChanged(recyclerView, newState);
-            }
-        });
-    }
 
     @Override
     protected int getLayoutById() {
@@ -126,50 +95,5 @@ public class SearchActivity extends BaseActivity implements ApiResponseErrorCall
 
     }
 
-    @Override
-    public void getApiResponse(Object responseObject, int flag) {
-        if (flag == 9691) {
-            BaseResponseModel<ArrayList<CareerListDetails>> responseModel = (BaseResponseModel<ArrayList<CareerListDetails>>) responseObject;
-            // responseModel.getOutput().get(0).
 
-            if (responseModel.getStatus()) {
-                if (pageNo == 1) {
-                    ArrayList<CareerListDetails> list = new ArrayList<>();
-                    list.clear();
-                    try {
-                        if (responseModel.output != null) {
-                            if (responseModel.getOutput().size() > 0)
-                                list = responseModel.output;
-                        }
-
-                    } catch (Exception e) {
-                    }
-
-
-                    adapter = new SearchAdapter(SearchActivity.this, list);
-                    binding.recySearch.setAdapter(adapter);
-                } else {
-                    ArrayList<CareerListDetails> list = new ArrayList<>();
-                    try {
-                        if (responseModel.output != null)
-                            list = responseModel.output;
-                    } catch (Exception e) {
-                    }
-
-
-                    adapter.addList(list);
-                }
-                isLoading = false;
-                hasNext = responseModel.hasMore;
-                hasNext = true;
-
-
-            }
-        }
-    }
-
-    @Override
-    public void getApiError(Throwable t, int flag) {
-
-    }
 }

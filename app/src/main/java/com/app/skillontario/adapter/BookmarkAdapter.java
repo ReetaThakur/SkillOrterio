@@ -35,12 +35,12 @@ public class BookmarkAdapter extends RecyclerView.Adapter<BookmarkAdapter.ViewHo
 
     @Override
     public int getItemCount() {
-        return 4;
+        return 6;
     }
 
     @Override
     public void onBindViewHolder(final BookmarkAdapter.ViewHolder viewHolder, final int position) {
-        viewHolder.binding.imagePerson.setImageResource(dra[position]);
+        //  viewHolder.binding.imagePerson.setImageResource(dra[position]);
 
         viewHolder.binding.imgBookmark.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,18 +59,45 @@ public class BookmarkAdapter extends RecyclerView.Adapter<BookmarkAdapter.ViewHo
         if (position == 0) {
             //viewHolder.binding.imgBackground.setColorFilter(ContextCompat.getColor(context, R.color.home_color1));
             viewHolder.binding.imgOvl.setColorFilter(ContextCompat.getColor(context, R.color.home_oval_color1));
-            viewHolder.binding.imagePerson.setImageResource(R.drawable.home_person);
+            viewHolder.binding.imagePerson.setImageResource(R.drawable.new_person1);
+
+            viewHolder.binding.textCons.setText("Photographer");
+            viewHolder.binding.textWork.setText("Photographer");
 
         } else if (position == 1) {
             // viewHolder.binding.imgBackground.setColorFilter(ContextCompat.getColor(context, R.color.home_color2));
             viewHolder.binding.imgOvl.setColorFilter(ContextCompat.getColor(context, R.color.text_error_color));
-            viewHolder.binding.imagePerson.setImageResource(R.drawable.bookc3);
+            viewHolder.binding.imagePerson.setImageResource(R.drawable.new_person2);
+            viewHolder.binding.textCons.setText("Industrial");
+            viewHolder.binding.textWork.setText("General Machinist");
         } else if (position == 2) {
             viewHolder.binding.imgOvl.setColorFilter(ContextCompat.getColor(context, R.color.home_oval_color3));
-            viewHolder.binding.imagePerson.setImageResource(R.drawable.bookc2);
+            viewHolder.binding.imagePerson.setImageResource(R.drawable.new_person3);
+            viewHolder.binding.textCons.setText("Service");
+            viewHolder.binding.textWork.setText("Horticultural Technician");
+        } else if (position == 3) {
+            //viewHolder.binding.imgBackground.setColorFilter(ContextCompat.getColor(context, R.color.home_color1));
+            viewHolder.binding.imgOvl.setColorFilter(ContextCompat.getColor(context, R.color.home_oval_color1));
+            viewHolder.binding.imagePerson.setImageResource(R.drawable.new_person4);
+            viewHolder.binding.textCons.setText("Industrial");
+            viewHolder.binding.textWork.setText("Industrial Mechanic");
+
+        } else if (position == 4) {
+            // viewHolder.binding.imgBackground.setColorFilter(ContextCompat.getColor(context, R.color.home_color2));
+            viewHolder.binding.imgOvl.setColorFilter(ContextCompat.getColor(context, R.color.text_error_color));
+            viewHolder.binding.imagePerson.setImageResource(R.drawable.new_person5);
+            viewHolder.binding.textCons.setText("Motive Power");
+            viewHolder.binding.textWork.setText("Truck and Coach Technician");
+        } else if (position == 5) {
+            viewHolder.binding.imgOvl.setColorFilter(ContextCompat.getColor(context, R.color.home_oval_color3));
+            viewHolder.binding.imagePerson.setImageResource(R.drawable.new_person6);
+            viewHolder.binding.textCons.setText("Service");
+            viewHolder.binding.textWork.setText("Child & Youth Worker");
         } else {
             viewHolder.binding.imgOvl.setColorFilter(ContextCompat.getColor(context, R.color.home_oval_color1));
-            viewHolder.binding.imagePerson.setImageResource(R.drawable.home_person);
+            viewHolder.binding.imagePerson.setImageResource(R.drawable.new_person1);
+            viewHolder.binding.textCons.setText("Photographer");
+            viewHolder.binding.textWork.setText("Photographer");
         }
 
     }

@@ -45,7 +45,7 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="148dp">
+                    android:layout_marginLeft="135dp">
 
 
                     <TextView
@@ -77,19 +77,22 @@
                         android:id="@+id/textWork"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_above="@+id/textMoney"
                         android:layout_below="@+id/textCons"
                         android:layout_marginTop="8dp"
+                        android:layout_marginRight="@dimen/_4sdp"
                         android:fontFamily="@font/poppins_medium"
                         android:text="@string/general_carpente_r"
                         android:textColor="@color/black"
-                        android:textSize="17sp"></TextView>
+                        android:textSize="15sp"></TextView>
 
                     <TextView
                         android:id="@+id/textMoney"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/textWork"
+                        android:layout_alignParentBottom="true"
                         android:layout_marginTop="@dimen/_4sdp"
+                        android:layout_marginBottom="@dimen/_6sdp"
                         android:fontFamily="@font/poppins_regular"
                         android:gravity="center_vertical"
                         android:text="$20 - $48 per hour"

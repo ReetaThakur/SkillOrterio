@@ -39,7 +39,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:scaleType="fitStart"
-                android:src="@drawable/home_person"></ImageView>
+                android:src="@drawable/new_person1"></ImageView>
 
             <RelativeLayout
                 android:layout_width="match_parent"
