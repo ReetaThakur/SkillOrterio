@@ -608,6 +608,11 @@
     <string name="discovery_day_cornwall_amp_sdg"><![CDATA[Discovery Day,\nCornwall & SDG]]></string>
     <string name="demo_1">We\'ll give you a few suggestions of careers that would be a good fit for you, but don\'t forget that the skilled trades and technologies offer many opportunities, so be sure to explore broadly.</string>
     <string name="notice">Please accept terms &amp; conditions</string>
+    <string name="gen">General \nMachinist</string>
+    <string name="ho">Horticultural \nTechnician</string>
+    <string name="in">Industrial \nMechanic</string>
+    <string name="tru">Truck and \nCoach Technician</string>
+    <string name="childs"><![CDATA[Child & \nYouth Worker]]></string>
 
 
 </resources>

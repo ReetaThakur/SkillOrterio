@@ -71,7 +71,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
             viewHolder.binding.imagePerson.setImageResource(R.drawable.new_person2);
 
             viewHolder.binding.textCons.setText("Industrial");
-            viewHolder.binding.textWork.setText("General Machinist");
+            viewHolder.binding.textWork.setText(R.string.gen);
 
         } else if (position == 2) {
             //viewHolder.binding.imgBackground.setColorFilter(ContextCompat.getColor(context, R.color.home_color1));
@@ -79,7 +79,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
             viewHolder.binding.imagePerson.setImageResource(R.drawable.new_person3);
 
             viewHolder.binding.textCons.setText("Service");
-            viewHolder.binding.textWork.setText("Horticultural Technician");
+            viewHolder.binding.textWork.setText(R.string.ho);
 
         } else if (position == 3) {
             //   viewHolder.binding.imgBackground.setColorFilter(ContextCompat.getColor(context, R.color.home_color2));
@@ -87,7 +87,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
             viewHolder.binding.imagePerson.setImageResource(R.drawable.new_person4);
 
             viewHolder.binding.textCons.setText("Industrial");
-            viewHolder.binding.textWork.setText("Industrial Mechanic");
+            viewHolder.binding.textWork.setText(R.string.in);
 
         } else if (position == 4) {
             // viewHolder.binding.imgBackground.setColorFilter(ContextCompat.getColor(context, R.color.home_color1));
@@ -95,7 +95,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
             viewHolder.binding.imagePerson.setImageResource(R.drawable.new_person5);
 
             viewHolder.binding.textCons.setText("Motive Power");
-            viewHolder.binding.textWork.setText("Truck and Coach Technician");
+            viewHolder.binding.textWork.setText(R.string.tru);
 
         } else if (position == 5) {
             // viewHolder.binding.imgBackground.setColorFilter(ContextCompat.getColor(context, R.color.home_color2));
@@ -103,7 +103,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
             viewHolder.binding.imagePerson.setImageResource(R.drawable.new_person6);
 
             viewHolder.binding.textCons.setText("Service");
-            viewHolder.binding.textWork.setText("Child & Youth Worker");
+            viewHolder.binding.textWork.setText(R.string.childs);
 
         } else if (position == 6) {
             // viewHolder.binding.imgBackground.setColorFilter(ContextCompat.getColor(context, R.color.home_color1));

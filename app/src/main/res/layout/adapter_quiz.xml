@@ -36,7 +36,6 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/_10sdp"
                     android:padding="@dimen/_10sdp">
 
                     <ImageView
@@ -85,11 +84,12 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/textCons"
-                            android:layout_marginTop="@dimen/_2sdp"
+                            android:layout_marginRight="@dimen/_4sdp"
+                            android:layout_marginTop="@dimen/_6sdp"
                             android:fontFamily="@font/poppins_medium"
                             android:text="@string/general_carpente_r"
                             android:textColor="#272F35"
-                            android:textSize="@dimen/_12sdp"></TextView>
+                            android:textSize="@dimen/_13sdp"></TextView>
 
                         <TextView
                             android:id="@+id/textMoney"
@@ -101,7 +101,7 @@
                             android:gravity="center_vertical"
                             android:text="$20 - $48 per hour"
                             android:textColor="#6A5856"
-                            android:textSize="@dimen/_9sdp"></TextView>
+                            android:textSize="@dimen/_10sdp"></TextView>
 
                     </RelativeLayout>
                 </RelativeLayout>
@@ -114,7 +114,7 @@
                 android:layout_width="@dimen/_115sdp"
                 android:layout_height="match_parent"
                 android:scaleType="fitEnd"
-                android:src="@drawable/home_main_img1" />
+                android:src="@drawable/new_person1" />
         </RelativeLayout>
     </LinearLayout>
 

@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.core.content.ContextCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -44,35 +45,15 @@ public class QuizAdapter extends RecyclerView.Adapter<QuizAdapter.ViewHolder> {
 
     @Override
     public int getItemCount() {
-        return 4;
+        return 6;
     }
 
     @Override
     public void onBindViewHolder(final QuizAdapter.ViewHolder viewHolder, final int position) {
-       /* if (popular)
-            viewHolder.binding.imageView.setImageResource(imageArray[position]);
-        else
-            viewHolder.binding.imageView.setImageResource(imageArray1[position]);*/
 
-        /*viewHolder.binding.lay.setOnClickListener(v -> {
-            notifyItemChanged(selected_position);
-            selected_position = position;
-            notifyItemChanged(selected_position);
-        });*/
 
-       /* if (position == 0) {
-            viewHolder.binding.imgBackground.setColorFilter(ContextCompat.getColor(context, R.color.home_color1));
-            viewHolder.binding.imgOvl.setColorFilter(ContextCompat.getColor(context, R.color.home_oval_color1));
-            viewHolder.binding.imagePerson.setImageResource(R.drawable.home_main_img1);
-
-        } else {
-            viewHolder.binding.imgBackground.setColorFilter(ContextCompat.getColor(context, R.color.home_color2));
-            viewHolder.binding.imgOvl.setColorFilter(ContextCompat.getColor(context, R.color.home_oval_color2));
-            viewHolder.binding.imagePerson.setImageResource(R.drawable.home_main_img2);
-        }*/
-
-        viewHolder.binding.lyMain.setOnClickListener(v -> context.startActivity(new Intent(context, JobDetailsActivity.class)));
-       // viewHolder.binding.mainLay.setOnClickListener(v -> context.startActivity(new Intent(context, JobDetailsActivity.class)));
+        //  viewHolder.binding.lyMain.setOnClickListener(v -> context.startActivity(new Intent(context, JobDetailsActivity.class)));
+        // viewHolder.binding.mainLay.setOnClickListener(v -> context.startActivity(new Intent(context, JobDetailsActivity.class)));
 
         viewHolder.binding.ivBookmark.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,9 +62,91 @@ public class QuizAdapter extends RecyclerView.Adapter<QuizAdapter.ViewHolder> {
                     clickBookmark = false;
                     viewHolder.binding.ivBookmark.setImageResource(R.drawable.ic_home_main_batch);
                 } else {
-                    clickBookmark=true;
+                    clickBookmark = true;
                     viewHolder.binding.ivBookmark.setImageResource(R.drawable.ic_bookmark_fill);
                 }
+            }
+        });
+
+
+        if (position == 0) {
+            // viewHolder.binding.imgBackground.setColorFilter(ContextCompat.getColor(context, R.color.home_color1));
+            viewHolder.binding.imgOvl.setColorFilter(ContextCompat.getColor(context, R.color.home_oval_color1));
+            viewHolder.binding.imagePerson.setImageResource(R.drawable.new_person1);
+
+            viewHolder.binding.textCons.setText("Photographer");
+            viewHolder.binding.textWork.setText("Photographer");
+
+        } else if (position == 1) {
+            //  viewHolder.binding.imgBackground.setColorFilter(ContextCompat.getColor(context, R.color.home_color2));
+            viewHolder.binding.imgOvl.setColorFilter(ContextCompat.getColor(context, R.color.home_oval_color2));
+            viewHolder.binding.imagePerson.setImageResource(R.drawable.new_person2);
+
+            viewHolder.binding.textCons.setText("Industrial");
+            viewHolder.binding.textWork.setText(R.string.gen);
+
+        } else if (position == 2) {
+            // viewHolder.binding.imgBackground.setColorFilter(ContextCompat.getColor(context, R.color.home_color1));
+            viewHolder.binding.imgOvl.setColorFilter(ContextCompat.getColor(context, R.color.home_oval_color1));
+            viewHolder.binding.imagePerson.setImageResource(R.drawable.new_person3);
+
+            viewHolder.binding.textCons.setText("Service");
+            viewHolder.binding.textWork.setText(R.string.ho);
+
+        } else if (position == 3) {
+            //  viewHolder.binding.imgBackground.setColorFilter(ContextCompat.getColor(context, R.color.home_color2));
+            viewHolder.binding.imgOvl.setColorFilter(ContextCompat.getColor(context, R.color.home_oval_color2));
+            viewHolder.binding.imagePerson.setImageResource(R.drawable.new_person4);
+
+            viewHolder.binding.textCons.setText("Industrial");
+            viewHolder.binding.textWork.setText(R.string.in);
+
+        } else if (position == 4) {
+            // viewHolder.binding.imgBackground.setColorFilter(ContextCompat.getColor(context, R.color.home_color1));
+            viewHolder.binding.imgOvl.setColorFilter(ContextCompat.getColor(context, R.color.home_oval_color1));
+            viewHolder.binding.imagePerson.setImageResource(R.drawable.new_person5);
+
+            viewHolder.binding.textCons.setText("Motive Power");
+            viewHolder.binding.textWork.setText(R.string.tru);
+
+        } else if (position == 5) {
+            //  viewHolder.binding.imgBackground.setColorFilter(ContextCompat.getColor(context, R.color.home_color2));
+            viewHolder.binding.imgOvl.setColorFilter(ContextCompat.getColor(context, R.color.home_oval_color2));
+            viewHolder.binding.imagePerson.setImageResource(R.drawable.new_person6);
+
+            viewHolder.binding.textCons.setText("Service");
+            viewHolder.binding.textWork.setText(R.string.childs);
+
+        } else if (position == 6) {
+            //  viewHolder.binding.imgBackground.setColorFilter(ContextCompat.getColor(context, R.color.home_color1));
+            viewHolder.binding.imgOvl.setColorFilter(ContextCompat.getColor(context, R.color.home_oval_color1));
+            viewHolder.binding.imagePerson.setImageResource(R.drawable.new_person1);
+
+            viewHolder.binding.textCons.setText("Photographer");
+            viewHolder.binding.textWork.setText("Photographer");
+
+        } else {
+            //   viewHolder.binding.imgBackground.setColorFilter(ContextCompat.getColor(context, R.color.home_color2));
+            viewHolder.binding.imgOvl.setColorFilter(ContextCompat.getColor(context, R.color.home_oval_color2));
+            viewHolder.binding.imagePerson.setImageResource(R.drawable.new_person1);
+
+            viewHolder.binding.textCons.setText("Photographer");
+            viewHolder.binding.textWork.setText("Photographer");
+        }
+
+        viewHolder.binding.imagePerson.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PopularCareerAdapter.numberOfPerson = position;
+                context.startActivity(new Intent(context, JobDetailsActivity.class));
+            }
+        });
+
+        viewHolder.binding.lyMain.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PopularCareerAdapter.numberOfPerson = position;
+                context.startActivity(new Intent(context, JobDetailsActivity.class));
             }
         });
 
