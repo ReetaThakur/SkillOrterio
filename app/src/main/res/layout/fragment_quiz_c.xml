@@ -48,7 +48,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginStart="@dimen/_5sdp"
                     android:layout_marginEnd="@dimen/_5sdp"
-                    android:src="@drawable/tab_img_person" />
+                    android:src="@drawable/new_person1" />
 
 
             </RelativeLayout>
@@ -64,6 +64,7 @@
                 android:paddingBottom="@dimen/_5sdp">
 
                 <TextView
+                    android:id="@+id/textCons"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/_5sdp"
@@ -78,17 +79,18 @@
                     android:text="Construction"
                     android:textAllCaps="true"
                     android:textColor="@color/white"
-                    android:textSize="14sp" />
+                    android:textSize="13sp" />
 
                 <TextView
+                    android:id="@+id/textWork"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins_medium"
                     android:gravity="center"
-                    android:singleLine="true"
+                    android:singleLine="false"
                     android:text="General Carpenter"
                     android:textColor="#272F35"
-                    android:textSize="@dimen/_18sdp" />
+                    android:textSize="@dimen/_16sdp" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -97,12 +99,10 @@
                     android:gravity="center"
                     android:text="$20 - $48 per hour"
                     android:textColor="@color/black_light"
-                    android:textSize="14sp" />
+                    android:textSize="13sp" />
             </LinearLayout>
 
-
         </LinearLayout>
-
 
     </RelativeLayout>
 

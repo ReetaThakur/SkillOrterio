@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
+import androidx.core.content.ContextCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -32,13 +33,76 @@ public class AdapterCong extends RecyclerView.Adapter<AdapterCong.ViewHolder> {
 
     @Override
     public int getItemCount() {
-        return 4;
+        return 6;
     }
 
     @Override
     public void onBindViewHolder(final AdapterCong.ViewHolder viewHolder, final int position) {
 
+        if (position == 0) {
+           // viewHolder.binding.imgBackground.setColorFilter(ContextCompat.getColor(context, R.color.home_color1));
+         //   viewHolder.binding.imgOvl.setColorFilter(ContextCompat.getColor(context, R.color.home_oval_color1));
+            viewHolder.binding.ivHolder.setImageResource(R.drawable.new_person1);
 
+            viewHolder.binding.textCons.setText("Photographer");
+            viewHolder.binding.textWork.setText("Photographer");
+
+        } else if (position == 1) {
+        //    viewHolder.binding.imgBackground.setColorFilter(ContextCompat.getColor(context, R.color.home_color2));
+         //   viewHolder.binding.imgOvl.setColorFilter(ContextCompat.getColor(context, R.color.home_oval_color2));
+            viewHolder.binding.ivHolder.setImageResource(R.drawable.new_person2);
+
+            viewHolder.binding.textCons.setText("Industrial");
+            viewHolder.binding.textWork.setText(R.string.gen);
+
+        } else if (position == 2) {
+          //  viewHolder.binding.imgBackground.setColorFilter(ContextCompat.getColor(context, R.color.home_color1));
+         //   viewHolder.binding.imgOvl.setColorFilter(ContextCompat.getColor(context, R.color.home_oval_color1));
+            viewHolder.binding.ivHolder.setImageResource(R.drawable.new_person3);
+
+            viewHolder.binding.textCons.setText("Service");
+            viewHolder.binding.textWork.setText(R.string.ho);
+
+        } else if (position == 3) {
+         //   viewHolder.binding.imgBackground.setColorFilter(ContextCompat.getColor(context, R.color.home_color2));
+         //   viewHolder.binding.imgOvl.setColorFilter(ContextCompat.getColor(context, R.color.home_oval_color2));
+            viewHolder.binding.ivHolder.setImageResource(R.drawable.new_person4);
+
+            viewHolder.binding.textCons.setText("Industrial");
+            viewHolder.binding.textWork.setText(R.string.in);
+
+        } else if (position == 4) {
+        //    viewHolder.binding.imgBackground.setColorFilter(ContextCompat.getColor(context, R.color.home_color1));
+        //    viewHolder.binding.imgOvl.setColorFilter(ContextCompat.getColor(context, R.color.home_oval_color1));
+            viewHolder.binding.ivHolder.setImageResource(R.drawable.new_person5);
+
+            viewHolder.binding.textCons.setText("Motive Power");
+            viewHolder.binding.textWork.setText(R.string.tru);
+
+        } else if (position == 5) {
+        //    viewHolder.binding.imgBackground.setColorFilter(ContextCompat.getColor(context, R.color.home_color2));
+        //    viewHolder.binding.imgOvl.setColorFilter(ContextCompat.getColor(context, R.color.home_oval_color2));
+            viewHolder.binding.ivHolder.setImageResource(R.drawable.new_person6);
+
+            viewHolder.binding.textCons.setText("Service");
+            viewHolder.binding.textWork.setText(R.string.childs);
+
+        } else if (position == 6) {
+         //   viewHolder.binding.imgBackground.setColorFilter(ContextCompat.getColor(context, R.color.home_color1));
+          //  viewHolder.binding.imgOvl.setColorFilter(ContextCompat.getColor(context, R.color.home_oval_color1));
+            viewHolder.binding.ivHolder.setImageResource(R.drawable.new_person1);
+
+            viewHolder.binding.textCons.setText("Photographer");
+            viewHolder.binding.textWork.setText("Photographer");
+
+        } else {
+         //   viewHolder.binding.imgBackground.setColorFilter(ContextCompat.getColor(context, R.color.home_color2));
+         //   viewHolder.binding.imgOvl.setColorFilter(ContextCompat.getColor(context, R.color.home_oval_color2));
+            viewHolder.binding.ivHolder.setImageResource(R.drawable.new_person1);
+
+            viewHolder.binding.textCons.setText("Photographer");
+            viewHolder.binding.textWork.setText("Photographer");
+        }
     }
 
     @NotNull
