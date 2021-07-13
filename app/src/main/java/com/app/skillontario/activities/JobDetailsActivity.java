@@ -64,7 +64,7 @@ public class JobDetailsActivity extends BaseActivity {
 
         try {
             if (numberOfPerson == 0) {
-                binding.textCons.setText("Photographer");
+                binding.textCons.setText("Technology");
                 binding.textWork.setText("Photographer");
             } else if (numberOfPerson == 1) {
                 binding.textCons.setText("Industrial");
@@ -82,10 +82,10 @@ public class JobDetailsActivity extends BaseActivity {
                 binding.textCons.setText("Service");
                 binding.textWork.setText("Child & Youth Worker");
             } else if (numberOfPerson == 6) {
-                binding.textCons.setText("Photographer");
+                binding.textCons.setText("Technology");
                 binding.textWork.setText("Photographer");
             } else {
-                binding.textCons.setText("Photographer");
+                binding.textCons.setText("Technology");
                 binding.textWork.setText("Photographer");
             }
 

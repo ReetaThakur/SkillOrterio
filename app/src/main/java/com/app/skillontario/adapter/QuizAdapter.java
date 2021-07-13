@@ -74,7 +74,7 @@ public class QuizAdapter extends RecyclerView.Adapter<QuizAdapter.ViewHolder> {
             viewHolder.binding.imgOvl.setColorFilter(ContextCompat.getColor(context, R.color.home_oval_color1));
             viewHolder.binding.imagePerson.setImageResource(R.drawable.new_person1);
 
-            viewHolder.binding.textCons.setText("Photographer");
+            viewHolder.binding.textCons.setText("Technology");
             viewHolder.binding.textWork.setText("Photographer");
 
         } else if (position == 1) {
@@ -122,7 +122,7 @@ public class QuizAdapter extends RecyclerView.Adapter<QuizAdapter.ViewHolder> {
             viewHolder.binding.imgOvl.setColorFilter(ContextCompat.getColor(context, R.color.home_oval_color1));
             viewHolder.binding.imagePerson.setImageResource(R.drawable.new_person1);
 
-            viewHolder.binding.textCons.setText("Photographer");
+            viewHolder.binding.textCons.setText("Technology");
             viewHolder.binding.textWork.setText("Photographer");
 
         } else {
@@ -130,7 +130,7 @@ public class QuizAdapter extends RecyclerView.Adapter<QuizAdapter.ViewHolder> {
             viewHolder.binding.imgOvl.setColorFilter(ContextCompat.getColor(context, R.color.home_oval_color2));
             viewHolder.binding.imagePerson.setImageResource(R.drawable.new_person1);
 
-            viewHolder.binding.textCons.setText("Photographer");
+            viewHolder.binding.textCons.setText("Technology");
             viewHolder.binding.textWork.setText("Photographer");
         }
 
