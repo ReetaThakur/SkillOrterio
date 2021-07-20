@@ -5,10 +5,10 @@
     tools:context="com.app.skillontario.home.Tab4Fragment">
 
     <RelativeLayout
-        android:layout_width="@dimen/_240sdp"
+        android:layout_width="@dimen/_230sdp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/_12sdp"
-        android:layout_marginRight="@dimen/_12sdp">
+        android:layout_marginLeft="@dimen/_8sdp"
+        android:layout_marginRight="@dimen/_4sdp">
 
 
         <LinearLayout
@@ -23,6 +23,7 @@
                 android:layout_weight="1">
 
                 <LinearLayout
+                    android:id="@+id/linBack"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginTop="@dimen/_35sdp"
@@ -32,11 +33,10 @@
                     android:orientation="vertical">
 
                     <ImageView
-
-                        android:layout_width="@dimen/_130sdp"
-                        android:layout_height="@dimen/_130sdp"
-                        android:layout_marginTop="@dimen/_10sdp"
-                        android:paddingLeft="@dimen/_15sdp"
+                        android:layout_width="@dimen/_140sdp"
+                        android:layout_height="@dimen/_140sdp"
+                        android:layout_marginTop="@dimen/_1sdp"
+                        android:paddingLeft="@dimen/_2sdp"
                         android:src="@drawable/ic_home_main_oval" />
 
 
@@ -56,7 +56,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/_110sdp"
                 android:background="@drawable/rec_bottom_white"
                 android:gravity="center"
                 android:orientation="vertical"
@@ -88,9 +88,11 @@
                     android:fontFamily="@font/poppins_medium"
                     android:gravity="center"
                     android:singleLine="false"
-                    android:text="General Carpenter"
+                    android:text="General
+                     Carpenter"
                     android:textColor="#272F35"
                     android:textSize="@dimen/_16sdp" />
+
 
                 <TextView
                     android:layout_width="match_parent"

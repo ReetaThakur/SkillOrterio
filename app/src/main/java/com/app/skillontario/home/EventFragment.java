@@ -54,11 +54,11 @@ public class EventFragment extends BaseFragment implements XmlClickable {
     int page = 1;
     int new_Total_count = 6;
     int new_page = 1;
-    LinearLayoutManager linearLayoutManager,linearLayoutManagernew;
-    GetEventRequest getEventRequest,getEventRequestNews;
-  //  ApiResponseErrorCallback apiResponseErrorCallback;
-    ArrayList<EventsModal> eventsModalArrayList=new ArrayList<>();
-    ArrayList<NewsModal> newsModalArrayList=new ArrayList<>();
+    LinearLayoutManager linearLayoutManager, linearLayoutManagernew;
+    GetEventRequest getEventRequest, getEventRequestNews;
+    //  ApiResponseErrorCallback apiResponseErrorCallback;
+    ArrayList<EventsModal> eventsModalArrayList = new ArrayList<>();
+    ArrayList<NewsModal> newsModalArrayList = new ArrayList<>();
     EventAdapter eventAdapter;
     NewsAdapter newsAdapter;
     boolean hasMore = true;
@@ -74,29 +74,41 @@ public class EventFragment extends BaseFragment implements XmlClickable {
         setPhase(this);
         getEventRequest = new GetEventRequest(getActivity());
         getEventRequestNews = new GetEventRequest(getActivity());
-       // apiResponseErrorCallback = this;
+        // apiResponseErrorCallback = this;
         eventsModalArrayList = new ArrayList<>();
         newsModalArrayList = new ArrayList<>();
         binding.tab.tv1.setOnClickListener(v -> {
-            setTint(binding.tab.tv1, R.color.buttonColor);
-            setTint(binding.tab.tv2, R.color.white);
+            //    setTint(binding.tab.tv1, R.color.buttonColor);
+            //   setTint(binding.tab.tv2, R.color.white);
             binding.eventL.setVisibility(View.VISIBLE);
             binding.newsL.setVisibility(View.GONE);
+
+            binding.tab.tv1.setBackgroundResource(R.drawable.rec_blue_left);
+            binding.tab.tv1.setTextColor(Color.WHITE);
+
+            binding.tab.tv2.setBackgroundResource(R.drawable.rec_white_right);
+            binding.tab.tv2.setTextColor(Color.BLACK);
         });
         binding.tab.tv2.setOnClickListener(v -> {
-            setTint(binding.tab.tv1, R.color.white);
-            setTint(binding.tab.tv2, R.color.buttonColor);
+            //  setTint(binding.tab.tv1, R.color.white);
+            //  setTint(binding.tab.tv2, R.color.buttonColor);
             binding.newsL.setVisibility(View.VISIBLE);
             binding.eventL.setVisibility(View.GONE);
+
+            binding.tab.tv1.setBackgroundResource(R.drawable.rec_left_white);
+            binding.tab.tv1.setTextColor(Color.BLACK);
+
+            binding.tab.tv2.setBackgroundResource(R.drawable.rec_blue_right);
+            binding.tab.tv2.setTextColor(Color.WHITE);
         });
         MySharedPreference.getInstance().setBooleanData(SharedPrefsConstants.IS_HEADER, true);
         linearLayoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
         binding.recyRecentEvent.setLayoutManager(linearLayoutManager);
-       // binding.recyRecentEvent.addOnScrollListener(createInfiniteScrollListener());
+        // binding.recyRecentEvent.addOnScrollListener(createInfiniteScrollListener());
 
         linearLayoutManagernew = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
         binding.rcyNews.setLayoutManager(linearLayoutManagernew);
-      //  binding.rcyNews.addOnScrollListener(createInfiniteScrollListenerNews());
+        //  binding.rcyNews.addOnScrollListener(createInfiniteScrollListenerNews());
 
         getEventRequest.seteType("event");
         getEventRequest.setEventId("");
@@ -112,7 +124,6 @@ public class EventFragment extends BaseFragment implements XmlClickable {
         getEventRequestNews.setSearch("");
 
 
-
         eventAdapter = new EventAdapter(eventsModalArrayList, getActivity());
         binding.recyRecentEvent.setAdapter(eventAdapter);
 
@@ -120,8 +131,6 @@ public class EventFragment extends BaseFragment implements XmlClickable {
         binding.rcyNews.setAdapter(newsAdapter);
 
     }
-
-
 
 
     private void openD() {
@@ -168,7 +177,6 @@ public class EventFragment extends BaseFragment implements XmlClickable {
             startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.skillsontario.com")));
         }
     }
-
 
 
 }

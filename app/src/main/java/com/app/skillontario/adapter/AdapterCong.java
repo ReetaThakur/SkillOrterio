@@ -43,7 +43,7 @@ public class AdapterCong extends RecyclerView.Adapter<AdapterCong.ViewHolder> {
            // viewHolder.binding.imgBackground.setColorFilter(ContextCompat.getColor(context, R.color.home_color1));
          //   viewHolder.binding.imgOvl.setColorFilter(ContextCompat.getColor(context, R.color.home_oval_color1));
             viewHolder.binding.ivHolder.setImageResource(R.drawable.new_person1);
-
+            viewHolder.binding.linBack.setBackgroundResource(R.drawable.rec_quiz_tanks);
             viewHolder.binding.textCons.setText("Technology");
             viewHolder.binding.textWork.setText("Photographer");
 
@@ -51,7 +51,7 @@ public class AdapterCong extends RecyclerView.Adapter<AdapterCong.ViewHolder> {
         //    viewHolder.binding.imgBackground.setColorFilter(ContextCompat.getColor(context, R.color.home_color2));
          //   viewHolder.binding.imgOvl.setColorFilter(ContextCompat.getColor(context, R.color.home_oval_color2));
             viewHolder.binding.ivHolder.setImageResource(R.drawable.new_person2);
-
+            viewHolder.binding.linBack.setBackgroundResource(R.drawable.rec_quiz_tanks1);
             viewHolder.binding.textCons.setText("Industrial");
             viewHolder.binding.textWork.setText(R.string.gen);
 
@@ -59,7 +59,7 @@ public class AdapterCong extends RecyclerView.Adapter<AdapterCong.ViewHolder> {
           //  viewHolder.binding.imgBackground.setColorFilter(ContextCompat.getColor(context, R.color.home_color1));
          //   viewHolder.binding.imgOvl.setColorFilter(ContextCompat.getColor(context, R.color.home_oval_color1));
             viewHolder.binding.ivHolder.setImageResource(R.drawable.new_person3);
-
+            viewHolder.binding.linBack.setBackgroundResource(R.drawable.rec_quiz_tanks);
             viewHolder.binding.textCons.setText("Service");
             viewHolder.binding.textWork.setText(R.string.ho);
 
@@ -67,7 +67,7 @@ public class AdapterCong extends RecyclerView.Adapter<AdapterCong.ViewHolder> {
          //   viewHolder.binding.imgBackground.setColorFilter(ContextCompat.getColor(context, R.color.home_color2));
          //   viewHolder.binding.imgOvl.setColorFilter(ContextCompat.getColor(context, R.color.home_oval_color2));
             viewHolder.binding.ivHolder.setImageResource(R.drawable.new_person4);
-
+            viewHolder.binding.linBack.setBackgroundResource(R.drawable.rec_quiz_tanks1);
             viewHolder.binding.textCons.setText("Industrial");
             viewHolder.binding.textWork.setText(R.string.in);
 
@@ -75,7 +75,7 @@ public class AdapterCong extends RecyclerView.Adapter<AdapterCong.ViewHolder> {
         //    viewHolder.binding.imgBackground.setColorFilter(ContextCompat.getColor(context, R.color.home_color1));
         //    viewHolder.binding.imgOvl.setColorFilter(ContextCompat.getColor(context, R.color.home_oval_color1));
             viewHolder.binding.ivHolder.setImageResource(R.drawable.new_person5);
-
+            viewHolder.binding.linBack.setBackgroundResource(R.drawable.rec_quiz_tanks);
             viewHolder.binding.textCons.setText("Motive Power");
             viewHolder.binding.textWork.setText(R.string.tru);
 
@@ -83,7 +83,7 @@ public class AdapterCong extends RecyclerView.Adapter<AdapterCong.ViewHolder> {
         //    viewHolder.binding.imgBackground.setColorFilter(ContextCompat.getColor(context, R.color.home_color2));
         //    viewHolder.binding.imgOvl.setColorFilter(ContextCompat.getColor(context, R.color.home_oval_color2));
             viewHolder.binding.ivHolder.setImageResource(R.drawable.new_person6);
-
+            viewHolder.binding.linBack.setBackgroundResource(R.drawable.rec_quiz_tanks1);
             viewHolder.binding.textCons.setText("Service");
             viewHolder.binding.textWork.setText(R.string.childs);
 
@@ -91,7 +91,7 @@ public class AdapterCong extends RecyclerView.Adapter<AdapterCong.ViewHolder> {
          //   viewHolder.binding.imgBackground.setColorFilter(ContextCompat.getColor(context, R.color.home_color1));
           //  viewHolder.binding.imgOvl.setColorFilter(ContextCompat.getColor(context, R.color.home_oval_color1));
             viewHolder.binding.ivHolder.setImageResource(R.drawable.new_person1);
-
+            viewHolder.binding.linBack.setBackgroundResource(R.drawable.rec_quiz_tanks);
             viewHolder.binding.textCons.setText("Technology");
             viewHolder.binding.textWork.setText("Photographer");
 
@@ -99,7 +99,7 @@ public class AdapterCong extends RecyclerView.Adapter<AdapterCong.ViewHolder> {
          //   viewHolder.binding.imgBackground.setColorFilter(ContextCompat.getColor(context, R.color.home_color2));
          //   viewHolder.binding.imgOvl.setColorFilter(ContextCompat.getColor(context, R.color.home_oval_color2));
             viewHolder.binding.ivHolder.setImageResource(R.drawable.new_person1);
-
+            viewHolder.binding.linBack.setBackgroundResource(R.drawable.rec_quiz_tanks);
             viewHolder.binding.textCons.setText("Technology");
             viewHolder.binding.textWork.setText("Photographer");
         }

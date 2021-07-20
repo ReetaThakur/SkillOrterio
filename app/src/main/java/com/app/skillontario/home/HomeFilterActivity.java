@@ -26,7 +26,7 @@ import dev.amin.tagadapter.check2.TagAdapter2;
 public class HomeFilterActivity extends BaseActivity implements KeywordSelected {
 
     private ActivityHomeFilterBinding binding;
-    private TagAdapter adapter;
+    private TagAdapter1 adapter;
     private TagAdapter1 adapter1;
     private TagAdapter2 adapter2;
     //  public static HashMap<Integer, Object> hashMapList = new HashMap<>();
@@ -39,7 +39,7 @@ public class HomeFilterActivity extends BaseActivity implements KeywordSelected 
         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_from_left);
         binding = (ActivityHomeFilterBinding) viewBaseBinding;
 
-        adapter = new TagAdapter(getList(), HomeFilterActivity.this);
+        adapter = new TagAdapter1(getList(), HomeFilterActivity.this);
         adapter1 = new TagAdapter1(getList1(), HomeFilterActivity.this);
         adapter2 = new TagAdapter2(getList2(), HomeFilterActivity.this);
         list.clear();

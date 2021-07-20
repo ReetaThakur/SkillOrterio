@@ -54,7 +54,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppins_regular"
-                        android:paddingLeft="@dimen/_15sdp"
+                        android:paddingLeft="@dimen/_12sdp"
                         android:text="@string/discovery_day_cornwall_amp_sdg"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_13sdp" />
@@ -62,14 +62,14 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/_15sdp"
+                        android:layout_marginLeft="@dimen/_12sdp"
                         android:background="@drawable/rec_ylo"
                         android:fontFamily="@font/poppins_regular"
                         android:gravity="left"
                         android:padding="@dimen/_5sdp"
                         android:text="Young Women’s Initiatives"
                         android:textColor="#FF9F0A"
-                        android:textSize="@dimen/_9sdp" />
+                        android:textSize="@dimen/_8sdp" />
 
 
                 </LinearLayout>

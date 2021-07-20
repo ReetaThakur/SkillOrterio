@@ -158,7 +158,7 @@ public class JobDetailsActivity extends BaseActivity {
 
     private void showExpandRecycler() {
 
-        List<SampleGroupBean> list = new ArrayList<>(10);
+        List<SampleGroupBean> list = new ArrayList<>(5);
         final List<SampleChildBean> childList = new ArrayList<>(1);
         childList.add(new SampleChildBean(getString(R.string.child)));
 
@@ -166,16 +166,17 @@ public class JobDetailsActivity extends BaseActivity {
         list.add(new SampleGroupBean(childList, "Job Responsibilities"));
         list.add(new SampleGroupBean(childList, "Where they Work"));
         list.add(new SampleGroupBean(childList, "Education/Training Required"));
+       // list.add(new SampleGroupBean(childList, "Education/Training Required"));
 
 
-        binding.recyExpand.setHasFixedSize(true);
+        binding.recyExpand.setHasFixedSize(false);
         binding.recyExpand.setNestedScrollingEnabled(false);
         adapter = new ExpandRecyclerAdapter(list);
         binding.recyExpand.setAdapter(adapter);
 
-        binding.recyExpand.addOnItemTouchListener(new RecyclerItemClickListener(JobDetailsActivity.this, (view, position) -> {
+       /* binding.recyExpand.addOnItemTouchListener(new RecyclerItemClickListener(JobDetailsActivity.this, (view, position) -> {
 
-        }));
+        }));*/
     }
 
     @Override

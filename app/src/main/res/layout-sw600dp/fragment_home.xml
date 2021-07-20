@@ -226,7 +226,7 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_90sdp"
+                    android:layout_height="@dimen/_110sdp"
                     android:layout_marginLeft="@dimen/_16sdp"
                     android:layout_marginTop="@dimen/_16sdp"
                     android:layout_marginRight="@dimen/_16sdp">
@@ -257,8 +257,9 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/_28sdp"
+                        android:layout_marginLeft="@dimen/_16sdp"
                         android:layout_marginTop="@dimen/_4sdp"
+                        android:layout_marginRight="@dimen/_10sdp"
                         android:layout_toLeftOf="@+id/tvExplore"
                         android:fontFamily="@font/poppins_medium"
                         android:text="Opportunities &amp; Scholarships"
@@ -282,7 +283,7 @@
                     android:id="@+id/recy_news"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/_16sdp"
+                    android:layout_marginLeft="@dimen/_4sdp"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:divider="@null"
                     android:orientation="horizontal"

@@ -53,7 +53,7 @@
                 app:bt_colorActive="@color/white"
                 app:bt_colorInactive="@color/tab1_inactive_color"
                 app:bt_icon="@drawable/ic_tab_news"
-                app:bt_titleSize="12sp"
+                app:bt_titleSize="11sp"
                 app:bt_shape="@drawable/background_tab2"
                 app:bt_title="@string/events" />
 

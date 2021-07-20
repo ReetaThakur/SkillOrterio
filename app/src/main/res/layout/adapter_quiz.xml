@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <LinearLayout
-        android:layout_width="@dimen/_270sdp"
+        android:layout_width="@dimen/_260sdp"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
@@ -84,8 +84,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/textCons"
-                            android:layout_marginRight="@dimen/_4sdp"
                             android:layout_marginTop="@dimen/_6sdp"
+                            android:layout_marginRight="@dimen/_4sdp"
                             android:fontFamily="@font/poppins_medium"
                             android:text="@string/general_carpente_r"
                             android:textColor="#272F35"

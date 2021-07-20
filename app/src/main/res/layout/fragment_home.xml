@@ -256,7 +256,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/_28sdp"
+                        android:layout_marginLeft="@dimen/_16sdp"
                         android:layout_marginTop="@dimen/_10sdp"
                         android:layout_toLeftOf="@+id/tvExplore"
                         android:fontFamily="@font/poppins_medium"
@@ -281,7 +281,7 @@
                     android:id="@+id/recy_news"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/_16sdp"
+                    android:layout_marginLeft="@dimen/_4sdp"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:divider="@null"
                     android:orientation="horizontal"

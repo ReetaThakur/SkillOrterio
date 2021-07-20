@@ -63,7 +63,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/poppins_medium"
-                            android:paddingLeft="@dimen/_15sdp"
+                            android:paddingLeft="@dimen/_10sdp"
                             android:text="In the race for tech talent, the US should look to Mexico"
                             android:textColor="@color/black"
                             android:textSize="@dimen/_12sdp" />
@@ -72,7 +72,7 @@
                             android:id="@+id/tv_date"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="@dimen/_15sdp"
+                            android:layout_marginLeft="@dimen/_10sdp"
                             android:layout_marginTop="@dimen/_5sdp"
                             android:fontFamily="@font/poppins_medium"
                             android:gravity="center"
@@ -82,7 +82,6 @@
 
 
                     </LinearLayout>
-
 
                 </LinearLayout>
 
