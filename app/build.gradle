@@ -30,13 +30,13 @@ android {
     buildToolsVersion "30.0.2"
 
     defaultConfig {
-        applicationId "com.app.skillontario"
+        applicationId "com.app.skillorterio"
         minSdkVersion 21
         multiDexEnabled true
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
-        resConfigs "en"
+        vectorDrawables.useSupportLibrary = true
         flavorDimensions "default"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
