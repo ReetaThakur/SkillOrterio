@@ -55,7 +55,7 @@ public class SignUpActivity extends BaseActivity implements ApiResponseErrorCall
     ApiResponseErrorCallback apiResponseErrorCallback;
     String emailPattern = "^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,4})$";
     private boolean verifyImage = false;
-
+    boolean Is_guest = false;
 
     @Override
     protected void initUi() {
@@ -64,6 +64,10 @@ public class SignUpActivity extends BaseActivity implements ApiResponseErrorCall
         Utils.hideKeyBoard(SignUpActivity.this);
         signUpModel = new SignUpModel(SignUpActivity.this);
         apiResponseErrorCallback = this;
+
+        binding.tvEmailError.setVisibility(View.GONE);
+        binding.tvPassError.setVisibility(View.GONE);
+        binding.tvConfirmError.setVisibility(View.GONE);
 
         //  setLocale(SignUpActivity.this, "");
 
@@ -120,6 +124,9 @@ public class SignUpActivity extends BaseActivity implements ApiResponseErrorCall
         binding.cvSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                binding.tvEmailError.setVisibility(View.GONE);
+                binding.tvPassError.setVisibility(View.GONE);
+                binding.tvConfirmError.setVisibility(View.GONE);
 
                 if (Validation()) {
                     if (verifyImage) {
@@ -200,9 +207,20 @@ public class SignUpActivity extends BaseActivity implements ApiResponseErrorCall
 
                 startActivity(new Intent(SignUpActivity.this, PrivacyPolicyActivity.class)));
 
-        binding.tvContinueAsGuest.setOnClickListener(v ->
+        binding.tvContinueAsGuest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Is_guest = MySharedPreference.getInstance().getBooleanData(SharedPrefsConstants.GUEST_FLOW);
+                signUpModel.setEmail("guest@gmail.com");
+                signUpModel.setPassword("123456");
+                signUpModel.setConfirmPassword("123456");
+                API_INTERFACE.registerUser(RequestBodyGenerator.registerUser(signUpModel, getDeviceId(SignUpActivity.this), "4")).enqueue(
+                        new ApiCallBack<>(SignUpActivity.this, apiResponseErrorCallback, 11, true));
 
-                startActivity(new Intent(SignUpActivity.this, BottomBarActivity.class)));
+            }
+        });
+
+
     }
 
     void enableFocusEditText(RelativeLayout relativeLayout, EditText editText, boolean val) {
@@ -228,13 +246,36 @@ public class SignUpActivity extends BaseActivity implements ApiResponseErrorCall
     public void getApiResponse(Object responseObject, int flag) {
         if (flag == 01) {
             BaseResponseModel<RegistrationModal> responseModel = (BaseResponseModel<RegistrationModal>) responseObject;
+            try {
+                if (responseModel.getStatus()) {
+                    MySharedPreference.getInstance().setStringData(SharedPrefsConstants.USER_TOKEN, responseModel.getOutput().getToken());
+                    MySharedPreference.getInstance().setStringData(SharedPrefsConstants.USER_ID, responseModel.getOutput().getId());
+                    MySharedPreference.getInstance().SaveUserData(SharedPrefsConstants.USER_DATA, responseModel.getOutput());
+
+                    Intent intent = new Intent(SignUpActivity.this, BottomBarActivity.class);
+                    intent.setFlags(FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                    startActivity(intent);
+                } else {
+                    Utils.showToast(this, responseModel.getMessage());
+                }
+            } catch (Exception e) {
+            }
+
+        } else if (flag == 11) {
+            BaseResponseModel<RegistrationModal> responseModel = (BaseResponseModel<RegistrationModal>) responseObject;
             if (responseModel.getStatus()) {
                 MySharedPreference.getInstance().setStringData(SharedPrefsConstants.USER_TOKEN, responseModel.getOutput().getToken());
                 MySharedPreference.getInstance().setStringData(SharedPrefsConstants.USER_ID, responseModel.getOutput().getId());
-
+                MySharedPreference.getInstance().SaveUserData(SharedPrefsConstants.USER_DATA, responseModel.getOutput());
+                /*if (Is_guest) {
+                    finish();
+                } else {*/
                 Intent intent = new Intent(SignUpActivity.this, BottomBarActivity.class);
-                intent.setFlags(FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);
+                finish();
+                // }
+                MySharedPreference.getInstance().setBooleanData(SharedPrefsConstants.GUEST_FLOW, true);
             } else {
                 Utils.showToast(this, responseModel.getMessage());
             }
@@ -257,25 +298,35 @@ public class SignUpActivity extends BaseActivity implements ApiResponseErrorCall
 
     private boolean Validation() {
         if (TextUtils.isEmpty(binding.etMail.getText().toString().trim())) {
-            binding.etMail.setError(getString(R.string.please_enter_email_address));
+            /// binding.etMail.setError(getString(R.string.please_enter_email_address));
+            binding.tvEmailError.setVisibility(View.VISIBLE);
+            binding.tvEmailError.setText(getString(R.string.please_enter_email_address));
             return false;
         } else if (!android.util.Patterns.EMAIL_ADDRESS.matcher(binding.etMail.getText().toString().trim()).matches()) {
-            binding.etMail.setError(getString(R.string.please_enter_valid_email_address));
+            // binding.etMail.setError(getString(R.string.please_enter_valid_email_address));
+            binding.tvEmailError.setVisibility(View.VISIBLE);
+            binding.tvEmailError.setText(getString(R.string.please_enter_valid_email_address));
             return false;
         } else if (TextUtils.isEmpty(binding.etPassword.getText().toString().trim())) {
-            binding.etPassword.setError(getString(R.string.please_enter_password));
+            //binding.etPassword.setError(getString(R.string.please_enter_password));
+
+            binding.tvPassError.setVisibility(View.VISIBLE);
+            binding.tvPassError.setText(getString(R.string.please_enter_password));
             return false;
         } else if (TextUtils.isEmpty(binding.etConfirmPassword.getText().toString().trim())) {
-            binding.etConfirmPassword.setError(getString(R.string.please_confirm_password));
+            //  binding.etConfirmPassword.setError(getString(R.string.please_confirm_password));
+
+            binding.tvConfirmError.setVisibility(View.VISIBLE);
+            binding.tvConfirmError.setText(getString(R.string.please_confirm_password));
             return false;
         } else if (!binding.etConfirmPassword.getText().toString().equalsIgnoreCase(binding.etPassword.getText().toString())) {
-            showToast(getString(R.string.password_not_match));
+            // showToast(getString(R.string.password_not_match));
+
+            binding.tvConfirmError.setVisibility(View.VISIBLE);
+            binding.tvConfirmError.setText(getString(R.string.password_not_match));
             return false;
         }
-        if (!verifyImage) {
-            showToast(getString(R.string.term_codition));
-            return false;
-        }
+
         return true;
     }
 }
