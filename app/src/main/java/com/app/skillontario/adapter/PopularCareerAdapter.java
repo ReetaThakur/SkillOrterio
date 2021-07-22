@@ -1,5 +1,6 @@
 package com.app.skillontario.adapter;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -8,14 +9,19 @@ import android.view.ViewGroup;
 
 import androidx.core.content.ContextCompat;
 import androidx.databinding.DataBindingUtil;
+import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 
 import com.app.skillontario.activities.JobDetailsActivity;
+import com.app.skillontario.models.CareerModal;
 import com.app.skillorterio.R;
 import com.app.skillorterio.databinding.AdapterPopularCarrerBinding;
+import com.bumptech.glide.Glide;
 
 import org.jetbrains.annotations.NotNull;
+
+import java.util.ArrayList;
 
 public class PopularCareerAdapter extends RecyclerView.Adapter<PopularCareerAdapter.ViewHolder> {
 
@@ -39,6 +45,16 @@ public class PopularCareerAdapter extends RecyclerView.Adapter<PopularCareerAdap
         this.popular = popular;
     }
 
+    ArrayList<CareerModal> careerModalArrayList;
+    BookMarkUpdateDelete bookMarkUpdateDelete;
+
+    public PopularCareerAdapter(ArrayList<CareerModal> careerModalArrayList, Context activitiy, boolean popular, BookMarkUpdateDelete bookMarkUpdateDelete) {
+        this.careerModalArrayList = careerModalArrayList;
+        this.context = activitiy;
+        this.popular = popular;
+        this.bookMarkUpdateDelete = bookMarkUpdateDelete;
+    }
+
 
     @Override
     public long getItemId(int position) {
@@ -47,10 +63,15 @@ public class PopularCareerAdapter extends RecyclerView.Adapter<PopularCareerAdap
 
     @Override
     public int getItemCount() {
-        if (popular)
-            return 6;
-        else
-            return imageArray1.length;
+        try {
+            if (popular)
+                return 6;
+            else
+                return careerModalArrayList.size();
+        } catch (Exception e) {
+            return 0;
+        }
+
     }
 
     @Override
@@ -66,69 +87,95 @@ public class PopularCareerAdapter extends RecyclerView.Adapter<PopularCareerAdap
             notifyItemChanged(selected_position);
         });*/
 
-        if (position == 0) {
-            viewHolder.binding.imgBackground.setColorFilter(ContextCompat.getColor(context, R.color.home_color1));
-            viewHolder.binding.imgOvl.setColorFilter(ContextCompat.getColor(context, R.color.home_oval_color1));
-            viewHolder.binding.imagePerson.setImageResource(R.drawable.new_person1);
+        if (popular) {
 
-            viewHolder.binding.textCons.setText("Technology");
-            viewHolder.binding.textWork.setText("Photographer");
+            if (position == 0) {
+                viewHolder.binding.imgBackground.setColorFilter(ContextCompat.getColor(context, R.color.home_color1));
+                viewHolder.binding.imgOvl.setColorFilter(ContextCompat.getColor(context, R.color.home_oval_color1));
+                viewHolder.binding.imagePerson.setImageResource(R.drawable.new_person1);
 
-        } else if (position == 1) {
-            viewHolder.binding.imgBackground.setColorFilter(ContextCompat.getColor(context, R.color.home_color2));
-            viewHolder.binding.imgOvl.setColorFilter(ContextCompat.getColor(context, R.color.home_oval_color2));
-            viewHolder.binding.imagePerson.setImageResource(R.drawable.new_person2);
+                viewHolder.binding.textCons.setText("Technology");
+                viewHolder.binding.textWork.setText("Photographer");
 
-            viewHolder.binding.textCons.setText("Industrial");
-            viewHolder.binding.textWork.setText(R.string.gen);
+            } else if (position == 1) {
+                viewHolder.binding.imgBackground.setColorFilter(ContextCompat.getColor(context, R.color.home_color2));
+                viewHolder.binding.imgOvl.setColorFilter(ContextCompat.getColor(context, R.color.home_oval_color2));
+                viewHolder.binding.imagePerson.setImageResource(R.drawable.new_person2);
 
-        } else if (position == 2) {
-            viewHolder.binding.imgBackground.setColorFilter(ContextCompat.getColor(context, R.color.home_color1));
-            viewHolder.binding.imgOvl.setColorFilter(ContextCompat.getColor(context, R.color.home_oval_color1));
-            viewHolder.binding.imagePerson.setImageResource(R.drawable.new_person3);
+                viewHolder.binding.textCons.setText("Industrial");
+                viewHolder.binding.textWork.setText(R.string.gen);
 
-            viewHolder.binding.textCons.setText("Service");
-            viewHolder.binding.textWork.setText(R.string.ho);
+            } else if (position == 2) {
+                viewHolder.binding.imgBackground.setColorFilter(ContextCompat.getColor(context, R.color.home_color1));
+                viewHolder.binding.imgOvl.setColorFilter(ContextCompat.getColor(context, R.color.home_oval_color1));
+                viewHolder.binding.imagePerson.setImageResource(R.drawable.new_person3);
 
-        } else if (position == 3) {
-            viewHolder.binding.imgBackground.setColorFilter(ContextCompat.getColor(context, R.color.home_color2));
-            viewHolder.binding.imgOvl.setColorFilter(ContextCompat.getColor(context, R.color.home_oval_color2));
-            viewHolder.binding.imagePerson.setImageResource(R.drawable.new_person4);
+                viewHolder.binding.textCons.setText("Service");
+                viewHolder.binding.textWork.setText(R.string.ho);
 
-            viewHolder.binding.textCons.setText("Industrial");
-            viewHolder.binding.textWork.setText(R.string.in);
+            } else if (position == 3) {
+                viewHolder.binding.imgBackground.setColorFilter(ContextCompat.getColor(context, R.color.home_color2));
+                viewHolder.binding.imgOvl.setColorFilter(ContextCompat.getColor(context, R.color.home_oval_color2));
+                viewHolder.binding.imagePerson.setImageResource(R.drawable.new_person4);
 
-        } else if (position == 4) {
-            viewHolder.binding.imgBackground.setColorFilter(ContextCompat.getColor(context, R.color.home_color1));
-            viewHolder.binding.imgOvl.setColorFilter(ContextCompat.getColor(context, R.color.home_oval_color1));
-            viewHolder.binding.imagePerson.setImageResource(R.drawable.new_person5);
+                viewHolder.binding.textCons.setText("Industrial");
+                viewHolder.binding.textWork.setText(R.string.in);
 
-            viewHolder.binding.textCons.setText("Motive Power");
-            viewHolder.binding.textWork.setText(R.string.tru);
+            } else if (position == 4) {
+                viewHolder.binding.imgBackground.setColorFilter(ContextCompat.getColor(context, R.color.home_color1));
+                viewHolder.binding.imgOvl.setColorFilter(ContextCompat.getColor(context, R.color.home_oval_color1));
+                viewHolder.binding.imagePerson.setImageResource(R.drawable.new_person5);
 
-        } else if (position == 5) {
-            viewHolder.binding.imgBackground.setColorFilter(ContextCompat.getColor(context, R.color.home_color2));
-            viewHolder.binding.imgOvl.setColorFilter(ContextCompat.getColor(context, R.color.home_oval_color2));
-            viewHolder.binding.imagePerson.setImageResource(R.drawable.new_person6);
+                viewHolder.binding.textCons.setText("Motive Power");
+                viewHolder.binding.textWork.setText(R.string.tru);
 
-            viewHolder.binding.textCons.setText("Service");
-            viewHolder.binding.textWork.setText(R.string.childs);
+            } else if (position == 5) {
+                viewHolder.binding.imgBackground.setColorFilter(ContextCompat.getColor(context, R.color.home_color2));
+                viewHolder.binding.imgOvl.setColorFilter(ContextCompat.getColor(context, R.color.home_oval_color2));
+                viewHolder.binding.imagePerson.setImageResource(R.drawable.new_person6);
 
-        } else if (position == 6) {
-            viewHolder.binding.imgBackground.setColorFilter(ContextCompat.getColor(context, R.color.home_color1));
-            viewHolder.binding.imgOvl.setColorFilter(ContextCompat.getColor(context, R.color.home_oval_color1));
-            viewHolder.binding.imagePerson.setImageResource(R.drawable.new_person1);
+                viewHolder.binding.textCons.setText("Service");
+                viewHolder.binding.textWork.setText(R.string.childs);
 
-            viewHolder.binding.textCons.setText("Technology");
-            viewHolder.binding.textWork.setText("Photographer");
+            } else if (position == 6) {
+                viewHolder.binding.imgBackground.setColorFilter(ContextCompat.getColor(context, R.color.home_color1));
+                viewHolder.binding.imgOvl.setColorFilter(ContextCompat.getColor(context, R.color.home_oval_color1));
+                viewHolder.binding.imagePerson.setImageResource(R.drawable.new_person1);
 
+                viewHolder.binding.textCons.setText("Technology");
+                viewHolder.binding.textWork.setText("Photographer");
+
+            } else {
+                viewHolder.binding.imgBackground.setColorFilter(ContextCompat.getColor(context, R.color.home_color2));
+                viewHolder.binding.imgOvl.setColorFilter(ContextCompat.getColor(context, R.color.home_oval_color2));
+                viewHolder.binding.imagePerson.setImageResource(R.drawable.new_person1);
+
+                viewHolder.binding.textCons.setText("Technology");
+                viewHolder.binding.textWork.setText("Photographer");
+            }
         } else {
-            viewHolder.binding.imgBackground.setColorFilter(ContextCompat.getColor(context, R.color.home_color2));
-            viewHolder.binding.imgOvl.setColorFilter(ContextCompat.getColor(context, R.color.home_oval_color2));
-            viewHolder.binding.imagePerson.setImageResource(R.drawable.new_person1);
+            try {
+                viewHolder.binding.textCons.setText(careerModalArrayList.get(position).getJobSector());
+                viewHolder.binding.textWork.setText(careerModalArrayList.get(position).getJobProfile());
+                viewHolder.binding.textMoney.setText(careerModalArrayList.get(position).getFee());
 
-            viewHolder.binding.textCons.setText("Technology");
-            viewHolder.binding.textWork.setText("Photographer");
+                Glide.with(context).load(careerModalArrayList.get(position).getImage())
+                        .placeholder(R.drawable.ic_launcher_background)
+                        .error(R.drawable.new_person1)
+                        .into(viewHolder.binding.imagePerson);
+
+                if (careerModalArrayList.get(position).getbId().equalsIgnoreCase("")) {
+                    viewHolder.binding.ivBookmark.setImageResource(R.drawable.ic_home_main_batch);
+                    clickBookmark = false;
+                } else {
+                    clickBookmark = true;
+                    viewHolder.binding.ivBookmark.setImageResource(R.drawable.ic_bookmark_fill);
+                }
+
+
+            } catch (Exception e) {
+            }
+
         }
 
         viewHolder.binding.imagePerson.setOnClickListener(new View.OnClickListener() {
@@ -143,13 +190,23 @@ public class PopularCareerAdapter extends RecyclerView.Adapter<PopularCareerAdap
             @Override
             public void onClick(View v) {
                 numberOfPerson = position;
-                context.startActivity(new Intent(context, JobDetailsActivity.class));
+                // context.startActivity(new Intent(context, JobDetailsActivity.class));
+
+                Intent intent = new Intent(context, JobDetailsActivity.class);
+                intent.putExtra("Popular", careerModalArrayList.get(position).getId());
+                context.startActivity(intent);
             }
         });
 
         viewHolder.binding.ivBookmark.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (careerModalArrayList.get(position).getbId().equalsIgnoreCase("")) {
+                    bookMarkUpdateDelete.checkBookMark("", position, careerModalArrayList.get(position).getId());
+                } else {
+                    bookMarkUpdateDelete.checkBookMark(careerModalArrayList.get(position).getbId(), position, careerModalArrayList.get(position).getId());
+                }
+
                 if (clickBookmark) {
                     clickBookmark = false;
                     viewHolder.binding.ivBookmark.setImageResource(R.drawable.ic_home_main_batch);
@@ -186,6 +243,10 @@ public class PopularCareerAdapter extends RecyclerView.Adapter<PopularCareerAdap
     @Override
     public int getItemViewType(int position) {
         return position;
+    }
+
+    public interface BookMarkUpdateDelete {
+        public void checkBookMark(String Bid, int position, String careerId);
     }
 
 }

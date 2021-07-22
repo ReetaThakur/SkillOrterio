@@ -5,8 +5,10 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
@@ -18,6 +20,7 @@ import com.app.skillontario.home.DashboardFragment;
 import com.app.skillontario.home.EventFragment;
 import com.app.skillontario.home.HomeFragment;
 import com.app.skillontario.home.ResourcesFragment;
+import com.app.skillontario.utils.Utils;
 import com.app.skillorterio.R;
 import com.app.skillorterio.databinding.ActivityBottomBarBinding;
 import com.app.skillorterio.databinding.ActivityMainBinding;
@@ -40,7 +43,7 @@ public class BottomBarActivity extends BaseActivity {
         tabAdapter.addFragment(new ResourcesFragment(), AppConstants.Tab3);
         tabAdapter.addFragment(new DashboardFragment(), AppConstants.Tab4);
 
-       // binding.bottomNavigationViewLinear.setTypeface(Typeface.createFromAsset(getAssets(), "poppins_regular.ttf"));
+        // binding.bottomNavigationViewLinear.setTypeface(Typeface.createFromAsset(getAssets(), "poppins_regular.ttf"));
 
         binding.bottomNavigationViewLinear.setBadgeValue(0, null);
         binding.bottomNavigationViewLinear.setBadgeValue(1, null); //invisible badge
@@ -71,7 +74,18 @@ public class BottomBarActivity extends BaseActivity {
             }
         });
 
-      //  binding.viewPager.setOnTouchListener((v, event) -> true);
+        //  binding.viewPager.setOnTouchListener((v, event) -> true);
+
+        try {
+            Intent intent = getIntent();
+            String id = intent.getStringExtra("if");
+
+            if (id.equalsIgnoreCase("2")) {
+                binding.bottomNavigationViewLinear.setCurrentActiveItem(1);
+            }
+        } catch (Exception e) {
+        }
+
 
 
         binding.bottomNavigationViewLinear.setNavigationChangeListener((view, position) -> binding.viewPager.setCurrentItem(position, true));
@@ -97,6 +111,23 @@ public class BottomBarActivity extends BaseActivity {
     @Override
     protected int getLayoutById() {
         return R.layout.activity_bottom_bar;
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        new Handler().postDelayed(
+                new Runnable() {
+                    @Override
+                    public void run() {
+                        if (Utils.Language) {
+                            binding.viewPager.setCurrentItem(3);
+                            binding.bottomNavigationViewLinear.setCurrentActiveItem(3);
+                            Utils.Language = false;
+                        }
+                    }
+                }, 50);
+
     }
 
 

@@ -13,33 +13,36 @@ import android.view.Window;
 
 import androidx.core.content.ContextCompat;
 import androidx.databinding.DataBindingUtil;
+import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.app.skillontario.activities.NewsDetailAc;
 import com.app.skillontario.baseClasses.AppController;
+import com.app.skillontario.models.EventsModal;
+import com.app.skillontario.utils.Utils;
 import com.app.skillorterio.R;
 import com.app.skillorterio.databinding.AdapterRecentBinding;
 import com.app.skillorterio.databinding.AdapterRecentBinding;
+import com.bumptech.glide.Glide;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.util.ArrayList;
+
 public class RecentEventsAdapter extends RecyclerView.Adapter<RecentEventsAdapter.ViewHolder> {
 
-
+    ArrayList<EventsModal> eventsModalArrayList = new ArrayList<>();
     Context context;
-    boolean popular = false;
-    private int[] imageArray = {
-            R.drawable.recy1,
-            R.drawable.recy2
-    };
 
-    private int[] imageArray1 = {
-            R.drawable.recent_event,
-            R.drawable.recent_event
-    };
-
-    public RecentEventsAdapter(Context context, boolean popular) {
+    public RecentEventsAdapter(Context context) {
         this.context = context;
-        this.popular = popular;
+
+    }
+
+    public RecentEventsAdapter(ArrayList<EventsModal> eventsModalArrayList, Context activity) {
+        this.eventsModalArrayList = eventsModalArrayList;
+        this.context = activity;
+
     }
 
 
@@ -50,40 +53,59 @@ public class RecentEventsAdapter extends RecyclerView.Adapter<RecentEventsAdapte
 
     @Override
     public int getItemCount() {
-        if (popular)
-            return imageArray.length;
-        else
-            return imageArray1.length;
+        try {
+            return eventsModalArrayList.size();
+        } catch (Exception e) {
+            return 0;
+        }
+
     }
 
     @Override
     public void onBindViewHolder(final RecentEventsAdapter.ViewHolder viewHolder, final int position) {
-       /* if (popular)
-            viewHolder.binding.imageView.setImageResource(imageArray[position]);
-        else
-            viewHolder.binding.imageView.setImageResource(imageArray1[position]);*/
 
-        /*viewHolder.binding.lay.setOnClickListener(v -> {
-            notifyItemChanged(selected_position);
-            selected_position = position;
-            notifyItemChanged(selected_position);
-        });*/
+        try {
+            viewHolder.binding.tvHead.setText(eventsModalArrayList.get(position).getEvtTitle());
+            viewHolder.binding.tvAdd.setText(eventsModalArrayList.get(position).getEvtVenue());
+            viewHolder.binding.tvEvtCategory.setText(eventsModalArrayList.get(position).getEvtCategory());
+        } catch (Exception e) {
+        }
 
-       /* if (position == 0) {
-            viewHolder.binding.imgBackground.setColorFilter(ContextCompat.getColor(context, R.color.home_color1));
-            viewHolder.binding.imgOvl.setColorFilter(ContextCompat.getColor(context, R.color.home_oval_color1));
-            viewHolder.binding.imagePerson.setImageResource(R.drawable.home_main_img1);
+        try {
+            Glide.with(context).load(eventsModalArrayList.get(position).getEvtImage())
+                    .placeholder(R.drawable.place_holder_events)
+                    .error(R.drawable.ic_launcher_background)
+                    .into(viewHolder.binding.ivItem);
+        } catch (Exception e) {
+        }
 
-        } else {
-            viewHolder.binding.imgBackground.setColorFilter(ContextCompat.getColor(context, R.color.home_color2));
-            viewHolder.binding.imgOvl.setColorFilter(ContextCompat.getColor(context, R.color.home_oval_color2));
-            viewHolder.binding.imagePerson.setImageResource(R.drawable.home_main_img2);
-        }*/
+        try {
+            if (eventsModalArrayList.get(position).getEvtDate() != null) {
+                viewHolder.binding.tvDate.setText(Utils.DateFormate(eventsModalArrayList.get(position).getEvtDate()));
+            }
+        } catch (Exception e) {
+        }
 
-        viewHolder.binding.ivCal.setOnClickListener(v -> openD());
 
-        viewHolder.binding.eventRow.setOnClickListener(v -> context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.skillsontario.com"))));
+        viewHolder.binding.ivCal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (eventsModalArrayList.get(position).getEvtDate() != null) {
+                    Utils.openD(context, Utils.DateFormate(eventsModalArrayList.get(position).getEvtDate()), Utils.DateFormate(eventsModalArrayList.get(position).getEvtEndDate()), eventsModalArrayList.get(position).getEvtTitle(), eventsModalArrayList.get(position).getEvtDesc());
+                }
+            }
+        });
 
+        //   viewHolder.binding.eventRow.setOnClickListener(v -> context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.skillsontario.com"))));
+        viewHolder.binding.eventRow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, NewsDetailAc.class);
+                intent.putExtra("url", eventsModalArrayList.get(position).getEvtURL());
+                intent.putExtra("title", eventsModalArrayList.get(position).getEvtTitle());
+                context.startActivity(intent);
+            }
+        });
     }
 
     private void openD() {
@@ -124,6 +146,15 @@ public class RecentEventsAdapter extends RecyclerView.Adapter<RecentEventsAdapte
     @Override
     public int getItemViewType(int position) {
         return position;
+    }
+
+    public void addList(ArrayList<EventsModal> listDetail) {
+        if (listDetail != null) {
+            if (listDetail.size() > 0) {
+                this.eventsModalArrayList.addAll(listDetail);
+                notifyDataSetChanged();
+            }
+        }
     }
 
 }

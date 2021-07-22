@@ -25,11 +25,28 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
-                <include layout="@layout/news_detail_item" />
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <WebView
+                        android:id="@+id/webview"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_above="@+id/bottom" />
+
+                    <ProgressBar
+                        android:id="@+id/pb"
+                        android:layout_gravity="center"
+                        android:layout_width="@dimen/_30sdp"
+                        android:layout_height="@dimen/_30sdp"/>
+                </FrameLayout>
+
+             <!--   <include layout="@layout/news_detail_item" />-->
 
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cv_website"
+                    android:visibility="gone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/_24sdp"
