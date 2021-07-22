@@ -15,6 +15,7 @@
             android:background="@drawable/recent_shadow"></RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/rl_all"
             android:layout_width="@dimen/_260sdp"
             android:layout_height="match_parent"
             android:layout_marginRight="@dimen/_10sdp"
@@ -30,6 +31,7 @@
                 android:layout_marginRight="@dimen/_12sdp">
 
                 <ImageView
+                    android:id="@+id/iv_image"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:src="@drawable/news_n"></ImageView>
@@ -37,7 +39,7 @@
             </RelativeLayout>
 
             <TextView
-                android:id="@+id/tv1"
+                android:id="@+id/tv_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/rl"
@@ -50,9 +52,10 @@
                 android:textSize="16sp"></TextView>
 
             <TextView
+                android:id="@+id/tv_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/tv1"
+                android:layout_below="@+id/tv_title"
                 android:layout_marginLeft="@dimen/_12sdp"
                 android:layout_marginTop="@dimen/_2sdp"
                 android:text="May 15, 2021"
