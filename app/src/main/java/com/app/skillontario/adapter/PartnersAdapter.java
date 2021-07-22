@@ -1,26 +1,31 @@
 package com.app.skillontario.adapter;
 
 import android.content.Context;
-import android.os.Bundle;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+
+import com.app.skillontario.models.PlatinumModal;
 import com.app.skillorterio.R;
+import com.app.skillontario.activities.NewsDetailAc;
+import com.app.skillontario.activities.PartnersActivity;
+import com.squareup.picasso.Picasso;
+
 import java.util.ArrayList;
-import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class PartnersAdapter extends RecyclerView.Adapter<PartnersAdapter.ViewHolder> {
 
-    private ArrayList<String> listingDetails;
+    private ArrayList<PlatinumModal> listingDetails;
     private Context context;
 
-    public PartnersAdapter(Context context, List<String> listingDetails) {
+    public PartnersAdapter(ArrayList<PlatinumModal> listingDetails, PartnersActivity context) {
         this.context = context;
-        this.listingDetails = new ArrayList<>(listingDetails);
+        this.listingDetails =listingDetails;
     }
 
     @NonNull
@@ -32,8 +37,14 @@ public class PartnersAdapter extends RecyclerView.Adapter<PartnersAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
-        holder.bindData(context, position);
-        //  holder.info.setOnClickListener(v -> Utils.showToast(context,"You must be a registered breeder in order to sell cats and dogs on the Alpha Match platform."));
+        Picasso.with(context).load(listingDetails.get(position).getLogo()).into( holder.iv_image);
+        holder.iv_image.setOnClickListener(v->{
+            Intent intent=new Intent(context, NewsDetailAc.class);
+            intent.putExtra("url",listingDetails.get(position).getWebUrl());
+            context.startActivity(intent);
+
+        });
+
     }
 
     @Override
@@ -51,22 +62,17 @@ public class PartnersAdapter extends RecyclerView.Adapter<PartnersAdapter.ViewHo
         return position;
     }
 
-    public void addList(ArrayList<String> listDetail) {
-        this.listingDetails.addAll(listDetail);
-        notifyDataSetChanged();
-    }
+
 
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        private ImageView pet;
+        private ImageView iv_image;
 
         public ViewHolder(View v) {
             super(v);
-            //pet = v.findViewById(R.id.iv_pet_img);
+            iv_image=v.findViewById(R.id.iv_image);
         }
 
-        void bindData(Context context, int position) {
-        }
     }
 }

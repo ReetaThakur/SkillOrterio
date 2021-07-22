@@ -1,93 +1,96 @@
 package com.app.skillontario.activities;
 
-import android.content.Intent;
-import android.net.Uri;
 import android.view.View;
 
-import com.app.skillontario.adapter.NotificationAdapter;
-import com.app.skillontario.adapter.PartnersAdapter;
-import com.app.skillontario.adapter.PartnersPlatinumAdapter;
-import com.app.skillontario.adapter.PartnersPremiumAdapter;
-import com.app.skillontario.baseClasses.BaseActivity;
-import com.app.skillontario.utils.RecyclerItemClickListener;
+import com.app.skillontario.models.PartnerModal;
+import com.app.skillontario.utils.GridSpacingItemDecoration;
 import com.app.skillorterio.R;
-import com.app.skillorterio.databinding.ActivityNotificationBinding;
+import com.app.skillontario.adapter.PartnersAdapter;
+import com.app.skillontario.apiConnection.ApiCallBack;
+import com.app.skillontario.apiConnection.ApiResponseErrorCallback;
+import com.app.skillontario.apiConnection.RequestBodyGenerator;
+import com.app.skillontario.baseClasses.BaseActivity;
+import com.app.skillontario.baseClasses.BaseResponseModel;
+import com.app.skillontario.constants.SharedPrefsConstants;
 import com.app.skillorterio.databinding.ActivityPartnersBinding;
+import com.app.skillontario.requestmodal.GetEventRequest;
+import com.app.skillontario.utils.MySharedPreference;
+import com.app.skillontario.utils.Utils;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
-public class PartnersActivity extends BaseActivity {
+import static com.app.skillontario.constants.ApiConstants.API_INTERFACE;
+
+
+public class PartnersActivity extends BaseActivity implements ApiResponseErrorCallback {
 
     private ActivityPartnersBinding binding;
-    private PartnersAdapter adapter;
-    String threeMLink = "https://www.3mcanada.ca/3M/en_CA/company-ca/";
-    String centennLinks = "https://www.centennialcollege.ca/";
-    String defaultLinks = "https://www.skillsontario.com";
+    GetEventRequest getEventRequest;
+    ApiResponseErrorCallback apiResponseErrorCallback;
+    int Total_count = 10;
+    int page = 1;
+    ArrayList<PartnerModal> arrayList_platinum;
+    ArrayList<PartnerModal> arrayList_premium;
+    ArrayList<PartnerModal> arrayList_government;
 
     @Override
     protected void initUi() {
         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_from_left);
         binding = (ActivityPartnersBinding) viewBaseBinding;
-
-        binding.actionBar.tvTitle.setText("Partners");
-
+        MySharedPreference.getInstance().setBooleanData(SharedPrefsConstants.IS_HEADER, true);
+        binding.actionBar.tvTitle.setText(R.string.Partners);
+        arrayList_platinum = new ArrayList<>();
+        arrayList_premium = new ArrayList<>();
+        arrayList_government = new ArrayList<>();
+        apiResponseErrorCallback = this;
+        getEventRequest = new GetEventRequest(this);
+        showRecycler();
 
         binding.actionBar.ivBack.setOnClickListener(v -> onBackPressed());
 
-        binding.id1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(defaultLinks)));
-            }
-        });
-
-        binding.image3M.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(threeMLink)));
-            }
-        });
-
-        binding.imageCentra.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(centennLinks)));
-            }
-        });
-
-        binding.id4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(defaultLinks)));
-            }
-        });
-
-        binding.id5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(defaultLinks)));
-            }
-        });
-
-        binding.id6.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(defaultLinks)));
-            }
-        });
-
-        binding.id3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(defaultLinks)));
-            }
-        });
-
     }
 
+    private void showRecycler() {
+        RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(PartnersActivity.this, 3);
+        binding.rcyGovernmentPartners.setLayoutManager(mLayoutManager);// set Horizontal Orientation
+        binding.rcyGovernmentPartners.addItemDecoration(new GridSpacingItemDecoration(PartnersActivity.this, 3, Utils.dpToPx(PartnersActivity.this, 5), true));
+
+        RecyclerView.LayoutManager mLayoutManager_par = new GridLayoutManager(PartnersActivity.this, 3);
+        binding.rcyPlatinumPartners.setLayoutManager(mLayoutManager_par);// set Horizontal Orientation
+        binding.rcyPlatinumPartners.addItemDecoration(new GridSpacingItemDecoration(PartnersActivity.this, 3, Utils.dpToPx(PartnersActivity.this, 5), true));
+
+        RecyclerView.LayoutManager mLayoutManager_pri = new GridLayoutManager(PartnersActivity.this, 3);
+        binding.rcyPremiumPartners.setLayoutManager(mLayoutManager_pri);// set Horizontal Orientation
+        binding.rcyPremiumPartners.addItemDecoration(new GridSpacingItemDecoration(PartnersActivity.this, 3, Utils.dpToPx(PartnersActivity.this, 5), true));
+
+        RecyclerView.LayoutManager mLayoutManager_silver = new GridLayoutManager(PartnersActivity.this, 3);
+        binding.rcySilver.setLayoutManager(mLayoutManager_silver);// set Horizontal Orientation
+        binding.rcySilver.addItemDecoration(new GridSpacingItemDecoration(PartnersActivity.this, 3, Utils.dpToPx(PartnersActivity.this, 5), true));
+
+        RecyclerView.LayoutManager mLayoutManager_gold = new GridLayoutManager(PartnersActivity.this, 3);
+        binding.rcyGold.setLayoutManager(mLayoutManager_gold);// set Horizontal Orientation
+        binding.rcyGold.addItemDecoration(new GridSpacingItemDecoration(PartnersActivity.this, 3, Utils.dpToPx(PartnersActivity.this, 5), true));
+
+        RecyclerView.LayoutManager mLayoutManager_bronze = new GridLayoutManager(PartnersActivity.this, 3);
+        binding.rcyBronze.setLayoutManager(mLayoutManager_bronze);// set Horizontal Orientation
+        binding.rcyBronze.addItemDecoration(new GridSpacingItemDecoration(PartnersActivity.this, 3, Utils.dpToPx(PartnersActivity.this, 5), true));
+
+        RecyclerView.LayoutManager mLayoutManager_friends = new GridLayoutManager(PartnersActivity.this, 3);
+        binding.rcyFriends.setLayoutManager(mLayoutManager_friends);// set Horizontal Orientation
+        binding.rcyFriends.addItemDecoration(new GridSpacingItemDecoration(PartnersActivity.this, 3, Utils.dpToPx(PartnersActivity.this, 5), true));
+
+        getEventRequest.seteType("partner");
+        getEventRequest.setEventId("");
+        getEventRequest.setPage(String.valueOf(page));
+        getEventRequest.setPageLimit(String.valueOf(Total_count));
+        getEventRequest.setSearch("");
+        API_INTERFACE.getPartner(RequestBodyGenerator.getEvent(getEventRequest)).enqueue(
+                new ApiCallBack<>(PartnersActivity.this, apiResponseErrorCallback, 10, true));
+
+    }
 
     @Override
     protected int getLayoutById() {
@@ -98,6 +101,89 @@ public class PartnersActivity extends BaseActivity {
     public void onBackPressed() {
         super.onBackPressed();
         overridePendingTransition(R.anim.slide_in_from_left, R.anim.slide_out_from_right);
+
+    }
+
+    @Override
+    public void getApiResponse(Object responseObject, int flag) {
+        if (flag == 10) {
+            BaseResponseModel<ArrayList<PartnerModal>> responseModel = (BaseResponseModel<ArrayList<PartnerModal>>) responseObject;
+            if (responseModel.getStatus()) {
+                if (responseModel.getOutput() != null) {
+                    if (responseModel.getOutput().size() > 0) {
+                        if (responseModel.getOutput().get(0).getPlatinum() != null) {
+                            if (responseModel.getOutput().get(0).getPlatinum().size() > 0) {
+                                binding.rlPlatinumPartners.setVisibility(View.VISIBLE);
+                                PartnersAdapter adapter = new PartnersAdapter(responseModel.getOutput().get(0).getPlatinum(), PartnersActivity.this);
+                                binding.rcyPlatinumPartners.setAdapter(adapter);
+                            } else {
+                                binding.rlPlatinumPartners.setVisibility(View.GONE);
+                            }
+                        }
+                        if (responseModel.getOutput().get(1).getPremium() != null) {
+                            if (responseModel.getOutput().get(1).getPremium().size() > 0) {
+                                binding.rlPremiumPartners.setVisibility(View.VISIBLE);
+                                PartnersAdapter adapter = new PartnersAdapter(responseModel.getOutput().get(1).getPremium(), PartnersActivity.this);
+                                binding.rcyPremiumPartners.setAdapter(adapter);
+                            } else {
+                                binding.rlPremiumPartners.setVisibility(View.GONE);
+                            }
+                        }
+                        if (responseModel.getOutput().get(2).getSilver() != null) {
+                            if (responseModel.getOutput().get(2).getSilver().size() > 0) {
+                                binding.rlSilver.setVisibility(View.VISIBLE);
+                                PartnersAdapter adapter = new PartnersAdapter(responseModel.getOutput().get(2).getSilver(), PartnersActivity.this);
+                                binding.rcySilver.setAdapter(adapter);
+                            } else {
+                                binding.rlSilver.setVisibility(View.GONE);
+                            }
+                        }
+                        if (responseModel.getOutput().get(3).getGold() != null) {
+                            if (responseModel.getOutput().get(3).getGold().size() > 0) {
+                                binding.rlGold.setVisibility(View.VISIBLE);
+                                PartnersAdapter adapter = new PartnersAdapter(responseModel.getOutput().get(3).getGold(), PartnersActivity.this);
+                                binding.rcyGold.setAdapter(adapter);
+                            } else {
+                                binding.rlGold.setVisibility(View.GONE);
+                            }
+                        }
+                        if (responseModel.getOutput().get(4).getBronze() != null) {
+                            if (responseModel.getOutput().get(4).getBronze().size() > 0) {
+                                binding.rlBronze.setVisibility(View.VISIBLE);
+                                PartnersAdapter adapter = new PartnersAdapter(responseModel.getOutput().get(4).getBronze(), PartnersActivity.this);
+                                binding.rcyBronze.setAdapter(adapter);
+                            } else {
+                                binding.rlBronze.setVisibility(View.GONE);
+                            }
+                        }
+                        if (responseModel.getOutput().get(5).getFriends() != null) {
+                            if (responseModel.getOutput().get(5).getFriends().size() > 0) {
+                                binding.rlFriends.setVisibility(View.VISIBLE);
+                                PartnersAdapter adapter = new PartnersAdapter(responseModel.getOutput().get(5).getFriends(), PartnersActivity.this);
+                                binding.rcyFriends.setAdapter(adapter);
+                            } else {
+                                binding.rlFriends.setVisibility(View.GONE);
+                            }
+                        }
+                        if (responseModel.getOutput().get(6).getGovernment() != null) {
+                            if (responseModel.getOutput().get(6).getGovernment().size() > 0) {
+                                binding.rlGovernmentPartners.setVisibility(View.VISIBLE);
+                                PartnersAdapter adapter = new PartnersAdapter(responseModel.getOutput().get(6).getGovernment(), PartnersActivity.this);
+                                binding.rcyGovernmentPartners.setAdapter(adapter);
+                            } else {
+                                binding.rlGovernmentPartners.setVisibility(View.GONE);
+                            }
+                        }
+                    }
+                }
+            } else {
+                Utils.showToast(PartnersActivity.this, responseModel.getMessage());
+            }
+        }
+    }
+
+    @Override
+    public void getApiError(Throwable t, int flag) {
 
     }
 }

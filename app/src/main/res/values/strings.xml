@@ -615,4 +615,13 @@
     <string name="childs"><![CDATA[Child & \nYouth Worker]]></string>
     <string name="term_codition">Check term and condition</string>
 
+    <string name="platinum_partners">Platinum Partners</string>
+    <string name="premium_partners">Premium Partners</string>
+    <string name="silver_partners">Silver Partners</string>
+    <string name="gold_partners">Gold Partners</string>
+    <string name="bronze_partners">Bronze Partners</string>
+    <string name="friends_partners">Friends Partners</string>
+    <string name="government_partners">Government Partners</string>
+    <string name="Partners">Partners </string>
+
 </resources>
