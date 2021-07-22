@@ -613,6 +613,6 @@
     <string name="in">Industrial \nMechanic</string>
     <string name="tru">Truck and \nCoach Technician</string>
     <string name="childs"><![CDATA[Child & \nYouth Worker]]></string>
-
+    <string name="term_codition">Check term and condition</string>
 
 </resources>
