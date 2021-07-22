@@ -10,6 +10,7 @@ import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.provider.Settings;
 import android.telephony.TelephonyManager;
+import android.text.TextUtils;
 import android.util.Log;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
@@ -119,32 +120,27 @@ public class SignUpActivity extends BaseActivity implements ApiResponseErrorCall
         binding.cvSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-       /*         if (binding.etMail.getText().toString().trim().equals("")) {
-                    binding.etMail.setError(getString(R.string.please_enter_email_address));
-                } else if (!(binding.etMail.getText().toString().trim().matches(emailPattern))) {
-                    binding.etMail.setError(getString(R.string.please_enter_valid_email_address));
-                } else if (binding.etPassword.getText().toString().trim().equals("")) {
-                    binding.etPassword.setError(getString(R.string.please_enter_password));
-                } else if (binding.etConfirmPassword.getText().toString().trim().equals("")) {
-                    binding.etConfirmPassword.setError(getString(R.string.please_confirm_password));
-                } else if (!binding.etConfirmPassword.getText().toString().equalsIgnoreCase(binding.etPassword.getText().toString())) {
-                    Toast.makeText(SignUpActivity.this, getString(R.string.password_not_match), Toast.LENGTH_SHORT).show();
-                } else {
 
-                    String usertype = MySharedPreference.getInstance().getStringData(SharedPrefsConstants.USER_TYPE);
-                    signUpModel.setEmail(binding.etMail.getText().toString().trim());
-                    signUpModel.setPassword(binding.etPassword.getText().toString().trim());
-                    signUpModel.setConfirmPassword(binding.etConfirmPassword.getText().toString().trim());
-                    API_INTERFACE.registerUser(RequestBodyGenerator.registerUser(signUpModel, getDeviceId(SignUpActivity.this), usertype)).enqueue(
-                            new ApiCallBack<>(SignUpActivity.this, apiResponseErrorCallback, 01, true));
-                  //  startActivity(new Intent(SignUpActivity.this, BottomBarActivity.class));
+                if (Validation()) {
+                    if (verifyImage) {
+                        //startActivity(new Intent(SignUpActivity.this, BottomBarActivity.class));
 
-                }*/
+                        String usertype = MySharedPreference.getInstance().getStringData(SharedPrefsConstants.USER_TYPE);
+                        if (TextUtils.isEmpty(usertype)) {
+                            usertype = "2";
+                        }
+                        signUpModel.setEmail(binding.etMail.getText().toString().trim());
+                        signUpModel.setPassword(binding.etPassword.getText().toString().trim());
+                        signUpModel.setConfirmPassword(binding.etConfirmPassword.getText().toString().trim());
+                        API_INTERFACE.registerUser(RequestBodyGenerator.registerUser(signUpModel, getDeviceId(SignUpActivity.this), usertype)).enqueue(
+                                new ApiCallBack<>(SignUpActivity.this, apiResponseErrorCallback, 01, true));
 
-                if (verifyImage)
-                    startActivity(new Intent(SignUpActivity.this, BottomBarActivity.class));
-                else
-                    showToast(getString(R.string.notice));
+                    } else {
+                        showToast(getString(R.string.notice));
+                    }
+
+                }
+
             }
         });
 
@@ -257,5 +253,29 @@ public class SignUpActivity extends BaseActivity implements ApiResponseErrorCall
         config.locale = locale;
         getResources().updateConfiguration(config,
                 getResources().getDisplayMetrics());
+    }
+
+    private boolean Validation() {
+        if (TextUtils.isEmpty(binding.etMail.getText().toString().trim())) {
+            binding.etMail.setError(getString(R.string.please_enter_email_address));
+            return false;
+        } else if (!android.util.Patterns.EMAIL_ADDRESS.matcher(binding.etMail.getText().toString().trim()).matches()) {
+            binding.etMail.setError(getString(R.string.please_enter_valid_email_address));
+            return false;
+        } else if (TextUtils.isEmpty(binding.etPassword.getText().toString().trim())) {
+            binding.etPassword.setError(getString(R.string.please_enter_password));
+            return false;
+        } else if (TextUtils.isEmpty(binding.etConfirmPassword.getText().toString().trim())) {
+            binding.etConfirmPassword.setError(getString(R.string.please_confirm_password));
+            return false;
+        } else if (!binding.etConfirmPassword.getText().toString().equalsIgnoreCase(binding.etPassword.getText().toString())) {
+            showToast(getString(R.string.password_not_match));
+            return false;
+        }
+        if (!verifyImage) {
+            showToast(getString(R.string.term_codition));
+            return false;
+        }
+        return true;
     }
 }

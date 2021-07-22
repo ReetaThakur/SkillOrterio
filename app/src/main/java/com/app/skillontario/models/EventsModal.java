@@ -42,9 +42,22 @@ public class EventsModal implements Serializable {
     @SerializedName("updatedAt")
     @Expose
     private String updatedAt;
+
+    @SerializedName("evtEndDate")
+    @Expose
+    private String evtEndDate;
+
     @SerializedName("__v")
     @Expose
     private Integer v;
+
+    public String getEvtEndDate() {
+        return evtEndDate;
+    }
+
+    public void setEvtEndDate(String evtEndDate) {
+        this.evtEndDate = evtEndDate;
+    }
 
     public String getId() {
         return id;

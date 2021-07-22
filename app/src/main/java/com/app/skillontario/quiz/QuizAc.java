@@ -4,12 +4,9 @@ import android.content.Intent;
 import android.net.Uri;
 
 import androidx.core.app.ShareCompat;
-import androidx.fragment.app.FragmentStatePagerAdapter;
 
-import com.app.skillontario.MainActivity;
-import com.app.skillontario.activities.NewsDetailAc;
+import com.app.skillontario.BottomBarActivity;
 import com.app.skillontario.adapter.AdapterCong;
-import com.app.skillontario.adapter.RecentNewsAdapter;
 import com.app.skillontario.adapter.TabAdapter;
 import com.app.skillontario.baseClasses.BaseActivity;
 import com.app.skillontario.utils.RecyclerItemClickListener;
@@ -38,7 +35,7 @@ public class QuizAc extends BaseActivity {
             onShareClicked();
         });
         binding.retake.tvRetake.setOnClickListener(v -> startActivity(new Intent(this, QuizStepAc.class)));
-        binding.home.setOnClickListener(v -> startActivity(new Intent(this, MainActivity.class)));
+        binding.home.setOnClickListener(v -> startActivity(new Intent(this, BottomBarActivity.class)));
 
         //setAdapter();
         showRecycler();

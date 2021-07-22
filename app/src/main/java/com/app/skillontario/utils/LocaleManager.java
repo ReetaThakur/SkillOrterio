@@ -4,12 +4,10 @@ import android.content.Context;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Build;
-import android.text.TextUtils;
 
 import java.util.Locale;
 
 public class LocaleManager {
-
     public static final String LANGUAGE_ENGLISH = "en";
     public static final String LANGUAGE_FRENCH = "fr";
     private static final String LANGUAGE_KEY = "Language";

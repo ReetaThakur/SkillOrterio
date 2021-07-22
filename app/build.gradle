@@ -30,7 +30,7 @@ android {
     buildToolsVersion "30.0.2"
 
     defaultConfig {
-        applicationId "com.app.skillorterio"
+        applicationId "com.app.skillontario"
         minSdkVersion 21
         multiDexEnabled true
         targetSdkVersion 30
@@ -146,6 +146,9 @@ dependencies {
   /*  implementation('com.theartofdev.edmodo:android-image-cropper:2.8.+') {
         exclude group: 'com.android.support', module: '*'
     }*/
+
+    implementation 'com.github.adroitandroid:ChipCloud:2.2.1'
+    implementation "me.leolin:ShortcutBadger:1.1.22@aar"
 
     //PDF rendering
    // implementation 'com.github.barteksc:android-pdf-viewer:2.8.2'

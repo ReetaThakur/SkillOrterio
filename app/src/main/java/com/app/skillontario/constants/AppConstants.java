@@ -1,9 +1,6 @@
 package com.app.skillontario.constants;
 
 
-import java.util.ArrayList;
-
-
 public class AppConstants {
     public static final String IS_NOTIFICATION_ENABLED = "IS_NOTIFICATION_ENABLED";
     public static final String IS_NOTIFICATION_ARRIVED = "IS_NOTIFICATION_ARRIVED";

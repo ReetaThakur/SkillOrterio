@@ -25,7 +25,7 @@ import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-import static com.app.skillontario.constants.SharedPrefsConstants.ACCESS_TOKEN;
+import static com.app.skillontario.constants.SharedPrefsConstants.LANGUAGE_API;
 import static com.app.skillontario.constants.SharedPrefsConstants.USER_TOKEN;
 
 
@@ -92,13 +92,16 @@ public class ApiClient {
 
         return chain -> {
             String accessToken = "";
+            String language = "";
             Request.Builder request = chain.request().newBuilder();
             if(MySharedPreference.getInstance().getBooleanData(SharedPrefsConstants.IS_HEADER)) {
                 if (!TextUtils.isEmpty(MySharedPreference.getInstance().getStringData(USER_TOKEN))) {
                     accessToken = MySharedPreference.getInstance().getStringData(USER_TOKEN);
+                    language = MySharedPreference.getInstance().getStringData(LANGUAGE_API);
                     request.addHeader("x-access-token", accessToken);
-                    request.addHeader("lang","eng");
+                    request.addHeader("lang",language);
                     Log.e("ACCESS TOKEN->", accessToken);
+                    Log.e("language->", language);
                 }
             }
            /* if (!SharedPrefsConstants.SampleAccessToken.equalsIgnoreCase("")) {

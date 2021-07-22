@@ -69,19 +69,26 @@ public class ApiCallBack<T> implements Callback<T>, ConfirmDialogCallback {
                         responseErrorCallback.getApiResponse(response.body(), flag);
                     } else if (model != null && model.getStatus() == false) {
                         responseErrorCallback.getApiResponse(response.body(), flag);
-                    } else if (model != null && model.getError().getErrorCode() == 5) {
-                        new CustomAlertDialog(context, context.getResources().getString(R.string.session_espired_msg),
-                                context.getResources().getString((R.string.session_expired))).show();
-                    } else if (model != null && model.getError().getErrorCode() == 500) {
-
-                    } else
+                    }  else
                         responseErrorCallback.getApiResponse(response.body(), flag);
                 } catch (Exception e) {
                 }
             }
 
-        } else if (((BaseResponseModel) response.body()).getStatus()) {
-            Utils.showToast(context, ((BaseResponseModel) response.body()).message);
+        } else if (response.code() == 500) {
+            if (response.body() == null) {
+                if (response.errorBody() != null) {
+                   // responseErrorCallback.getApiError(response.errorBody().source(), flag);
+                  //  responseErrorCallback.getApiError500(response.message(), flag);
+                    responseErrorCallback.getApiResponse(response.body(), flag);
+                } else {
+                 //   responseErrorCallback.getApiError500(response.message(), flag);
+                }
+            } else {
+                responseErrorCallback.getApiResponse(response.body(), flag);
+            }
+
+
         } else
             Utils.showToast(context, "Server Not Responding");
 

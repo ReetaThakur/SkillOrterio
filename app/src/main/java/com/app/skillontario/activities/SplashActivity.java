@@ -3,17 +3,27 @@ package com.app.skillontario.activities;
 
 import android.content.Intent;
 import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 
-import com.app.skillontario.SignIn.WelcomeActivity;
-import com.app.skillontario.adapter.PartnersAdapter;
+import com.app.skillontario.BottomBarActivity;
+import com.app.skillontario.SignIn.SignInActivity;
 import com.app.skillontario.baseClasses.BaseActivity;
 import com.app.skillontario.constants.AppConstants;
+import com.app.skillontario.models.ResourceModal;
+import com.app.skillontario.signup.SignUpActivity;
 import com.app.skillontario.utils.MySharedPreference;
 import com.app.skillorterio.R;
+import com.google.firebase.messaging.FirebaseMessaging;
 
-import static com.app.skillontario.constants.SharedPrefsConstants.IS_LOGIN;
+import org.json.JSONObject;
+
+import static com.app.skillontario.constants.AppConstants.FIREBASE_TOKEN;
+import static com.app.skillontario.constants.AppConstants.IS_WALK_THROUGH;
+import static com.app.skillontario.constants.SharedPrefsConstants.IS_NOTIFICATION;
 import static com.app.skillontario.constants.SharedPrefsConstants.IS_TUTORIAL_LEARN;
+import static com.app.skillontario.constants.SharedPrefsConstants.USER_TOKEN;
+import static com.app.skillontario.utils.Utils.updatLocalLanguage;
 
 
 public class SplashActivity extends BaseActivity {
@@ -23,10 +33,13 @@ public class SplashActivity extends BaseActivity {
     @Override
     protected void initUi() {
 
+        //  Branch.sessionBuilder(this).withCallback(branchReferralInitListener).withData(getIntent() != null ? getIntent().getData() : null).init();
+
+
         //Log.e("userid", MySharedPreference.getInstance().getStringData(USER_ID));
         mHandler.postDelayed(runnable, 1500);
 
-       /* FirebaseMessaging.getInstance().getToken()
+        FirebaseMessaging.getInstance().getToken()
                 .addOnCompleteListener(task -> {
 
                     if (!task.isSuccessful()) {
@@ -35,40 +48,152 @@ public class SplashActivity extends BaseActivity {
                     }
 
                     String token = task.getResult();
-                    MySharedPreference.getInstance().setStringData(FCM_ID, token);
+                    Log.d("Sunny", "  fcm token > " + token);
+                    MySharedPreference.getInstance().setStringData(FIREBASE_TOKEN, token);
 
-                });*/
+                });
+
+        try {
+            /*//String lang = CommonFunctions.myPreference.getString(this, GlobalConstants.LANGUAGE);
+
+            String lang = Locale.getDefault().getLanguage();
+            changeLocale(lang);
+*/
+            String lang = MySharedPreference.getInstance().getStringData(AppConstants.LANGUAGE);
+            if (lang != null) {
+                if (lang.isEmpty()) {
+
+                    updatLocalLanguage("en", getBaseContext());
+
+                } else {
+
+                    updatLocalLanguage(lang, getBaseContext());
+                }
+            } else {
+
+                updatLocalLanguage("en", getBaseContext());
+            }
+
+
+        } catch (Exception e) {
+        }
+
     }
 
+   /* public void changeLocale(String lang) {
+        try {
+            if (lang.equalsIgnoreCase(""))
+                return;
+            Locale myLocale = new Locale("en");//Set Selected Locale
+            Locale.setDefault(myLocale);//set new locale as default
+            Configuration config = new Configuration();//get Configuration
+            config.locale = myLocale;//set config locale as selected locale
+            getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());//Update the config
+
+            // validateView(lang);
+        } catch (Exception er) {
+            er.getMessage();
+        }
+    }
+*/
+
     private Runnable runnable = () -> {
-        String url;
+
         boolean check = false;
         try {
-            url = getIntent().getStringExtra("url");
-            check = true;
+            check = getIntent().getBooleanExtra("noti", false);
         } catch (Exception e) {
-            url = "";
             check = false;
         }
 
-        if (MySharedPreference.getInstance().getBooleanData(IS_LOGIN)) {
-           /* Intent intent = new Intent(this, HomeLoginActivity.class);
-            intent.putExtra(AppConstants.LOGIN_TYPE, "old");
-            if (check)
-                intent.putExtra("url", url);
-            startActivity(intent);*/
-            finishAffinity();
-        } else {
-            if (MySharedPreference.getInstance().getBooleanData(IS_TUTORIAL_LEARN)) {
-                Intent intent = new Intent(this, SelectLanguage.class);
-                intent.putExtra(AppConstants.LOGIN_TYPE, "new");
-                startActivity(intent);
-                finishAffinity();
+        try {
+            if (MySharedPreference.getInstance().getBooleanData("IS_NOTIFICATION") || check) {
+                MySharedPreference.getInstance().setBooleanData(IS_NOTIFICATION, false);
+
+                String typeClass, dataN;
+
+                try {
+                    typeClass = getIntent().getStringExtra("typeClass");
+                    dataN = getIntent().getStringExtra("dataN");
+
+                    JSONObject object1 = new JSONObject(dataN);
+                    //  object1.has("_id");
+
+
+                    //  String s = object1.getString("_id");
+
+
+                    // Log.d("Sunny", " id  > " + s);
+
+                    if (typeClass.equalsIgnoreCase("news")) {
+                        String url1 = object1.getString("newsUrl");
+                        Intent intent = new Intent(SplashActivity.this, NewsDetailAc.class);
+                        intent.putExtra("url", url1);
+                        startActivity(intent);
+                        finishAffinity();
+                    } else if (typeClass.equalsIgnoreCase("resource")) {
+                        ResourceModal model = new ResourceModal();
+                        model.setResUrl(object1.getString("resUrl"));
+                        model.setId(object1.getString("_id"));
+                        model.setResImage(object1.getString("resImage"));
+                        model.setResDesc(object1.getString("resDesc"));
+                        Intent intent = new Intent(SplashActivity.this, ResourcesDetailsActivity.class);
+                        intent.putExtra("resData", model);
+                        startActivity(intent);
+                        finishAffinity();
+                    } else if (typeClass.equalsIgnoreCase("profile")) {
+                        Intent intent = new Intent(SplashActivity.this, BottomBarActivity.class);
+                        //intent.putExtra("resData", "");
+                        startActivity(intent);
+                        finishAffinity();
+
+                    } else if (typeClass.equalsIgnoreCase("event")) {
+                        Intent intent = new Intent(SplashActivity.this, BottomBarActivity.class);
+                        intent.putExtra("if", "2");
+                        startActivity(intent);
+                        finishAffinity();
+                    } else if (typeClass.equalsIgnoreCase("mgsafai")) {
+                        Intent intent = new Intent(SplashActivity.this, BottomBarActivity.class);
+                        //intent.putExtra("resData", "");
+                        startActivity(intent);
+                        finishAffinity();
+                    } else {
+                        startActivity(new Intent(this, SelectLanguage.class));
+                        finishAffinity();
+                    }
+
+                } catch (Exception e) {
+                    typeClass = "";
+                    startActivity(new Intent(this, SelectLanguage.class));
+                    finishAffinity();
+
+                }
+
             } else {
-                startActivity(new Intent(this, SelectLanguage.class));
-                finishAffinity();
+                MySharedPreference.getInstance().setBooleanData(IS_NOTIFICATION, false);
+                if (!MySharedPreference.getInstance().getStringData(USER_TOKEN).equalsIgnoreCase("")) {
+                    startActivity(new Intent(this, BottomBarActivity.class));
+                    finishAffinity();
+
+                } else {
+                    if (MySharedPreference.getInstance().getBooleanData(IS_WALK_THROUGH)) {
+                        startActivity(new Intent(this, SignUpActivity.class));
+                        finishAffinity();
+                    } else {
+                        Intent intent = new Intent(this, SelectLanguage.class);
+                        intent.putExtra(AppConstants.LOGIN_TYPE, "new");
+                        startActivity(intent);
+                        finishAffinity();
+                    }
+                }
+
+
             }
+        } catch (Exception e) {
+            startActivity(new Intent(this, SelectLanguage.class));
+            finishAffinity();
         }
+
 
     };
 

@@ -3,9 +3,10 @@ package com.app.skillontario.models;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import java.io.Serializable;
-
-public class RegistrationModal implements Serializable {
+public class LoginModel {
+    @SerializedName("country")
+    @Expose
+    private String country;
     @SerializedName("deviceId")
     @Expose
     private String deviceId;
@@ -23,7 +24,7 @@ public class RegistrationModal implements Serializable {
     private Object status;
     @SerializedName("_id")
     @Expose
-    private String _id;
+    private String id;
     @SerializedName("email")
     @Expose
     private String email;
@@ -38,10 +39,10 @@ public class RegistrationModal implements Serializable {
     private String lname;
     @SerializedName("gender")
     @Expose
-    private String  gender;
+    private Integer gender;
     @SerializedName("school")
     @Expose
-    private String school;
+    private Integer school;
     @SerializedName("city")
     @Expose
     private String city;
@@ -70,9 +71,13 @@ public class RegistrationModal implements Serializable {
     @Expose
     private Integer v;
 
- @SerializedName("country")
-    @Expose
-    private String country;
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
 
     public String getDeviceId() {
         return deviceId;
@@ -107,11 +112,7 @@ public class RegistrationModal implements Serializable {
     }
 
     public Object getStatus() {
-        if(status==null){
-            return "";
-        }else {
-            return status;
-        }
+        return status;
     }
 
     public void setStatus(Object status) {
@@ -119,11 +120,11 @@ public class RegistrationModal implements Serializable {
     }
 
     public String getId() {
-        return _id;
+        return id;
     }
 
-    public void setId(String _id) {
-        this._id = _id;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getEmail() {
@@ -158,27 +159,19 @@ public class RegistrationModal implements Serializable {
         this.lname = lname;
     }
 
-    public String getGender() {
-        if (gender == null) {
-            return "";
-        } else {
-            return gender;
-        }
+    public Integer getGender() {
+        return gender;
     }
 
-    public void setGender(String gender) {
+    public void setGender(Integer gender) {
         this.gender = gender;
     }
 
-    public String getSchool() {
-        if(school==null){
-            return "";
-        }else {
-            return school;
-        }
+    public Integer getSchool() {
+        return school;
     }
 
-    public void setSchool(String school) {
+    public void setSchool(Integer school) {
         this.school = school;
     }
 
@@ -252,17 +245,5 @@ public class RegistrationModal implements Serializable {
 
     public void setV(Integer v) {
         this.v = v;
-    }
-
-    public String getCountry() {
-        if (country == null) {
-            return "";
-        } else {
-            return country;
-        }
-    }
-
-    public void setCountry(String country) {
-        this.country = country;
     }
 }

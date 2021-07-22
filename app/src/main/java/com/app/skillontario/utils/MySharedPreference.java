@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 import com.app.skillontario.baseClasses.AppController;
+import com.app.skillontario.models.RegistrationModal;
+import com.google.gson.Gson;
 
 
 public class MySharedPreference {
@@ -79,5 +81,17 @@ public class MySharedPreference {
         editor.remove(key);
         editor.apply();
     }
-
+    public void SaveUserData(String key, RegistrationModal myObject) {
+        SharedPreferences.Editor prefsEditor = sharedpreferences.edit();
+        Gson gson = new Gson();
+        String json = gson.toJson(myObject);
+        prefsEditor.putString(key, json);
+        prefsEditor.commit();
+    }
+    public RegistrationModal getUserData(String key) {
+        Gson gson = new Gson();
+        String json = sharedpreferences.getString(key, "");
+        RegistrationModal obj = gson.fromJson(json, RegistrationModal.class);
+        return obj;
+    }
 }

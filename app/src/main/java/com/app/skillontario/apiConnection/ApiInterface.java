@@ -2,11 +2,20 @@ package com.app.skillontario.apiConnection;
 
 
 import com.app.skillontario.baseClasses.BaseResponseModel;
+import com.app.skillontario.models.CareerDetailModel;
 import com.app.skillontario.models.EventsModal;
+import com.app.skillontario.models.FeedbackModal;
+import com.app.skillontario.models.HomeModal;
+import com.app.skillontario.models.InterestModal;
 import com.app.skillontario.models.NewsModal;
+import com.app.skillontario.models.NotificationModal;
+import com.app.skillontario.models.PartnerModal;
 import com.app.skillontario.models.RegistrationModal;
+import com.app.skillontario.models.ResourceModal;
+import com.app.skillontario.models.ScholarShipModal;
 import com.app.skillontario.models.careerListModel.CareerListDetails;
-import com.app.skillontario.models.careerListModel.CareerListOutput;
+import com.app.skillontario.models.quizModel.QuizResultModel;
+import com.app.skillontario.models.quizModel.ResultModel;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -15,13 +24,13 @@ import java.util.Map;
 import okhttp3.MultipartBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
-import retrofit2.http.DELETE;
+import retrofit2.http.GET;
+import retrofit2.http.HTTP;
 import retrofit2.http.Multipart;
 import retrofit2.http.PATCH;
 import retrofit2.http.POST;
 import retrofit2.http.Part;
 import retrofit2.http.PartMap;
-import retrofit2.http.Path;
 
 
 public interface ApiInterface {
@@ -31,7 +40,11 @@ public interface ApiInterface {
     @POST("user/register")
     Call<BaseResponseModel<RegistrationModal>> registerUser(@Body HashMap<String, Object> body);
 
-    @POST("user/reset-password")
+    @POST("user/login")
+    Call<BaseResponseModel<RegistrationModal>> loginUser(@Body HashMap<String, Object> body);
+
+
+    @PATCH("user/reset-password")
     Call<BaseResponseModel> forgotPassword(@Body HashMap<String, Object> body);
 
     @PATCH("user/change-password")
@@ -40,9 +53,18 @@ public interface ApiInterface {
     @PATCH("user/logout")
     Call<BaseResponseModel> logout(@Body HashMap<String, Object> body);
 
+    @PATCH("user/update")
+    Call<BaseResponseModel<RegistrationModal>> updateProfile(@Body HashMap<String, Object> body);
+
+    @GET("job/get-option")
+    Call<BaseResponseModel<ArrayList<InterestModal>>> jobOption();
+
+    @POST("user/home")
+    Call<BaseResponseModel<ArrayList<HomeModal>>> getHomeData(@Body HashMap<String, Object> body);
 
     //***********************Notification APIS********************/
-
+    @PATCH("user/update")
+    Call<BaseResponseModel> updateUser(@Body HashMap<String, Object> body);
 
     //**********************Images APIS***************/
     @POST("lot/remove-image")
@@ -54,6 +76,15 @@ public interface ApiInterface {
     @POST("event/list")
     Call<BaseResponseModel<ArrayList<NewsModal>>> getNews(@Body HashMap<String, Object> body);
 
+    @POST("event/list")
+    Call<BaseResponseModel<ArrayList<PartnerModal>>> getPartner(@Body HashMap<String, Object> body);
+
+    @POST("event/list")
+    Call<BaseResponseModel<ArrayList<ResourceModal>>> getresource(@Body HashMap<String, Object> body);
+
+    @POST("event/list")
+    Call<BaseResponseModel<ArrayList<ScholarShipModal>>> getScholarShip(@Body HashMap<String, Object> body);
+
     @Multipart
     @POST("upload/image")
     Call<BaseResponseModel> uploadFile(@PartMap Map<String, Object> params, @Part MultipartBody.Part image);
@@ -61,4 +92,52 @@ public interface ApiInterface {
 
     @POST("career/list")
     Call<BaseResponseModel<ArrayList<CareerListDetails>>> getCareerList(@Body HashMap<String, Object> body);
+
+    @POST("user/feedback")
+    Call<BaseResponseModel> getFeedBack(@Body HashMap<String, Object> body);
+
+   /* @POST("career/add-book-mark")
+    Call<BaseResponseModel> addCareerBookmark(@Body HashMap<String, Object> body);
+*/
+
+    @HTTP(method = "DELETE", path = "career/delete-book-mark", hasBody = true)
+    Call<BaseResponseModel> deleteCareerBookmark(@Body HashMap<String, Object> body);
+
+   /* @PATCH("user/update")
+    Call<BaseResponseModel> updateUser(@Body HashMap<String, Object> body);
+*/
+
+    //***********************Quiz List APIS********************/
+    @POST("quiz/list")
+    Call<BaseResponseModel<ArrayList<ResultModel>>> getQuizListQuestion(@Body HashMap<String, Object> body);
+
+    @POST("quiz/result")
+    Call<BaseResponseModel<ArrayList<QuizResultModel>>> getQuizResult(@Body HashMap<String, Object> body);
+
+
+
+   /* @POST("career/list")
+    Call<BaseResponseModel<ArrayList<CareerListDetails>>> getCareerList(@Body HashMap<String, Object> body);
+*/
+
+    @POST("career/add-book-mark")
+    Call<BaseResponseModel<CareerDetailModel>> addCareerBookmark(@Body HashMap<String, Object> body);
+
+
+    /* @HTTP(method = "DELETE", path = "career/delete-book-mark", hasBody = true)
+     Call<BaseResponseModel> deleteCareerBookmark(@Body HashMap<String, Object> body);
+ */
+//user/notification notify/list
+    @POST("notify/list")
+    Call<BaseResponseModel<ArrayList<NotificationModal>>> getNitification(@Body HashMap<String, Object> body);
+
+    @POST("notify/read")
+    Call<BaseResponseModel<ArrayList<NotificationModal>>> readNitification(@Body HashMap<String, Object> body);
+
+    @POST("career/list-book-mark")
+    Call<BaseResponseModel<ArrayList<CareerListDetails>>> getBookMarkList(@Body HashMap<String, Object> body);
+
+    @POST("user/feedback")
+    Call<BaseResponseModel<FeedbackModal>> Sendfeedback(@Body HashMap<String, Object> body);
+
 }

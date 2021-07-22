@@ -9,6 +9,7 @@ import android.view.View;
 import com.app.skillontario.SignIn.WelcomeActivity;
 import com.app.skillontario.baseClasses.BaseActivity;
 import com.app.skillontario.constants.AppConstants;
+import com.app.skillontario.constants.SharedPrefsConstants;
 import com.app.skillontario.utils.MySharedPreference;
 import com.app.skillorterio.R;
 import com.app.skillorterio.databinding.ActivitySelectLanguageBinding;
@@ -24,13 +25,17 @@ public class SelectLanguage extends BaseActivity {
         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_from_left);
         binding = (ActivitySelectLanguageBinding) viewBaseBinding;
 
+        MySharedPreference.getInstance().setBooleanData(SharedPrefsConstants.GUEST_FLOW, false);
+
         binding.imageViewEnglish.setOnClickListener(v -> {
+            MySharedPreference.getInstance().setStringData(SharedPrefsConstants.LANGUAGE_API,"eng");
             changeLocale("en", this);
             startActivity(new Intent(SelectLanguage.this, WelcomeActivity.class));
             finishAffinity();
         });
 
         binding.imageViewFrench.setOnClickListener(v -> {
+            MySharedPreference.getInstance().setStringData(SharedPrefsConstants.LANGUAGE_API,"fre");
             changeLocale("fr", this);
             startActivity(new Intent(SelectLanguage.this, WelcomeActivity.class));
             finishAffinity();

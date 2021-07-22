@@ -1,14 +1,11 @@
-package com.app.skillontario.models.careerListModel;
+package com.app.skillontario.models;
 
-import com.app.skillontario.models.ResourceURLModal;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
-import java.util.List;
 
-public class CareerListDetails implements Serializable {
-
+public class CareerDetailModel implements Serializable {
     @SerializedName("_id")
     @Expose
     private String id;
@@ -63,32 +60,9 @@ public class CareerListDetails implements Serializable {
     @SerializedName("JobEducatId")
     @Expose
     private String jobEducatId;
-    @SerializedName("bId")
-    @Expose
-    private String bId;
-
     @SerializedName("JobEducat")
     @Expose
     private String jobEducat;
-    @SerializedName("resourceURL")
-    @Expose
-    private List<ResourceURLModal> resourceURL = null;
-
-    public List<ResourceURLModal> getResourceURL() {
-        return resourceURL;
-    }
-
-    public void setResourceURL(List<ResourceURLModal> resourceURL) {
-        this.resourceURL = resourceURL;
-    }
-
-    public String getbId() {
-        return bId;
-    }
-
-    public void setbId(String bId) {
-        this.bId = bId;
-    }
 
     public String getId() {
         return id;

@@ -10,7 +10,7 @@ import androidx.core.content.ContextCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.app.skillontario.MainActivity;
+
 import com.app.skillontario.activities.JobDetailsActivity;
 import com.app.skillorterio.R;
 import com.app.skillorterio.databinding.AdapterPopularCarrerBinding;

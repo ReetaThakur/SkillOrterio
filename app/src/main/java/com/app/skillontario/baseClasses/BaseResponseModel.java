@@ -7,25 +7,22 @@ import java.io.Serializable;
 
 public class BaseResponseModel<T> implements Serializable {
 
-    @Expose
-    @SerializedName("error")
-    private Error error;
 
     @Expose
     @SerializedName("status")
     private boolean status;
 
     @Expose
+    @SerializedName("error")
+    public T error;
+
+    @Expose
+    @SerializedName("errorCode")
+    public int errorCode;
+
+    @Expose
     @SerializedName("message")
     public String message;
-
-    @Expose
-    @SerializedName("isSinValid")
-    public Boolean isSinValid;
-
-    @Expose
-    @SerializedName("isSinValidInteger")
-    public Boolean isSinValidInteger;
 
     @Expose
     @SerializedName("result")
@@ -59,36 +56,19 @@ public class BaseResponseModel<T> implements Serializable {
         this.totalCount = totalCount;
     }
 
-    public static class Error {
-        @Expose
-        @SerializedName("message")
-        private String message;
-        @Expose
-        @SerializedName("errorCode")
-        private int errorCode;
 
-        public String getMessage() {
-            return message;
-        }
-
-        public int getErrorCode() {
-            return errorCode;
-        }
-
+    public T getError() {
+        return error;
     }
 
-
-    public Error getError() {
-        return error;
+    public void setError(T error) {
+        this.error = error;
     }
 
     public boolean getStatus() {
         return status;
     }
 
-    public void setError(Error error) {
-        this.error = error;
-    }
 
     public void setStatus(boolean status) {
         this.status = status;
@@ -102,21 +82,6 @@ public class BaseResponseModel<T> implements Serializable {
         this.message = message;
     }
 
-    public Boolean getSinValid() {
-        return isSinValid;
-    }
-
-    public void setSinValid(Boolean sinValid) {
-        isSinValid = sinValid;
-    }
-
-    public Boolean getSinValidInteger() {
-        return isSinValidInteger;
-    }
-
-    public void setSinValidInteger(Boolean sinValidInteger) {
-        isSinValidInteger = sinValidInteger;
-    }
 
     public T getOutput() {
         return output;

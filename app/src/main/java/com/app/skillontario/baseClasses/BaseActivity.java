@@ -1,10 +1,11 @@
 package com.app.skillontario.baseClasses;
 
-import android.Manifest;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.content.pm.PackageManager;
+import android.content.res.Configuration;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
@@ -13,9 +14,9 @@ import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
@@ -23,16 +24,16 @@ import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 
 import com.app.skillontario.activities.SplashActivity;
-
 import com.app.skillontario.callbacks.XmlClickable;
 import com.app.skillontario.utils.LocaleManager;
 import com.app.skillontario.utils.topSnackBar.TSnackBar;
 import com.app.skillorterio.R;
 
-
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
+
+import static android.content.pm.PackageManager.GET_META_DATA;
 
 public abstract class BaseActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -45,7 +46,10 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(LocaleManager.getInstance().setLocale(base));
     }
-
+    @Override
+    public void onConfigurationChanged(@NonNull Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         try {
@@ -58,7 +62,7 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
         }
-
+        resetTitles();
         viewBaseBinding = DataBindingUtil.setContentView(this, getLayoutById());
         backButton();
         initUi();
@@ -70,6 +74,7 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
            ivBack.setOnClickListener(v->finish());
        }
     }
+
 
     @Override
     protected void onRestoreInstanceState(@NotNull Bundle savedInstanceState) {
@@ -162,9 +167,18 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
     }
 
     public void onClickId(View view) {
-        xmlClickable=BaseFragment.xmlClickable;
+        xmlClickable= BaseFragment.xmlClickable;
         xmlClickable.myClickMethod(view);
     }
 
-
+    protected void resetTitles() {
+        try {
+            ActivityInfo info = getPackageManager().getActivityInfo(getComponentName(), GET_META_DATA);
+            if (info.labelRes != 0) {
+                setTitle(info.labelRes);
+            }
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
 }
