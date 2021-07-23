@@ -17,7 +17,9 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginLeft="@dimen/_16sdp"
+            android:layout_marginRight="@dimen/_16sdp"
             android:layout_marginTop="@dimen/_15sdp"
+            android:background="@drawable/pshad1"
             android:scrollbars="none">
 
             <LinearLayout
@@ -27,8 +29,8 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/white">
-
+                    android:background="@drawable/ic_rectangle_pat1"
+                    >
                     <RelativeLayout
                         android:id="@+id/rl_Platinum_Partners"
                         android:layout_width="match_parent"
@@ -45,39 +47,19 @@
                             android:textColor="@color/black"
                             android:textSize="14sp"/>
                     </RelativeLayout>
-
-
-                    <RelativeLayout
-                    android:layout_below="@+id/rl_Platinum_Partners"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_12sdp"
-                    android:background="@drawable/pshad1">
-
-                <RelativeLayout
-                    android:id="@+id/id1"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginRight="@dimen/_16sdp"
-                    android:layout_marginBottom="@dimen/_16sdp"
-                    android:background="@drawable/ic_rectangle_pat1">
-
-                </RelativeLayout>
-                        <androidx.recyclerview.widget.RecyclerView
+                    <androidx.recyclerview.widget.RecyclerView
                             android:id="@+id/rcy_Platinum_Partners"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                        android:layout_below="@+id/rl_Platinum_Partners"
                             android:background="@drawable/ic_rectangle_pat1"
                              />
-
-                    </RelativeLayout>
-
-
                 </RelativeLayout>
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/white">
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:background="@drawable/ic_rectangle_pat1">
 
                     <RelativeLayout
                         android:id="@+id/rl_Premium_Partners"
@@ -107,6 +89,7 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_20sdp"
                     android:background="@color/white">
 
                     <RelativeLayout
@@ -136,7 +119,7 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/white">
+                    android:background="@drawable/ic_rectangle_pat1">
 
                     <RelativeLayout
                         android:id="@+id/rl_gold"
