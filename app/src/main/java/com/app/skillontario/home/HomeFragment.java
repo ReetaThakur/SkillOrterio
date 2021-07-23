@@ -18,9 +18,11 @@ import com.app.skillontario.adapter.RecentEventsAdapter;
 import com.app.skillontario.adapter.RecentNewsAdapter;
 import com.app.skillontario.apiConnection.ApiCallBack;
 import com.app.skillontario.apiConnection.ApiResponseErrorCallback;
+import com.app.skillontario.apiConnection.RequestBodyGenerator;
 import com.app.skillontario.baseClasses.BaseFragment;
 import com.app.skillontario.baseClasses.BaseResponseModel;
 import com.app.skillontario.constants.SharedPrefsConstants;
+import com.app.skillontario.models.CareerDetailModel;
 import com.app.skillontario.models.CareerModal;
 import com.app.skillontario.models.EventsModal;
 import com.app.skillontario.models.HomeModal;
@@ -28,6 +30,7 @@ import com.app.skillontario.models.NewsModal;
 import com.app.skillontario.quiz.TakeQuizAc;
 import com.app.skillontario.utils.MySharedPreference;
 import com.app.skillontario.utils.RecyclerItemClickListener;
+import com.app.skillontario.utils.Utils;
 import com.app.skillorterio.R;
 import com.app.skillorterio.databinding.FragmentHomeBinding;
 
@@ -35,6 +38,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import static com.app.skillontario.constants.ApiConstants.API_INTERFACE;
+import static com.app.skillontario.constants.AppConstants.NOTIFICATION_COUNT;
 
 
 public class HomeFragment extends BaseFragment implements ApiResponseErrorCallback, PopularCareerAdapter.BookMarkUpdateDelete {
@@ -42,7 +46,7 @@ public class HomeFragment extends BaseFragment implements ApiResponseErrorCallba
     private FragmentHomeBinding binding;
     PopularCareerAdapter popularCareerAdapter;
     RecentEventsAdapter eventAdapter;
-    RecentNewsAdapter newsAdapter;
+    RecentNewsAdapter recentNewsAdapter;
 
     // ApiResponseErrorCallback apiResponseErrorCallback;
     ArrayList<CareerModal> careerModalArrayList = new ArrayList<>();
@@ -78,14 +82,54 @@ public class HomeFragment extends BaseFragment implements ApiResponseErrorCallba
             startActivity(new Intent(getActivity(), ScholarOneAc.class));
         });
 
-        binding.rlTakeQuiz.setOnClickListener(v -> startActivity(new Intent(getActivity(), TakeQuizActivity.class)));
+        binding.rlTakeQuiz.setOnClickListener(v -> {
+            User_Type = MySharedPreference.getInstance().getBooleanData(SharedPrefsConstants.GUEST_FLOW);
+            if (!User_Type) {
+                startActivity(new Intent(getActivity(), TakeQuizActivity.class));
+            } else {
+                try {
+                    Utils.guestMethod(getActivity());
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
 
-        binding.rlFilter.setOnClickListener(v -> startActivity(new Intent(getActivity(), HomeFilterActivity.class)));
+        });
 
-        binding.imgNotification.setOnClickListener(v -> startActivity(new Intent(getActivity(), NotificationActivity.class)));
+        if(!MySharedPreference.getInstance().getStringData(NOTIFICATION_COUNT).equalsIgnoreCase("0")&&!MySharedPreference.getInstance().getStringData(NOTIFICATION_COUNT).isEmpty()){
+          //  notification_badge.setVisibility(View.VISIBLE);
+           // notification_badge.setText(MySharedPreference.getInstance().getStringData(NOTIFICATION_COUNT));
+        }
+
+        binding.rlFilter.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), HomeFilterActivity.class);
+            intent.putExtra("search", "");
+            startActivity(intent);
+        });
+
+        //   binding.imgNotification.setOnClickListener(v -> startActivity(new Intent(getActivity(), NotificationActivity.class)));
 
         binding.rlSearch.setOnClickListener(v -> startActivity(new Intent(getActivity(), SearchActivity.class)));
 
+        binding.imgNotification.setOnClickListener(v -> {
+            User_Type = MySharedPreference.getInstance().getBooleanData(SharedPrefsConstants.GUEST_FLOW);
+            if (!User_Type) {
+                String User_id = MySharedPreference.getInstance().getStringData(SharedPrefsConstants.USER_ID);
+                HashMap<String, Object> object = new HashMap<>();
+                object.put("userId", User_id);
+                API_INTERFACE.readNitification(object).enqueue(
+                        new ApiCallBack<>(getActivity(), this, 105, true));
+
+                startActivity(new Intent(getActivity(), NotificationActivity.class));
+            } else {
+                try {
+                    Utils.guestMethod(getActivity());
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+
+        });
     }
 
     void callAPI() {
@@ -114,8 +158,8 @@ public class HomeFragment extends BaseFragment implements ApiResponseErrorCallba
 
     private void showRecentNewsRecycler() {
         binding.recyNews.setHasFixedSize(true);
-        newsAdapter = new RecentNewsAdapter(getActivity(), false);
-        binding.recyNews.setAdapter(newsAdapter);
+        recentNewsAdapter = new RecentNewsAdapter(getActivity(), false);
+        binding.recyNews.setAdapter(recentNewsAdapter);
 
        /* binding.recyNews.addOnItemTouchListener(new RecyclerItemClickListener(getActivity(), (view, position) -> {
             startActivity(new Intent(getActivity(), NewsDetailAc.class));
@@ -162,19 +206,41 @@ public class HomeFragment extends BaseFragment implements ApiResponseErrorCallba
                             if (responseModel.getOutput().get(1).getEventData() != null) {
                                 if (responseModel.getOutput().get(1).getEventData().size() > 0) {
                                     eventsModalArrayList.addAll(responseModel.getOutput().get(1).getEventData());
-                                      eventAdapter = new RecentEventsAdapter(eventsModalArrayList, getActivity());
-                                      binding.recyRecentEvent.setAdapter(eventAdapter);
+                                    eventAdapter = new RecentEventsAdapter(eventsModalArrayList, getActivity());
+                                    binding.recyRecentEvent.setAdapter(eventAdapter);
                                 }
                             }
                             if (responseModel.getOutput().get(2).getNewsData() != null) {
                                 if (responseModel.getOutput().get(2).getNewsData().size() > 0 && responseModel.getOutput().get(2).getNewsData() != null) {
                                     newsModalArrayList.addAll(responseModel.getOutput().get(2).getNewsData());
-                                    //recentNewsAdapter = new RecentNewsAdapter(newsModalArrayList, getActivity());
-                                    //binding.recyNews.setAdapter(recentNewsAdapter);
+                                    recentNewsAdapter = new RecentNewsAdapter(newsModalArrayList, getActivity());
+                                    binding.recyNews.setAdapter(recentNewsAdapter);
                                 }
                             }
                         }
                     }
+                }
+            } catch (Exception e) {
+            }
+
+        } else if (flag == 103) {
+            try {
+                BaseResponseModel responseModel = (BaseResponseModel) responseObject;
+                if (responseModel.getStatus()) {
+                    careerModalArrayList.get(CareerPosition).setbId("");
+                    popularCareerAdapter.notifyDataSetChanged();
+                } else {
+                    showToast(responseModel.getMessage());
+                }
+            } catch (Exception e) {
+            }
+
+        } else if (flag == 102) {
+            try {
+                BaseResponseModel<CareerDetailModel> responseModel = (BaseResponseModel<CareerDetailModel>) responseObject;
+                if (responseModel.getStatus()) {
+                    careerModalArrayList.get(CareerPosition).setbId(responseModel.getOutput().getId());
+                    popularCareerAdapter.notifyDataSetChanged();
                 }
             } catch (Exception e) {
             }
@@ -189,6 +255,29 @@ public class HomeFragment extends BaseFragment implements ApiResponseErrorCallba
 
     @Override
     public void checkBookMark(String Bid, int position, String careerId) {
+        CareerPosition = position;
+        if (Bid.equalsIgnoreCase("")) {
+            addBookmark(careerModalArrayList.get(position), careerId);
+        } else {
 
+            removeBookmark(Bid, careerId);
+        }
     }
+
+    void addBookmark(CareerModal list, String careerId) {
+        API_INTERFACE.addCareerBookmark(RequestBodyGenerator.setBookmarkadd(list, MySharedPreference.getInstance().getStringData(SharedPrefsConstants.USER_ID), careerId)).enqueue(
+                new ApiCallBack<>(getActivity(), this, 102, false));
+    }
+
+    void removeBookmark(String bid, String careerId) {
+        HashMap<String, Object> object = new HashMap<>();
+
+        object.put("careerId", careerId);
+        object.put("userId", MySharedPreference.getInstance().getStringData(SharedPrefsConstants.USER_ID));
+        object.put("bId", bid);
+
+        API_INTERFACE.deleteCareerBookmark(object).enqueue(
+                new ApiCallBack<>(getActivity(), this, 103, false));
+    }
+
 }

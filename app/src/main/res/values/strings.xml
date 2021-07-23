@@ -624,4 +624,14 @@
     <string name="government_partners">Government Partners</string>
     <string name="Partners">Partners </string>
 
+    <string name="no_data_quiz">You haven’t take a career quiz yet. Once completed, The results will get saved here</string>
+    <string name="no_data_events">No new events at the moment.</string>
+    <string name="no_data_news">No News available at the moment</string>
+    <string name="no_data_resoures">No Resources Yet</string>
+    <string name="no_data_scholership">No Scholarship and Financial Aid programs listed at the moment. Please check again in a few days</string>
+    <string name="no_data_notification">No Notifications Yet</string>
+    <string name="no_data_bookmarked">You have not bookmarked any careers</string>
+    <string name="no_data_search">No Search  Result Found!</string>
+    <string name="no_bookmark">You have not bookmarked any careers</string>
+
 </resources>

@@ -1,36 +1,42 @@
 package com.app.skillontario.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import androidx.databinding.DataBindingUtil;
+import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.app.skillontario.activities.NewsDetailAc;
+import com.app.skillontario.models.NewsModal;
+import com.app.skillontario.utils.Utils;
 import com.app.skillorterio.R;
 import com.app.skillorterio.databinding.AdapterRecentNewsBinding;
+import com.squareup.picasso.Picasso;
 
 
 import org.jetbrains.annotations.NotNull;
+
+import java.util.ArrayList;
 
 public class RecentNewsAdapter extends RecyclerView.Adapter<RecentNewsAdapter.ViewHolder> {
 
 
     Context context;
-    boolean popular = false;
-    private int[] imageArray = {
-            R.drawable.recy1,
-            R.drawable.recy2
-    };
 
-    private int[] imageArray1 = {
-            R.drawable.recent_event,
-            R.drawable.recent_event
-    };
 
     public RecentNewsAdapter(Context context, boolean popular) {
         this.context = context;
-        this.popular = popular;
+
+    }
+
+    ArrayList<NewsModal> newsModalArrayList = new ArrayList<>();
+
+    public RecentNewsAdapter(ArrayList<NewsModal> newsModalArrayList, Context activity) {
+        this.newsModalArrayList = newsModalArrayList;
+        this.context = activity;
     }
 
 
@@ -41,35 +47,24 @@ public class RecentNewsAdapter extends RecyclerView.Adapter<RecentNewsAdapter.Vi
 
     @Override
     public int getItemCount() {
-        if (popular)
-            return imageArray.length;
-        else
-            return imageArray1.length;
+        return newsModalArrayList.size();
     }
 
     @Override
     public void onBindViewHolder(final RecentNewsAdapter.ViewHolder viewHolder, final int position) {
-       /* if (popular)
-            viewHolder.binding.imageView.setImageResource(imageArray[position]);
-        else
-            viewHolder.binding.imageView.setImageResource(imageArray1[position]);*/
 
-        /*viewHolder.binding.lay.setOnClickListener(v -> {
-            notifyItemChanged(selected_position);
-            selected_position = position;
-            notifyItemChanged(selected_position);
-        });*/
+        Picasso.with(context).load(newsModalArrayList.get(position).getNewsImage()).
+                error(R.drawable.place_holder_news_home).placeholder(R.drawable.place_holder_news_home).into(viewHolder.binding.ivImage);
 
-       /* if (position == 0) {
-            viewHolder.binding.imgBackground.setColorFilter(ContextCompat.getColor(context, R.color.home_color1));
-            viewHolder.binding.imgOvl.setColorFilter(ContextCompat.getColor(context, R.color.home_oval_color1));
-            viewHolder.binding.imagePerson.setImageResource(R.drawable.home_main_img1);
-
-        } else {
-            viewHolder.binding.imgBackground.setColorFilter(ContextCompat.getColor(context, R.color.home_color2));
-            viewHolder.binding.imgOvl.setColorFilter(ContextCompat.getColor(context, R.color.home_oval_color2));
-            viewHolder.binding.imagePerson.setImageResource(R.drawable.home_main_img2);
-        }*/
+        viewHolder.binding.tvTitle.setText(newsModalArrayList.get(position).getNewsTitle());
+        if (newsModalArrayList.get(position).getNewsDate() != null) {
+            viewHolder.binding.tvDate.setText(Utils.DateFormateNews(newsModalArrayList.get(position).getNewsDate()));
+        }
+        viewHolder.binding.rlAll.setOnClickListener(v -> {
+            Intent intent = new Intent(context, NewsDetailAc.class);
+            intent.putExtra("url", newsModalArrayList.get(position).getNewsUrl());
+            context.startActivity(intent);
+        });
 
     }
 
