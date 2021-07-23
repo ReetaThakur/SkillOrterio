@@ -29,7 +29,7 @@
                     android:fontFamily="@font/poppins_regular"
                     android:text="@string/find_your_dream_career"
                     android:textColor="@color/black"
-                    android:textSize="33sp"></TextView>
+                    android:textSize="@dimen/_24sdp"></TextView>
 
                 <ImageView
                     android:id="@+id/img_notification"

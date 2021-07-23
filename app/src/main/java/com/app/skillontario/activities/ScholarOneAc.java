@@ -1,18 +1,12 @@
 package com.app.skillontario.activities;
 
-import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.view.View;
-import android.widget.EditText;
-import android.widget.RelativeLayout;
+
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.content.res.AppCompatResources;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.app.skillontario.SignIn.ResetPasswordActivity;
-import com.app.skillontario.adapter.BookmarkAdapter;
 import com.app.skillontario.adapter.ScholarAdapter;
 import com.app.skillontario.apiConnection.ApiCallBack;
 import com.app.skillontario.apiConnection.ApiResponseErrorCallback;
@@ -20,10 +14,8 @@ import com.app.skillontario.apiConnection.RequestBodyGenerator;
 import com.app.skillontario.baseClasses.BaseActivity;
 import com.app.skillontario.baseClasses.BaseResponseModel;
 import com.app.skillontario.models.ScholarShipModal;
-import com.app.skillontario.models.careerListModel.CareerListDetails;
 import com.app.skillontario.requestmodal.GetEventRequest;
 import com.app.skillorterio.R;
-import com.app.skillorterio.databinding.ActivityHelpBinding;
 import com.app.skillorterio.databinding.ScholarOneAcBinding;
 
 import java.util.ArrayList;
