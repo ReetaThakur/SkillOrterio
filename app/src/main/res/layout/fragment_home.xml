@@ -118,7 +118,7 @@
                     android:fontFamily="@font/poppins_medium"
                     android:text="Popular Careers"
                     android:textColor="#3E454A"
-                    android:textSize="15sp"></TextView>
+                    android:textSize="@dimen/_11sdp"></TextView>
 
 
                 <androidx.recyclerview.widget.RecyclerView
@@ -209,7 +209,7 @@
                     android:fontFamily="@font/poppins_medium"
                     android:text="Recent Events"
                     android:textColor="#3E454A"
-                    android:textSize="15sp"></TextView>
+                    android:textSize="@dimen/_11sdp"></TextView>
 
 
                 <androidx.recyclerview.widget.RecyclerView
@@ -275,7 +275,7 @@
                     android:fontFamily="@font/poppins_medium"
                     android:text="Recent News"
                     android:textColor="#3E454A"
-                    android:textSize="15sp"></TextView>
+                    android:textSize="@dimen/_11sdp"></TextView>
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recy_news"
