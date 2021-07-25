@@ -625,5 +625,7 @@
     <string name="no_data_bookmarked">You have not bookmarked any careers</string>
     <string name="no_data_search">No Search  Result Found!</string>
     <string name="no_bookmark">You have not bookmarked any careers</string>
+    <string name="bookmarked">Bookmarked</string>
+    <string name="general">General</string>
 
 </resources>

@@ -61,6 +61,7 @@
                         android:textSize="@dimen/_10sdp"></TextView>
 
                     <TextView
+                        android:id="@+id/tv_noti_count"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppins_bold"
@@ -77,19 +78,53 @@
                         android:textSize="@dimen/_10sdp"></TextView>
                 </LinearLayout>
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recy_notification"
+                <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                    android:id="@+id/refresh_layout"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/_12sdp"
-                    android:layout_marginRight="@dimen/_12sdp"
-                    android:layout_marginBottom="@dimen/_16sdp"
-                    android:divider="@null"
-                    android:orientation="vertical"
-                    android:scrollbars="none"
-                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    app:reverseLayout="false"></androidx.recyclerview.widget.RecyclerView>
+                    android:layout_height="match_parent">
 
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rcy_notification"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_above="@+id/progress"
+                            android:layout_marginLeft="@dimen/_12sdp"
+                            android:layout_marginRight="@dimen/_12sdp"
+                            android:layout_marginBottom="@dimen/_10sdp"
+                            android:visibility="visible" />
+
+                        <ProgressBar
+                            android:id="@+id/progress"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:layout_centerHorizontal="true"
+                            android:paddingBottom="@dimen/_16sdp"
+                            android:visibility="gone"></ProgressBar>
+
+
+                        <LinearLayout
+                            android:id="@+id/ll_no_res"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginRight="@dimen/_20sdp"
+                            android:layout_marginLeft="@dimen/_20sdp"
+                            android:layout_marginBottom="@dimen/_20sdp"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:visibility="gone">
+
+                            <include
+                                android:id="@+id/noData"
+                                layout="@layout/no_data_found"
+                                android:visibility="visible" />
+                        </LinearLayout>
+                    </RelativeLayout>
+                </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
             </LinearLayout>
 

@@ -12,9 +12,8 @@
             android:id="@+id/row"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-           android:padding="@dimen/_5sdp"
             android:background="@drawable/edit_text_background"
-            >
+            android:padding="@dimen/_5sdp">
 
             <RelativeLayout
                 android:id="@+id/lay"
@@ -29,19 +28,19 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
-                    app:tint="@color/unselect"
-                    android:src="@drawable/ic_notification_adapter_background"></ImageView>
+                    android:src="@drawable/ic_notification_adapter_background"
+                    app:tint="@color/unselect"></ImageView>
 
                 <TextView
                     android:id="@+id/tvOption"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
-                    android:text="A"
-                    android:textSize="@dimen/_14sdp"
                     android:fontFamily="@font/poppins_bold"
+                    android:text="A"
+                    android:textAllCaps="true"
                     android:textColor="@color/white"
-                    />
+                    android:textSize="@dimen/_14sdp" />
 
 
             </RelativeLayout>
@@ -63,15 +62,12 @@
                     android:fontFamily="@font/poppins_medium"
                     android:text="New Content"
                     android:textColor="@color/black_semi"
-                    android:textSize="@dimen/_12sdp" />
-
-
+                    android:textSize="@dimen/_11sdp" />
 
 
             </LinearLayout>
 
         </RelativeLayout>
-
 
 
     </LinearLayout>

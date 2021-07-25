@@ -13,8 +13,10 @@ import com.app.skillontario.utils.RecyclerItemClickListener;
 import com.app.skillorterio.R;
 import com.app.skillorterio.databinding.QuizAcBinding;
 
+import static com.app.skillontario.quiz.QuizStepAc.quizFinalResultModel;
+
 public class QuizAc extends BaseActivity {
-    private TabAdapter tabAdapter;
+    //private TabAdapter tabAdapter;
     private QuizAcBinding binding;
     AdapterCong adapter2;
 
@@ -43,25 +45,13 @@ public class QuizAc extends BaseActivity {
 
     private void showRecycler() {
         binding.recyCong.setHasFixedSize(true);
-        adapter2 = new AdapterCong(QuizAc.this);
+        adapter2 = new AdapterCong(QuizAc.this, quizFinalResultModel);
         binding.recyCong.setAdapter(adapter2);
 
-        binding.recyCong.addOnItemTouchListener(new RecyclerItemClickListener(QuizAc.this, (view, position) -> {
+       /* binding.recyCong.addOnItemTouchListener(new RecyclerItemClickListener(QuizAc.this, (view, position) -> {
 
-        }));
+        }));*/
     }
-
-/*   private void setAdapter() {
-       tabAdapter = new TabAdapter(getSupportFragmentManager(), FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
-       tabAdapter.addFragment(new QuizChildFragment("1"), "");
-       tabAdapter.addFragment(new QuizChildFragment("2"), "");
-       tabAdapter.addFragment(new QuizChildFragment("3"), "");
-       tabAdapter.addFragment(new QuizChildFragment("4"), "");
-       tabAdapter.addFragment(new QuizChildFragment("5"), "");
-
-
-       binding.viewPager.setAdapter(tabAdapter);
-   }*/
 
 
     @Override
@@ -87,5 +77,11 @@ public class QuizAc extends BaseActivity {
         intent.putExtra(Intent.EXTRA_TITLE, "Sample App");
 
         startActivity(Intent.createChooser(intent, "Share Link"));
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        quizFinalResultModel = null;
     }
 }

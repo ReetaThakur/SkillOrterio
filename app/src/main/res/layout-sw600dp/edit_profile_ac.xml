@@ -198,7 +198,7 @@
                         android:layout_marginTop="@dimen/_25sdp"
                         android:orientation="horizontal">
 
-                        <TextView
+                        <me.grantland.widget.AutofitTextView
                             android:id="@+id/s1"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
@@ -206,19 +206,20 @@
                             android:layout_weight="1"
                             android:background="@drawable/edit_text_background"
                             android:backgroundTint="@color/layer_select"
-
+                            android:singleLine="true"
                             android:fontFamily="@font/poppins_medium"
                             android:gravity="center"
                             android:text="Primary School"
                             android:textColor="@color/white"
                             android:textSize="@dimen/_12sdp" />
 
-                        <TextView
+                        <me.grantland.widget.AutofitTextView
                             android:id="@+id/s2"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_marginLeft="@dimen/_2sdp"
                             android:layout_weight="1"
+                            android:singleLine="true"
                             android:background="@drawable/edit_text_background"
                             android:fontFamily="@font/poppins_medium"
                             android:gravity="center"

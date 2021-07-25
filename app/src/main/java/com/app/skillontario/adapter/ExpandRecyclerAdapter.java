@@ -1,5 +1,7 @@
 package com.app.skillontario.adapter;
 
+import android.os.Build;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -54,11 +56,11 @@ public class ExpandRecyclerAdapter extends
         holder.nameTv.setText(sampleGroupBean.getName());
         if (sampleGroupBean.isExpandable()) {
             holder.foldIv.setVisibility(View.VISIBLE);
-           // holder.nameTv.setVisibility(View.VISIBLE);
+            // holder.nameTv.setVisibility(View.VISIBLE);
             holder.foldIv.setImageResource(isExpanding ? R.drawable.ic_arrow_expanding : R.drawable.ic_arrow_folding);
         } else {
             holder.foldIv.setVisibility(View.INVISIBLE);
-           // holder.nameTv.setVisibility(View.GONE);
+            // holder.nameTv.setVisibility(View.GONE);
 
         }
 
@@ -67,10 +69,17 @@ public class ExpandRecyclerAdapter extends
     @Override
     public void onBindChildViewHolder(ChildVH holder, SampleGroupBean groupBean, SampleChildBean sampleChildBean) {
         holder.nameTv.setText(sampleChildBean.getName());
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            holder.nameTv.setText(Html.fromHtml(sampleChildBean.getName(), Html.FROM_HTML_MODE_COMPACT));
+        } else {
+            holder.nameTv.setText(Html.fromHtml(sampleChildBean.getName()));
+        }
+
         if (groupBean.isExpandable()) {
             holder.nameTv.setVisibility(View.VISIBLE);
             holder.linearLayout.setVisibility(View.VISIBLE);
-        }else {
+        } else {
             holder.nameTv.setVisibility(View.GONE);
             holder.linearLayout.setVisibility(View.GONE);
         }

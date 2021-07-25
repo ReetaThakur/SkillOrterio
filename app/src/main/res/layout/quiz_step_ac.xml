@@ -64,7 +64,7 @@
                             android:layout_marginStart="@dimen/_5sdp"
                             android:layout_marginEnd="@dimen/_7sdp"
                             android:layout_weight="1"
-                            android:max="5"
+                            android:max="10"
                             android:progress="1"
                             android:progressBackgroundTint="@color/white"
                             android:progressTint="@color/buttonColor"
@@ -78,7 +78,7 @@
                             android:gravity="center"
                             android:paddingTop="@dimen/_2sdp"
                             android:singleLine="true"
-                            android:text="1/5"
+                            android:text="1/10"
                             android:textColor="#272F35"
                             android:textSize="@dimen/_11sdp" />
 
@@ -105,20 +105,20 @@
                     android:paddingLeft="@dimen/_6sdp"
                     android:paddingTop="@dimen/_2sdp"
                     android:paddingRight="@dimen/_10sdp"
-                    android:text="General"
-                    android:textAllCaps="false"
+                    android:text="@string/general"
+                    android:textAllCaps="true"
                     android:textColor="@color/white"
-                    android:textSize="15sp" />
+                    android:textSize="@dimen/_9sdp" />
 
                 <TextView
-                    android:id="@+id/question"
+                    android:id="@+id/tv_question"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_4sdp"
-                    android:fontFamily="@font/poppins_bold"
+                    android:fontFamily="@font/poppins_medium"
                     android:text="@string/q_temp"
-                    android:textColor="#000000"
-                    android:textSize="19sp" />
+                    android:textColor="#272F35"
+                    android:textSize="@dimen/_12sdp" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rvItems"
@@ -128,8 +128,7 @@
                     android:orientation="vertical"
                     android:visibility="visible"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    tools:itemCount="4"
-                    tools:listitem="@layout/quiz_step_item_a" />
+                    />
 
                 <LinearLayout
                     android:id="@+id/progressQues"
@@ -146,8 +145,8 @@
             <LinearLayout
                 android:id="@+id/done"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginTop="@dimen/_2sdp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
                 android:background="@drawable/ic_rectangle__done_button"
                 android:gravity="center"
                 android:orientation="horizontal">

@@ -9,22 +9,35 @@ import androidx.core.content.ContextCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.app.skillontario.activities.BookmarkAc;
+import com.app.skillontario.models.careerListModel.CareerListDetails;
 import com.app.skillorterio.R;
 import com.app.skillorterio.databinding.AdapterNotificationBinding;
 import com.app.skillorterio.databinding.BookmarkItemBinding;
+import com.squareup.picasso.Picasso;
 
 import org.jetbrains.annotations.NotNull;
 
-public class BookmarkAdapter extends RecyclerView.Adapter<BookmarkAdapter.ViewHolder> {
+import java.util.ArrayList;
 
+public class BookmarkAdapter extends RecyclerView.Adapter<BookmarkAdapter.ViewHolder> {
+    BookmarkAc bookmarkAc;
+    ArrayList<CareerListDetails> careerListDetails = new ArrayList<>();
+    DeleteBookMark deleteBookMark;
 
     Context context;
     boolean clickBookmark = false;
-    int[] dra = new int[]{R.drawable.home_main_img1, R.drawable.temp_b1, R.drawable.temp_b2, R.drawable.home_main_img1};
+    //  int[] dra = new int[]{R.drawable.home_main_img1, R.drawable.temp_b1, R.drawable.temp_b2, R.drawable.home_main_img1};
 
     public BookmarkAdapter(Context context) {
         this.context = context;
 
+    }
+
+    public BookmarkAdapter(BookmarkAc bookmarkAc, ArrayList<CareerListDetails> careerListDetails, DeleteBookMark deleteBookMark) {
+        this.bookmarkAc = bookmarkAc;
+        this.careerListDetails = careerListDetails;
+        this.deleteBookMark = deleteBookMark;
     }
 
 
@@ -35,7 +48,12 @@ public class BookmarkAdapter extends RecyclerView.Adapter<BookmarkAdapter.ViewHo
 
     @Override
     public int getItemCount() {
-        return 6;
+        try {
+            return careerListDetails.size();
+        } catch (Exception e) {
+            return 0;
+        }
+
     }
 
     @Override
@@ -45,6 +63,7 @@ public class BookmarkAdapter extends RecyclerView.Adapter<BookmarkAdapter.ViewHo
         viewHolder.binding.imgBookmark.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                deleteBookMark.delete(position, careerListDetails.get(position).getbId(), careerListDetails.get(position).getId());
                 if (clickBookmark) {
                     clickBookmark = false;
                     viewHolder.binding.imgBookmark.setImageResource(R.drawable.bookmark_not_fill);
@@ -55,8 +74,19 @@ public class BookmarkAdapter extends RecyclerView.Adapter<BookmarkAdapter.ViewHo
             }
         });
 
+        //if(careerListDetails.get(position).get)
 
-        if (position == 0) {
+        try {
+            Picasso.with(bookmarkAc).load(careerListDetails.get(position).getImage()).into(viewHolder.binding.imagePerson);
+            viewHolder.binding.textCons.setText(careerListDetails.get(position).getJobSector());
+            viewHolder.binding.textWork.setText(careerListDetails.get(position).getJobProfile());
+            viewHolder.binding.textMoney.setText(careerListDetails.get(position).getFee());
+
+        } catch (Exception e) {
+        }
+
+
+  /*      if (position == 0) {
             //viewHolder.binding.imgBackground.setColorFilter(ContextCompat.getColor(context, R.color.home_color1));
             viewHolder.binding.imgOvl.setColorFilter(ContextCompat.getColor(context, R.color.home_oval_color1));
             viewHolder.binding.imagePerson.setImageResource(R.drawable.new_person1);
@@ -98,7 +128,7 @@ public class BookmarkAdapter extends RecyclerView.Adapter<BookmarkAdapter.ViewHo
             viewHolder.binding.imagePerson.setImageResource(R.drawable.new_person1);
             viewHolder.binding.textCons.setText("Technology");
             viewHolder.binding.textWork.setText("Photographer");
-        }
+        }*/
 
     }
 
@@ -124,6 +154,19 @@ public class BookmarkAdapter extends RecyclerView.Adapter<BookmarkAdapter.ViewHo
     @Override
     public int getItemViewType(int position) {
         return position;
+    }
+
+    public interface DeleteBookMark {
+        public void delete(int position, String Bid, String Id);
+    }
+
+    public void addList(ArrayList<CareerListDetails> listDetail) {
+        if (listDetail != null) {
+            if (listDetail.size() > 0) {
+                this.careerListDetails.addAll(listDetail);
+                notifyDataSetChanged();
+            }
+        }
     }
 
 }
