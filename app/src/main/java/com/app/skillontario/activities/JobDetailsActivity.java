@@ -35,6 +35,7 @@ import com.app.skillorterio.databinding.ActivitySettingBinding;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import static com.app.skillontario.adapter.PopularCareerAdapter.numberOfPerson;
@@ -47,7 +48,6 @@ public class JobDetailsActivity extends BaseActivity implements ApiResponseError
     private boolean clickBookMark = false;
     String modal_Id;
     List<SampleGroupBean> list = new ArrayList<>();
-
 
     ArrayList<CareerListDetails> careerListDetails = new ArrayList<>();
     ArrayList<ResourceURLModal> resourceURLModalArrayList = new ArrayList<>();
@@ -106,9 +106,11 @@ public class JobDetailsActivity extends BaseActivity implements ApiResponseError
                 if (clickBookMark) {
                     clickBookMark = false;
                     binding.imgBookmark.setImageResource(R.drawable.ic_job_uppar1);
+                    removeBookmark(careerListDetails.get(0).getbId(), careerListDetails.get(0).getId());
                 } else {
                     clickBookMark = true;
                     binding.imgBookmark.setImageResource(R.drawable.job_bookmark_click);
+                    addBookmark(careerListDetails.get(0), careerListDetails.get(0).getId());
                 }
             }
         });
@@ -125,6 +127,22 @@ public class JobDetailsActivity extends BaseActivity implements ApiResponseError
         });
 
 
+    }
+
+    void addBookmark(CareerListDetails list, String careerId) {
+        API_INTERFACE.addCareerBookmark(RequestBodyGenerator.setBookmark(list, MySharedPreference.getInstance().getStringData(SharedPrefsConstants.USER_ID), careerId)).enqueue(
+                new ApiCallBack<>(JobDetailsActivity.this, this, 102, false));
+    }
+
+    void removeBookmark(String bid, String careerId) {
+        HashMap<String, Object> object = new HashMap<>();
+
+        object.put("careerId", careerId);
+        object.put("userId", MySharedPreference.getInstance().getStringData(SharedPrefsConstants.USER_ID));
+        object.put("bId", bid);
+
+        API_INTERFACE.deleteCareerBookmark(object).enqueue(
+                new ApiCallBack<>(JobDetailsActivity.this, this, 103, false));
     }
 
     private void CallApi(String carrerId) {
