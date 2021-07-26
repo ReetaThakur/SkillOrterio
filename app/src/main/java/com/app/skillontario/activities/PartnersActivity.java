@@ -1,7 +1,9 @@
 package com.app.skillontario.activities;
 
+import android.content.Intent;
 import android.view.View;
 
+import com.app.skillontario.callbacks.KeywordSelected;
 import com.app.skillontario.models.PartnerModal;
 import com.app.skillontario.utils.GridSpacingItemDecoration;
 import com.app.skillorterio.R;
@@ -113,66 +115,132 @@ public class PartnersActivity extends BaseActivity implements ApiResponseErrorCa
                     if (responseModel.getOutput().size() > 0) {
                         if (responseModel.getOutput().get(0).getPlatinum() != null) {
                             if (responseModel.getOutput().get(0).getPlatinum().size() > 0) {
-                                binding.rlPlatinumPartners.setVisibility(View.VISIBLE);
-                                PartnersAdapter adapter = new PartnersAdapter(responseModel.getOutput().get(0).getPlatinum(), PartnersActivity.this);
+                               // binding.rlPlatinumPartners.setVisibility(View.VISIBLE);
+                                PartnersAdapter adapter = new PartnersAdapter(responseModel.getOutput().get(0).getPlatinum(), PartnersActivity.this, text -> {
+                                    Intent intent=new Intent(this, NewsDetailAc.class);
+                                    intent.putExtra("url",text);
+                                    //intent.putExtra("title",getString(R.string.platinum_partners));
+                                    intent.putExtra("title","Platinum Partners");
+                                    startActivity(intent);
+                                });
                                 binding.rcyPlatinumPartners.setAdapter(adapter);
                             } else {
-                                binding.rlPlatinumPartners.setVisibility(View.GONE);
+                                binding.rlPlatinum.setVisibility(View.GONE);
+                                binding.rlPlatinum2.setVisibility(View.GONE);
                             }
+                        }else {
+                            binding.rlPlatinum.setVisibility(View.GONE);
+                            binding.rlPlatinum2.setVisibility(View.GONE);
                         }
                         if (responseModel.getOutput().get(1).getPremium() != null) {
                             if (responseModel.getOutput().get(1).getPremium().size() > 0) {
-                                binding.rlPremiumPartners.setVisibility(View.VISIBLE);
-                                PartnersAdapter adapter = new PartnersAdapter(responseModel.getOutput().get(1).getPremium(), PartnersActivity.this);
+                               // binding.rlPremiumPartners.setVisibility(View.VISIBLE);
+                                PartnersAdapter adapter = new PartnersAdapter(responseModel.getOutput().get(1).getPremium(), PartnersActivity.this, text -> {
+                                    Intent intent=new Intent(this, NewsDetailAc.class);
+                                    intent.putExtra("url",text);
+                                    //intent.putExtra("title",getString(R.string.premium_partners));
+                                    intent.putExtra("title","Premium Partners");
+                                    startActivity(intent);
+                                });
                                 binding.rcyPremiumPartners.setAdapter(adapter);
                             } else {
-                                binding.rlPremiumPartners.setVisibility(View.GONE);
+                                binding.rlPremium.setVisibility(View.GONE);
+                                binding.rlPremium2.setVisibility(View.GONE);
                             }
+                        }else {
+                            binding.rlPremium.setVisibility(View.GONE);
+                            binding.rlPremium2.setVisibility(View.GONE);
                         }
                         if (responseModel.getOutput().get(2).getSilver() != null) {
                             if (responseModel.getOutput().get(2).getSilver().size() > 0) {
                                 binding.rlSilver.setVisibility(View.VISIBLE);
-                                PartnersAdapter adapter = new PartnersAdapter(responseModel.getOutput().get(2).getSilver(), PartnersActivity.this);
+                                PartnersAdapter adapter = new PartnersAdapter(responseModel.getOutput().get(2).getSilver(), PartnersActivity.this, text -> {
+                                    Intent intent=new Intent(this, NewsDetailAc.class);
+                                    intent.putExtra("url",text);
+                                    //intent.putExtra("title",getString(R.string.silver_partners));
+                                    intent.putExtra("title","Silver Partners");
+                                    startActivity(intent);
+                                });
                                 binding.rcySilver.setAdapter(adapter);
                             } else {
                                 binding.rlSilver.setVisibility(View.GONE);
+                                binding.rlSilver2.setVisibility(View.GONE);
                             }
+                        }else {
+                            binding.rlSilver.setVisibility(View.GONE);
+                            binding.rlSilver2.setVisibility(View.GONE);
                         }
                         if (responseModel.getOutput().get(3).getGold() != null) {
                             if (responseModel.getOutput().get(3).getGold().size() > 0) {
                                 binding.rlGold.setVisibility(View.VISIBLE);
-                                PartnersAdapter adapter = new PartnersAdapter(responseModel.getOutput().get(3).getGold(), PartnersActivity.this);
+                                PartnersAdapter adapter = new PartnersAdapter(responseModel.getOutput().get(3).getGold(), PartnersActivity.this, text -> {
+                                    Intent intent=new Intent(this, NewsDetailAc.class);
+                                    intent.putExtra("url",text);
+                                    intent.putExtra("title",getString(R.string.gold_partners));
+                                    startActivity(intent);
+                                });
                                 binding.rcyGold.setAdapter(adapter);
                             } else {
                                 binding.rlGold.setVisibility(View.GONE);
+                                binding.rlGold2.setVisibility(View.GONE);
                             }
+                        }else {
+                            binding.rlGold.setVisibility(View.GONE);
+                            binding.rlGold2.setVisibility(View.GONE);
                         }
                         if (responseModel.getOutput().get(4).getBronze() != null) {
                             if (responseModel.getOutput().get(4).getBronze().size() > 0) {
                                 binding.rlBronze.setVisibility(View.VISIBLE);
-                                PartnersAdapter adapter = new PartnersAdapter(responseModel.getOutput().get(4).getBronze(), PartnersActivity.this);
+                                PartnersAdapter adapter = new PartnersAdapter(responseModel.getOutput().get(4).getBronze(), PartnersActivity.this, text -> {
+                                    Intent intent=new Intent(this, NewsDetailAc.class);
+                                    intent.putExtra("url",text);
+                                    intent.putExtra("title",getString(R.string.bronze_partners));
+                                    startActivity(intent);
+                                });
                                 binding.rcyBronze.setAdapter(adapter);
                             } else {
                                 binding.rlBronze.setVisibility(View.GONE);
+                                binding.rlBronze2.setVisibility(View.GONE);
                             }
+                        }else {
+                            binding.rlBronze.setVisibility(View.GONE);
+                            binding.rlBronze2.setVisibility(View.GONE);
                         }
                         if (responseModel.getOutput().get(5).getFriends() != null) {
                             if (responseModel.getOutput().get(5).getFriends().size() > 0) {
                                 binding.rlFriends.setVisibility(View.VISIBLE);
-                                PartnersAdapter adapter = new PartnersAdapter(responseModel.getOutput().get(5).getFriends(), PartnersActivity.this);
+                                PartnersAdapter adapter = new PartnersAdapter(responseModel.getOutput().get(5).getFriends(), PartnersActivity.this, text -> {
+                                    Intent intent=new Intent(this, NewsDetailAc.class);
+                                    intent.putExtra("url",text);
+                                    intent.putExtra("title",getString(R.string.friends_partners));
+                                    startActivity(intent);
+                                });
                                 binding.rcyFriends.setAdapter(adapter);
                             } else {
                                 binding.rlFriends.setVisibility(View.GONE);
+                                binding.rlFriends2.setVisibility(View.GONE);
                             }
+                        }else {
+                            binding.rlFriends.setVisibility(View.GONE);
+                            binding.rlFriends2.setVisibility(View.GONE);
                         }
                         if (responseModel.getOutput().get(6).getGovernment() != null) {
                             if (responseModel.getOutput().get(6).getGovernment().size() > 0) {
                                 binding.rlGovernmentPartners.setVisibility(View.VISIBLE);
-                                PartnersAdapter adapter = new PartnersAdapter(responseModel.getOutput().get(6).getGovernment(), PartnersActivity.this);
+                                PartnersAdapter adapter = new PartnersAdapter(responseModel.getOutput().get(6).getGovernment(), PartnersActivity.this, text -> {
+                                    Intent intent=new Intent(this, NewsDetailAc.class);
+                                    intent.putExtra("url",text);
+                                    intent.putExtra("title",getString(R.string.government_partners));
+                                    startActivity(intent);
+                                });
                                 binding.rcyGovernmentPartners.setAdapter(adapter);
                             } else {
                                 binding.rlGovernmentPartners.setVisibility(View.GONE);
+                                binding.rlGovernment2.setVisibility(View.GONE);
                             }
+                        }else {
+                            binding.rlGovernmentPartners.setVisibility(View.GONE);
+                            binding.rlGovernment2.setVisibility(View.GONE);
                         }
                     }
                 }

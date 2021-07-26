@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.app.skillontario.callbacks.KeywordSelected;
 import com.app.skillontario.models.PlatinumModal;
 import com.app.skillorterio.R;
 import com.app.skillontario.activities.NewsDetailAc;
@@ -22,10 +23,12 @@ public class PartnersAdapter extends RecyclerView.Adapter<PartnersAdapter.ViewHo
 
     private ArrayList<PlatinumModal> listingDetails;
     private Context context;
+    private KeywordSelected callback;
 
-    public PartnersAdapter(ArrayList<PlatinumModal> listingDetails, PartnersActivity context) {
+    public PartnersAdapter(ArrayList<PlatinumModal> listingDetails, PartnersActivity context,KeywordSelected callback) {
         this.context = context;
         this.listingDetails =listingDetails;
+        this.callback = callback;
     }
 
     @NonNull
@@ -39,8 +42,10 @@ public class PartnersAdapter extends RecyclerView.Adapter<PartnersAdapter.ViewHo
     public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
         Picasso.with(context).load(listingDetails.get(position).getLogo()).into( holder.iv_image);
         holder.iv_image.setOnClickListener(v->{
+           // callback.onTextClick(listingDetails.get(position).getWebUrl());
             Intent intent=new Intent(context, NewsDetailAc.class);
             intent.putExtra("url",listingDetails.get(position).getWebUrl());
+            intent.putExtra("title",listingDetails.get(position).getTitle());
             context.startActivity(intent);
 
         });

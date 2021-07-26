@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -16,9 +17,9 @@
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginLeft="@dimen/_16sdp"
-            android:layout_marginRight="@dimen/_16sdp"
-            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
             android:background="@drawable/pshad1"
             android:scrollbars="none">
 
@@ -26,221 +27,291 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
+
                 <RelativeLayout
+                    android:id="@+id/rl_Platinum_2"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginStart="@dimen/_6sdp"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/white"
+                        android:gravity="center|left"
+                        android:fontFamily="@font/poppins_medium"
+                        android:text="@string/platinum_partners"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"/>
+                </RelativeLayout>
+
+                <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/ic_rectangle_pat1"
-                    >
-                    <RelativeLayout
-                        android:id="@+id/rl_Platinum_Partners"
-                        android:layout_width="match_parent"
-                        android:layout_height="40dp"
-                        android:background="@color/white">
+                    android:layout_margin="@dimen/_6sdp"
+                    app:cardCornerRadius="@dimen/_6sdp"
+                    app:cardElevation="@dimen/_3sdp">
 
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:background="@color/white"
-                            android:gravity="center|left"
-                            android:fontFamily="@font/poppins_medium"
-                            android:text="@string/platinum_partners"
-                            android:textColor="@color/black"
-                            android:textSize="14sp"/>
-                    </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/rl_Platinum"
+                    android:layout_margin="@dimen/_6sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    >
                     <androidx.recyclerview.widget.RecyclerView
                             android:id="@+id/rcy_Platinum_Partners"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                        android:layout_below="@+id/rl_Platinum_Partners"
                             android:background="@drawable/ic_rectangle_pat1"
                              />
                 </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+
                 <RelativeLayout
+                    android:id="@+id/rl_Premium_2"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginStart="@dimen/_6sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/white"
+                        android:gravity="center|left"
+                        android:fontFamily="@font/poppins_medium"
+                        android:text="@string/premium_partners"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"/>
+                </RelativeLayout>
+
+                <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_20sdp"
+                    app:cardCornerRadius="@dimen/_6sdp"
+                    android:layout_margin="@dimen/_6sdp"
+                    app:cardElevation="@dimen/_3sdp">
+
+                <RelativeLayout
+                    android:id="@+id/rl_Premium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_6sdp"
                     android:background="@drawable/ic_rectangle_pat1">
-
-                    <RelativeLayout
-                        android:id="@+id/rl_Premium_Partners"
-                        android:layout_width="match_parent"
-                        android:layout_height="40dp"
-                        android:background="@color/white">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:background="@color/white"
-                            android:gravity="center|left"
-                            android:fontFamily="@font/poppins_medium"
-                            android:text="@string/premium_partners"
-                            android:textColor="@color/black"
-                            android:textSize="14sp"/>
-                    </RelativeLayout>
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/rcy_Premium_Partners"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/rl_Premium_Partners" />
+                        />
 
                 </RelativeLayout>
+                </androidx.cardview.widget.CardView>
 
                 <RelativeLayout
+                    android:id="@+id/rl_silver_2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_20sdp"
-                    android:background="@color/white">
+                    android:layout_marginStart="@dimen/_6sdp"
+                    android:layout_marginTop="@dimen/_10sdp">
 
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/white"
+                        android:gravity="center|left"
+                        android:fontFamily="@font/poppins_medium"
+                        android:text="@string/silver_partners"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"/>
+                </RelativeLayout>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="@dimen/_6sdp"
+                    android:layout_margin="@dimen/_6sdp"
+                    app:cardElevation="@dimen/_3sdp">
                     <RelativeLayout
                         android:id="@+id/rl_silver"
                         android:layout_width="match_parent"
-                        android:layout_height="40dp"
-                        android:background="@color/white">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:background="@color/white"
-                            android:gravity="center|left"
-                            android:fontFamily="@font/poppins_medium"
-                            android:text="@string/silver_partners"
-                            android:textColor="@color/black"
-                            android:textSize="14sp"/>
-                    </RelativeLayout>
-
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/rcy_silver"
-                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/rl_silver" />
+                        android:layout_margin="@dimen/_6sdp"
+                        android:background="@drawable/ic_rectangle_pat1">
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rcy_silver"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            />
 
-                </RelativeLayout>
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+
+
                 <RelativeLayout
+                    android:id="@+id/rl_gold_2"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginStart="@dimen/_6sdp"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/white"
+                        android:gravity="center|left"
+                        android:fontFamily="@font/poppins_medium"
+                        android:text="@string/gold_partners"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"/>
+                </RelativeLayout>
+
+                <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    app:cardCornerRadius="@dimen/_6sdp"
+                    android:layout_margin="@dimen/_6sdp"
+                    app:cardElevation="@dimen/_3sdp">
+
+                <RelativeLayout
+                    android:id="@+id/rl_gold"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_6sdp"
                     android:background="@drawable/ic_rectangle_pat1">
-
-                    <RelativeLayout
-                        android:id="@+id/rl_gold"
-                        android:layout_width="match_parent"
-                        android:layout_height="40dp"
-                        android:background="@color/white">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:background="@color/white"
-                            android:gravity="center|left"
-                            android:fontFamily="@font/poppins_medium"
-                            android:text="@string/gold_partners"
-                            android:textColor="@color/black"
-                            android:textSize="14sp"/>
-                    </RelativeLayout>
-
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/rcy_gold"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/rl_gold" />
+                        />
 
                 </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+
                 <RelativeLayout
+                    android:id="@+id/rl_bronze_2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/white">
+                    android:layout_marginStart="@dimen/_6sdp"
+                    android:layout_marginTop="@dimen/_10sdp">
 
-                    <RelativeLayout
-                        android:id="@+id/rl_bronze"
+                    <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="40dp"
-                        android:background="@color/white">
+                        android:layout_height="match_parent"
+                        android:background="@color/white"
+                        android:gravity="center|left"
+                        android:fontFamily="@font/poppins_medium"
+                        android:text="@string/bronze_partners"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"/>
+                </RelativeLayout>
 
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:background="@color/white"
-                            android:gravity="center|left"
-                            android:fontFamily="@font/poppins_medium"
-                            android:text="@string/bronze_partners"
-                            android:textColor="@color/black"
-                            android:textSize="14sp"/>
-                    </RelativeLayout>
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="@dimen/_6sdp"
+                    android:layout_margin="@dimen/_6sdp"
+                    app:cardElevation="@dimen/_3sdp">
+
+                <RelativeLayout
+                    android:id="@+id/rl_bronze"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_6sdp"
+                    android:background="@drawable/ic_rectangle_pat1">
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/rcy_bronze"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/rl_bronze" />
+                         />
 
                 </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+
                 <RelativeLayout
+                    android:id="@+id/rl_friends_2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/white">
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginStart="@dimen/_6sdp"
+                    >
 
-                    <RelativeLayout
-                        android:id="@+id/rl_friends"
+                    <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="40dp"
-                        android:background="@color/white">
+                        android:layout_height="match_parent"
+                        android:background="@color/white"
+                        android:gravity="center|left"
+                        android:fontFamily="@font/poppins_medium"
+                        android:text="@string/friends_partners"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"/>
+                </RelativeLayout>
 
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:background="@color/white"
-                            android:gravity="center|left"
-                            android:fontFamily="@font/poppins_medium"
-                            android:text="@string/friends_partners"
-                            android:textColor="@color/black"
-                            android:textSize="14sp"/>
-                    </RelativeLayout>
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="@dimen/_6sdp"
+                    android:layout_margin="@dimen/_6sdp"
+                    app:cardElevation="@dimen/_3sdp">
+
+                <RelativeLayout
+                    android:id="@+id/rl_friends"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_6sdp"
+                    android:background="@drawable/ic_rectangle_pat1">
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/rcy_friends"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/rl_friends" />
+                         />
 
                 </RelativeLayout>
+                </androidx.cardview.widget.CardView>
 
                 <RelativeLayout
+                    android:id="@+id/rl_Government_2"
+                    android:layout_width="match_parent"
+                    android:layout_marginStart="@dimen/_6sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/white"
+                        android:gravity="center|left"
+                        android:fontFamily="@font/poppins_medium"
+                        android:text="@string/government_partners"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"></TextView>
+                </RelativeLayout>
+
+                <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/white">
+                    app:cardCornerRadius="@dimen/_6sdp"
+                    android:layout_margin="@dimen/_6sdp"
+                    app:cardElevation="@dimen/_3sdp">
 
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="-5sp"
-                        android:scaleType="fitXY"
-                        android:visibility="gone"
-                        android:src="@drawable/govt_patner"></ImageView>
-
-                    <RelativeLayout
-                        android:id="@+id/rl_Government_Partners"
-                        android:layout_width="match_parent"
-                        android:layout_height="40dp"
-                        android:background="@color/white">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:background="@color/white"
-                            android:gravity="center|left"
-                            android:fontFamily="@font/poppins_medium"
-                            android:text="@string/government_partners"
-                            android:textColor="@color/black"
-                            android:textSize="14sp"></TextView>
-                    </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/rl_Government_Partners"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_6sdp"
+                    android:background="@drawable/ic_rectangle_pat1">
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/rcy_Government_Partners"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/rl_Government_Partners" />
+                        />
 
                 </RelativeLayout>
+                </androidx.cardview.widget.CardView>
 
 
             </LinearLayout>
