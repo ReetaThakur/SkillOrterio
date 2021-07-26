@@ -457,7 +457,7 @@
                 </LinearLayout>
 
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/cv_signIn"
+                    android:id="@+id/cv_logout"
                     android:layout_width="match_parent"
                     android:layout_height="46dp"
                     android:layout_marginLeft="@dimen/_16sdp"

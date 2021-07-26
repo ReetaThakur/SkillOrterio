@@ -3,29 +3,42 @@ package com.app.skillontario.SignIn;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.content.res.AppCompatResources;
 
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 
+import com.app.skillontario.apiConnection.ApiCallBack;
+import com.app.skillontario.apiConnection.ApiResponseErrorCallback;
+import com.app.skillontario.apiConnection.RequestBodyGenerator;
 import com.app.skillontario.baseClasses.BaseActivity;
+import com.app.skillontario.baseClasses.BaseResponseModel;
+import com.app.skillontario.constants.SharedPrefsConstants;
+import com.app.skillontario.utils.MySharedPreference;
 import com.app.skillorterio.R;
 import com.app.skillorterio.databinding.ActivityChangePasswordBinding;
 import com.app.skillorterio.databinding.ActivityResetPasswordBinding;
 
-public class ChangePasswordActivity extends BaseActivity {
+import java.util.HashMap;
+
+import static com.app.skillontario.constants.ApiConstants.API_INTERFACE;
+
+public class ChangePasswordActivity extends BaseActivity implements ApiResponseErrorCallback {
 
     private ActivityChangePasswordBinding binding;
     Drawable myIcon;
+    ApiResponseErrorCallback apiResponseErrorCallback;
 
     @Override
     protected void initUi() {
         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_from_left);
         binding = (ActivityChangePasswordBinding) viewBaseBinding;
-
+        apiResponseErrorCallback = this;
         binding.actionBar.ivBack.setOnClickListener(v -> onBackPressed());
 
         binding.actionBar.tvTitle.setText(R.string.change_password);
@@ -68,8 +81,17 @@ public class ChangePasswordActivity extends BaseActivity {
         binding.cvSavePassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showToast("Password saved successfully");
-                onBackPressed();
+                //showToast("Password saved successfully");
+                //  onBackPressed();
+                if (validate()) {
+                    HashMap<String, Object> object = new HashMap<>();
+                    object.put("userId", MySharedPreference.getInstance().getStringData(SharedPrefsConstants.USER_ID));
+                    object.put("oldPass", binding.etOldPassword.getText().toString().trim());
+                    object.put("newPass", binding.etNewPassword.getText().toString().trim());
+
+                    API_INTERFACE.changePassword(object).enqueue(
+                            new ApiCallBack<>(ChangePasswordActivity.this, apiResponseErrorCallback, 01, true));
+                }
             }
         });
 
@@ -149,4 +171,48 @@ public class ChangePasswordActivity extends BaseActivity {
 
     }
 
+    @Override
+    public void getApiResponse(Object responseObject, int flag) {
+        if (flag == 01) {
+            try {
+                BaseResponseModel responseModel = (BaseResponseModel) responseObject;
+                if (responseModel.getStatus()) {
+                    Intent intent = new Intent(ChangePasswordActivity.this, SignInActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    MySharedPreference.getInstance().clearSharedPrefs();
+                    startActivity(intent);
+                    showToast(responseModel.getMessage());
+
+                } else {
+                    showToast(responseModel.getMessage());
+                }
+            } catch (Exception e) {
+            }
+        }
+    }
+
+    @Override
+    public void getApiError(Throwable t, int flag) {
+
+    }
+
+    private boolean validate() {
+        if (TextUtils.isEmpty(binding.etOldPassword.getText().toString())) {
+            // binding.etOldPassword.setError(getString(R.string.old_password));
+            showToast(getString(R.string.old_password));
+            return false;
+        } else if (TextUtils.isEmpty(binding.etNewPassword.getText().toString())) {
+            showToast(getString(R.string.enter_new_password));
+            //  binding.etNewPassword.setError(getString(R.string.enter_new_password));
+            return false;
+        } else if (TextUtils.isEmpty(binding.etConfirmPassword.getText().toString())) {
+            showToast(getString(R.string.please_confirm_password));
+            // binding.etConfirmPassword.setError(getString(R.string.please_confirm_password));
+            return false;
+        } else if (!binding.etConfirmPassword.getText().toString().equalsIgnoreCase(binding.etNewPassword.getText().toString())) {
+            showToast(getString(R.string.password_not_match));
+            return false;
+        }
+        return true;
+    }
 }

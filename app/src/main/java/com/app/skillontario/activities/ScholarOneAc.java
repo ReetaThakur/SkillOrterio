@@ -6,6 +6,7 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.app.skillontario.adapter.ScholarAdapter;
 import com.app.skillontario.apiConnection.ApiCallBack;
@@ -36,7 +37,7 @@ public class ScholarOneAc extends BaseActivity implements ApiResponseErrorCallba
     boolean isLoading = false;
     boolean hasNext = false;
     int pageNo = 1;
-    int Total_count = 20;
+    int Total_count = 10;
 
     @Override
     protected void initUi() {
@@ -51,22 +52,21 @@ public class ScholarOneAc extends BaseActivity implements ApiResponseErrorCallba
 
         setData(true);
         Peginattion();
+        refreshBookmark();
         //binding.rclick.setOnClickListener(v-> startActivity(new Intent(this,ScholarDetailAc.class)));
     }
 
-    private void setData(boolean cus) {
-        GetEventRequest getEventRequest = new GetEventRequest(ScholarOneAc.this);
-        getEventRequest.seteType("mgsafai");
-        getEventRequest.setEventId("");
-        getEventRequest.setPage(String.valueOf(pageNo));
-        getEventRequest.setPageLimit(String.valueOf(Total_count));
-        getEventRequest.setSearch("");
-        CallApi(getEventRequest, 10, cus);
-    }
-
-    private void CallApi(GetEventRequest getEventRequest, int flag, boolean customeFlag) {
-        API_INTERFACE.getScholarShip(RequestBodyGenerator.getEvent(getEventRequest)).enqueue(
-                new ApiCallBack<>(ScholarOneAc.this, apiResponseErrorCallback, flag, customeFlag));
+    void refreshBookmark() {
+        binding.refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                binding.refreshLayout.setRefreshing(true);
+                isLoading = false;
+                hasNext = false;
+                pageNo = 1;
+                setData(false);
+            }
+        });
     }
 
     private void Peginattion() {
@@ -99,6 +99,21 @@ public class ScholarOneAc extends BaseActivity implements ApiResponseErrorCallba
         });
     }
 
+    private void setData(boolean cus) {
+        GetEventRequest getEventRequest = new GetEventRequest(ScholarOneAc.this);
+        getEventRequest.seteType("mgsafai");
+        getEventRequest.setEventId("");
+        getEventRequest.setPage(String.valueOf(pageNo));
+        getEventRequest.setPageLimit(String.valueOf(Total_count));
+        getEventRequest.setSearch("");
+        CallApi(getEventRequest, 10, cus);
+    }
+
+    private void CallApi(GetEventRequest getEventRequest, int flag, boolean customeFlag) {
+        API_INTERFACE.getScholarShip(RequestBodyGenerator.getEvent(getEventRequest)).enqueue(
+                new ApiCallBack<>(ScholarOneAc.this, apiResponseErrorCallback, flag, customeFlag));
+    }
+
 
     @Override
     public void onBackPressed() {
@@ -116,6 +131,7 @@ public class ScholarOneAc extends BaseActivity implements ApiResponseErrorCallba
 
     @Override
     public void getApiResponse(Object responseObject, int flag) {
+        binding.refreshLayout.setRefreshing(false);
         if (flag == 10) {
             BaseResponseModel<ArrayList<ScholarShipModal>> responseModel = (BaseResponseModel<ArrayList<ScholarShipModal>>) responseObject;
             try {

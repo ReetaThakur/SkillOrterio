@@ -1,11 +1,14 @@
 package com.app.skillontario.models;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
 
-public class NewsModal implements Serializable {
+public class NewsModal implements Serializable, Parcelable {
     @SerializedName("_id")
     @Expose
     private String id;
@@ -42,6 +45,41 @@ public class NewsModal implements Serializable {
     @SerializedName("__v")
     @Expose
     private Integer v;
+
+    public NewsModal(Parcel in) {
+        id = in.readString();
+        lang = in.readString();
+        if (in.readByte() == 0) {
+            status = null;
+        } else {
+            status = in.readInt();
+        }
+        newsTitle = in.readString();
+        newsDesc = in.readString();
+        newsImage = in.readString();
+        newsDate = in.readString();
+        newsSouce = in.readString();
+        newsUrl = in.readString();
+        createdAt = in.readString();
+        updatedAt = in.readString();
+        if (in.readByte() == 0) {
+            v = null;
+        } else {
+            v = in.readInt();
+        }
+    }
+
+    public static final Creator<NewsModal> CREATOR = new Creator<NewsModal>() {
+        @Override
+        public NewsModal createFromParcel(Parcel in) {
+            return new NewsModal(in);
+        }
+
+        @Override
+        public NewsModal[] newArray(int size) {
+            return new NewsModal[size];
+        }
+    };
 
     public String getId() {
         return id;
@@ -139,4 +177,34 @@ public class NewsModal implements Serializable {
         this.v = v;
     }
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(id);
+        dest.writeString(lang);
+        if (status == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeInt(status);
+        }
+        dest.writeString(newsTitle);
+        dest.writeString(newsDesc);
+        dest.writeString(newsImage);
+        dest.writeString(newsDate);
+        dest.writeString(newsSouce);
+        dest.writeString(newsUrl);
+        dest.writeString(createdAt);
+        dest.writeString(updatedAt);
+        if (v == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeInt(v);
+        }
+    }
 }

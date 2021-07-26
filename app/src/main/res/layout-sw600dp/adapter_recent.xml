@@ -49,11 +49,12 @@
                     android:layout_weight="1"
                     android:orientation="vertical">
 
-                    <TextView
+                    <me.grantland.widget.AutofitTextView
                         android:id="@+id/tvHead"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppins_regular"
+                        android:maxLines="3"
                         android:paddingLeft="@dimen/_15sdp"
                         android:text="@string/discovery_day_cornwall_amp_sdg"
                         android:textColor="@color/black"

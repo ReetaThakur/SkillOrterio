@@ -51,12 +51,13 @@
                     android:layout_weight="1"
                     android:orientation="vertical">
 
-                    <TextView
+                    <me.grantland.widget.AutofitTextView
                         android:id="@+id/tvHead"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppins_medium"
                         android:paddingLeft="@dimen/_15sdp"
+                        android:maxLines="2"
                         android:text="Discovery day cornwell SDG"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_13sdp" />

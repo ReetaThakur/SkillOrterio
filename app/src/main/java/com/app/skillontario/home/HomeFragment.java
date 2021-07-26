@@ -1,18 +1,16 @@
 package com.app.skillontario.home;
 
 import android.content.Intent;
-import android.net.Uri;
-import android.util.Log;
 import android.view.View;
 
-import com.app.skillontario.activities.JobDetailsActivity;
-import com.app.skillontario.activities.NewsDetailAc;
+
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
 import com.app.skillontario.activities.NotificationActivity;
-import com.app.skillontario.activities.ScholarDetailAc;
+
 import com.app.skillontario.activities.ScholarOneAc;
 import com.app.skillontario.activities.SearchActivity;
 import com.app.skillontario.activities.TakeQuizActivity;
-import com.app.skillontario.adapter.EventAdapter;
 import com.app.skillontario.adapter.PopularCareerAdapter;
 import com.app.skillontario.adapter.RecentEventsAdapter;
 import com.app.skillontario.adapter.RecentNewsAdapter;
@@ -72,11 +70,13 @@ public class HomeFragment extends BaseFragment implements ApiResponseErrorCallba
         eventsModalArrayList.clear();
         MySharedPreference.getInstance().setBooleanData(SharedPrefsConstants.IS_HEADER, true);
 
-        callAPI();
+        callAPI(true);
+
 
         showPopularCareerRecycler();
         showRecentRecycler();
         showRecentNewsRecycler();
+        refreshBookmark();
 
         binding.imgExpolre.setOnClickListener(v -> {
             startActivity(new Intent(getActivity(), ScholarOneAc.class));
@@ -96,9 +96,9 @@ public class HomeFragment extends BaseFragment implements ApiResponseErrorCallba
 
         });
 
-        if(!MySharedPreference.getInstance().getStringData(NOTIFICATION_COUNT).equalsIgnoreCase("0")&&!MySharedPreference.getInstance().getStringData(NOTIFICATION_COUNT).isEmpty()){
-          //  notification_badge.setVisibility(View.VISIBLE);
-           // notification_badge.setText(MySharedPreference.getInstance().getStringData(NOTIFICATION_COUNT));
+        if (!MySharedPreference.getInstance().getStringData(NOTIFICATION_COUNT).equalsIgnoreCase("0") && !MySharedPreference.getInstance().getStringData(NOTIFICATION_COUNT).isEmpty()) {
+            //  notification_badge.setVisibility(View.VISIBLE);
+            // notification_badge.setText(MySharedPreference.getInstance().getStringData(NOTIFICATION_COUNT));
         }
 
         binding.rlFilter.setOnClickListener(v -> {
@@ -132,13 +132,23 @@ public class HomeFragment extends BaseFragment implements ApiResponseErrorCallba
         });
     }
 
-    void callAPI() {
+    void refreshBookmark() {
+        binding.refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                binding.refreshLayout.setRefreshing(true);
+                callAPI(false);
+            }
+        });
+    }
+
+    void callAPI(boolean c) {
 
         HashMap<String, Object> object = new HashMap<>();
         object.put("userId", MySharedPreference.getInstance().getStringData(SharedPrefsConstants.USER_ID));
 
         API_INTERFACE.getHomeData(object).enqueue(
-                new ApiCallBack<>(getActivity(), this, 12, true));
+                new ApiCallBack<>(getActivity(), this, 12, c));
     }
 
 
@@ -179,6 +189,7 @@ public class HomeFragment extends BaseFragment implements ApiResponseErrorCallba
 
     @Override
     public void getApiResponse(Object responseObject, int flag) {
+        binding.refreshLayout.setRefreshing(false);
         if (flag == 12) {
 
             try {

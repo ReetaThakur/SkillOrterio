@@ -18,6 +18,8 @@ import com.google.firebase.messaging.FirebaseMessaging;
 
 import org.json.JSONObject;
 
+import java.io.Serializable;
+
 import static com.app.skillontario.constants.AppConstants.FIREBASE_TOKEN;
 import static com.app.skillontario.constants.AppConstants.IS_WALK_THROUGH;
 import static com.app.skillontario.constants.SharedPrefsConstants.IS_NOTIFICATION;
@@ -127,7 +129,7 @@ public class SplashActivity extends BaseActivity {
 
                     if (typeClass.equalsIgnoreCase("news")) {
                         String url1 = object1.getString("newsUrl");
-                        Intent intent = new Intent(SplashActivity.this, NewsDetailAc.class);
+                        Intent intent = new Intent(SplashActivity.this, WebViewActivity.class);
                         intent.putExtra("url", url1);
                         startActivity(intent);
                         finishAffinity();
@@ -138,7 +140,7 @@ public class SplashActivity extends BaseActivity {
                         model.setResImage(object1.getString("resImage"));
                         model.setResDesc(object1.getString("resDesc"));
                         Intent intent = new Intent(SplashActivity.this, ResourcesDetailsActivity.class);
-                        intent.putExtra("resData", model);
+                        intent.putExtra("model", (Serializable) model);
                         startActivity(intent);
                         finishAffinity();
                     } else if (typeClass.equalsIgnoreCase("profile")) {

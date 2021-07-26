@@ -627,5 +627,8 @@
     <string name="no_bookmark">You have not bookmarked any careers</string>
     <string name="bookmarked">Bookmarked</string>
     <string name="general">General</string>
+    <string name="discover_more_retake_the_career_quiz">Discover more! Retake the career quiz.</string>
+    <string name="retake_quiz">RETAKE QUIZ</string>
+    <string name="enter_new_password">"Enter new password "</string>
 
 </resources>

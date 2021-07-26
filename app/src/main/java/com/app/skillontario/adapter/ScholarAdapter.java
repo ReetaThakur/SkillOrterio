@@ -16,21 +16,22 @@ import com.app.skillorterio.R;
 import com.app.skillorterio.databinding.ScollarItem1Binding;
 import com.squareup.picasso.Picasso;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class ScholarAdapter extends RecyclerView.Adapter<ScholarAdapter.MyViewHolder>{
+public class ScholarAdapter extends RecyclerView.Adapter<ScholarAdapter.MyViewHolder> {
     ArrayList<ScholarShipModal> scholarShipModalArrayList;
     ScholarOneAc activity;
 
     public ScholarAdapter(ArrayList<ScholarShipModal> scholarShipModalArrayList, ScholarOneAc scholarOneAc) {
-      this.scholarShipModalArrayList=scholarShipModalArrayList;
-      this.activity=scholarOneAc;
-     }
+        this.scholarShipModalArrayList = scholarShipModalArrayList;
+        this.activity = scholarOneAc;
+    }
 
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        ScollarItem1Binding scollarItem1Binding= DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()), R.layout.scollar_item1,parent,false);
+        ScollarItem1Binding scollarItem1Binding = DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()), R.layout.scollar_item1, parent, false);
         return new MyViewHolder(scollarItem1Binding);
     }
 
@@ -39,14 +40,14 @@ public class ScholarAdapter extends RecyclerView.Adapter<ScholarAdapter.MyViewHo
         holder.scollarItem1Binding.tvHead.setText(scholarShipModalArrayList.get(position).getTitle());
         Picasso.with(activity).load(scholarShipModalArrayList.get(position).getImage()).into(holder.scollarItem1Binding.ivItem);
 
-       holder.scollarItem1Binding.llMain.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View v) {
-               Intent intent=new Intent(activity, ScholarDetailAc.class);
-               intent.putExtra("scholar", scholarShipModalArrayList.get(position));
-               activity.startActivity(intent);
-           }
-       });
+        holder.scollarItem1Binding.llMain.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(activity, ScholarDetailAc.class);
+                intent.putExtra("scholar", (Serializable) scholarShipModalArrayList.get(position));
+                activity.startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -65,9 +66,10 @@ public class ScholarAdapter extends RecyclerView.Adapter<ScholarAdapter.MyViewHo
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         ScollarItem1Binding scollarItem1Binding;
+
         public MyViewHolder(ScollarItem1Binding scollarItem1Binding) {
             super(scollarItem1Binding.getRoot());
-            this.scollarItem1Binding=scollarItem1Binding;
+            this.scollarItem1Binding = scollarItem1Binding;
 
         }
     }

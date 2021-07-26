@@ -5,9 +5,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.text.Html;
 import android.text.TextUtils;
+import android.util.Log;
+import android.util.Patterns;
 import android.view.View;
+import android.webkit.URLUtil;
 import android.webkit.WebChromeClient;
 import android.webkit.WebResourceError;
 import android.webkit.WebResourceRequest;
@@ -16,14 +21,22 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 import com.app.skillontario.baseClasses.BaseActivity;
+import com.app.skillontario.models.NewsModal;
 import com.app.skillontario.quiz.QuizStepAc;
 import com.app.skillorterio.R;
 import com.app.skillorterio.databinding.NewsDetailAcBinding;
 import com.app.skillorterio.databinding.TakeQuizAcBinding;
+import com.bumptech.glide.Glide;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 public class NewsDetailAc extends BaseActivity {
     private NewsDetailAcBinding binding;
-    String newsModal, title;
+    String url, title;
+    NewsModal newsModal;
 
     @Override
     protected void initUi() {
@@ -34,23 +47,77 @@ public class NewsDetailAc extends BaseActivity {
 
         try {
             if (extras != null) {
-                newsModal = getIntent().getStringExtra("url");
+                url = getIntent().getStringExtra("url");
                 title = getIntent().getStringExtra("title");
             }
         } catch (Exception e) {
         }
 
-        if (newsModal != null && !newsModal.isEmpty()) {
-            loadData(newsModal);
+        try {
+            newsModal = getIntent().getParcelableExtra("model");
+        } catch (Exception e) {
         }
 
-        if (TextUtils.isEmpty(title)) {
-            return;
-        } else {
-            binding.actionBar.tvTitle.setText(title);
+        if (newsModal != null) {
+            if (TextUtils.isEmpty(newsModal.getNewsTitle())) {
+                return;
+            } else {
+                binding.newsLayout.tvNewsTitle.setText(newsModal.getNewsTitle());
+            }
+
+            binding.newsLayout.tvNewsDate.setText(changeDate(newsModal.getNewsDate()));
+
+            if (TextUtils.isEmpty(newsModal.getNewsImage())) {
+                //  binding.newsLayout.imageNews.setVisibility(View.GONE);
+                return;
+            } else {
+                Glide.with(this)
+                        .load(newsModal.getNewsImage()) // image url
+                        .placeholder(R.drawable.place_holder_news)
+                        .centerCrop()
+                        .into(binding.newsLayout.imageNews);
+            }
+
+            if (TextUtils.isEmpty(newsModal.getNewsDesc())) {
+                binding.newsLayout.tvNewsDesc.setVisibility(View.GONE);
+                return;
+            } else {
+                binding.newsLayout.tvNewsDesc.setVisibility(View.VISIBLE);
+                // binding.newsLayout.tvNewsDesc.setText(newsModal.getNewsDesc());
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                    binding.newsLayout.tvNewsDesc.setText(Html.fromHtml(newsModal.getNewsDesc(), Html.FROM_HTML_MODE_COMPACT));
+                } else {
+                    binding.newsLayout.tvNewsDesc.setText(Html.fromHtml(newsModal.getNewsDesc()));
+                }
+            }
+
+            if (!Patterns.WEB_URL.matcher(newsModal.getNewsUrl()).matches()) {
+                binding.cvWebsite.setVisibility(View.INVISIBLE);
+            } else {
+                binding.cvWebsite.setVisibility(View.VISIBLE);
+            }
+
+            //binding.cvWebsite.setOnClickListener(v -> startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(newsModal.getNewsUrl()))));
+
+            binding.cvWebsite.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    try {
+                        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(newsModal.getNewsUrl())));
+                    } catch (Exception e) {
+                        showToast("Url not supported");
+                    }
+                }
+            });
+
         }
 
-        binding.cvWebsite.setOnClickListener(v -> startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.skillsontario.com"))));
+
+        /*if (url != null && !url.isEmpty()) {
+            loadData(url);
+        }*/
+
+
     }
 
     private void loadData(String url) {
@@ -122,6 +189,40 @@ public class NewsDetailAc extends BaseActivity {
     public void onBackPressed() {
         super.onBackPressed();
         overridePendingTransition(R.anim.slide_in_from_left, R.anim.slide_out_from_right);
+    }
+
+    public String changeDate(String dateString) {
+        String dateStr = "", timeStr = "", finalDate = "";
+        try {
+
+            // .//String dateString = dateN;
+
+            String inPattern = "yyyy-MM-dd'T'HH:mm:ss.SSSXXX";
+            //   String outPatternDate = "yyyy-MM-dd";
+            String outPatternDate = "LLL-dd-yyyy";
+            String outPatternTime = "HH:mm aa";
+
+            SimpleDateFormat inFormat = new SimpleDateFormat(inPattern, Locale.getDefault());
+            SimpleDateFormat outFormat = new SimpleDateFormat(outPatternDate, Locale.getDefault());
+            SimpleDateFormat outFormatTime = new SimpleDateFormat(outPatternTime, Locale.getDefault());
+
+            try {
+                Date inDate = inFormat.parse(dateString);
+                dateStr = outFormat.format(inDate);
+                timeStr = outFormatTime.format(inDate);
+
+                Log.e("TEST", dateStr);
+                finalDate = "" + dateStr + " | " + timeStr;
+            } catch (ParseException e) {
+                e.printStackTrace();
+                finalDate = dateString;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            finalDate = dateString;
+        }
+
+        return finalDate;
     }
 
 }

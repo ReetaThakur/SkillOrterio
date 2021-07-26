@@ -16,6 +16,7 @@ import com.app.skillorterio.R;
 import com.app.skillorterio.databinding.ResourcesItemBinding;
 import com.squareup.picasso.Picasso;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 public class ResourcesAdapter extends RecyclerView.Adapter<ResourcesAdapter.MyViewHolder> {
@@ -46,7 +47,7 @@ public class ResourcesAdapter extends RecyclerView.Adapter<ResourcesAdapter.MyVi
             }
             holder.resourcesItemBinding.llMain.setOnClickListener(v -> {
                 Intent intent = new Intent(activity, ResourcesDetailsActivity.class);
-                intent.putExtra("resData", resourceModalArrayList.get(position));
+                intent.putExtra("model", (Serializable) resourceModalArrayList.get(position));
                 activity.startActivity(intent);
             });
         } catch (Exception e) {

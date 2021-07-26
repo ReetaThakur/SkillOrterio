@@ -18,6 +18,7 @@ import com.app.skillorterio.databinding.EventsItemBinding;
 import com.app.skillorterio.databinding.NewsItemBinding;
 import com.squareup.picasso.Picasso;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.MyViewHolder> {
@@ -47,7 +48,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.MyViewHolder> 
             }
             holder.newsItemBinding.llMain.setOnClickListener(v -> {
                 Intent intent = new Intent(activity, NewsDetailAc.class);
-                intent.putExtra("url", newsModalArrayList.get(position).getNewsUrl());
+                intent.putExtra("model", (Serializable) newsModalArrayList.get(position));
                 activity.startActivity(intent);
             });
         } catch (Exception e) {

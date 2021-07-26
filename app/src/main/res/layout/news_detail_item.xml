@@ -13,6 +13,7 @@
         android:paddingBottom="@dimen/_25sdp">
 
         <TextView
+            android:id="@+id/tv_newsTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins_regular"
@@ -22,6 +23,7 @@
             android:textSize="@dimen/_18sdp" />
 
         <TextView
+            android:id="@+id/tv_newsDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_5sdp"
@@ -32,6 +34,7 @@
             android:textSize="@dimen/_10sdp" />
 
         <ImageView
+            android:id="@+id/image_news"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_5sdp"
@@ -42,6 +45,7 @@
 
 
         <TextView
+            android:id="@+id/tv_newsDesc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_10sdp"
@@ -52,16 +56,19 @@
             android:textSize="@dimen/_12sdp" />
 
         <ImageView
+            android:id="@+id/image_news2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_16sdp"
             android:maxHeight="@dimen/_170sdp"
             android:minHeight="@dimen/_120sdp"
             android:scaleType="centerCrop"
-            android:src="@drawable/temp_n2" />
+            android:src="@drawable/temp_n2"
+            android:visibility="gone" />
 
 
         <TextView
+            android:id="@+id/tv_newsDesc2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_10sdp"
@@ -69,7 +76,8 @@
             android:lineSpacingExtra="@dimen/_4sdp"
             android:text="@string/tempd"
             android:textColor="@color/black_light"
-            android:textSize="@dimen/_12sdp" />
+            android:textSize="@dimen/_12sdp"
+            android:visibility="gone" />
 
     </LinearLayout>
 

@@ -31,7 +31,7 @@ public class BookmarkAc extends BaseActivity implements ApiResponseErrorCallback
     private BookmarkAcBinding binding;
     ApiResponseErrorCallback apiResponseErrorCallback;
     ArrayList<CareerListDetails> careerListDetails;
-    int Total_count = 10;
+
     BookmarkAdapter bookmarkAdapter;
     BookmarkAdapter.DeleteBookMark deleteBookMark;
     int position;
@@ -40,6 +40,7 @@ public class BookmarkAc extends BaseActivity implements ApiResponseErrorCallback
     boolean isLoading = false;
     boolean hasNext = false;
     int pageNo = 1;
+    int Total_count = 10;
 
     @Override
     protected void initUi() {

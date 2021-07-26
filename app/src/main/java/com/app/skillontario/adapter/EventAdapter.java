@@ -11,6 +11,7 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.app.skillontario.activities.NewsDetailAc;
+import com.app.skillontario.activities.WebViewActivity;
 import com.app.skillontario.models.EventsModal;
 import com.app.skillontario.utils.Utils;
 import com.app.skillorterio.R;
@@ -51,7 +52,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.MyViewHolder
                 }
             });
             holder.eventsItemBinding.eventRow.setOnClickListener(v -> {
-                Intent intent = new Intent(activity, NewsDetailAc.class);
+                Intent intent = new Intent(activity, WebViewActivity.class);
                 intent.putExtra("url", eventsModalArrayList.get(position).getEvtURL());
                 intent.putExtra("title", eventsModalArrayList.get(position).getEvtTitle());
                 activity.startActivity(intent);
