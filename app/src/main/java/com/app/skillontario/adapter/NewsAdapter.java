@@ -1,6 +1,7 @@
 package com.app.skillontario.adapter;
 
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
@@ -19,7 +20,11 @@ import com.app.skillorterio.databinding.NewsItemBinding;
 import com.squareup.picasso.Picasso;
 
 import java.io.Serializable;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Locale;
 
 public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.MyViewHolder> {
     ArrayList<NewsModal> newsModalArrayList;
@@ -44,7 +49,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.MyViewHolder> 
             Picasso.with(activity).load(newsModalArrayList.get(position).getNewsImage()).error(R.drawable.place_holder_news).placeholder(R.drawable.place_holder_news).into(holder.newsItemBinding.ivItem);
             holder.newsItemBinding.tvHead.setText(newsModalArrayList.get(position).getNewsTitle());
             if (newsModalArrayList.get(position).getNewsDate() != null) {
-                holder.newsItemBinding.tvDate.setText(Utils.DateFormateNews(newsModalArrayList.get(position).getNewsDate()));
+                holder.newsItemBinding.tvDate.setText(changeDate(newsModalArrayList.get(position).getNewsDate()));
             }
             holder.newsItemBinding.llMain.setOnClickListener(v -> {
                 Intent intent = new Intent(activity, NewsDetailAc.class);
@@ -82,6 +87,42 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.MyViewHolder> 
                 this.newsModalArrayList.addAll(output);
                 notifyDataSetChanged();
             }
+
+
         }
+    }
+
+    public String changeDate(String dateString) {
+        String dateStr = "", timeStr = "", finalDate = "";
+        try {
+
+            // .//String dateString = dateN;
+
+            String inPattern = "yyyy-MM-dd'T'HH:mm:ss.SSSXXX";
+            //   String outPatternDate = "yyyy-MM-dd";
+            String outPatternDate = "LLL-dd, yyyy";
+            String outPatternTime = "HH:mm aa";
+
+            SimpleDateFormat inFormat = new SimpleDateFormat(inPattern, Locale.getDefault());
+            SimpleDateFormat outFormat = new SimpleDateFormat(outPatternDate, Locale.getDefault());
+            SimpleDateFormat outFormatTime = new SimpleDateFormat(outPatternTime, Locale.getDefault());
+
+            try {
+                Date inDate = inFormat.parse(dateString);
+                dateStr = outFormat.format(inDate);
+                timeStr = outFormatTime.format(inDate);
+
+                Log.e("TEST", dateStr);
+                finalDate = "" + dateStr;
+            } catch (ParseException e) {
+                e.printStackTrace();
+                finalDate = dateString;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            finalDate = dateString;
+        }
+
+        return finalDate;
     }
 }

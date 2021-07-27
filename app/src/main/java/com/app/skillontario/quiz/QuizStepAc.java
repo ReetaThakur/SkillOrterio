@@ -172,11 +172,15 @@ public class QuizStepAc extends BaseActivity implements ApiResponseErrorCallback
         binding.tvCount.setText(count + "/" + binding.myProgress.getMax());
 
         //validate();
-        if (count <= countNextQuestion)
-            nextQuestion(count);
-        else {
-            if (count != countNextQuestionPlus)
-                nextQuestionAfterFive(count);
+        if (callFinal) {
+            nextQuestionAfterFive(count);
+        } else {
+            if (count <= countNextQuestion)
+                nextQuestion(count);
+            else {
+                if (count != countNextQuestionPlus)
+                    nextQuestionAfterFive(count);
+            }
         }
     }
 
@@ -358,9 +362,13 @@ public class QuizStepAc extends BaseActivity implements ApiResponseErrorCallback
     @Override
     public void callback(int pos) {  /// get Ans result
         checkCLick = true;
-        if (count > countNextQuestion) {
+        if (callFinal) {
             finalAnsHashMap.put(count, (ArrayList<String>) answerModels.get(pos).getCatIds());
-        } else
-            ansHashMap.put(count, (ArrayList<String>) answerModels.get(pos).getCatIds());
+        } else {
+            if (count > countNextQuestion) {
+                finalAnsHashMap.put(count, (ArrayList<String>) answerModels.get(pos).getCatIds());
+            } else
+                ansHashMap.put(count, (ArrayList<String>) answerModels.get(pos).getCatIds());
+        }
     }
 }

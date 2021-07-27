@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
@@ -28,11 +29,13 @@ import com.app.skillontario.utils.Utils;
 import com.app.skillorterio.R;
 import com.app.skillorterio.databinding.ActivitySignInBinding;
 import com.app.skillorterio.databinding.ActivitySignUpBinding;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import java.util.HashMap;
 
 import static com.app.skillontario.constants.ApiConstants.API_INTERFACE;
 import static com.app.skillontario.constants.AppConstants.FIREBASE_TOKEN;
+import static com.app.skillontario.constants.SharedPrefsConstants.GUEST_FLOW;
 import static com.app.skillontario.utils.Utils.getDeviceId;
 
 public class SignInActivity extends BaseActivity implements ApiResponseErrorCallback {
@@ -40,11 +43,13 @@ public class SignInActivity extends BaseActivity implements ApiResponseErrorCall
     private ActivitySignInBinding binding;
     Drawable myIcon;
     ApiResponseErrorCallback apiResponseErrorCallback;
+    String fcm = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im11a2VzaEBtYWlsaW5hdG9yLmNvbSIsImRldmljZUlkIjoiOTk5OTk5LTAwMDAtMDAwIiwiaWF0IjoxNjI0NTMxMjQ0LCJleHAiOjE2MjcxMjMyNDR9.0L8l7y2t7msJLjXKMo0w2KMjskk2hIKcEsOZ6aG5uLM";
+
     @Override
     protected void initUi() {
         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_from_left);
         binding = (ActivitySignInBinding) viewBaseBinding;
-        apiResponseErrorCallback=this;
+        apiResponseErrorCallback = this;
         binding.tvEmailError.setVisibility(View.GONE);
         binding.tvPasswordError.setVisibility(View.GONE);
         Utils.hideKeyBoard(SignInActivity.this);
@@ -77,7 +82,6 @@ public class SignInActivity extends BaseActivity implements ApiResponseErrorCall
 
                 binding.tvEmailError.setVisibility(View.GONE);
                 binding.tvPasswordError.setVisibility(View.GONE);
-                // Is_guest = MySharedPreference.getInstance().getBooleanData(SharedPrefsConstants.GUEST_FLOW);
                 MySharedPreference.getInstance().setBooleanData(SharedPrefsConstants.IS_HEADER, false);
 
                 if (Validation()) {
@@ -107,15 +111,16 @@ public class SignInActivity extends BaseActivity implements ApiResponseErrorCall
         });
 
         // binding.tvContinueAsGuest.setOnClickListener(v -> startActivity(new Intent(SignInActivity.this, BottomBarActivity.class)));
-        binding.tvHaveAnAccount.setOnClickListener(v -> startActivity(new Intent(SignInActivity.this, SignUpActivity.class)));
+        // binding.tvHaveAnAccount.setOnClickListener(v -> startActivity(new Intent(SignInActivity.this, SignUpActivity.class)));
         binding.tvHaveAnAccount1.setOnClickListener(v -> startActivity(new Intent(SignInActivity.this, SignUpActivity.class)));
 
 
         binding.tvContinueAsGuest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                MySharedPreference.getInstance().setBooleanData(SharedPrefsConstants.IS_HEADER, false);
-                // Is_guest = MySharedPreference.getInstance().getBooleanData(SharedPrefsConstants.GUEST_FLOW);
+
+                MySharedPreference.getInstance().setBooleanData(GUEST_FLOW, true);
+
                 SignUpModel signUpModel = new SignUpModel(SignInActivity.this);
                 signUpModel.setEmail("guest@gmail.com");
                 signUpModel.setPassword("123456");
@@ -154,7 +159,16 @@ public class SignInActivity extends BaseActivity implements ApiResponseErrorCall
         object.put("userType", "2");
         object.put("deviceId", getDeviceId(SignInActivity.this));
         object.put("deviceType", "android");
-        object.put("fcmToken", MySharedPreference.getInstance().getStringData(FIREBASE_TOKEN));
+
+        if (MySharedPreference.getInstance().getStringData(FIREBASE_TOKEN) != null) {
+            if (MySharedPreference.getInstance().getStringData(FIREBASE_TOKEN).equalsIgnoreCase("")) {
+                object.put("fcmToken", fcm);
+            } else
+                object.put("fcmToken", MySharedPreference.getInstance().getStringData(FIREBASE_TOKEN));
+        } else {
+            object.put("fcmToken", fcm);
+        }
+
 
         String lang = MySharedPreference.getInstance().getStringData(SharedPrefsConstants.LANGUAGE_API);
         if (TextUtils.isEmpty(lang)) {
@@ -218,14 +232,44 @@ public class SignInActivity extends BaseActivity implements ApiResponseErrorCall
                     MySharedPreference.getInstance().setStringData(SharedPrefsConstants.USER_TOKEN, responseModel.getOutput().getToken());
                     MySharedPreference.getInstance().setStringData(SharedPrefsConstants.USER_ID, responseModel.getOutput().getId());
                     MySharedPreference.getInstance().SaveUserData(SharedPrefsConstants.USER_DATA, responseModel.getOutput());
-                   /* if (Is_guest) {
+                    if (MySharedPreference.getInstance().getBooleanData(SharedPrefsConstants.GUEST_FLOW)) {
+                        // finish();
+                        if (MySharedPreference.getInstance().getStringData(SharedPrefsConstants.GUEST_FLOW_CLASS)
+                                .equalsIgnoreCase("homeFragment")) {
+                            Intent intent = new Intent(SignInActivity.this, BottomBarActivity.class);
+                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                            startActivity(intent);
+                            finish();
+                        } else if (MySharedPreference.getInstance().getStringData(SharedPrefsConstants.GUEST_FLOW_CLASS)
+                                .equalsIgnoreCase("dashboardFragment")) {
+                            Intent intent = new Intent(SignInActivity.this, BottomBarActivity.class);
+                            intent.putExtra("if", "4");
+                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                            startActivity(intent);
+                            finish();
+                        } else if (MySharedPreference.getInstance().getStringData(SharedPrefsConstants.GUEST_FLOW_CLASS)
+                                .equalsIgnoreCase("BookmarkAc")) {
+                            Intent intent = new Intent(SignInActivity.this, BottomBarActivity.class);
+                            intent.putExtra("class", "BookmarkAc");
+                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                            startActivity(intent);
+                            finish();
+                        } else if (MySharedPreference.getInstance().getStringData(SharedPrefsConstants.GUEST_FLOW_CLASS)
+                                .equalsIgnoreCase("JobDetailsActivity")) {
+                            Intent intent = new Intent(SignInActivity.this, BottomBarActivity.class);
+                            intent.putExtra("class", "JobDetailsActivity");
+                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                            startActivity(intent);
+                            finish();
+                        } else {
+                            finish();
+                        }
+                    } else {
+                        Intent intent = new Intent(SignInActivity.this, BottomBarActivity.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        startActivity(intent);
                         finish();
-                    } else {*/
-                    Intent intent = new Intent(SignInActivity.this, BottomBarActivity.class);
-                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                    startActivity(intent);
-                    finish();
-                    //  }
+                    }
                     MySharedPreference.getInstance().setBooleanData(SharedPrefsConstants.GUEST_FLOW, false);
                 } else {
                     showToast(responseModel.message);
@@ -242,14 +286,44 @@ public class SignInActivity extends BaseActivity implements ApiResponseErrorCall
                     MySharedPreference.getInstance().setStringData(SharedPrefsConstants.USER_ID, responseModel.getOutput().getId());
                     MySharedPreference.getInstance().SaveUserData(SharedPrefsConstants.USER_DATA, responseModel.getOutput());
                     MySharedPreference.getInstance().setBooleanData(SharedPrefsConstants.GUEST_FLOW, true);
-              /*  if (Is_guest) {
-                    finish();
-                } else {*/
-                    Intent intent = new Intent(SignInActivity.this, BottomBarActivity.class);
-                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                    startActivity(intent);
-                    finish();
-                    //}
+                    if (MySharedPreference.getInstance().getBooleanData(GUEST_FLOW)) {
+
+                        if (MySharedPreference.getInstance().getStringData(SharedPrefsConstants.GUEST_FLOW_CLASS)
+                                .equalsIgnoreCase("homeFragment")) {
+                            Intent intent = new Intent(SignInActivity.this, BottomBarActivity.class);
+                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                            startActivity(intent);
+                            finish();
+                        } else if (MySharedPreference.getInstance().getStringData(SharedPrefsConstants.GUEST_FLOW_CLASS)
+                                .equalsIgnoreCase("dashboardFragment")) {
+                            Intent intent = new Intent(SignInActivity.this, BottomBarActivity.class);
+                            intent.putExtra("if", "4");
+                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                            startActivity(intent);
+                            finish();
+                        } else if (MySharedPreference.getInstance().getStringData(SharedPrefsConstants.GUEST_FLOW_CLASS)
+                                .equalsIgnoreCase("BookmarkAc")) {
+                            Intent intent = new Intent(SignInActivity.this, BottomBarActivity.class);
+                            intent.putExtra("class", "BookmarkAc");
+                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                            startActivity(intent);
+                            finish();
+                        } else if (MySharedPreference.getInstance().getStringData(SharedPrefsConstants.GUEST_FLOW_CLASS)
+                                .equalsIgnoreCase("JobDetailsActivity")) {
+                            Intent intent = new Intent(SignInActivity.this, BottomBarActivity.class);
+                            intent.putExtra("class", "JobDetailsActivity");
+                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                            startActivity(intent);
+                            finish();
+                        } else {
+                            finish();
+                        }
+                    } else {
+                        Intent intent = new Intent(SignInActivity.this, BottomBarActivity.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        startActivity(intent);
+                        finish();
+                    }
                     MySharedPreference.getInstance().setBooleanData(SharedPrefsConstants.GUEST_FLOW, true);
                 } else {
                     Utils.showToast(this, responseModel.getMessage());
@@ -263,6 +337,12 @@ public class SignInActivity extends BaseActivity implements ApiResponseErrorCall
 
     @Override
     public void getApiError(Throwable t, int flag) {
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
 
     }
 }

@@ -13,6 +13,9 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.app.skillontario.SignIn.SignInActivity;
+import com.app.skillontario.activities.BookmarkAc;
+import com.app.skillontario.activities.JobDetailsActivity;
 import com.app.skillontario.adapter.TabAdapter;
 import com.app.skillontario.baseClasses.BaseActivity;
 import com.app.skillontario.constants.AppConstants;
@@ -76,15 +79,7 @@ public class BottomBarActivity extends BaseActivity {
 
         //  binding.viewPager.setOnTouchListener((v, event) -> true);
 
-        try {
-            Intent intent = getIntent();
-            String id = intent.getStringExtra("if");
 
-            if (id.equalsIgnoreCase("2")) {
-                binding.bottomNavigationViewLinear.setCurrentActiveItem(1);
-            }
-        } catch (Exception e) {
-        }
 
 
 
@@ -125,8 +120,35 @@ public class BottomBarActivity extends BaseActivity {
                             binding.bottomNavigationViewLinear.setCurrentActiveItem(3);
                             Utils.Language = false;
                         }
+
+                        try {
+                            Intent intent = getIntent();
+                            String className = intent.getStringExtra("class");
+                            if (className.equalsIgnoreCase("BookmarkAc")) {
+                                Intent i = new Intent(BottomBarActivity.this, BookmarkAc.class);
+                                startActivity(i);
+                            } else if (className.equalsIgnoreCase("JobDetailsActivity")) {
+                                Intent i = new Intent(BottomBarActivity.this, JobDetailsActivity.class);
+                                startActivity(i);
+                            }
+
+                        } catch (Exception e) {
+                        }
+
+                        try {
+                            Intent intent = getIntent();
+                            String id = intent.getStringExtra("if");
+
+                            if (id.equalsIgnoreCase("2")) {
+                                binding.bottomNavigationViewLinear.setCurrentActiveItem(1);
+                            } else if (id.equalsIgnoreCase("4")) {
+                                binding.bottomNavigationViewLinear.setCurrentActiveItem(3);
+                            }
+                        } catch (Exception e) {
+                        }
+
                     }
-                }, 50);
+                }, 70);
 
     }
 

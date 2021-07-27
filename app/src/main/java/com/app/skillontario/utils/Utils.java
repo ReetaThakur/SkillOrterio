@@ -38,6 +38,7 @@ import androidx.fragment.app.Fragment;
 import com.app.skillontario.activities.SettingActivity;
 import com.app.skillontario.activities.SplashActivity;
 import com.app.skillontario.constants.AppConstants;
+import com.app.skillontario.constants.SharedPrefsConstants;
 import com.app.skillorterio.R;
 import com.app.skillontario.SignIn.SignInActivity;
 import com.app.skillontario.signup.SignUpActivity;
@@ -64,7 +65,7 @@ import java.util.TimeZone;
 
 
 public class Utils {
-    public static boolean Language=false;
+    public static boolean Language = false;
     public static String emailPattern = "^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,4})$";
 
     /**
@@ -250,6 +251,7 @@ public class Utils {
 
         return newDateString;
     }
+
     @SuppressLint({"NewApi", "LocalSuppress"})
     public static void AddEvent(Context context, String dtstart, String enddate, String title, String des) {
       /*  //MMM dd,yyyy hh:mm a"
@@ -262,10 +264,10 @@ public class Utils {
       */
         SimpleDateFormat S_df = new SimpleDateFormat("MMM dd,yyyy hh:mm a", Locale.ENGLISH);
         Calendar S_cal = new GregorianCalendar();
-       SimpleDateFormat E_df = new SimpleDateFormat("MMM dd,yyyy hh:mm a", Locale.ENGLISH);
+        SimpleDateFormat E_df = new SimpleDateFormat("MMM dd,yyyy hh:mm a", Locale.ENGLISH);
         Calendar E_cal = new GregorianCalendar();
-        Date S_date=null;
-        Date E_date=null;
+        Date S_date = null;
+        Date E_date = null;
         try {
             S_date = S_df.parse(dtstart);
             S_cal.setTime(S_date);
@@ -302,7 +304,7 @@ public class Utils {
         return newDateString;
     }
 
-    public static void guestMethod(final Context context) throws Exception {
+    public static void guestMethod(final Context context, String className) throws Exception {
         final BottomSheetDialog guestUser = new BottomSheetDialog(context);
         View sheetView = LayoutInflater.from(context).inflate(R.layout.geust_user_bottom, null);
         guestUser.setContentView(sheetView);
@@ -316,6 +318,7 @@ public class Utils {
         ll_Logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                MySharedPreference.getInstance().setStringData(SharedPrefsConstants.GUEST_FLOW_CLASS, className);
                 context.startActivity(new Intent(context, SignUpActivity.class));
                 guestUser.dismiss();
             }
@@ -323,6 +326,7 @@ public class Utils {
         ll_signin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                MySharedPreference.getInstance().setStringData(SharedPrefsConstants.GUEST_FLOW_CLASS, className);
                 context.startActivity(new Intent(context, SignInActivity.class));
                 guestUser.dismiss();
             }
@@ -330,7 +334,7 @@ public class Utils {
     }
 
     @SuppressLint("NewApi")
-    public static void openD(final Context context, String dtstart,  String enddate,String title, String des) {
+    public static void openD(final Context context, String dtstart, String enddate, String title, String des) {
         Dialog dialogMood = new Dialog(context);
         dialogMood.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialogMood.setCancelable(true);
@@ -340,7 +344,7 @@ public class Utils {
         }
         dialogMood.setContentView(R.layout.news_dialog);
         dialogMood.findViewById(R.id.done).setOnClickListener(view1 -> {
-            AddEvent(context, dtstart,enddate, title, des);
+            AddEvent(context, dtstart, enddate, title, des);
             dialogMood.dismiss();
         });
         dialogMood.show();
@@ -395,6 +399,7 @@ public class Utils {
             resources.updateConfiguration(configuration, displayMetrics);
         }
     }
+
     public final static boolean isValidEmail(CharSequence target) {
         return !TextUtils.isEmpty(target) && android.util.Patterns.EMAIL_ADDRESS.matcher(target).matches();
     }

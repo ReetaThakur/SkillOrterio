@@ -27,6 +27,8 @@ import com.app.skillorterio.databinding.ActivityTermsOfServicesBinding;
 import java.util.HashMap;
 
 import static com.app.skillontario.constants.ApiConstants.API_INTERFACE;
+import static com.app.skillontario.constants.AppConstants.FIREBASE_TOKEN;
+import static com.app.skillontario.constants.SharedPrefsConstants.GUEST_FLOW;
 import static com.app.skillontario.constants.SharedPrefsConstants.USER_ID;
 import static com.app.skillontario.utils.Utils.updatLocalLanguage;
 
@@ -92,6 +94,17 @@ public class SettingActivity extends BaseActivity implements ApiResponseErrorCal
 
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (MySharedPreference.getInstance().getBooleanData(GUEST_FLOW)) {
+            binding.cvLogout.setVisibility(View.GONE);
+            binding.lChangePassword.setVisibility(View.GONE);
+        } else {
+            binding.cvLogout.setVisibility(View.VISIBLE);
+            binding.lChangePassword.setVisibility(View.VISIBLE);
+        }
+    }
 
     @Override
     protected int getLayoutById() {
@@ -116,12 +129,17 @@ public class SettingActivity extends BaseActivity implements ApiResponseErrorCal
                     showToast(responseModel.getMessage());
                     //languageMethod();
                     String lang = MySharedPreference.getInstance().getStringData(AppConstants.LANGUAGE);
+                    String token = MySharedPreference.getInstance().getStringData(FIREBASE_TOKEN);
+                    MySharedPreference.getInstance().clearSharedPrefs();
+
                     Intent intent = new Intent(SettingActivity.this, SignInActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                    MySharedPreference.getInstance().clearSharedPrefs();
-                    startActivity(intent);
+
                     languageMethod(lang);
+                    MySharedPreference.getInstance().setBooleanData(SharedPrefsConstants.GUEST_FLOW, false);
                     MySharedPreference.getInstance().setStringData(AppConstants.LANGUAGE, "lang");
+                    MySharedPreference.getInstance().setStringData(FIREBASE_TOKEN, token);
+                    startActivity(intent);
                     finish();
                 } else {
                     showToast(responseModel.getMessage());

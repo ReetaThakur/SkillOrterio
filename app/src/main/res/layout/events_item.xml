@@ -51,7 +51,7 @@
                     android:layout_weight="1"
                     android:orientation="vertical">
 
-                    <me.grantland.widget.AutofitTextView
+                    <TextView
                         android:id="@+id/tvHead"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -113,12 +113,14 @@
                     android:src="@drawable/ic_location"
                     tools:ignore="ContentDescription" />
 
-                <TextView
+                <me.grantland.widget.AutofitTextView
                     android:id="@+id/tvAdd"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/_6sdp"
                     android:layout_weight="1"
                     android:fontFamily="@font/poppins_regular"
+                    android:maxLines="2"
                     android:paddingLeft="@dimen/_2sdp"
                     android:text="294 Albert Street,\nSuite 201 Ottawa, canda"
                     android:textColor="#1E212F"

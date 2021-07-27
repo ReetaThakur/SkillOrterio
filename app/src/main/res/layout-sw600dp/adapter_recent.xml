@@ -49,12 +49,12 @@
                     android:layout_weight="1"
                     android:orientation="vertical">
 
-                    <me.grantland.widget.AutofitTextView
+                    <TextView
                         android:id="@+id/tvHead"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppins_regular"
-                        android:maxLines="3"
+                        android:maxLines="2"
                         android:paddingLeft="@dimen/_15sdp"
                         android:text="@string/discovery_day_cornwall_amp_sdg"
                         android:textColor="@color/black"
@@ -67,7 +67,7 @@
                         android:layout_marginLeft="@dimen/_15sdp"
                         android:background="@drawable/rec_ylo"
                         android:fontFamily="@font/poppins_regular"
-                        android:gravity="left"
+                        android:gravity="center"
                         android:padding="@dimen/_5sdp"
                         android:text="Young Women’s Initiatives"
                         android:textColor="#FF9F0A"

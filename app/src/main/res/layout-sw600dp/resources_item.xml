@@ -41,13 +41,13 @@
                     android:layout_weight="1"
                     android:orientation="vertical">
 
-                    <me.grantland.widget.AutofitTextView
+                    <TextView
                         android:id="@+id/tvTitle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppins_regular"
-                        android:minHeight="21sp"
                         android:maxLines="3"
+                        android:minHeight="21sp"
                         android:paddingLeft="@dimen/_15sdp"
                         android:text="National Skilled Trades and Technology Week 2019, Burnaby, B.C."
                         android:textColor="@color/black"

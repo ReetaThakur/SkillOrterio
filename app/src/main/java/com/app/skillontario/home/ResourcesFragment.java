@@ -7,6 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
 import com.app.skillontario.adapter.ResourcesAdapter;
 import com.app.skillontario.apiConnection.ApiCallBack;
 import com.app.skillontario.apiConnection.ApiResponseErrorCallback;
@@ -19,6 +20,7 @@ import com.app.skillontario.requestmodal.GetEventRequest;
 import com.app.skillontario.utils.MySharedPreference;
 import com.app.skillorterio.R;
 import com.app.skillorterio.databinding.FragmentResourcesBinding;
+
 import java.util.ArrayList;
 
 import static com.app.skillontario.constants.ApiConstants.API_INTERFACE;
@@ -55,8 +57,17 @@ public class ResourcesFragment extends BaseFragment implements ApiResponseErrorC
 
         callNewsAPI(true);
         setPegination();
-
         refreshNews();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (resourceModalArrayList != null) {
+            if (resourceModalArrayList.size() == 0)
+                callNewsAPI(true);
+        }
+
     }
 
     void callNewsAPI(boolean cus) {

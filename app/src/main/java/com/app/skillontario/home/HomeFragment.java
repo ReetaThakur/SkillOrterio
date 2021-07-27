@@ -25,9 +25,7 @@ import com.app.skillontario.models.CareerModal;
 import com.app.skillontario.models.EventsModal;
 import com.app.skillontario.models.HomeModal;
 import com.app.skillontario.models.NewsModal;
-import com.app.skillontario.quiz.TakeQuizAc;
 import com.app.skillontario.utils.MySharedPreference;
-import com.app.skillontario.utils.RecyclerItemClickListener;
 import com.app.skillontario.utils.Utils;
 import com.app.skillorterio.R;
 import com.app.skillorterio.databinding.FragmentHomeBinding;
@@ -83,12 +81,12 @@ public class HomeFragment extends BaseFragment implements ApiResponseErrorCallba
         });
 
         binding.rlTakeQuiz.setOnClickListener(v -> {
-            User_Type = MySharedPreference.getInstance().getBooleanData(SharedPrefsConstants.GUEST_FLOW);
-            if (!User_Type) {
+
+            if (!MySharedPreference.getInstance().getBooleanData(SharedPrefsConstants.GUEST_FLOW)) {
                 startActivity(new Intent(getActivity(), TakeQuizActivity.class));
             } else {
                 try {
-                    Utils.guestMethod(getActivity());
+                    Utils.guestMethod(getActivity(), "homeFragment");
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -123,7 +121,7 @@ public class HomeFragment extends BaseFragment implements ApiResponseErrorCallba
                 startActivity(new Intent(getActivity(), NotificationActivity.class));
             } else {
                 try {
-                    Utils.guestMethod(getActivity());
+                    Utils.guestMethod(getActivity(), "homeFragment");
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -266,12 +264,19 @@ public class HomeFragment extends BaseFragment implements ApiResponseErrorCallba
 
     @Override
     public void checkBookMark(String Bid, int position, String careerId) {
-        CareerPosition = position;
-        if (Bid.equalsIgnoreCase("")) {
-            addBookmark(careerModalArrayList.get(position), careerId);
+        if (MySharedPreference.getInstance().getBooleanData(SharedPrefsConstants.GUEST_FLOW)) {
+            try {
+                Utils.guestMethod(getActivity(), "homeFragment");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         } else {
-
-            removeBookmark(Bid, careerId);
+            CareerPosition = position;
+            if (Bid.equalsIgnoreCase("")) {
+                addBookmark(careerModalArrayList.get(position), careerId);
+            } else {
+                removeBookmark(Bid, careerId);
+            }
         }
     }
 

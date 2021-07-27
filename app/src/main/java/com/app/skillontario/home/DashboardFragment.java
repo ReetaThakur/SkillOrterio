@@ -9,10 +9,14 @@ import com.app.skillontario.activities.EditProfileAc;
 import com.app.skillontario.activities.PartnersActivity;
 import com.app.skillontario.activities.SettingActivity;
 import com.app.skillontario.baseClasses.BaseFragment;
+import com.app.skillontario.constants.SharedPrefsConstants;
 import com.app.skillontario.quiz.TakeQuizAc;
+import com.app.skillontario.utils.MySharedPreference;
+import com.app.skillontario.utils.Utils;
 import com.app.skillorterio.R;
 import com.app.skillorterio.databinding.FragmentDashboard1Binding;
-import com.app.skillorterio.databinding.FragmentDashboardBinding;
+
+import static com.app.skillontario.constants.SharedPrefsConstants.GUEST_FLOW;
 
 
 public class DashboardFragment extends BaseFragment {
@@ -32,12 +36,43 @@ public class DashboardFragment extends BaseFragment {
 
         binding.editProfile.setOnClickListener(v -> startActivity(new Intent(getActivity(), EditProfileAc.class)));
 
-        binding.rlBookmark.setOnClickListener(v -> startActivity(new Intent(getActivity(), BookmarkAc.class)));
-
         binding.rlPatner.setOnClickListener(v -> startActivity(new Intent(getActivity(), PartnersActivity.class)));
 
-        binding.rlTakeQuiz.setOnClickListener(v -> startActivity(new Intent(getActivity(), TakeQuizAc.class)));
 
+        binding.rlTakeQuiz.setOnClickListener(v -> {
+            if (!MySharedPreference.getInstance().getBooleanData(SharedPrefsConstants.GUEST_FLOW)) {
+                startActivity(new Intent(getActivity(), TakeQuizAc.class));
+            } else {
+                try {
+                    Utils.guestMethod(getActivity(), "dashboardFragment");
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        binding.rlBookmark.setOnClickListener(v -> {
+            if (!MySharedPreference.getInstance().getBooleanData(SharedPrefsConstants.GUEST_FLOW)) {
+                startActivity(new Intent(getActivity(), BookmarkAc.class));
+            } else {
+                try {
+                    Utils.guestMethod(getActivity(), "dashboardFragment");
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (MySharedPreference.getInstance().getBooleanData(GUEST_FLOW)) {
+            binding.editProfile.setVisibility(View.GONE);
+        } else {
+            binding.editProfile.setVisibility(View.VISIBLE);
+        }
     }
 
     @Override

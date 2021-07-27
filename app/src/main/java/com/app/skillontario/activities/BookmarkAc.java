@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -18,6 +19,7 @@ import com.app.skillontario.baseClasses.BaseResponseModel;
 import com.app.skillontario.constants.SharedPrefsConstants;
 import com.app.skillontario.models.careerListModel.CareerListDetails;
 import com.app.skillontario.utils.MySharedPreference;
+import com.app.skillontario.utils.Utils;
 import com.app.skillorterio.R;
 import com.app.skillorterio.databinding.BookmarkAcBinding;
 import com.app.skillorterio.databinding.ContactUsAcBinding;
@@ -185,7 +187,16 @@ public class BookmarkAc extends BaseActivity implements ApiResponseErrorCallback
 
     @Override
     public void delete(int position, String Bid, String Id) {
-        this.position = position;
-        removeBookmark(Bid, Id);
+
+        if (!MySharedPreference.getInstance().getBooleanData(SharedPrefsConstants.GUEST_FLOW)) {
+            this.position = position;
+            removeBookmark(Bid, Id);
+        } else {
+            try {
+                Utils.guestMethod(BookmarkAc.this, "BookmarkAc");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 }

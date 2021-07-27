@@ -125,6 +125,24 @@ public class EventFragment extends BaseFragment implements XmlClickable, ApiResp
         refreshNews();
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (newsModalArrayList != null) {
+            if (newsModalArrayList.size() == 0) {
+                callNewsAPI(true);
+            }
+        }
+
+        if (eventsModalArrayList != null) {
+            if (eventsModalArrayList.size() == 0) {
+                callEventApi(true);
+            }
+        }
+
+
+    }
+
     void refreshEvent() {
         binding.refreshLayoutEvent.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -350,6 +368,4 @@ public class EventFragment extends BaseFragment implements XmlClickable, ApiResp
         binding.progress1.setVisibility(View.GONE);
         binding.progress.setVisibility(View.GONE);
     }
-
-
 }

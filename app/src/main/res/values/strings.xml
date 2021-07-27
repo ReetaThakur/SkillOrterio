@@ -614,8 +614,10 @@
     <string name="tru">Truck and \nCoach Technician</string>
     <string name="childs"><![CDATA[Child & \nYouth Worker]]></string>
     <string name="term_codition">Check term and condition</string>
-
-
+    <string name="default_notification_channel_id">Skills_onatrio</string>
+    <string name="facebook_app_id">471886683746727</string>
+    <string name="guest_user"> Guest User </string>
+    <string name="guest_singup_login"> Please signup/login </string>
     <string name="no_data_quiz">You haven’t take a career quiz yet. Once completed, The results will get saved here</string>
     <string name="no_data_events">No new events at the moment.</string>
     <string name="no_data_news">No News available at the moment</string>
@@ -630,5 +632,14 @@
     <string name="discover_more_retake_the_career_quiz">Discover more! Retake the career quiz.</string>
     <string name="retake_quiz">RETAKE QUIZ</string>
     <string name="enter_new_password">"Enter new password "</string>
+    <string name="Partners">Partners</string>
+    <string name="platinum_patner">Platinum Partners</string>
+    <string name="premimun_ptner">Premium Partners</string>
+    <string name="silver_patner">Silver Partners</string>
+    <string name="gold_partners">Gold Patners</string>
+    <string name="bronze_partners">Bronze Partners</string>
+    <string name="friends_partners">Friends Partners</string>
+    <string name="government_partners">Government Partners</string>
+    <string name="empty_title">Please enter title</string>
 
 </resources>

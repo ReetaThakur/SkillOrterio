@@ -29,6 +29,7 @@ import com.app.skillontario.models.careerListModel.CareerListDetails;
 import com.app.skillontario.utils.MySharedPreference;
 import com.app.skillontario.utils.ObservableScrollView;
 import com.app.skillontario.utils.RecyclerItemClickListener;
+import com.app.skillontario.utils.Utils;
 import com.app.skillorterio.R;
 import com.app.skillorterio.databinding.ActivityJobDetailsBinding;
 import com.app.skillorterio.databinding.ActivitySettingBinding;
@@ -103,15 +104,24 @@ public class JobDetailsActivity extends BaseActivity implements ApiResponseError
         binding.imgBookmark.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (clickBookMark) {
-                    clickBookMark = false;
-                    binding.imgBookmark.setImageResource(R.drawable.ic_job_uppar1);
-                    removeBookmark(careerListDetails.get(0).getbId(), careerListDetails.get(0).getId());
+                if (!MySharedPreference.getInstance().getBooleanData(SharedPrefsConstants.GUEST_FLOW)) {
+                    if (clickBookMark) {
+                        clickBookMark = false;
+                        binding.imgBookmark.setImageResource(R.drawable.ic_job_uppar1);
+                        removeBookmark(careerListDetails.get(0).getbId(), careerListDetails.get(0).getId());
+                    } else {
+                        clickBookMark = true;
+                        binding.imgBookmark.setImageResource(R.drawable.job_bookmark_click);
+                        addBookmark(careerListDetails.get(0), careerListDetails.get(0).getId());
+                    }
                 } else {
-                    clickBookMark = true;
-                    binding.imgBookmark.setImageResource(R.drawable.job_bookmark_click);
-                    addBookmark(careerListDetails.get(0), careerListDetails.get(0).getId());
+                    try {
+                        Utils.guestMethod(JobDetailsActivity.this, "JobDetailsActivity");
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                 }
+
             }
         });
 
