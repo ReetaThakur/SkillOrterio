@@ -65,7 +65,7 @@ public class PopularCareerAdapter extends RecyclerView.Adapter<PopularCareerAdap
     public int getItemCount() {
         try {
             if (popular)
-                return 6;
+                return 0;
             else
                 return careerModalArrayList.size();
         } catch (Exception e) {

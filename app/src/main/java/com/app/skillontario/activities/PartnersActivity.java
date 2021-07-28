@@ -117,10 +117,10 @@ public class PartnersActivity extends BaseActivity implements ApiResponseErrorCa
                             if (responseModel.getOutput().get(0).getPlatinum().size() > 0) {
                                // binding.rlPlatinumPartners.setVisibility(View.VISIBLE);
                                 PartnersAdapter adapter = new PartnersAdapter(responseModel.getOutput().get(0).getPlatinum(), PartnersActivity.this, text -> {
-                                    Intent intent=new Intent(this, NewsDetailAc.class);
+                                    Intent intent=new Intent(this, WebViewActivity.class);
                                     intent.putExtra("url",text);
                                     //intent.putExtra("title",getString(R.string.platinum_partners));
-                                    intent.putExtra("title","Platinum Partners");
+                                    intent.putExtra("title",getString(R.string.platinum_patner));
                                     startActivity(intent);
                                 });
                                 binding.rcyPlatinumPartners.setAdapter(adapter);
@@ -136,10 +136,10 @@ public class PartnersActivity extends BaseActivity implements ApiResponseErrorCa
                             if (responseModel.getOutput().get(1).getPremium().size() > 0) {
                                // binding.rlPremiumPartners.setVisibility(View.VISIBLE);
                                 PartnersAdapter adapter = new PartnersAdapter(responseModel.getOutput().get(1).getPremium(), PartnersActivity.this, text -> {
-                                    Intent intent=new Intent(this, NewsDetailAc.class);
+                                    Intent intent=new Intent(this, WebViewActivity.class);
                                     intent.putExtra("url",text);
                                     //intent.putExtra("title",getString(R.string.premium_partners));
-                                    intent.putExtra("title","Premium Partners");
+                                    intent.putExtra("title",getString(R.string.premimun_ptner));
                                     startActivity(intent);
                                 });
                                 binding.rcyPremiumPartners.setAdapter(adapter);
@@ -155,10 +155,10 @@ public class PartnersActivity extends BaseActivity implements ApiResponseErrorCa
                             if (responseModel.getOutput().get(2).getSilver().size() > 0) {
                                 binding.rlSilver.setVisibility(View.VISIBLE);
                                 PartnersAdapter adapter = new PartnersAdapter(responseModel.getOutput().get(2).getSilver(), PartnersActivity.this, text -> {
-                                    Intent intent=new Intent(this, NewsDetailAc.class);
+                                    Intent intent=new Intent(this, WebViewActivity.class);
                                     intent.putExtra("url",text);
                                     //intent.putExtra("title",getString(R.string.silver_partners));
-                                    intent.putExtra("title","Silver Partners");
+                                    intent.putExtra("title",getString(R.string.silver_patner));
                                     startActivity(intent);
                                 });
                                 binding.rcySilver.setAdapter(adapter);
@@ -174,7 +174,7 @@ public class PartnersActivity extends BaseActivity implements ApiResponseErrorCa
                             if (responseModel.getOutput().get(3).getGold().size() > 0) {
                                 binding.rlGold.setVisibility(View.VISIBLE);
                                 PartnersAdapter adapter = new PartnersAdapter(responseModel.getOutput().get(3).getGold(), PartnersActivity.this, text -> {
-                                    Intent intent=new Intent(this, NewsDetailAc.class);
+                                    Intent intent=new Intent(this, WebViewActivity.class);
                                     intent.putExtra("url",text);
                                     intent.putExtra("title",getString(R.string.gold_partners));
                                     startActivity(intent);
@@ -192,7 +192,7 @@ public class PartnersActivity extends BaseActivity implements ApiResponseErrorCa
                             if (responseModel.getOutput().get(4).getBronze().size() > 0) {
                                 binding.rlBronze.setVisibility(View.VISIBLE);
                                 PartnersAdapter adapter = new PartnersAdapter(responseModel.getOutput().get(4).getBronze(), PartnersActivity.this, text -> {
-                                    Intent intent=new Intent(this, NewsDetailAc.class);
+                                    Intent intent=new Intent(this, WebViewActivity.class);
                                     intent.putExtra("url",text);
                                     intent.putExtra("title",getString(R.string.bronze_partners));
                                     startActivity(intent);
@@ -210,7 +210,7 @@ public class PartnersActivity extends BaseActivity implements ApiResponseErrorCa
                             if (responseModel.getOutput().get(5).getFriends().size() > 0) {
                                 binding.rlFriends.setVisibility(View.VISIBLE);
                                 PartnersAdapter adapter = new PartnersAdapter(responseModel.getOutput().get(5).getFriends(), PartnersActivity.this, text -> {
-                                    Intent intent=new Intent(this, NewsDetailAc.class);
+                                    Intent intent=new Intent(this, WebViewActivity.class);
                                     intent.putExtra("url",text);
                                     intent.putExtra("title",getString(R.string.friends_partners));
                                     startActivity(intent);
@@ -228,7 +228,7 @@ public class PartnersActivity extends BaseActivity implements ApiResponseErrorCa
                             if (responseModel.getOutput().get(6).getGovernment().size() > 0) {
                                 binding.rlGovernmentPartners.setVisibility(View.VISIBLE);
                                 PartnersAdapter adapter = new PartnersAdapter(responseModel.getOutput().get(6).getGovernment(), PartnersActivity.this, text -> {
-                                    Intent intent=new Intent(this, NewsDetailAc.class);
+                                    Intent intent=new Intent(this, WebViewActivity.class);
                                     intent.putExtra("url",text);
                                     intent.putExtra("title",getString(R.string.government_partners));
                                     startActivity(intent);

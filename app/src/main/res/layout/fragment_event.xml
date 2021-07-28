@@ -14,60 +14,118 @@
             android:id="@+id/tab"
             layout="@layout/even_tool_bt" />
 
-      <!--  <androidx.core.widget.NestedScrollView
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:background="@color/white">-->
+        <!--  <androidx.core.widget.NestedScrollView
+              android:layout_width="match_parent"
+              android:layout_height="0dp"
+              android:layout_weight="1"
+              android:background="@color/white">-->
 
-            <LinearLayout
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/eventL"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:visibility="visible">
+
+                <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                    android:id="@+id/refresh_layoutEvent"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/recy_recent_event"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="@dimen/_10sdp"
+                            android:layout_above="@+id/progress1" />
+
+                        <ProgressBar
+                            android:id="@+id/progress1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:layout_centerHorizontal="true"
+                            android:paddingBottom="@dimen/_16sdp"
+                            android:visibility="gone"></ProgressBar>
+
+                        <LinearLayout
+                            android:id="@+id/ll_no_event"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:visibility="gone">
+
+                            <include
+                                android:id="@+id/noData_event"
+                                layout="@layout/no_data_found"
+                                android:visibility="visible" />
+                        </LinearLayout>
+                    </RelativeLayout>
+                </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/newsL"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:visibility="gone">
 
-                <LinearLayout
-                    android:id="@+id/eventL"
+                <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                    android:id="@+id/refresh_layoutNews"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/_10sdp"
-                    android:layout_marginTop="@dimen/_15sdp"
-                    android:layout_marginRight="@dimen/_10sdp"
-                    android:orientation="vertical">
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/recy_recent_event"
+                    android:layout_height="match_parent">
+
+                    <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
+                        android:layout_height="match_parent">
 
-
-                 <!--   <include android:id="@+id/e_one" layout="@layout/events_item" />
-
--->
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/newsL"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/_10sdp"
-                    android:layout_marginTop="@dimen/_15sdp"
-                    android:layout_marginRight="@dimen/_10sdp"
-                    android:visibility="gone"
-                    android:orientation="vertical">
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/rcy_news"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
-                    <!--<include layout="@layout/news_item" />-->
+                        android:layout_height="match_parent"
+                        android:layout_above="@+id/progress"
+                        android:layout_marginBottom="@dimen/_16sdp" />
 
-                  <!--  <include layout="@layout/news_item" />-->
+                    <ProgressBar
+                        android:id="@+id/progress"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true"
+                        android:paddingBottom="@dimen/_16sdp"
+                        android:visibility="gone"></ProgressBar>
 
+                    <LinearLayout
+                        android:id="@+id/ll_no_news"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:visibility="gone">
 
-                </LinearLayout>
-            </LinearLayout>
-      <!--  </androidx.core.widget.NestedScrollView>
--->
-
+                        <include
+                            android:id="@+id/noData_new"
+                            layout="@layout/no_data_found"
+                            android:visibility="visible" />
+                    </LinearLayout>
+                    </RelativeLayout>
+                </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+            </RelativeLayout>
+        </LinearLayout>
     </LinearLayout>
 
 </layout>

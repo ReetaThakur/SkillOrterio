@@ -16,10 +16,8 @@ public class SharedPrefsConstants {
     public static final String IS_HEADER = "IS_HEADER";
     public static final String USER_DATA = "USER_DATA";
     public static final String GUEST_FLOW = "GUEST_FLOW";
+    public static final String GUEST_FLOW_CLASS = "GUEST_FLOW_CLASS";
     public static final String LANGUAGE_API = "language";
-
-
-
 
 
 }

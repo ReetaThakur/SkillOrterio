@@ -17,6 +17,7 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.app.skillontario.activities.NewsDetailAc;
+import com.app.skillontario.activities.WebViewActivity;
 import com.app.skillontario.baseClasses.AppController;
 import com.app.skillontario.models.EventsModal;
 import com.app.skillontario.utils.Utils;
@@ -100,7 +101,7 @@ public class RecentEventsAdapter extends RecyclerView.Adapter<RecentEventsAdapte
         viewHolder.binding.eventRow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, NewsDetailAc.class);
+                Intent intent = new Intent(context, WebViewActivity.class);
                 intent.putExtra("url", eventsModalArrayList.get(position).getEvtURL());
                 intent.putExtra("title", eventsModalArrayList.get(position).getEvtTitle());
                 context.startActivity(intent);

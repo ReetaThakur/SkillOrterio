@@ -29,7 +29,7 @@
                     android:fontFamily="@font/poppins_regular"
                     android:text="@string/find_your_dream_career"
                     android:textColor="@color/black"
-                    android:textSize="33sp"></TextView>
+                    android:textSize="@dimen/_24sdp"></TextView>
 
                 <ImageView
                     android:id="@+id/img_notification"
@@ -98,200 +98,208 @@
 
         </LinearLayout>
 
-        <ScrollView
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/refresh_layout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginBottom="@dimen/_4sdp"
-            android:scrollbars="none">
+            android:layout_height="match_parent">
 
-            <LinearLayout
+            <androidx.core.widget.NestedScrollView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:layout_marginBottom="@dimen/_4sdp"
+                android:scrollbars="none">
 
-                <TextView
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/_16sdp"
-                    android:layout_marginTop="@dimen/_16sdp"
-                    android:layout_marginBottom="@dimen/_8ssp"
-                    android:fontFamily="@font/poppins_medium"
-                    android:text="Popular Careers"
-                    android:textColor="#3E454A"
-                    android:textSize="15sp"></TextView>
-
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recy_popular_careers"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/_16sdp"
-                    android:divider="@null"
-                    android:orientation="horizontal"
-                    android:scrollbars="none"
-                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    app:reverseLayout="false"></androidx.recyclerview.widget.RecyclerView>
-
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_110sdp"
-                    android:layout_marginLeft="@dimen/_16sdp"
-                    android:layout_marginTop="@dimen/_16sdp"
-                    android:layout_marginRight="@dimen/_16sdp"
-                    app:cardBackgroundColor="#605EEB"
-                    app:cardCornerRadius="@dimen/_10sdp">
-
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal">
-
-
-                        <ImageView
-                            android:id="@+id/ibn"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_weight="0.9"
-                            android:background="@drawable/home_nds"
-                            android:scaleType="centerCrop"></ImageView>
-
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1.1">
-
-                            <TextView
-                                android:id="@+id/tv"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="@dimen/_16sdp"
-                                android:layout_marginRight="@dimen/_16sdp"
-                                android:fontFamily="@font/poppins_medium"
-                                android:text="@string/discover_a_suitable_career"
-                                android:textColor="@color/white"
-                                android:textSize="@dimen/_12sdp"></TextView>
-
-
-                            <RelativeLayout
-                                android:id="@+id/rl_take_quiz"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_below="@+id/tv"
-                                android:layout_marginTop="@dimen/_8ssp"
-                                android:background="@drawable/ic_rectangle__take_quiz"
-                                android:padding="@dimen/_4sdp">
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_centerInParent="true"
-                                    android:layout_marginTop="1dp"
-                                    android:fontFamily="@font/poppins_medium"
-                                    android:gravity="center"
-                                    android:paddingLeft="@dimen/_10sdp"
-                                    android:paddingRight="@dimen/_10sdp"
-                                    android:text="Take Quiz"
-                                    android:textColor="@color/white"
-                                    android:textSize="@dimen/_8sdp"></TextView>
-                            </RelativeLayout>
-                        </RelativeLayout>
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
-
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/_16sdp"
-                    android:layout_marginTop="@dimen/_16sdp"
-                    android:fontFamily="@font/poppins_medium"
-                    android:text="Recent Events"
-                    android:textColor="#3E454A"
-                    android:textSize="15sp"></TextView>
-
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recy_recent_event"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/_10sdp"
-                    android:layout_marginRight="@dimen/_10sdp"
-                    android:divider="@null"
-                    android:orientation="horizontal"
-                    android:scrollbars="none"
-                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    app:reverseLayout="false"></androidx.recyclerview.widget.RecyclerView>
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/_16sdp"
-                    android:layout_marginTop="@dimen/_16sdp"
-                    android:layout_marginRight="@dimen/_16sdp">
-
-
-                    <ImageView
-                        android:id="@+id/img_expolre"
-                        android:layout_width="match_parent"
-                        android:layout_height="158dp"
-                        android:scaleType="fitXY"
-                        android:src="@drawable/group12"></ImageView>
-
-                    <TextView
-                        android:id="@+id/tvExplore"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:layout_margin="@dimen/_12sdp"
-                        android:background="@drawable/group_back"
-                        android:drawableRight="@drawable/group_back_white"
-                        android:gravity="center"
-                        android:paddingRight="@dimen/_10sdp"
-                        android:text="Explore"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/_10sdp"></TextView>
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/_16sdp"
-                        android:layout_marginTop="@dimen/_10sdp"
-                        android:layout_toLeftOf="@+id/tvExplore"
+                        android:layout_marginTop="@dimen/_16sdp"
+                        android:layout_marginBottom="@dimen/_8ssp"
                         android:fontFamily="@font/poppins_medium"
-                        android:text="Opportunities &amp; Scholarships"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/_12sdp"
-                        android:visibility="visible"></TextView>
-
-                </RelativeLayout>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/_16sdp"
-                    android:layout_marginTop="@dimen/_16sdp"
-                    android:fontFamily="@font/poppins_medium"
-                    android:text="Recent News"
-                    android:textColor="#3E454A"
-                    android:textSize="15sp"></TextView>
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recy_news"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/_4sdp"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:divider="@null"
-                    android:orientation="horizontal"
-                    android:scrollbars="none"
-                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    app:reverseLayout="false"></androidx.recyclerview.widget.RecyclerView>
+                        android:text="Popular Careers"
+                        android:textColor="#3E454A"
+                        android:textSize="@dimen/_11sdp"></TextView>
 
 
-            </LinearLayout>
-        </ScrollView>
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recy_popular_careers"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_16sdp"
+                        android:divider="@null"
+                        android:orientation="horizontal"
+                        android:scrollbars="none"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        app:reverseLayout="false"></androidx.recyclerview.widget.RecyclerView>
+
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_110sdp"
+                        android:layout_marginLeft="@dimen/_16sdp"
+                        android:layout_marginTop="@dimen/_16sdp"
+                        android:layout_marginRight="@dimen/_16sdp"
+                        app:cardBackgroundColor="#605EEB"
+                        app:cardCornerRadius="@dimen/_10sdp">
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+
+                            <ImageView
+                                android:id="@+id/ibn"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0.9"
+                                android:background="@drawable/home_nds"
+                                android:scaleType="centerCrop"></ImageView>
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1.1">
+
+                                <me.grantland.widget.AutofitTextView
+                                    android:id="@+id/tv"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/_16sdp"
+                                    android:layout_marginRight="@dimen/_16sdp"
+                                    android:fontFamily="@font/poppins_medium"
+                                    android:maxLines="2"
+                                    android:text="@string/discover_a_suitable_career"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/_14sdp"></me.grantland.widget.AutofitTextView>
+
+
+                                <RelativeLayout
+                                    android:id="@+id/rl_take_quiz"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/tv"
+                                    android:layout_marginTop="@dimen/_8ssp"
+                                    android:background="@drawable/ic_rectangle__take_quiz"
+                                    android:padding="@dimen/_4sdp">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerInParent="true"
+                                        android:layout_marginTop="1dp"
+                                        android:fontFamily="@font/poppins_medium"
+                                        android:gravity="center"
+                                        android:paddingLeft="@dimen/_10sdp"
+                                        android:paddingRight="@dimen/_10sdp"
+                                        android:text="Take Quiz"
+                                        android:textColor="@color/white"
+                                        android:textSize="@dimen/_8sdp"></TextView>
+                                </RelativeLayout>
+                            </RelativeLayout>
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_16sdp"
+                        android:layout_marginTop="@dimen/_16sdp"
+                        android:fontFamily="@font/poppins_medium"
+                        android:text="Recent Events"
+                        android:textColor="#3E454A"
+                        android:textSize="@dimen/_11sdp"></TextView>
+
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recy_recent_event"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_10sdp"
+                        android:layout_marginRight="@dimen/_10sdp"
+                        android:divider="@null"
+                        android:orientation="horizontal"
+                        android:scrollbars="none"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        app:reverseLayout="false"></androidx.recyclerview.widget.RecyclerView>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_16sdp"
+                        android:layout_marginTop="@dimen/_16sdp"
+                        android:layout_marginRight="@dimen/_16sdp">
+
+
+                        <ImageView
+                            android:id="@+id/img_expolre"
+                            android:layout_width="match_parent"
+                            android:layout_height="158dp"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/group12"></ImageView>
+
+                        <TextView
+                            android:id="@+id/tvExplore"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_margin="@dimen/_12sdp"
+                            android:background="@drawable/group_back"
+                            android:drawableRight="@drawable/group_back_white"
+                            android:gravity="center"
+                            android:paddingRight="@dimen/_10sdp"
+                            android:text="Explore"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_10sdp"></TextView>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/_16sdp"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:layout_toLeftOf="@+id/tvExplore"
+                            android:fontFamily="@font/poppins_medium"
+                            android:text="Opportunities &amp; Scholarships"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_12sdp"
+                            android:visibility="visible"></TextView>
+
+                    </RelativeLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_16sdp"
+                        android:layout_marginTop="@dimen/_16sdp"
+                        android:fontFamily="@font/poppins_medium"
+                        android:text="Recent News"
+                        android:textColor="#3E454A"
+                        android:textSize="@dimen/_11sdp"></TextView>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recy_news"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_4sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:divider="@null"
+                        android:orientation="horizontal"
+                        android:scrollbars="none"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        app:reverseLayout="false"></androidx.recyclerview.widget.RecyclerView>
+
+
+                </LinearLayout>
+            </androidx.core.widget.NestedScrollView>
+
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
     </LinearLayout>
 
 </layout>

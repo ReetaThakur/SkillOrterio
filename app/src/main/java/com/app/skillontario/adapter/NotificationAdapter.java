@@ -8,19 +8,28 @@ import androidx.core.content.ContextCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.app.skillontario.models.NotificationModal;
 import com.app.skillorterio.R;
 import com.app.skillorterio.databinding.AdapterNotificationBinding;
 import com.app.skillorterio.databinding.AdapterNotificationBinding;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.util.ArrayList;
+
 public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapter.ViewHolder> {
 
 
     Context context;
-
+    ArrayList<NotificationModal> arrayListNotify = new ArrayList<>();
 
     public NotificationAdapter(Context context) {
+        this.context = context;
+
+    }
+
+    public NotificationAdapter(ArrayList<NotificationModal> arrayListNotify, Context context) {
+        this.arrayListNotify = arrayListNotify;
         this.context = context;
 
     }
@@ -33,23 +42,50 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
 
     @Override
     public int getItemCount() {
-        return 4;
+        try {
+            return arrayListNotify.size();
+        } catch (Exception e) {
+            return 0;
+        }
+
     }
 
     @Override
     public void onBindViewHolder(final NotificationAdapter.ViewHolder viewHolder, final int position) {
-       /* if (popular)
-            viewHolder.binding.imageView.setImageResource(imageArray[position]);
-        else
-            viewHolder.binding.imageView.setImageResource(imageArray1[position]);*/
 
-        /*viewHolder.binding.lay.setOnClickListener(v -> {
-            notifyItemChanged(selected_position);
-            selected_position = position;
-            notifyItemChanged(selected_position);
-        });*/
+        try {
+            viewHolder.binding.imageBackground.setColorFilter(ContextCompat.getColor(context, R.color.noti_color1));
+            //    viewHolder.binding.imageView.setImageResource(R.drawable.ic_shape__noti1);
+            viewHolder.binding.tvTitle.setText(arrayListNotify.get(position).getTitle());
+            viewHolder.binding.tvDesc.setText(arrayListNotify.get(position).getBody());
+        } catch (Exception e) {
+        }
 
-        if (position == 0) {
+        if (arrayListNotify.get(position).getNotifyType().equalsIgnoreCase("event")) {
+            viewHolder.binding.imageView.setImageResource(R.drawable.ic_shape__noti3);
+            viewHolder.binding.imageBackground.setColorFilter(ContextCompat.getColor(context, R.color.noti_color3));
+        }
+        if (arrayListNotify.get(position).getNotifyType().equalsIgnoreCase("resource")) {
+            viewHolder.binding.imageView.setImageResource(R.drawable.ic_shape__noti1);
+            viewHolder.binding.imageBackground.setColorFilter(ContextCompat.getColor(context, R.color.noti_color1));
+        }
+        if (arrayListNotify.get(position).getNotifyType().equalsIgnoreCase("mgsafai")) { //  scloarship
+            viewHolder.binding.imageView.setImageResource(R.drawable.ic_shape__noti2);
+            viewHolder.binding.imageBackground.setColorFilter(ContextCompat.getColor(context, R.color.noti_color2));
+        }
+        if (arrayListNotify.get(position).getNotifyType().equalsIgnoreCase("profile")) {
+            viewHolder.binding.imageView.setImageResource(R.drawable.ic_shape__noti1);
+            viewHolder.binding.imageBackground.setColorFilter(ContextCompat.getColor(context, R.color.noti_color1));
+        }
+        if (arrayListNotify.get(position).getNotifyType().equalsIgnoreCase("news")) {
+            viewHolder.binding.imageView.setImageResource(R.drawable.ic_shape__noti4);
+            viewHolder.binding.imageBackground.setColorFilter(ContextCompat.getColor(context, R.color.noti_color4));
+        } else {
+            viewHolder.binding.imageView.setImageResource(R.drawable.ic_shape__noti3);
+            viewHolder.binding.imageBackground.setColorFilter(ContextCompat.getColor(context, R.color.noti_color3));
+        }
+
+     /*   if (position == 0) {
             viewHolder.binding.imageBackground.setColorFilter(ContextCompat.getColor(context, R.color.noti_color1));
             viewHolder.binding.imageView.setImageResource(R.drawable.ic_shape__noti1);
             viewHolder.binding.tvTitle.setText("New Content");
@@ -70,7 +106,7 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
             viewHolder.binding.imageView.setImageResource(R.drawable.ic_shape__noti4);
             viewHolder.binding.tvTitle.setText("Broadcast Notification");
             viewHolder.binding.tvDesc.setText("Mark your calendar for these events!");
-        }
+        }*/
 
     }
 
@@ -83,6 +119,15 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
         parent.setFocusableInTouchMode(false);
 
         return new NotificationAdapter.ViewHolder(binding);
+    }
+
+    public void addList(ArrayList<NotificationModal> output) {
+        if (output != null) {
+            if (output.size() > 0) {
+                this.arrayListNotify.addAll(output);
+                notifyDataSetChanged();
+            }
+        }
     }
 
 

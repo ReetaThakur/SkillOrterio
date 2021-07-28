@@ -56,12 +56,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppins_medium"
+                        android:maxLines="2"
                         android:paddingLeft="@dimen/_12sdp"
                         android:text="@string/discovery_day_cornwall_amp_sdg"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_13sdp" />
 
                     <TextView
+                        android:id="@+id/tv_evtCategory"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/_12sdp"
@@ -111,12 +113,14 @@
                     android:src="@drawable/ic_location"
                     tools:ignore="ContentDescription" />
 
-                <TextView
+                <me.grantland.widget.AutofitTextView
                     android:id="@+id/tvAdd"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/_6sdp"
                     android:layout_weight="1"
                     android:fontFamily="@font/poppins_regular"
+                    android:maxLines="2"
                     android:paddingLeft="@dimen/_2sdp"
                     android:text="294 Albert Street,\nSuite 201 Ottawa, canda"
                     android:textColor="#1E212F"
@@ -131,6 +135,7 @@
                     tools:ignore="ContentDescription" />
 
                 <TextView
+                    android:id="@+id/tv_date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"

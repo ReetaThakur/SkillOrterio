@@ -9,12 +9,13 @@ import android.text.TextWatcher;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
-import com.app.skillontario.dialogs.GetClickBookmark;
+import com.app.skillontario.callbacks.GetClickBookmark;
 import com.app.skillontario.models.CareerDetailModel;
 import com.app.skillontario.models.EducationModal;
 import com.app.skillontario.models.SectorModal;
@@ -100,6 +101,7 @@ public class SearchActivity extends BaseActivity implements ApiResponseErrorCall
 
         setPagination();
         search();
+        refreshBookmark();
     }
 
     void callApiList(String userId, int pageNo) {
@@ -165,6 +167,24 @@ public class SearchActivity extends BaseActivity implements ApiResponseErrorCall
         });
     }
 
+    void refreshBookmark() {
+        binding.refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                binding.refreshLayout.setRefreshing(true);
+                isLoading = false;
+                hasNext = false;
+                pageNo = 1;
+                //setData(false);
+                if (ApplyFilter.equalsIgnoreCase("Apply")) {
+                    callApiListFilter(pageNo, UserId, sector, education, redFlag,search);
+                } else {
+                    callApiList(pageNo, false);
+                }
+            }
+        });
+    }
+
     @Override
     protected int getLayoutById() {
         return R.layout.activity_search;
@@ -179,6 +199,7 @@ public class SearchActivity extends BaseActivity implements ApiResponseErrorCall
 
     @Override
     public void getApiResponse(Object responseObject, int flag) {
+        binding.refreshLayout.setRefreshing(false);
         if (flag == 9691 || flag == 9692) {
             BaseResponseModel<ArrayList<CareerListDetails>> responseModel = (BaseResponseModel<ArrayList<CareerListDetails>>) responseObject;
             // responseModel.getData().get(0).

@@ -155,13 +155,14 @@
 
                     </RelativeLayout>
 
-                    <TextView
+                    <me.grantland.widget.AutofitTextView
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_marginLeft="@dimen/_8ssp"
                         android:layout_weight="1"
                         android:fontFamily="@font/poppins_medium"
                         android:gravity="center_vertical"
+                        android:singleLine="true"
                         android:text="@string/language"
                         android:textColor="@color/text_color_dark"
                         android:textSize="@dimen/_12sdp" />
@@ -174,7 +175,7 @@
                         android:background="@drawable/ic_language_background"
                         android:orientation="horizontal">
 
-                        <TextView
+                        <me.grantland.widget.AutofitTextView
                             android:id="@+id/tv_setting_english"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -184,12 +185,13 @@
                             android:fontFamily="@font/poppins_medium"
                             android:gravity="center"
                             android:padding="@dimen/_4sdp"
+                            android:singleLine="true"
                             android:text="@string/english"
                             android:textAllCaps="true"
                             android:textColor="@color/white"
                             android:textSize="@dimen/_8sdp" />
 
-                        <TextView
+                        <me.grantland.widget.AutofitTextView
                             android:id="@+id/tv_setting_french"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -198,6 +200,7 @@
                             android:fontFamily="@font/poppins_medium"
                             android:gravity="center"
                             android:padding="@dimen/_4sdp"
+                            android:singleLine="true"
                             android:text="@string/fran_ais"
                             android:textAllCaps="true"
                             android:textColor="@color/black"
@@ -454,7 +457,7 @@
                 </LinearLayout>
 
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/cv_signIn"
+                    android:id="@+id/cv_logout"
                     android:layout_width="match_parent"
                     android:layout_height="46dp"
                     android:layout_marginLeft="@dimen/_16sdp"
@@ -462,6 +465,7 @@
                     android:layout_marginRight="@dimen/_16sdp"
                     android:layout_marginBottom="@dimen/_16sdp"
                     android:backgroundTint="@color/buttonColor"
+                    android:visibility="visible"
                     app:cardCornerRadius="@dimen/_10sdp"
                     app:cardElevation="0dp">
 

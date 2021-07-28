@@ -5,41 +5,40 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-
-        android:background="@android:color/transparent">
+        android:background="@color/white">
 
         <LinearLayout
             android:id="@+id/llMain"
-            android:layout_width="match_parent"
+            android:layout_width="@dimen/_240sdp"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
             android:layout_centerInParent="true"
             android:gravity="center"
+            android:orientation="vertical"
             android:padding="@dimen/_5sdp">
 
             <ImageView
                 android:id="@+id/ivNoData"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="@dimen/_240sdp"
+                android:layout_height="@dimen/_240sdp"
                 android:src="@drawable/ic_n_data_resourse"
                 tools:ignore="ContentDescription" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
                 android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/tvNoData"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
+                    android:layout_marginLeft="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginRight="@dimen/_15sdp"
                     android:fontFamily="@font/poppins_regular"
+                    android:gravity="center"
                     android:text="No Resources Yet"
                     android:textColor="#5F7BA9"
-                    android:layout_marginLeft="@dimen/_15sdp"
-                    android:layout_marginRight="@dimen/_15sdp"
-                    android:layout_marginTop="@dimen/_10sdp"
                     android:textSize="@dimen/_15sdp" />
 
 

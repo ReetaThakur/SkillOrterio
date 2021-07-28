@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.app.skillontario.activities.WebViewActivity;
 import com.app.skillontario.callbacks.KeywordSelected;
 import com.app.skillontario.models.PlatinumModal;
 import com.app.skillorterio.R;
@@ -43,7 +44,7 @@ public class PartnersAdapter extends RecyclerView.Adapter<PartnersAdapter.ViewHo
         Picasso.with(context).load(listingDetails.get(position).getLogo()).into( holder.iv_image);
         holder.iv_image.setOnClickListener(v->{
            // callback.onTextClick(listingDetails.get(position).getWebUrl());
-            Intent intent=new Intent(context, NewsDetailAc.class);
+            Intent intent=new Intent(context, WebViewActivity.class);
             intent.putExtra("url",listingDetails.get(position).getWebUrl());
             intent.putExtra("title",listingDetails.get(position).getTitle());
             context.startActivity(intent);

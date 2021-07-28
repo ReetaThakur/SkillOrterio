@@ -11,7 +11,6 @@
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
 
-
     <application
         android:name="com.app.skillontario.baseClasses.AppController"
         android:allowBackup="true"
@@ -24,6 +23,10 @@
         android:theme="@style/ActivityThemes"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
+        <activity
+            android:name="com.app.skillontario.activities.WebViewActivity"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity"></activity>
         <activity
             android:name="com.app.skillontario.activities.PlayVideoActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
@@ -194,6 +197,55 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_path" />
         </provider>
+
+        <receiver
+            android:name="com.app.skillontario.firebase.FirebaseBroadcastReceiver"
+            android:exported="true"
+            android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.app.skillontario.firebase.NotificationReceiver"
+            android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+            </intent-filter>
+        </receiver> <!-- FCM SETUP END -->
+        <!--
+    <receiver android:name=".controller.settings.NetworkChangeReceiver">
+            <intent-filter>
+                <action
+                    android:name="android.net.conn.CONNECTIVITY_CHANGE"
+                    tools:ignore="BatteryLife" />
+            </intent-filter>
+        </receiver>
+        -->
+        <service
+            android:name="com.app.skillontario.firebase.MyFirebaseMessagingService"
+            tools:ignore="ExportedService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@mipmap/ic_launcher" />
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@color/colorAccent" />
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_channel_id"
+            android:value="@string/default_notification_channel_id" />
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+
+        <meta-data
+            android:name="firebase_analytics_collection_deactivated"
+            android:value="false" />
     </application>
 
 </manifest>

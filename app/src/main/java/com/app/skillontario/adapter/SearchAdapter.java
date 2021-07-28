@@ -11,7 +11,7 @@ import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.app.skillontario.activities.JobDetailsActivity;
-import com.app.skillontario.dialogs.GetClickBookmark;
+import com.app.skillontario.callbacks.GetClickBookmark;
 import com.app.skillorterio.R;
 import com.app.skillorterio.databinding.AdapterSearchBinding;
 import com.app.skillontario.models.careerListModel.CareerListDetails;
@@ -75,7 +75,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
                 listiner.getValueBookmarkClick(false, list.get(position),position);
             }
         });
-        viewHolder.binding.rlCareer.setOnClickListener(v->{
+        viewHolder.binding.cdH.setOnClickListener(v->{
             Intent intent=new Intent(context, JobDetailsActivity.class);
             intent.putExtra("Popular", list.get(position).getId());
             context.startActivity(intent);

@@ -1,11 +1,14 @@
 package com.app.skillontario.models;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
 
-public class ResourceModal implements Serializable {
+public class ResourceModal implements Serializable, Parcelable {
 
     @SerializedName("_id")
     @Expose
@@ -37,6 +40,43 @@ public class ResourceModal implements Serializable {
     @SerializedName("__v")
     @Expose
     private Integer v;
+
+    public ResourceModal(Parcel in) {
+        id = in.readString();
+        lang = in.readString();
+        if (in.readByte() == 0) {
+            status = null;
+        } else {
+            status = in.readInt();
+        }
+        resTitle = in.readString();
+        resUrl = in.readString();
+        resDesc = in.readString();
+        resImage = in.readString();
+        createdAt = in.readString();
+        updatedAt = in.readString();
+        if (in.readByte() == 0) {
+            v = null;
+        } else {
+            v = in.readInt();
+        }
+    }
+
+    public static final Creator<ResourceModal> CREATOR = new Creator<ResourceModal>() {
+        @Override
+        public ResourceModal createFromParcel(Parcel in) {
+            return new ResourceModal(in);
+        }
+
+        @Override
+        public ResourceModal[] newArray(int size) {
+            return new ResourceModal[size];
+        }
+    };
+
+    public ResourceModal() {
+
+    }
 
     public String getId() {
         return id;
@@ -119,4 +159,32 @@ public class ResourceModal implements Serializable {
     }
 
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(id);
+        dest.writeString(lang);
+        if (status == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeInt(status);
+        }
+        dest.writeString(resTitle);
+        dest.writeString(resUrl);
+        dest.writeString(resDesc);
+        dest.writeString(resImage);
+        dest.writeString(createdAt);
+        dest.writeString(updatedAt);
+        if (v == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeInt(v);
+        }
+    }
 }

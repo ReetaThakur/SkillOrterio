@@ -5,6 +5,7 @@
     tools:context="com.app.skillontario.home.Tab4Fragment">
 
     <RelativeLayout
+        android:id="@+id/maiLayClick"
         android:layout_width="@dimen/_230sdp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/_8sdp"
@@ -81,20 +82,24 @@
                     android:textColor="@color/white"
                     android:textSize="13sp" />
 
-                <TextView
+                <me.grantland.widget.AutofitTextView
                     android:id="@+id/textWork"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_8sdp"
+                    android:layout_marginRight="@dimen/_8sdp"
                     android:fontFamily="@font/poppins_medium"
                     android:gravity="center"
+                    android:maxLines="2"
                     android:singleLine="false"
                     android:text="General
-                     Carpenter"
+                     Carpenter "
                     android:textColor="#272F35"
                     android:textSize="@dimen/_16sdp" />
 
 
                 <TextView
+                    android:id="@+id/textMoney"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins_medium"

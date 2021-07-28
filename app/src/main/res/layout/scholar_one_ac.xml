@@ -14,65 +14,69 @@
             android:id="@+id/action_bar"
             layout="@layout/common_action_bar" />
 
-
-        <LinearLayout
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/refresh_layout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/_15sdp"
-                android:layout_marginTop="@dimen/_6sdp"
-                android:fontFamily="@font/poppins_regular"
-                android:text="@string/scoller_and"
-                android:textColor="@color/black"
-                android:textSize="35sp"></TextView>
-
-            <RelativeLayout
-                android:id="@+id/layRecy"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:visibility="visible">
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rvItems"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_above="@+id/progress"
-                    android:layout_marginLeft="@dimen/_10sdp"
-                    android:layout_marginTop="@dimen/_2sdp"
-                    android:layout_marginBottom="@dimen/_16sdp"
-                    android:orientation="vertical" />
-
-                <ProgressBar
-                    android:id="@+id/progress"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_centerHorizontal="true"
-                    android:paddingBottom="@dimen/_16sdp"
-                    android:visibility="gone"></ProgressBar>
-
-            </RelativeLayout>
+            android:layout_height="match_parent">
 
             <LinearLayout
-                android:id="@+id/ll_no_sclor"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:visibility="gone">
+                android:orientation="vertical">
 
-                <include
-                    android:id="@+id/noData"
-                    layout="@layout/no_data_found"
-                    android:visibility="visible" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_6sdp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:text="@string/scoller_and"
+                    android:textColor="@color/black"
+                    android:textSize="35sp"></TextView>
+
+                <RelativeLayout
+                    android:id="@+id/layRecy"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:visibility="visible">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvItems"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_above="@+id/progress"
+                        android:layout_marginLeft="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_2sdp"
+                        android:layout_marginBottom="@dimen/_16sdp"
+                        android:orientation="vertical" />
+
+                    <ProgressBar
+                        android:id="@+id/progress"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true"
+                        android:paddingBottom="@dimen/_16sdp"
+                        android:visibility="gone"></ProgressBar>
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_no_sclor"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:visibility="gone">
+
+                    <include
+                        android:id="@+id/noData"
+                        layout="@layout/no_data_found"
+                        android:visibility="visible" />
+                </LinearLayout>
             </LinearLayout>
-        </LinearLayout>
 
-
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
     </LinearLayout>
 </layout>

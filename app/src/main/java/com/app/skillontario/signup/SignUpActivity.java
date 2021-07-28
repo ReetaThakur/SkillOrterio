@@ -45,6 +45,7 @@ import java.util.Locale;
 
 import static android.content.Intent.FLAG_ACTIVITY_CLEAR_TOP;
 import static com.app.skillontario.constants.ApiConstants.API_INTERFACE;
+import static com.app.skillontario.constants.SharedPrefsConstants.GUEST_FLOW;
 import static com.app.skillontario.utils.Utils.getDeviceId;
 
 public class SignUpActivity extends BaseActivity implements ApiResponseErrorCallback {
@@ -130,7 +131,6 @@ public class SignUpActivity extends BaseActivity implements ApiResponseErrorCall
 
                 if (Validation()) {
                     if (verifyImage) {
-                        //startActivity(new Intent(SignUpActivity.this, BottomBarActivity.class));
 
                         String usertype = MySharedPreference.getInstance().getStringData(SharedPrefsConstants.USER_TYPE);
                         if (TextUtils.isEmpty(usertype)) {
@@ -210,7 +210,7 @@ public class SignUpActivity extends BaseActivity implements ApiResponseErrorCall
         binding.tvContinueAsGuest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Is_guest = MySharedPreference.getInstance().getBooleanData(SharedPrefsConstants.GUEST_FLOW);
+
                 signUpModel.setEmail("guest@gmail.com");
                 signUpModel.setPassword("123456");
                 signUpModel.setConfirmPassword("123456");
@@ -252,12 +252,49 @@ public class SignUpActivity extends BaseActivity implements ApiResponseErrorCall
                     MySharedPreference.getInstance().setStringData(SharedPrefsConstants.USER_ID, responseModel.getOutput().getId());
                     MySharedPreference.getInstance().SaveUserData(SharedPrefsConstants.USER_DATA, responseModel.getOutput());
 
-                    Intent intent = new Intent(SignUpActivity.this, BottomBarActivity.class);
-                    intent.setFlags(FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-                    startActivity(intent);
+                    if (MySharedPreference.getInstance().getBooleanData(GUEST_FLOW)) {
+
+                        if (MySharedPreference.getInstance().getStringData(SharedPrefsConstants.GUEST_FLOW_CLASS)
+                                .equalsIgnoreCase("homeFragment")) {
+                            Intent intent = new Intent(SignUpActivity.this, BottomBarActivity.class);
+                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                            startActivity(intent);
+                            finish();
+                        } else if (MySharedPreference.getInstance().getStringData(SharedPrefsConstants.GUEST_FLOW_CLASS)
+                                .equalsIgnoreCase("dashboardFragment")) {
+                            Intent intent = new Intent(SignUpActivity.this, BottomBarActivity.class);
+                            intent.putExtra("if", "4");
+                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                            startActivity(intent);
+                            finish();
+                        } else if (MySharedPreference.getInstance().getStringData(SharedPrefsConstants.GUEST_FLOW_CLASS)
+                                .equalsIgnoreCase("BookmarkAc")) {
+                            Intent intent = new Intent(SignUpActivity.this, BottomBarActivity.class);
+                            intent.putExtra("class", "BookmarkAc");
+                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                            startActivity(intent);
+                            finish();
+                        } else if (MySharedPreference.getInstance().getStringData(SharedPrefsConstants.GUEST_FLOW_CLASS)
+                                .equalsIgnoreCase("JobDetailsActivity")) {
+                            Intent intent = new Intent(SignUpActivity.this, BottomBarActivity.class);
+                            intent.putExtra("class", "JobDetailsActivity");
+                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                            startActivity(intent);
+                            finish();
+                        } else {
+                            finish();
+                        }
+                    } else {
+                        Intent intent = new Intent(SignUpActivity.this, BottomBarActivity.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        startActivity(intent);
+                        finish();
+                    }
+
                 } else {
                     Utils.showToast(this, responseModel.getMessage());
                 }
+                MySharedPreference.getInstance().setBooleanData(SharedPrefsConstants.GUEST_FLOW, false);
             } catch (Exception e) {
             }
 
@@ -267,14 +304,45 @@ public class SignUpActivity extends BaseActivity implements ApiResponseErrorCall
                 MySharedPreference.getInstance().setStringData(SharedPrefsConstants.USER_TOKEN, responseModel.getOutput().getToken());
                 MySharedPreference.getInstance().setStringData(SharedPrefsConstants.USER_ID, responseModel.getOutput().getId());
                 MySharedPreference.getInstance().SaveUserData(SharedPrefsConstants.USER_DATA, responseModel.getOutput());
-                /*if (Is_guest) {
+
+                if (MySharedPreference.getInstance().getBooleanData(GUEST_FLOW)) {
+
+                    if (MySharedPreference.getInstance().getStringData(SharedPrefsConstants.GUEST_FLOW_CLASS)
+                            .equalsIgnoreCase("homeFragment")) {
+                        Intent intent = new Intent(SignUpActivity.this, BottomBarActivity.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        startActivity(intent);
+                        finish();
+                    } else if (MySharedPreference.getInstance().getStringData(SharedPrefsConstants.GUEST_FLOW_CLASS)
+                            .equalsIgnoreCase("dashboardFragment")) {
+                        Intent intent = new Intent(SignUpActivity.this, BottomBarActivity.class);
+                        intent.putExtra("if", "4");
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        startActivity(intent);
+                        finish();
+                    } else if (MySharedPreference.getInstance().getStringData(SharedPrefsConstants.GUEST_FLOW_CLASS)
+                            .equalsIgnoreCase("BookmarkAc")) {
+                        Intent intent = new Intent(SignUpActivity.this, BottomBarActivity.class);
+                        intent.putExtra("class", "BookmarkAc");
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        startActivity(intent);
+                        finish();
+                    } else if (MySharedPreference.getInstance().getStringData(SharedPrefsConstants.GUEST_FLOW_CLASS)
+                            .equalsIgnoreCase("JobDetailsActivity")) {
+                        Intent intent = new Intent(SignUpActivity.this, BottomBarActivity.class);
+                        intent.putExtra("class", "JobDetailsActivity");
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        startActivity(intent);
+                        finish();
+                    } else {
+                        finish();
+                    }
+                } else {
+                    Intent intent = new Intent(SignUpActivity.this, BottomBarActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    startActivity(intent);
                     finish();
-                } else {*/
-                Intent intent = new Intent(SignUpActivity.this, BottomBarActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                startActivity(intent);
-                finish();
-                // }
+                }
                 MySharedPreference.getInstance().setBooleanData(SharedPrefsConstants.GUEST_FLOW, true);
             } else {
                 Utils.showToast(this, responseModel.getMessage());

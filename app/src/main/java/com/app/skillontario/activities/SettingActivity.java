@@ -1,7 +1,6 @@
 package com.app.skillontario.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
-import io.branch.referral.Branch;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -9,20 +8,31 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.app.skillontario.SignIn.ChangePasswordActivity;
+import com.app.skillontario.SignIn.SignInActivity;
 import com.app.skillontario.apiConnection.ApiCallBack;
 import com.app.skillontario.apiConnection.ApiResponseErrorCallback;
 import com.app.skillontario.apiConnection.RequestBodyGenerator;
 import com.app.skillontario.baseClasses.BaseActivity;
+import com.app.skillontario.baseClasses.BaseResponseModel;
+import com.app.skillontario.constants.AppConstants;
+import com.app.skillontario.constants.SharedPrefsConstants;
 import com.app.skillontario.signup.SignUpActivity;
+import com.app.skillontario.utils.MySharedPreference;
 import com.app.skillorterio.R;
 import com.app.skillorterio.databinding.ActivityNotificationBinding;
 import com.app.skillorterio.databinding.ActivitySelectRoleBinding;
 import com.app.skillorterio.databinding.ActivitySettingBinding;
 import com.app.skillorterio.databinding.ActivityTermsOfServicesBinding;
 
-import static com.app.skillontario.constants.ApiConstants.API_INTERFACE;
+import java.util.HashMap;
 
-public class SettingActivity extends BaseActivity {
+import static com.app.skillontario.constants.ApiConstants.API_INTERFACE;
+import static com.app.skillontario.constants.AppConstants.FIREBASE_TOKEN;
+import static com.app.skillontario.constants.SharedPrefsConstants.GUEST_FLOW;
+import static com.app.skillontario.constants.SharedPrefsConstants.USER_ID;
+import static com.app.skillontario.utils.Utils.updatLocalLanguage;
+
+public class SettingActivity extends BaseActivity implements ApiResponseErrorCallback {
 
     private ActivitySettingBinding binding;
     boolean notiOnOff = false;
@@ -56,6 +66,8 @@ public class SettingActivity extends BaseActivity {
                 notiOnOff = true;
                 binding.ivNotification.setImageResource(R.drawable.ic_notification_off);
             }
+
+            updateNotification("1", MySharedPreference.getInstance().getStringData(SharedPrefsConstants.LANGUAGE_API));
         });
 
         binding.tvSettingEnglish.setOnClickListener(v -> {
@@ -72,27 +84,27 @@ public class SettingActivity extends BaseActivity {
             binding.tvSettingEnglish.setBackgroundResource(R.drawable.ic_lang_rectangle_transparent);
         });
 
-        binding.cvSignIn.setOnClickListener(new View.OnClickListener() {
+        binding.cvLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(SettingActivity.this, SelectLanguage.class);        // Specify any activity here e.g. home or splash or login etc
-                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                i.putExtra("EXIT", true);
-                startActivity(i);
-                finish();
+                loguot();
             }
         });
 
-      // Branch logging for debugging
-        Branch.enableLogging();
-
-        // Branch object initialization
-        Branch.getAutoInstance(this);
 
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (MySharedPreference.getInstance().getBooleanData(GUEST_FLOW)) {
+            binding.cvLogout.setVisibility(View.GONE);
+            binding.lChangePassword.setVisibility(View.GONE);
+        } else {
+            binding.cvLogout.setVisibility(View.VISIBLE);
+            binding.lChangePassword.setVisibility(View.VISIBLE);
+        }
+    }
 
     @Override
     protected int getLayoutById() {
@@ -105,4 +117,76 @@ public class SettingActivity extends BaseActivity {
         overridePendingTransition(R.anim.slide_in_from_left, R.anim.slide_out_from_right);
 
     }
+
+    @Override
+    public void getApiResponse(Object responseObject, int flag) {
+        if (flag == 105) {
+            BaseResponseModel responseModel = (BaseResponseModel) responseObject;
+        } else if (flag == 10) {
+            try {
+                BaseResponseModel responseModel = (BaseResponseModel) responseObject;
+                if (responseModel.getStatus()) {
+                    showToast(responseModel.getMessage());
+                    //languageMethod();
+                    String lang = MySharedPreference.getInstance().getStringData(AppConstants.LANGUAGE);
+                    String token = MySharedPreference.getInstance().getStringData(FIREBASE_TOKEN);
+                    MySharedPreference.getInstance().clearSharedPrefs();
+
+                    Intent intent = new Intent(SettingActivity.this, SignInActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+
+                    languageMethod(lang);
+                    MySharedPreference.getInstance().setBooleanData(SharedPrefsConstants.GUEST_FLOW, false);
+                    MySharedPreference.getInstance().setStringData(AppConstants.LANGUAGE, "lang");
+                    MySharedPreference.getInstance().setStringData(FIREBASE_TOKEN, token);
+                    startActivity(intent);
+                    finish();
+                } else {
+                    showToast(responseModel.getMessage());
+                }
+            } catch (Exception e) {
+            }
+        }
+
+    }
+
+    @Override
+    public void getApiError(Throwable t, int flag) {
+
+    }
+
+    void updateNotification(String num, String lang) {
+        HashMap<String, Object> object = new HashMap<>();
+
+        object.put("userId", MySharedPreference.getInstance().getStringData(USER_ID));
+        object.put("notifyStatus", num);
+        object.put("lang", lang);
+
+        API_INTERFACE.updateUser(object).enqueue(
+                new ApiCallBack<>(SettingActivity.this, this, 105, false));
+    }
+
+    private void loguot() {
+        API_INTERFACE.logout(RequestBodyGenerator.Logout(MySharedPreference.getInstance().getStringData(USER_ID))).enqueue(
+                new ApiCallBack<>(SettingActivity.this, this, 10, true));
+    }
+
+    private void languageMethod(String lang) {
+
+        if (lang != null) {
+            if (lang.isEmpty()) {
+
+                updatLocalLanguage("en", getBaseContext());
+
+            } else {
+
+                updatLocalLanguage(lang, getBaseContext());
+            }
+        } else {
+
+            updatLocalLanguage("en", getBaseContext());
+        }
+    }
+
+
 }

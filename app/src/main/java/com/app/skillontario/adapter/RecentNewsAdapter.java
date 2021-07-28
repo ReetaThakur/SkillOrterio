@@ -19,6 +19,7 @@ import com.squareup.picasso.Picasso;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 public class RecentNewsAdapter extends RecyclerView.Adapter<RecentNewsAdapter.ViewHolder> {
@@ -62,7 +63,7 @@ public class RecentNewsAdapter extends RecyclerView.Adapter<RecentNewsAdapter.Vi
         }
         viewHolder.binding.rlAll.setOnClickListener(v -> {
             Intent intent = new Intent(context, NewsDetailAc.class);
-            intent.putExtra("url", newsModalArrayList.get(position).getNewsUrl());
+            intent.putExtra("model", (Serializable) newsModalArrayList.get(position));
             context.startActivity(intent);
         });
 

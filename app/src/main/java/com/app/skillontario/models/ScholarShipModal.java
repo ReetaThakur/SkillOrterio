@@ -1,11 +1,14 @@
 package com.app.skillontario.models;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
 
-public class ScholarShipModal implements Serializable {
+public class ScholarShipModal implements Serializable, Parcelable {
 
     @SerializedName("_id")
     @Expose
@@ -37,6 +40,39 @@ public class ScholarShipModal implements Serializable {
     @SerializedName("image")
     @Expose
     private String image;
+
+    protected ScholarShipModal(Parcel in) {
+        id = in.readString();
+        lang = in.readString();
+        if (in.readByte() == 0) {
+            status = null;
+        } else {
+            status = in.readInt();
+        }
+        title = in.readString();
+        desc = in.readString();
+        webUrl = in.readString();
+        createdAt = in.readString();
+        updatedAt = in.readString();
+        if (in.readByte() == 0) {
+            v = null;
+        } else {
+            v = in.readInt();
+        }
+        image = in.readString();
+    }
+
+    public static final Creator<ScholarShipModal> CREATOR = new Creator<ScholarShipModal>() {
+        @Override
+        public ScholarShipModal createFromParcel(Parcel in) {
+            return new ScholarShipModal(in);
+        }
+
+        @Override
+        public ScholarShipModal[] newArray(int size) {
+            return new ScholarShipModal[size];
+        }
+    };
 
     public String getImage() {
         return image;
@@ -116,5 +152,34 @@ public class ScholarShipModal implements Serializable {
 
     public void setV(Integer v) {
         this.v = v;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(id);
+        dest.writeString(lang);
+        if (status == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeInt(status);
+        }
+        dest.writeString(title);
+        dest.writeString(desc);
+        dest.writeString(webUrl);
+        dest.writeString(createdAt);
+        dest.writeString(updatedAt);
+        if (v == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeInt(v);
+        }
+        dest.writeString(image);
     }
 }

@@ -30,7 +30,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
-                    android:tint="@color/unselect"
+                    app:tint="@color/unselect"
                     android:src="@drawable/ic_notification_adapter_background"></ImageView>
 
                 <TextView
@@ -39,6 +39,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
                     android:text="A"
+                    android:textAllCaps="true"
                     android:textSize="@dimen/_14sdp"
                     android:fontFamily="@font/poppins_bold"
                     android:textColor="@color/white"

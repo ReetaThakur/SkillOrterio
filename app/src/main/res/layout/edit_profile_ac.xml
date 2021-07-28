@@ -35,10 +35,10 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_10sdp"
                         android:background="@drawable/ic_rec_line"
+                        android:hint="Robert Frost"
                         android:imeOptions="actionNext"
                         android:inputType="textEmailAddress|textVisiblePassword"
                         android:paddingLeft="@dimen/_15sdp"
-                        android:hint="Robert Frost"
                         android:textColor="@color/black" />
 
                     <TextView
@@ -52,7 +52,7 @@
                         android:paddingRight="@dimen/_10sdp"
                         android:text="@string/first_name_"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="@dimen/_11sdp" />
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -66,10 +66,10 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_10sdp"
                         android:background="@drawable/ic_rec_line"
+                        android:hint=" Pattinson"
                         android:imeOptions="actionNext"
                         android:inputType="textEmailAddress|textVisiblePassword"
                         android:paddingLeft="@dimen/_15sdp"
-                        android:hint=" Pattinson"
                         android:textColor="@color/black" />
 
                     <TextView
@@ -83,7 +83,7 @@
                         android:paddingRight="@dimen/_10sdp"
                         android:text="@string/last_name_"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="@dimen/_11sdp" />
                 </RelativeLayout>
 
 
@@ -123,7 +123,7 @@
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/poppins_medium"
                                 android:text="I identify as female."
-                                android:textSize="12sp" />
+                                android:textSize="@dimen/_11sdp" />
 
                             <RadioButton
                                 android:id="@+id/bt2"
@@ -132,7 +132,7 @@
                                 android:layout_marginTop="@dimen/_5sdp"
                                 android:fontFamily="@font/poppins_medium"
                                 android:text="I don't identify as female."
-                                android:textSize="12sp" />
+                                android:textSize="@dimen/_11sdp" />
                         </RadioGroup>
 
                         <ImageView
@@ -158,10 +158,10 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_10sdp"
                         android:background="@drawable/ic_rec_line"
+                        android:hint=" Pattinson_robert@gmail.com"
                         android:imeOptions="actionNext"
                         android:inputType="textEmailAddress|textVisiblePassword"
                         android:paddingLeft="@dimen/_15sdp"
-                        android:hint=" Pattinson_robert@gmail.com"
                         android:textColor="@color/black" />
 
                     <TextView
@@ -175,7 +175,7 @@
                         android:paddingRight="@dimen/_10sdp"
                         android:text="@string/email"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="@dimen/_11sdp" />
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -200,7 +200,7 @@
                         android:layout_marginTop="@dimen/_25sdp"
                         android:orientation="horizontal">
 
-                        <TextView
+                        <me.grantland.widget.AutofitTextView
                             android:id="@+id/s1"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
@@ -208,14 +208,13 @@
                             android:layout_weight="1"
                             android:background="@drawable/edit_text_background"
                             android:backgroundTint="@color/layer_select"
-
                             android:fontFamily="@font/poppins_medium"
                             android:gravity="center"
                             android:text="Primary School"
                             android:textColor="@color/white"
                             android:textSize="14sp" />
 
-                        <TextView
+                        <me.grantland.widget.AutofitTextView
                             android:id="@+id/s2"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
@@ -243,10 +242,10 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_10sdp"
                         android:background="@drawable/ic_rec_line"
+                        android:hint="october 27, 1998"
                         android:imeOptions="actionNext"
                         android:inputType="textEmailAddress|textVisiblePassword"
                         android:paddingLeft="@dimen/_15sdp"
-                        android:hint="october 27, 1998"
                         android:textColor="@color/black" />
 
                     <TextView
@@ -260,7 +259,7 @@
                         android:paddingRight="@dimen/_10sdp"
                         android:text="@string/date_of_birth_"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="@dimen/_11sdp" />
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -291,7 +290,7 @@
                         android:paddingRight="@dimen/_10sdp"
                         android:text="City and State/Province"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="@dimen/_11sdp" />
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -319,7 +318,7 @@
         <LinearLayout
             android:id="@+id/done"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="@dimen/_40sdp"
             android:layout_margin="@dimen/_15sdp"
             android:background="@drawable/ic_rectangle__done_button"
             android:gravity="center"
@@ -334,7 +333,7 @@
                 android:text="Save Profile"
                 android:textAllCaps="true"
                 android:textColor="@color/white"
-                android:textSize="18sp" />
+                android:textSize="@dimen/_14sdp" />
         </LinearLayout>
 
 

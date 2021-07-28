@@ -56,7 +56,8 @@ public class EditProfileAc extends BaseActivity implements ApiResponseErrorCallb
     UpdateProfileModal updateProfileModal;
     String gender = "1";
     String school = "1";
-    String inputDateStr="";
+    String inputDateStr = "";
+
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void initUi() {
@@ -73,16 +74,17 @@ public class EditProfileAc extends BaseActivity implements ApiResponseErrorCallb
         binding.bt1.setOnClickListener(v -> CheckGender(1));
         binding.bt2.setOnClickListener(v -> CheckGender(2));
         updateProfileModal = new UpdateProfileModal(this);
-        showPopUp();
+        //  showPopUp();
 
         binding.ivInfo.setOnClickListener(v -> {
-            showPopUp();
+            //  showPopUp();
             if (balloon.isShowing()) {
                 balloon.dismiss();
             } else {
                 balloon.showAlignBottom(binding.ivInfo);
             }
         });
+
         binding.done.setOnClickListener(v -> {
             if (validate()) {
                 updateProfileModal.setId(MySharedPreference.getInstance().getStringData(SharedPrefsConstants.USER_ID));
@@ -104,69 +106,48 @@ public class EditProfileAc extends BaseActivity implements ApiResponseErrorCallb
     @RequiresApi(api = Build.VERSION_CODES.N)
     void setData() {
         binding.tvDob.setOnClickListener(v -> showCalender());
-        if(registrationModal.getFname() != null ) {
+        if (registrationModal.getFname() != null) {
             if (!registrationModal.getFname().isEmpty() && !registrationModal.getFname().equalsIgnoreCase("null")) {
                 binding.etFirstName.setText(registrationModal.getFname());
             }
         }
-        if(registrationModal.getLname() != null ) {
-            if ( !registrationModal.getLname().isEmpty() && !registrationModal.getLname().equalsIgnoreCase("null")) {
+        if (registrationModal.getLname() != null) {
+            if (!registrationModal.getLname().isEmpty() && !registrationModal.getLname().equalsIgnoreCase("null")) {
                 binding.etLastName.setText(registrationModal.getLname());
             }
         }
-        if(registrationModal.getEmail() != null) {
+        if (registrationModal.getEmail() != null) {
             if (!registrationModal.getEmail().isEmpty() && !registrationModal.getEmail().equalsIgnoreCase("null")) {
                 binding.etEmail.setText(registrationModal.getEmail());
             }
         }
-        if(registrationModal.getCity() != null ) {
+        if (registrationModal.getCity() != null) {
             if (!registrationModal.getCity().isEmpty() && !registrationModal.getCity().equalsIgnoreCase("null")) {
                 binding.etWindsor.setText(registrationModal.getCity());
             }
         }
-        if(registrationModal.getCountry() != null) {
+        if (registrationModal.getCountry() != null) {
             if (!registrationModal.getCountry().isEmpty() && !registrationModal.getCountry().equalsIgnoreCase("null")) {
                 binding.etCountry.setText(registrationModal.getCountry());
             }
         }
-        if(registrationModal.getSchool() != null) {
+        if (registrationModal.getSchool() != null) {
             if (!registrationModal.getSchool().isEmpty() && !registrationModal.getSchool().equalsIgnoreCase("null")) {
                 schoolClick(Integer.parseInt(registrationModal.getSchool()));
             }
         }
-        if(registrationModal.getGender()!=null) {
-            if ( !registrationModal.getGender().isEmpty() && !registrationModal.getGender().equalsIgnoreCase("null")) {
+        if (registrationModal.getGender() != null) {
+            if (!registrationModal.getGender().isEmpty() && !registrationModal.getGender().equalsIgnoreCase("null")) {
                 CheckGender(Integer.parseInt(registrationModal.getGender()));
             }
         }
-        if(registrationModal.getDob()!=null){
-            if ( !registrationModal.getDob().isEmpty() && !registrationModal.getDob().equalsIgnoreCase("null")) {
+        if (registrationModal.getDob() != null) {
+            if (!registrationModal.getDob().isEmpty() && !registrationModal.getDob().equalsIgnoreCase("null")) {
                 binding.tvDob.setText(DateFormate(registrationModal.getDob()));
             }
         }
     }
 
-    void showPopUp() {
-        balloon = new Balloon.Builder(EditProfileAc.this)
-                .setArrowSize(10)
-                .setArrowOrientation(ArrowOrientation.TOP)
-                .setArrowPositionRules(ArrowPositionRules.ALIGN_ANCHOR)
-                .setArrowPosition(0.5f)
-                .setWidth(BalloonSizeSpec.WRAP)
-                .setHeight(BalloonSizeSpec.WRAP)
-                .setTextSize(14f)
-                .setCornerRadius(20f)
-                .setPadding(16)
-                .setTextGravity(10)
-                .setMarginRight(16)
-                .setMarginLeft(16)
-                .setText(getStringFromResource(R.string.edit_profile_dailog_test))
-                .setTextColor(ContextCompat.getColor(EditProfileAc.this, R.color.black))
-                .setTextIsHtml(false)
-                .setBackgroundColor(ContextCompat.getColor(EditProfileAc.this, R.color.white))
-                .setBalloonAnimation(BalloonAnimation.FADE)
-                .build();
-    }
 
     private void schoolClick(int i) {
         if (i == 1) {
@@ -174,13 +155,13 @@ public class EditProfileAc extends BaseActivity implements ApiResponseErrorCallb
             binding.s2.setTextColor(getResources().getColor(R.color.black));
             binding.s1.getBackground().setColorFilter(Color.parseColor("#34C759"), PorterDuff.Mode.SRC_ATOP);
             binding.s2.getBackground().setColorFilter(Color.parseColor("#ffffff"), PorterDuff.Mode.SRC_ATOP);
-            school="1";
+            school = "1";
         } else {
             binding.s1.getBackground().setColorFilter(Color.parseColor("#ffffff"), PorterDuff.Mode.SRC_ATOP);
             binding.s2.getBackground().setColorFilter(Color.parseColor("#34C759"), PorterDuff.Mode.SRC_ATOP);
             binding.s1.setTextColor(getResources().getColor(R.color.black));
             binding.s2.setTextColor(getResources().getColor(R.color.white));
-            school="2";
+            school = "2";
         }
     }
 
@@ -220,7 +201,7 @@ public class EditProfileAc extends BaseActivity implements ApiResponseErrorCallb
                     public void onDateSet(DatePicker view, int year,
                                           int monthOfYear, int dayOfMonth) {
                         // inputDateStr = year + "-" + (monthOfYear + 1)+ "-" +  dayOfMonth ;
-                        String  inputDate = year + "-" + dayOfMonth + "-" + (monthOfYear + 1);
+                        String inputDate = year + "-" + dayOfMonth + "-" + (monthOfYear + 1);
 
                         DateFormat inputFormat = new SimpleDateFormat("yyyy-dd-mm");
                         DateFormat inputFormatset = new SimpleDateFormat("YYYY-mm-dd");
@@ -243,9 +224,10 @@ public class EditProfileAc extends BaseActivity implements ApiResponseErrorCallb
                 }, year, month, day);
         datePickerDialog.show();
     }
+
     @SuppressLint("NewApi")
     @RequiresApi(api = Build.VERSION_CODES.N)
-    public  String DateFormate(String str_date) {
+    public String DateFormate(String str_date) {
         String newDateString = "2021-06-22 11:11 AM";
         //2021-10-14T00:00:00.000Z
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.getDefault());
@@ -254,17 +236,20 @@ public class EditProfileAc extends BaseActivity implements ApiResponseErrorCallb
             Date date = format.parse(str_date);
             Date date1 = format_set.parse(str_date);
 
-            format =  new SimpleDateFormat("MMM dd yyyy");
-            format_set =  new SimpleDateFormat("YYYY-MM-dd");
+            format = new SimpleDateFormat("MMM dd yyyy");
+            format_set = new SimpleDateFormat("YYYY-MM-dd");
 
-            newDateString = format.format(date);;
-            inputDateStr = format_set.format(date1);;
+            newDateString = format.format(date);
+            ;
+            inputDateStr = format_set.format(date1);
+            ;
 
         } catch (ParseException e) {
             e.printStackTrace();
         }
         return newDateString;
     }
+
     private boolean validate() {
         if (TextUtils.isEmpty(binding.etFirstName.getText().toString())) {
             binding.etFirstName.setError(getString(R.string.enter_first_name));
@@ -295,12 +280,12 @@ public class EditProfileAc extends BaseActivity implements ApiResponseErrorCallb
     public void getApiResponse(Object responseObject, int flag) {
         if (flag == 01) {
             BaseResponseModel<RegistrationModal> responseModel = (BaseResponseModel<RegistrationModal>) responseObject;
-            if(responseModel.getStatus()){
-                MySharedPreference.getInstance().SaveUserData(SharedPrefsConstants.USER_DATA,responseModel.getOutput());
-                tvUserName.setText(binding.etFirstName.getText().toString()+" "+binding.etLastName.getText().toString());
+            if (responseModel.getStatus()) {
+                MySharedPreference.getInstance().SaveUserData(SharedPrefsConstants.USER_DATA, responseModel.getOutput());
+                tvUserName.setText(binding.etFirstName.getText().toString() + " " + binding.etLastName.getText().toString());
                 showToast(responseModel.getMessage());
                 finish();
-            }else {
+            } else {
                 Utils.showToast(this, responseModel.getMessage());
             }
         }

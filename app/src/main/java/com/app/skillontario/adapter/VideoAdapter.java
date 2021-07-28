@@ -14,11 +14,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.app.skillontario.activities.JobDetailsActivity;
 import com.app.skillontario.activities.PlayVideoActivity;
+import com.app.skillontario.models.ResourceURLModal;
 import com.app.skillorterio.R;
 import com.app.skillorterio.databinding.VideoAdapterBinding;
 import com.app.skillorterio.databinding.VideoAdapterBinding;
 
 import org.jetbrains.annotations.NotNull;
+
+import java.util.ArrayList;
 
 public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> {
 
@@ -38,6 +41,13 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> 
         this.context = context;
     }
 
+    ArrayList<ResourceURLModal> resourceURLModalArrayList;
+
+    public VideoAdapter(ArrayList<ResourceURLModal> resourceURLModalArrayList, Context context) {
+        this.resourceURLModalArrayList = resourceURLModalArrayList;
+        this.context = context;
+    }
+
 
     @Override
     public long getItemId(int position) {
@@ -46,7 +56,7 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> 
 
     @Override
     public int getItemCount() {
-        return 2;
+        return resourceURLModalArrayList.size();
     }
 
     @Override
@@ -66,12 +76,16 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> 
         viewHolder.binding.ivPlay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (position == 1)
+                boolean contains = resourceURLModalArrayList.get(position).getPath()
+                        .toLowerCase().contains("https://www.youtube.com/");
+
+
+                if (contains == false)
                     context.startActivity(new Intent(context, PlayVideoActivity.class));
                 else {
                     try {
                         Intent intent = new Intent(Intent.ACTION_VIEW);
-                        intent.setData(Uri.parse("https://www.youtube.com/watch?v=SNNT8r7G6mE"));
+                        intent.setData(Uri.parse(resourceURLModalArrayList.get(position).getPath()));
                         context.startActivity(intent);
                     } catch (Exception e) {
                     }

@@ -1,27 +1,36 @@
 package com.app.skillontario.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.core.content.ContextCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.app.skillontario.activities.JobDetailsActivity;
+import com.app.skillontario.models.quizModel.QuizResultModel;
 import com.app.skillorterio.R;
 import com.app.skillorterio.databinding.FragmentQuizCBinding;
 import com.app.skillorterio.databinding.FragmentQuizCBinding;
+import com.bumptech.glide.Glide;
 
 import org.jetbrains.annotations.NotNull;
+
+import java.util.ArrayList;
 
 public class AdapterCong extends RecyclerView.Adapter<AdapterCong.ViewHolder> {
 
 
     Context context;
+    boolean val = false;
+    ArrayList<QuizResultModel> quizFinalResultModel = new ArrayList<>();
 
-
-    public AdapterCong(Context contex) {
-        this.context = context;
+    public AdapterCong(Context contex, ArrayList<QuizResultModel> quizFinalResultModel) {
+        this.context = contex;
+        this.quizFinalResultModel = quizFinalResultModel;
 
     }
 
@@ -33,76 +42,49 @@ public class AdapterCong extends RecyclerView.Adapter<AdapterCong.ViewHolder> {
 
     @Override
     public int getItemCount() {
-        return 6;
+        try {
+            return quizFinalResultModel.size();
+        } catch (Exception e) {
+            return 0;
+        }
+
     }
 
     @Override
     public void onBindViewHolder(final AdapterCong.ViewHolder viewHolder, final int position) {
 
-        if (position == 0) {
-           // viewHolder.binding.imgBackground.setColorFilter(ContextCompat.getColor(context, R.color.home_color1));
-         //   viewHolder.binding.imgOvl.setColorFilter(ContextCompat.getColor(context, R.color.home_oval_color1));
-            viewHolder.binding.ivHolder.setImageResource(R.drawable.new_person1);
-            viewHolder.binding.linBack.setBackgroundResource(R.drawable.rec_quiz_tanks);
-            viewHolder.binding.textCons.setText("Technology");
-            viewHolder.binding.textWork.setText("Photographer");
-
-        } else if (position == 1) {
-        //    viewHolder.binding.imgBackground.setColorFilter(ContextCompat.getColor(context, R.color.home_color2));
-         //   viewHolder.binding.imgOvl.setColorFilter(ContextCompat.getColor(context, R.color.home_oval_color2));
-            viewHolder.binding.ivHolder.setImageResource(R.drawable.new_person2);
+        if (val) {
+            val = false;
             viewHolder.binding.linBack.setBackgroundResource(R.drawable.rec_quiz_tanks1);
-            viewHolder.binding.textCons.setText("Industrial");
-            viewHolder.binding.textWork.setText(R.string.gen);
-
-        } else if (position == 2) {
-          //  viewHolder.binding.imgBackground.setColorFilter(ContextCompat.getColor(context, R.color.home_color1));
-         //   viewHolder.binding.imgOvl.setColorFilter(ContextCompat.getColor(context, R.color.home_oval_color1));
-            viewHolder.binding.ivHolder.setImageResource(R.drawable.new_person3);
-            viewHolder.binding.linBack.setBackgroundResource(R.drawable.rec_quiz_tanks);
-            viewHolder.binding.textCons.setText("Service");
-            viewHolder.binding.textWork.setText(R.string.ho);
-
-        } else if (position == 3) {
-         //   viewHolder.binding.imgBackground.setColorFilter(ContextCompat.getColor(context, R.color.home_color2));
-         //   viewHolder.binding.imgOvl.setColorFilter(ContextCompat.getColor(context, R.color.home_oval_color2));
-            viewHolder.binding.ivHolder.setImageResource(R.drawable.new_person4);
-            viewHolder.binding.linBack.setBackgroundResource(R.drawable.rec_quiz_tanks1);
-            viewHolder.binding.textCons.setText("Industrial");
-            viewHolder.binding.textWork.setText(R.string.in);
-
-        } else if (position == 4) {
-        //    viewHolder.binding.imgBackground.setColorFilter(ContextCompat.getColor(context, R.color.home_color1));
-        //    viewHolder.binding.imgOvl.setColorFilter(ContextCompat.getColor(context, R.color.home_oval_color1));
-            viewHolder.binding.ivHolder.setImageResource(R.drawable.new_person5);
-            viewHolder.binding.linBack.setBackgroundResource(R.drawable.rec_quiz_tanks);
-            viewHolder.binding.textCons.setText("Motive Power");
-            viewHolder.binding.textWork.setText(R.string.tru);
-
-        } else if (position == 5) {
-        //    viewHolder.binding.imgBackground.setColorFilter(ContextCompat.getColor(context, R.color.home_color2));
-        //    viewHolder.binding.imgOvl.setColorFilter(ContextCompat.getColor(context, R.color.home_oval_color2));
-            viewHolder.binding.ivHolder.setImageResource(R.drawable.new_person6);
-            viewHolder.binding.linBack.setBackgroundResource(R.drawable.rec_quiz_tanks1);
-            viewHolder.binding.textCons.setText("Service");
-            viewHolder.binding.textWork.setText(R.string.childs);
-
-        } else if (position == 6) {
-         //   viewHolder.binding.imgBackground.setColorFilter(ContextCompat.getColor(context, R.color.home_color1));
-          //  viewHolder.binding.imgOvl.setColorFilter(ContextCompat.getColor(context, R.color.home_oval_color1));
-            viewHolder.binding.ivHolder.setImageResource(R.drawable.new_person1);
-            viewHolder.binding.linBack.setBackgroundResource(R.drawable.rec_quiz_tanks);
-            viewHolder.binding.textCons.setText("Technology");
-            viewHolder.binding.textWork.setText("Photographer");
+            //viewHolder.binding.ivHolder.setImageResource(R.drawable.new_person1);
+            Glide.with(context)
+                    .load(quizFinalResultModel.get(position).getImage())
+                    .into(viewHolder.binding.ivHolder);
+            viewHolder.binding.textCons.setText(quizFinalResultModel.get(position).getJobSector());
+            viewHolder.binding.textWork.setText(quizFinalResultModel.get(position).getJobProfile());
+            viewHolder.binding.textMoney.setText(quizFinalResultModel.get(position).getFee());
 
         } else {
-         //   viewHolder.binding.imgBackground.setColorFilter(ContextCompat.getColor(context, R.color.home_color2));
-         //   viewHolder.binding.imgOvl.setColorFilter(ContextCompat.getColor(context, R.color.home_oval_color2));
-            viewHolder.binding.ivHolder.setImageResource(R.drawable.new_person1);
+            val = true;
             viewHolder.binding.linBack.setBackgroundResource(R.drawable.rec_quiz_tanks);
-            viewHolder.binding.textCons.setText("Technology");
-            viewHolder.binding.textWork.setText("Photographer");
+            Glide.with(context)
+                    .load(quizFinalResultModel.get(position).getImage())
+                    .into(viewHolder.binding.ivHolder);
+            viewHolder.binding.textCons.setText(quizFinalResultModel.get(position).getJobSector());
+            viewHolder.binding.textWork.setText(quizFinalResultModel.get(position).getJobProfile());
+            viewHolder.binding.textMoney.setText(quizFinalResultModel.get(position).getFee());
         }
+
+        viewHolder.binding.maiLayClick.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, JobDetailsActivity.class);
+                intent.putExtra("Popular", quizFinalResultModel.get(position).getId());
+                context.startActivity(intent);
+
+            }
+        });
+
     }
 
     @NotNull

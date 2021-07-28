@@ -93,6 +93,7 @@
                                 android:textSize="27sp"></TextView>
 
                             <TextView
+                                android:id="@+id/textFee"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="@dimen/_4sdp"
@@ -138,6 +139,7 @@
                             </LinearLayout>
 
                             <TextView
+                                android:id="@+id/tv_help_full"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/poppins_medium"

@@ -14,17 +14,48 @@
             android:id="@+id/action_bar"
             layout="@layout/common_action_bar" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvItems"
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/refresh_layout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="@dimen/_12sdp"
-            android:layout_marginTop="@dimen/_2sdp"
-            android:layout_marginRight="@dimen/_10sdp"
-            android:orientation="vertical"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:itemCount="4"
-            tools:listitem="@layout/bookmark_item" />
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rcy_bookmark"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_above="@+id/progress"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:visibility="visible" />
+
+                <ProgressBar
+                    android:id="@+id/progress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:paddingBottom="@dimen/_16sdp"
+                    android:visibility="gone"></ProgressBar>
+
+
+                <LinearLayout
+                    android:id="@+id/ll_no_res"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:visibility="gone">
+
+                    <include
+                        android:id="@+id/noData"
+                        layout="@layout/no_data_found"
+                        android:visibility="visible" />
+                </LinearLayout>
+            </RelativeLayout>
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
     </LinearLayout>
 </layout>

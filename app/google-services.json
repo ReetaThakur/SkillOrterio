@@ -1,42 +1,49 @@
 {
   "project_info": {
-    "project_number": "632124998898",
-    "project_id": "taxvolt-18d3a",
-    "storage_bucket": "taxvolt-18d3a.appspot.com"
+    "project_number": "765718475436",
+    "project_id": "skills-ontario",
+    "storage_bucket": "skills-ontario.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:632124998898:android:6b5e058627f4d67427bc6b",
+        "mobilesdk_app_id": "1:765718475436:android:37e216cecda74425346509",
         "android_client_info": {
-          "package_name": "com.app.skillontario"
+          "package_name": "com.app.skillorterio"
         }
       },
       "oauth_client": [
         {
-          "client_id": "632124998898-42mq2qbqulcdjehm0vujl8tfaju1ohec.apps.googleusercontent.com",
+          "client_id": "765718475436-qp8bkbcerd0gkkmmf38t1e3rq13ijndt.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.appstudio.taxvolt",
-            "certificate_hash": "289c8f0204591dd2e50e8381a77eb209a741f917"
+            "package_name": "com.app.skillorterio",
+            "certificate_hash": "a30af3e9ada3b5f6f94ded35c1db07f5295a7ad9"
           }
         },
         {
-          "client_id": "632124998898-f491il9rvtm6dbv605udu7s1bi7gfhqf.apps.googleusercontent.com",
+          "client_id": "765718475436-ibq03kepfk0bahfvh9tqodqka72kv7tb.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBQq81AGmuQgrWuCwNBLcU_-oVR-Obla4g"
+          "current_key": "AIzaSyBIrLI7dB5qMrVBmxGKQkuOpjspgs_Ta10"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "632124998898-f491il9rvtm6dbv605udu7s1bi7gfhqf.apps.googleusercontent.com",
+              "client_id": "765718475436-ibq03kepfk0bahfvh9tqodqka72kv7tb.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "765718475436-bo9a3v0pii4dst3re95lpv5595t80lvs.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.appstudio.Skills-Ontario"
+              }
             }
           ]
         }

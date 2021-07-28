@@ -30,7 +30,7 @@ android {
     buildToolsVersion "30.0.2"
 
     defaultConfig {
-        applicationId "com.app.skillontario"
+        applicationId "com.app.skillorterio"
         minSdkVersion 21
         multiDexEnabled true
         targetSdkVersion 30
@@ -48,10 +48,10 @@ android {
 
     signingConfigs {
         config {
-            keyAlias 'skills'
-            keyPassword 'skills@12'
+            keyAlias 'maxsold'
+            keyPassword 'maxsold@12'
             storeFile file('../keystore.jks')
-            storePassword 'skills@12'
+            storePassword 'maxsold@12'
         }
     }
 
