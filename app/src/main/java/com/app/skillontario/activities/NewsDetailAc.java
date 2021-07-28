@@ -47,8 +47,10 @@ public class NewsDetailAc extends BaseActivity {
         if (TextUtils.isEmpty(title)) {
             return;
         } else {
-            binding.actionBar.tvTitle.setText(title);
+            binding.tvTitle.setText(title);
         }
+
+        binding.ivBack.setOnClickListener(view -> onBackPressed());
 
         binding.cvWebsite.setOnClickListener(v -> startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.skillsontario.com"))));
     }

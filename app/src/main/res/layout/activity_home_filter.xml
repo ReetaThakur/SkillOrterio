@@ -9,6 +9,172 @@
         android:paddingTop="@dimen/_10sdp">
 
         <include
+            android:id="@+id/action_bar_n"
+            layout="@layout/common_action_bar_new" />
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/action_bar_n"
+            android:layout_marginTop="@dimen/_12sdp">
+
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@+id/cv_ApplyFilter">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/_16sdp"
+                    android:layout_marginRight="@dimen/_4sdp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_sector"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_medium"
+                        android:text="@string/choose_your_sector"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12sdp"></TextView>
+                    <com.adroitandroid.chipcloud.ChipCloud xmlns:chipcloud="http://schemas.android.com/apk/res-auto"
+                        android:id="@+id/cp_sector"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:isScrollContainer="true"
+                        chipcloud:allCaps="false"
+                        chipcloud:deselectedColor="@color/white_walk"
+                        chipcloud:deselectedFontColor="@color/black"
+                        chipcloud:gravity="left"
+                        chipcloud:minHorizontalSpacing="@dimen/_10sdp"
+                        chipcloud:selectMode="multi"
+                        chipcloud:selectedColor="@color/text_error_color"
+                        chipcloud:selectedFontColor="@color/white"
+                        chipcloud:textSize="15sp"
+                        chipcloud:verticalSpacing="@dimen/_10sdp" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rcv_keywords"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_12sdp"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:visibility="gone"/>
+
+
+                    <TextView
+                        android:id="@+id/tv_education"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_8ssp"
+                        android:fontFamily="@font/poppins_medium"
+                        android:text="@string/Education"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12sdp"></TextView>
+                    <com.adroitandroid.chipcloud.ChipCloud xmlns:chipcloud="http://schemas.android.com/apk/res-auto"
+                        android:id="@+id/cp_education"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:isScrollContainer="true"
+                        chipcloud:allCaps="false"
+                        chipcloud:deselectedColor="@color/white_walk"
+                        chipcloud:deselectedFontColor="@color/black"
+                        chipcloud:gravity="left"
+                        chipcloud:minHorizontalSpacing="@dimen/_10sdp"
+                        chipcloud:selectMode="multi"
+                        chipcloud:selectedColor="@color/text_error_color"
+                        chipcloud:selectedFontColor="@color/white"
+                        chipcloud:textSize="15sp"
+                        chipcloud:verticalSpacing="@dimen/_10sdp" />
+
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rcv_keywords_education"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_12sdp"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:visibility="gone"/>
+
+
+                    <TextView
+                        android:id="@+id/tv_readseal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_8ssp"
+                        android:fontFamily="@font/poppins_medium"
+                        android:text="@string/redSeal"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12sdp"></TextView>
+                    <com.adroitandroid.chipcloud.ChipCloud xmlns:chipcloud="http://schemas.android.com/apk/res-auto"
+                        android:id="@+id/cp_redSeal"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:isScrollContainer="true"
+                        chipcloud:allCaps="false"
+                        chipcloud:deselectedColor="@color/white_walk"
+                        chipcloud:deselectedFontColor="@color/black"
+                        chipcloud:gravity="left"
+                        chipcloud:minHorizontalSpacing="@dimen/_10sdp"
+                        chipcloud:selectMode="multi"
+                        chipcloud:selectedColor="@color/text_error_color"
+                        chipcloud:selectedFontColor="@color/white"
+                        chipcloud:textSize="15sp"
+                        chipcloud:verticalSpacing="@dimen/_10sdp" />
+
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rcv_keywords_training"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_12sdp"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:visibility="gone"/>
+
+
+                </LinearLayout>
+
+            </androidx.core.widget.NestedScrollView>
+
+            <Button
+                android:id="@+id/cv_ApplyFilter"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="@dimen/_18sdp"
+                android:background="@drawable/ic_rectangle__2_filter"
+                android:fontFamily="@font/poppins_medium"
+                android:text="@string/apply_filter"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_14sdp"></Button>
+
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+</layout>
+
+
+<!--
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:paddingTop="@dimen/_10sdp">
+
+        <include
             android:id="@+id/action_bar"
             layout="@layout/common_action_bar" />
 
@@ -104,4 +270,4 @@
 
 
     </RelativeLayout>
-</layout>
+</layout>-->

@@ -633,5 +633,13 @@
     <string name="no_data_bookmarked">You have not bookmarked any careers</string>
     <string name="no_data_search">No Search  Result Found!</string>
     <string name="no_bookmark">You have not bookmarked any careers</string>
+    <string name="filter_select"> Please select atleast one </string>
+    <string name="redSeal">Red Seal Program</string>
+    <string name="Edit_Profile1">Edit Profile </string>
+    <string name="edit_profile_dailog_test">Diversity, inclusion, and representation are top priorities for Skills Ontario. We work with communities
+across the province to ensure that we are providing equitable opportunities for all youth and building a diverse and robust skilled workforce. To better understand our impact and reach, please note if you
+identify as female</string>
+    <string name="elementary_school">Primary School</string>
+    <string name="high_school">Secondary School </string>
 
 </resources>
