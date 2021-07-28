@@ -46,15 +46,15 @@ public class HomeFilterActivity extends BaseActivity implements KeywordSelected 
         list1.clear();
         list2.clear();
 
-        binding.actionBar.ivBack.setOnClickListener(new View.OnClickListener() {
+        binding.actionBarN.ivBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 onBackPressed();
             }
         });
 
-        binding.actionBar.tvTitle.setText(R.string.set_your_filter);
-        binding.actionBar.ivReset.setVisibility(View.VISIBLE);
+        binding.actionBarN.tvTitle.setText(R.string.set_your_filter);
+        binding.actionBarN.ivReset.setVisibility(View.VISIBLE);
 
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
@@ -89,7 +89,7 @@ public class HomeFilterActivity extends BaseActivity implements KeywordSelected 
         }));
 
 
-        binding.actionBar.ivReset.setOnClickListener(new View.OnClickListener() {
+        binding.actionBarN.ivReset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 list.clear();

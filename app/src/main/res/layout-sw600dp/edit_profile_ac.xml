@@ -26,20 +26,21 @@
 
                 <RelativeLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="@dimen/_63sdp"
+                    android:layout_height="@dimen/_55sdp"
                     android:layout_marginBottom="@dimen/_15sdp">
 
                     <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/et_First_Name"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/_50sdp"
+                        android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_10sdp"
                         android:background="@drawable/ic_rec_line"
+                        android:hint="Robert Frost"
                         android:imeOptions="actionNext"
                         android:inputType="textEmailAddress|textVisiblePassword"
                         android:paddingLeft="@dimen/_15sdp"
-                        android:text="Robert Frost"
-                        android:textSize="@dimen/_16sdp"
-                        android:textColor="@color/black" />
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_10sdp" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -52,25 +53,26 @@
                         android:paddingRight="@dimen/_10sdp"
                         android:text="@string/first_name_"
                         android:textColor="@color/black"
-                        android:textSize="@dimen/_11sdp" />
+                        android:textSize="@dimen/_12sdp" />
                 </RelativeLayout>
 
                 <RelativeLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="@dimen/_63sdp"
+                    android:layout_height="@dimen/_55sdp"
                     android:layout_marginBottom="@dimen/_15sdp">
 
                     <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/et_Last_name"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/_50sdp"
-                        android:textSize="@dimen/_16sdp"
+                        android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_10sdp"
                         android:background="@drawable/ic_rec_line"
+                        android:hint=" Pattinson"
                         android:imeOptions="actionNext"
                         android:inputType="textEmailAddress|textVisiblePassword"
                         android:paddingLeft="@dimen/_15sdp"
-                        android:text=" Pattinson"
-                        android:textColor="@color/black" />
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_10sdp" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -83,7 +85,7 @@
                         android:paddingRight="@dimen/_10sdp"
                         android:text="@string/last_name_"
                         android:textColor="@color/black"
-                        android:textSize="@dimen/_11sdp" />
+                        android:textSize="@dimen/_12sdp" />
                 </RelativeLayout>
 
 
@@ -101,7 +103,7 @@
                         android:paddingRight="@dimen/_10sdp"
                         android:text="@string/gender"
                         android:textColor="@color/black"
-                        android:textSize="@dimen/_12sdp" />
+                        android:textSize="14sp" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -121,6 +123,7 @@
                                 android:id="@+id/bt1"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppins_medium"
                                 android:text="I identify as female."
                                 android:textSize="@dimen/_10sdp" />
 
@@ -129,6 +132,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="@dimen/_5sdp"
+                                android:fontFamily="@font/poppins_medium"
                                 android:text="I don't identify as female."
                                 android:textSize="@dimen/_10sdp" />
                         </RadioGroup>
@@ -147,20 +151,21 @@
 
                 <RelativeLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="@dimen/_63sdp"
+                    android:layout_height="@dimen/_55sdp"
                     android:layout_marginBottom="@dimen/_15sdp">
 
                     <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/et_email"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/_50sdp"
+                        android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_10sdp"
                         android:background="@drawable/ic_rec_line"
+                        android:hint=" Pattinson_robert@gmail.com"
                         android:imeOptions="actionNext"
-                        android:textSize="@dimen/_16sdp"
                         android:inputType="textEmailAddress|textVisiblePassword"
                         android:paddingLeft="@dimen/_15sdp"
-                        android:text=" Pattinson_robert@gmail.com"
-                        android:textColor="@color/black" />
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_10sdp" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -173,7 +178,7 @@
                         android:paddingRight="@dimen/_10sdp"
                         android:text="@string/email"
                         android:textColor="@color/black"
-                        android:textSize="@dimen/_11sdp" />
+                        android:textSize="@dimen/_12sdp" />
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -190,7 +195,7 @@
                         android:paddingRight="@dimen/_10sdp"
                         android:text="School"
                         android:textColor="@color/black"
-                        android:textSize="@dimen/_12sdp" />
+                        android:textSize="14sp" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -206,7 +211,7 @@
                             android:layout_weight="1"
                             android:background="@drawable/edit_text_background"
                             android:backgroundTint="@color/layer_select"
-                            android:singleLine="true"
+
                             android:fontFamily="@font/poppins_medium"
                             android:gravity="center"
                             android:text="Primary School"
@@ -219,7 +224,6 @@
                             android:layout_height="match_parent"
                             android:layout_marginLeft="@dimen/_2sdp"
                             android:layout_weight="1"
-                            android:singleLine="true"
                             android:background="@drawable/edit_text_background"
                             android:fontFamily="@font/poppins_medium"
                             android:gravity="center"
@@ -233,20 +237,21 @@
 
                 <RelativeLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="@dimen/_63sdp"
+                    android:layout_height="@dimen/_55sdp"
                     android:layout_marginBottom="@dimen/_15sdp">
 
                     <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/tv_dob"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/_50sdp"
+                        android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_10sdp"
                         android:background="@drawable/ic_rec_line"
+                        android:hint="october 27, 1998"
                         android:imeOptions="actionNext"
-                        android:textSize="@dimen/_16sdp"
                         android:inputType="textEmailAddress|textVisiblePassword"
                         android:paddingLeft="@dimen/_15sdp"
-                        android:text="october 27, 1998"
-                        android:textColor="@color/black" />
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_10sdp" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -259,25 +264,26 @@
                         android:paddingRight="@dimen/_10sdp"
                         android:text="@string/date_of_birth_"
                         android:textColor="@color/black"
-                        android:textSize="@dimen/_11sdp" />
+                        android:textSize="@dimen/_12sdp" />
                 </RelativeLayout>
 
                 <RelativeLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="@dimen/_63sdp"
+                    android:layout_height="@dimen/_55sdp"
                     android:layout_marginBottom="@dimen/_15sdp">
 
                     <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/et_Windsor"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/_50sdp"
+                        android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_10sdp"
-                        android:textSize="@dimen/_16sdp"
                         android:background="@drawable/ic_rec_line"
                         android:imeOptions="actionNext"
                         android:inputType="textEmailAddress|textVisiblePassword"
                         android:paddingLeft="@dimen/_15sdp"
                         android:text="Windsor"
-                        android:textColor="@color/black" />
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_10sdp" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -290,27 +296,25 @@
                         android:paddingRight="@dimen/_10sdp"
                         android:text="City and State/Province"
                         android:textColor="@color/black"
-                        android:textSize="@dimen/_11sdp" />
+                        android:textSize="@dimen/_12sdp" />
                 </RelativeLayout>
 
                 <RelativeLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="@dimen/_63sdp"
+                    android:layout_height="@dimen/_55sdp"
                     android:layout_marginBottom="@dimen/_15sdp">
 
                     <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/et_country"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/_50sdp"
+                        android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_10sdp"
                         android:background="@drawable/ic_rec_line"
                         android:imeOptions="actionNext"
-                        android:textSize="@dimen/_16sdp"
                         android:inputType="textEmailAddress|textVisiblePassword"
                         android:paddingLeft="@dimen/_15sdp"
                         android:text="Ontario"
                         android:textColor="@color/black" />
-
-
                 </RelativeLayout>
 
 
@@ -320,25 +324,24 @@
         <LinearLayout
             android:id="@+id/done"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/_40sdp"
             android:layout_margin="@dimen/_15sdp"
+            android:background="@drawable/ic_rectangle__done_button"
             android:gravity="center"
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/ic_rectangle__done_button"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
                 android:drawablePadding="@dimen/_5sdp"
                 android:fontFamily="@font/poppins_medium"
                 android:gravity="center"
-                android:paddingTop="@dimen/_10sdp"
-                android:paddingBottom="@dimen/_10sdp"
                 android:text="Save Profile"
                 android:textAllCaps="true"
                 android:textColor="@color/white"
-                android:textSize="@dimen/_15sdp" />
+                android:textSize="@dimen/_14sdp" />
         </LinearLayout>
+
 
     </LinearLayout>
 

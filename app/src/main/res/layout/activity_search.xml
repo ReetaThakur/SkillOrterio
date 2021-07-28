@@ -39,10 +39,31 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_toRightOf="@+id/im"
-                android:text="General"
                 android:fontFamily="@font/poppins_regular"
+                android:text="General"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_12sdp"></TextView>
+                android:textSize="@dimen/_12sdp"
+                android:visibility="gone" />
+
+            <EditText
+                android:id="@+id/etSearch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="@dimen/_6sdp"
+                android:layout_marginRight="@dimen/_6sdp"
+                android:layout_toLeftOf="@+id/rl_filter"
+                android:layout_toRightOf="@+id/im"
+                android:layout_weight="1"
+                android:background="@color/transparent"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center|left"
+                android:hint="@string/search"
+                android:paddingLeft="@dimen/_5sdp"
+                android:singleLine="true"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black_light"
+                android:textSize="@dimen/_11sdp" />
 
             <RelativeLayout
                 android:id="@+id/rl_filter"
@@ -69,26 +90,35 @@
             android:layout_margin="@dimen/_16sdp"
             android:orientation="vertical">
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recy_search"
+            <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                android:id="@+id/refresh_layout"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_above="@+id/progress_bar"
-                android:layout_weight="1"
-                android:divider="@null"
-                android:orientation="vertical"
-                android:scrollbars="none"
-                app:reverseLayout="false"></androidx.recyclerview.widget.RecyclerView>
+                android:layout_height="match_parent">
 
-            <ProgressBar
-                android:id="@+id/progress_bar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:visibility="gone" />
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recy_search"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_above="@+id/progress_bar"
+                    android:layout_weight="1"
+                    android:divider="@null"
+                    android:orientation="vertical"
+                    android:scrollbars="none"
+                    app:reverseLayout="false"></androidx.recyclerview.widget.RecyclerView>
 
+                <LinearLayout
+                    android:id="@+id/ll_nodata"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <include
+                        android:id="@+id/noData"
+                        layout="@layout/no_data_found"
+                        android:visibility="visible" />
+                </LinearLayout>
+
+            </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
         </LinearLayout>
+
     </LinearLayout>
 </layout>

@@ -3,6 +3,7 @@ package com.app.skillontario.home;
 
 import android.content.Intent;
 import android.view.View;
+import android.widget.TextView;
 
 import com.app.skillontario.activities.BookmarkAc;
 import com.app.skillontario.activities.EditProfileAc;
@@ -20,7 +21,7 @@ import static com.app.skillontario.constants.SharedPrefsConstants.GUEST_FLOW;
 
 
 public class DashboardFragment extends BaseFragment {
-
+    public static TextView tvUserName;
     private FragmentDashboard1Binding binding;
 
     public DashboardFragment() {
