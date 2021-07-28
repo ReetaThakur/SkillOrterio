@@ -115,11 +115,6 @@ public class BottomBarActivity extends BaseActivity {
                 new Runnable() {
                     @Override
                     public void run() {
-                        if (Utils.Language) {
-                            binding.viewPager.setCurrentItem(3);
-                            binding.bottomNavigationViewLinear.setCurrentActiveItem(3);
-                            Utils.Language = false;
-                        }
 
                         try {
                             Intent intent = getIntent();

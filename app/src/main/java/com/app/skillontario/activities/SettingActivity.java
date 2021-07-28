@@ -5,8 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 
+import com.app.skillontario.BottomBarActivity;
 import com.app.skillontario.SignIn.ChangePasswordActivity;
 import com.app.skillontario.SignIn.SignInActivity;
 import com.app.skillontario.apiConnection.ApiCallBack;
@@ -42,8 +44,20 @@ public class SettingActivity extends BaseActivity implements ApiResponseErrorCal
         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_from_left);
         binding = (ActivitySettingBinding) viewBaseBinding;
 
-        binding.actionBar.tvTitle.setText("Settings");
-        binding.actionBar.ivBack.setOnClickListener(v -> onBackPressed());
+        setdata();
+
+        binding.actionBar.tvTitle.setText(R.string.settings);
+        binding.actionBar.ivBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               /* if (Language) {
+                    manageBackPressed();
+                } else {
+                    onBackPressed();
+                }*/
+                onBackPressed();
+            }
+        });
 
         binding.lPrivacy.setOnClickListener(v -> startActivity(new Intent(SettingActivity.this, PrivacyPolicyActivity.class)));
 
@@ -75,6 +89,12 @@ public class SettingActivity extends BaseActivity implements ApiResponseErrorCal
             binding.tvSettingFrench.setTextColor(Color.parseColor("#000000"));
             binding.tvSettingEnglish.setBackgroundResource(R.drawable.ic_lang_rectangle);
             binding.tvSettingFrench.setBackgroundResource(R.drawable.ic_lang_rectangle_transparent);
+
+            MySharedPreference.getInstance().setStringData(SharedPrefsConstants.LANGUAGE_API, "eng");
+            MySharedPreference.getInstance().setStringData(AppConstants.LANGUAGE, "en");
+            languageMethod(MySharedPreference.getInstance().getStringData(AppConstants.LANGUAGE));
+
+            setdata();
         });
 
         binding.tvSettingFrench.setOnClickListener(v -> {
@@ -82,6 +102,12 @@ public class SettingActivity extends BaseActivity implements ApiResponseErrorCal
             binding.tvSettingFrench.setTextColor(Color.parseColor("#ffffff"));
             binding.tvSettingFrench.setBackgroundResource(R.drawable.ic_lang_rectangle);
             binding.tvSettingEnglish.setBackgroundResource(R.drawable.ic_lang_rectangle_transparent);
+
+            MySharedPreference.getInstance().setStringData(SharedPrefsConstants.LANGUAGE_API, "fre");
+            MySharedPreference.getInstance().setStringData(AppConstants.LANGUAGE, "fr");
+            languageMethod(MySharedPreference.getInstance().getStringData(AppConstants.LANGUAGE));
+
+            setdata();
         });
 
         binding.cvLogout.setOnClickListener(new View.OnClickListener() {
@@ -91,6 +117,16 @@ public class SettingActivity extends BaseActivity implements ApiResponseErrorCal
             }
         });
 
+
+    }
+
+
+
+    private void manageBackPressed() {
+        languageMethod(MySharedPreference.getInstance().getStringData(AppConstants.LANGUAGE));
+        Intent intent = new Intent(SettingActivity.this, BottomBarActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
 
     }
 
@@ -104,6 +140,18 @@ public class SettingActivity extends BaseActivity implements ApiResponseErrorCal
             binding.cvLogout.setVisibility(View.VISIBLE);
             binding.lChangePassword.setVisibility(View.VISIBLE);
         }
+
+        if(MySharedPreference.getInstance().getStringData(AppConstants.LANGUAGE).equalsIgnoreCase("en")){
+            binding.tvSettingEnglish.setTextColor(Color.parseColor("#ffffff"));
+            binding.tvSettingFrench.setTextColor(Color.parseColor("#000000"));
+            binding.tvSettingEnglish.setBackgroundResource(R.drawable.ic_lang_rectangle);
+            binding.tvSettingFrench.setBackgroundResource(R.drawable.ic_lang_rectangle_transparent);
+        }else {
+            binding.tvSettingEnglish.setTextColor(Color.parseColor("#000000"));
+            binding.tvSettingFrench.setTextColor(Color.parseColor("#ffffff"));
+            binding.tvSettingFrench.setBackgroundResource(R.drawable.ic_lang_rectangle);
+            binding.tvSettingEnglish.setBackgroundResource(R.drawable.ic_lang_rectangle_transparent);
+        }
     }
 
     @Override
@@ -114,6 +162,7 @@ public class SettingActivity extends BaseActivity implements ApiResponseErrorCal
     @Override
     public void onBackPressed() {
         super.onBackPressed();
+        // manageBackPressed();
         overridePendingTransition(R.anim.slide_in_from_left, R.anim.slide_out_from_right);
 
     }
@@ -186,6 +235,27 @@ public class SettingActivity extends BaseActivity implements ApiResponseErrorCal
 
             updatLocalLanguage("en", getBaseContext());
         }
+    }
+
+    private void setdata() {
+        try {
+            new Handler().postDelayed(
+                    () -> {
+                        binding.actionBar.tvTitle.setText(R.string.settings);
+                        binding.tvNotification.setText(R.string.notification);
+                        binding.tvChangePassword.setText(R.string.change_password);
+                        binding.tvLanguage1.setText(R.string.language);
+                        binding.tvSettingEnglish.setText(R.string.english);
+                        binding.tvSettingFrench.setText(R.string.fran_ais);
+                        binding.tvTermsOfService.setText(R.string.terms_of_service);
+                        binding.tvFeedback.setText(R.string.feedback);
+                        binding.tvPrivacyPolicy.setText(R.string.privacy_policy);
+                        binding.tvContactUs.setText(R.string.contact_us);
+                        binding.tvLogout.setText(R.string.logout);
+                    }, 50);
+        } catch (Exception e) {
+        }
+
     }
 
 

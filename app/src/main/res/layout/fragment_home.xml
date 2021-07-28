@@ -72,7 +72,7 @@
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
                         android:layout_toRightOf="@+id/im"
-                        android:text="Search careers"
+                        android:text="@string/Search_careers"
                         android:textColor="@color/search_text_color"
                         android:textSize="@dimen/_12sdp"></TextView>
                 </RelativeLayout>
@@ -121,7 +121,7 @@
                         android:layout_marginTop="@dimen/_16sdp"
                         android:layout_marginBottom="@dimen/_8ssp"
                         android:fontFamily="@font/poppins_medium"
-                        android:text="Popular Careers"
+                        android:text="@string/Popular_Careers"
                         android:textColor="#3E454A"
                         android:textSize="@dimen/_11sdp"></TextView>
 
@@ -194,11 +194,13 @@
                                         android:layout_height="wrap_content"
                                         android:layout_centerInParent="true"
                                         android:layout_marginTop="1dp"
+                                        android:layout_marginRight="@dimen/_4sdp"
                                         android:fontFamily="@font/poppins_medium"
                                         android:gravity="center"
-                                        android:paddingLeft="@dimen/_10sdp"
-                                        android:paddingRight="@dimen/_10sdp"
-                                        android:text="Take Quiz"
+                                        android:maxLines="2"
+                                        android:paddingLeft="@dimen/_8sdp"
+                                        android:paddingRight="@dimen/_8sdp"
+                                        android:text="@string/take_quiz"
                                         android:textColor="@color/white"
                                         android:textSize="@dimen/_8sdp"></TextView>
                                 </RelativeLayout>
@@ -213,7 +215,7 @@
                         android:layout_marginLeft="@dimen/_16sdp"
                         android:layout_marginTop="@dimen/_16sdp"
                         android:fontFamily="@font/poppins_medium"
-                        android:text="Recent Events"
+                        android:text="@string/Recent_Events"
                         android:textColor="#3E454A"
                         android:textSize="@dimen/_11sdp"></TextView>
 
@@ -255,7 +257,7 @@
                             android:drawableRight="@drawable/group_back_white"
                             android:gravity="center"
                             android:paddingRight="@dimen/_10sdp"
-                            android:text="Explore"
+                            android:text="@string/explore"
                             android:textColor="@color/white"
                             android:textSize="@dimen/_10sdp"></TextView>
 
@@ -266,7 +268,8 @@
                             android:layout_marginTop="@dimen/_10sdp"
                             android:layout_toLeftOf="@+id/tvExplore"
                             android:fontFamily="@font/poppins_medium"
-                            android:text="Opportunities &amp; Scholarships"
+                            android:maxLines="2"
+                            android:text="@string/opportunities_amp_scholarships"
                             android:textColor="@color/black"
                             android:textSize="@dimen/_12sdp"
                             android:visibility="visible"></TextView>
@@ -279,7 +282,7 @@
                         android:layout_marginLeft="@dimen/_16sdp"
                         android:layout_marginTop="@dimen/_16sdp"
                         android:fontFamily="@font/poppins_medium"
-                        android:text="Recent News"
+                        android:text="@string/Recent_News"
                         android:textColor="#3E454A"
                         android:textSize="@dimen/_11sdp"></TextView>
 

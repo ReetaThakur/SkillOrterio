@@ -2,7 +2,7 @@
     <string name="app_name">Skills Ontario</string>
     <string name="sign_in">Sign In</string>
     <string name="txt_continue">Continue</string>
-    <string name="notification">Notifications  </string>
+    <string name="notification">Notifications</string>
     <string name="security">Security</string>
     <string name="language">Language</string>
     <string name="leave_feedback">Leave Feedback</string>
@@ -643,7 +643,7 @@
     <string name="empty_title">Please enter title</string>
     <string name="redSeal">Red Seal Program</string>
 
-
+    <string name="Search_careers">Search careers</string>
     <string name="filter_select"> Please select at least one </string>
 
     <string name="Edit_Profile1">Edit Profile </string>
@@ -652,4 +652,32 @@ across the province to ensure that we are providing equitable opportunities for 
 identify as female</string>
     <string name="elementary_school">Primary School</string>
     <string name="high_school">Secondary School </string>
+    <string name="take_quiz">Take Quiz</string>
+    <string name="Popular_Careers">Popular Careers</string>
+    <string name="Recent_Events">Recent Events</string>
+    <string name="Recent_News">Recent News</string>
+    <string name="explore">Explore</string>
+    <string name="opportunities_amp_scholarships">Opportunities &amp; Scholarships</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="career_quiz_results">Career Quiz Results</string>
+    <string name="bookmarked_careers">Bookmarked Careers</string>
+    <string name="partners">Partners</string>
+
+    <string name="robert_frost_pattinson">Robert Frost Pattinson</string>
+    <string name="terms_of_service">Terms of Service</string>
+    <string name="job_desc">Job Description</string>
+    <string name="job_resp">Job Responsibilities</string>
+    <string name="where_they">Where they Work</string>
+    <string name="advice">Advice</string>
+    <string name="education_required">Education Required</string>
+    <string name="training_req">Training Required</string>
+    <string name="exp_req">Experience Required</string>
+    <string name="visit_website">Visit Website</string>
+
+
+    <!--<string name="Popular_Careers">Carrières populaires </string>
+    <string name="Recent_Events">Événements</string>
+    <string name="Search_careers">Search careers</string>-->
+
+
 </resources>

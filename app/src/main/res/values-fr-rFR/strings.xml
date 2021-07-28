@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Skills Ontario</string>
+    <string name="english">Anglaise</string>
+    <string name="french">Français</string>
+    <string name="language">Choisir la langue</string>
+    <string name="new_account">Créer un \nnouveau compte</string>
+    <string name="email_address">Courriel</string>
+    <string name="password">Mot de passe</string>
+    <string name="confirm_password">Confirmer le mot de passe</string>
+    <!--  <string name="terms_services"><u>En continuant, vous acceptez Compétences Ontario</u></string>-->
+
+    <string name="signup">S\'INSCRIRE</string>
+
+    <string name="terms_of_services">Conditions \n de service</string>
+    <string name="privacy_notice">Avis de confidentialité</string>
+
+    <string name="terms_Of_services"><u>Conditions de services</u></string>
+
+    <string name="underlined_privacy_policy"><u>l\'avis  de confidentialité</u></string>
+    <string name="terms_text">Lorem Ipsum est simplement un texte factice de l\'industrie de l\'impression et de la composition. Lorem Ipsum est le texte factice standard de l\'industrie depuis les années 1500,</string>
+    <string name="term1">Il a survécu non seulement à cinq siècles, mais aussi au saut dans la composition électronique, restant essentiellement inchangé. Il a été popularisé dans les années 1960 avec la sortie de feuilles Letraset contenant des passages de Lorem Ipsum, et plus récemment avec des logiciels de PAO comme Aldus PageMaker incluant des versions de Lorem Ipsum.</string>
+    <string name="welcome_to_skills_ontario">Bienvenue</string>
+    <string name="couldn_t_find_your_email_address">Vous n\'avez pas de compte? Inscrivez-vous</string>
+
+    <string name="forgot_password">Mot de passe oublié?</string>
+    <string name="sign_in">OUVERTURE DE SESSION</string>
+
+    <string name="incorrect_password">Mot de passe erroné.</string>
+    <string name="please_enter_valid_email_address">Saisir une adresse courriel valide</string>
+    <string name="please_enter_email_address">Entrez votre identifiant e-mail </string>
+    <string name="please_enter_password">Entrer le mot de passe </string>
+    <string name="please_confirm_password">Entrez confirmer le mot de passe </string>
+    <string name="password_not_match">Le mot de passe ne correspond pas</string>
+    <string name="reset_your_password">Réinitialiser \nvotre mot de passe</string>
+    <string name="enter_the_email_address_">Veuillez saisir l\'adresse courriel associée à votre compte et nous vous enverrons un nouveau mot de passe.</string>
+    <string name="old_password">Ancien mot de passe</string>
+    <string name="new_password">Nouveau mot de passe</string>
+    <string name="save_password">ENREGISTRER LE MOT DE PASSE</string>
+    <string name="find_your_dream_career">Trouver la \ncarrière dont vous rêvez</string>
+    <string name="Search_careers">Chercher les carrières</string>
+    <string name="Popular_Careers">Carrières populaires </string>
+    <string name="Recent_Events">Événements</string>
+    <string name="discover_a_suitable_career">Découvrir une carrière qui répond à vos attentes</string>
+
+    <string name="explore">Explorer</string>
+    <string name="Recent_News">Nouvelles récentes</string>
+    <string name="search">Chercher</string>
+
+    <string name="choose_your_sector">Choisir votre secteur</string>
+    <string name="Education">Éducation </string>
+    <string name="redSeal">Sceau rouge Programme</string>
+    <string name="apply_filter">APPLIQUER FILTRE</string>
+    <string name="set_your_filter">Paramétrer les filtres</string>
+    <string name="reset">Réinitialiser</string>
+    <string name="events">Événements</string>
+    <string name="news">Actualité</string>
+    <string name="resources">Ressources </string>
+
+    <string name="Partners">Partenaires</string>
+
+    <string name="tab4">Tableau de bord</string>
+    <string name="tab3">Ressources</string>
+
+    <string name="Edit_Profile1">Modifier le profil</string>
+    <string name="first_name_">Prénom</string>
+    <string name="last_name_">Nom de famille </string>
+    <string name="gender">Genre</string>
+
+    <string name="elementary_school">École primaire</string>
+    <string name="high_school">École secondaire </string>
+    <string name="date_of_birth_">Date de naissance</string>
+
+    <string name="notification">Avis de diffusion  </string>
+    <string name="change_password">Modifier le mot de passe </string>
+    <string name="fran_ais">Français</string>
+
+    <string name="help">Aider</string>
+    <string name="feedback">Rétroaction</string>
+    <string name="privacy_policy">Politique de confidentialité</string>
+    <string name="contact_us">Nous joindre</string>
+    <string name="logout">Se déconnecter </string>
+
+    <string name="title">Sujet </string>
+    <string name="message">Message</string>
+
+    <string name="take_quiz">Répondre au questionnaire</string>
+    <string name="take_qz">Vous n\'avez pas encore répondu à un quiz sur les carrières. Une fois terminé, les résultats seront enregistrés ici</string>
+    <string name="start_career_quiz">Répondre au \n questionnaire sur les carrières</string>
+
+    <string name="general">Général</string>
+    <string name="next">PROCHAIN</string>
+    <string name="congratulations">Félicitations! </string>
+
+    <string name="retake_quiz">REPRENDRE LE QUESTIONNAIRE </string>
+
+    <string name="choose_language">Choisir \nla langue</string>
+    <string name="cancel">Annuler</string>
+
+    <string name="guest_user"> Utilisateur invité </string>
+    <string name="guest_singup_login"> Veuillez vous inscrire/vous connecter </string>
+    <string name="term_codition">Vérifier les termes et conditions </string>
+
+    <string name="platinum_patner">Partenaires Platine</string>
+    <string name="premimun_ptner">Partenaires Premium</string>
+    <string name="silver_patner">Partenaires Argent</string>
+    <string name="gold_partners">Partenaires Or</string>
+    <string name="bronze_partners">Partenaires Bronze</string>
+    <string name="friends_partners">Amis Partenaires</string>
+    <string name="government_partners">Partenaires gouvernementaux</string>
+
+    <string name="email">Courriel</string>
+
+    <string name="email_has_been_sent">L\'email \n a été envoyé</string>
+
+    <string name="helpful_and_relevant_resources">Ressources utiles et pertinentes</string>
+    <string name="the_john_lepping_memorial_scholarship">La bourse \n commémorative John Lepping</string>
+
+
+    <string name="default_notification_channel_id">Skills_onatrio</string>
+    <string name="facebook_app_id">471886683746727</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="Accept">J\'accepte</string>
+    <string name="empty_email">Saisir une adresse courriel valide</string>
+    <string name="empty_password">Mot de passe</string>
+    <string name="home">Accueil</string>
+    <string name="opportunities_amp_scholarships">Occasions\net bourses</string>
+
+    <string name="skip">SAUTER</string>
+
+
+    <string name="get_started">Commencer</string>
+    <string name="take_qz_ttl">Résultats du questionnaire sur les carrières</string>
+
+    <string name="dash">Tableau de bord</string>
+    <string name="scoller_and">Bourses et aide financière</string>
+    <string name="edit_profile_dailog_test">La diversité, l\'inclusion et la représentation constituent des priorités pour Compétences Ontario. Nous travaillons avec des communautés de partout à travers la province pour veiller à offrir des perspectives équitables pour tous les jeunes et développer une main-d\'oeuvre qualifiée, diversifiée et solide. Pour mieux comprendre notre impact et notre portée, veuillez indiquer si
+vous vous identifiez comme une femme</string>
+
+
+
+    <string name="Inbox">Boîte de réception</string>
+    <string name="event">Événement</string>
+    <string name="training">Programme Sceau rouge</string>
+    <string name="general_carpente_r">Général \nCharpentier</string>
+    <string name="empty_title">Veuillez entrer le titre</string>
+    <string name="filter_select"> Veuillez sélectionner au moins un </string>
+    <string name="no_internet_msg">S\'il vous plait, vérifiez votre connexion internet.</string>
+    <string name="enter_first_name">entrez votre prénom</string>
+    <string name="enter_last_name">Entrer le nom de famille</string>
+    <string name="dummy_sign">Veuillez s\'il vous plaît entrer votre nom d\'utilisateur et votre mot de passe.</string>
+    <string name="notice">Veuillez accepter les conditions &amp; conditions</string>
+    <string name="gen">Général \nMachiniste</string>
+    <string name="ho">Horticultural \nTechnician</string>
+    <string name="in">Industrial \nMechanic</string>
+    <string name="tru">Truck and \nCoach Technician</string>
+    <string name="childs"><![CDATA[Child & \nYouth Worker]]></string>
+    <string name="discover_more_retake_the_career_quiz">En savoir plus! Répondre à nouveau au questionnaire sur les carrières.</string>
+    <string name="enter_new_password">"Entrez un nouveau mot de passe"</string>
+
+
+    <string name="no_data_quiz">Vous n\'avez pas encore répondu à un quiz sur les carrières. Une fois terminé, les résultats seront enregistrés ici</string>
+    <string name="no_data_events">Pas de nouveaux événements pour le moment.</string>
+    <string name="no_data_news">Aucune actualité disponible pour le moment</string>
+    <string name="no_data_resoures">Aucune ressource pour le moment</string>
+    <string name="no_data_scholership">Aucun programme de bourses d\'études et d\'aide financière n\'est répertorié pour le moment. Veuillez vérifier à nouveau dans quelques jours</string>
+    <string name="no_data_notification">Aucune notification pour le moment</string>
+    <string name="no_data_bookmarked">Vous n\'avez ajouté aucune carrière à vos favoris</string>
+    <string name="no_data_search">Aucun résultat de recherche trouvé !</string>
+    <string name="no_bookmark">Vous n\'avez ajouté aucune carrière à vos favoris</string>
+    <string name="bookmarked">Marque-page</string>
+    <string name="edit_profile">Editer le profil</string>
+    <string name="career_quiz_results">Résultats du quiz sur les carrières</string>
+    <string name="bookmarked_careers">Carrières mises en favoris</string>
+    <string name="partners">Les partenaires</string>
+    <string name="settings">Paramètres</string>
+    <string name="robert_frost_pattinson">Robert Frost Pattinson</string>
+    <string name="terms_of_service">Conditions d\'utilisation</string>
+
+    <string name="job_desc">Description de l\'emploi</string>
+    <string name="job_resp">Responsabilités professionnelles</string>
+    <string name="where_they">Où ils travaillent</string>
+    <string name="advice">Conseils</string>
+    <string name="education_required">Éducation requise</string>
+    <string name="training_req">Formation requise</string>
+    <string name="exp_req">Expérience requise</string>
+    <string name="visit_website">Visitez le site Web</string>
+
+</resources>

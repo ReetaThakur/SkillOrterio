@@ -65,7 +65,6 @@ import java.util.TimeZone;
 
 
 public class Utils {
-    public static boolean Language = false;
     public static String emailPattern = "^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,4})$";
 
     /**

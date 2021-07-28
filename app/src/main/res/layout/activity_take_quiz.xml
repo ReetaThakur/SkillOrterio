@@ -128,7 +128,7 @@
                             android:background="@drawable/take_quiz_"
                             android:fontFamily="@font/poppins_bold"
                             android:gravity="center"
-                            android:text="Take Quiz"
+                            android:text="@string/take_quiz"
                             android:textColor="@color/white"
                             android:textSize="@dimen/_18sdp"></TextView>
 
