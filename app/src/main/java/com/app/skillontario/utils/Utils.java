@@ -33,6 +33,12 @@ import android.widget.Toast;
 
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
+import io.branch.indexing.BranchUniversalObject;
+import io.branch.referral.Branch;
+import io.branch.referral.BranchError;
+import io.branch.referral.util.ContentMetadata;
+import io.branch.referral.util.LinkProperties;
+import io.branch.referral.util.ShareSheetStyle;
 
 
 import com.app.skillontario.activities.SettingActivity;
@@ -402,5 +408,74 @@ public class Utils {
 
     public final static boolean isValidEmail(CharSequence target) {
         return !TextUtils.isEmpty(target) && android.util.Patterns.EMAIL_ADDRESS.matcher(target).matches();
+    }
+
+    public static void share(Context context, String title, String text,String url ,Bitmap image) {
+
+
+        BranchUniversalObject branchUniversalObject = new BranchUniversalObject()
+                .setCanonicalIdentifier("skillsontario/12345")
+                .setTitle(title)
+                .setContentDescription(text)
+                .setContentImageUrl(url)
+                .setContentIndexingMode(BranchUniversalObject.CONTENT_INDEX_MODE.PUBLIC)
+                .setLocalIndexMode(BranchUniversalObject.CONTENT_INDEX_MODE.PUBLIC)
+                .setContentMetadata(new ContentMetadata().addCustomMetadata("referring_user_pic", "https://www.skillsontario.com"));
+// Define the link properties for analytics and redirection control
+
+
+        LinkProperties linkProperties = new LinkProperties()
+                .setChannel("Facebook")
+                .setFeature("referral")
+                .setCampaign("content 123 launch")
+                .setStage("new user")
+                .addControlParameter("$desktop_url", "https://www.skillsontario.com");
+
+        branchUniversalObject.generateShortUrl(context, linkProperties, new Branch.BranchLinkCreateListener() {
+            @Override
+            public void onLinkCreate(String url, BranchError error) {
+                if (error == null) {
+                    Log.i("MyApp", "got my Branch link to share: " + url);
+                }
+            }
+        });
+
+
+        // Define the style of the share sheet
+        ShareSheetStyle shareSheetStyle = new ShareSheetStyle(context, title, text)
+                //ShareSheetStyle shareSheetStyle = new ShareSheetStyle(((Activity)context), "This text will be the user’s message if supported.")
+                .setAsFullWidthStyle(false)
+                .setSharingTitle("Share With");
+
+
+        branchUniversalObject.showShareSheet(((Activity) context), linkProperties, shareSheetStyle, new Branch.BranchLinkShareListener() {
+            @Override
+            public void onShareLinkDialogLaunched() {
+
+            }
+
+            @Override
+            public void onShareLinkDialogDismissed() {
+                Log.i("ShareFunction", "Share screen dismissed");
+            }
+
+            @Override
+            public void onLinkShareResponse(String sharedLink, String sharedChannel, BranchError error) {
+
+
+            }
+
+            @Override
+            public void onChannelSelected(String channelName) {
+
+                if (channelName.equals("Facebook")) {
+
+                }
+
+
+            }
+        });
+
+
     }
 }

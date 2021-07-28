@@ -10,6 +10,7 @@ import com.app.skillontario.adapter.AdapterCong;
 import com.app.skillontario.adapter.TabAdapter;
 import com.app.skillontario.baseClasses.BaseActivity;
 import com.app.skillontario.utils.RecyclerItemClickListener;
+import com.app.skillontario.utils.Utils;
 import com.app.skillorterio.R;
 import com.app.skillorterio.databinding.QuizAcBinding;
 
@@ -26,15 +27,17 @@ public class QuizAc extends BaseActivity {
         binding = (QuizAcBinding) viewBaseBinding;
 
         binding.share.setOnClickListener(v -> {
-            ShareCompat.IntentBuilder.from(this)
+            /*ShareCompat.IntentBuilder.from(this)
                     .setType("text/plain")
                     .setChooserTitle(getResources().getText(R.string.app_name))
                     .setText("https://www.skillsontario.com")
-                    .startChooser();
+                    .startChooser();*/
+            Utils.share(this,"","Hey! I played this interesting quiz on Skills Ontario to find out which profession is the best fit for me. Check out the result here","https://www.skillsontario.com",null);
         });
 
         binding.sendInvite.setOnClickListener(v -> {
-            onShareClicked();
+            Utils.share(this,"","Come and join Skills Ontario! It’s the best place to evaluate your skills and useful in finding job opportunities.","https://play.google.com/store/apps/details?id=com.whatsapp",null);
+           // onShareClicked();
         });
         binding.retake.tvRetake.setOnClickListener(v -> startActivity(new Intent(this, QuizStepAc.class)));
         binding.home.setOnClickListener(v -> startActivity(new Intent(this, BottomBarActivity.class)));
