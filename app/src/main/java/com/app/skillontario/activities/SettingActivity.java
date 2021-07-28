@@ -1,6 +1,7 @@
 package com.app.skillontario.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import io.branch.referral.Branch;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -84,7 +85,11 @@ public class SettingActivity extends BaseActivity {
             }
         });
 
+      // Branch logging for debugging
+        Branch.enableLogging();
 
+        // Branch object initialization
+        Branch.getAutoInstance(this);
 
     }
 
