@@ -55,10 +55,34 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
 
         try {
             viewHolder.binding.imageBackground.setColorFilter(ContextCompat.getColor(context, R.color.noti_color1));
-            viewHolder.binding.imageView.setImageResource(R.drawable.ic_shape__noti1);
+            //    viewHolder.binding.imageView.setImageResource(R.drawable.ic_shape__noti1);
             viewHolder.binding.tvTitle.setText(arrayListNotify.get(position).getTitle());
             viewHolder.binding.tvDesc.setText(arrayListNotify.get(position).getBody());
         } catch (Exception e) {
+        }
+
+        if (arrayListNotify.get(position).getNotifyType().equalsIgnoreCase("event")) {
+            viewHolder.binding.imageView.setImageResource(R.drawable.ic_shape__noti3);
+            viewHolder.binding.imageBackground.setColorFilter(ContextCompat.getColor(context, R.color.noti_color3));
+        }
+        if (arrayListNotify.get(position).getNotifyType().equalsIgnoreCase("resource")) {
+            viewHolder.binding.imageView.setImageResource(R.drawable.ic_shape__noti1);
+            viewHolder.binding.imageBackground.setColorFilter(ContextCompat.getColor(context, R.color.noti_color1));
+        }
+        if (arrayListNotify.get(position).getNotifyType().equalsIgnoreCase("mgsafai")) { //  scloarship
+            viewHolder.binding.imageView.setImageResource(R.drawable.ic_shape__noti2);
+            viewHolder.binding.imageBackground.setColorFilter(ContextCompat.getColor(context, R.color.noti_color2));
+        }
+        if (arrayListNotify.get(position).getNotifyType().equalsIgnoreCase("profile")) {
+            viewHolder.binding.imageView.setImageResource(R.drawable.ic_shape__noti1);
+            viewHolder.binding.imageBackground.setColorFilter(ContextCompat.getColor(context, R.color.noti_color1));
+        }
+        if (arrayListNotify.get(position).getNotifyType().equalsIgnoreCase("news")) {
+            viewHolder.binding.imageView.setImageResource(R.drawable.ic_shape__noti4);
+            viewHolder.binding.imageBackground.setColorFilter(ContextCompat.getColor(context, R.color.noti_color4));
+        } else {
+            viewHolder.binding.imageView.setImageResource(R.drawable.ic_shape__noti3);
+            viewHolder.binding.imageBackground.setColorFilter(ContextCompat.getColor(context, R.color.noti_color3));
         }
 
      /*   if (position == 0) {
