@@ -35,19 +35,18 @@
 
             <ImageView
                 android:id="@+id/imagePerson"
-                android:layout_width="@dimen/_120sdp"
+                android:layout_width="@dimen/_110sdp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
-                android:scaleType="fitStart"
+                android:scaleType="fitXY"
                 android:src="@drawable/new_person1"></ImageView>
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="@dimen/_6sdp"
+                android:layout_marginLeft="@dimen/_125sdp"
                 android:layout_marginTop="@dimen/_28sdp"
-                android:layout_marginRight="@dimen/_4sdp"
-                android:layout_toRightOf="@+id/imagePerson">
+                android:layout_marginRight="@dimen/_4sdp">
 
 
                 <TextView
@@ -72,8 +71,7 @@
                     android:layout_height="@dimen/_20sdp"
                     android:layout_alignParentRight="true"
                     android:layout_marginTop="@dimen/_16sdp"
-                    android:layout_marginRight="@dimen/_8ssp"
-                    android:src="@drawable/ic_home_main_batch"></ImageView>
+                    android:layout_marginRight="@dimen/_8ssp"></ImageView>
 
                 <TextView
                     android:id="@+id/textWork"
@@ -81,8 +79,8 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/textCons"
                     android:layout_marginTop="@dimen/_10sdp"
-                    android:maxLines="2"
                     android:fontFamily="@font/poppins_medium"
+                    android:maxLines="2"
                     android:text="@string/general_carpente_r"
                     android:textColor="@color/black"></TextView>
 

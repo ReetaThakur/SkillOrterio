@@ -44,7 +44,7 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="135dp">
+                    android:layout_marginLeft="@dimen/_110sdp">
 
 
                     <TextView
@@ -112,11 +112,11 @@
 
         <ImageView
             android:id="@+id/imagePerson"
-            android:layout_width="wrap_content"
+            android:layout_width="@dimen/_100sdp"
             android:layout_height="match_parent"
             android:layout_marginRight="@dimen/_60sdp"
             android:layout_marginBottom="10dp"
-            android:scaleType="fitStart"></ImageView>
+            android:scaleType="fitXY"></ImageView>
 
     </RelativeLayout>
 
