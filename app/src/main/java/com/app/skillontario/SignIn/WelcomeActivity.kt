@@ -58,11 +58,11 @@ class WelcomeActivity : BaseActivity() {
                     binding!!.ivPrev.visibility = View.VISIBLE*/
 
                 if (position == 3) {
-                    binding!!.tvNext.setText("Get Started")
+                    binding!!.tvNext.setText(getString(R.string.get_stareded))
                     //  binding!!.tvNext.visibility = View.GONE
                     // binding!!.tvStarted.visibility = View.VISIBLE
                 } else {
-                    binding!!.tvNext.setText("Next")
+                    binding!!.tvNext.setText(getString(R.string.next1))
                     //  binding!!.tvNext.visibility = View.VISIBLE
                     // binding!!.tvStarted.visibility = View.GONE
                 }

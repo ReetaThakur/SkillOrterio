@@ -128,6 +128,7 @@ public class EventFragment extends BaseFragment implements XmlClickable, ApiResp
     @Override
     public void onResume() {
         super.onResume();
+
         if (newsModalArrayList != null) {
             if (newsModalArrayList.size() == 0) {
                 callNewsAPI(true);

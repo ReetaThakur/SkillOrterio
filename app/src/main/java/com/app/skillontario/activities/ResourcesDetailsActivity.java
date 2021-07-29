@@ -62,10 +62,16 @@ public class ResourcesDetailsActivity extends BaseActivity {
 
             }
 
-            if (!Patterns.WEB_URL.matcher(modal.getResUrl()).matches()) {
+            try {
+                if (!Patterns.WEB_URL.matcher(modal.getResUrl()).matches()) {
+                    binding.cvWebsite.setVisibility(View.INVISIBLE);
+                } else {
+                    binding.cvWebsite.setVisibility(View.VISIBLE);
+                }
+
+
+            } catch (Exception e) {
                 binding.cvWebsite.setVisibility(View.INVISIBLE);
-            } else {
-                binding.cvWebsite.setVisibility(View.VISIBLE);
             }
 
 
@@ -75,7 +81,10 @@ public class ResourcesDetailsActivity extends BaseActivity {
                 @Override
                 public void onClick(View v) {
                     try {
-                        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(modal.getResUrl())));
+                        if (modal.getResUrl().contains("http:") || modal.getResUrl().contains("https:")) {
+                            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(modal.getResUrl())));
+                        }
+
                     } catch (Exception e) {
                         showToast("Url not supported");
                     }

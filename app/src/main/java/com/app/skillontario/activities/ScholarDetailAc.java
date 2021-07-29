@@ -7,6 +7,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.text.Html;
 import android.text.TextUtils;
+import android.util.Patterns;
 import android.view.View;
 
 import androidx.appcompat.content.res.AppCompatResources;
@@ -68,6 +69,16 @@ public class ScholarDetailAc extends BaseActivity {
                     binding.tvDesc1.setText(Html.fromHtml(modal.getDesc()));
                 }
 
+            }
+
+            try {
+                if (!Patterns.WEB_URL.matcher(modal.getWebUrl()).matches()) {
+                    binding.cvVisit.setVisibility(View.INVISIBLE);
+                } else {
+                    binding.cvVisit.setVisibility(View.VISIBLE);
+                }
+            } catch (Exception e) {
+                binding.cvVisit.setVisibility(View.INVISIBLE);
             }
 
             //binding.cvWebsite.setOnClickListener(v -> startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(modal.getNewsUrl()))));

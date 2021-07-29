@@ -28,7 +28,7 @@
                 android:layout_marginStart="@dimen/_10sdp"
                 android:layout_marginEnd="@dimen/_55sdp"
                 android:fontFamily="@font/poppins_bold"
-                android:text="What’s your dream career?"
+                android:text="@string/w2"
                 android:textColor="@color/white"
                 android:textSize="@dimen/_28sdp" />
 
@@ -39,7 +39,7 @@
                 android:layout_marginTop="@dimen/_6sdp"
                 android:layout_marginEnd="@dimen/_16sdp"
                 android:fontFamily="@font/poppins_medium"
-                android:text="Take our quiz and find out which pathways may be right for you."
+                android:text="@string/w22"
                 android:textColor="#D6D6D6"
                 android:textSize="@dimen/_14sdp" />
         </LinearLayout>

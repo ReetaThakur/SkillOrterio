@@ -38,6 +38,7 @@ public class SettingActivity extends BaseActivity implements ApiResponseErrorCal
 
     private ActivitySettingBinding binding;
     boolean notiOnOff = false;
+    public static boolean language = false;
 
     @Override
     protected void initUi() {
@@ -46,16 +47,26 @@ public class SettingActivity extends BaseActivity implements ApiResponseErrorCal
 
         setdata();
 
+        if (MySharedPreference.getInstance().getBooleanData(SharedPrefsConstants.NOTIFICATION_ON_OFF)) {
+            notiOnOff = false;
+          //  updateNotification("1", MySharedPreference.getInstance().getStringData(SharedPrefsConstants.LANGUAGE_API));
+            binding.ivNotification.setImageResource(R.drawable.ic_notification_on);
+        } else {
+            notiOnOff = true;
+           // updateNotification("2", MySharedPreference.getInstance().getStringData(SharedPrefsConstants.LANGUAGE_API));
+            binding.ivNotification.setImageResource(R.drawable.ic_notification_off);
+        }
+
         binding.actionBar.tvTitle.setText(R.string.settings);
         binding.actionBar.ivBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               /* if (Language) {
+                if (language) {
                     manageBackPressed();
                 } else {
                     onBackPressed();
-                }*/
-                onBackPressed();
+                }
+                //onBackPressed();
             }
         });
 
@@ -75,16 +86,21 @@ public class SettingActivity extends BaseActivity implements ApiResponseErrorCal
         binding.ivNotification.setOnClickListener(v -> {
             if (notiOnOff) {
                 notiOnOff = false;
+                updateNotification("1", MySharedPreference.getInstance().getStringData(SharedPrefsConstants.LANGUAGE_API));
                 binding.ivNotification.setImageResource(R.drawable.ic_notification_on);
+                MySharedPreference.getInstance().setBooleanData(SharedPrefsConstants.NOTIFICATION_ON_OFF, true);
             } else {
+                MySharedPreference.getInstance().setBooleanData(SharedPrefsConstants.NOTIFICATION_ON_OFF, false);
                 notiOnOff = true;
+                updateNotification("0", MySharedPreference.getInstance().getStringData(SharedPrefsConstants.LANGUAGE_API));
                 binding.ivNotification.setImageResource(R.drawable.ic_notification_off);
             }
 
-            updateNotification("1", MySharedPreference.getInstance().getStringData(SharedPrefsConstants.LANGUAGE_API));
+
         });
 
         binding.tvSettingEnglish.setOnClickListener(v -> {
+            language = true;
             binding.tvSettingEnglish.setTextColor(Color.parseColor("#ffffff"));
             binding.tvSettingFrench.setTextColor(Color.parseColor("#000000"));
             binding.tvSettingEnglish.setBackgroundResource(R.drawable.ic_lang_rectangle);
@@ -98,6 +114,7 @@ public class SettingActivity extends BaseActivity implements ApiResponseErrorCal
         });
 
         binding.tvSettingFrench.setOnClickListener(v -> {
+            language = true;
             binding.tvSettingEnglish.setTextColor(Color.parseColor("#000000"));
             binding.tvSettingFrench.setTextColor(Color.parseColor("#ffffff"));
             binding.tvSettingFrench.setBackgroundResource(R.drawable.ic_lang_rectangle);
@@ -121,13 +138,12 @@ public class SettingActivity extends BaseActivity implements ApiResponseErrorCal
     }
 
 
-
     private void manageBackPressed() {
         languageMethod(MySharedPreference.getInstance().getStringData(AppConstants.LANGUAGE));
         Intent intent = new Intent(SettingActivity.this, BottomBarActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
-
+        finish();
     }
 
     @Override
@@ -141,12 +157,12 @@ public class SettingActivity extends BaseActivity implements ApiResponseErrorCal
             binding.lChangePassword.setVisibility(View.VISIBLE);
         }
 
-        if(MySharedPreference.getInstance().getStringData(AppConstants.LANGUAGE).equalsIgnoreCase("en")){
+        if (MySharedPreference.getInstance().getStringData(AppConstants.LANGUAGE).equalsIgnoreCase("en")) {
             binding.tvSettingEnglish.setTextColor(Color.parseColor("#ffffff"));
             binding.tvSettingFrench.setTextColor(Color.parseColor("#000000"));
             binding.tvSettingEnglish.setBackgroundResource(R.drawable.ic_lang_rectangle);
             binding.tvSettingFrench.setBackgroundResource(R.drawable.ic_lang_rectangle_transparent);
-        }else {
+        } else {
             binding.tvSettingEnglish.setTextColor(Color.parseColor("#000000"));
             binding.tvSettingFrench.setTextColor(Color.parseColor("#ffffff"));
             binding.tvSettingFrench.setBackgroundResource(R.drawable.ic_lang_rectangle);
@@ -162,7 +178,10 @@ public class SettingActivity extends BaseActivity implements ApiResponseErrorCal
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        // manageBackPressed();
+        if (language) {
+            manageBackPressed();
+        }
+        //  manageBackPressed();
         overridePendingTransition(R.anim.slide_in_from_left, R.anim.slide_out_from_right);
 
     }

@@ -11,11 +11,15 @@ import com.app.skillontario.activities.PartnersActivity;
 import com.app.skillontario.activities.SettingActivity;
 import com.app.skillontario.baseClasses.BaseFragment;
 import com.app.skillontario.constants.SharedPrefsConstants;
+import com.app.skillontario.models.RegistrationModal;
 import com.app.skillontario.quiz.TakeQuizAc;
 import com.app.skillontario.utils.MySharedPreference;
 import com.app.skillontario.utils.Utils;
 import com.app.skillorterio.R;
 import com.app.skillorterio.databinding.FragmentDashboard1Binding;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import static com.app.skillontario.constants.SharedPrefsConstants.GUEST_FLOW;
 
@@ -32,6 +36,7 @@ public class DashboardFragment extends BaseFragment {
     @Override
     protected void initUi() {
         binding = (FragmentDashboard1Binding) viewDataBinding;
+
 
         binding.rlSetting.setOnClickListener(v -> startActivity(new Intent(getActivity(), SettingActivity.class)));
 
@@ -69,6 +74,18 @@ public class DashboardFragment extends BaseFragment {
     @Override
     public void onResume() {
         super.onResume();
+        // binding.tvUserName.setText("");
+        try {
+            if (MySharedPreference.getInstance().getUserData(SharedPrefsConstants.USER_DATA) != null) {
+                RegistrationModal registrationModal = new RegistrationModal();
+                registrationModal = MySharedPreference.getInstance().getUserData(SharedPrefsConstants.USER_DATA);
+
+
+                binding.tvUserName.setText(capitalize("" + registrationModal.getFname() + " " + registrationModal.getLname()));
+                // binding.dashboradSchool.setText("" + registrationModal.getSchool());
+            }
+        } catch (Exception e) {
+        }
         if (MySharedPreference.getInstance().getBooleanData(GUEST_FLOW)) {
             binding.editProfile.setVisibility(View.GONE);
         } else {
@@ -85,4 +102,16 @@ public class DashboardFragment extends BaseFragment {
     public void onClick(View view) {
 
     }
+
+    private String capitalize(String capString) {
+        StringBuffer capBuffer = new StringBuffer();
+        Matcher capMatcher = Pattern.compile("([a-z])([a-z]*)", Pattern.CASE_INSENSITIVE).matcher(capString);
+        while (capMatcher.find()) {
+            capMatcher.appendReplacement(capBuffer, capMatcher.group(1).toUpperCase() + capMatcher.group(2).toLowerCase());
+        }
+
+        return capMatcher.appendTail(capBuffer).toString();
+    }
+
+
 }

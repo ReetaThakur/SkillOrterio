@@ -1,9 +1,11 @@
 package com.app.skillontario.adapter;
 
 import android.content.Intent;
+import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
@@ -47,15 +49,26 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.MyViewHolder
                 holder.eventsItemBinding.tvDate.setText(Utils.DateFormate(eventsModalArrayList.get(position).getEvtDate()));
             }
             holder.eventsItemBinding.ivCal.setOnClickListener(v -> {
-                if (eventsModalArrayList.get(position).getEvtDate() != null) {
-                    Utils.openD(activity, Utils.DateFormate(eventsModalArrayList.get(position).getEvtDate()), Utils.DateFormate(eventsModalArrayList.get(position).getEvtEndDate()), eventsModalArrayList.get(position).getEvtTitle(), eventsModalArrayList.get(position).getEvtDesc());
+                try {
+                    if (eventsModalArrayList.get(position).getEvtDate() != null) {
+                        if (Utils.checkPermissionCalender(activity))
+                            Utils.openD(activity, Utils.DateFormate(eventsModalArrayList.get(position).getEvtDate()), Utils.DateFormate(eventsModalArrayList.get(position).getEvtEndDate()), eventsModalArrayList.get(position).getEvtTitle(), eventsModalArrayList.get(position).getEvtDesc());
+                        else
+                            Utils.askPermison(activity);
+                    }
+                } catch (Exception e) {
                 }
+
             });
             holder.eventsItemBinding.eventRow.setOnClickListener(v -> {
-                Intent intent = new Intent(activity, WebViewActivity.class);
-                intent.putExtra("url", eventsModalArrayList.get(position).getEvtURL());
-                intent.putExtra("title", eventsModalArrayList.get(position).getEvtTitle());
-                activity.startActivity(intent);
+                if (!Patterns.WEB_URL.matcher(eventsModalArrayList.get(position).getEvtURL()).matches()) {
+                    Toast.makeText(activity, "Url not support", Toast.LENGTH_SHORT).show();
+                } else {
+                    Intent intent = new Intent(activity, WebViewActivity.class);
+                    intent.putExtra("url", eventsModalArrayList.get(position).getEvtURL());
+                    intent.putExtra("title", eventsModalArrayList.get(position).getEvtTitle());
+                    activity.startActivity(intent);
+                }
                 //  activity.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(eventsModalArrayList.get(position).getEvtURL())));
             });
         } catch (Exception e) {
@@ -85,4 +98,6 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.MyViewHolder
             }
         }
     }
+
+
 }

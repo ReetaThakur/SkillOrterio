@@ -28,7 +28,7 @@
                 android:layout_marginStart="@dimen/_10sdp"
                 android:layout_marginEnd="@dimen/_55sdp"
                 android:fontFamily="@font/poppins_bold"
-                android:text="Explore skilled trades and technologies."
+                android:text="@string/w3"
                 android:textColor="@color/white"
                 android:textSize="@dimen/_28sdp" />
 
@@ -39,7 +39,7 @@
                 android:layout_marginTop="@dimen/_4sdp"
                 android:layout_marginEnd="@dimen/_16sdp"
                 android:fontFamily="@font/poppins_medium"
-                android:text="Join Skills Ontario to discover amazing career opportunities!"
+                android:text="@string/w33"
                 android:textColor="#D6D6D6"
                 android:textSize="@dimen/_14sdp" />
         </LinearLayout>

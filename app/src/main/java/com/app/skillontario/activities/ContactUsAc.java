@@ -16,7 +16,7 @@ public class ContactUsAc extends BaseActivity {
         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_from_left);
         binding = (ContactUsAcBinding) viewBaseBinding;
 
-        binding.actionBar.tvTitle.setText("Contact Us");
+        binding.actionBar.tvTitle.setText(R.string.contact_us);
 
         binding.phone.setOnClickListener(new View.OnClickListener() {
             @Override

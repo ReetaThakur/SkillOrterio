@@ -15,7 +15,7 @@
     <string name="terms_of_services">Conditions \n de service</string>
     <string name="privacy_notice">Avis de confidentialité</string>
 
-    <string name="terms_Of_services"><u>Conditions de services</u></string>
+    <string name="terms_Of_services"><u>Conditions de services</u> </string>
 
     <string name="underlined_privacy_policy"><u>l\'avis  de confidentialité</u></string>
     <string name="terms_text">Lorem Ipsum est simplement un texte factice de l\'industrie de l\'impression et de la composition. Lorem Ipsum est le texte factice standard de l\'industrie depuis les années 1500,</string>
@@ -139,7 +139,6 @@
 vous vous identifiez comme une femme</string>
 
 
-
     <string name="Inbox">Boîte de réception</string>
     <string name="event">Événement</string>
     <string name="training">Programme Sceau rouge</string>
@@ -186,5 +185,27 @@ vous vous identifiez comme une femme</string>
     <string name="training_req">Formation requise</string>
     <string name="exp_req">Expérience requise</string>
     <string name="visit_website">Visitez le site Web</string>
+
+    <string name="w1">Développer et renforcer vos compétences</string>
+    <string name="w11">Préparez-vous pour le marché du travail avec Compétences Ontario!</string>
+    <string name="w2">Quelle est votre carrière de rêve ?</string>
+    <string name="w22">Répondez à notre quiz et découvrez quelles voies pourraient vous convenir.</string>
+    <string name="w3">Explorez les métiers spécialisés et les technologies.</string>
+    <string name="w33">Joignez-vous à Compétences Ontario pour découvrir des possibilités de carrière incroyables!</string>
+    <string name="w4">Rester en sécurité et responsable</string>
+    <string name="w44">Nous sommes dans une période extraordinaire. La santé et la sécurité sont toujours essentielles.</string>
+    <string name="get_stareded">Commencer</string>
+    <string name="next1">Prochaine</string>
+
+    <string name="sign_text">La création d\'un compte enregistre vos informations et vous permet de marquer les carrières qui vous intéressent!</string>
+    <string name="by_continuing_you_agree_to_skills_ontario">En continuant, vous acceptez Compétences Ontario</string>
+    <string name="and"> et </string>
+    <string name="have_an_account">Avoir un compte?</string>
+    <string name="sign_in1">S\'identifier</string>
+    <string name="continue_as_guest">Continuer en tant qu\'invité </string>
+    <string name="don_t_have_an_account">"Vous n'avez pas de compte? "</string>
+    <string name="sign_up">S\'inscrire</string>
+    <string name="didn_t_receive_password">Vous n\'avez pas reçu de mot de passe? </string>
+    <string name="resend">Renvoyer.</string>
 
 </resources>

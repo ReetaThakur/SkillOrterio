@@ -21,8 +21,8 @@
     <string name="new_to_taxvolt_create_an_account">New to TaxVolt<font color="#1E8755"><b> Create an Account.</b></font>?<sup><font size="11">®</font></sup></string>
     <string name="by_tapping_sign_in_you_agree_to_our">By tapping Sign In, You agree to our</string>
     <string name="underlined_license_agreement"><u>License Agreement</u></string>
-    <string name="terms_Of_services"><u>Terms Of Service</u></string>
-    <string name="underlined_privacy_policy"><u>Privacy Notice.</u></string>
+    <string name="terms_Of_services"><u>Terms Of Service</u>  </string>
+    <string name="underlined_privacy_policy"> <u>Privacy Notice.</u></string>
     <string name="confirm_password">Confirm Password</string>
     <string name="email_address">Email</string>
     <string name="already_a_taxvolt_sign_in">Already a TaxVolt<font size="11"><sup>®</sup></font>? <font color="#1E8755"><b>Sign In.</b></font></string>
@@ -673,6 +673,26 @@ identify as female</string>
     <string name="training_req">Training Required</string>
     <string name="exp_req">Experience Required</string>
     <string name="visit_website">Visit Website</string>
+    <string name="w1">Develop and strengthen your skills</string>
+    <string name="w11">Get ready for the workforce with Skills Ontario!</string>
+    <string name="w2">What’s your dream career?</string>
+    <string name="w22">Take our quiz and find out which pathways may be right for you.</string>
+    <string name="w3">Explore skilled trades and technologies.</string>
+    <string name="w33">Join Skills Ontario to discover amazing career opportunities!</string>
+    <string name="w4">Staying safe and responsible</string>
+    <string name="w44">We are in extraordinary times. Health and safety are always key.</string>
+    <string name="get_stareded">Get Started</string>
+    <string name="next1">Next</string>
+    <string name="sign_text">Creating an account saves your information and lets you bookmark careers you\'re interested in!</string>
+    <string name="by_continuing_you_agree_to_skills_ontario">By continuing, You agree to Skills Ontario </string>
+    <string name="and"> and </string>
+    <string name="have_an_account">Have an account?</string>
+    <string name="sign_in1">Sign In</string>
+    <string name="continue_as_guest">Continue As Guest </string>
+    <string name="don_t_have_an_account">"Don't have an account? "</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="didn_t_receive_password">Didn\'t receive password?</string>
+    <string name="resend">Resend.</string>
 
 
     <!--<string name="Popular_Careers">Carrières populaires </string>

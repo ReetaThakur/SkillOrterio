@@ -43,8 +43,7 @@
                     android:layout_marginTop="@dimen/_10sdp"
                     android:fontFamily="@font/poppins_regular"
                     android:lineSpacingExtra="8dp"
-                    android:text="Creating an account saves your information and lets you bookmark careers you're interested in!
-"
+                    android:text="@string/sign_text"
                     android:textAlignment="textStart"
                     android:textColor="@color/black_light"
                     android:textSize="18sp" />
@@ -198,7 +197,7 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/poppins_regular"
                             android:gravity="center"
-                            android:text="By continuing, You agree to Skills Ontario "
+                            android:text="@string/by_continuing_you_agree_to_skills_ontario"
                             android:textColor="@color/textColorVeryLight"
                             android:textSize="18sp" />
 
@@ -221,7 +220,7 @@
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/poppins_regular"
                                 android:gravity="center"
-                                android:text=" and "
+                                android:text="@string/and"
                                 android:textColor="@color/textColorVeryLight"
                                 android:textSize="18sp" />
 
@@ -277,7 +276,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppins_regular"
                         android:gravity="center"
-                        android:text="Have an account? "
+                        android:text="@string/have_an_account"
                         android:textColor="@color/textColorVeryLight"
                         android:textSize="18sp" />
 
@@ -287,7 +286,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppins_regular"
                         android:gravity="center"
-                        android:text="Sign In"
+                        android:text="@string/sign_in"
                         android:textColor="#49FDA7"
                         android:textSize="18sp" />
 
@@ -300,7 +299,7 @@
                         android:drawableRight="@drawable/ic_sign_up_arrow"
                         android:fontFamily="@font/poppins_regular"
                         android:gravity="end"
-                        android:text="Continue As Guest "
+                        android:text="@string/continue_as_guest"
                         android:textColor="@color/textColorVeryLight"
                         android:textSize="18sp" />
 

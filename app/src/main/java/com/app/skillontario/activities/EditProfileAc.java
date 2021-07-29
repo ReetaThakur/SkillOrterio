@@ -282,7 +282,8 @@ public class EditProfileAc extends BaseActivity implements ApiResponseErrorCallb
             BaseResponseModel<RegistrationModal> responseModel = (BaseResponseModel<RegistrationModal>) responseObject;
             if (responseModel.getStatus()) {
                 MySharedPreference.getInstance().SaveUserData(SharedPrefsConstants.USER_DATA, responseModel.getOutput());
-                tvUserName.setText(binding.etFirstName.getText().toString() + " " + binding.etLastName.getText().toString());
+                //tvUserName.setText(binding.etFirstName.getText().toString() + " " + binding.etLastName.getText().toString());
+
                 showToast(responseModel.getMessage());
                 finish();
             } else {

@@ -28,7 +28,7 @@
                 android:layout_marginStart="@dimen/_10sdp"
                 android:layout_marginEnd="@dimen/_75sdp"
                 android:fontFamily="@font/poppins_bold"
-                android:text="Staying safe and responsible"
+                android:text="@string/w4"
                 android:textColor="@color/white"
                 android:textSize="@dimen/_24sdp" />
 
@@ -39,7 +39,7 @@
                 android:layout_marginTop="@dimen/_4sdp"
                 android:layout_marginEnd="@dimen/_20sdp"
                 android:fontFamily="@font/poppins_medium"
-                android:text="We are in extraordinary times. Health and safety are always key."
+                android:text="@string/w44"
                 android:textColor="#D6D6D6"
                 android:textSize="@dimen/_16sdp" />
         </LinearLayout>

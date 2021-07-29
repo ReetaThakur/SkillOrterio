@@ -75,7 +75,7 @@ public class ApiCallBack<T> implements Callback<T>, ConfirmDialogCallback {
                 }
             }
 
-        } else if (response.code() == 500) {
+        } else if (response.code() == 500) {  ///  101,102,104 error code logout
             if (response.body() == null) {
                 if (response.errorBody() != null) {
                    // responseErrorCallback.getApiError(response.errorBody().source(), flag);
