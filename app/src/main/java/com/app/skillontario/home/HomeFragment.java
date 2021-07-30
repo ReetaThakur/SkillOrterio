@@ -210,6 +210,7 @@ public class HomeFragment extends BaseFragment implements ApiResponseErrorCallba
                                     careerModalArrayList.addAll(responseModel.getOutput().get(0).getCareerData());
                                     popularCareerAdapter = new PopularCareerAdapter(careerModalArrayList, getActivity(), false, bookMarkUpdateDelete);
                                     binding.recyPopularCareers.setAdapter(popularCareerAdapter);
+
                                 }
                             }
                             if (responseModel.getOutput().get(1).getEventData() != null) {

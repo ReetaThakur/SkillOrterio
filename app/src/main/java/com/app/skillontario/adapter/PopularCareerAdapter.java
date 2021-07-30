@@ -27,18 +27,8 @@ public class PopularCareerAdapter extends RecyclerView.Adapter<PopularCareerAdap
 
 
     Context context;
-    public static int numberOfPerson;
     boolean clickBookmark = false;
     boolean popular = false;
-    private int[] imageArray = {
-            R.drawable.recy1,
-            R.drawable.recy2
-    };
-
-    private int[] imageArray1 = {
-            R.drawable.recent_event,
-            R.drawable.recent_event
-    };
 
     public PopularCareerAdapter(Context context, boolean popular) {
         this.context = context;
@@ -160,7 +150,6 @@ public class PopularCareerAdapter extends RecyclerView.Adapter<PopularCareerAdap
                 viewHolder.binding.textMoney.setText(careerModalArrayList.get(position).getFee());
 
                 Glide.with(context).load(careerModalArrayList.get(position).getImage())
-                        .placeholder(R.drawable.ic_launcher_background)
                         .error(R.drawable.new_person1)
                         .into(viewHolder.binding.imagePerson);
 
@@ -181,17 +170,15 @@ public class PopularCareerAdapter extends RecyclerView.Adapter<PopularCareerAdap
         viewHolder.binding.imagePerson.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                numberOfPerson = position;
-                context.startActivity(new Intent(context, JobDetailsActivity.class));
+                Intent intent = new Intent(context, JobDetailsActivity.class);
+                intent.putExtra("Popular", careerModalArrayList.get(position).getId());
+                context.startActivity(intent);
             }
         });
 
         viewHolder.binding.mainLay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                numberOfPerson = position;
-                // context.startActivity(new Intent(context, JobDetailsActivity.class));
-
                 Intent intent = new Intent(context, JobDetailsActivity.class);
                 intent.putExtra("Popular", careerModalArrayList.get(position).getId());
                 context.startActivity(intent);

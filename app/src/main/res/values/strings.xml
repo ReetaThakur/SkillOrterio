@@ -693,6 +693,9 @@ identify as female</string>
     <string name="sign_up">Sign Up</string>
     <string name="didn_t_receive_password">Didn\'t receive password?</string>
     <string name="resend">Resend.</string>
+    <string name="came_and_join">Come and join Skills Ontario! It’s the best place to evaluate your skills and useful in finding job opportunities.</string>
+    <string name="shre_profile">Hey! I came across this profile on Skills Ontario. Click this link to view</string>
+    <string name="shre">Hey! I played this interesting quiz on Skills Ontario to find out which profession is the best fit for me. Check out the result here</string>
 
 
     <!--<string name="Popular_Careers">Carrières populaires </string>

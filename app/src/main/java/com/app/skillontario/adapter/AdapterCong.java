@@ -98,6 +98,15 @@ public class AdapterCong extends RecyclerView.Adapter<AdapterCong.ViewHolder> {
         return new AdapterCong.ViewHolder(binding);
     }
 
+    public void addList(ArrayList<QuizResultModel> output) {
+        if (output != null) {
+            if (output.size() > 0) {
+                this.quizFinalResultModel.addAll(output);
+                notifyDataSetChanged();
+            }
+        }
+    }
+
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 

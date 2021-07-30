@@ -207,5 +207,8 @@ vous vous identifiez comme une femme</string>
     <string name="sign_up">S\'inscrire</string>
     <string name="didn_t_receive_password">Vous n\'avez pas reçu de mot de passe? </string>
     <string name="resend">Renvoyer.</string>
+    <string name="came_and_join">Venez vous joindre à Compétences Ontario! Cest le meilleur endroit pour évaluer vos compétences et utile pour trouver des opportunités demploi.</string>
+    <string name="shre_profile">Hé! Je suis tombé sur ce profil sur Compétences Ontario. Cliquez sur ce lien pour voir</string>
+    <string name="shre">Hé! J\'ai joué à ce jeu-questionnaire intéressant sur Compétences Ontario pour savoir quelle profession me convient le mieux. Découvrez le résultat ici</string>
 
 </resources>

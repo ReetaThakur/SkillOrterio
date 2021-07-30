@@ -232,6 +232,7 @@ public class SignInActivity extends BaseActivity implements ApiResponseErrorCall
                     MySharedPreference.getInstance().setStringData(SharedPrefsConstants.USER_TOKEN, responseModel.getOutput().getToken());
                     MySharedPreference.getInstance().setStringData(SharedPrefsConstants.USER_ID, responseModel.getOutput().getId());
                     MySharedPreference.getInstance().SaveUserData(SharedPrefsConstants.USER_DATA, responseModel.getOutput());
+
                     if (MySharedPreference.getInstance().getBooleanData(SharedPrefsConstants.GUEST_FLOW)) {
                         // finish();
                         if (MySharedPreference.getInstance().getStringData(SharedPrefsConstants.GUEST_FLOW_CLASS)

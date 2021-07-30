@@ -38,8 +38,6 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-
-import static com.app.skillontario.adapter.PopularCareerAdapter.numberOfPerson;
 import static com.app.skillontario.constants.ApiConstants.API_INTERFACE;
 
 public class JobDetailsActivity extends BaseActivity implements ApiResponseErrorCallback {
@@ -130,7 +128,7 @@ public class JobDetailsActivity extends BaseActivity implements ApiResponseError
             public void onClick(View v) {
                 ShareCompat.IntentBuilder.from(JobDetailsActivity.this)
                         .setType("text/plain")
-                        .setChooserTitle(getResources().getText(R.string.app_name))
+                        .setChooserTitle(R.string.shre_profile)
                         .setText("https://www.skillsontario.com")
                         .startChooser();
             }

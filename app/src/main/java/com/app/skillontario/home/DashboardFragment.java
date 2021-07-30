@@ -80,9 +80,16 @@ public class DashboardFragment extends BaseFragment {
                 RegistrationModal registrationModal = new RegistrationModal();
                 registrationModal = MySharedPreference.getInstance().getUserData(SharedPrefsConstants.USER_DATA);
 
+                try {
+                    if (registrationModal.getFname().equalsIgnoreCase("")) {
+                        binding.tvUserName.setText(capitalize("" + registrationModal.getEmail()));
+                    } else
+                        binding.tvUserName.setText(capitalize("" + registrationModal.getFname() + " " + registrationModal.getLname()));
 
-                binding.tvUserName.setText(capitalize("" + registrationModal.getFname() + " " + registrationModal.getLname()));
-                // binding.dashboradSchool.setText("" + registrationModal.getSchool());
+                } catch (Exception e) {
+                    binding.tvUserName.setText(capitalize("" + registrationModal.getEmail()));
+                }
+
             }
         } catch (Exception e) {
         }
