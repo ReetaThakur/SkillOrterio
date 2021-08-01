@@ -3,6 +3,7 @@ package com.app.skillontario.adapter;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,7 +15,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 
 import com.app.skillontario.activities.JobDetailsActivity;
+import com.app.skillontario.constants.SharedPrefsConstants;
 import com.app.skillontario.models.CareerModal;
+import com.app.skillontario.utils.MySharedPreference;
 import com.app.skillorterio.R;
 import com.app.skillorterio.databinding.AdapterPopularCarrerBinding;
 import com.bumptech.glide.Glide;
@@ -188,18 +191,26 @@ public class PopularCareerAdapter extends RecyclerView.Adapter<PopularCareerAdap
         viewHolder.binding.ivBookmark.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (careerModalArrayList.get(position).getbId().equalsIgnoreCase("")) {
-                    bookMarkUpdateDelete.checkBookMark("", position, careerModalArrayList.get(position).getId());
+                if (MySharedPreference.getInstance().getBooleanData(SharedPrefsConstants.GUEST_FLOW)) {
+                    if (careerModalArrayList.get(position).getbId().equalsIgnoreCase("")) {
+                        bookMarkUpdateDelete.checkBookMark("", position, careerModalArrayList.get(position).getId());
+                    } else {
+                        bookMarkUpdateDelete.checkBookMark(careerModalArrayList.get(position).getbId(), position, careerModalArrayList.get(position).getId());
+                    }
                 } else {
-                    bookMarkUpdateDelete.checkBookMark(careerModalArrayList.get(position).getbId(), position, careerModalArrayList.get(position).getId());
-                }
+                    if (careerModalArrayList.get(position).getbId().equalsIgnoreCase("")) {
+                        bookMarkUpdateDelete.checkBookMark("", position, careerModalArrayList.get(position).getId());
+                    } else {
+                        bookMarkUpdateDelete.checkBookMark(careerModalArrayList.get(position).getbId(), position, careerModalArrayList.get(position).getId());
+                    }
 
-                if (clickBookmark) {
-                    clickBookmark = false;
-                    viewHolder.binding.ivBookmark.setImageResource(R.drawable.ic_home_main_batch);
-                } else {
-                    clickBookmark = true;
-                    viewHolder.binding.ivBookmark.setImageResource(R.drawable.ic_bookmark_fill);
+                    if (clickBookmark) {
+                        clickBookmark = false;
+                        viewHolder.binding.ivBookmark.setImageResource(R.drawable.ic_home_main_batch);
+                    } else {
+                        clickBookmark = true;
+                        viewHolder.binding.ivBookmark.setImageResource(R.drawable.ic_bookmark_fill);
+                    }
                 }
             }
         });

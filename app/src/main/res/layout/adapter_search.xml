@@ -38,8 +38,7 @@
                 android:layout_width="@dimen/_110sdp"
                 android:layout_height="match_parent"
                 android:layout_alignParentBottom="true"
-                android:scaleType="fitXY"
-                android:src="@drawable/new_person1"></ImageView>
+                android:scaleType="fitXY"></ImageView>
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -69,10 +68,10 @@
                     android:id="@+id/img_bookmark"
                     android:layout_width="@dimen/_16sdp"
                     android:layout_height="@dimen/_20sdp"
-                    android:src="@drawable/ic_home_main_batch"
                     android:layout_alignParentRight="true"
                     android:layout_marginTop="@dimen/_16sdp"
-                    android:layout_marginRight="@dimen/_8ssp"></ImageView>
+                    android:layout_marginRight="@dimen/_8ssp"
+                    android:src="@drawable/bookmark_not_fill"></ImageView>
 
                 <TextView
                     android:id="@+id/textWork"

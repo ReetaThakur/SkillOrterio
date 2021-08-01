@@ -78,11 +78,8 @@ public class EditProfileAc extends BaseActivity implements ApiResponseErrorCallb
 
         binding.ivInfo.setOnClickListener(v -> {
             //  showPopUp();
-            if (balloon.isShowing()) {
-                balloon.dismiss();
-            } else {
-                balloon.showAlignBottom(binding.ivInfo);
-            }
+            showDilog();
+
         });
 
         binding.done.setOnClickListener(v -> {
@@ -101,6 +98,11 @@ public class EditProfileAc extends BaseActivity implements ApiResponseErrorCallb
             }
         });
         setData();
+    }
+
+    void showDilog() {
+        dialogWithMsg = new DialogWithMsg(EditProfileAc.this, 0, "", getString(R.string.demo_), "OK", null);
+        dialogWithMsg.show();
     }
 
     @RequiresApi(api = Build.VERSION_CODES.N)

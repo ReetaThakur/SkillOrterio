@@ -67,7 +67,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
         viewHolder.binding.textMoney.setText(list.get(position).getFee());
 
         if(list.get(position).getbId().equalsIgnoreCase("")){
-            viewHolder.binding.imgBookmark.setBackgroundResource(R.drawable.ic_home_main_batch);
+            viewHolder.binding.imgBookmark.setBackgroundResource(R.drawable.bookmark_not_fill);
         }else {
             viewHolder.binding.imgBookmark.setBackgroundResource(R.drawable.ic_bookmark_fill);
         }

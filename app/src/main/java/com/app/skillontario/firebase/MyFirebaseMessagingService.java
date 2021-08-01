@@ -71,8 +71,8 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
             count = Integer.parseInt(MySharedPreference.getInstance().getStringData(NOTIFICATION_COUNT));
 
         try {
-          //  HomeFragment.notification_badge.setText("" + count);
-          //  HomeFragment.notification_badge.setVisibility(View.VISIBLE);
+            //  HomeFragment.notification_badge.setText("" + count);
+            //  HomeFragment.notification_badge.setVisibility(View.VISIBLE);
         } catch (Exception e) {
         }
 

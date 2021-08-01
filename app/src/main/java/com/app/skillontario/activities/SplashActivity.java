@@ -160,15 +160,43 @@ public class SplashActivity extends BaseActivity {
                         startActivity(intent);
                         finishAffinity();
                     } else {
-                        startActivity(new Intent(this, SelectLanguage.class));
-                        finishAffinity();
+                        MySharedPreference.getInstance().setBooleanData(IS_NOTIFICATION, false);
+                        if (!MySharedPreference.getInstance().getStringData(USER_TOKEN).equalsIgnoreCase("")) {
+                            startActivity(new Intent(this, BottomBarActivity.class));
+                            finishAffinity();
+
+                        } else {
+                            if (MySharedPreference.getInstance().getBooleanData(IS_WALK_THROUGH)) {
+                                startActivity(new Intent(this, SignUpActivity.class));
+                                finishAffinity();
+                            } else {
+                                Intent intent = new Intent(this, SelectLanguage.class);
+                                intent.putExtra(AppConstants.LOGIN_TYPE, "new");
+                                startActivity(intent);
+                                finishAffinity();
+                            }
+                        }
+
                     }
 
                 } catch (Exception e) {
                     typeClass = "";
-                    startActivity(new Intent(this, SelectLanguage.class));
-                    finishAffinity();
+                    MySharedPreference.getInstance().setBooleanData(IS_NOTIFICATION, false);
+                    if (!MySharedPreference.getInstance().getStringData(USER_TOKEN).equalsIgnoreCase("")) {
+                        startActivity(new Intent(this, BottomBarActivity.class));
+                        finishAffinity();
 
+                    } else {
+                        if (MySharedPreference.getInstance().getBooleanData(IS_WALK_THROUGH)) {
+                            startActivity(new Intent(this, SignUpActivity.class));
+                            finishAffinity();
+                        } else {
+                            Intent intent = new Intent(this, SelectLanguage.class);
+                            intent.putExtra(AppConstants.LOGIN_TYPE, "new");
+                            startActivity(intent);
+                            finishAffinity();
+                        }
+                    }
                 }
 
             } else {

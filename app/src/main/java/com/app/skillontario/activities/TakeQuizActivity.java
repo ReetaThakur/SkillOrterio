@@ -18,6 +18,7 @@ import com.app.skillontario.models.CareerDetailModel;
 import com.app.skillontario.models.CareerModal;
 import com.app.skillontario.models.HomeModal;
 import com.app.skillontario.quiz.QuizStepAc;
+import com.app.skillontario.quiz.TakeQuizAc;
 import com.app.skillontario.utils.MySharedPreference;
 import com.app.skillontario.utils.Utils;
 import com.app.skillorterio.R;
@@ -164,17 +165,24 @@ public class TakeQuizActivity extends BaseActivity implements ApiResponseErrorCa
 
     @Override
     public void checkBookMark(String Bid, int position, String careerId) {
-        try {
-            CareerPosition = position;
-            if (Bid.equalsIgnoreCase("")) {
-                addBookmark(careerModalArrayList.get(position), careerId);
-            } else {
-                removeBookmark(Bid, careerId);
+        if (MySharedPreference.getInstance().getBooleanData(SharedPrefsConstants.GUEST_FLOW)) {
+            try {
+                Utils.guestMethod(TakeQuizActivity.this, "homeFragment");
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-        } catch (Exception e) {
+        } else {
+            try {
+                CareerPosition = position;
+                if (Bid.equalsIgnoreCase("")) {
+                    addBookmark(careerModalArrayList.get(position), careerId);
+                } else {
+                    removeBookmark(Bid, careerId);
+                }
+            } catch (Exception e) {
+            }
+
         }
-
-
     }
 
     void addBookmark(CareerModal list, String careerId) {
