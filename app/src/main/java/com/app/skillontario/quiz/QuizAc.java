@@ -29,7 +29,7 @@ public class QuizAc extends BaseActivity {
         binding.share.setOnClickListener(v -> {
             /*ShareCompat.IntentBuilder.from(this)
                     .setType("text/plain")
-                    .setChooserTitle(getResources().getText(R.string.app_name))
+                    .setChooserTitle(R.string.shre)
                     .setText("https://www.skillsontario.com")
                     .startChooser();*/
             Utils.share(this,"","Hey! I played this interesting quiz on Skills Ontario to find out which profession is the best fit for me. Check out the result here","https://www.skillsontario.com",null);
@@ -77,7 +77,7 @@ public class QuizAc extends BaseActivity {
         Intent intent = new Intent(Intent.ACTION_SEND);
         intent.setType("text/plain");
         intent.putExtra(Intent.EXTRA_TEXT, link.toString());
-        intent.putExtra(Intent.EXTRA_TITLE, "Sample App");
+        intent.putExtra(Intent.EXTRA_TITLE, getString(R.string.came_and_join));
 
         startActivity(Intent.createChooser(intent, "Share Link"));
     }

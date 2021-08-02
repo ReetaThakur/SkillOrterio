@@ -23,11 +23,15 @@ import com.app.skillontario.home.DashboardFragment;
 import com.app.skillontario.home.EventFragment;
 import com.app.skillontario.home.HomeFragment;
 import com.app.skillontario.home.ResourcesFragment;
+import com.app.skillontario.utils.MySharedPreference;
 import com.app.skillontario.utils.Utils;
 import com.app.skillorterio.R;
 import com.app.skillorterio.databinding.ActivityBottomBarBinding;
 import com.app.skillorterio.databinding.ActivityMainBinding;
 import com.gauravk.bubblenavigation.listener.BubbleNavigationChangeListener;
+
+import static com.app.skillontario.activities.SettingActivity.language;
+import static com.app.skillontario.utils.Utils.updatLocalLanguage;
 
 public class BottomBarActivity extends BaseActivity {
 
@@ -78,10 +82,7 @@ public class BottomBarActivity extends BaseActivity {
         });
 
         //  binding.viewPager.setOnTouchListener((v, event) -> true);
-
-
-
-
+     //   Utils.askPermison(BottomBarActivity.this);
 
         binding.bottomNavigationViewLinear.setNavigationChangeListener((view, position) -> binding.viewPager.setCurrentItem(position, true));
     }
@@ -115,10 +116,11 @@ public class BottomBarActivity extends BaseActivity {
                 new Runnable() {
                     @Override
                     public void run() {
-                        if (Utils.Language) {
-                            binding.viewPager.setCurrentItem(3);
+
+                        if (language) {
+                            languageMethod(MySharedPreference.getInstance().getStringData(AppConstants.LANGUAGE));
                             binding.bottomNavigationViewLinear.setCurrentActiveItem(3);
-                            Utils.Language = false;
+                            language = false;
                         }
 
                         try {
@@ -150,6 +152,23 @@ public class BottomBarActivity extends BaseActivity {
                     }
                 }, 70);
 
+    }
+
+    private void languageMethod(String lang) {
+
+        if (lang != null) {
+            if (lang.isEmpty()) {
+
+                updatLocalLanguage("en", getBaseContext());
+
+            } else {
+
+                updatLocalLanguage(lang, getBaseContext());
+            }
+        } else {
+
+            updatLocalLanguage("en", getBaseContext());
+        }
     }
 
 

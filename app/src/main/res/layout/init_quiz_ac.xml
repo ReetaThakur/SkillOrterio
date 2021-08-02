@@ -54,7 +54,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins_regular"
                     android:gravity="center"
-                    android:text="Take Quiz"
+                    android:text="@string/take_quiz"
                     android:drawablePadding="@dimen/_5sdp"
                     android:textAllCaps="true"
                     android:textColor="@color/white"

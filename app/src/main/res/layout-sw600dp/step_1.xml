@@ -29,7 +29,7 @@
                 android:layout_marginStart="@dimen/_10sdp"
                 android:layout_marginEnd="@dimen/_75sdp"
                 android:fontFamily="@font/poppins_bold"
-                android:text="Develop and strengthen your skills"
+                android:text="@string/w1"
                 android:textColor="@color/white"
                 android:textSize="@dimen/_24sdp" />
 
@@ -40,7 +40,7 @@
                 android:layout_marginTop="@dimen/_4sdp"
                 android:layout_marginEnd="@dimen/_20sdp"
                 android:fontFamily="@font/poppins_medium"
-                android:text="Get ready for the workforce with Skills Ontario!"
+                android:text="@string/w11"
                 android:textColor="#D6D6D6"
                 android:textSize="@dimen/_16sdp" />
         </LinearLayout>

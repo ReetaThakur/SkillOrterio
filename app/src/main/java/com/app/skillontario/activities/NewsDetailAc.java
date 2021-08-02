@@ -91,11 +91,16 @@ public class NewsDetailAc extends BaseActivity {
                 }
             }
 
-            if (!Patterns.WEB_URL.matcher(newsModal.getNewsUrl()).matches()) {
+            try {
+                if (!Patterns.WEB_URL.matcher(newsModal.getNewsUrl()).matches()) {
+                    binding.cvWebsite.setVisibility(View.INVISIBLE);
+                } else {
+                    binding.cvWebsite.setVisibility(View.VISIBLE);
+                }
+            } catch (Exception e) {
                 binding.cvWebsite.setVisibility(View.INVISIBLE);
-            } else {
-                binding.cvWebsite.setVisibility(View.VISIBLE);
             }
+
 
             //binding.cvWebsite.setOnClickListener(v -> startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(newsModal.getNewsUrl()))));
 

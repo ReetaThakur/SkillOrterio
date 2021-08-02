@@ -35,11 +35,10 @@
 
             <ImageView
                 android:id="@+id/imagePerson"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="@dimen/_110sdp"
+                android:layout_height="match_parent"
                 android:layout_alignParentBottom="true"
-                android:scaleType="fitStart"
-                android:src="@drawable/home_person"></ImageView>
+                android:scaleType="fitXY"></ImageView>
 
             <RelativeLayout
                 android:layout_width="match_parent"

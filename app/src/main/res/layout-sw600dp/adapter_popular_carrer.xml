@@ -104,11 +104,11 @@
 
         <ImageView
             android:id="@+id/imagePerson"
-            android:layout_width="@dimen/_100sdp"
+            android:layout_width="@dimen/_90sdp"
             android:layout_height="match_parent"
             android:layout_marginLeft="@dimen/_10sdp"
             android:layout_marginBottom="@dimen/_10sdp"
-            android:scaleType="fitStart"
+            android:scaleType="fitXY"
             android:src="@drawable/home_person"></ImageView>
 
     </RelativeLayout>

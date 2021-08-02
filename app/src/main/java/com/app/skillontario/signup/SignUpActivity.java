@@ -8,6 +8,7 @@ import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.os.Handler;
 import android.provider.Settings;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
@@ -25,6 +26,8 @@ import android.widget.Toast;
 import com.app.skillontario.BottomBarActivity;
 import com.app.skillontario.SignIn.SignInActivity;
 import com.app.skillontario.SignIn.WelcomeActivity;
+import com.app.skillontario.activities.BookmarkAc;
+import com.app.skillontario.activities.JobDetailsActivity;
 import com.app.skillontario.activities.PrivacyPolicyActivity;
 import com.app.skillontario.activities.TermsOfServicesActivity;
 import com.app.skillontario.apiConnection.ApiCallBack;
@@ -32,6 +35,7 @@ import com.app.skillontario.apiConnection.ApiResponseErrorCallback;
 import com.app.skillontario.apiConnection.RequestBodyGenerator;
 import com.app.skillontario.baseClasses.BaseActivity;
 import com.app.skillontario.baseClasses.BaseResponseModel;
+import com.app.skillontario.constants.AppConstants;
 import com.app.skillontario.constants.SharedPrefsConstants;
 import com.app.skillontario.models.RegistrationModal;
 import com.app.skillontario.baseClasses.BaseResponseModel;
@@ -44,9 +48,11 @@ import com.app.skillorterio.databinding.ActivitySignUpBinding;
 import java.util.Locale;
 
 import static android.content.Intent.FLAG_ACTIVITY_CLEAR_TOP;
+import static com.app.skillontario.activities.SettingActivity.language;
 import static com.app.skillontario.constants.ApiConstants.API_INTERFACE;
 import static com.app.skillontario.constants.SharedPrefsConstants.GUEST_FLOW;
 import static com.app.skillontario.utils.Utils.getDeviceId;
+import static com.app.skillontario.utils.Utils.updatLocalLanguage;
 
 public class SignUpActivity extends BaseActivity implements ApiResponseErrorCallback {
 
@@ -352,7 +358,7 @@ public class SignUpActivity extends BaseActivity implements ApiResponseErrorCall
 
     @Override
     public void getApiError(Throwable t, int flag) {
-        Log.d("yugal error  ", t.toString());
+
     }
 
     public void setLocale(Activity activity, String languageCode) {
@@ -396,5 +402,53 @@ public class SignUpActivity extends BaseActivity implements ApiResponseErrorCall
         }
 
         return true;
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        new Handler().postDelayed(
+                new Runnable() {
+                    @Override
+                    public void run() {
+
+                        try {
+                            languageMethod(MySharedPreference.getInstance().getStringData(AppConstants.LANGUAGE));
+                            binding.tv1.setText(R.string.new_account);
+                            binding.tv2.setText(R.string.sign_text);
+                            binding.tv3.setText(R.string.by_continuing_you_agree_to_skills_ontario);
+                            binding.tv5.setText(R.string.signup);
+                            binding.tvAgreement.setText(R.string.terms_Of_services);
+                            binding.and.setText(R.string.and);
+                            binding.tvPrivacy.setText(R.string.underlined_privacy_policy);
+                            binding.tvHaveAnAccount.setText(R.string.have_an_account);
+                            binding.tvSignIN.setText(R.string.sign_in1);
+                            binding.tvContinueAsGuest.setText(R.string.continue_as_guest);
+
+                            binding.etMail.setHint(R.string.email_address);
+                            binding.etPassword.setHint(R.string.password);
+                            binding.etConfirmPassword.setHint(R.string.confirm_password);
+                        } catch (Exception e) {
+                        }
+
+                    }
+                }, 50);
+    }
+
+    private void languageMethod(String lang) {
+
+        if (lang != null) {
+            if (lang.isEmpty()) {
+
+                updatLocalLanguage("en", getBaseContext());
+
+            } else {
+
+                updatLocalLanguage(lang, getBaseContext());
+            }
+        } else {
+
+            updatLocalLanguage("en", getBaseContext());
+        }
     }
 }

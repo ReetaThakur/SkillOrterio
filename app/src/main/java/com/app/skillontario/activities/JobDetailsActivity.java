@@ -38,8 +38,6 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-
-import static com.app.skillontario.adapter.PopularCareerAdapter.numberOfPerson;
 import static com.app.skillontario.constants.ApiConstants.API_INTERFACE;
 
 public class JobDetailsActivity extends BaseActivity implements ApiResponseErrorCallback {
@@ -131,7 +129,7 @@ public class JobDetailsActivity extends BaseActivity implements ApiResponseError
                 Utils.share(JobDetailsActivity.this,"","Hey! I came across this profile on Skills Ontario. Click this link to view","https://www.skillsontario.com",null);
                /* ShareCompat.IntentBuilder.from(JobDetailsActivity.this)
                         .setType("text/plain")
-                        .setChooserTitle(getResources().getText(R.string.app_name))
+                        .setChooserTitle(R.string.shre_profile)
                         .setText("https://www.skillsontario.com")
                         .startChooser();*/
             }
@@ -168,14 +166,14 @@ public class JobDetailsActivity extends BaseActivity implements ApiResponseError
         if (careerListDetails.get(0).getJobDesc() != null) {
             List<SampleChildBean> childList = new ArrayList<>();
             childList.add(new SampleChildBean(careerListDetails.get(0).getJobDesc()));
-            list.add(new SampleGroupBean(childList, "Job Description"));
+            list.add(new SampleGroupBean(childList, getString(R.string.job_desc)));
         }
 
         //   childList.clear();
         if (careerListDetails.get(0).getJobResp() != null) {
             List<SampleChildBean> childList = new ArrayList<>();
             childList.add(new SampleChildBean(careerListDetails.get(0).getJobResp()));
-            list.add(new SampleGroupBean(childList, "Job Responsibilities"));
+            list.add(new SampleGroupBean(childList, getString(R.string.job_resp)));
         }
 
 
@@ -183,7 +181,7 @@ public class JobDetailsActivity extends BaseActivity implements ApiResponseError
         if (careerListDetails.get(0).getJobArea() != null) {
             List<SampleChildBean> childList = new ArrayList<>();
             childList.add(new SampleChildBean(careerListDetails.get(0).getJobArea()));
-            list.add(new SampleGroupBean(childList, "Where they Work"));
+            list.add(new SampleGroupBean(childList, getString(R.string.where_they)));
         }
 
 
@@ -191,7 +189,7 @@ public class JobDetailsActivity extends BaseActivity implements ApiResponseError
         if (careerListDetails.get(0).getAdvice() != null) {
             List<SampleChildBean> childList = new ArrayList<>();
             childList.add(new SampleChildBean(careerListDetails.get(0).getAdvice()));
-            list.add(new SampleGroupBean(childList, "Advice"));
+            list.add(new SampleGroupBean(childList, getString(R.string.advice)));
         }
 
 
@@ -199,7 +197,7 @@ public class JobDetailsActivity extends BaseActivity implements ApiResponseError
         if (careerListDetails.get(0).getEduReq() != null) {
             List<SampleChildBean> childList = new ArrayList<>();
             childList.add(new SampleChildBean(careerListDetails.get(0).getEduReq()));
-            list.add(new SampleGroupBean(childList, "Education Required"));
+            list.add(new SampleGroupBean(childList, getString(R.string.education_required)));
         }
 
 
@@ -207,7 +205,7 @@ public class JobDetailsActivity extends BaseActivity implements ApiResponseError
         if (careerListDetails.get(0).getTraReq() != null) {
             List<SampleChildBean> childList = new ArrayList<>();
             childList.add(new SampleChildBean(careerListDetails.get(0).getTraReq()));
-            list.add(new SampleGroupBean(childList, "Training Required"));
+            list.add(new SampleGroupBean(childList, getString(R.string.training_req)));
         }
 
 
@@ -215,7 +213,7 @@ public class JobDetailsActivity extends BaseActivity implements ApiResponseError
         if (careerListDetails.get(0).getExpeReq() != null) {
             List<SampleChildBean> childList = new ArrayList<>();
             childList.add(new SampleChildBean(careerListDetails.get(0).getExpeReq()));
-            list.add(new SampleGroupBean(childList, "Experience Required"));
+            list.add(new SampleGroupBean(childList, getString(R.string.exp_req)));
         }
 
 

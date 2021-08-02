@@ -1,15 +1,20 @@
 package com.app.skillontario.utils;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Dialog;
+import android.content.ContentUris;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
 import android.provider.CalendarContract;
@@ -50,6 +55,11 @@ import com.app.skillontario.SignIn.SignInActivity;
 import com.app.skillontario.signup.SignUpActivity;
 import com.app.skillontario.utils.topSnackBar.TSnackBar;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
+import com.karumi.dexter.Dexter;
+import com.karumi.dexter.MultiplePermissionsReport;
+import com.karumi.dexter.PermissionToken;
+import com.karumi.dexter.listener.PermissionRequest;
+import com.karumi.dexter.listener.multi.MultiplePermissionsListener;
 
 import org.w3c.dom.Document;
 
@@ -66,12 +76,12 @@ import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.List;
 import java.util.Locale;
 import java.util.TimeZone;
 
 
 public class Utils {
-    public static boolean Language = false;
     public static String emailPattern = "^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,4})$";
 
     /**
@@ -294,6 +304,63 @@ public class Utils {
         context.startActivity(intent);
     }
 
+    public static void setCalenderEvent(Context context, String dtstart, String enddate, String title, String desc) {
+        Cursor cur = null;
+        try {
+           /* SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd HH:mm");
+            Calendar cal = Calendar.getInstance();
+            cal.setTime(formatter.parse(dtstart));
+            enddate = cal.get(Calendar.YEAR) + "/" + cal.get(Calendar.MONTH) + "/" + cal.get(Calendar.DAY_OF_MONTH) + " " + cal.get(Calendar.HOUR_OF_DAY) + ":" + cal.get(Calendar.MINUTE);
+            Log.e("event date", enddate);
+            // provide CalendarContract.Calendars.CONTENT_URI to
+            // ContentResolver to query calendars*/
+
+            SimpleDateFormat S_df = new SimpleDateFormat("MMM dd,yyyy hh:mm a", Locale.ENGLISH);
+            Calendar S_cal = new GregorianCalendar();
+            SimpleDateFormat E_df = new SimpleDateFormat("MMM dd,yyyy hh:mm a", Locale.ENGLISH);
+            Calendar E_cal = new GregorianCalendar();
+            Date S_date = null;
+            Date E_date = null;
+            try {
+                S_date = S_df.parse(dtstart);
+                S_cal.setTime(S_date);
+                E_date = E_df.parse(enddate);
+                E_cal.setTime(E_date);
+
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+
+
+
+
+
+            cur = context.getContentResolver().query(CalendarContract.Calendars.CONTENT_URI, null, null, null, null);
+            if (cur.moveToFirst()) {
+                long calendarID = cur.getLong(cur.getColumnIndex(CalendarContract.Calendars._ID));
+                ContentValues eventValues = new ContentValues();
+                // provide the required fields for creating an event to
+                // ContentValues instance and insert event using
+                // ContentResolver
+                eventValues.put(CalendarContract.Events.CALENDAR_ID, calendarID);
+                eventValues.put(CalendarContract.Events.TITLE, "Event 1" + title);
+                eventValues.put(CalendarContract.Events.DESCRIPTION, " Calendar API" + desc);
+                eventValues.put(CalendarContract.Events.ALL_DAY, true);
+                eventValues.put(CalendarContract.Events.DTSTART, (S_cal.getTimeInMillis() + 60 * 60 * 1000));
+                eventValues.put(CalendarContract.Events.DTEND, E_cal.getTimeInMillis() + 60 * 60 * 1000);
+                eventValues.put(CalendarContract.Events.EVENT_TIMEZONE, TimeZone.getDefault().toString());
+                Uri eventUri = context.getContentResolver().insert(CalendarContract.Events.CONTENT_URI, eventValues);
+                //eventID = ContentUris.parseId(eventUri);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (cur != null) {
+                cur.close();
+            }
+        }
+    }
+
     public static String DateFormateNews(String str_date) {
         String newDateString = "";
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.US);
@@ -350,10 +417,47 @@ public class Utils {
         }
         dialogMood.setContentView(R.layout.news_dialog);
         dialogMood.findViewById(R.id.done).setOnClickListener(view1 -> {
-            AddEvent(context, dtstart, enddate, title, des);
+            setCalenderEvent(context, dtstart, enddate, title, des);
             dialogMood.dismiss();
         });
         dialogMood.show();
+    }
+
+    public static boolean checkPer = false;
+
+    public static boolean checkPermissionCalender(Context context) {
+        checkPer = false;
+        Dexter.withContext(context)
+                .withPermissions(
+                        Manifest.permission.READ_CALENDAR,
+                        Manifest.permission.WRITE_CALENDAR
+
+                ).withListener(new MultiplePermissionsListener() {
+            @Override
+            public void onPermissionsChecked(MultiplePermissionsReport report) {
+                checkPer = report.areAllPermissionsGranted();
+
+            }
+
+            @Override
+            public void onPermissionRationaleShouldBeShown(List<PermissionRequest> permissions, PermissionToken token) {/* ... */}
+        }).check();
+
+        return checkPer;
+    }
+
+    public static void askPermison(Context context) {
+        Dexter.withContext(context)
+                .withPermissions(
+                        Manifest.permission.READ_CALENDAR,
+                        Manifest.permission.WRITE_CALENDAR
+                ).withListener(new MultiplePermissionsListener() {
+            @Override
+            public void onPermissionsChecked(MultiplePermissionsReport report) {/* ... */}
+
+            @Override
+            public void onPermissionRationaleShouldBeShown(List<PermissionRequest> permissions, PermissionToken token) {/* ... */}
+        }).check();
     }
 
 

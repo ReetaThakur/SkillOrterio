@@ -10,10 +10,15 @@ import android.net.NetworkInfo;
 import android.util.Log;
 import android.view.WindowManager;
 
+import com.app.skillontario.SignIn.SignInActivity;
+import com.app.skillontario.activities.SettingActivity;
 import com.app.skillontario.baseClasses.BaseResponseModel;
 import com.app.skillontario.callbacks.ConfirmDialogCallback;
+import com.app.skillontario.constants.AppConstants;
+import com.app.skillontario.constants.SharedPrefsConstants;
 import com.app.skillontario.dialogs.CustomAlertDialog;
 import com.app.skillontario.models.careerListModel.CareerListOutput;
+import com.app.skillontario.utils.MySharedPreference;
 import com.app.skillontario.utils.Utils;
 import com.app.skillorterio.R;
 
@@ -25,6 +30,8 @@ import java.net.UnknownHostException;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+
+import static com.app.skillontario.constants.AppConstants.FIREBASE_TOKEN;
 
 
 public class ApiCallBack<T> implements Callback<T>, ConfirmDialogCallback {
@@ -69,28 +76,44 @@ public class ApiCallBack<T> implements Callback<T>, ConfirmDialogCallback {
                         responseErrorCallback.getApiResponse(response.body(), flag);
                     } else if (model != null && model.getStatus() == false) {
                         responseErrorCallback.getApiResponse(response.body(), flag);
-                    }  else
+                    } else
                         responseErrorCallback.getApiResponse(response.body(), flag);
                 } catch (Exception e) {
                 }
             }
 
-        } else if (response.code() == 500) {
+        } else if (response.code() == 500) {  /// 101,102,104 error code logout
             if (response.body() == null) {
                 if (response.errorBody() != null) {
-                   // responseErrorCallback.getApiError(response.errorBody().source(), flag);
-                  //  responseErrorCallback.getApiError500(response.message(), flag);
+
+                    // responseErrorCallback.getApiError(response.errorBody().source(), flag);
+                    //  responseErrorCallback.getApiError500(response.message(), flag);
                     responseErrorCallback.getApiResponse(response.body(), flag);
                 } else {
-                 //   responseErrorCallback.getApiError500(response.message(), flag);
+                    //   responseErrorCallback.getApiError500(response.message(), flag);
                 }
             } else {
                 responseErrorCallback.getApiResponse(response.body(), flag);
             }
 
+        } else {
 
-        } else
-            Utils.showToast(context, "Server Not Responding");
+            String lang = MySharedPreference.getInstance().getStringData(AppConstants.LANGUAGE);
+            String token = MySharedPreference.getInstance().getStringData(FIREBASE_TOKEN);
+            MySharedPreference.getInstance().clearSharedPrefs();
+            MySharedPreference.getInstance().setBooleanData(SharedPrefsConstants.GUEST_FLOW, false);
+            MySharedPreference.getInstance().setStringData(AppConstants.LANGUAGE, "lang");
+            MySharedPreference.getInstance().setStringData(FIREBASE_TOKEN, token);
+
+            try {
+                Intent intent = new Intent(context, SignInActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                context.startActivity(intent);
+            } catch (Exception e) {
+            }
+        }
+        //Utils.showToast(context, "Server Not Responding");
 
     }
 

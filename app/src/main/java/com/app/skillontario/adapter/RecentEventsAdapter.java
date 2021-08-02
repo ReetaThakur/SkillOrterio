@@ -92,7 +92,15 @@ public class RecentEventsAdapter extends RecyclerView.Adapter<RecentEventsAdapte
             @Override
             public void onClick(View v) {
                 if (eventsModalArrayList.get(position).getEvtDate() != null) {
-                    Utils.openD(context, Utils.DateFormate(eventsModalArrayList.get(position).getEvtDate()), Utils.DateFormate(eventsModalArrayList.get(position).getEvtEndDate()), eventsModalArrayList.get(position).getEvtTitle(), eventsModalArrayList.get(position).getEvtDesc());
+
+                    try {
+                        if (Utils.checkPermissionCalender(context))
+                            Utils.openD(context, Utils.DateFormate(eventsModalArrayList.get(position).getEvtDate()), Utils.DateFormate(eventsModalArrayList.get(position).getEvtEndDate()), eventsModalArrayList.get(position).getEvtTitle(), eventsModalArrayList.get(position).getEvtDesc());
+                        else
+                            Utils.askPermison(context);
+                    } catch (Exception e) {
+                    }
+
                 }
             }
         });

@@ -29,17 +29,18 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/_16sdp"
                     android:fontFamily="@font/poppins_medium"
-                    android:text="Robert Frost Pattinson"
+                    android:text="@string/robert_frost_pattinson"
                     android:layout_marginTop="120dp"
                     android:textColor="@color/black"
                     android:textSize="25sp"></TextView>
 
                 <TextView
+                    android:id="@+id/dashboradSchool"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/_16sdp"
                     android:fontFamily="@font/poppins_medium"
-                    android:text="Elementary School"
+                    android:text="@string/elementary_school"
                     android:textColor="#8FA1B5"
                     android:textSize="20sp"></TextView>
 
@@ -57,7 +58,7 @@
                     android:paddingTop="@dimen/_6sdp"
                     android:paddingRight="@dimen/_12sdp"
                     android:paddingBottom="@dimen/_6sdp"
-                    android:text="Edit Profile"
+                    android:text="@string/edit_profile"
                     android:textColor="#0A7AFF"
                     android:textSize="@dimen/_12sdp"></TextView>
             </LinearLayout>
@@ -116,7 +117,7 @@
                                 android:layout_marginLeft="@dimen/_16sdp"
                                 android:layout_toRightOf="@+id/rl1"
                                 android:fontFamily="@font/poppins_regular"
-                                android:text="Career Quiz Results"
+                                android:text="@string/career_quiz_results"
                                 android:textColor="#272F35"
                                 android:textSize="@dimen/_14sdp"></TextView>
 
@@ -178,7 +179,7 @@
                                 android:layout_marginLeft="@dimen/_16sdp"
                                 android:layout_toRightOf="@+id/rl2"
                                 android:fontFamily="@font/poppins_regular"
-                                android:text="Bookmarked Careers"
+                                android:text="@string/bookmarked_careers"
                                 android:textColor="#272F35"
                                 android:textSize="@dimen/_14sdp"></TextView>
 
@@ -239,7 +240,7 @@
                                 android:layout_marginLeft="@dimen/_16sdp"
                                 android:layout_toRightOf="@+id/rl3"
                                 android:fontFamily="@font/poppins_regular"
-                                android:text="Partners"
+                                android:text="@string/partners"
                                 android:textColor="#272F35"
                                 android:textSize="@dimen/_14sdp"></TextView>
 
@@ -302,7 +303,7 @@
                                 android:layout_marginLeft="@dimen/_16sdp"
                                 android:layout_toRightOf="@+id/rl4"
                                 android:fontFamily="@font/poppins_regular"
-                                android:text="Settings"
+                                android:text="@string/settings"
                                 android:textColor="#272F35"
                                 android:textSize="@dimen/_14sdp"></TextView>
 
