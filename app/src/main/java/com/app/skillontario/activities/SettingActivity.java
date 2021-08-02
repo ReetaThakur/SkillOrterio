@@ -100,7 +100,7 @@ public class SettingActivity extends BaseActivity implements ApiResponseErrorCal
         });
 
         binding.tvSettingEnglish.setOnClickListener(v -> {
-            language = false;
+            language = true;
             binding.tvSettingEnglish.setTextColor(Color.parseColor("#ffffff"));
             binding.tvSettingFrench.setTextColor(Color.parseColor("#000000"));
             binding.tvSettingEnglish.setBackgroundResource(R.drawable.ic_lang_rectangle);
@@ -116,7 +116,7 @@ public class SettingActivity extends BaseActivity implements ApiResponseErrorCal
         });
 
         binding.tvSettingFrench.setOnClickListener(v -> {
-            language = false;
+            language = true;
             binding.tvSettingEnglish.setTextColor(Color.parseColor("#000000"));
             binding.tvSettingFrench.setTextColor(Color.parseColor("#ffffff"));
             binding.tvSettingFrench.setBackgroundResource(R.drawable.ic_lang_rectangle);
