@@ -58,8 +58,8 @@ public class RecentNewsAdapter extends RecyclerView.Adapter<RecentNewsAdapter.Vi
                 error(R.drawable.place_holder_news_home).placeholder(R.drawable.place_holder_news_home).into(viewHolder.binding.ivImage);
 
         viewHolder.binding.tvTitle.setText(newsModalArrayList.get(position).getNewsTitle());
-        if (newsModalArrayList.get(position).getNewsDate() != null) {
-            viewHolder.binding.tvDate.setText(Utils.DateFormateNews(newsModalArrayList.get(position).getNewsDate()));
+        if (newsModalArrayList.get(position).getCreatedAt() != null) {
+            viewHolder.binding.tvDate.setText(Utils.DateFormateNews(newsModalArrayList.get(position).getCreatedAt()));
         }
         viewHolder.binding.rlAll.setOnClickListener(v -> {
             Intent intent = new Intent(context, NewsDetailAc.class);

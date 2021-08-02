@@ -7,12 +7,15 @@ import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.os.Build;
 import android.text.TextUtils;
+import android.view.View;
 import android.widget.DatePicker;
 
 import androidx.annotation.RequiresApi;
 import androidx.core.content.ContextCompat;
 
+import com.app.skillontario.callbacks.OnYearSelectInterface;
 import com.app.skillontario.requestmodal.UpdateProfileModal;
+import com.app.skillontario.utils.DropDownBottomSheet;
 import com.app.skillorterio.R;
 import com.app.skillontario.apiConnection.ApiCallBack;
 import com.app.skillontario.apiConnection.ApiResponseErrorCallback;
@@ -43,11 +46,11 @@ import static com.app.skillontario.constants.ApiConstants.API_INTERFACE;
 import static com.app.skillontario.home.DashboardFragment.tvUserName;
 
 
-public class EditProfileAc extends BaseActivity implements ApiResponseErrorCallback {
+public class EditProfileAc extends BaseActivity implements ApiResponseErrorCallback, OnYearSelectInterface {
     private EditProfileAcBinding binding;
     Balloon balloon;
     DialogWithMsg dialogWithMsg;
-
+    OnYearSelectInterface onYearSelectInterface;
     int day;
     int month;
     int year;
@@ -64,9 +67,10 @@ public class EditProfileAc extends BaseActivity implements ApiResponseErrorCallb
 
         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_from_left);
         binding = (EditProfileAcBinding) viewBaseBinding;
-
+        onYearSelectInterface = this;
         binding.actionBar.tvTitle.setText(R.string.Edit_Profile1);
         apiResponseErrorCallback = this;
+        binding.tvYears.setText("");
         MySharedPreference.getInstance().setBooleanData(SharedPrefsConstants.IS_HEADER, true);
         registrationModal = MySharedPreference.getInstance().getUserData(SharedPrefsConstants.USER_DATA);
         binding.s1.setOnClickListener(view -> schoolClick(1));
@@ -85,12 +89,12 @@ public class EditProfileAc extends BaseActivity implements ApiResponseErrorCallb
         binding.done.setOnClickListener(v -> {
             if (validate()) {
                 updateProfileModal.setId(MySharedPreference.getInstance().getStringData(SharedPrefsConstants.USER_ID));
-                updateProfileModal.setFname(binding.etFirstName.getText().toString());
-                updateProfileModal.setLname(binding.etLastName.getText().toString());
+                updateProfileModal.setFname(binding.etFirstName.getText().toString().trim());
+                updateProfileModal.setLname(binding.etLastName.getText().toString().trim());
                 updateProfileModal.setGender(gender);
-                updateProfileModal.setEmail(binding.etEmail.getText().toString());
+                updateProfileModal.setEmail(binding.etEmail.getText().toString().trim());
                 updateProfileModal.setSchool(school);
-                updateProfileModal.setDob(inputDateStr);
+                updateProfileModal.setDob(binding.tvYears.getText().toString().trim());
                 updateProfileModal.setCity(binding.etWindsor.getText().toString());
                 updateProfileModal.setCountry(binding.etCountry.getText().toString());
                 API_INTERFACE.updateProfile(RequestBodyGenerator.updateProfile(updateProfileModal)).enqueue(
@@ -98,6 +102,22 @@ public class EditProfileAc extends BaseActivity implements ApiResponseErrorCallb
             }
         });
         setData();
+
+        binding.layoutYearSelect.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DropDownBottomSheet bottomSheet = new DropDownBottomSheet(EditProfileAc.this, 1, onYearSelectInterface);
+                bottomSheet.show(getSupportFragmentManager(), "");
+            }
+        });
+
+        binding.tvYears.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DropDownBottomSheet bottomSheet = new DropDownBottomSheet(EditProfileAc.this, 1, onYearSelectInterface);
+                bottomSheet.show(getSupportFragmentManager(), "");
+            }
+        });
     }
 
     void showDilog() {
@@ -105,9 +125,9 @@ public class EditProfileAc extends BaseActivity implements ApiResponseErrorCallb
         dialogWithMsg.show();
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.N)
+
     void setData() {
-        binding.tvDob.setOnClickListener(v -> showCalender());
+
         if (registrationModal.getFname() != null) {
             if (!registrationModal.getFname().isEmpty() && !registrationModal.getFname().equalsIgnoreCase("null")) {
                 binding.etFirstName.setText(registrationModal.getFname());
@@ -145,7 +165,7 @@ public class EditProfileAc extends BaseActivity implements ApiResponseErrorCallb
         }
         if (registrationModal.getDob() != null) {
             if (!registrationModal.getDob().isEmpty() && !registrationModal.getDob().equalsIgnoreCase("null")) {
-                binding.tvDob.setText(DateFormate(registrationModal.getDob()));
+                binding.tvYears.setText(registrationModal.getDob());
             }
         }
     }
@@ -189,7 +209,7 @@ public class EditProfileAc extends BaseActivity implements ApiResponseErrorCallb
         overridePendingTransition(R.anim.slide_in_from_left, R.anim.slide_out_from_right);
     }
 
-    private void showCalender() {
+ /*   private void showCalender() {
         // Get Current Date
         final Calendar c = Calendar.getInstance();
         year = c.get(Calendar.YEAR);
@@ -219,13 +239,13 @@ public class EditProfileAc extends BaseActivity implements ApiResponseErrorCallb
                         } catch (ParseException e) {
                             e.printStackTrace();
                         }
-                        binding.tvDob.setText(outputDateStr);
+                      //  binding.tvYears.setText(outputDateStr);
 
 
                     }
                 }, year, month, day);
         datePickerDialog.show();
-    }
+    }*/
 
     @SuppressLint("NewApi")
     @RequiresApi(api = Build.VERSION_CODES.N)
@@ -265,7 +285,7 @@ public class EditProfileAc extends BaseActivity implements ApiResponseErrorCallb
         } else if (!(binding.etEmail.getText().toString().trim().matches(Utils.emailPattern))) {
             binding.etEmail.setError(getString(R.string.please_enter_valid_email_address));
             return false;
-        } else if (TextUtils.isEmpty(binding.tvDob.getText().toString())) {//valid_dob
+        } else if (TextUtils.isEmpty(binding.tvYears.getText().toString())) {//valid_dob
             showToast(getString(R.string.valid_dob));
             return false;
         } else if (TextUtils.isEmpty(binding.etWindsor.getText().toString())) {
@@ -297,5 +317,10 @@ public class EditProfileAc extends BaseActivity implements ApiResponseErrorCallb
     @Override
     public void getApiError(Throwable t, int flag) {
 
+    }
+
+    @Override
+    public void onTextClick(String text) {
+        binding.tvYears.setText(text);
     }
 }

@@ -42,8 +42,8 @@ public class ResourcesAdapter extends RecyclerView.Adapter<ResourcesAdapter.MyVi
         try {
             Picasso.with(activity).load(resourceModalArrayList.get(position).getResImage()).into(holder.resourcesItemBinding.ivItem);
             holder.resourcesItemBinding.tvTitle.setText(resourceModalArrayList.get(position).getResTitle());
-            if (resourceModalArrayList.get(position).getUpdatedAt() != null) {
-                holder.resourcesItemBinding.tvDate.setText(Utils.DateFormate(resourceModalArrayList.get(position).getUpdatedAt()));
+            if (resourceModalArrayList.get(position).getCreatedAt() != null) {
+                holder.resourcesItemBinding.tvDate.setText(Utils.DateFormate(resourceModalArrayList.get(position).getCreatedAt()));
             }
             holder.resourcesItemBinding.llMain.setOnClickListener(v -> {
                 Intent intent = new Intent(activity, ResourcesDetailsActivity.class);

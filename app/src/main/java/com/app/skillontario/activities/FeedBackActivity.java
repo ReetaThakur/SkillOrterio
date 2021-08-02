@@ -4,6 +4,8 @@ package com.app.skillontario.activities;
 import android.app.Dialog;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
+import android.os.Handler;
+import android.os.Looper;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.Window;
@@ -15,6 +17,7 @@ import com.app.skillontario.apiConnection.ApiCallBack;
 import com.app.skillontario.apiConnection.ApiResponseErrorCallback;
 import com.app.skillontario.baseClasses.BaseActivity;
 import com.app.skillontario.baseClasses.BaseResponseModel;
+import com.app.skillontario.constants.AppConstants;
 import com.app.skillontario.constants.SharedPrefsConstants;
 import com.app.skillontario.models.FeedbackModal;
 import com.app.skillontario.utils.MySharedPreference;
@@ -24,6 +27,7 @@ import com.app.skillorterio.databinding.ActivityFeedBackBinding;
 import java.util.HashMap;
 
 import static com.app.skillontario.constants.ApiConstants.API_INTERFACE;
+import static com.app.skillontario.utils.Utils.updatLocalLanguage;
 
 public class FeedBackActivity extends BaseActivity implements ApiResponseErrorCallback {
 
@@ -168,5 +172,47 @@ public class FeedBackActivity extends BaseActivity implements ApiResponseErrorCa
     @Override
     public void getApiError(Throwable t, int flag) {
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        setText();
+    }
+
+    void setText() {
+
+        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    languageMethod(MySharedPreference.getInstance().getStringData(AppConstants.LANGUAGE));
+                    binding.actionBar.tvTitle.setText(R.string.feedback);
+                    binding.etEmail.setHint(R.string.email_address_feedback);
+                    binding.etTitle.setHint(R.string.title);
+                    binding.etMessage.setHint(R.string.message);
+                    binding.con.setText(R.string.confirm);
+
+                } catch (Exception e) {
+                }
+            }
+        }, 70);
+    }
+
+    private void languageMethod(String lang) {
+
+        if (lang != null) {
+            if (lang.isEmpty()) {
+
+                updatLocalLanguage("en", getBaseContext());
+
+            } else {
+
+                updatLocalLanguage(lang, getBaseContext());
+            }
+        } else {
+
+            updatLocalLanguage("en", getBaseContext());
+        }
     }
 }

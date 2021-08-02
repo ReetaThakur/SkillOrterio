@@ -2,7 +2,10 @@ package com.app.skillontario.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.media.ThumbnailUtils;
 import android.net.Uri;
+import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +21,7 @@ import com.app.skillontario.models.ResourceURLModal;
 import com.app.skillorterio.R;
 import com.app.skillorterio.databinding.VideoAdapterBinding;
 import com.app.skillorterio.databinding.VideoAdapterBinding;
+import com.bumptech.glide.Glide;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -71,6 +75,14 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> 
             selected_position = position;
             notifyItemChanged(selected_position);
         });*/
+
+        try {
+            Bitmap thumb;
+            thumb = ThumbnailUtils.createVideoThumbnail(resourceURLModalArrayList.get(position).getPath(), MediaStore.Video.Thumbnails.MINI_KIND);
+            viewHolder.binding.imgThumb.setImageBitmap(thumb);
+
+        } catch (Exception e) {
+        }
 
 
         viewHolder.binding.ivPlay.setOnClickListener(new View.OnClickListener() {

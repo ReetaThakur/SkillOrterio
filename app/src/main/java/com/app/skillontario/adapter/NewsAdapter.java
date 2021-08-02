@@ -48,8 +48,8 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.MyViewHolder> 
         try {
             Picasso.with(activity).load(newsModalArrayList.get(position).getNewsImage()).error(R.drawable.place_holder_news).placeholder(R.drawable.place_holder_news).into(holder.newsItemBinding.ivItem);
             holder.newsItemBinding.tvHead.setText(newsModalArrayList.get(position).getNewsTitle());
-            if (newsModalArrayList.get(position).getNewsDate() != null) {
-                holder.newsItemBinding.tvDate.setText(changeDate(newsModalArrayList.get(position).getNewsDate()));
+            if (newsModalArrayList.get(position).getCreatedAt() != null) {
+                holder.newsItemBinding.tvDate.setText(changeDate(newsModalArrayList.get(position).getCreatedAt()));
             }
             holder.newsItemBinding.llMain.setOnClickListener(v -> {
                 Intent intent = new Intent(activity, NewsDetailAc.class);
@@ -68,7 +68,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.MyViewHolder> 
 
     @Override
     public int getItemCount() {
-        return 10;
+        return newsModalArrayList.size();
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
@@ -100,7 +100,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.MyViewHolder> 
 
             String inPattern = "yyyy-MM-dd'T'HH:mm:ss.SSSXXX";
             //   String outPatternDate = "yyyy-MM-dd";
-            String outPatternDate = "LLL-dd, yyyy";
+            String outPatternDate = "LLL dd, yyyy";
             String outPatternTime = "HH:mm aa";
 
             SimpleDateFormat inFormat = new SimpleDateFormat(inPattern, Locale.getDefault());

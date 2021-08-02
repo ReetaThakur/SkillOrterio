@@ -252,7 +252,7 @@ public class Utils {
         Date date = null;
         try {
             date = df.parse(str_date);
-            df = new SimpleDateFormat("MMM dd,yyyy hh:mm a");
+            df = new SimpleDateFormat("MMM dd, yyyy");
             df.setTimeZone(TimeZone.getDefault());
             newDateString = df.format(date);
         } catch (ParseException e) {
@@ -361,9 +361,11 @@ public class Utils {
         format.setTimeZone(TimeZone.getTimeZone("UTC"));
         try {
             Date date = format.parse(str_date);
-            format = new SimpleDateFormat("MMM dd,yyyy");
+            format = new SimpleDateFormat("MMM dd, yyyy");
             newDateString = format.format(date);
-            ;
+
+            String s1=newDateString;
+            newDateString=s1.replace("-"," ");
 
         } catch (ParseException e) {
             e.printStackTrace();

@@ -149,7 +149,7 @@ dependencies {
 
     implementation 'com.github.adroitandroid:ChipCloud:2.2.1'
     implementation "me.leolin:ShortcutBadger:1.1.22@aar"
-
+    implementation 'com.github.weidongjian:androidWheelView:1.0.0'
     //PDF rendering
    // implementation 'com.github.barteksc:android-pdf-viewer:2.8.2'
 

@@ -11,9 +11,9 @@
         android:orientation="vertical">
 
         <ImageView
+            android:id="@+id/imgThumb"
             android:layout_width="@dimen/_250sdp"
-            android:layout_height="wrap_content"
-            android:background="@drawable/video1" />
+            android:layout_height="wrap_content" />
 
         <ImageView
             android:id="@+id/ivPlay"

@@ -1,6 +1,8 @@
 package com.app.skillontario.home;
 
 import android.content.Intent;
+import android.os.Handler;
+import android.os.Looper;
 import android.view.View;
 
 
@@ -19,6 +21,7 @@ import com.app.skillontario.apiConnection.ApiResponseErrorCallback;
 import com.app.skillontario.apiConnection.RequestBodyGenerator;
 import com.app.skillontario.baseClasses.BaseFragment;
 import com.app.skillontario.baseClasses.BaseResponseModel;
+import com.app.skillontario.constants.AppConstants;
 import com.app.skillontario.constants.SharedPrefsConstants;
 import com.app.skillontario.models.CareerDetailModel;
 import com.app.skillontario.models.CareerModal;
@@ -35,6 +38,7 @@ import java.util.HashMap;
 
 import static com.app.skillontario.constants.ApiConstants.API_INTERFACE;
 import static com.app.skillontario.constants.AppConstants.NOTIFICATION_COUNT;
+import static com.app.skillontario.utils.Utils.updatLocalLanguage;
 
 
 public class HomeFragment extends BaseFragment implements ApiResponseErrorCallback, PopularCareerAdapter.BookMarkUpdateDelete {
@@ -297,4 +301,49 @@ public class HomeFragment extends BaseFragment implements ApiResponseErrorCallba
                 new ApiCallBack<>(getActivity(), this, 103, false));
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        setText();
+        callAPI(false);
+    }
+
+    void setText() {
+
+        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    languageMethod(MySharedPreference.getInstance().getStringData(AppConstants.LANGUAGE));
+                    binding.tvFindDream.setText(R.string.find_your_dream_career);
+                    binding.tvSearch.setText(R.string.Search_careers);
+                    binding.tvPopular.setText(R.string.Popular_Careers);
+                    binding.tv.setText(R.string.discover_a_suitable_career);
+                    binding.tvTakeQuiz.setText(R.string.take_quiz);
+                    binding.tvRecentEvent.setText(R.string.Recent_Events);
+                    binding.tvExplore.setText(R.string.explore);
+                    binding.tvOpp.setText(R.string.opportunities_amp_scholarships);
+                    binding.tvRecentNews.setText(R.string.Recent_News);
+                } catch (Exception e) {
+                }
+            }
+        }, 70);
+    }
+
+    private void languageMethod(String lang) {
+
+        if (lang != null) {
+            if (lang.isEmpty()) {
+
+                updatLocalLanguage("en", getActivity());
+
+            } else {
+
+                updatLocalLanguage(lang, getActivity());
+            }
+        } else {
+
+            updatLocalLanguage("en", getActivity());
+        }
+    }
 }

@@ -63,10 +63,10 @@ public class ResourcesFragment extends BaseFragment implements ApiResponseErrorC
     @Override
     public void onResume() {
         super.onResume();
-        if (resourceModalArrayList != null) {
-            if (resourceModalArrayList.size() == 0)
-                callNewsAPI(true);
-        }
+        isLoading = false;
+        hasNext = false;
+        pageNo = 1;
+        callNewsAPI(false);
 
     }
 
@@ -175,4 +175,6 @@ public class ResourcesFragment extends BaseFragment implements ApiResponseErrorC
     public void getApiError(Throwable t, int flag) {
 
     }
+
+
 }

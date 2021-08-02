@@ -6,6 +6,8 @@ import androidx.appcompat.content.res.AppCompatResources;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.text.TextUtils;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
@@ -13,11 +15,15 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 
+import com.app.skillontario.BottomBarActivity;
+import com.app.skillontario.activities.BookmarkAc;
+import com.app.skillontario.activities.JobDetailsActivity;
 import com.app.skillontario.apiConnection.ApiCallBack;
 import com.app.skillontario.apiConnection.ApiResponseErrorCallback;
 import com.app.skillontario.apiConnection.RequestBodyGenerator;
 import com.app.skillontario.baseClasses.BaseActivity;
 import com.app.skillontario.baseClasses.BaseResponseModel;
+import com.app.skillontario.constants.AppConstants;
 import com.app.skillontario.constants.SharedPrefsConstants;
 import com.app.skillontario.utils.MySharedPreference;
 import com.app.skillorterio.R;
@@ -26,7 +32,9 @@ import com.app.skillorterio.databinding.ActivityResetPasswordBinding;
 
 import java.util.HashMap;
 
+import static com.app.skillontario.activities.SettingActivity.language;
 import static com.app.skillontario.constants.ApiConstants.API_INTERFACE;
+import static com.app.skillontario.utils.Utils.updatLocalLanguage;
 
 public class ChangePasswordActivity extends BaseActivity implements ApiResponseErrorCallback {
 
@@ -152,6 +160,12 @@ public class ChangePasswordActivity extends BaseActivity implements ApiResponseE
 
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        setText();
+    }
+
     void enableFocusEditText(RelativeLayout relativeLayout, boolean val) {
         if (val)
             relativeLayout.setBackground(myIcon);
@@ -214,5 +228,39 @@ public class ChangePasswordActivity extends BaseActivity implements ApiResponseE
             return false;
         }
         return true;
+    }
+
+    void setText() {
+
+        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    languageMethod(MySharedPreference.getInstance().getStringData(AppConstants.LANGUAGE));
+                    binding.actionBar.tvTitle.setText(R.string.change_password);
+                    binding.etOldPassword.setHint(R.string.old_password);
+                    binding.etNewPassword.setHint(R.string.new_password);
+                    binding.etConfirmPassword.setHint(R.string.confirm_password);
+                } catch (Exception e) {
+                }
+            }
+        }, 70);
+    }
+
+    private void languageMethod(String lang) {
+
+        if (lang != null) {
+            if (lang.isEmpty()) {
+
+                updatLocalLanguage("en", getBaseContext());
+
+            } else {
+
+                updatLocalLanguage(lang, getBaseContext());
+            }
+        } else {
+
+            updatLocalLanguage("en", getBaseContext());
+        }
     }
 }

@@ -129,17 +129,15 @@ public class EventFragment extends BaseFragment implements XmlClickable, ApiResp
     public void onResume() {
         super.onResume();
 
-        if (newsModalArrayList != null) {
-            if (newsModalArrayList.size() == 0) {
-                callNewsAPI(true);
-            }
-        }
+        isLoading1 = false;
+        hasNext1 = false;
+        pageNoNews1 = 1;
 
-        if (eventsModalArrayList != null) {
-            if (eventsModalArrayList.size() == 0) {
-                callEventApi(true);
-            }
-        }
+        isLoading = false;
+        hasNext = false;
+        pageNoNews = 1;
+        callNewsAPI(false);
+        callEventApi(false);
 
 
     }

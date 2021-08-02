@@ -2,6 +2,8 @@ package com.app.skillontario.home;
 
 
 import android.content.Intent;
+import android.os.Handler;
+import android.os.Looper;
 import android.view.View;
 import android.widget.TextView;
 
@@ -10,6 +12,7 @@ import com.app.skillontario.activities.EditProfileAc;
 import com.app.skillontario.activities.PartnersActivity;
 import com.app.skillontario.activities.SettingActivity;
 import com.app.skillontario.baseClasses.BaseFragment;
+import com.app.skillontario.constants.AppConstants;
 import com.app.skillontario.constants.SharedPrefsConstants;
 import com.app.skillontario.models.RegistrationModal;
 import com.app.skillontario.quiz.TakeQuizAc;
@@ -22,6 +25,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import static com.app.skillontario.constants.SharedPrefsConstants.GUEST_FLOW;
+import static com.app.skillontario.utils.Utils.updatLocalLanguage;
 
 
 public class DashboardFragment extends BaseFragment {
@@ -75,6 +79,7 @@ public class DashboardFragment extends BaseFragment {
     public void onResume() {
         super.onResume();
         // binding.tvUserName.setText("");
+        setText();
         try {
             if (MySharedPreference.getInstance().getUserData(SharedPrefsConstants.USER_DATA) != null) {
                 RegistrationModal registrationModal = new RegistrationModal();
@@ -120,5 +125,40 @@ public class DashboardFragment extends BaseFragment {
         return capMatcher.appendTail(capBuffer).toString();
     }
 
+    void setText() {
+
+        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    languageMethod(MySharedPreference.getInstance().getStringData(AppConstants.LANGUAGE));
+
+                    binding.editProfile.setText(R.string.edit_profile);
+                    binding.tv1.setText(R.string.career_quiz_results);
+                    binding.tv2.setText(R.string.bookmarked_careers);
+                    binding.tv3.setText(R.string.partners);
+                    binding.tv4.setText(R.string.settings);
+                } catch (Exception e) {
+                }
+            }
+        }, 70);
+    }
+
+    private void languageMethod(String lang) {
+
+        if (lang != null) {
+            if (lang.isEmpty()) {
+
+                updatLocalLanguage("en", getActivity());
+
+            } else {
+
+                updatLocalLanguage(lang, getActivity());
+            }
+        } else {
+
+            updatLocalLanguage("en", getActivity());
+        }
+    }
 
 }

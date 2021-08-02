@@ -232,17 +232,18 @@
                 </RelativeLayout>
 
                 <RelativeLayout
+                    android:id="@+id/layout_year_select"
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/_55sdp"
                     android:layout_marginBottom="@dimen/_15sdp">
 
                     <androidx.appcompat.widget.AppCompatEditText
-                        android:id="@+id/tv_dob"
+                        android:id="@+id/tv_years"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_10sdp"
                         android:background="@drawable/ic_rec_line"
-                        android:hint="october 27, 1998"
+                        android:hint="15-20 Years"
                         android:imeOptions="actionNext"
                         android:inputType="textEmailAddress|textVisiblePassword"
                         android:paddingLeft="@dimen/_15sdp"
@@ -257,7 +258,7 @@
                         android:gravity="center_vertical"
                         android:paddingLeft="@dimen/_10sdp"
                         android:paddingRight="@dimen/_10sdp"
-                        android:text="@string/date_of_birth_"
+                        android:text="@string/age_range"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_11sdp" />
                 </RelativeLayout>

@@ -108,18 +108,23 @@
 
                             </RelativeLayout>
 
-                            <TextView
-                                android:layout_width="wrap_content"
+                            <me.grantland.widget.AutofitTextView
+                                android:id="@+id/tv1"
+                                android:layout_width="match_parent"
+                                android:singleLine="true"
                                 android:layout_height="wrap_content"
                                 android:layout_centerVertical="true"
                                 android:layout_marginLeft="@dimen/_16sdp"
+                                android:layout_marginRight="@dimen/_6sdp"
+                                android:layout_toLeftOf="@+id/im1"
                                 android:layout_toRightOf="@+id/rl1"
                                 android:fontFamily="@font/poppins_regular"
                                 android:text="@string/career_quiz_results"
                                 android:textColor="#272F35"
-                                android:textSize="@dimen/_14sdp"></TextView>
+                                android:textSize="@dimen/_14sdp"></me.grantland.widget.AutofitTextView>
 
                             <ImageView
+                                android:id="@+id/im1"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentRight="true"
@@ -170,18 +175,23 @@
 
                             </RelativeLayout>
 
-                            <TextView
-                                android:layout_width="wrap_content"
+                            <me.grantland.widget.AutofitTextView
+                                android:id="@+id/tv2"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:singleLine="true"
                                 android:layout_centerVertical="true"
                                 android:layout_marginLeft="@dimen/_16sdp"
+                                android:layout_marginRight="@dimen/_6sdp"
+                                android:layout_toLeftOf="@+id/im2"
                                 android:layout_toRightOf="@+id/rl2"
                                 android:fontFamily="@font/poppins_regular"
                                 android:text="@string/bookmarked_careers"
                                 android:textColor="#272F35"
-                                android:textSize="@dimen/_14sdp"></TextView>
+                                android:textSize="@dimen/_14sdp"></me.grantland.widget.AutofitTextView>
 
                             <ImageView
+                                android:id="@+id/im2"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentRight="true"
@@ -231,18 +241,23 @@
 
                             </RelativeLayout>
 
-                            <TextView
-                                android:layout_width="wrap_content"
+                            <me.grantland.widget.AutofitTextView
+                                android:id="@+id/tv3"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_centerVertical="true"
                                 android:layout_marginLeft="@dimen/_16sdp"
+                                android:singleLine="true"
                                 android:layout_toRightOf="@+id/rl3"
                                 android:fontFamily="@font/poppins_regular"
                                 android:text="@string/partners"
+                                android:layout_marginRight="@dimen/_6sdp"
+                                android:layout_toLeftOf="@+id/im3"
                                 android:textColor="#272F35"
-                                android:textSize="@dimen/_14sdp"></TextView>
+                                android:textSize="@dimen/_14sdp"></me.grantland.widget.AutofitTextView>
 
                             <ImageView
+                                android:id="@+id/im3"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentRight="true"
@@ -294,18 +309,23 @@
 
                             </RelativeLayout>
 
-                            <TextView
-                                android:layout_width="wrap_content"
+                            <me.grantland.widget.AutofitTextView
+                                android:id="@+id/tv4"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:layout_marginRight="@dimen/_6sdp"
+                                android:layout_toLeftOf="@+id/im4"
                                 android:layout_centerVertical="true"
                                 android:layout_marginLeft="@dimen/_16sdp"
                                 android:layout_toRightOf="@+id/rl4"
                                 android:fontFamily="@font/poppins_regular"
                                 android:text="@string/settings"
+                                android:singleLine="true"
                                 android:textColor="#272F35"
-                                android:textSize="@dimen/_14sdp"></TextView>
+                                android:textSize="@dimen/_14sdp"></me.grantland.widget.AutofitTextView>
 
                             <ImageView
+                                android:id="@+id/im4"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentRight="true"

@@ -210,5 +210,8 @@ vous vous identifiez comme une femme</string>
     <string name="came_and_join">Venez vous joindre à Compétences Ontario! Cest le meilleur endroit pour évaluer vos compétences et utile pour trouver des opportunités demploi.</string>
     <string name="shre_profile">Hé! Je suis tombé sur ce profil sur Compétences Ontario. Cliquez sur ce lien pour voir</string>
     <string name="shre">Hé! J\'ai joué à ce jeu-questionnaire intéressant sur Compétences Ontario pour savoir quelle profession me convient le mieux. Découvrez le résultat ici</string>
+    <string name="email_address_feedback">Courriel</string>
+    <string name="confirm">CONFIRMER</string>
+    <string name="age_range">Age Range</string>
 
 </resources>

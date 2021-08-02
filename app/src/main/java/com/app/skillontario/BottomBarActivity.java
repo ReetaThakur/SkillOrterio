@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Looper;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
@@ -17,8 +18,11 @@ import com.app.skillontario.SignIn.SignInActivity;
 import com.app.skillontario.activities.BookmarkAc;
 import com.app.skillontario.activities.JobDetailsActivity;
 import com.app.skillontario.adapter.TabAdapter;
+import com.app.skillontario.apiConnection.ApiCallBack;
+import com.app.skillontario.apiConnection.ApiResponseErrorCallback;
 import com.app.skillontario.baseClasses.BaseActivity;
 import com.app.skillontario.constants.AppConstants;
+import com.app.skillontario.constants.SharedPrefsConstants;
 import com.app.skillontario.home.DashboardFragment;
 import com.app.skillontario.home.EventFragment;
 import com.app.skillontario.home.HomeFragment;
@@ -30,10 +34,13 @@ import com.app.skillorterio.databinding.ActivityBottomBarBinding;
 import com.app.skillorterio.databinding.ActivityMainBinding;
 import com.gauravk.bubblenavigation.listener.BubbleNavigationChangeListener;
 
+import java.util.HashMap;
+
 import static com.app.skillontario.activities.SettingActivity.language;
+import static com.app.skillontario.constants.ApiConstants.API_INTERFACE;
 import static com.app.skillontario.utils.Utils.updatLocalLanguage;
 
-public class BottomBarActivity extends BaseActivity {
+public class BottomBarActivity extends BaseActivity implements ApiResponseErrorCallback {
 
     private ActivityBottomBarBinding binding;
     private TabAdapter tabAdapter;
@@ -82,7 +89,7 @@ public class BottomBarActivity extends BaseActivity {
         });
 
         //  binding.viewPager.setOnTouchListener((v, event) -> true);
-     //   Utils.askPermison(BottomBarActivity.this);
+        //   Utils.askPermison(BottomBarActivity.this);
 
         binding.bottomNavigationViewLinear.setNavigationChangeListener((view, position) -> binding.viewPager.setCurrentItem(position, true));
     }
@@ -112,45 +119,45 @@ public class BottomBarActivity extends BaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        new Handler().postDelayed(
-                new Runnable() {
-                    @Override
-                    public void run() {
 
-                        if (language) {
-                            languageMethod(MySharedPreference.getInstance().getStringData(AppConstants.LANGUAGE));
-                            binding.bottomNavigationViewLinear.setCurrentActiveItem(3);
-                            language = false;
-                        }
+        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+            @Override
+            public void run() {
 
-                        try {
-                            Intent intent = getIntent();
-                            String className = intent.getStringExtra("class");
-                            if (className.equalsIgnoreCase("BookmarkAc")) {
-                                Intent i = new Intent(BottomBarActivity.this, BookmarkAc.class);
-                                startActivity(i);
-                            } else if (className.equalsIgnoreCase("JobDetailsActivity")) {
-                                Intent i = new Intent(BottomBarActivity.this, JobDetailsActivity.class);
-                                startActivity(i);
-                            }
+                if (language) {
+                    languageMethod(MySharedPreference.getInstance().getStringData(AppConstants.LANGUAGE));
+                    binding.bottomNavigationViewLinear.setCurrentActiveItem(3);
+                    language = false;
+                    return;
+                }
 
-                        } catch (Exception e) {
-                        }
-
-                        try {
-                            Intent intent = getIntent();
-                            String id = intent.getStringExtra("if");
-
-                            if (id.equalsIgnoreCase("2")) {
-                                binding.bottomNavigationViewLinear.setCurrentActiveItem(1);
-                            } else if (id.equalsIgnoreCase("4")) {
-                                binding.bottomNavigationViewLinear.setCurrentActiveItem(3);
-                            }
-                        } catch (Exception e) {
-                        }
-
+                try {
+                    Intent intent = getIntent();
+                    String className = intent.getStringExtra("class");
+                    if (className.equalsIgnoreCase("BookmarkAc")) {
+                        Intent i = new Intent(BottomBarActivity.this, BookmarkAc.class);
+                        startActivity(i);
+                    } else if (className.equalsIgnoreCase("JobDetailsActivity")) {
+                        Intent i = new Intent(BottomBarActivity.this, JobDetailsActivity.class);
+                        startActivity(i);
                     }
-                }, 70);
+
+                } catch (Exception e) {
+                }
+
+                try {
+                    Intent intent = getIntent();
+                    String id = intent.getStringExtra("if");
+
+                    if (id.equalsIgnoreCase("2")) {
+                        binding.bottomNavigationViewLinear.setCurrentActiveItem(1);
+                    } else if (id.equalsIgnoreCase("4")) {
+                        binding.bottomNavigationViewLinear.setCurrentActiveItem(3);
+                    }
+                } catch (Exception e) {
+                }
+            }
+        }, 50);
 
     }
 
@@ -169,6 +176,19 @@ public class BottomBarActivity extends BaseActivity {
 
             updatLocalLanguage("en", getBaseContext());
         }
+    }
+
+
+    @Override
+    public void getApiResponse(Object responseObject, int flag) {
+        if (flag == 127) {
+
+        }
+    }
+
+    @Override
+    public void getApiError(Throwable t, int flag) {
+
     }
 
 
