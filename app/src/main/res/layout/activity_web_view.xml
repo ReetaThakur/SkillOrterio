@@ -10,9 +10,40 @@
         android:orientation="vertical">
 
 
-        <include
+        <!--<include
             android:id="@+id/action_bar"
-            layout="@layout/common_action_bar" />
+            layout="@layout/common_action_bar" />-->
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="@dimen/_5sdp">
+
+            <ImageView
+                android:id="@+id/iv_back"
+                android:layout_width="@dimen/_28sdp"
+                android:layout_height="@dimen/_28sdp"
+                android:layout_marginLeft="@dimen/_8sdp"
+                android:padding="@dimen/_7sdp"
+                android:src="@drawable/ic_back" />
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="@dimen/_16sdp"
+                android:ellipsize="end"
+                android:fontFamily="@font/poppins_regular"
+                android:gravity="center"
+                android:maxLines="1"
+                android:paddingStart="@dimen/_32sdp"
+                android:paddingEnd="@dimen/_32sdp"
+                android:textColor="@color/black"
+                android:textSize="24sp" />
+
+        </RelativeLayout>
 
 
         <LinearLayout

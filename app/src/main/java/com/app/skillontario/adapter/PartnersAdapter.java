@@ -45,6 +45,7 @@ public class PartnersAdapter extends RecyclerView.Adapter<PartnersAdapter.ViewHo
         holder.iv_image.setOnClickListener(v->{
            // callback.onTextClick(listingDetails.get(position).getWebUrl());
             Intent intent=new Intent(context, WebViewActivity.class);
+            //Intent intent=new Intent(context, NewsDetailAc.class);
             intent.putExtra("url",listingDetails.get(position).getWebUrl());
             intent.putExtra("title",listingDetails.get(position).getTitle());
             context.startActivity(intent);

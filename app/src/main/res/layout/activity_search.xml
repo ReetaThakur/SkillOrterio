@@ -95,27 +95,37 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recy_search"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_above="@+id/progress_bar"
-                    android:layout_weight="1"
-                    android:divider="@null"
-                    android:orientation="vertical"
-                    android:scrollbars="none"
-                    app:reverseLayout="false"></androidx.recyclerview.widget.RecyclerView>
+                    android:orientation="vertical">
 
-                <LinearLayout
-                    android:id="@+id/ll_nodata"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recy_search"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_above="@+id/progress_bar"
+                        android:divider="@null"
+                        android:orientation="vertical"
+                        android:scrollbars="none"
+                        app:reverseLayout="false"></androidx.recyclerview.widget.RecyclerView>
 
-                    <include
-                        android:id="@+id/noData"
-                        layout="@layout/no_data_found"
-                        android:visibility="visible" />
+                    <LinearLayout
+                        android:id="@+id/ll_nodata"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:visibility="gone"
+                        >
+
+                        <include
+                            android:id="@+id/noData"
+                            layout="@layout/no_data_found"
+                            android:visibility="visible" />
+                    </LinearLayout>
+
+
                 </LinearLayout>
+
 
             </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
         </LinearLayout>
