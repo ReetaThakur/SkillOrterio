@@ -21,6 +21,7 @@ import com.app.skillontario.constants.AppConstants;
 import com.app.skillontario.constants.SharedPrefsConstants;
 import com.app.skillontario.signup.SignUpActivity;
 import com.app.skillontario.utils.MySharedPreference;
+import com.app.skillontario.utils.Utils;
 import com.app.skillorterio.R;
 import com.app.skillorterio.databinding.ActivityNotificationBinding;
 import com.app.skillorterio.databinding.ActivitySelectRoleBinding;
@@ -132,7 +133,14 @@ public class SettingActivity extends BaseActivity implements ApiResponseErrorCal
         binding.cvLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                loguot();
+                if (MySharedPreference.getInstance().getBooleanData(GUEST_FLOW)) {
+                    try {
+                        Utils.guestMethod(SettingActivity.this, "setting");
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                } else
+                    loguot();
             }
         });
 
@@ -153,9 +161,11 @@ public class SettingActivity extends BaseActivity implements ApiResponseErrorCal
         super.onResume();
         setText();
         if (MySharedPreference.getInstance().getBooleanData(GUEST_FLOW)) {
-            binding.cvLogout.setVisibility(View.GONE);
+            //binding.cvLogout.setVisibility(View.GONE);
+            binding.tvLogout.setText(R.string.sign_up);
             binding.lChangePassword.setVisibility(View.GONE);
         } else {
+            binding.tvLogout.setText(R.string.logout);
             binding.cvLogout.setVisibility(View.VISIBLE);
             binding.lChangePassword.setVisibility(View.VISIBLE);
         }
