@@ -115,7 +115,7 @@ public interface ApiInterface {
     Call<BaseResponseModel<ArrayList<QuizResultModel>>> getQuizResult(@Body HashMap<String, Object> body);
 
     @POST("quiz/result/list")
-    Call<BaseResponseModel<ArrayList<QuizResultModel>>> getQuizResultList(@Body HashMap<String, Object> body);
+    Call<BaseResponseModel<ArrayList<CareerListDetails>>> getQuizResultList(@Body HashMap<String, Object> body);
 
    /* @POST("career/list")
     Call<BaseResponseModel<ArrayList<CareerListDetails>>> getCareerList(@Body HashMap<String, Object> body);

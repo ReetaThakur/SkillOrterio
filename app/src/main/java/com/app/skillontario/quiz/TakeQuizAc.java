@@ -8,17 +8,19 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
-import com.app.skillontario.SignIn.WelcomeActivity;
-import com.app.skillontario.adapter.AdapterCong;
-import com.app.skillontario.adapter.ResourcesAdapter;
-import com.app.skillontario.adapter.TabAdapter;
+import com.app.skillontario.activities.SearchActivity;
+import com.app.skillontario.adapter.AdapterQuizResult;
 import com.app.skillontario.apiConnection.ApiCallBack;
 import com.app.skillontario.apiConnection.ApiResponseErrorCallback;
+import com.app.skillontario.apiConnection.RequestBodyGenerator;
 import com.app.skillontario.baseClasses.BaseActivity;
 import com.app.skillontario.baseClasses.BaseResponseModel;
 import com.app.skillontario.constants.SharedPrefsConstants;
-import com.app.skillontario.models.quizModel.QuizResultModel;
+import com.app.skillontario.models.CareerDetailModel;
+import com.app.skillontario.models.CareerModal;
+import com.app.skillontario.models.careerListModel.CareerListDetails;
 import com.app.skillontario.utils.MySharedPreference;
+import com.app.skillontario.utils.Utils;
 import com.app.skillorterio.R;
 import com.app.skillorterio.databinding.TakeQuizAcBinding;
 
@@ -27,13 +29,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static com.app.skillontario.constants.ApiConstants.API_INTERFACE;
-import static com.app.skillontario.quiz.QuizStepAc.quizFinalResultModel;
 
-public class TakeQuizAc extends BaseActivity implements ApiResponseErrorCallback {
+
+public class TakeQuizAc extends BaseActivity implements ApiResponseErrorCallback, AdapterQuizResult.DeleteBookMarkCall {
     private TakeQuizAcBinding binding;
-    ArrayList<QuizResultModel> quizFinalResultModel = new ArrayList<>();
-    AdapterCong adapter;
-
+    ArrayList<CareerListDetails> quizFinalResultModel = new ArrayList<>();
+    AdapterQuizResult adapter;
+    int position;
+    AdapterQuizResult.DeleteBookMarkCall listiner;
     boolean isLoading = false;
     boolean hasNext = false;
     int pageNo = 1;
@@ -45,7 +48,8 @@ public class TakeQuizAc extends BaseActivity implements ApiResponseErrorCallback
         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_from_left);
         binding = (TakeQuizAcBinding) viewBaseBinding;
         binding.actionBarL.tvTitle.setText(getResources().getText(R.string.take_qz_ttl));
-        adapter = new AdapterCong(TakeQuizAc.this, quizFinalResultModel);
+        listiner = this;
+        adapter = new AdapterQuizResult(TakeQuizAc.this, quizFinalResultModel, listiner);
 
         MySharedPreference.getInstance().setBooleanData(SharedPrefsConstants.IS_HEADER, true);
         linearLayoutManager = new LinearLayoutManager(TakeQuizAc.this, LinearLayoutManager.VERTICAL, false);
@@ -134,7 +138,7 @@ public class TakeQuizAc extends BaseActivity implements ApiResponseErrorCallback
     public void getApiResponse(Object responseObject, int flag) {
         binding.refreshLayout.setRefreshing(false);
         if (flag == 108) {
-            BaseResponseModel<ArrayList<QuizResultModel>> responseModel = (BaseResponseModel<ArrayList<QuizResultModel>>) responseObject;
+            BaseResponseModel<ArrayList<CareerListDetails>> responseModel = (BaseResponseModel<ArrayList<CareerListDetails>>) responseObject;
 
             try {
                 if (responseModel.getStatus() && responseModel.output.size() > 0) {
@@ -142,7 +146,7 @@ public class TakeQuizAc extends BaseActivity implements ApiResponseErrorCallback
                         quizFinalResultModel.clear();
 
                         quizFinalResultModel.addAll(responseModel.getOutput());
-                        adapter = new AdapterCong(TakeQuizAc.this, quizFinalResultModel);
+                        adapter = new AdapterQuizResult(TakeQuizAc.this, quizFinalResultModel, listiner);
                         binding.rcyResoursces.setAdapter(adapter);
 
                     } else {
@@ -163,11 +167,63 @@ public class TakeQuizAc extends BaseActivity implements ApiResponseErrorCallback
             } catch (Exception e) {
                 binding.progress.setVisibility(View.GONE);
             }
+        } else if (flag == 103) {
+            BaseResponseModel responseModel = (BaseResponseModel) responseObject;
+            if (responseModel.getStatus()) {
+                quizFinalResultModel.remove(position);
+                adapter.notifyDataSetChanged();
+            } else {
+                showToast(responseModel.getMessage());
+            }
+        } else if (flag == 102) {
+            try {
+                BaseResponseModel<CareerDetailModel> responseModel = (BaseResponseModel<CareerDetailModel>) responseObject;
+                if (responseModel.getStatus()) {
+                    quizFinalResultModel.get(position).setbId(responseModel.getOutput().getId());
+                    adapter.notifyDataSetChanged();
+                }
+            } catch (Exception e) {
+            }
         }
     }
 
     @Override
     public void getApiError(Throwable t, int flag) {
 
+    }
+
+
+    @Override
+    public void delete(int position, String Bid, String Id, boolean val) {
+        if (MySharedPreference.getInstance().getBooleanData(SharedPrefsConstants.GUEST_FLOW)) {
+            try {
+                Utils.guestMethod(TakeQuizAc.this, "homeFragment");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } else {
+            this.position = position;
+            if (Bid.equalsIgnoreCase("")) {
+                addBookmark(quizFinalResultModel.get(position));
+            } else {
+                removeBookmark(Bid, Id);
+            }
+        }
+    }
+
+    void removeBookmark(String bid, String careerId) {
+        HashMap<String, Object> object = new HashMap<>();
+
+        object.put("careerId", careerId);
+        object.put("userId", MySharedPreference.getInstance().getStringData(SharedPrefsConstants.USER_ID));
+        object.put("bId", bid);
+
+        API_INTERFACE.deleteCareerBookmark(object).enqueue(
+                new ApiCallBack<>(TakeQuizAc.this, this, 103, false));
+    }
+
+    void addBookmark(CareerListDetails list) {
+        API_INTERFACE.addCareerBookmark(RequestBodyGenerator.setBookmark(list, MySharedPreference.getInstance().getStringData(SharedPrefsConstants.USER_ID), list.getId())).enqueue(
+                new ApiCallBack<>(TakeQuizAc.this, this, 102, false));
     }
 }
