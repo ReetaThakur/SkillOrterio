@@ -46,8 +46,8 @@ public class WebViewActivity extends BaseActivity {
         if (TextUtils.isEmpty(title)) {
             return;
         } else {
-            binding.actionBar.tvTitle.setText(title);
-            binding.actionBar.tvTitle.setGravity(View.TEXT_ALIGNMENT_CENTER);
+            binding.tvTitle.setText(title);
+            //binding.tvTitle.setGravity(View.TEXT_ALIGNMENT_CENTER);
         }
 
         ///  binding.cvWebsite.setOnClickListener(v -> startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.skillsontario.com"))));

@@ -212,16 +212,25 @@ public class SearchActivity extends BaseActivity implements ApiResponseErrorCall
                             if (responseModel.getOutput().size() > 0)
                                 list = responseModel.output;
                         }
+                        else {
+                            // binding.noData.ivNoData.setBackgroundResource(R.drawable.no_data_bookmarked);
+                            binding.noData.tvNoData.setText(R.string.no_data_search);
+                            binding.llNodata.setVisibility(View.VISIBLE);
+                            binding.recySearch.setVisibility(View.GONE);
+                        }
                     } catch (Exception e) {
                     }
                     if(list.size()>0){
                         binding.llNodata.setVisibility(View.GONE);
                         adapter = new SearchAdapter(SearchActivity.this, list, this);
                         binding.recySearch.setAdapter(adapter);
+                        binding.recySearch.setVisibility(View.VISIBLE);
                     }else {
                        // binding.noData.ivNoData.setBackgroundResource(R.drawable.no_data_bookmarked);
+                        binding.recySearch.setVisibility(View.GONE);
                         binding.noData.tvNoData.setText(R.string.no_data_search);
                         binding.llNodata.setVisibility(View.VISIBLE);
+
                     }
 
                 } else {
@@ -235,6 +244,12 @@ public class SearchActivity extends BaseActivity implements ApiResponseErrorCall
                 isLoading = false;
                 hasNext = responseModel.hasMore;
             }
+            else {
+                // binding.noData.ivNoData.setBackgroundResource(R.drawable.no_data_bookmarked);
+                binding.noData.tvNoData.setText(R.string.no_data_search);
+                binding.llNodata.setVisibility(View.VISIBLE);
+                binding.recySearch.setVisibility(View.GONE);
+            }
         } else if (flag == 1000) {
             BaseResponseModel<ArrayList<CareerListDetails>> responseModel = (BaseResponseModel<ArrayList<CareerListDetails>>) responseObject;
             if (responseModel.getStatus()) {
@@ -245,17 +260,23 @@ public class SearchActivity extends BaseActivity implements ApiResponseErrorCall
                             if (responseModel.getOutput().size() > 0)
                                 list = responseModel.output;
                         }
-
+                        else {
+                            // binding.noData.ivNoData.setBackgroundResource(R.drawable.no_data_bookmarked);
+                            binding.noData.tvNoData.setText(R.string.no_data_search);
+                            binding.llNodata.setVisibility(View.VISIBLE);
+                        }
                     } catch (Exception e) {
                     }
                     if(list.size()>0) {
                         binding.llNodata.setVisibility(View.GONE);
                         adapter = new SearchAdapter(SearchActivity.this, list, this);
                         binding.recySearch.setAdapter(adapter);
+                        binding.recySearch.setVisibility(View.VISIBLE);
                     }else {
                        // binding.noData.ivNoData.setBackgroundResource(R.drawable.no_data_bookmarked);
                         binding.noData.tvNoData.setText(R.string.no_data_search);
                         binding.llNodata.setVisibility(View.VISIBLE);
+                        binding.recySearch.setVisibility(View.GONE);
                     }
                 } else {
                     try {
