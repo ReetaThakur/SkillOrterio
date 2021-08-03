@@ -20,6 +20,9 @@ import org.json.JSONObject;
 
 import java.io.Serializable;
 
+import io.branch.referral.Branch;
+import io.branch.referral.BranchError;
+
 import static com.app.skillontario.constants.AppConstants.FIREBASE_TOKEN;
 import static com.app.skillontario.constants.AppConstants.IS_WALK_THROUGH;
 import static com.app.skillontario.constants.SharedPrefsConstants.IS_NOTIFICATION;
@@ -36,6 +39,12 @@ public class SplashActivity extends BaseActivity {
     protected void initUi() {
 
         //  Branch.sessionBuilder(this).withCallback(branchReferralInitListener).withData(getIntent() != null ? getIntent().getData() : null).init();
+
+        // Branch logging for debugging
+        Branch.enableLogging();
+
+        // Branch object initialization
+        Branch.getAutoInstance(this);
 
 
         //Log.e("userid", MySharedPreference.getInstance().getStringData(USER_ID));
@@ -225,6 +234,25 @@ public class SplashActivity extends BaseActivity {
         }
 
 
+    };
+
+    @Override public void onStart() {
+        super.onStart();
+        Branch.sessionBuilder(this).withCallback(branchReferralInitListener).withData(getIntent() != null ? getIntent().getData() : null).init();
+    }
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        setIntent(intent);
+        // if activity is in foreground (or in backstack but partially visible) launching the same
+        // activity will skip onStart, handle this case with reInitSession
+        Branch.sessionBuilder(this).withCallback(branchReferralInitListener).reInit();
+    }
+    private Branch.BranchReferralInitListener branchReferralInitListener = new Branch.BranchReferralInitListener() {
+        @Override
+        public void onInitFinished(JSONObject linkProperties, BranchError error) {
+            // do stuff with deep link data (nav to page, display content, etc)
+        }
     };
 
     @Override
