@@ -113,7 +113,7 @@
                                     android:drawableRight="@drawable/back_right"
                                     android:drawablePadding="@dimen/_8sdp"
                                     android:fontFamily="@font/poppins_regular"
-                                    android:text="English"
+                                    android:text="@string/english"
                                     android:textColor="@color/black"
                                     android:textSize="@dimen/_14sdp"></TextView>
 
@@ -172,7 +172,7 @@
                                     android:drawableRight="@drawable/back_right"
                                     android:drawablePadding="@dimen/_8sdp"
                                     android:fontFamily="@font/poppins_regular"
-                                    android:text="Francais"
+                                    android:text="@string/french"
                                     android:textColor="@color/black"
                                     android:textSize="@dimen/_14sdp"></TextView>
 

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Skills Ontario</string>
-    <string name="english">Anglaise</string>
+    <string name="english">English</string>
     <string name="french">Français</string>
     <string name="language">Choisir la langue</string>
-    <string name="new_account">Créer un \nnouveau compte</string>
+    <string name="new_account">Créer un nouveau compte</string>
     <string name="email_address">Courriel</string>
     <string name="password">Mot de passe</string>
     <string name="confirm_password">Confirmer le mot de passe</string>
@@ -15,7 +15,7 @@
     <string name="terms_of_services">Conditions \n de service</string>
     <string name="privacy_notice">Avis de confidentialité</string>
 
-    <string name="terms_Of_services"><u>Conditions de services</u> </string>
+    <string name="terms_Of_services"><u>Conditions de service </u> </string>
 
     <string name="underlined_privacy_policy"><u>l\'avis  de confidentialité</u></string>
     <string name="terms_text">Lorem Ipsum est simplement un texte factice de l\'industrie de l\'impression et de la composition. Lorem Ipsum est le texte factice standard de l\'industrie depuis les années 1500,</string>
@@ -94,7 +94,7 @@
 
     <string name="retake_quiz">REPRENDRE LE QUESTIONNAIRE </string>
 
-    <string name="choose_language">Choisir \nla langue</string>
+    <string name="choose_language">Choisir la langue</string>
     <string name="cancel">Annuler</string>
 
     <string name="guest_user"> Utilisateur invité </string>
@@ -197,12 +197,12 @@ vous vous identifiez comme une femme</string>
     <string name="get_stareded">Commencer</string>
     <string name="next1">Prochaine</string>
 
-    <string name="sign_text">La création d\'un compte enregistre vos informations et vous permet de marquer les carrières qui vous intéressent!</string>
+    <string name="sign_text">La création d\'un compte permet d\'enregistrer vos informations et d\'ajouter à vos favoris les carrières qui vous intéressent!</string>
     <string name="by_continuing_you_agree_to_skills_ontario">En continuant, vous acceptez Compétences Ontario</string>
     <string name="and"> et </string>
     <string name="have_an_account">Avoir un compte?</string>
     <string name="sign_in1">S\'identifier</string>
-    <string name="continue_as_guest">Continuer en tant qu\'invité </string>
+    <string name="continue_as_guest">Continuer à titre d\'invité(e)</string>
     <string name="don_t_have_an_account">"Vous n'avez pas de compte? "</string>
     <string name="sign_up">S\'inscrire</string>
     <string name="didn_t_receive_password">Vous n\'avez pas reçu de mot de passe? </string>
