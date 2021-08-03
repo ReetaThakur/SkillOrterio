@@ -41,6 +41,7 @@ import androidx.fragment.app.Fragment;
 import io.branch.indexing.BranchUniversalObject;
 import io.branch.referral.Branch;
 import io.branch.referral.BranchError;
+import io.branch.referral.SharingHelper;
 import io.branch.referral.util.ContentMetadata;
 import io.branch.referral.util.LinkProperties;
 import io.branch.referral.util.ShareSheetStyle;
@@ -516,8 +517,53 @@ public class Utils {
 
     public static void share(Context context, String title, String text,String url ,Bitmap image) {
 
+        BranchUniversalObject buo = new BranchUniversalObject()
+                .setCanonicalIdentifier("content/12345")
+                .setTitle("My Content Title")
+                .setContentDescription("My Content Description")
+                .setContentImageUrl("https://lorempixel.com/400/400")
+                .setContentIndexingMode(BranchUniversalObject.CONTENT_INDEX_MODE.PUBLIC)
+                .setLocalIndexMode(BranchUniversalObject.CONTENT_INDEX_MODE.PUBLIC)
+                .setContentMetadata(new ContentMetadata().addCustomMetadata("key1", "value1"));
 
-        BranchUniversalObject branchUniversalObject = new BranchUniversalObject()
+        LinkProperties lp = new LinkProperties()
+                .setChannel("facebook")
+                .setFeature("sharing")
+                .setCampaign("content 123 launch")
+                .setStage("new user")
+                .addControlParameter("$desktop_url", "http://example.com/home")
+                .addControlParameter("custom", "data")
+                .addControlParameter("custom_random", Long.toString(Calendar.getInstance().getTimeInMillis()));
+
+        ShareSheetStyle ss = new ShareSheetStyle(context, "Check this out!", "This stuff is awesome: ")
+                .setCopyUrlStyle(ContextCompat.getDrawable(context, android.R.drawable.ic_menu_send), "Copy", "Added to clipboard")
+                .setMoreOptionStyle(ContextCompat.getDrawable(context, android.R.drawable.ic_menu_search), "Show more")
+                .addPreferredSharingOption(SharingHelper.SHARE_WITH.FACEBOOK)
+                .addPreferredSharingOption(SharingHelper.SHARE_WITH.EMAIL)
+                .addPreferredSharingOption(SharingHelper.SHARE_WITH.MESSAGE)
+                .addPreferredSharingOption(SharingHelper.SHARE_WITH.HANGOUT)
+                .addPreferredSharingOption(SharingHelper.SHARE_WITH.WHATS_APP)
+                .addPreferredSharingOption(SharingHelper.SHARE_WITH.INSTAGRAM)
+                .setAsFullWidthStyle(true)
+                .setSharingTitle("Share With");
+
+        buo.showShareSheet(((Activity) context), lp,  ss,  new Branch.BranchLinkShareListener() {
+            @Override
+            public void onShareLinkDialogLaunched() {
+            }
+            @Override
+            public void onShareLinkDialogDismissed() {
+            }
+            @Override
+            public void onLinkShareResponse(String sharedLink, String sharedChannel, BranchError error) {
+            }
+            @Override
+            public void onChannelSelected(String channelName) {
+            }
+        });
+
+
+ /*       BranchUniversalObject branchUniversalObject = new BranchUniversalObject()
                 .setCanonicalIdentifier("skillsontario/12345")
                 .setTitle(title)
                 .setContentDescription(text)
@@ -548,7 +594,7 @@ public class Utils {
         // Define the style of the share sheet
         ShareSheetStyle shareSheetStyle = new ShareSheetStyle(context, title, text)
                 //ShareSheetStyle shareSheetStyle = new ShareSheetStyle(((Activity)context), "This text will be the user’s message if supported.")
-                .setAsFullWidthStyle(false)
+                .setAsFullWidthStyle(true)
                 .setSharingTitle("Share With");
 
 
@@ -578,7 +624,7 @@ public class Utils {
 
 
             }
-        });
+        });*/
 
 
     }
