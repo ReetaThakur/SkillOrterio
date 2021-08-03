@@ -66,8 +66,8 @@
 
                 <ImageView
                     android:id="@+id/img_bookmark"
-                    android:layout_width="@dimen/_16sdp"
-                    android:layout_height="@dimen/_20sdp"
+                    android:layout_width="@dimen/_14sdp"
+                    android:layout_height="@dimen/_18sdp"
                     android:layout_alignParentRight="true"
                     android:layout_marginTop="@dimen/_16sdp"
                     android:layout_marginRight="@dimen/_8ssp"

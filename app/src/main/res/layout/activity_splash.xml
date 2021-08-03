@@ -15,9 +15,9 @@
 
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="@dimen/_240sdp"
+        android:layout_height="@dimen/_160sdp"
         android:layout_centerInParent="true"
-        android:src="@drawable/splash_logo"></ImageView>
+        android:src="@drawable/logi"></ImageView>
 
 </RelativeLayout>

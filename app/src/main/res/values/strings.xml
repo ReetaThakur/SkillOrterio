@@ -617,7 +617,7 @@
     <string name="default_notification_channel_id">Skills_onatrio</string>
     <string name="facebook_app_id">471886683746727</string>
     <string name="guest_user"> Guest User </string>
-    <string name="guest_singup_login"> Please signup/login </string>
+    <string name="guest_singup_login"> Please SignUp/SignIn </string>
     <string name="no_data_quiz">You haven’t take a career quiz yet. Once completed, The results will get saved here</string>
     <string name="no_data_events">No new events at the moment.</string>
     <string name="no_data_news">No News available at the moment</string>

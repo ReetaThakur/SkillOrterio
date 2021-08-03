@@ -78,8 +78,8 @@
 
                 <ImageView
                     android:id="@+id/ivCal"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="@dimen/_42sdp"
+                    android:layout_height="@dimen/_26sdp"
                     android:padding="@dimen/_7sdp"
                     android:scaleType="centerCrop"
                     android:src="@drawable/event_calender"

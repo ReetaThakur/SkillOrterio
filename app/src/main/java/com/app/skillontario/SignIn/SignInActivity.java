@@ -119,6 +119,8 @@ public class SignInActivity extends BaseActivity implements ApiResponseErrorCall
             @Override
             public void onClick(View v) {
 
+                MySharedPreference.getInstance().setStringData(SharedPrefsConstants.GUEST_FLOW_CLASS, "homeFragment");
+
                 MySharedPreference.getInstance().setBooleanData(GUEST_FLOW, true);
 
                 SignUpModel signUpModel = new SignUpModel(SignInActivity.this);

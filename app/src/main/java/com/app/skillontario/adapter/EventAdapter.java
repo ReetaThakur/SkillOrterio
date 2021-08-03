@@ -1,6 +1,7 @@
 package com.app.skillontario.adapter;
 
 import android.content.Intent;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,12 +16,18 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.app.skillontario.activities.NewsDetailAc;
 import com.app.skillontario.activities.WebViewActivity;
 import com.app.skillontario.models.EventsModal;
+import com.app.skillontario.utils.MySharedPreference;
 import com.app.skillontario.utils.Utils;
 import com.app.skillorterio.R;
 import com.app.skillorterio.databinding.EventsItemBinding;
 import com.squareup.picasso.Picasso;
 
+import org.json.JSONObject;
+
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
 public class EventAdapter extends RecyclerView.Adapter<EventAdapter.MyViewHolder> {
     ArrayList<EventsModal> eventsModalArrayList;
@@ -51,9 +58,11 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.MyViewHolder
             holder.eventsItemBinding.ivCal.setOnClickListener(v -> {
                 try {
                     if (eventsModalArrayList.get(position).getEvtDate() != null) {
-                        if (Utils.checkPermissionCalender(activity))
-                            Utils.openD(activity, Utils.DateFormate(eventsModalArrayList.get(position).getEvtDate()), Utils.DateFormate(eventsModalArrayList.get(position).getEvtEndDate()), eventsModalArrayList.get(position).getEvtTitle(), eventsModalArrayList.get(position).getEvtDesc());
-                        else
+                        if (Utils.checkPermissionCalender(activity)) {
+                            Utils.openD(eventsModalArrayList.get(position).getId(), activity,
+                                    Utils.DateFormate(eventsModalArrayList.get(position).getEvtDate()), Utils.DateFormate(eventsModalArrayList.get(position).getEvtEndDate()), eventsModalArrayList.get(position).getEvtTitle(), eventsModalArrayList.get(position).getEvtDesc());
+                            holder.eventsItemBinding.ivCal.setImageResource(R.drawable.event_added);
+                       } else
                             Utils.askPermison(activity);
                     }
                 } catch (Exception e) {
@@ -71,6 +80,21 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.MyViewHolder
                 }
                 //  activity.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(eventsModalArrayList.get(position).getEvtURL())));
             });
+        } catch (Exception e) {
+        }
+
+
+        try {
+            Map<String, Object> inputMap = new HashMap<>();
+            inputMap = MySharedPreference.getInstance().loadMap();
+            for (Map.Entry entry : inputMap.entrySet()) {
+                Log.d("Sunny ", " key  " + entry.getKey() + "; value: " + entry.getValue());
+
+                if (entry.getKey().toString().equalsIgnoreCase(eventsModalArrayList.get(position).getId())) {
+                    holder.eventsItemBinding.ivCal.setImageResource(R.drawable.event_added);
+                }
+            }
+
         } catch (Exception e) {
         }
     }

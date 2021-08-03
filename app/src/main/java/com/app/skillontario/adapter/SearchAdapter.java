@@ -12,6 +12,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.app.skillontario.activities.JobDetailsActivity;
 import com.app.skillontario.callbacks.GetClickBookmark;
+import com.app.skillontario.constants.SharedPrefsConstants;
+import com.app.skillontario.utils.MySharedPreference;
 import com.app.skillorterio.R;
 import com.app.skillorterio.databinding.AdapterSearchBinding;
 import com.app.skillontario.models.careerListModel.CareerListDetails;
@@ -66,23 +68,32 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
         viewHolder.binding.textWork.setText(list.get(position).getJobProfile());
         viewHolder.binding.textMoney.setText(list.get(position).getFee());
 
-        if(list.get(position).getbId().equalsIgnoreCase("")){
+        if (list.get(position).getbId().equalsIgnoreCase("")) {
             viewHolder.binding.imgBookmark.setBackgroundResource(R.drawable.bookmark_not_fill);
-        }else {
+        } else {
             viewHolder.binding.imgBookmark.setBackgroundResource(R.drawable.ic_bookmark_fill);
         }
         viewHolder.binding.imgBookmark.setOnClickListener(v -> {
+            if (!MySharedPreference.getInstance().getBooleanData(SharedPrefsConstants.GUEST_FLOW)) {
+                if (list.get(position).getbId().equalsIgnoreCase("")) {
+                    viewHolder.binding.imgBookmark.setBackgroundResource(R.drawable.ic_bookmark_fill);
+                } else {
+                    viewHolder.binding.imgBookmark.setBackgroundResource(R.drawable.bookmark_not_fill);
+                }
+            }
+
             if (listiner != null) {
-                listiner.getValueBookmarkClick(false, list.get(position),position);
+                listiner.getValueBookmarkClick(false, list.get(position), position);
             }
         });
-        viewHolder.binding.cdH.setOnClickListener(v->{
-            Intent intent=new Intent(context, JobDetailsActivity.class);
+        viewHolder.binding.cdH.setOnClickListener(v -> {
+            Intent intent = new Intent(context, JobDetailsActivity.class);
             intent.putExtra("Popular", list.get(position).getId());
             context.startActivity(intent);
         });
 
     }
+
     @NotNull
     @Override
     public ViewHolder onCreateViewHolder(@NotNull ViewGroup parent, int position) {

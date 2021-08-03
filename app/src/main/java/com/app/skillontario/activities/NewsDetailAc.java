@@ -65,7 +65,11 @@ public class NewsDetailAc extends BaseActivity {
                 binding.newsLayout.tvNewsTitle.setText(newsModal.getNewsTitle());
             }
 
-            binding.newsLayout.tvNewsDate.setText(changeDate(newsModal.getNewsDate()));
+            try {
+                binding.newsLayout.tvNewsDate.setText(changeDate(newsModal.getCreatedAt()));
+            } catch (Exception e) {
+            }
+
 
             if (TextUtils.isEmpty(newsModal.getNewsImage())) {
                 //  binding.newsLayout.imageNews.setVisibility(View.GONE);
@@ -204,7 +208,7 @@ public class NewsDetailAc extends BaseActivity {
 
             String inPattern = "yyyy-MM-dd'T'HH:mm:ss.SSSXXX";
             //   String outPatternDate = "yyyy-MM-dd";
-            String outPatternDate = "LLL-dd-yyyy";
+            String outPatternDate = "LLL dd, yyyy";
             String outPatternTime = "HH:mm aa";
 
             SimpleDateFormat inFormat = new SimpleDateFormat(inPattern, Locale.getDefault());

@@ -38,7 +38,6 @@
                     android:id="@+id/ivItem"
                     android:layout_width="@dimen/_75sdp"
                     android:layout_height="@dimen/_79sdp"
-
                     android:src="@drawable/scholler"
                     tools:ignore="ContentDescription" />
 

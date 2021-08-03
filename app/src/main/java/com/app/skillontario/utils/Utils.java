@@ -38,6 +38,7 @@ import android.widget.Toast;
 
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
+
 import io.branch.indexing.BranchUniversalObject;
 import io.branch.referral.Branch;
 import io.branch.referral.BranchError;
@@ -77,8 +78,10 @@ import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 import java.util.TimeZone;
 
 
@@ -305,16 +308,9 @@ public class Utils {
         context.startActivity(intent);
     }
 
-    public static void setCalenderEvent(Context context, String dtstart, String enddate, String title, String desc) {
+    public static void setCalenderEvent(String id, Context context, String dtstart, String enddate, String title, String desc) {
         Cursor cur = null;
         try {
-           /* SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd HH:mm");
-            Calendar cal = Calendar.getInstance();
-            cal.setTime(formatter.parse(dtstart));
-            enddate = cal.get(Calendar.YEAR) + "/" + cal.get(Calendar.MONTH) + "/" + cal.get(Calendar.DAY_OF_MONTH) + " " + cal.get(Calendar.HOUR_OF_DAY) + ":" + cal.get(Calendar.MINUTE);
-            Log.e("event date", enddate);
-            // provide CalendarContract.Calendars.CONTENT_URI to
-            // ContentResolver to query calendars*/
 
             SimpleDateFormat S_df = new SimpleDateFormat("MMM dd,yyyy hh:mm a", Locale.ENGLISH);
             Calendar S_cal = new GregorianCalendar();
@@ -333,9 +329,6 @@ public class Utils {
             }
 
 
-
-
-
             cur = context.getContentResolver().query(CalendarContract.Calendars.CONTENT_URI, null, null, null, null);
             if (cur.moveToFirst()) {
                 long calendarID = cur.getLong(cur.getColumnIndex(CalendarContract.Calendars._ID));
@@ -351,7 +344,17 @@ public class Utils {
                 eventValues.put(CalendarContract.Events.DTEND, E_cal.getTimeInMillis() + 60 * 60 * 1000);
                 eventValues.put(CalendarContract.Events.EVENT_TIMEZONE, TimeZone.getDefault().toString());
                 Uri eventUri = context.getContentResolver().insert(CalendarContract.Events.CONTENT_URI, eventValues);
-                //eventID = ContentUris.parseId(eventUri);
+
+                long eventID = ContentUris.parseId(eventUri);
+
+
+                try {
+                    Map<String, Object> inputMapNew = new HashMap<>();
+                    inputMapNew = MySharedPreference.getInstance().loadMap();
+                    inputMapNew.put(id, eventID);
+                    MySharedPreference.getInstance().saveMap(inputMapNew);
+                } catch (Exception e) {
+                }
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -371,8 +374,8 @@ public class Utils {
             format = new SimpleDateFormat("MMM dd, yyyy");
             newDateString = format.format(date);
 
-            String s1=newDateString;
-            newDateString=s1.replace("-"," ");
+            String s1 = newDateString;
+            newDateString = s1.replace("-", " ");
 
         } catch (ParseException e) {
             e.printStackTrace();
@@ -410,7 +413,7 @@ public class Utils {
     }
 
     @SuppressLint("NewApi")
-    public static void openD(final Context context, String dtstart, String enddate, String title, String des) {
+    public static void openD(String id, final Context context, String dtstart, String enddate, String title, String des) {
         Dialog dialogMood = new Dialog(context);
         dialogMood.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialogMood.setCancelable(true);
@@ -420,7 +423,7 @@ public class Utils {
         }
         dialogMood.setContentView(R.layout.news_dialog);
         dialogMood.findViewById(R.id.done).setOnClickListener(view1 -> {
-            setCalenderEvent(context, dtstart, enddate, title, des);
+            setCalenderEvent(id, context, dtstart, enddate, title, des);
             dialogMood.dismiss();
         });
         dialogMood.show();
@@ -517,7 +520,7 @@ public class Utils {
         return !TextUtils.isEmpty(target) && android.util.Patterns.EMAIL_ADDRESS.matcher(target).matches();
     }
 
-    public static void share(Context context, String title, String text,String url ,Bitmap image) {
+    public static void share(Context context, String title, String text, String url, Bitmap image) {
 
         BranchUniversalObject buo = new BranchUniversalObject()
                 .setCanonicalIdentifier("content/12345")
@@ -549,16 +552,19 @@ public class Utils {
                 .setAsFullWidthStyle(true)
                 .setSharingTitle("Share With");
 
-        buo.showShareSheet(((Activity) context), lp,  ss,  new Branch.BranchLinkShareListener() {
+        buo.showShareSheet(((Activity) context), lp, ss, new Branch.BranchLinkShareListener() {
             @Override
             public void onShareLinkDialogLaunched() {
             }
+
             @Override
             public void onShareLinkDialogDismissed() {
             }
+
             @Override
             public void onLinkShareResponse(String sharedLink, String sharedChannel, BranchError error) {
             }
+
             @Override
             public void onChannelSelected(String channelName) {
             }

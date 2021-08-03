@@ -1,6 +1,7 @@
 package com.app.skillontario.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,7 +11,10 @@ import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.app.skillontario.activities.BookmarkAc;
+import com.app.skillontario.activities.JobDetailsActivity;
+import com.app.skillontario.constants.SharedPrefsConstants;
 import com.app.skillontario.models.careerListModel.CareerListDetails;
+import com.app.skillontario.utils.MySharedPreference;
 import com.app.skillorterio.R;
 import com.app.skillorterio.databinding.AdapterNotificationBinding;
 import com.app.skillorterio.databinding.BookmarkItemBinding;
@@ -34,8 +38,8 @@ public class BookmarkAdapter extends RecyclerView.Adapter<BookmarkAdapter.ViewHo
 
     }
 
-    public BookmarkAdapter(BookmarkAc bookmarkAc, ArrayList<CareerListDetails> careerListDetails, DeleteBookMark deleteBookMark) {
-        this.bookmarkAc = bookmarkAc;
+    public BookmarkAdapter(Context context, ArrayList<CareerListDetails> careerListDetails, DeleteBookMark deleteBookMark) {
+        this.context = context;
         this.careerListDetails = careerListDetails;
         this.deleteBookMark = deleteBookMark;
     }
@@ -53,7 +57,6 @@ public class BookmarkAdapter extends RecyclerView.Adapter<BookmarkAdapter.ViewHo
         } catch (Exception e) {
             return 0;
         }
-
     }
 
     @Override
@@ -63,14 +66,17 @@ public class BookmarkAdapter extends RecyclerView.Adapter<BookmarkAdapter.ViewHo
         viewHolder.binding.imgBookmark.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                deleteBookMark.delete(position, careerListDetails.get(position).getbId(), careerListDetails.get(position).getId());
-                if (clickBookmark) {
-                    clickBookmark = false;
-                    viewHolder.binding.imgBookmark.setImageResource(R.drawable.bookmark_not_fill);
-                } else {
-                    clickBookmark = true;
-                    viewHolder.binding.imgBookmark.setImageResource(R.drawable.ic_bookmark_fill);
+                if (!MySharedPreference.getInstance().getBooleanData(SharedPrefsConstants.GUEST_FLOW)) {
+                    if (clickBookmark) {
+                        clickBookmark = false;
+                        viewHolder.binding.imgBookmark.setImageResource(R.drawable.bookmark_not_fill);
+                    } else {
+                        clickBookmark = true;
+                        viewHolder.binding.imgBookmark.setImageResource(R.drawable.ic_bookmark_fill);
+                    }
                 }
+                deleteBookMark.delete(position, careerListDetails.get(position).getbId(), careerListDetails.get(position).getId());
+
             }
         });
 
@@ -84,6 +90,24 @@ public class BookmarkAdapter extends RecyclerView.Adapter<BookmarkAdapter.ViewHo
 
         } catch (Exception e) {
         }
+
+        viewHolder.binding.relClick.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, JobDetailsActivity.class);
+                intent.putExtra("Popular", careerListDetails.get(position).getId());
+                context.startActivity(intent);
+            }
+        });
+
+        viewHolder.binding.imagePerson.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, JobDetailsActivity.class);
+                intent.putExtra("Popular", careerListDetails.get(position).getId());
+                context.startActivity(intent);
+            }
+        });
 
 
   /*      if (position == 0) {

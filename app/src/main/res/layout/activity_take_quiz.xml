@@ -37,9 +37,9 @@
                         android:layout_alignParentBottom="true"
                         android:layout_marginLeft="@dimen/_16sdp"
                         android:fontFamily="@font/poppins_bold"
-                        android:text="@string/start_career_quiz"
+                        android:text="@string/discover_a_suitable_career"
                         android:textColor="@color/white"
-                        android:textSize="@dimen/_30sdp"></TextView>
+                        android:textSize="@dimen/_24sdp"></TextView>
 
 
                     <ImageView
@@ -106,6 +106,7 @@
                             android:src="@drawable/ic_group_job_image"></ImageView>
 
                         <TextView
+                            android:visibility="gone"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_above="@+id/tv_take_quiz"

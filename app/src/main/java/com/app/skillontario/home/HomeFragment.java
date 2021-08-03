@@ -314,6 +314,13 @@ public class HomeFragment extends BaseFragment implements ApiResponseErrorCallba
             @Override
             public void run() {
                 try {
+                    int count = Integer.parseInt(MySharedPreference.getInstance().getStringData(NOTIFICATION_COUNT));
+                    if (count > 0) {
+                        binding.tvNotificationCount.setText("" + count);
+                    }
+                } catch (Exception e) {
+                }
+                try {
                     languageMethod(MySharedPreference.getInstance().getStringData(AppConstants.LANGUAGE));
                     binding.tvFindDream.setText(R.string.find_your_dream_career);
                     binding.tvSearch.setText(R.string.Search_careers);

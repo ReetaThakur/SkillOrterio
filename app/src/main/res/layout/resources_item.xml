@@ -27,8 +27,11 @@
                     android:id="@+id/ivItem"
                     android:layout_width="@dimen/_80sdp"
                     android:layout_height="match_parent"
-                    android:layout_margin="@dimen/_16sdp"
-                    android:scaleType="fitStart"
+                    android:layout_marginLeft="@dimen/_16sdp"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:layout_marginRight="@dimen/_16sdp"
+                    android:layout_marginBottom="@dimen/_12sdp"
+                    android:scaleType="fitXY"
                     android:src="@drawable/res_girl"
                     tools:ignore="ContentDescription" />
 

@@ -160,15 +160,7 @@ public class SettingActivity extends BaseActivity implements ApiResponseErrorCal
     protected void onResume() {
         super.onResume();
         setText();
-        if (MySharedPreference.getInstance().getBooleanData(GUEST_FLOW)) {
-            //binding.cvLogout.setVisibility(View.GONE);
-            binding.tvLogout.setText(R.string.sign_up);
-            binding.lChangePassword.setVisibility(View.GONE);
-        } else {
-            binding.tvLogout.setText(R.string.logout);
-            binding.cvLogout.setVisibility(View.VISIBLE);
-            binding.lChangePassword.setVisibility(View.VISIBLE);
-        }
+
     }
 
     @Override
@@ -284,7 +276,17 @@ public class SettingActivity extends BaseActivity implements ApiResponseErrorCal
                     binding.tvFeedback.setText(R.string.feedback);
                     binding.tvPrivacyPolicy.setText(R.string.privacy_policy);
                     binding.tvContactUs.setText(R.string.contact_us);
-                    binding.tvLogout.setText(R.string.logout);
+                    //binding.tvLogout.setText(R.string.logout);
+
+                    if (MySharedPreference.getInstance().getBooleanData(GUEST_FLOW)) {
+                        //binding.cvLogout.setVisibility(View.GONE);
+                        binding.tvLogout.setText(R.string.sign_up);
+                        binding.lChangePassword.setVisibility(View.GONE);
+                    } else {
+                        binding.tvLogout.setText(R.string.logout);
+                        binding.cvLogout.setVisibility(View.VISIBLE);
+                        binding.lChangePassword.setVisibility(View.VISIBLE);
+                    }
 
                     if (MySharedPreference.getInstance().getStringData(AppConstants.LANGUAGE).equalsIgnoreCase("en")) {
                         binding.tvSettingEnglish.setTextColor(Color.parseColor("#ffffff"));

@@ -248,6 +248,8 @@
                         android:layout_marginTop="@dimen/_10sdp"
                         android:background="@drawable/ic_rec_line"
                         android:hint=""
+                        android:clickable="false"
+                        android:focusable="false"
                         android:imeOptions="actionNext"
                         android:inputType="textEmailAddress|textVisiblePassword"
                         android:paddingLeft="@dimen/_15sdp"

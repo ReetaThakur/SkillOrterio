@@ -216,7 +216,7 @@ public class SignUpActivity extends BaseActivity implements ApiResponseErrorCall
         binding.tvContinueAsGuest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                MySharedPreference.getInstance().setStringData(SharedPrefsConstants.GUEST_FLOW_CLASS, "homeFragment");
                 signUpModel.setEmail("guest@gmail.com");
                 signUpModel.setPassword("123456");
                 signUpModel.setConfirmPassword("123456");

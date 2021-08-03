@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +21,7 @@ import com.app.skillontario.activities.NewsDetailAc;
 import com.app.skillontario.activities.WebViewActivity;
 import com.app.skillontario.baseClasses.AppController;
 import com.app.skillontario.models.EventsModal;
+import com.app.skillontario.utils.MySharedPreference;
 import com.app.skillontario.utils.Utils;
 import com.app.skillorterio.R;
 import com.app.skillorterio.databinding.AdapterRecentBinding;
@@ -29,6 +31,8 @@ import com.bumptech.glide.Glide;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class RecentEventsAdapter extends RecyclerView.Adapter<RecentEventsAdapter.ViewHolder> {
 
@@ -94,9 +98,10 @@ public class RecentEventsAdapter extends RecyclerView.Adapter<RecentEventsAdapte
                 if (eventsModalArrayList.get(position).getEvtDate() != null) {
 
                     try {
-                        if (Utils.checkPermissionCalender(context))
-                            Utils.openD(context, Utils.DateFormate(eventsModalArrayList.get(position).getEvtDate()), Utils.DateFormate(eventsModalArrayList.get(position).getEvtEndDate()), eventsModalArrayList.get(position).getEvtTitle(), eventsModalArrayList.get(position).getEvtDesc());
-                        else
+                        if (Utils.checkPermissionCalender(context)) {
+                            Utils.openD(eventsModalArrayList.get(position).getId(), context, Utils.DateFormate(eventsModalArrayList.get(position).getEvtDate()), Utils.DateFormate(eventsModalArrayList.get(position).getEvtEndDate()), eventsModalArrayList.get(position).getEvtTitle(), eventsModalArrayList.get(position).getEvtDesc());
+                            viewHolder.binding.ivCal.setImageResource(R.drawable.event_added);
+                        } else
                             Utils.askPermison(context);
                     } catch (Exception e) {
                     }
@@ -115,6 +120,19 @@ public class RecentEventsAdapter extends RecyclerView.Adapter<RecentEventsAdapte
                 context.startActivity(intent);
             }
         });
+
+
+        try {
+            Map<String, Object> inputMap = new HashMap<>();
+            inputMap = MySharedPreference.getInstance().loadMap();
+            for (Map.Entry entry : inputMap.entrySet()) {
+                if (entry.getKey().toString().equalsIgnoreCase(eventsModalArrayList.get(position).getId())) {
+                    viewHolder.binding.ivCal.setImageResource(R.drawable.event_added);
+                }
+            }
+
+        } catch (Exception e) {
+        }
     }
 
     private void openD() {

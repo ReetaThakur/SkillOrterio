@@ -25,10 +25,11 @@
                 <ImageView
                     android:id="@+id/ivItem"
                     android:layout_width="@dimen/_54sdp"
-                    android:layout_height="@dimen/_54sdp"
+                    android:layout_height="@dimen/_70sdp"
                     android:layout_centerVertical="true"
+                    android:layout_marginTop="@dimen/_10sdp"
                     android:layout_marginLeft="@dimen/_6sdp"
-                    android:layout_marginRight="@dimen/_6sdp"
+                    android:layout_marginRight="@dimen/_10sdp"
                     android:src="@drawable/res_girl"
                     tools:ignore="ContentDescription" />
 

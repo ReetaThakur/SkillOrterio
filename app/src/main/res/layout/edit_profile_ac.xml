@@ -243,6 +243,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_10sdp"
                         android:background="@drawable/ic_rec_line"
+                        android:clickable="false"
+                        android:focusable="false"
                         android:hint="15-20 Years"
                         android:imeOptions="actionNext"
                         android:inputType="textEmailAddress|textVisiblePassword"

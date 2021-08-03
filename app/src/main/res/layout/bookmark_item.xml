@@ -31,6 +31,7 @@
 
 
         <RelativeLayout
+            android:id="@+id/relClick"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_120sdp"
             android:layout_alignParentBottom="true"
@@ -86,6 +87,7 @@
                     android:layout_below="@+id/textCons"
                     android:layout_marginTop="@dimen/_2sdp"
                     android:fontFamily="@font/poppins_medium"
+                    android:maxLines="2"
                     android:text="@string/general_carpente_r"
                     android:textColor="#272F35"
                     android:textSize="@dimen/_12sdp"></TextView>
@@ -109,9 +111,7 @@
         <ImageView
             android:id="@+id/imagePerson"
             android:layout_width="@dimen/_120sdp"
-            android:layout_height="@dimen/_140sdp"
-            android:layout_marginBottom="@dimen/_10sdp"
-            android:src="@drawable/new_person1" />
+            android:layout_height="@dimen/_140sdp" />
 
     </RelativeLayout>
 

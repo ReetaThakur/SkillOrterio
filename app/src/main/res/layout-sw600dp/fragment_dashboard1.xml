@@ -14,13 +14,13 @@
 
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="340dp"
+                android:layout_height="@dimen/_150sdp"
                 android:background="@drawable/ic_bg"
                 android:scaleType="centerCrop"></ImageView>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="340dp"
+                android:layout_height="@dimen/_150sdp"
                 android:orientation="vertical">
 
                 <TextView
@@ -28,7 +28,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/_16sdp"
-                    android:layout_marginTop="120dp"
+                    android:layout_marginTop="@dimen/_70sdp"
                     android:fontFamily="@font/poppins_medium"
                     android:text="@string/robert_frost_pattinson"
                     android:textColor="@color/black"
@@ -42,6 +42,7 @@
                     android:fontFamily="@font/poppins_medium"
                     android:text="@string/elementary_school"
                     android:textColor="#8FA1B5"
+                    android:visibility="gone"
                     android:textSize="20sp"></TextView>
 
                 <TextView

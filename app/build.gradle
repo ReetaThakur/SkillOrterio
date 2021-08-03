@@ -199,7 +199,7 @@ dependencies {
     // required
     implementation 'io.branch.sdk.android:library:5.+'
     // required if your app is in the Google Play Store (tip: avoid using bundled play services libs)
-    implementation 'com.google.firebase:firebase-appindexing:19.0.0'
+    implementation 'com.google.firebase:firebase-appindexing:19.1.0'
     //implementation 'com.google.android.gms:play-services-ads-identifier:16+'
 }
 

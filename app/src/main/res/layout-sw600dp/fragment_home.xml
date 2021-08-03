@@ -32,14 +32,31 @@
                     android:textColor="@color/black"
                     android:textSize="33sp"></TextView>
 
-                <ImageView
-                    android:id="@+id/img_notification"
+                <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:padding="@dimen/_10sdp"
-                    android:src="@drawable/ic_notification_home"></ImageView>
+                    android:layout_alignParentRight="true">
+
+                    <ImageView
+                        android:id="@+id/img_notification"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:padding="@dimen/_10sdp"
+                        android:src="@drawable/ic_notification_home"></ImageView>
+
+
+                    <TextView
+                        android:id="@+id/tv_notification_count"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:fontFamily="@font/poppins_semi_bold"
+                        android:text=""
+                        android:textColor="@color/red"
+                        android:textSize="@dimen/_8sdp"></TextView>
+                </RelativeLayout>
 
             </RelativeLayout>
 

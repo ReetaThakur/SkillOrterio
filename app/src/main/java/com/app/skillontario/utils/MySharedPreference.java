@@ -8,7 +8,12 @@ import com.app.skillontario.models.CareerModal;
 import com.app.skillontario.models.RegistrationModal;
 import com.google.gson.Gson;
 
+import org.json.JSONObject;
+
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
 
 public class MySharedPreference {
@@ -100,5 +105,34 @@ public class MySharedPreference {
         return obj;
     }
 
+
+    public void saveMap(Map<String, Object> inputMap) {
+        final String mapKey = "map";
+        SharedPreferences.Editor editor = sharedpreferences.edit();
+        JSONObject jsonObject = new JSONObject(inputMap);
+        String jsonString = jsonObject.toString();
+        editor.remove(mapKey).apply();
+        editor.putString(mapKey, jsonString);
+        editor.commit();
+
+    }
+
+    public Map<String, Object> loadMap() {
+        Map<String, Object> outputMap = new HashMap<>();
+        final String mapKey = "map";
+        try {
+            String jsonString = sharedpreferences.getString(mapKey, (new JSONObject()).toString());
+            JSONObject jsonObject = new JSONObject(jsonString);
+            Iterator<String> keysItr = jsonObject.keys();
+            while (keysItr.hasNext()) {
+                String key = keysItr.next();
+                outputMap.put(key, jsonObject.get(key));
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return outputMap;
+    }
 
 }
