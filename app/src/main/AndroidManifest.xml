@@ -187,8 +187,8 @@
         </activity>
 
         <!-- Branch init -->
-        <meta-data android:name="io.branch.sdk.BranchKey" android:value="key_live_kaFuWw8WvY7yn1d9yYiP8gokwqjV0Sw" />
-        <meta-data android:name="io.branch.sdk.BranchKey.test" android:value="key_test_hlxrWC5Zx16DkYmWu4AHiimdqugRYMr" />
+        <meta-data android:name="io.branch.sdk.BranchKey" android:value="key_live_pi3EgUeSdtPYa7AHcpresopcuFlLYh4j" />
+        <meta-data android:name="io.branch.sdk.BranchKey.test" android:value="key_test_jh6FmQfPiyN3c3EMmbPKrpnnsthV1h1v" />
         <meta-data android:name="io.branch.sdk.TestMode" android:value="true" />     <!-- Set to true to use Branch_Test_Key (useful when simulating installs and/or switching between debug and production flavors) -->
 
         <provider
