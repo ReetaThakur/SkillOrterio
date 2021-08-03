@@ -46,7 +46,7 @@ public class RequestBodyGenerator {
         object.put("school", "");
         object.put("city", "");
         object.put("province", "");
-        object.put("dob", "1990-01-01");
+        object.put("dob", "");
         object.put("deviceType", "Android");
         object.put("deviceId", divece);
         object.put("userType", userType);
