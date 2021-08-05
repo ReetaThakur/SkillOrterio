@@ -62,7 +62,7 @@
                 android:background="@drawable/ic_rectangle__11_button"
                 android:fontFamily="@font/poppins_medium"
                 android:gravity="center"
-                android:text="Got It!"
+                android:text="@string/ok_got_it"
                 android:textColor="@color/white"
                 android:textSize="@dimen/_18sdp"></TextView>
 

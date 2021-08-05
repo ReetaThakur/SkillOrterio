@@ -3,7 +3,7 @@
     <string name="app_name">Skills Ontario</string>
     <string name="english">English</string>
     <string name="french">Français</string>
-    <string name="language">Choisir la langue</string>
+    <string name="language">Langue</string>
     <string name="new_account">Créer un nouveau compte</string>
     <string name="email_address">Courriel</string>
     <string name="password">Mot de passe</string>
@@ -37,9 +37,9 @@
     <string name="old_password">Ancien mot de passe</string>
     <string name="new_password">Nouveau mot de passe</string>
     <string name="save_password">ENREGISTRER LE MOT DE PASSE</string>
-    <string name="find_your_dream_career">Trouver la \ncarrière dont vous rêvez</string>
+    <string name="find_your_dream_career">Trouver la carrière dont vous rêvez</string>
     <string name="Search_careers">Chercher les carrières</string>
-    <string name="Popular_Careers">Carrières populaires </string>
+    <string name="Popular_Careers">Carrières populaires</string>
     <string name="Recent_Events">Événements</string>
     <string name="discover_a_suitable_career">Découvrir une carrière qui répond à vos attentes</string>
 
@@ -71,7 +71,7 @@
     <string name="high_school">École secondaire </string>
     <string name="date_of_birth_">Date de naissance</string>
 
-    <string name="notification">Avis de diffusion  </string>
+    <string name="notification">Notifications</string>
     <string name="change_password">Modifier le mot de passe </string>
     <string name="fran_ais">Français</string>
 
@@ -102,7 +102,7 @@
     <string name="term_codition">Vérifier les termes et conditions </string>
 
     <string name="platinum_patner">Partenaires Platine</string>
-    <string name="premimun_ptner">Partenaires Premium</string>
+    <string name="premimun_ptner">Partenaires gouvernementaux</string>
     <string name="silver_patner">Partenaires Argent</string>
     <string name="gold_partners">Partenaires Or</string>
     <string name="bronze_partners">Partenaires Bronze</string>
@@ -168,18 +168,18 @@ vous vous identifiez comme une femme</string>
     <string name="no_data_bookmarked">Vous n\'avez ajouté aucune carrière à vos favoris</string>
     <string name="no_data_search">Aucun résultat de recherche trouvé !</string>
     <string name="no_bookmark">Vous n\'avez ajouté aucune carrière à vos favoris</string>
-    <string name="bookmarked">Marque-page</string>
-    <string name="edit_profile">Editer le profil</string>
-    <string name="career_quiz_results">Résultats du quiz sur les carrières</string>
-    <string name="bookmarked_careers">Carrières mises en favoris</string>
-    <string name="partners">Les partenaires</string>
+    <string name="bookmarked">Mis en signet</string>
+    <string name="edit_profile">MODIFIER LE PROFIL</string>
+    <string name="career_quiz_results">Résultats du questionnaire sur les carrières</string>
+    <string name="bookmarked_careers">Carrières mises en signet</string>
+    <string name="partners">Partenaires</string>
     <string name="settings">Paramètres</string>
     <string name="robert_frost_pattinson">Robert Frost Pattinson</string>
-    <string name="terms_of_service">Conditions d\'utilisation</string>
+    <string name="terms_of_service">Conditions de service</string>
 
     <string name="job_desc">Description de l\'emploi</string>
-    <string name="job_resp">Responsabilités professionnelles</string>
-    <string name="where_they">Où ils travaillent</string>
+    <string name="job_resp">Tâches associées à l\'emploi</string>
+    <string name="where_they">Lieu de travail</string>
     <string name="advice">Conseils</string>
     <string name="education_required">Éducation requise</string>
     <string name="training_req">Formation requise</string>
@@ -216,5 +216,27 @@ vous vous identifiez comme une femme</string>
     <string name="thumbnail_image_view_desc">Miniature</string>
     <string name="event_added_successfully_to_your_calendar">Activité ajoutée à votre calendrier.</string>
     <string name="ok_got_it">COMPRIS!</string>
+    <string name="you_have">Vous avez</string>
+    <string name="new_notifications">nouveaux avis</string>
+    <string name="job_interview_video">Vidéo sur l\'entrevue d'emploi</string>
+    <string name="this_quiz_is_a_fun_career_exploration_tool">Ce questionnaire est un outil amusant d\'exploration des carrières!</string>
+    <string name="demo_1">Nous vous proposons quelques suggestions de carrières qui pourraient répondre à vos attentes, mais rappelez-vous que les métiers spécialisés et les technologies offrent de nombreuses perspectives; n\'hésitez pas à explorer.</string>
+    <string name="selec">Sélectionnez une réponse</string>
+    <string name="congratulations1">Félicitations!</string>
+    <string name="these_careers_might_be_a_good_fit_for_you">Ces carrières pourraient vous intéresser</string>
+    <string name="share_result">Partager les résultats</string>
+    <string name="send_invite">Envoyer une invitation</string>
+    <string name="thank_you_for_your_feedback_our_team_will_reach_out_to_you_soon">Nous vous remercions de votre rétroaction. Notre équipe communiquera avec vous sous peu.</string>
+    <string name="i_identify_as_female">Je m\'identifie comme une femme.</string>
+    <string name="i_don_t_identify_as_female">Je ne m\'identifie pas comme une femme</string>
+    <string name="school">École</string>
+    <string name="primary_school">École primaire</string>
+    <string name="secondary_school">École secondaire</string>
+    <string name="city_and_state_province">Ville et État/Province</string>
+    <string name="ontario">Ontario</string>
+    <string name="save_profile">ENREGISTRER LE PROFIL</string>
+    <string name="phone_number_n519_749_9899_1_888_228_5446">Numéro de téléphone\n519-749-9899 / 1-888-228-5446</string>
+    <string name="email_ninfo_skillsontario_com">Courriel\ninfo@skillsontario.com</string>
+    <string name="address_n7a_60_northland_rd_waterloo_on_n2v_2b8">Adresse\n7A-60 Northland Rd Waterloo, ON N2V 2B8</string>
 
 </resources>

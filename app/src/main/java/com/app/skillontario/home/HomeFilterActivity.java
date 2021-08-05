@@ -9,6 +9,7 @@ import android.view.View;
 
 import com.adroitandroid.chipcloud.ChipCloud;
 import com.adroitandroid.chipcloud.ChipListener;
+import com.app.skillontario.constants.AppConstants;
 import com.app.skillontario.models.EducationModal;
 import com.app.skillontario.models.InterestModal;
 import com.app.skillontario.models.RedSealModal;
@@ -210,11 +211,21 @@ public class HomeFilterActivity extends BaseActivity implements KeywordSelected,
                             redSealarraylist.addAll(responseModel.getOutput().get(2).getRedSeal());
                             String[] stringsarr = new String[redSealarraylist.size()];
                             for (int i = 0; i < redSealarraylist.size(); i++) {
-                                if (i == 0) {
-                                    stringsarr[i] = "Yes";
-                                } else {
-                                    stringsarr[i] = "No";
+                                if (MySharedPreference.getInstance().getStringData(AppConstants.LANGUAGE).equalsIgnoreCase("en")) {
+                                    if (i == 0) {
+                                        stringsarr[i] = "Yes";
+                                    } else {
+                                        stringsarr[i] = "No";
+                                    }
+
+                                }else {
+                                    if (i == 0) {
+                                        stringsarr[i] = "Oui";
+                                    } else {
+                                        stringsarr[i] = "Non";
+                                    }
                                 }
+
                             }
                             readDeal(stringsarr);
                         }

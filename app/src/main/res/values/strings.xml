@@ -701,6 +701,26 @@ identify as female</string>
     <string name="thumbnail_image_view_desc">thumbnail</string>
     <string name="event_added_successfully_to_your_calendar">Event added successfully to your calendar.</string>
     <string name="ok_got_it">OK, GOT IT</string>
+    <string name="you_have">You have</string>
+    <string name="new_notifications">new Notifications</string>
+    <string name="job_interview_video">Job Interview Video</string>
+    <string name="selec">Select any one answer</string>
+    <string name="congratulations1">Congratulations!</string>
+    <string name="these_careers_might_be_a_good_fit_for_you">These careers might be a good fit for you.</string>
+    <string name="share_result">Share Result</string>
+    <string name="send_invite">Send Invite</string>
+    <string name="thank_you_for_your_feedback_our_team_will_reach_out_to_you_soon">Thank you for your feedback. Our team will reach out to you soon.</string>
+    <string name="i_identify_as_female">I identify as female.</string>
+    <string name="i_don_t_identify_as_female">I don\'t identify as female.</string>
+    <string name="school">School</string>
+    <string name="primary_school">Primary School</string>
+    <string name="secondary_school">Secondary School</string>
+    <string name="city_and_state_province">City and State/Province</string>
+    <string name="ontario">Ontario</string>
+    <string name="save_profile">Save Profile</string>
+    <string name="phone_number_n519_749_9899_1_888_228_5446">Phone Number\n519-749-9899 / 1-888-228-5446</string>
+    <string name="email_ninfo_skillsontario_com">Email\ninfo@skillsontario.com</string>
+    <string name="address_n7a_60_northland_rd_waterloo_on_n2v_2b8">Address\n7A-60 Northland Rd Waterloo, ON N2V 2B8</string>
 
 
     <!--<string name="Popular_Careers">Carrières populaires </string>

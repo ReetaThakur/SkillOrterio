@@ -40,7 +40,7 @@
             android:layout_marginTop="@dimen/_16sdp"
             android:fontFamily="@font/poppins_medium"
             android:padding="@dimen/_5sdp"
-            android:text="Job Interview Video "
+            android:text="@string/job_interview_video"
             android:textColor="@color/white"
             android:textSize="@dimen/_12sdp" />
 

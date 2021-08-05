@@ -69,7 +69,7 @@
                         android:layout_marginLeft="@dimen/_12sdp"
                         android:layout_marginRight="@dimen/_12sdp"
                         android:fontFamily="@font/poppins_medium"
-                        android:text="Phone Number\n519-749-9899 / 1-888-228-5446"
+                        android:text="@string/phone_number_n519_749_9899_1_888_228_5446"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_12sdp" />
 
@@ -110,7 +110,7 @@
                         android:layout_marginLeft="@dimen/_12sdp"
                         android:layout_marginRight="@dimen/_12sdp"
                         android:fontFamily="@font/poppins_medium"
-                        android:text="Email\ninfo@skillsontario.com"
+                        android:text="@string/email_ninfo_skillsontario_com"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_12sdp" />
 
@@ -151,7 +151,7 @@
                         android:layout_marginLeft="@dimen/_12sdp"
                         android:layout_marginRight="@dimen/_12sdp"
                         android:fontFamily="@font/poppins_medium"
-                        android:text="Address\n7A-60 Northland Rd Waterloo, ON  N2V 2B8"
+                        android:text="@string/address_n7a_60_northland_rd_waterloo_on_n2v_2b8"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_12sdp" />
 

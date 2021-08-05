@@ -122,7 +122,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/poppins_medium"
-                                android:text="I identify as female."
+                                android:text="@string/i_identify_as_female"
                                 android:textSize="@dimen/_11sdp" />
 
                             <RadioButton
@@ -131,7 +131,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="@dimen/_5sdp"
                                 android:fontFamily="@font/poppins_medium"
-                                android:text="I don't identify as female."
+                                android:text="@string/i_don_t_identify_as_female"
                                 android:textSize="@dimen/_11sdp" />
                         </RadioGroup>
 
@@ -190,7 +190,7 @@
                         android:fontFamily="@font/poppins_medium"
                         android:gravity="center_vertical"
                         android:paddingRight="@dimen/_10sdp"
-                        android:text="School"
+                        android:text="@string/school"
                         android:textColor="@color/black"
                         android:textSize="14sp" />
 
@@ -210,7 +210,7 @@
                             android:fontFamily="@font/poppins_medium"
                             android:gravity="center"
                             android:singleLine="true"
-                            android:text="Primary School"
+                            android:text="@string/primary_school"
                             android:textColor="@color/black"
                             android:textSize="14sp" />
 
@@ -224,7 +224,7 @@
                             android:fontFamily="@font/poppins_medium"
                             android:gravity="center"
                             android:singleLine="true"
-                            android:text="Secondary School"
+                            android:text="@string/secondary_school"
                             android:textColor="@color/black"
                             android:textSize="14sp" />
 
@@ -292,7 +292,7 @@
                         android:gravity="center_vertical"
                         android:paddingLeft="@dimen/_10sdp"
                         android:paddingRight="@dimen/_10sdp"
-                        android:text="City and State/Province"
+                        android:text="@string/city_and_state_province"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_11sdp" />
                 </RelativeLayout>
@@ -311,7 +311,7 @@
                         android:imeOptions="actionNext"
                         android:inputType="textEmailAddress|textVisiblePassword"
                         android:paddingLeft="@dimen/_15sdp"
-                        android:text="Ontario"
+                        android:text="@string/ontario"
                         android:textColor="@color/black" />
                 </RelativeLayout>
 
@@ -331,10 +331,13 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/_6sdp"
+                android:layout_marginRight="@dimen/_6sdp"
                 android:drawablePadding="@dimen/_5sdp"
                 android:fontFamily="@font/poppins_medium"
                 android:gravity="center"
-                android:text="Save Profile"
+                android:singleLine="true"
+                android:text="@string/save_profile"
                 android:textAllCaps="true"
                 android:textColor="@color/white"
                 android:textSize="@dimen/_14sdp" />

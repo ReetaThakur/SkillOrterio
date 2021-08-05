@@ -75,7 +75,7 @@
                                 android:fontFamily="@font/poppins_medium"
                                 android:gravity="center"
                                 android:padding="@dimen/_5sdp"
-                                android:text="Congratulations!"
+                                android:text="@string/congratulations1"
                                 android:textColor="#FF9191"
                                 android:textSize="@dimen/_24sdp" />
 
@@ -87,7 +87,7 @@
                                 android:layout_marginRight="@dimen/_16sdp"
                                 android:fontFamily="@font/poppins_regular"
                                 android:gravity="center"
-                                android:text="These careers might be a good fit for you."
+                                android:text="@string/these_careers_might_be_a_good_fit_for_you"
                                 android:textColor="#8A90A2"
                                 android:textSize="@dimen/_12sdp" />
                         </LinearLayout>
@@ -164,7 +164,7 @@
                                         android:fontFamily="@font/poppins_regular"
                                         android:gravity="center"
                                         android:padding="@dimen/_5sdp"
-                                        android:text="Share Result"
+                                        android:text="@string/share_result"
                                         android:textColor="@color/white"
                                         android:textSize="@dimen/_12sdp" />
                                 </LinearLayout>
@@ -195,7 +195,7 @@
                                         android:fontFamily="@font/poppins_regular"
                                         android:gravity="center"
                                         android:padding="@dimen/_5sdp"
-                                        android:text="Send Invite"
+                                        android:text="@string/send_invite"
                                         android:textColor="@color/white"
                                         android:textSize="@dimen/_12sdp" />
                                 </LinearLayout>

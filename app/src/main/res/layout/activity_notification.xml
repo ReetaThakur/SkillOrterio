@@ -56,7 +56,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppins_regular"
-                        android:text="You have"
+                        android:text="@string/you_have"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_10sdp"></TextView>
 
@@ -73,7 +73,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppins_regular"
-                        android:text="new Notifications"
+                        android:text="@string/new_notifications"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_10sdp"></TextView>
                 </LinearLayout>

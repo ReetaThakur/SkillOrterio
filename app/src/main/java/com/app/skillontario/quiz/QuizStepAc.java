@@ -89,7 +89,7 @@ public class QuizStepAc extends BaseActivity implements ApiResponseErrorCallback
                     countNotify();
                 }
             } else {
-                showToast("Select any one answer");
+                showToast(getString(R.string.selec));
             }
         });
         binding.close.setOnClickListener(v -> {

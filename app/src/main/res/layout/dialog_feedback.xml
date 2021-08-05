@@ -39,7 +39,7 @@
                     android:gravity="center_horizontal"
                     android:lineSpacingExtra="@dimen/_3sdp"
                     android:padding="@dimen/_10sdp"
-                    android:text="Thank you for your feedback. Our team will reach out to you soon."
+                    android:text="@string/thank_you_for_your_feedback_our_team_will_reach_out_to_you_soon"
                     android:textColor="@color/textColorVeryLight"
                     android:textSize="@dimen/_14sdp" />
 
