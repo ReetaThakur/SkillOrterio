@@ -49,11 +49,11 @@ public class SettingActivity extends BaseActivity implements ApiResponseErrorCal
 
 
         if (MySharedPreference.getInstance().getBooleanData(SharedPrefsConstants.NOTIFICATION_ON_OFF)) {
-            notiOnOff = false;
+            notiOnOff = true;
             //  updateNotification("1", MySharedPreference.getInstance().getStringData(SharedPrefsConstants.LANGUAGE_API));
             binding.ivNotification.setImageResource(R.drawable.ic_notification_on);
         } else {
-            notiOnOff = true;
+            notiOnOff = false;
             // updateNotification("2", MySharedPreference.getInstance().getStringData(SharedPrefsConstants.LANGUAGE_API));
             binding.ivNotification.setImageResource(R.drawable.ic_notification_off);
         }

@@ -25,8 +25,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 import java.util.ArrayList;
 
 
-public class DropDownBottomSheet extends BottomSheetDialogFragment implements ApiResponseErrorCallback , OnYearSelectInterface{
-
+public class DropDownBottomSheet extends BottomSheetDialogFragment implements ApiResponseErrorCallback, OnYearSelectInterface {
 
 
     private final int requestCode;
@@ -88,20 +87,20 @@ public class DropDownBottomSheet extends BottomSheetDialogFragment implements Ap
         ValuePickerLayoutBinding binding = DataBindingUtil.inflate(inflater, R.layout.value_picker_layout, container, false);
 
         ArrayList<String> list = new ArrayList<>();
-        list.add("15-20 years");
-        list.add("20-25 years");
-        list.add("25-30 years");
-        list.add("30-35 years");
-        list.add("35-40 years");
-        list.add("40-45 years");
-        list.add("50-55 years");
-        list.add("55-60 years");
-        list.add("60-65 years");
-        list.add("70-75 years");
-        list.add("75-80 years");
-        list.add("80-85 years");
-        list.add("90-95 years");
-        list.add("95-100 years");
+        list.add("15-20 " + getString(R.string.years));
+        list.add("20-25 " + getString(R.string.years));
+        list.add("25-30 " + getString(R.string.years));
+        list.add("30-35 " + getString(R.string.years));
+        list.add("35-40 " + getString(R.string.years));
+        list.add("40-45 " + getString(R.string.years));
+        list.add("50-55 " + getString(R.string.years));
+        list.add("55-60 " + getString(R.string.years));
+        list.add("60-65 " + getString(R.string.years));
+        list.add("70-75 " + getString(R.string.years));
+        list.add("75-80 " + getString(R.string.years));
+        list.add("80-85 " + getString(R.string.years));
+        list.add("90-95 " + getString(R.string.years));
+        list.add("95-100 " + getString(R.string.years));
 
 
         binding.loopview.setInitPosition(0);

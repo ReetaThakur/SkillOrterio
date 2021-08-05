@@ -31,15 +31,16 @@
                         android:layout_marginLeft="@dimen/_40sdp"
                         android:src="@drawable/quiz_main"></ImageView>
 
-                    <TextView
+                    <me.grantland.widget.AutofitTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentBottom="true"
                         android:layout_marginLeft="@dimen/_16sdp"
+                        android:maxLines="2"
                         android:fontFamily="@font/poppins_bold"
                         android:text="@string/discover_a_suitable_career"
                         android:textColor="@color/white"
-                        android:textSize="@dimen/_24sdp"></TextView>
+                        android:textSize="@dimen/_24sdp"></me.grantland.widget.AutofitTextView>
 
 
                     <ImageView
@@ -67,7 +68,7 @@
                     android:layout_marginLeft="@dimen/_18sdp"
                     android:layout_marginTop="@dimen/_16sdp"
                     android:fontFamily="@font/poppins_medium"
-                    android:text="Popular Careers"
+                    android:text="@string/Popular_Careers"
                     android:textColor="#818F99"
                     android:textSize="15sp"></TextView>
 
@@ -118,10 +119,10 @@
                             android:textSize="@dimen/_24sdp"></TextView>
 
 
-                        <TextView
+                        <me.grantland.widget.AutofitTextView
                             android:id="@+id/tv_take_quiz"
                             android:layout_width="match_parent"
-                            android:layout_height="50dp"
+                            android:layout_height="@dimen/_35sdp"
                             android:layout_alignParentBottom="true"
                             android:layout_centerHorizontal="true"
                             android:layout_margin="@dimen/_16sdp"
@@ -129,9 +130,12 @@
                             android:background="@drawable/take_quiz_"
                             android:fontFamily="@font/poppins_bold"
                             android:gravity="center"
+                            android:singleLine="true"
+                            android:paddingLeft="@dimen/_6sdp"
+                            android:paddingRight="@dimen/_6sdp"
                             android:text="@string/take_quiz"
                             android:textColor="@color/white"
-                            android:textSize="@dimen/_18sdp"></TextView>
+                            android:textSize="@dimen/_18sdp"></me.grantland.widget.AutofitTextView>
 
                     </LinearLayout>
 

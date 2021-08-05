@@ -54,8 +54,11 @@ public class NotificationActivity extends BaseActivity implements ApiResponseErr
 
 
         binding.actionBar.ivBack.setOnClickListener(v -> onBackPressed());
+        try {
+            HomeFragment.tvNotificationCount.setVisibility(View.GONE);
+        } catch (Exception e) {
+        }
 
-        //  HomeFragment.notification_badge.setVisibility(View.GONE);
         MySharedPreference.getInstance().setStringData(NOTIFICATION_COUNT, "0");
         apiCall(true);
         pegination();
@@ -146,7 +149,7 @@ public class NotificationActivity extends BaseActivity implements ApiResponseErr
                         adapter.addList(responseModel.getOutput());
                     }
                     try {
-                        binding.tvNotiCount.setText(" " + responseModel.getTotalCount()+" ");
+                        binding.tvNotiCount.setText(" " + responseModel.getTotalCount() + " ");
                     } catch (Exception ee) {
                     }
                     isLoading = false;

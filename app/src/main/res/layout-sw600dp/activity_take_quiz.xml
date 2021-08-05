@@ -31,11 +31,12 @@
                         android:scaleType="fitEnd"
                         android:src="@drawable/quiz_main"></ImageView>
 
-                    <TextView
+                    <me.grantland.widget.AutofitTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentBottom="true"
                         android:layout_marginLeft="@dimen/_16sdp"
+                        android:maxLines="2"
                         android:fontFamily="@font/poppins_bold"
                         android:text="@string/discover_a_suitable_career"
                         android:textColor="@color/white"
@@ -67,7 +68,7 @@
                     android:layout_marginLeft="@dimen/_18sdp"
                     android:layout_marginTop="@dimen/_16sdp"
                     android:fontFamily="@font/poppins_medium"
-                    android:text="Popular Careers"
+                    android:text="@string/Popular_Careers"
                     android:textColor="#818F99"
                     android:textSize="@dimen/_13sdp" />
 
@@ -114,7 +115,7 @@
                             android:textSize="@dimen/_22sdp" />
 
 
-                        <TextView
+                        <me.grantland.widget.AutofitTextView
                             android:id="@+id/tv_take_quiz"
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/_35sdp"
@@ -125,6 +126,9 @@
                             android:fontFamily="@font/poppins_bold"
                             android:gravity="center"
                             android:text="@string/take_quiz"
+                            android:singleLine="true"
+                            android:paddingLeft="@dimen/_6sdp"
+                            android:paddingRight="@dimen/_6sdp"
                             android:textAllCaps="true"
                             android:textColor="@color/white"
                             android:textSize="@dimen/_18sdp" />

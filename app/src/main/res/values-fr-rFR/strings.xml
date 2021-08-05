@@ -218,7 +218,7 @@ vous vous identifiez comme une femme</string>
     <string name="ok_got_it">COMPRIS!</string>
     <string name="you_have">Vous avez</string>
     <string name="new_notifications">nouveaux avis</string>
-    <string name="job_interview_video">Vidéo sur l\'entrevue d'emploi</string>
+    <string name="job_interview_video">Vidéo sur l\'entrevue d\'emploi</string>
     <string name="this_quiz_is_a_fun_career_exploration_tool">Ce questionnaire est un outil amusant d\'exploration des carrières!</string>
     <string name="demo_1">Nous vous proposons quelques suggestions de carrières qui pourraient répondre à vos attentes, mais rappelez-vous que les métiers spécialisés et les technologies offrent de nombreuses perspectives; n\'hésitez pas à explorer.</string>
     <string name="selec">Sélectionnez une réponse</string>
@@ -238,5 +238,9 @@ vous vous identifiez comme une femme</string>
     <string name="phone_number_n519_749_9899_1_888_228_5446">Numéro de téléphone\n519-749-9899 / 1-888-228-5446</string>
     <string name="email_ninfo_skillsontario_com">Courriel\ninfo@skillsontario.com</string>
     <string name="address_n7a_60_northland_rd_waterloo_on_n2v_2b8">Adresse\n7A-60 Northland Rd Waterloo, ON N2V 2B8</string>
-
+    <string name="demo_">La diversité, inclusion et la représentation sont les principales priorités de Compétences Ontario. Nous travaillons avec les collectivités de toute la province pour nous assurer offrir des possibilités équitables à tous les jeunes et de constituer une mainuvre qualifiée diversifiée et solide. Pour mieux comprendre notre impact et notre portée</string>
+    <string name="years">Années</string>
+    <string name="done">Terminé</string>
+    <string name="windsor">Windsor</string>
+    <string name="_15_20_years">15-20 Années</string>
 </resources>

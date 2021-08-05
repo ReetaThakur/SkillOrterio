@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Handler;
 import android.os.Looper;
 import android.view.View;
+import android.widget.TextView;
 
 
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
@@ -47,6 +48,7 @@ public class HomeFragment extends BaseFragment implements ApiResponseErrorCallba
     PopularCareerAdapter popularCareerAdapter;
     RecentEventsAdapter eventAdapter;
     RecentNewsAdapter recentNewsAdapter;
+    public static TextView tvNotificationCount;
 
     // ApiResponseErrorCallback apiResponseErrorCallback;
     ArrayList<CareerModal> careerModalArrayList = new ArrayList<>();
@@ -65,6 +67,7 @@ public class HomeFragment extends BaseFragment implements ApiResponseErrorCallba
     @Override
     protected void initUi() {
         binding = (FragmentHomeBinding) viewDataBinding;
+        tvNotificationCount = (TextView)findViewById(R.id.tv_notification_count) ;
 
         bookMarkUpdateDelete = this;
         careerModalArrayList.clear();
@@ -98,10 +101,8 @@ public class HomeFragment extends BaseFragment implements ApiResponseErrorCallba
 
         });
 
-        if (!MySharedPreference.getInstance().getStringData(NOTIFICATION_COUNT).equalsIgnoreCase("0") && !MySharedPreference.getInstance().getStringData(NOTIFICATION_COUNT).isEmpty()) {
-            //  notification_badge.setVisibility(View.VISIBLE);
-            // notification_badge.setText(MySharedPreference.getInstance().getStringData(NOTIFICATION_COUNT));
-        }
+
+
 
         binding.rlFilter.setOnClickListener(v -> {
             Intent intent = new Intent(getActivity(), HomeFilterActivity.class);
@@ -311,6 +312,8 @@ public class HomeFragment extends BaseFragment implements ApiResponseErrorCallba
                     int count = Integer.parseInt(MySharedPreference.getInstance().getStringData(NOTIFICATION_COUNT));
                     if (count > 0) {
                         binding.tvNotificationCount.setText("" + count);
+                    }else {
+                        binding.tvNotificationCount.setVisibility(View.GONE);
                     }
                 } catch (Exception e) {
                 }

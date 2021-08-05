@@ -27,13 +27,15 @@
                     android:id="@+id/tv_findDream"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_toLeftOf="@+id/lk"
                     android:fontFamily="@font/poppins_regular"
                     android:text="@string/find_your_dream_career"
                     android:textColor="@color/black"
                     android:textSize="33sp"></TextView>
 
                 <RelativeLayout
-                    android:layout_width="wrap_content"
+                    android:id="@+id/lk"
+                    android:layout_width="@dimen/_50sdp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true">
 
@@ -206,6 +208,7 @@
                                     android:layout_below="@+id/tv"
                                     android:layout_marginLeft="10dp"
                                     android:layout_marginTop="@dimen/_8ssp"
+                                    android:layout_marginRight="@dimen/_10sdp"
                                     android:background="@drawable/ic_rectangle__take_quiz"
                                     android:padding="@dimen/_4sdp">
 

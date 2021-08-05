@@ -121,7 +121,7 @@
                                 android:layout_toLeftOf="@+id/im1"
                                 android:layout_toRightOf="@+id/rl1"
                                 android:fontFamily="@font/poppins_regular"
-                                android:singleLine="true"
+                                android:maxLines="2"
                                 android:text="@string/career_quiz_results"
                                 android:textColor="#272F35"
                                 android:textSize="@dimen/_14sdp"></me.grantland.widget.AutofitTextView>
@@ -188,7 +188,7 @@
                                 android:layout_toLeftOf="@+id/im2"
                                 android:layout_toRightOf="@+id/rl2"
                                 android:fontFamily="@font/poppins_regular"
-                                android:singleLine="true"
+                                android:maxLines="2"
                                 android:text="@string/bookmarked_careers"
                                 android:textColor="#272F35"
                                 android:textSize="@dimen/_14sdp"></me.grantland.widget.AutofitTextView>
@@ -254,7 +254,7 @@
                                 android:layout_toLeftOf="@+id/im3"
                                 android:layout_toRightOf="@+id/rl3"
                                 android:fontFamily="@font/poppins_regular"
-                                android:singleLine="true"
+                                android:maxLines="2"
                                 android:text="@string/partners"
                                 android:textColor="#272F35"
                                 android:textSize="@dimen/_14sdp"></me.grantland.widget.AutofitTextView>
@@ -322,7 +322,7 @@
                                 android:layout_toLeftOf="@+id/im4"
                                 android:layout_toRightOf="@+id/rl4"
                                 android:fontFamily="@font/poppins_regular"
-                                android:singleLine="true"
+                                android:maxLines="2"
                                 android:text="@string/settings"
                                 android:textColor="#272F35"
                                 android:textSize="@dimen/_14sdp"></me.grantland.widget.AutofitTextView>

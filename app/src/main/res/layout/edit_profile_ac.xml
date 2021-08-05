@@ -246,7 +246,7 @@
                         android:background="@drawable/ic_rec_line"
                         android:clickable="false"
                         android:focusable="false"
-                        android:hint="15-20 Years"
+                        android:hint="@string/_15_20_years"
                         android:imeOptions="actionNext"
                         android:inputType="textEmailAddress|textVisiblePassword"
                         android:paddingLeft="@dimen/_15sdp"
@@ -280,7 +280,7 @@
                         android:imeOptions="actionNext"
                         android:inputType="textEmailAddress|textVisiblePassword"
                         android:paddingLeft="@dimen/_15sdp"
-                        android:text="Windsor"
+                        android:text="@string/windsor"
                         android:textColor="@color/black" />
 
                     <TextView
