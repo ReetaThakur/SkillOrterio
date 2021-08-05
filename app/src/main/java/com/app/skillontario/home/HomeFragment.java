@@ -114,22 +114,16 @@ public class HomeFragment extends BaseFragment implements ApiResponseErrorCallba
         binding.rlSearch.setOnClickListener(v -> startActivity(new Intent(getActivity(), SearchActivity.class)));
 
         binding.imgNotification.setOnClickListener(v -> {
-            User_Type = MySharedPreference.getInstance().getBooleanData(SharedPrefsConstants.GUEST_FLOW);
-            if (!User_Type) {
-                String User_id = MySharedPreference.getInstance().getStringData(SharedPrefsConstants.USER_ID);
+           // User_Type = MySharedPreference.getInstance().getBooleanData(SharedPrefsConstants.GUEST_FLOW);
+
+
                 HashMap<String, Object> object = new HashMap<>();
-                object.put("userId", User_id);
+                object.put("userId", MySharedPreference.getInstance().getStringData(SharedPrefsConstants.USER_ID));
                 API_INTERFACE.readNitification(object).enqueue(
                         new ApiCallBack<>(getActivity(), this, 105, true));
 
                 startActivity(new Intent(getActivity(), NotificationActivity.class));
-            } else {
-                try {
-                    Utils.guestMethod(getActivity(), "homeFragment");
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
+
 
         });
     }

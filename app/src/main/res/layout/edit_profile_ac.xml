@@ -207,11 +207,11 @@
                             android:layout_marginRight="@dimen/_2sdp"
                             android:layout_weight="1"
                             android:background="@drawable/edit_text_background"
-                            android:backgroundTint="@color/layer_select"
                             android:fontFamily="@font/poppins_medium"
                             android:gravity="center"
+                            android:singleLine="true"
                             android:text="Primary School"
-                            android:textColor="@color/white"
+                            android:textColor="@color/black"
                             android:textSize="14sp" />
 
                         <me.grantland.widget.AutofitTextView
@@ -223,6 +223,7 @@
                             android:background="@drawable/edit_text_background"
                             android:fontFamily="@font/poppins_medium"
                             android:gravity="center"
+                            android:singleLine="true"
                             android:text="Secondary School"
                             android:textColor="@color/black"
                             android:textSize="14sp" />

@@ -698,6 +698,7 @@ identify as female</string>
     <string name="shre">Hey! I played this interesting quiz on Skills Ontario to find out which profession is the best fit for me. Check out the result here</string>
     <string name="email_address_feedback">Email Address</string>
     <string name="age_range">Age Range</string>
+    <string name="thumbnail_image_view_desc">thumbnail</string>
 
 
     <!--<string name="Popular_Careers">Carrières populaires </string>

@@ -219,7 +219,7 @@ public class SettingActivity extends BaseActivity implements ApiResponseErrorCal
     void updateNotification(String num, String lang) {
         HashMap<String, Object> object = new HashMap<>();
 
-        object.put("userId", MySharedPreference.getInstance().getStringData(USER_ID));
+        object.put("userId", MySharedPreference.getInstance().getStringData(SharedPrefsConstants.USER_ID));
         object.put("notifyStatus", num);
         object.put("lang", lang);
 

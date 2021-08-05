@@ -10,10 +10,20 @@
         android:layout_marginRight="@dimen/_8sdp"
         android:orientation="vertical">
 
-        <ImageView
-            android:id="@+id/imgThumb"
-            android:layout_width="@dimen/_250sdp"
-            android:layout_height="wrap_content" />
+        <RelativeLayout
+            android:layout_width="@dimen/_210sdp"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/video_thumbnail_image_view"
+                android:layout_width="@dimen/_250sdp"
+                android:layout_height="match_parent"
+                android:background="@android:color/darker_gray"
+                android:contentDescription="@string/thumbnail_image_view_desc"
+                android:scaleType="centerCrop" />
+
+
+        </RelativeLayout>
 
         <ImageView
             android:id="@+id/ivPlay"

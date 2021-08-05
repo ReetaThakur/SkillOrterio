@@ -60,7 +60,9 @@ public class NotificationActivity extends BaseActivity implements ApiResponseErr
         apiCall(true);
         pegination();
         refreshNews();
+
     }
+
 
     void refreshNews() {
         binding.refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {

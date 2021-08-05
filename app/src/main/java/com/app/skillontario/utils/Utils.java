@@ -87,6 +87,7 @@ import java.util.TimeZone;
 
 public class Utils {
     public static String emailPattern = "^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,4})$";
+    public static String DEVELOPER_KEY = "AIzaSyAgnzI_bu5NaLivA1wVkG6H5LI8ty0Ih3s";
 
     /**
      * Hides the soft keyboard

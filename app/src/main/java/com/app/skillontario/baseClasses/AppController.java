@@ -17,6 +17,7 @@ public class AppController extends MultiDexApplication {
 
     //  private FirebaseAnalytics mFirebaseAnalytics;
     public static final String CHANNEL_ID = "ServiceChannel";
+
     @Override
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(LocaleManager.getInstance().setLocale(base));
@@ -27,6 +28,7 @@ public class AppController extends MultiDexApplication {
         super.onConfigurationChanged(newConfig);
         LocaleManager.getInstance().setLocale(this);
     }
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -35,6 +37,7 @@ public class AppController extends MultiDexApplication {
         context = AppController.this;
 
         createNotificationChannel();
+
 
 
     }

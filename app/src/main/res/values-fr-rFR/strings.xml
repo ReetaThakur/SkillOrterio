@@ -186,14 +186,14 @@ vous vous identifiez comme une femme</string>
     <string name="exp_req">Expérience requise</string>
     <string name="visit_website">Visitez le site Web</string>
 
-    <string name="w1">Développer et renforcer vos compétences</string>
-    <string name="w11">Préparez-vous pour le marché du travail avec Compétences Ontario!</string>
-    <string name="w2">Quelle est votre carrière de rêve ?</string>
-    <string name="w22">Répondez à notre quiz et découvrez quelles voies pourraient vous convenir.</string>
-    <string name="w3">Explorez les métiers spécialisés et les technologies.</string>
-    <string name="w33">Joignez-vous à Compétences Ontario pour découvrir des possibilités de carrière incroyables!</string>
-    <string name="w4">Rester en sécurité et responsable</string>
-    <string name="w44">Nous sommes dans une période extraordinaire. La santé et la sécurité sont toujours essentielles.</string>
+    <string name="w1">Développer et renforcer vos compétences.</string>
+    <string name="w11">Se préparer au marché du travail avec Compétences Ontario!</string>
+    <string name="w2">Quelle est la carrière dont vous rêvez?</string>
+    <string name="w22">Répondre à notre questionnaire et découvrir les cheminements qui pourraient vous convenir.</string>
+    <string name="w3">Explorer les métiers spécialisés et les technologies</string>
+    <string name="w33">Se joindre à Compétences Ontario pour découvrir des perspectives de carrière enrichissantes!</string>
+    <string name="w4">Faire preuve de prudence et demeurer en sécurité.</string>
+    <string name="w44">Nous traversons une période sans précédent. La santé et la sécurité sont essentielles.</string>
     <string name="get_stareded">Commencer</string>
     <string name="next1">Prochaine</string>
 
@@ -213,5 +213,6 @@ vous vous identifiez comme une femme</string>
     <string name="email_address_feedback">Courriel</string>
     <string name="confirm">CONFIRMER</string>
     <string name="age_range">Age Range</string>
+    <string name="thumbnail_image_view_desc">thumbnail</string>
 
 </resources>

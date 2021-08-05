@@ -2,44 +2,25 @@ package com.app.skillontario.adapter;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.media.ThumbnailUtils;
 import android.net.Uri;
-import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
-import androidx.core.content.ContextCompat;
 import androidx.databinding.DataBindingUtil;
-import androidx.databinding.adapters.AdapterViewBindingAdapter;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.app.skillontario.activities.JobDetailsActivity;
 import com.app.skillontario.activities.PlayVideoActivity;
 import com.app.skillontario.models.ResourceURLModal;
 import com.app.skillorterio.R;
 import com.app.skillorterio.databinding.VideoAdapterBinding;
-import com.app.skillorterio.databinding.VideoAdapterBinding;
 import com.bumptech.glide.Glide;
 
 import org.jetbrains.annotations.NotNull;
-
 import java.util.ArrayList;
 
 public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> {
 
 
     Context context;
-    private int[] imageArray = {
-            R.drawable.recy1,
-            R.drawable.recy2
-    };
-
-    private int[] imageArray1 = {
-            R.drawable.recent_event,
-            R.drawable.recent_event
-    };
 
     public VideoAdapter(Context context) {
         this.context = context;
@@ -60,27 +41,27 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> 
 
     @Override
     public int getItemCount() {
-        return resourceURLModalArrayList.size();
+        try {
+            return resourceURLModalArrayList.size();
+        } catch (Exception e) {
+            return 0;
+        }
+
     }
 
     @Override
     public void onBindViewHolder(final VideoAdapter.ViewHolder viewHolder, final int position) {
-       /* if (popular)
-            viewHolder.binding.imageView.setImageResource(imageArray[position]);
-        else
-            viewHolder.binding.imageView.setImageResource(imageArray1[position]);*/
-
-        /*viewHolder.binding.lay.setOnClickListener(v -> {
-            notifyItemChanged(selected_position);
-            selected_position = position;
-            notifyItemChanged(selected_position);
-        });*/
 
         try {
-            Bitmap thumb;
-            thumb = ThumbnailUtils.createVideoThumbnail(resourceURLModalArrayList.get(position).getPath(), MediaStore.Video.Thumbnails.MINI_KIND);
-            viewHolder.binding.imgThumb.setImageBitmap(thumb);
+            final String videoUrl = resourceURLModalArrayList.get(position).getPath();
+            String videoId = videoUrl.split("v=")[1];
+            String thumbnailHq = "http://img.youtube.com/vi/" + videoId + "/hqdefault.jpg"; //high quality thumbnail
 
+            // "http://img.youtube.com/vi/bDtxF7qSofg/hqdefault.jpg
+
+            Glide.with(context)
+                    .load(thumbnailHq)
+                    .into(viewHolder.binding.videoThumbnailImageView);
         } catch (Exception e) {
         }
 
