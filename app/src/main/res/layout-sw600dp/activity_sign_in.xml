@@ -43,7 +43,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins_regular"
                     android:lineSpacingExtra="10dp"
-                    android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+                    android:text="@string/dummy_sign"
                     android:textColor="@color/black_light"
                     android:textSize="24sp" />
 

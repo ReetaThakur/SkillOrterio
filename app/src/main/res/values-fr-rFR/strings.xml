@@ -12,7 +12,7 @@
 
     <string name="signup">S\'INSCRIRE</string>
 
-    <string name="terms_of_services">Conditions \n de service</string>
+    <string name="terms_of_services">Conditions de service</string>
     <string name="privacy_notice">Avis de confidentialité</string>
 
     <string name="terms_Of_services"><u>Conditions de service </u> </string>
@@ -32,8 +32,8 @@
     <string name="please_enter_password">Entrer le mot de passe </string>
     <string name="please_confirm_password">Entrez confirmer le mot de passe </string>
     <string name="password_not_match">Le mot de passe ne correspond pas</string>
-    <string name="reset_your_password">Réinitialiser \nvotre mot de passe</string>
-    <string name="enter_the_email_address_">Veuillez saisir l\'adresse courriel associée à votre compte et nous vous enverrons un nouveau mot de passe.</string>
+    <string name="reset_your_password">Réinitialiser votre mot de passe</string>
+    <string name="enter_the_email_address_">Veuillez saisir l\'adresse courriel associée à votre compte et nous vous enverrons un nouveau mot de passe</string>
     <string name="old_password">Ancien mot de passe</string>
     <string name="new_password">Nouveau mot de passe</string>
     <string name="save_password">ENREGISTRER LE MOT DE PASSE</string>
@@ -148,7 +148,7 @@ vous vous identifiez comme une femme</string>
     <string name="no_internet_msg">S\'il vous plait, vérifiez votre connexion internet.</string>
     <string name="enter_first_name">entrez votre prénom</string>
     <string name="enter_last_name">Entrer le nom de famille</string>
-    <string name="dummy_sign">Veuillez s\'il vous plaît entrer votre nom d\'utilisateur et votre mot de passe.</string>
+    <string name="dummy_sign">Saisir votre nom d\'utilisateur et mot de passe.</string>
     <string name="notice">Veuillez accepter les conditions &amp; conditions</string>
     <string name="gen">Général \nMachiniste</string>
     <string name="ho">Horticultural \nTechnician</string>
@@ -200,11 +200,11 @@ vous vous identifiez comme une femme</string>
     <string name="sign_text">La création d\'un compte permet d\'enregistrer vos informations et d\'ajouter à vos favoris les carrières qui vous intéressent!</string>
     <string name="by_continuing_you_agree_to_skills_ontario">En continuant, vous acceptez Compétences Ontario</string>
     <string name="and"> et </string>
-    <string name="have_an_account">Avoir un compte?</string>
-    <string name="sign_in1">S\'identifier</string>
+    <string name="have_an_account">Vous avez un compte?</string>
+    <string name="sign_in1">Ouverture de session</string>
     <string name="continue_as_guest">Continuer à titre d\'invité(e)</string>
     <string name="don_t_have_an_account">"Vous n'avez pas de compte? "</string>
-    <string name="sign_up">S\'inscrire</string>
+    <string name="sign_up"> Inscrivez-vous</string>
     <string name="didn_t_receive_password">Vous n\'avez pas reçu de mot de passe? </string>
     <string name="resend">Renvoyer.</string>
     <string name="came_and_join">Venez vous joindre à Compétences Ontario! Cest le meilleur endroit pour évaluer vos compétences et utile pour trouver des opportunités demploi.</string>
@@ -212,7 +212,9 @@ vous vous identifiez comme une femme</string>
     <string name="shre">Hé! J\'ai joué à ce jeu-questionnaire intéressant sur Compétences Ontario pour savoir quelle profession me convient le mieux. Découvrez le résultat ici</string>
     <string name="email_address_feedback">Courriel</string>
     <string name="confirm">CONFIRMER</string>
-    <string name="age_range">Age Range</string>
-    <string name="thumbnail_image_view_desc">thumbnail</string>
+    <string name="age_range">Tranche d\'âge</string>
+    <string name="thumbnail_image_view_desc">Miniature</string>
+    <string name="event_added_successfully_to_your_calendar">Activité ajoutée à votre calendrier.</string>
+    <string name="ok_got_it">COMPRIS!</string>
 
 </resources>

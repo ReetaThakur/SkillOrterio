@@ -699,6 +699,8 @@ identify as female</string>
     <string name="email_address_feedback">Email Address</string>
     <string name="age_range">Age Range</string>
     <string name="thumbnail_image_view_desc">thumbnail</string>
+    <string name="event_added_successfully_to_your_calendar">Event added successfully to your calendar.</string>
+    <string name="ok_got_it">OK, GOT IT</string>
 
 
     <!--<string name="Popular_Careers">Carrières populaires </string>
