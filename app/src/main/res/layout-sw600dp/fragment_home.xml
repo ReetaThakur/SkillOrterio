@@ -220,8 +220,6 @@
                                         android:layout_marginTop="1dp"
                                         android:fontFamily="@font/poppins_medium"
                                         android:gravity="center"
-                                        android:paddingLeft="@dimen/_10sdp"
-                                        android:paddingRight="@dimen/_10sdp"
                                         android:text="@string/take_quiz"
                                         android:textColor="@color/white"
                                         android:textSize="@dimen/_8sdp"></TextView>

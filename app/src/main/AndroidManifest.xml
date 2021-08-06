@@ -29,7 +29,7 @@
         <activity
             android:name="com.app.skillontario.activities.WebViewActivity"
             android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity"></activity>
+            tools:ignore="LockedOrientationActivity" />
         <activity
             android:name="com.app.skillontario.activities.PlayVideoActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
@@ -172,6 +172,7 @@
                 <data
                     android:host="open"
                     android:scheme="com.skillsontario" />
+
                 <action android:name="android.intent.action.VIEW" />
 
                 <category android:name="android.intent.category.DEFAULT" />
@@ -188,14 +189,12 @@
                 <data
                     android:host="wik5t.test-app.link"
                     android:scheme="https" />
-                <!-- example-alternate domain is required for App Links when the Journeys/Web SDK and Deepviews are used inside your website.  -->
+                <!-- example-alternate domain is required for App Links when the Journeys/Web SDK and Deepviews are used inside your website. -->
                 <data
                     android:host="wik5t-alternate.test-app.link"
                     android:scheme="https" />
             </intent-filter>
-        </activity>
-
-        <!-- Branch init -->
+        </activity> <!-- Branch init -->
         <meta-data
             android:name="io.branch.sdk.BranchKey"
             android:value="key_live_pi3EgUeSdtPYa7AHcpresopcuFlLYh4j" />
@@ -204,8 +203,7 @@
             android:value="key_test_jh6FmQfPiyN3c3EMmbPKrpnnsthV1h1v" />
         <meta-data
             android:name="io.branch.sdk.TestMode"
-            android:value="true" />     <!-- Set to true to use Branch_Test_Key (useful when simulating installs and/or switching between debug and production flavors) -->
-
+            android:value="true" /> <!-- Set to true to use Branch_Test_Key (useful when simulating installs and/or switching between debug and production flavors) -->
         <provider
             android:name="com.app.skillontario.utils.GenericFileProvider"
             android:authorities="com.app.skillorterio.provider"
@@ -260,11 +258,9 @@
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
-
         <meta-data
             android:name="firebase_analytics_collection_deactivated"
             android:value="false" />
-
         <meta-data
             android:name="com.codewaves.youtubethumbnailview.ApiKey"
             android:value="AIzaSyAgnzI_bu5NaLivA1wVkG6H5LI8ty0Ih3s" />

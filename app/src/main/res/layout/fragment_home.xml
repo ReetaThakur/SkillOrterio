@@ -208,6 +208,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_below="@+id/tv"
                                     android:layout_marginTop="@dimen/_8ssp"
+                                    android:layout_marginRight="@dimen/_8sdp"
                                     android:background="@drawable/ic_rectangle__take_quiz"
                                     android:padding="@dimen/_4sdp">
 
@@ -217,12 +218,9 @@
                                         android:layout_height="wrap_content"
                                         android:layout_centerInParent="true"
                                         android:layout_marginTop="1dp"
-                                        android:layout_marginRight="@dimen/_4sdp"
                                         android:fontFamily="@font/poppins_medium"
                                         android:gravity="center"
                                         android:maxLines="2"
-                                        android:paddingLeft="@dimen/_8sdp"
-                                        android:paddingRight="@dimen/_8sdp"
                                         android:text="@string/take_quiz"
                                         android:textColor="@color/white"
                                         android:textSize="@dimen/_8sdp"></TextView>

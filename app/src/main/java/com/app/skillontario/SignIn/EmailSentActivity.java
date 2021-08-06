@@ -1,21 +1,22 @@
 package com.app.skillontario.SignIn;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.content.res.AppCompatResources;
 
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
-import android.os.Bundle;
 import android.view.View;
-import android.widget.EditText;
-import android.widget.RelativeLayout;
 
+import com.app.skillontario.apiConnection.ApiCallBack;
+import com.app.skillontario.apiConnection.ApiResponseErrorCallback;
 import com.app.skillontario.baseClasses.BaseActivity;
+import com.app.skillontario.baseClasses.BaseResponseModel;
 import com.app.skillorterio.R;
 import com.app.skillorterio.databinding.ActivityEmailSentBinding;
-import com.app.skillorterio.databinding.ActivityResetPasswordBinding;
 
-public class EmailSentActivity extends BaseActivity {
+import java.util.HashMap;
+
+import static com.app.skillontario.SignIn.ResetPasswordActivity.recoveryEmail;
+import static com.app.skillontario.constants.ApiConstants.API_INTERFACE;
+
+public class EmailSentActivity extends BaseActivity implements ApiResponseErrorCallback {
 
     private ActivityEmailSentBinding binding;
 
@@ -24,6 +25,7 @@ public class EmailSentActivity extends BaseActivity {
     protected void initUi() {
         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_from_left);
         binding = (ActivityEmailSentBinding) viewBaseBinding;
+
 
         binding.cvSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -36,13 +38,19 @@ public class EmailSentActivity extends BaseActivity {
         binding.tvResendMail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                HashMap<String, Object> object = new HashMap<>();
+                object.put("email", recoveryEmail);
+                resetPass(object);
             }
         });
 
         binding.tvResendMail1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                HashMap<String, Object> object = new HashMap<>();
+                object.put("email", recoveryEmail);
+                resetPass(object);
 
             }
         });
@@ -61,4 +69,28 @@ public class EmailSentActivity extends BaseActivity {
 
     }
 
+    private void resetPass(HashMap<String, Object> object) {
+        API_INTERFACE.forgotPassword(object).enqueue(
+                new ApiCallBack<>(EmailSentActivity.this, this, 114, true));
+    }
+
+    @Override
+    public void getApiResponse(Object responseObject, int flag) {
+        if (flag == 114) {
+            BaseResponseModel responseModel = (BaseResponseModel) responseObject;
+            try {
+                if (responseModel.getStatus()) {
+                    showToast(responseModel.getMessage());
+                    // startActivity(new Intent(ResetPasswordActivity.this, EmailSentActivity.class));
+                }
+            } catch (Exception e) {
+            }
+
+        }
+    }
+
+    @Override
+    public void getApiError(Throwable t, int flag) {
+
+    }
 }

@@ -17,7 +17,7 @@
 
     <string name="terms_Of_services"><u>Conditions de service </u> </string>
 
-    <string name="underlined_privacy_policy"><u>l\'avis  de confidentialité</u></string>
+    <string name="underlined_privacy_policy"><u> l\'avis de confidentialité</u></string>
     <string name="terms_text">Lorem Ipsum est simplement un texte factice de l\'industrie de l\'impression et de la composition. Lorem Ipsum est le texte factice standard de l\'industrie depuis les années 1500,</string>
     <string name="term1">Il a survécu non seulement à cinq siècles, mais aussi au saut dans la composition électronique, restant essentiellement inchangé. Il a été popularisé dans les années 1960 avec la sortie de feuilles Letraset contenant des passages de Lorem Ipsum, et plus récemment avec des logiciels de PAO comme Aldus PageMaker incluant des versions de Lorem Ipsum.</string>
     <string name="welcome_to_skills_ontario">Bienvenue</string>
@@ -195,10 +195,10 @@ vous vous identifiez comme une femme</string>
     <string name="w4">Faire preuve de prudence et demeurer en sécurité.</string>
     <string name="w44">Nous traversons une période sans précédent. La santé et la sécurité sont essentielles.</string>
     <string name="get_stareded">Commencer</string>
-    <string name="next1">Prochaine</string>
+    <string name="next1">Prochain</string>
 
     <string name="sign_text">La création d\'un compte permet d\'enregistrer vos informations et d\'ajouter à vos favoris les carrières qui vous intéressent!</string>
-    <string name="by_continuing_you_agree_to_skills_ontario">En continuant, vous acceptez Compétences Ontario</string>
+    <string name="by_continuing_you_agree_to_skills_ontario">En poursuivant, vous acceptez les</string>
     <string name="and"> et </string>
     <string name="have_an_account">Vous avez un compte?</string>
     <string name="sign_in1">Ouverture de session</string>
@@ -243,4 +243,7 @@ vous vous identifiez comme une femme</string>
     <string name="done">Terminé</string>
     <string name="windsor">Windsor</string>
     <string name="_15_20_years">15-20 Années</string>
+    <string name="wrong_email">Identifiant de messagerie erroné</string>
+    <string name="enter_your_email">Entrez l\'e-mail</string>
+    <string name="select_age">Sélectionnez la tranche d\'âge</string>
 </resources>

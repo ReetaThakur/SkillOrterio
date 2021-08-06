@@ -28,12 +28,13 @@ public class ResetPasswordActivity extends BaseActivity implements ApiResponseEr
 
     private ActivityResetPasswordBinding binding;
     Drawable myIcon;
+    public static String recoveryEmail;
 
     @Override
     protected void initUi() {
         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_from_left);
         binding = (ActivityResetPasswordBinding) viewBaseBinding;
-
+        recoveryEmail = "";
         myIcon = AppCompatResources.getDrawable(ResetPasswordActivity.this, R.drawable.ic_edit_text_rectangle);
 
         binding.etMail.setOnFocusChangeListener(new View.OnFocusChangeListener() {
@@ -53,6 +54,7 @@ public class ResetPasswordActivity extends BaseActivity implements ApiResponseEr
                 if (Validation()) {
                     HashMap<String, Object> object = new HashMap<>();
                     object.put("email", binding.etMail.getText().toString().trim());
+                    recoveryEmail = binding.etMail.getText().toString().trim();
                     resetPass(object);
                 }
             }
@@ -101,8 +103,14 @@ public class ResetPasswordActivity extends BaseActivity implements ApiResponseEr
             BaseResponseModel responseModel = (BaseResponseModel) responseObject;
             try {
                 if (responseModel.getStatus()) {
-                    showToast(responseModel.getMessage());
-                    finish();
+                    try {
+                        showToast(responseModel.getMessage());
+                    } catch (Exception e) {
+                    }
+
+                    startActivity(new Intent(ResetPasswordActivity.this, EmailSentActivity.class));
+                } else {
+                    showToast(getString(R.string.wrong_email));
                 }
             } catch (Exception e) {
             }

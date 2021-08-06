@@ -35,7 +35,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_10sdp"
                         android:background="@drawable/ic_rec_line"
-                        android:hint="Robert Frost"
+                        android:hint=" "
                         android:imeOptions="actionNext"
                         android:inputType="textEmailAddress|textVisiblePassword"
                         android:paddingLeft="@dimen/_15sdp"
@@ -67,7 +67,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_10sdp"
                         android:background="@drawable/ic_rec_line"
-                        android:hint=" Pattinson"
+                        android:hint=" "
                         android:imeOptions="actionNext"
                         android:inputType="textEmailAddress|textVisiblePassword"
                         android:paddingLeft="@dimen/_15sdp"
@@ -160,7 +160,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_10sdp"
                         android:background="@drawable/ic_rec_line"
-                        android:hint=" Pattinson_robert@gmail.com"
+                        android:hint=""
                         android:imeOptions="actionNext"
                         android:inputType="textEmailAddress|textVisiblePassword"
                         android:paddingLeft="@dimen/_15sdp"
@@ -193,7 +193,7 @@
                         android:fontFamily="@font/poppins_medium"
                         android:gravity="center_vertical"
                         android:paddingRight="@dimen/_10sdp"
-                        android:text="School"
+                        android:text="@string/school"
                         android:textColor="@color/black"
                         android:textSize="14sp" />
 
@@ -214,7 +214,7 @@
 
                             android:fontFamily="@font/poppins_medium"
                             android:gravity="center"
-                            android:text="Primary School"
+                            android:text="@string/primary_school"
                             android:textColor="@color/white"
                             android:textSize="@dimen/_12sdp" />
 
@@ -227,7 +227,7 @@
                             android:background="@drawable/edit_text_background"
                             android:fontFamily="@font/poppins_medium"
                             android:gravity="center"
-                            android:text="Secondary School"
+                            android:text="@string/secondary_school"
                             android:textColor="@color/black"
                             android:textSize="@dimen/_12sdp" />
 
@@ -297,7 +297,7 @@
                         android:gravity="center_vertical"
                         android:paddingLeft="@dimen/_10sdp"
                         android:paddingRight="@dimen/_10sdp"
-                        android:text="City and State/Province"
+                        android:text="@string/city_and_state_province"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_12sdp" />
                 </RelativeLayout>
@@ -339,7 +339,7 @@
                 android:drawablePadding="@dimen/_5sdp"
                 android:fontFamily="@font/poppins_medium"
                 android:gravity="center"
-                android:text="Save Profile"
+                android:text="@string/save_profile"
                 android:textAllCaps="true"
                 android:textColor="@color/white"
                 android:textSize="@dimen/_14sdp" />

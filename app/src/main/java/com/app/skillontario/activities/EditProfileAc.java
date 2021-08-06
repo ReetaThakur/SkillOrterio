@@ -3,9 +3,12 @@ package com.app.skillontario.activities;
 
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.os.Build;
+import android.os.Handler;
+import android.os.Looper;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.DatePicker;
@@ -13,7 +16,9 @@ import android.widget.DatePicker;
 import androidx.annotation.RequiresApi;
 import androidx.core.content.ContextCompat;
 
+import com.app.skillontario.BottomBarActivity;
 import com.app.skillontario.callbacks.OnYearSelectInterface;
+import com.app.skillontario.constants.AppConstants;
 import com.app.skillontario.requestmodal.UpdateProfileModal;
 import com.app.skillontario.utils.DropDownBottomSheet;
 import com.app.skillorterio.R;
@@ -42,8 +47,10 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
+import static com.app.skillontario.activities.SettingActivity.language;
 import static com.app.skillontario.constants.ApiConstants.API_INTERFACE;
 import static com.app.skillontario.home.DashboardFragment.tvUserName;
+import static com.app.skillontario.utils.Utils.updatLocalLanguage;
 
 
 public class EditProfileAc extends BaseActivity implements ApiResponseErrorCallback, OnYearSelectInterface {
@@ -120,8 +127,28 @@ public class EditProfileAc extends BaseActivity implements ApiResponseErrorCallb
         });
     }
 
+    void setText() {
+        binding.etFirstName.setHint(R.string.enter_first_name);
+        binding.etLastName.setHint(R.string.enter_last_name);
+        binding.etEmail.setHint(R.string.enter_your_email);
+        binding.tvYears.setHint(R.string.select_age);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                languageMethod(MySharedPreference.getInstance().getStringData(AppConstants.LANGUAGE));
+                setText();
+
+            }
+        }, 50);
+    }
+
     void showDilog() {
-        dialogWithMsg = new DialogWithMsg(EditProfileAc.this, 0, "", getString(R.string.demo_), "OK", null);
+        dialogWithMsg = new DialogWithMsg(EditProfileAc.this, 0, "", getString(R.string.demo_), getString(R.string.ok_got_it), null);
         dialogWithMsg.show();
     }
 
@@ -209,43 +236,6 @@ public class EditProfileAc extends BaseActivity implements ApiResponseErrorCallb
         overridePendingTransition(R.anim.slide_in_from_left, R.anim.slide_out_from_right);
     }
 
- /*   private void showCalender() {
-        // Get Current Date
-        final Calendar c = Calendar.getInstance();
-        year = c.get(Calendar.YEAR);
-        month = c.get(Calendar.MONTH);
-        day = c.get(Calendar.DAY_OF_MONTH);
-        DatePickerDialog datePickerDialog = new DatePickerDialog(this, R.style.DialogTheme,
-                new DatePickerDialog.OnDateSetListener() {
-                    @SuppressLint("NewApi")
-                    @RequiresApi(api = Build.VERSION_CODES.N)
-                    @Override
-                    public void onDateSet(DatePicker view, int year,
-                                          int monthOfYear, int dayOfMonth) {
-                        // inputDateStr = year + "-" + (monthOfYear + 1)+ "-" +  dayOfMonth ;
-                        String inputDate = year + "-" + dayOfMonth + "-" + (monthOfYear + 1);
-
-                        DateFormat inputFormat = new SimpleDateFormat("yyyy-dd-mm");
-                        DateFormat inputFormatset = new SimpleDateFormat("YYYY-mm-dd");
-                        DateFormat outputFormat = new SimpleDateFormat("MMM dd yyyy");
-                        String outputDateStr = "";
-                        Date date = null;
-                        Date date1 = null;
-                        try {
-                            date = inputFormat.parse(inputDate);
-                            date1 = inputFormat.parse(inputDate);
-                            outputDateStr = outputFormat.format(date);
-                            inputDateStr = inputFormatset.format(date1);
-                        } catch (ParseException e) {
-                            e.printStackTrace();
-                        }
-                      //  binding.tvYears.setText(outputDateStr);
-
-
-                    }
-                }, year, month, day);
-        datePickerDialog.show();
-    }*/
 
     @SuppressLint("NewApi")
     @RequiresApi(api = Build.VERSION_CODES.N)
@@ -322,5 +312,22 @@ public class EditProfileAc extends BaseActivity implements ApiResponseErrorCallb
     @Override
     public void onTextClick(String text) {
         binding.tvYears.setText(text);
+    }
+
+    private void languageMethod(String lang) {
+
+        if (lang != null) {
+            if (lang.isEmpty()) {
+
+                updatLocalLanguage("en", getBaseContext());
+
+            } else {
+
+                updatLocalLanguage(lang, getBaseContext());
+            }
+        } else {
+
+            updatLocalLanguage("en", getBaseContext());
+        }
     }
 }

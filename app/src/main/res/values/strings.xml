@@ -196,7 +196,7 @@
     <string name="are_you_married">Are You Married?</string>
     <string name="your_personal_info">Your Personal Info</string>
     <string name="age_as_of_december_31_2019">Age as of December 31, 2020</string>
-    <string name="enter_your_email">Enter your email</string>
+    <string name="enter_your_email">Enter email</string>
     <string name="enter_your_name">Enter your name</string>
     <string name="enter_your_phone">Enter your phone</string>
     <string name="did_you_have_other_income">Did you have other income?</string>
@@ -724,6 +724,8 @@ identify as female</string>
     <string name="years">Years</string>
     <string name="windsor">Windsor</string>
     <string name="_15_20_years">15-20 Years</string>
+    <string name="wrong_email">Wrong Email id</string>
+    <string name="select_age">Select age range</string>
 
 
     <!--<string name="Popular_Careers">Carrières populaires </string>
