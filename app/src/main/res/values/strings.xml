@@ -598,8 +598,8 @@
     <string name="please_enter_password">Enter password </string>
     <string name="please_confirm_password">Enter confirm password </string>
     <string name="password_not_match">Password not match</string>
-    <string name="enter_first_name">Enter first name</string>
-    <string name="enter_last_name">enter last name</string>
+    <string name="enter_first_name">Enter your First Name</string>
+    <string name="enter_last_name">Enter your Last Name</string>
     <string name="demo_">Diversity, inclusion, and representation are top priorities for Skills Ontario. We work with communities across the province to ensure that we are providing equitable opportunities for all youth and building a diverse and robust skilled workforce. To better understand our impact and reach</string>
     <string name="terms_of_services">Terms \nof Service</string>
     <string name="privacy_notice">Privacy \nNotice</string>
@@ -725,7 +725,9 @@ identify as female</string>
     <string name="windsor">Windsor</string>
     <string name="_15_20_years">15-20 Years</string>
     <string name="wrong_email">Wrong Email id</string>
-    <string name="select_age">Select age range</string>
+    <string name="select_age">Select your Age Range</string>
+    <string name="select_city">Enter City</string>
+    <string name="select_pro">Enter State/Province</string>
 
 
     <!--<string name="Popular_Careers">Carrières populaires </string>

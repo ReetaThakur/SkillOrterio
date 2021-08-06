@@ -49,12 +49,7 @@ public class HomeFilterActivity extends BaseActivity implements KeywordSelected,
         if (extras != null) {
             search = getIntent().getStringExtra("search");
         }
-      /*  adapter = new TagAdapter(getList(), HomeFilterActivity.this);
-        adapter1 = new TagAdapter(getList1(), HomeFilterActivity.this);
-        adapter2 = new TagAdapter(getList2(), HomeFilterActivity.this);
-        list.clear();
-        list1.clear();
-        list2.clear();*/
+
         MySharedPreference.getInstance().setBooleanData(SharedPrefsConstants.IS_HEADER, true);
         sectorarrarylist = new ArrayList<>();
         educationAraylist = new ArrayList<>();
@@ -87,6 +82,7 @@ public class HomeFilterActivity extends BaseActivity implements KeywordSelected,
 
                 String[] stringred = new String[redSealarraylist.size()];
                 for (int i = 0; i < redSealarraylist.size(); i++) {
+                    redSealarraylist.get(i).setSelector(false);
                     if (i == 0) {
                         stringred[i] = "Yes";
                     } else {
@@ -115,6 +111,19 @@ public class HomeFilterActivity extends BaseActivity implements KeywordSelected,
 
                 }
             }
+
+            for (int i = 0; i < redSealarraylist.size(); i++) {
+                if (redSealarraylist.get(i).isSelector()) {
+                    //  arr_education.add(redSealarraylist.get(i).getId());
+                    if (i == 1) {
+                        redFlag = "0";
+                    } else {
+                        redFlag = "1";
+                    }
+                }
+            }
+
+
             if (arr_sector.size() > 0 || !arr_sector.isEmpty()) {
                 sector_id = TextUtils.join(",", arr_sector);
             }
@@ -125,7 +134,7 @@ public class HomeFilterActivity extends BaseActivity implements KeywordSelected,
             if ((arr_sector.size() == 0 || arr_sector.isEmpty()) && (arr_education.size() == 0 || arr_education.isEmpty()) && redFlag.equalsIgnoreCase("")) {
                 showToast(getString(R.string.filter_select));
             } else {
-                Log.e("yugal", sector_id + "  " + education_id);
+
                 Intent intent = new Intent(HomeFilterActivity.this, SearchActivity.class);
                 intent.putExtra("sector", sector_id);
                 intent.putExtra("education", education_id);
@@ -218,7 +227,7 @@ public class HomeFilterActivity extends BaseActivity implements KeywordSelected,
                                         stringsarr[i] = "No";
                                     }
 
-                                }else {
+                                } else {
                                     if (i == 0) {
                                         stringsarr[i] = "Oui";
                                     } else {
@@ -250,6 +259,7 @@ public class HomeFilterActivity extends BaseActivity implements KeywordSelected,
     }*/
 
     private void sector(String[] stringsarr) {
+
         new ChipCloud.Configure()
                 .chipCloud(binding.cpSector)
                 .labels(stringsarr)
@@ -266,16 +276,11 @@ public class HomeFilterActivity extends BaseActivity implements KeywordSelected,
 
                     @Override
                     public void chipDeselected(int index) {
-                        sectorarrarylist.get(index).setSelect(true);
+                        sectorarrarylist.get(index).setSelect(false);
                     }
                 })
                 .build();
 
-      /*  for (int j = 0; j < sectorarrarylist.size(); j++) {
-            if (sectorarrarylist.get(j).isSelect()) {
-                binding.cpSector.setSelectedChip(j);
-            }
-        }*/
     }
 
     private void education(String[] stringsarr) {
@@ -293,15 +298,11 @@ public class HomeFilterActivity extends BaseActivity implements KeywordSelected,
 
                     @Override
                     public void chipDeselected(int index) {
-                        educationAraylist.get(index).setSelector(true);
+                        educationAraylist.get(index).setSelector(false);
                     }
                 })
                 .build();
-       /* for (int j = 0; j < educationAraylist.size(); j++) {
-            if (educationAraylist.get(j).isSelector()) {
-                binding.cpEducation.setSelectedChip(j);
-            }
-        }*/
+
     }
 
     private void readDeal(String[] stringsarr) {
@@ -314,26 +315,20 @@ public class HomeFilterActivity extends BaseActivity implements KeywordSelected,
                 .chipListener(new ChipListener() {
                     @Override
                     public void chipSelected(int index) {
-                        if (index == 1) {
+                      /*  if (index == 1) {
                             redFlag = "0";
                         } else {
                             redFlag = "1";
-                        }
+                        }*/
+                        redSealarraylist.get(index).setSelector(true);
                     }
 
                     @Override
                     public void chipDeselected(int index) {
-
+                        redSealarraylist.get(index).setSelector(false);
                     }
                 })
                 .build();
 
-      /*  if (!redFlag.equalsIgnoreCase("")) {
-            if (redFlag.equalsIgnoreCase("0")) {
-                binding.cpRedSeal.setSelectedChip(1);
-            } else {
-                binding.cpRedSeal.setSelectedChip(0);
-            }
-        }*/
     }
 }

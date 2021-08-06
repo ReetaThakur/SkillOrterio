@@ -36,6 +36,8 @@
                         android:layout_marginTop="@dimen/_10sdp"
                         android:background="@drawable/ic_rec_line"
                         android:hint=""
+                        android:textSize="@dimen/_12sdp"
+                        android:textColorHint="#8FA1B5"
                         android:imeOptions="actionNext"
                         android:inputType="textEmailAddress|textVisiblePassword"
                         android:paddingLeft="@dimen/_15sdp"
@@ -67,6 +69,8 @@
                         android:layout_marginTop="@dimen/_10sdp"
                         android:background="@drawable/ic_rec_line"
                         android:hint=""
+                        android:textSize="@dimen/_12sdp"
+                        android:textColorHint="#8FA1B5"
                         android:imeOptions="actionNext"
                         android:inputType="textEmailAddress|textVisiblePassword"
                         android:paddingLeft="@dimen/_15sdp"
@@ -159,6 +163,8 @@
                         android:layout_marginTop="@dimen/_10sdp"
                         android:background="@drawable/ic_rec_line"
                         android:hint=""
+                        android:textSize="@dimen/_12sdp"
+                        android:textColorHint="#8FA1B5"
                         android:imeOptions="actionNext"
                         android:inputType="textEmailAddress|textVisiblePassword"
                         android:paddingLeft="@dimen/_15sdp"
@@ -247,6 +253,8 @@
                         android:clickable="false"
                         android:focusable="false"
                         android:hint=""
+                        android:textSize="@dimen/_12sdp"
+                        android:textColorHint="#8FA1B5"
                         android:imeOptions="actionNext"
                         android:inputType="textEmailAddress|textVisiblePassword"
                         android:paddingLeft="@dimen/_15sdp"
@@ -278,9 +286,11 @@
                         android:layout_marginTop="@dimen/_10sdp"
                         android:background="@drawable/ic_rec_line"
                         android:imeOptions="actionNext"
+                        android:textColorHint="#8FA1B5"
                         android:inputType="textEmailAddress|textVisiblePassword"
                         android:paddingLeft="@dimen/_15sdp"
                         android:text=""
+                        android:textSize="@dimen/_12sdp"
                         android:textColor="@color/black" />
 
                     <TextView
@@ -309,9 +319,11 @@
                         android:layout_marginTop="@dimen/_10sdp"
                         android:background="@drawable/ic_rec_line"
                         android:imeOptions="actionNext"
+                        android:textColorHint="#8FA1B5"
                         android:inputType="textEmailAddress|textVisiblePassword"
                         android:paddingLeft="@dimen/_15sdp"
                         android:text="@string/ontario"
+                        android:textSize="@dimen/_12sdp"
                         android:textColor="@color/black" />
                 </RelativeLayout>
 

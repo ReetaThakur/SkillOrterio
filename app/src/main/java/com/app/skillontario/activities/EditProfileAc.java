@@ -132,6 +132,10 @@ public class EditProfileAc extends BaseActivity implements ApiResponseErrorCallb
         binding.etLastName.setHint(R.string.enter_last_name);
         binding.etEmail.setHint(R.string.enter_your_email);
         binding.tvYears.setHint(R.string.select_age);
+        binding.etWindsor.setHint(R.string.select_city);
+        binding.etCountry.setHint(R.string.select_pro);
+
+
     }
 
     @Override

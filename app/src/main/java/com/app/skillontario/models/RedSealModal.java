@@ -14,6 +14,16 @@ public class RedSealModal implements Serializable {
     @Expose
     private Integer no;
 
+    boolean  IsSelector;
+
+    public boolean isSelector() {
+        return IsSelector;
+    }
+
+    public void setSelector(boolean selector) {
+        IsSelector = selector;
+    }
+
     public Integer getYes() {
         return yes;
     }

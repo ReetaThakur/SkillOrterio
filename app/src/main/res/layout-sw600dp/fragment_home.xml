@@ -25,13 +25,13 @@
 
                 <TextView
                     android:id="@+id/tv_findDream"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_toLeftOf="@+id/lk"
                     android:fontFamily="@font/poppins_regular"
                     android:text="@string/find_your_dream_career"
                     android:textColor="@color/black"
-                    android:textSize="33sp"></TextView>
+                    android:textSize="@dimen/_21sdp"></TextView>
 
                 <RelativeLayout
                     android:id="@+id/lk"
