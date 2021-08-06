@@ -49,6 +49,7 @@ import io.branch.referral.util.ShareSheetStyle;
 
 import com.app.skillontario.activities.SettingActivity;
 import com.app.skillontario.activities.SplashActivity;
+import com.app.skillontario.baseClasses.BaseActivity;
 import com.app.skillontario.constants.AppConstants;
 import com.app.skillontario.constants.SharedPrefsConstants;
 import com.app.skillorterio.R;
@@ -515,9 +516,9 @@ public class Utils {
         return !TextUtils.isEmpty(target) && android.util.Patterns.EMAIL_ADDRESS.matcher(target).matches();
     }
 
-    public static void share(Context context, String title, String text,String url ,Bitmap image) {
+    public static void share(Context context, String title, String text,String url ,String id) {
 
-        BranchUniversalObject buo = new BranchUniversalObject()
+    /*    BranchUniversalObject buo = new BranchUniversalObject()
                 .setCanonicalIdentifier("content/12345")
                 .setTitle("My Content Title")
                 .setContentDescription("My Content Description")
@@ -561,16 +562,17 @@ public class Utils {
             public void onChannelSelected(String channelName) {
             }
         });
+*/
 
-
- /*       BranchUniversalObject branchUniversalObject = new BranchUniversalObject()
+        BranchUniversalObject branchUniversalObject = new BranchUniversalObject()
                 .setCanonicalIdentifier("skillsontario/12345")
                 .setTitle(title)
                 .setContentDescription(text)
                 .setContentImageUrl(url)
                 .setContentIndexingMode(BranchUniversalObject.CONTENT_INDEX_MODE.PUBLIC)
                 .setLocalIndexMode(BranchUniversalObject.CONTENT_INDEX_MODE.PUBLIC)
-                .setContentMetadata(new ContentMetadata().addCustomMetadata("referring_user_pic", "https://www.skillsontario.com"));
+                .setContentMetadata(new ContentMetadata().addCustomMetadata("referring_user_pic", "https://www.skillsontario.com"))
+                .setContentMetadata(new ContentMetadata().addCustomMetadata("ProfileId", id));
 // Define the link properties for analytics and redirection control
 
 
@@ -579,16 +581,17 @@ public class Utils {
                 .setFeature("referral")
                 .setCampaign("content 123 launch")
                 .setStage("new user")
-                .addControlParameter("$desktop_url", "https://www.skillsontario.com");
+                .addControlParameter("$desktop_url", "https://www.skillsontario.com")
+                .addControlParameter("ProfileId", id);
 
-        branchUniversalObject.generateShortUrl(context, linkProperties, new Branch.BranchLinkCreateListener() {
+       /* branchUniversalObject.generateShortUrl(context, linkProperties, new Branch.BranchLinkCreateListener() {
             @Override
             public void onLinkCreate(String url, BranchError error) {
                 if (error == null) {
                     Log.i("MyApp", "got my Branch link to share: " + url);
                 }
             }
-        });
+        });*/
 
 
         // Define the style of the share sheet
@@ -598,7 +601,7 @@ public class Utils {
                 .setSharingTitle("Share With");
 
 
-        branchUniversalObject.showShareSheet(((Activity) context), linkProperties, shareSheetStyle, new Branch.BranchLinkShareListener() {
+        branchUniversalObject.showShareSheet(((BaseActivity) context), linkProperties, shareSheetStyle, new Branch.BranchLinkShareListener() {
             @Override
             public void onShareLinkDialogLaunched() {
 
@@ -624,7 +627,7 @@ public class Utils {
 
 
             }
-        });*/
+        });
 
 
     }

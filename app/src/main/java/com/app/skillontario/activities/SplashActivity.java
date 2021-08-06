@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Handler;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import com.app.skillontario.BottomBarActivity;
 import com.app.skillontario.SignIn.SignInActivity;
@@ -22,6 +23,7 @@ import java.io.Serializable;
 
 import io.branch.referral.Branch;
 import io.branch.referral.BranchError;
+import io.branch.referral.validators.IntegrationValidator;
 
 import static com.app.skillontario.constants.AppConstants.FIREBASE_TOKEN;
 import static com.app.skillontario.constants.AppConstants.IS_WALK_THROUGH;
@@ -38,10 +40,14 @@ public class SplashActivity extends BaseActivity {
     @Override
     protected void initUi() {
 
+        IntegrationValidator.validate(SplashActivity.this);
         //  Branch.sessionBuilder(this).withCallback(branchReferralInitListener).withData(getIntent() != null ? getIntent().getData() : null).init();
 
         // Branch logging for debugging
         Branch.enableLogging();
+
+        // Branch logging for debugging
+        Branch.enableDebugMode();
 
         // Branch object initialization
         Branch.getAutoInstance(this);
@@ -238,7 +244,32 @@ public class SplashActivity extends BaseActivity {
 
     @Override public void onStart() {
         super.onStart();
-        Branch.sessionBuilder(this).withCallback(branchReferralInitListener).withData(getIntent() != null ? getIntent().getData() : null).init();
+        //Branch.sessionBuilder(this).withCallback(branchReferralInitListener).withData(getIntent() != null ? getIntent().getData() : null).init();
+
+        // listener (within Main Activity's onStart)
+        Branch.sessionBuilder(this).withCallback((referringParams, error) -> {
+            if (error == null) {
+
+                // option 1: log data
+                Log.i("BRANCH SDK", referringParams.toString());
+
+               /* // option 2: save data to be used later
+                SharedPreferences preferences = MainActivity.this.getSharedPreferences(""MyPreferences"", Context.MODE_PRIVATE);
+                preferences.edit().putString(""branchData"", referringParams.toString()).apply();
+*/
+                // option 3: navigate to page
+                Intent intent = new Intent(SplashActivity.this, JobDetailsActivity.class);
+                intent.putExtra("Popular", referringParams.toString());
+                startActivity(intent);
+
+                // option 4: display data
+                Toast.makeText(SplashActivity.this, referringParams.toString(), Toast.LENGTH_LONG).show();
+
+            } else {
+                Log.i("BRANCH SDK", error.getMessage());
+            }
+        }).withData(this.getIntent().getData()).init();
+
     }
     @Override
     protected void onNewIntent(Intent intent) {
@@ -246,6 +277,35 @@ public class SplashActivity extends BaseActivity {
         setIntent(intent);
         // if activity is in foreground (or in backstack but partially visible) launching the same
         // activity will skip onStart, handle this case with reInitSession
+
+        Branch.getInstance().initSession(new Branch.BranchReferralInitListener() {
+            @Override
+            public void onInitFinished(JSONObject referringParams, BranchError error) {
+                if (error == null) {
+                    Log.i("BRANCH SDK", referringParams.toString());
+                    // Retrieve deeplink keys from 'referringParams' and evaluate the values to determine where to route the user
+                    // Check '+clicked_branch_link' before deciding whether to use your Branch routing logic
+
+                   /* // option 2: save data to be used later
+                    SharedPreferences preferences = getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor = preferences.edit();
+                    editor.putString("branchData", referringParams.toString(2));
+                    editor.commit();
+
+                    // option 3: navigate to page
+                    Intent intent = new Intent(MainActivity.this, OtherActivity.class);
+                    intent.putExtra("branchData", referringParams.toString(2));
+                    startActivity(intent);
+
+                    // option 4: display data
+                    Toast.makeText(this, referringParams.toString(2), Toast.LENGTH_LONG).show();
+                   */
+                } else {
+                    Log.i("BRANCH SDK", error.getMessage());
+                }
+            }
+        }, this.getIntent().getData(), this);
+
         Branch.sessionBuilder(this).withCallback(branchReferralInitListener).reInit();
     }
     private Branch.BranchReferralInitListener branchReferralInitListener = new Branch.BranchReferralInitListener() {

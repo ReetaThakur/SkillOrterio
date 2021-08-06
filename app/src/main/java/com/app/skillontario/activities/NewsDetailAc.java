@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -79,16 +80,42 @@ public class NewsDetailAc extends BaseActivity {
             }
 
             if (TextUtils.isEmpty(newsModal.getNewsDesc())) {
-                binding.newsLayout.tvNewsDesc.setVisibility(View.GONE);
+                //binding.newsLayout.tvNewsDesc.setVisibility(View.GONE);
+                binding.newsLayout.webViewNewsDesc.setVisibility(View.GONE);
                 return;
             } else {
-                binding.newsLayout.tvNewsDesc.setVisibility(View.VISIBLE);
-                // binding.newsLayout.tvNewsDesc.setText(newsModal.getNewsDesc());
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                //binding.newsLayout.tvNewsDesc.setVisibility(View.VISIBLE);
+                binding.newsLayout.webViewNewsDesc.setVisibility(View.VISIBLE);
+                /*if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
                     binding.newsLayout.tvNewsDesc.setText(Html.fromHtml(newsModal.getNewsDesc(), Html.FROM_HTML_MODE_COMPACT));
                 } else {
                     binding.newsLayout.tvNewsDesc.setText(Html.fromHtml(newsModal.getNewsDesc()));
-                }
+                }*/
+                binding.newsLayout.webViewNewsDesc.getSettings().setJavaScriptEnabled(true);
+                binding.newsLayout.webViewNewsDesc.setWebViewClient(new WebViewClient(){
+                    @Override
+                    public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
+
+                        Intent intent= new Intent(
+                                Intent.ACTION_VIEW,
+                                Uri.parse(request.getUrl().toString())
+                        );
+                        startActivity(intent);
+                        return true;
+                        //return super.shouldOverrideUrlLoading(view, request);
+                    }
+                });
+                binding.newsLayout.webViewNewsDesc.loadDataWithBaseURL(
+                        "",
+                        "<html>  <head><style type=\"text/css\"> @font-face {  font-family: Poppins;      src: url(\"file:///android_asset/fonts/poppins_regular.ttf\")  } </style> </head><body>" + newsModal.getNewsDesc() + "</body>",
+                        "text/html",
+                        "utf-8",
+                        null);
+                binding.newsLayout.webViewNewsDesc.setBackgroundColor(Color.TRANSPARENT);
+               // binding.newsLayout.webViewNewsDesc.setOnLongClickListener(false);
+               // binding.newsLayout.webViewNewsDesc.isLongClickable()
+
+
             }
 
             try {

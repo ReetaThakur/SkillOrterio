@@ -44,7 +44,7 @@
             android:src="@drawable/temp_n2" />
 
 
-        <TextView
+       <!-- <TextView
             android:id="@+id/tv_newsDesc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -53,7 +53,15 @@
             android:lineSpacingExtra="@dimen/_4sdp"
             android:text="@string/tempd"
             android:textColor="@color/black_light"
-            android:textSize="@dimen/_12sdp" />
+            android:textSize="@dimen/_12sdp" />-->
+
+        <WebView
+            android:id="@+id/webView_newsDesc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:fontFamily="@font/poppins_regular"
+            tools:ignore="WebViewLayout" />
 
         <ImageView
             android:id="@+id/image_news2"
