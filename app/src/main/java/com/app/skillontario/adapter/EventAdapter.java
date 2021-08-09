@@ -88,7 +88,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.MyViewHolder
             Map<String, Object> inputMap = new HashMap<>();
             inputMap = MySharedPreference.getInstance().loadMap();
             for (Map.Entry entry : inputMap.entrySet()) {
-                Log.d("Sunny ", " key  " + entry.getKey() + "; value: " + entry.getValue());
+             //   Log.d("Sunny ", " key  " + entry.getKey() + "; value: " + entry.getValue());
 
                 if (entry.getKey().toString().equalsIgnoreCase(eventsModalArrayList.get(position).getId())) {
                     holder.eventsItemBinding.ivCal.setImageResource(R.drawable.event_added);

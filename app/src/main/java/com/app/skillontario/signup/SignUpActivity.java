@@ -44,12 +44,14 @@ import com.app.skillontario.utils.MySharedPreference;
 import com.app.skillontario.utils.Utils;
 import com.app.skillorterio.R;
 import com.app.skillorterio.databinding.ActivitySignUpBinding;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import java.util.Locale;
 
 import static android.content.Intent.FLAG_ACTIVITY_CLEAR_TOP;
 import static com.app.skillontario.activities.SettingActivity.language;
 import static com.app.skillontario.constants.ApiConstants.API_INTERFACE;
+import static com.app.skillontario.constants.AppConstants.FIREBASE_TOKEN;
 import static com.app.skillontario.constants.SharedPrefsConstants.GUEST_FLOW;
 import static com.app.skillontario.utils.Utils.getDeviceId;
 import static com.app.skillontario.utils.Utils.updatLocalLanguage;
@@ -407,6 +409,21 @@ public class SignUpActivity extends BaseActivity implements ApiResponseErrorCall
     @Override
     protected void onResume() {
         super.onResume();
+
+        FirebaseMessaging.getInstance().getToken()
+                .addOnCompleteListener(task -> {
+
+                    if (!task.isSuccessful()) {
+                        // Log.w(TAG, "Fetching FCM registration token failed", task.getException());
+                        return;
+                    }
+
+                    String token = task.getResult();
+                    Log.d("Sunny", "  fcm token > " + token);
+                    MySharedPreference.getInstance().setStringData(FIREBASE_TOKEN, token);
+
+                });
+
         new Handler().postDelayed(
                 new Runnable() {
                     @Override

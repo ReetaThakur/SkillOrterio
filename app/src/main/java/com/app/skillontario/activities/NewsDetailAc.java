@@ -8,6 +8,8 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.text.Html;
 import android.text.TextUtils;
 import android.util.Log;
@@ -22,8 +24,10 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 import com.app.skillontario.baseClasses.BaseActivity;
+import com.app.skillontario.constants.AppConstants;
 import com.app.skillontario.models.NewsModal;
 import com.app.skillontario.quiz.QuizStepAc;
+import com.app.skillontario.utils.MySharedPreference;
 import com.app.skillorterio.R;
 import com.app.skillorterio.databinding.NewsDetailAcBinding;
 import com.app.skillorterio.databinding.TakeQuizAcBinding;
@@ -33,6 +37,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
+
+import static com.app.skillontario.utils.Utils.updatLocalLanguage;
 
 public class NewsDetailAc extends BaseActivity {
     private NewsDetailAcBinding binding;
@@ -259,6 +265,43 @@ public class NewsDetailAc extends BaseActivity {
         }
 
         return finalDate;
+    }
+
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+            @Override
+            public void run() {
+
+                languageMethod(MySharedPreference.getInstance().getStringData(AppConstants.LANGUAGE));
+               // binding.tv.setText(R.string.visit_website);
+                try {
+                    binding.newsLayout.tvNewsDate.setText(changeDate(newsModal.getCreatedAt()));
+                    binding.tv.setText(R.string.visit_website);
+                } catch (Exception e) {
+                }
+            }
+        }, 70);
+    }
+
+    private void languageMethod(String lang) {
+
+        if (lang != null) {
+            if (lang.isEmpty()) {
+
+                updatLocalLanguage("en", getBaseContext());
+
+            } else {
+
+                updatLocalLanguage(lang, getBaseContext());
+            }
+        } else {
+
+            updatLocalLanguage("en", getBaseContext());
+        }
     }
 
 }

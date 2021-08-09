@@ -7,6 +7,7 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.media.RingtoneManager;
@@ -20,6 +21,7 @@ import androidx.core.app.NotificationCompat;
 import androidx.core.content.ContextCompat;
 
 import com.app.skillontario.activities.SplashActivity;
+import com.app.skillontario.constants.SharedPrefsConstants;
 import com.app.skillontario.home.HomeFragment;
 import com.app.skillontario.utils.MySharedPreference;
 import com.app.skillorterio.R;
@@ -43,7 +45,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
     public static final String ADMIN_CHANNEL_ID = "00001";
     public static NotificationManager notificationManager;
-    private String dataN, typeClass;
+    private String dataN, typeClass, pushUrl;
 
     @Override
     public void onNewToken(@NotNull String refreshedToken) {
@@ -71,8 +73,8 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
             count = Integer.parseInt(MySharedPreference.getInstance().getStringData(NOTIFICATION_COUNT));
 
         try {
-             HomeFragment.tvNotificationCount.setText("" + count);
-             HomeFragment.tvNotificationCount.setVisibility(View.VISIBLE);
+            HomeFragment.tvNotificationCount.setText("" + count);
+            HomeFragment.tvNotificationCount.setVisibility(View.VISIBLE);
         } catch (Exception e) {
         }
 
@@ -84,27 +86,48 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
     }
 
     private void showCustomNotification(RemoteMessage remoteMessage) {
+        String s;
         if (remoteMessage.getData().size() > 0) {
 
             try {
                 Map<String, String> params = remoteMessage.getData();
                 JSONObject object = new JSONObject(params);
 
+                MySharedPreference.getInstance().saveNotificationObject(SharedPrefsConstants.NOTIFICATION_DATA, object);
+
                 Log.e("notification data", String.valueOf(object));
 
-                if (object.has("content"))
-                    dataN = object.getString("content");
+                try {
+                    if (object.has("type"))
+                        typeClass = object.getString("type");
+                } catch (Exception e) {
+                }
 
-                JSONObject object1 = new JSONObject(dataN);
-                object1.has("_id");
+                if (typeClass != null) {
+                    if (typeClass.equalsIgnoreCase("push")) {
+                        if (object.has("url"))
+                            pushUrl = object.getString("url");
+                    }
+                }
 
-                String s = object1.getString("_id");
+                if (typeClass == null) {
 
-                Log.e("notification data", s);
+                } else {
+
+                    try {
+                        if (object.has("content"))
+                            dataN = object.getString("content");
+                    } catch (Exception e) {
+                    }
 
 
-                if (object.has("type"))
-                    typeClass = object.getString("type");
+                   /* try {
+                        JSONObject object1 = new JSONObject(dataN);
+                        object1.has("_id");
+                        // s = object1.getString("_id");
+                    } catch (Exception e) {
+                    }*/
+                }
 
 
             } catch (Exception e) {
@@ -116,6 +139,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         Intent notificationIntent = new Intent(this, SplashActivity.class);
         notificationIntent.putExtra("typeClass", typeClass);
         notificationIntent.putExtra("dataN", dataN);
+        notificationIntent.putExtra("pushUrl", pushUrl);
         notificationIntent.putExtra("noti", true);
         notificationIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_SINGLE_TOP);
 

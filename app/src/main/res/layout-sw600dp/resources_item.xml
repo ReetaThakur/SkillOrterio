@@ -29,7 +29,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:layout_marginLeft="@dimen/_6sdp"
-                    android:layout_marginRight="@dimen/_10sdp"
+                    android:layout_marginRight="@dimen/_6sdp"
                     android:src="@drawable/res_girl"
                     tools:ignore="ContentDescription" />
 
@@ -49,7 +49,7 @@
                         android:fontFamily="@font/poppins_regular"
                         android:maxLines="3"
                         android:minHeight="21sp"
-                        android:paddingLeft="@dimen/_15sdp"
+                        android:paddingLeft="@dimen/_6sdp"
                         android:text="National Skilled Trades and Technology Week 2019, Burnaby, B.C."
                         android:textColor="@color/black"
                         android:textSize="@dimen/_10sdp" />
@@ -58,7 +58,7 @@
                         android:id="@+id/tvDate"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/_15sdp"
+                        android:layout_marginLeft="@dimen/_6sdp"
                         android:layout_marginTop="@dimen/_5sdp"
                         android:fontFamily="@font/poppins_regular"
                         android:gravity="center"

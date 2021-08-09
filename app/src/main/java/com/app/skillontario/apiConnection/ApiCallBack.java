@@ -9,6 +9,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.util.Log;
 import android.view.WindowManager;
+import android.widget.Toast;
 
 import com.app.skillontario.SignIn.SignInActivity;
 import com.app.skillontario.activities.SettingActivity;
@@ -23,6 +24,7 @@ import com.app.skillontario.utils.Utils;
 import com.app.skillorterio.R;
 
 import org.jetbrains.annotations.NotNull;
+import org.json.JSONObject;
 
 import java.net.SocketTimeoutException;
 import java.net.UnknownHostException;
@@ -86,14 +88,13 @@ public class ApiCallBack<T> implements Callback<T>, ConfirmDialogCallback {
             if (response.body() == null) {
                 if (response.errorBody() != null) {
 
-                    // responseErrorCallback.getApiError(response.errorBody().source(), flag);
-                    //  responseErrorCallback.getApiError500(response.message(), flag);
-                    responseErrorCallback.getApiResponse(response.body(), flag);
-                } else {
-                    //   responseErrorCallback.getApiError500(response.message(), flag);
+                    try {
+                        JSONObject jObjError = new JSONObject(response.errorBody().string());
+                        Utils.showToast(context, jObjError.getString("message"));
+                    } catch (Exception e) {
+                        Utils.showToast(context, "Server Not Responding");
+                    }
                 }
-            } else {
-                responseErrorCallback.getApiResponse(response.body(), flag);
             }
 
         } else {

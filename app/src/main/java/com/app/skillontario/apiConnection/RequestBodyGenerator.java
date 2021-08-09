@@ -17,6 +17,7 @@ import com.app.skillontario.utils.MySharedPreference;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import static com.app.skillontario.SignIn.SignInActivity.fcm;
 import static com.app.skillontario.constants.AppConstants.FIREBASE_TOKEN;
 import static com.app.skillontario.constants.SharedPrefsConstants.USER_ID;
 
@@ -52,7 +53,17 @@ public class RequestBodyGenerator {
         object.put("userType", userType);
         object.put("notifyStatus", "1");
         object.put("terms", "1");
-        object.put("fcmToken", MySharedPreference.getInstance().getStringData(FIREBASE_TOKEN));
+
+        if (MySharedPreference.getInstance().getStringData(FIREBASE_TOKEN) != null) {
+            if (MySharedPreference.getInstance().getStringData(FIREBASE_TOKEN).equalsIgnoreCase("")) {
+                object.put("fcmToken", fcm);
+            } else
+                object.put("fcmToken", MySharedPreference.getInstance().getStringData(FIREBASE_TOKEN));
+        } else {
+            object.put("fcmToken", fcm);
+        }
+
+       // object.put("fcmToken", MySharedPreference.getInstance().getStringData(FIREBASE_TOKEN));
         object.put("status", "");
 
         String lang = MySharedPreference.getInstance().getStringData(SharedPrefsConstants.LANGUAGE_API);

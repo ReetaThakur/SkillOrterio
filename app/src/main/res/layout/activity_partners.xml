@@ -56,7 +56,6 @@
 
                 <RelativeLayout
                     android:id="@+id/rl_Platinum"
-                    android:layout_marginStart="@dimen/_6sdp"
                     android:layout_marginEnd="@dimen/_6sdp"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -98,7 +97,6 @@
                     android:id="@+id/rl_Premium"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginStart="@dimen/_6sdp"
                     android:layout_marginEnd="@dimen/_6sdp"
                     >
 
@@ -140,7 +138,6 @@
                         android:id="@+id/rl_silver"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginStart="@dimen/_6sdp"
                         android:layout_marginEnd="@dimen/_6sdp"
                         >
                         <androidx.recyclerview.widget.RecyclerView
@@ -183,7 +180,6 @@
                     android:id="@+id/rl_gold"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_6sdp"
                     android:layout_marginEnd="@dimen/_6sdp"
                     >
                     <androidx.recyclerview.widget.RecyclerView
@@ -225,7 +221,6 @@
                     android:id="@+id/rl_bronze"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_6sdp"
                     android:layout_marginEnd="@dimen/_6sdp">
 
                     <androidx.recyclerview.widget.RecyclerView
@@ -268,7 +263,6 @@
                     android:id="@+id/rl_friends"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_6sdp"
                     android:layout_marginEnd="@dimen/_6sdp"
                     android:background="@drawable/ic_rectangle_pat1">
 
@@ -311,7 +305,6 @@
                     android:id="@+id/rl_Government_Partners"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginStart="@dimen/_6sdp"
                     android:layout_marginEnd="@dimen/_6sdp"
                     >
 

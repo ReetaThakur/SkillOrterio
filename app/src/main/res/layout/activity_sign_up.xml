@@ -36,7 +36,7 @@
                     android:fontFamily="@font/poppins_regular"
                     android:text="@string/new_account"
                     android:textColor="@color/black"
-                    android:textSize="35sp" />
+                    android:textSize="@dimen/_26sdp" />
 
                 <TextView
                     android:id="@+id/tv2"
@@ -47,7 +47,7 @@
                     android:text="@string/sign_text"
                     android:textAlignment="textStart"
                     android:textColor="@color/black_light"
-                    android:textSize="14sp" />
+                    android:textSize="@dimen/_11sdp" />
 
 
                 <RelativeLayout
@@ -82,7 +82,7 @@
                     android:fontFamily="@font/poppins_regular"
                     android:text="@string/couldn_t_find_your_email_address"
                     android:textColor="@color/text_error_color"
-                    android:textSize="12sp"
+                    android:textSize="@dimen/_10sdp"
                     android:visibility="gone"></TextView>
 
                 <RelativeLayout
@@ -126,7 +126,7 @@
                     android:fontFamily="@font/poppins_regular"
                     android:text="@string/couldn_t_find_your_email_address"
                     android:textColor="@color/text_error_color"
-                    android:textSize="12sp"
+                    android:textSize="@dimen/_10sdp"
                     android:visibility="gone"></TextView>
 
                 <RelativeLayout
@@ -171,7 +171,7 @@
                     android:fontFamily="@font/poppins_regular"
                     android:text="@string/couldn_t_find_your_email_address"
                     android:textColor="@color/text_error_color"
-                    android:textSize="12sp"
+                    android:textSize="@dimen/_10sdp"
                     android:visibility="gone"></TextView>
 
                 <LinearLayout
@@ -207,6 +207,7 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_weight="2"
                             android:orientation="horizontal">
 
                             <TextView
@@ -215,6 +216,7 @@
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/poppins_medium"
                                 android:text="@string/terms_Of_services"
+                                android:layout_weight="0"
                                 android:textColor="@color/textColorDark"
                                 android:textSize="13sp" />
 
@@ -225,15 +227,17 @@
                                 android:fontFamily="@font/poppins_regular"
                                 android:gravity="center"
                                 android:text="@string/and"
+                                android:layout_weight="0"
                                 android:textColor="@color/textColorVeryLight"
                                 android:textSize="13sp" />
 
                             <TextView
                                 android:id="@+id/tv_privacy"
-                                android:layout_width="wrap_content"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/poppins_medium"
                                 android:text="@string/underlined_privacy_policy"
+                                android:layout_weight="1"
                                 android:textColor="@color/textColorDark"
                                 android:textSize="13sp" />
                         </LinearLayout>
@@ -265,7 +269,7 @@
                             android:text="@string/signup"
                             android:textAllCaps="true"
                             android:textColor="@color/white"
-                            android:textSize="18sp" />
+                            android:textSize="@dimen/_14sdp" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
@@ -273,41 +277,46 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_24sdp"
+                    android:layout_weight="2"
                     android:orientation="horizontal">
 
                     <TextView
                         android:id="@+id/tv_have_an_account"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_weight="0"
                         android:fontFamily="@font/poppins_regular"
                         android:gravity="center"
                         android:text="@string/have_an_account"
                         android:textColor="@color/textColorVeryLight"
-                        android:textSize="12sp" />
+                        android:textSize="@dimen/_8sdp" />
 
                     <TextView
                         android:id="@+id/tv_signIN"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_weight="0"
                         android:fontFamily="@font/poppins_regular"
                         android:gravity="center"
                         android:text="@string/sign_in1"
                         android:textColor="#49FDA7"
-                        android:textSize="12sp" />
+                        android:textSize="@dimen/_8sdp" />
 
-                    <TextView
+                    <me.grantland.widget.AutofitTextView
                         android:id="@+id/tv_continue_as_guest"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
                         android:layout_marginLeft="@dimen/_4sdp"
+                        android:layout_weight="1"
                         android:drawableRight="@drawable/ic_sign_up_arrow"
                         android:fontFamily="@font/poppins_regular"
                         android:gravity="end"
                         android:minWidth="@dimen/_100sdp"
+                        android:singleLine="true"
                         android:text="@string/continue_as_guest"
                         android:textColor="@color/textColorVeryLight"
-                        android:textSize="12sp" />
+                        android:textSize="@dimen/_8sdp" />
 
                 </LinearLayout>
             </LinearLayout>

@@ -105,6 +105,20 @@ public class MySharedPreference {
         return obj;
     }
 
+    public void saveNotificationObject(String key, JSONObject object) {
+        SharedPreferences.Editor prefsEditor = sharedpreferences.edit();
+        Gson gson = new Gson();
+        String json = gson.toJson(object);
+        prefsEditor.putString(key, json);
+        prefsEditor.commit();
+    }
+
+    public JSONObject getNotificationObject(String key) {
+        Gson gson = new Gson();
+        String json = sharedpreferences.getString(key, "");
+        JSONObject obj = gson.fromJson(json, JSONObject.class);
+        return obj;
+    }
 
     public void saveMap(Map<String, Object> inputMap) {
         final String mapKey = "map";

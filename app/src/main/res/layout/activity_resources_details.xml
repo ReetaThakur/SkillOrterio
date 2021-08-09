@@ -64,15 +64,15 @@ Week 2019, Burnaby, B.C."
                             android:fontFamily="@font/poppins_regular"
                             tools:ignore="WebViewLayout" />
 
-                       <!-- <TextView
-                            android:id="@+id/tv_desc"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/_12sdp"
-                            android:fontFamily="@font/poppins_regular"
-                            android:text="What is National Skilled Trade and Technology Week (NSTTW)?"
-                            android:textColor="@color/black"
-                            android:textSize="@dimen/_12sdp"></TextView>-->
+                        <!-- <TextView
+                             android:id="@+id/tv_desc"
+                             android:layout_width="match_parent"
+                             android:layout_height="wrap_content"
+                             android:layout_marginTop="@dimen/_12sdp"
+                             android:fontFamily="@font/poppins_regular"
+                             android:text="What is National Skilled Trade and Technology Week (NSTTW)?"
+                             android:textColor="@color/black"
+                             android:textSize="@dimen/_12sdp"></TextView>-->
 
                         <TextView
                             android:layout_width="match_parent"
@@ -99,9 +99,6 @@ NSTTW is a key date in the annual Skills/Compétences Canada (SCC) calendar. The
                             android:textColor="@color/black"
                             android:textSize="@dimen/_12sdp"
                             android:visibility="gone"></TextView>
-
-
-
 
 
                     </LinearLayout>
@@ -134,13 +131,16 @@ NSTTW is a key date in the annual Skills/Compétences Canada (SCC) calendar. The
                         android:layout_height="50dp"
                         android:gravity="center">
 
-                        <TextView
+                        <me.grantland.widget.AutofitTextView
                             android:id="@+id/tv"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
                             android:fontFamily="@font/poppins_medium"
                             android:gravity="center"
+                            android:maxLines="1"
+                            android:paddingLeft="@dimen/_6sdp"
+                            android:paddingRight="@dimen/_6sdp"
                             android:text="@string/visit_website"
                             android:textAllCaps="true"
                             android:textColor="@color/white"

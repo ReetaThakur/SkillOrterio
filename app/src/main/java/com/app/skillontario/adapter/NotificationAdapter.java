@@ -1,20 +1,28 @@
 package com.app.skillontario.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.core.content.ContextCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.app.skillontario.BottomBarActivity;
+import com.app.skillontario.activities.ResourcesDetailsActivity;
+import com.app.skillontario.activities.SplashActivity;
+import com.app.skillontario.activities.WebViewActivity;
 import com.app.skillontario.models.NotificationModal;
+import com.app.skillontario.models.ResourceModal;
 import com.app.skillorterio.R;
 import com.app.skillorterio.databinding.AdapterNotificationBinding;
 import com.app.skillorterio.databinding.AdapterNotificationBinding;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapter.ViewHolder> {
@@ -83,6 +91,44 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
             viewHolder.binding.imageView.setImageResource(R.drawable.ic_shape__noti3);
             viewHolder.binding.imageBackground.setColorFilter(ContextCompat.getColor(context, R.color.noti_color3));
         }
+
+        viewHolder.binding.openNotification.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (arrayListNotify.get(position).getNotifyType().equalsIgnoreCase("event")) {
+                    Intent intent = new Intent(context, BottomBarActivity.class);
+                    intent.putExtra("if", "2");
+                    context.startActivity(intent);
+                } else if (arrayListNotify.get(position).getNotifyType().equalsIgnoreCase("resource")) {
+
+                    ResourceModal model = new ResourceModal();
+                    model.setResUrl(arrayListNotify.get(position).getUrl());
+                    model.setId(arrayListNotify.get(position).getId());
+                    // model.setResImage(arrayListNotify.get(position).ge);
+                    // model.setResDesc(arrayListNotify.get(position).getD);
+                    Intent intent = new Intent(context, ResourcesDetailsActivity.class);
+                    intent.putExtra("model", (Serializable) model);
+                    context.startActivity(intent);
+
+                } else if (arrayListNotify.get(position).getNotifyType().equalsIgnoreCase("mgsafai")) { //  scloarship
+                    Intent intent = new Intent(context, BottomBarActivity.class);
+                    context.startActivity(intent);
+                } else if (arrayListNotify.get(position).getNotifyType().equalsIgnoreCase("profile")) {
+                    Intent intent = new Intent(context, BottomBarActivity.class);
+                    //intent.putExtra("resData", "");
+                    context.startActivity(intent);
+
+                } else if (arrayListNotify.get(position).getNotifyType().equalsIgnoreCase("news")) {
+                    Intent intent = new Intent(context, WebViewActivity.class);
+                    intent.putExtra("url", arrayListNotify.get(position).getUrl());
+                    context.startActivity(intent);
+                } else if (arrayListNotify.get(position).getNotifyType().equalsIgnoreCase("push")) {
+                    Intent intent = new Intent(context, WebViewActivity.class);
+                    intent.putExtra("url", arrayListNotify.get(position).getUrl());
+                    context.startActivity(intent);
+                }
+            }
+        });
 
     }
 

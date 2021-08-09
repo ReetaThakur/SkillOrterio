@@ -248,4 +248,5 @@ vous vous identifiez comme une femme</string>
     <string name="select_age">Sélectionnez la tranche d\'âge</string>
     <string name="select_city">Enter City</string>
     <string name="select_pro">Enter State/Province</string>
+    <string name="okay">d\'accord</string>
 </resources>

@@ -43,7 +43,7 @@ public class SignInActivity extends BaseActivity implements ApiResponseErrorCall
     private ActivitySignInBinding binding;
     Drawable myIcon;
     ApiResponseErrorCallback apiResponseErrorCallback;
-    String fcm = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im11a2VzaEBtYWlsaW5hdG9yLmNvbSIsImRldmljZUlkIjoiOTk5OTk5LTAwMDAtMDAwIiwiaWF0IjoxNjI0NTMxMjQ0LCJleHAiOjE2MjcxMjMyNDR9.0L8l7y2t7msJLjXKMo0w2KMjskk2hIKcEsOZ6aG5uLM";
+    public static String fcm = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im11a2VzaEBtYWlsaW5hdG9yLmNvbSIsImRldmljZUlkIjoiOTk5OTk5LTAwMDAtMDAwIiwiaWF0IjoxNjI0NTMxMjQ0LCJleHAiOjE2MjcxMjMyNDR9.0L8l7y2t7msJLjXKMo0w2KMjskk2hIKcEsOZ6aG5uLM";
 
     @Override
     protected void initUi() {
@@ -152,6 +152,7 @@ public class SignInActivity extends BaseActivity implements ApiResponseErrorCall
         });
 
     }
+
 
     void callSignInApi(String email, String pass, String usertype) {
         HashMap<String, Object> object = new HashMap<>();
@@ -347,5 +348,18 @@ public class SignInActivity extends BaseActivity implements ApiResponseErrorCall
     protected void onResume() {
         super.onResume();
 
+        FirebaseMessaging.getInstance().getToken()
+                .addOnCompleteListener(task -> {
+
+                    if (!task.isSuccessful()) {
+                        // Log.w(TAG, "Fetching FCM registration token failed", task.getException());
+                        return;
+                    }
+
+                    String token = task.getResult();
+                    Log.d("Sunny", "  fcm token > " + token);
+                    MySharedPreference.getInstance().setStringData(FIREBASE_TOKEN, token);
+
+                });
     }
 }

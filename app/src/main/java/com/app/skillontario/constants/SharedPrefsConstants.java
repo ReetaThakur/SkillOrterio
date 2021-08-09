@@ -20,6 +20,7 @@ public class SharedPrefsConstants {
     public static final String GUEST_FLOW_CLASS = "GUEST_FLOW_CLASS";
     public static final String LANGUAGE_API = "language";
     public static final String NOTIFICATION_ON_OFF = "NOTIFICATION_ON_OFF";
+    public static final String NOTIFICATION_DATA = "NOTIFICATION_DATA";
 
 
 }

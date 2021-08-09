@@ -7,6 +7,8 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.text.Html;
 import android.text.TextUtils;
 import android.util.Patterns;
@@ -15,12 +17,18 @@ import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
+import com.app.skillontario.BottomBarActivity;
 import com.app.skillontario.baseClasses.BaseActivity;
+import com.app.skillontario.constants.AppConstants;
 import com.app.skillontario.models.ResourceModal;
+import com.app.skillontario.utils.MySharedPreference;
 import com.app.skillorterio.R;
 import com.app.skillorterio.databinding.ActivityPrivacyPolicyBinding;
 import com.app.skillorterio.databinding.ActivityResourcesDetailsBinding;
 import com.bumptech.glide.Glide;
+
+import static com.app.skillontario.activities.SettingActivity.language;
+import static com.app.skillontario.utils.Utils.updatLocalLanguage;
 
 public class ResourcesDetailsActivity extends BaseActivity {
 
@@ -64,11 +72,11 @@ public class ResourcesDetailsActivity extends BaseActivity {
                     binding.tvDesc.setText(Html.fromHtml(modal.getResDesc()));
                 }*/
                 binding.webViewNewsDesc.getSettings().setJavaScriptEnabled(true);
-                binding.webViewNewsDesc.setWebViewClient(new WebViewClient(){
+                binding.webViewNewsDesc.setWebViewClient(new WebViewClient() {
                     @Override
                     public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
 
-                        Intent intent= new Intent(
+                        Intent intent = new Intent(
                                 Intent.ACTION_VIEW,
                                 Uri.parse(request.getUrl().toString())
                         );
@@ -130,4 +138,36 @@ public class ResourcesDetailsActivity extends BaseActivity {
         overridePendingTransition(R.anim.slide_in_from_left, R.anim.slide_out_from_right);
 
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+            @Override
+            public void run() {
+
+                languageMethod(MySharedPreference.getInstance().getStringData(AppConstants.LANGUAGE));
+                binding.tv.setText(R.string.visit_website);
+            }
+        }, 70);
+    }
+
+    private void languageMethod(String lang) {
+
+        if (lang != null) {
+            if (lang.isEmpty()) {
+
+                updatLocalLanguage("en", getBaseContext());
+
+            } else {
+
+                updatLocalLanguage(lang, getBaseContext());
+            }
+        } else {
+
+            updatLocalLanguage("en", getBaseContext());
+        }
+    }
+
 }

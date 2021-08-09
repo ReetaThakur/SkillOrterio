@@ -23,7 +23,7 @@ public class ContactUsAc extends BaseActivity {
             public void onClick(View v) {
                 try {
                     Intent intent = new Intent(Intent.ACTION_DIAL);
-                    intent.setData(Uri.parse("tel:0123456789"));
+                    intent.setData(Uri.parse("tel:5197499899"));
                     startActivity(intent);
                 } catch (Exception e) {
                 }
@@ -37,7 +37,7 @@ public class ContactUsAc extends BaseActivity {
                 try {
                     Intent intent = new Intent(Intent.ACTION_SENDTO);
                     intent.setData(Uri.parse("mailto:")); // only email apps should handle this
-                    intent.putExtra(Intent.EXTRA_EMAIL, new String[]{"example.gmail.com"});
+                    intent.putExtra(Intent.EXTRA_EMAIL, new String[]{"info@skillsontario.com"});
                     intent.putExtra(Intent.EXTRA_SUBJECT, "App feedback");
                     startActivity(intent);
                 } catch (android.content.ActivityNotFoundException ex) {

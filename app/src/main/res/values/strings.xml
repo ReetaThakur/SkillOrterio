@@ -176,7 +176,7 @@
     <string name="full_time_amp_part_time"><![CDATA[Full Time/Part Time Employees]]></string>
     <string name="corporations">Corporations</string>
     <string name="function_not_clear">Click function not clear.</string>
-    <string name="okay">Okay</string>
+    <string name="okay">OK</string>
     <string name="open_drawer">open drawer</string>
     <string name="close_drawer">drawer close</string>
     <string name="divorced">Divorced</string>
@@ -631,7 +631,7 @@
     <string name="general">General</string>
     <string name="discover_more_retake_the_career_quiz">Discover more! Retake the career quiz.</string>
     <string name="retake_quiz">RETAKE QUIZ</string>
-    <string name="enter_new_password">"Enter new password "</string>
+    <string name="enter_new_password">Enter new password </string>
     <string name="Partners">Partners</string>
     <string name="platinum_patner">Platinum Partners</string>
     <string name="premimun_ptner">Premium Partners</string>
@@ -686,8 +686,8 @@ identify as female</string>
     <string name="sign_text">Creating an account saves your information and lets you bookmark careers you\'re interested in!</string>
     <string name="by_continuing_you_agree_to_skills_ontario">By continuing, You agree to Skills Ontario </string>
     <string name="and"> and </string>
-    <string name="have_an_account">Have an account?</string>
-    <string name="sign_in1">Sign In</string>
+    <string name="have_an_account">Have an account? </string>
+    <string name="sign_in1"> Sign In</string>
     <string name="continue_as_guest">Continue As Guest </string>
     <string name="don_t_have_an_account">"Don't have an account? "</string>
     <string name="sign_up">Sign Up</string>

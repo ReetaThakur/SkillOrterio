@@ -49,7 +49,9 @@ public class SettingActivity extends BaseActivity implements ApiResponseErrorCal
 
         if (MySharedPreference.getInstance().getBooleanData(SharedPrefsConstants.NOTIFICATION_ON_OFF)) {
             binding.ivNotification.setImageResource(R.drawable.ic_notification_on);
+            updateNotification("1", MySharedPreference.getInstance().getStringData(SharedPrefsConstants.LANGUAGE_API));
         } else {
+            updateNotification("0", MySharedPreference.getInstance().getStringData(SharedPrefsConstants.LANGUAGE_API));
             binding.ivNotification.setImageResource(R.drawable.ic_notification_off);
         }
 
@@ -85,7 +87,7 @@ public class SettingActivity extends BaseActivity implements ApiResponseErrorCal
                 MySharedPreference.getInstance().setBooleanData(SharedPrefsConstants.NOTIFICATION_ON_OFF, false);
                 updateNotification("0", MySharedPreference.getInstance().getStringData(SharedPrefsConstants.LANGUAGE_API));
                 binding.ivNotification.setImageResource(R.drawable.ic_notification_off);
-            }else {
+            } else {
                 updateNotification("1", MySharedPreference.getInstance().getStringData(SharedPrefsConstants.LANGUAGE_API));
                 binding.ivNotification.setImageResource(R.drawable.ic_notification_on);
                 MySharedPreference.getInstance().setBooleanData(SharedPrefsConstants.NOTIFICATION_ON_OFF, true);
@@ -202,7 +204,10 @@ public class SettingActivity extends BaseActivity implements ApiResponseErrorCal
                     startActivity(intent);
                     finish();
                 } else {
-                    showToast(responseModel.getMessage());
+                    try {
+                        showToast(responseModel.getMessage());
+                    }catch (Exception e){}
+
                 }
             } catch (Exception e) {
             }

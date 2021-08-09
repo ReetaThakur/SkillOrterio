@@ -134,6 +134,7 @@ public class EditProfileAc extends BaseActivity implements ApiResponseErrorCallb
         binding.tvYears.setHint(R.string.select_age);
         binding.etWindsor.setHint(R.string.select_city);
         binding.etCountry.setHint(R.string.select_pro);
+        binding.saveProfile.setText(R.string.save_profile);
 
 
     }
@@ -152,7 +153,7 @@ public class EditProfileAc extends BaseActivity implements ApiResponseErrorCallb
     }
 
     void showDilog() {
-        dialogWithMsg = new DialogWithMsg(EditProfileAc.this, 0, "", getString(R.string.demo_), getString(R.string.ok_got_it), null);
+        dialogWithMsg = new DialogWithMsg(EditProfileAc.this, 0, "", getString(R.string.edit_profile_dailog_test), getString(R.string.okay), null);
         dialogWithMsg.show();
     }
 

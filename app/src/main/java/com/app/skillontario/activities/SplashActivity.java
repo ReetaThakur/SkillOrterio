@@ -11,6 +11,7 @@ import com.app.skillontario.BottomBarActivity;
 import com.app.skillontario.SignIn.SignInActivity;
 import com.app.skillontario.baseClasses.BaseActivity;
 import com.app.skillontario.constants.AppConstants;
+import com.app.skillontario.constants.SharedPrefsConstants;
 import com.app.skillontario.models.ResourceModal;
 import com.app.skillontario.signup.SignUpActivity;
 import com.app.skillontario.utils.MySharedPreference;
@@ -117,6 +118,7 @@ public class SplashActivity extends BaseActivity {
     private Runnable runnable = () -> {
 
         boolean check = false;
+        String typeClass = "", dataN = "";
         try {
             check = getIntent().getBooleanExtra("noti", false);
         } catch (Exception e) {
@@ -127,28 +129,36 @@ public class SplashActivity extends BaseActivity {
             if (MySharedPreference.getInstance().getBooleanData("IS_NOTIFICATION") || check) {
                 MySharedPreference.getInstance().setBooleanData(IS_NOTIFICATION, false);
 
-                String typeClass, dataN;
+                JSONObject object = null;
+                try {
+                    object = MySharedPreference.getInstance().getNotificationObject(SharedPrefsConstants.NOTIFICATION_DATA);
+                    if (object != null) {
+                        if (object.has("type"))
+                            typeClass = object.getString("type");
+                    }
+                } catch (Exception e) {
+                    typeClass = "";
+                }
 
                 try {
-                    typeClass = getIntent().getStringExtra("typeClass");
-                    dataN = getIntent().getStringExtra("dataN");
-
-                    JSONObject object1 = new JSONObject(dataN);
-                    //  object1.has("_id");
-
-
-                    //  String s = object1.getString("_id");
-
-
-                    // Log.d("Sunny", " id  > " + s);
 
                     if (typeClass.equalsIgnoreCase("news")) {
+
+                        if (object.has("content"))
+                            dataN = object.getString("content");
+
+                        // dataN = getIntent().getStringExtra("dataN");
+                        JSONObject object1 = new JSONObject(dataN);
                         String url1 = object1.getString("newsUrl");
                         Intent intent = new Intent(SplashActivity.this, WebViewActivity.class);
                         intent.putExtra("url", url1);
                         startActivity(intent);
                         finishAffinity();
                     } else if (typeClass.equalsIgnoreCase("resource")) {
+                        if (object.has("content"))
+                            dataN = object.getString("content");
+
+                        JSONObject object1 = new JSONObject(dataN);
                         ResourceModal model = new ResourceModal();
                         model.setResUrl(object1.getString("resUrl"));
                         model.setId(object1.getString("_id"));
@@ -172,6 +182,22 @@ public class SplashActivity extends BaseActivity {
                     } else if (typeClass.equalsIgnoreCase("mgsafai")) {
                         Intent intent = new Intent(SplashActivity.this, BottomBarActivity.class);
                         //intent.putExtra("resData", "");
+                        startActivity(intent);
+                        finishAffinity();
+                    } else if (typeClass.equalsIgnoreCase("push")) {
+                        String pushUrl = "";
+                        if (typeClass != null) {
+                            if (typeClass.equalsIgnoreCase("push")) {
+                                if (object.has("url"))
+                                    pushUrl = object.getString("url");
+                            }
+                        }
+
+
+                        //String url1 = object1.getString("newsUrl");
+
+                        Intent intent = new Intent(SplashActivity.this, WebViewActivity.class);
+                        intent.putExtra("url", pushUrl);
                         startActivity(intent);
                         finishAffinity();
                     } else {
@@ -235,14 +261,31 @@ public class SplashActivity extends BaseActivity {
 
             }
         } catch (Exception e) {
-            startActivity(new Intent(this, SelectLanguage.class));
-            finishAffinity();
+            MySharedPreference.getInstance().setBooleanData(IS_NOTIFICATION, false);
+            if (!MySharedPreference.getInstance().getStringData(USER_TOKEN).equalsIgnoreCase("")) {
+                startActivity(new Intent(this, BottomBarActivity.class));
+                finishAffinity();
+
+            } else {
+                if (MySharedPreference.getInstance().getBooleanData(IS_WALK_THROUGH)) {
+                    startActivity(new Intent(this, SignUpActivity.class));
+                    finishAffinity();
+                } else {
+                    Intent intent = new Intent(this, SelectLanguage.class);
+                    intent.putExtra(AppConstants.LOGIN_TYPE, "new");
+                    startActivity(intent);
+                    finishAffinity();
+                }
+            }
+        } finally {
+            MySharedPreference.getInstance().saveNotificationObject(SharedPrefsConstants.NOTIFICATION_DATA, null);
         }
 
 
     };
 
-    @Override public void onStart() {
+    @Override
+    public void onStart() {
         super.onStart();
         //Branch.sessionBuilder(this).withCallback(branchReferralInitListener).withData(getIntent() != null ? getIntent().getData() : null).init();
 
@@ -253,17 +296,10 @@ public class SplashActivity extends BaseActivity {
                 // option 1: log data
                 Log.i("BRANCH SDK", referringParams.toString());
 
-               /* // option 2: save data to be used later
-                SharedPreferences preferences = MainActivity.this.getSharedPreferences(""MyPreferences"", Context.MODE_PRIVATE);
-                preferences.edit().putString(""branchData"", referringParams.toString()).apply();
-*/
-                // option 3: navigate to page
-                Intent intent = new Intent(SplashActivity.this, JobDetailsActivity.class);
+              /*  Intent intent = new Intent(SplashActivity.this, JobDetailsActivity.class);
                 intent.putExtra("Popular", referringParams.toString());
-                startActivity(intent);
+                startActivity(intent);*/
 
-                // option 4: display data
-                Toast.makeText(SplashActivity.this, referringParams.toString(), Toast.LENGTH_LONG).show();
 
             } else {
                 Log.i("BRANCH SDK", error.getMessage());
@@ -271,6 +307,7 @@ public class SplashActivity extends BaseActivity {
         }).withData(this.getIntent().getData()).init();
 
     }
+
     @Override
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
@@ -308,6 +345,7 @@ public class SplashActivity extends BaseActivity {
 
         Branch.sessionBuilder(this).withCallback(branchReferralInitListener).reInit();
     }
+
     private Branch.BranchReferralInitListener branchReferralInitListener = new Branch.BranchReferralInitListener() {
         @Override
         public void onInitFinished(JSONObject linkProperties, BranchError error) {

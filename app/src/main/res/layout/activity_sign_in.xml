@@ -36,7 +36,7 @@
                     android:fontFamily="@font/poppins_regular"
                     android:text="@string/welcome_to_skills_ontario"
                     android:textColor="@color/black"
-                    android:textSize="35sp" />
+                    android:textSize="@dimen/_26sdp" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -45,7 +45,7 @@
                     android:lineSpacingExtra="10dp"
                     android:text="@string/dummy_sign"
                     android:textColor="@color/black_light"
-                    android:textSize="14sp" />
+                    android:textSize="@dimen/_11sdp" />
 
 
                 <RelativeLayout
@@ -82,7 +82,7 @@
                     android:fontFamily="@font/poppins_regular"
                     android:text="@string/couldn_t_find_your_email_address"
                     android:textColor="@color/text_error_color"
-                    android:textSize="12sp"
+                    android:textSize="@dimen/_10sdp"
                     android:visibility="gone"></TextView>
 
                 <RelativeLayout
@@ -133,7 +133,7 @@
                         android:fontFamily="@font/poppins_regular"
                         android:text="@string/incorrect_password"
                         android:textColor="@color/text_error_color"
-                        android:textSize="12sp"
+                        android:textSize="@dimen/_10sdp"
                         android:visibility="gone"></TextView>
 
                     <TextView
@@ -147,7 +147,7 @@
                         android:gravity="end"
                         android:text="@string/forgot_password"
                         android:textColor="@color/black"
-                        android:textSize="15sp"></TextView>
+                        android:textSize="@dimen/_11sdp"></TextView>
 
                 </LinearLayout>
 
@@ -174,7 +174,7 @@
                             android:text="@string/sign_in"
                             android:textAllCaps="true"
                             android:textColor="@color/white"
-                            android:textSize="18sp" />
+                            android:textSize="@dimen/_14sdp" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
@@ -198,7 +198,7 @@
                 android:gravity="center"
                 android:text="@string/don_t_have_an_account"
                 android:textColor="@color/textColorVeryLight"
-                android:textSize="11sp" />
+                android:textSize="@dimen/_8sdp" />
 
             <TextView
                 android:id="@+id/tv_have_an_account1"
@@ -208,9 +208,9 @@
                 android:gravity="center"
                 android:text="@string/sign_up"
                 android:textColor="#49FDA7"
-                android:textSize="11sp" />
+                android:textSize="@dimen/_8sdp" />
 
-            <TextView
+            <me.grantland.widget.AutofitTextView
                 android:id="@+id/tv_continue_as_guest"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -221,7 +221,7 @@
                 android:gravity="end"
                 android:text="@string/continue_as_guest"
                 android:textColor="@color/textColorVeryLight"
-                android:textSize="11sp" />
+                android:textSize="@dimen/_8sdp" />
 
         </LinearLayout>
     </RelativeLayout>

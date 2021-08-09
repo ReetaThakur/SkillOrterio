@@ -105,11 +105,11 @@ public class JobDetailsActivity extends BaseActivity implements ApiResponseError
                 if (!MySharedPreference.getInstance().getBooleanData(SharedPrefsConstants.GUEST_FLOW)) {
                     if (clickBookMark) {
                         clickBookMark = false;
-                        binding.imgBookmark.setImageResource(R.drawable.ic_job_uppar1);
+                        binding.imgBookmark.setImageResource(R.drawable.ic_book_mark_de);
                         removeBookmark(careerListDetails.get(0).getbId(), careerListDetails.get(0).getId());
                     } else {
                         clickBookMark = true;
-                        binding.imgBookmark.setImageResource(R.drawable.job_bookmark_click);
+                        binding.imgBookmark.setImageResource(R.drawable.ic_book_mark_de_select);
                         addBookmark(careerListDetails.get(0), careerListDetails.get(0).getId());
                     }
                 } else {
@@ -288,7 +288,7 @@ public class JobDetailsActivity extends BaseActivity implements ApiResponseError
             BaseResponseModel responseModel = (BaseResponseModel) responseObject;
             if (responseModel.getStatus()) {
                 clickBookMark = false;
-                binding.imgBookmark.setBackgroundResource(R.drawable.ic_job_uppar1);
+                binding.imgBookmark.setBackgroundResource(R.drawable.ic_book_mark_de);
             } else {
                 showToast(responseModel.getMessage());
             }
@@ -297,7 +297,7 @@ public class JobDetailsActivity extends BaseActivity implements ApiResponseError
             if (responseModel != null) {
                 if (responseModel.getStatus()) {
                     clickBookMark = true;
-                    binding.imgBookmark.setBackgroundResource(R.drawable.ic_bookmark_fill);
+                    binding.imgBookmark.setBackgroundResource(R.drawable.ic_book_mark_de_select);
                 }
             }
         } else if (flag == 121) {
@@ -332,10 +332,10 @@ public class JobDetailsActivity extends BaseActivity implements ApiResponseError
     private void setData(ArrayList<CareerListDetails> careerListDetails) {
         if (careerListDetails.get(0).getbId().equalsIgnoreCase("")) {
             clickBookMark = false;
-            binding.imgBookmark.setBackgroundResource(R.drawable.ic_job_uppar1);
+            binding.imgBookmark.setBackgroundResource(R.drawable.ic_book_mark_de);
         } else {
             clickBookMark = true;
-            binding.imgBookmark.setBackgroundResource(R.drawable.ic_bookmark_fill);
+            binding.imgBookmark.setBackgroundResource(R.drawable.ic_book_mark_de_select);
         }
         Picasso.with(JobDetailsActivity.this).load(careerListDetails.get(0).getImage()).into(binding.imageP);
         binding.textCons.setText(careerListDetails.get(0).getJobSector());
