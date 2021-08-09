@@ -50,6 +50,7 @@ import io.branch.referral.util.ShareSheetStyle;
 
 import com.app.skillontario.activities.SettingActivity;
 import com.app.skillontario.activities.SplashActivity;
+import com.app.skillontario.baseClasses.BaseActivity;
 import com.app.skillontario.constants.AppConstants;
 import com.app.skillontario.constants.SharedPrefsConstants;
 import com.app.skillorterio.R;
@@ -87,7 +88,6 @@ import java.util.TimeZone;
 
 public class Utils {
     public static String emailPattern = "^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,4})$";
-    public static String DEVELOPER_KEY = "AIzaSyAgnzI_bu5NaLivA1wVkG6H5LI8ty0Ih3s";
 
     /**
      * Hides the soft keyboard
@@ -521,9 +521,9 @@ public class Utils {
         return !TextUtils.isEmpty(target) && android.util.Patterns.EMAIL_ADDRESS.matcher(target).matches();
     }
 
-    public static void share(Context context, String title, String text, String url, Bitmap image) {
+    public static void share(Context context, String title, String text,String url ,String id) {
 
-        BranchUniversalObject buo = new BranchUniversalObject()
+    /*    BranchUniversalObject buo = new BranchUniversalObject()
                 .setCanonicalIdentifier("content/12345")
                 .setTitle("My Content Title")
                 .setContentDescription("My Content Description")
@@ -553,33 +553,31 @@ public class Utils {
                 .setAsFullWidthStyle(true)
                 .setSharingTitle("Share With");
 
-        buo.showShareSheet(((Activity) context), lp, ss, new Branch.BranchLinkShareListener() {
+        buo.showShareSheet(((Activity) context), lp,  ss,  new Branch.BranchLinkShareListener() {
             @Override
             public void onShareLinkDialogLaunched() {
             }
-
             @Override
             public void onShareLinkDialogDismissed() {
             }
-
             @Override
             public void onLinkShareResponse(String sharedLink, String sharedChannel, BranchError error) {
             }
-
             @Override
             public void onChannelSelected(String channelName) {
             }
         });
+*/
 
-
- /*       BranchUniversalObject branchUniversalObject = new BranchUniversalObject()
+        BranchUniversalObject branchUniversalObject = new BranchUniversalObject()
                 .setCanonicalIdentifier("skillsontario/12345")
                 .setTitle(title)
                 .setContentDescription(text)
                 .setContentImageUrl(url)
                 .setContentIndexingMode(BranchUniversalObject.CONTENT_INDEX_MODE.PUBLIC)
                 .setLocalIndexMode(BranchUniversalObject.CONTENT_INDEX_MODE.PUBLIC)
-                .setContentMetadata(new ContentMetadata().addCustomMetadata("referring_user_pic", "https://www.skillsontario.com"));
+                .setContentMetadata(new ContentMetadata().addCustomMetadata("referring_user_pic", "https://www.skillsontario.com"))
+                .setContentMetadata(new ContentMetadata().addCustomMetadata("ProfileId", id));
 // Define the link properties for analytics and redirection control
 
 
@@ -588,16 +586,17 @@ public class Utils {
                 .setFeature("referral")
                 .setCampaign("content 123 launch")
                 .setStage("new user")
-                .addControlParameter("$desktop_url", "https://www.skillsontario.com");
+                .addControlParameter("$desktop_url", "https://www.skillsontario.com")
+                .addControlParameter("ProfileId", id);
 
-        branchUniversalObject.generateShortUrl(context, linkProperties, new Branch.BranchLinkCreateListener() {
+       /* branchUniversalObject.generateShortUrl(context, linkProperties, new Branch.BranchLinkCreateListener() {
             @Override
             public void onLinkCreate(String url, BranchError error) {
                 if (error == null) {
                     Log.i("MyApp", "got my Branch link to share: " + url);
                 }
             }
-        });
+        });*/
 
 
         // Define the style of the share sheet
@@ -607,7 +606,7 @@ public class Utils {
                 .setSharingTitle("Share With");
 
 
-        branchUniversalObject.showShareSheet(((Activity) context), linkProperties, shareSheetStyle, new Branch.BranchLinkShareListener() {
+        branchUniversalObject.showShareSheet(((BaseActivity) context), linkProperties, shareSheetStyle, new Branch.BranchLinkShareListener() {
             @Override
             public void onShareLinkDialogLaunched() {
 
@@ -633,7 +632,7 @@ public class Utils {
 
 
             }
-        });*/
+        });
 
 
     }

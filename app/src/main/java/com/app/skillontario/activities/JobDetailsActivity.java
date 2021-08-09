@@ -126,7 +126,7 @@ public class JobDetailsActivity extends BaseActivity implements ApiResponseError
         binding.imgShare.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Utils.share(JobDetailsActivity.this,"","Hey! I came across this profile on Skills Ontario. Click this link to view","https://www.skillsontario.com",null);
+                Utils.share(JobDetailsActivity.this,"","Hey! I came across this profile on Skills Ontario. Click this link to view",careerListDetails.get(0).getImage(),careerListDetails.get(0).getId());
                /* ShareCompat.IntentBuilder.from(JobDetailsActivity.this)
                         .setType("text/plain")
                         .setChooserTitle(R.string.shre_profile)

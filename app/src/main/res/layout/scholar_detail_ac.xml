@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:tools="http://schemas.android.com/tools">
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -63,16 +63,25 @@
                             android:textColor="@color/black"
                             android:textSize="@dimen/_18sdp" />
 
+                        <WebView
+                            android:id="@+id/webView_newsDesc"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:fontFamily="@font/poppins_regular"
+                            tools:ignore="WebViewLayout" />
+
+<!--
                         <TextView
                             android:id="@+id/tv_desc1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/_10sdp"
+                            android:visibility="gone"
                             android:fontFamily="@font/poppins_medium"
                             android:text="@string/s_temp_1"
                             android:textColor="#4A4F64"
-                            android:textSize="@dimen/_12sdp"
-                            android:visibility="gone" />
+                            android:textSize="@dimen/_12sdp" />-->
 
 
                         <TextView
@@ -83,8 +92,8 @@
                             android:fontFamily="@font/poppins_regular"
                             android:text="@string/s_temp_2"
                             android:textColor="#4A4F64"
-                            android:textSize="@dimen/_11sdp"
-                            android:visibility="gone" />
+                            android:visibility="gone"
+                            android:textSize="@dimen/_11sdp" />
 
                         <TextView
                             android:id="@+id/tv_desc3"
@@ -94,8 +103,8 @@
                             android:fontFamily="@font/poppins_regular"
                             android:text="@string/s_temp_2"
                             android:textColor="#4A4F64"
-                            android:textSize="@dimen/_11sdp"
-                            android:visibility="gone" />
+                            android:visibility="gone"
+                            android:textSize="@dimen/_11sdp" />
 
 
                     </LinearLayout>

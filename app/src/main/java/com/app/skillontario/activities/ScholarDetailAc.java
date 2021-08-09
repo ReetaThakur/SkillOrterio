@@ -1,6 +1,7 @@
 package com.app.skillontario.activities;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
@@ -9,6 +10,9 @@ import android.text.Html;
 import android.text.TextUtils;
 import android.util.Patterns;
 import android.view.View;
+import android.webkit.WebResourceRequest;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 
 import androidx.appcompat.content.res.AppCompatResources;
 
@@ -58,16 +62,39 @@ public class ScholarDetailAc extends BaseActivity {
             }
 
             if (TextUtils.isEmpty(modal.getDesc())) {
-                binding.tvDesc1.setVisibility(View.GONE);
+                //binding.tvDesc1.setVisibility(View.GONE);
+                binding.webViewNewsDesc.setVisibility(View.GONE);
                 return;
             } else {
-                binding.tvDesc1.setVisibility(View.VISIBLE);
+                binding.webViewNewsDesc.setVisibility(View.VISIBLE);
                 // binding.tvDesc1.setText(modal.getDesc());
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                /*if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
                     binding.tvDesc1.setText(Html.fromHtml(modal.getDesc(), Html.FROM_HTML_MODE_COMPACT));
                 } else {
                     binding.tvDesc1.setText(Html.fromHtml(modal.getDesc()));
-                }
+                }*/
+
+                binding.webViewNewsDesc.getSettings().setJavaScriptEnabled(true);
+                binding.webViewNewsDesc.setWebViewClient(new WebViewClient(){
+                    @Override
+                    public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
+
+                        Intent intent= new Intent(
+                                Intent.ACTION_VIEW,
+                                Uri.parse(request.getUrl().toString())
+                        );
+                        startActivity(intent);
+                        return true;
+                        //return super.shouldOverrideUrlLoading(view, request);
+                    }
+                });
+                binding.webViewNewsDesc.loadDataWithBaseURL(
+                        "",
+                        "<html>  <head><style type=\"text/css\"> @font-face {  font-family: Poppins;      src: url(\"file:///android_asset/fonts/poppins_regular.ttf\")  } </style> </head><body>" + modal.getDesc() + "</body>",
+                        "text/html",
+                        "utf-8",
+                        null);
+                binding.webViewNewsDesc.setBackgroundColor(Color.TRANSPARENT);
 
             }
 
