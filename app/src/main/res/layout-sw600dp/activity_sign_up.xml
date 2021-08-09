@@ -35,7 +35,7 @@
                     android:fontFamily="@font/poppins_regular"
                     android:text="@string/new_account"
                     android:textColor="@color/black"
-                    android:textSize="40sp" />
+                    android:textSize="@dimen/_20sdp" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -46,7 +46,7 @@
                     android:text="@string/sign_text"
                     android:textAlignment="textStart"
                     android:textColor="@color/black_light"
-                    android:textSize="18sp" />
+                    android:textSize="@dimen/_11sdp" />
 
 
                 <RelativeLayout
@@ -66,7 +66,7 @@
                         android:imeOptions="actionNext"
                         android:inputType="textEmailAddress|textVisiblePassword"
                         android:textColor="@color/black"
-                        android:textSize="16sp" />
+                        android:textSize="@dimen/_12sdp" />
                 </RelativeLayout>
 
                 <TextView
@@ -81,7 +81,7 @@
                     android:fontFamily="@font/poppins_regular"
                     android:text="@string/couldn_t_find_your_email_address"
                     android:textColor="@color/text_error_color"
-                    android:textSize="12sp"
+                    android:textSize="@dimen/_10sdp"
                     android:visibility="gone"></TextView>
 
                 <RelativeLayout
@@ -101,7 +101,7 @@
                         android:imeOptions="actionNext"
                         android:inputType="textPassword"
                         android:textColor="@color/black"
-                        android:textSize="16sp" />
+                        android:textSize="@dimen/_12sdp" />
 
                     <ImageView
                         android:id="@+id/img_eye_password"
@@ -125,7 +125,7 @@
                     android:fontFamily="@font/poppins_regular"
                     android:text="@string/couldn_t_find_your_email_address"
                     android:textColor="@color/text_error_color"
-                    android:textSize="12sp"
+                    android:textSize="@dimen/_10sdp"
                     android:visibility="gone"></TextView>
 
                 <RelativeLayout
@@ -145,7 +145,7 @@
                         android:imeOptions="actionDone"
                         android:inputType="textPassword"
                         android:textColor="@color/black"
-                        android:textSize="16sp" />
+                        android:textSize="@dimen/_12sdp" />
 
                     <ImageView
                         android:id="@+id/img_eye_confirm_password"
@@ -170,7 +170,7 @@
                     android:fontFamily="@font/poppins_regular"
                     android:text="@string/couldn_t_find_your_email_address"
                     android:textColor="@color/text_error_color"
-                    android:textSize="12sp"
+                    android:textSize="@dimen/_10sdp"
                     android:visibility="gone"></TextView>
 
                 <LinearLayout
@@ -199,7 +199,7 @@
                             android:gravity="center"
                             android:text="@string/by_continuing_you_agree_to_skills_ontario"
                             android:textColor="@color/textColorVeryLight"
-                            android:textSize="18sp" />
+                            android:textSize="@dimen/_11sdp" />
 
                         <LinearLayout
                             android:layout_width="wrap_content"
@@ -213,7 +213,7 @@
                                 android:fontFamily="@font/poppins_medium"
                                 android:text="@string/terms_Of_services"
                                 android:textColor="@color/textColorDark"
-                                android:textSize="18sp" />
+                                android:textSize="@dimen/_11sdp" />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -222,7 +222,7 @@
                                 android:gravity="center"
                                 android:text="@string/and"
                                 android:textColor="@color/textColorVeryLight"
-                                android:textSize="18sp" />
+                                android:textSize="@dimen/_11sdp" />
 
                             <TextView
                                 android:id="@+id/tv_privacy"
@@ -231,7 +231,7 @@
                                 android:fontFamily="@font/poppins_medium"
                                 android:text="@string/underlined_privacy_policy"
                                 android:textColor="@color/textColorDark"
-                                android:textSize="18sp" />
+                                android:textSize="@dimen/_11sdp" />
                         </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
@@ -264,7 +264,7 @@
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
-                <LinearLayout
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_16sdp"
@@ -278,17 +278,19 @@
                         android:gravity="center"
                         android:text="@string/have_an_account"
                         android:textColor="@color/textColorVeryLight"
-                        android:textSize="18sp" />
+                        android:textSize="@dimen/_10sdp" />
 
-                    <TextView
+                    <me.grantland.widget.AutofitTextView
                         android:id="@+id/tv_signIN"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppins_regular"
-                        android:gravity="center"
+                        android:gravity="left"
+                        android:singleLine="true"
+                        android:layout_toRightOf="@+id/tv_have_an_account"
                         android:text="@string/sign_in"
                         android:textColor="#49FDA7"
-                        android:textSize="18sp" />
+                        android:textSize="@dimen/_10sdp" />
 
                     <me.grantland.widget.AutofitTextView
                         android:id="@+id/tv_continue_as_guest"
@@ -296,14 +298,15 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
                         android:layout_marginLeft="@dimen/_4sdp"
+                        android:layout_toRightOf="@+id/tv_signIN"
                         android:drawableRight="@drawable/ic_sign_up_arrow"
                         android:fontFamily="@font/poppins_regular"
                         android:gravity="end"
                         android:text="@string/continue_as_guest"
                         android:textColor="@color/textColorVeryLight"
-                        android:textSize="18sp" />
+                        android:textSize="@dimen/_10sdp" />
 
-                </LinearLayout>
+                </RelativeLayout>
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>
     </LinearLayout>
