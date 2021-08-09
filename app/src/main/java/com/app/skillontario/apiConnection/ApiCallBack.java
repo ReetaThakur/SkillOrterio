@@ -102,7 +102,13 @@ public class ApiCallBack<T> implements Callback<T>, ConfirmDialogCallback {
             String token = MySharedPreference.getInstance().getStringData(FIREBASE_TOKEN);
             MySharedPreference.getInstance().clearSharedPrefs();
             MySharedPreference.getInstance().setBooleanData(SharedPrefsConstants.GUEST_FLOW, false);
-            MySharedPreference.getInstance().setStringData(AppConstants.LANGUAGE, "lang");
+            MySharedPreference.getInstance().setStringData(AppConstants.LANGUAGE, lang);
+            if (lang.equalsIgnoreCase("en")) {
+                MySharedPreference.getInstance().setStringData(SharedPrefsConstants.LANGUAGE_API, "eng");
+            } else {
+                MySharedPreference.getInstance().setStringData(SharedPrefsConstants.LANGUAGE_API, "fre");
+            }
+
             MySharedPreference.getInstance().setStringData(FIREBASE_TOKEN, token);
 
             try {

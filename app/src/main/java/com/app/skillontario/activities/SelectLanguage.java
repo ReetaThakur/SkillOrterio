@@ -42,7 +42,7 @@ public class SelectLanguage extends BaseActivity {
         });
     }
 
-    public static void changeLocale(final String lang, Context context) {
+    public static void changeLocale(String lang, Context context) {
         try {
             if (lang.equalsIgnoreCase(""))
                 return;

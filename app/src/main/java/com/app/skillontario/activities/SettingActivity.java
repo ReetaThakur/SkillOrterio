@@ -39,7 +39,6 @@ import static com.app.skillontario.utils.Utils.updatLocalLanguage;
 public class SettingActivity extends BaseActivity implements ApiResponseErrorCallback {
 
     private ActivitySettingBinding binding;
-    boolean notiOnOff = false;
     public static boolean language = false;
 
     @Override
@@ -49,12 +48,8 @@ public class SettingActivity extends BaseActivity implements ApiResponseErrorCal
 
 
         if (MySharedPreference.getInstance().getBooleanData(SharedPrefsConstants.NOTIFICATION_ON_OFF)) {
-            notiOnOff = true;
-            //  updateNotification("1", MySharedPreference.getInstance().getStringData(SharedPrefsConstants.LANGUAGE_API));
             binding.ivNotification.setImageResource(R.drawable.ic_notification_on);
         } else {
-            notiOnOff = false;
-            // updateNotification("2", MySharedPreference.getInstance().getStringData(SharedPrefsConstants.LANGUAGE_API));
             binding.ivNotification.setImageResource(R.drawable.ic_notification_off);
         }
 
@@ -85,18 +80,16 @@ public class SettingActivity extends BaseActivity implements ApiResponseErrorCal
 
 
         binding.ivNotification.setOnClickListener(v -> {
-            if (notiOnOff) {
-                notiOnOff = false;
+
+            if (MySharedPreference.getInstance().getBooleanData(SharedPrefsConstants.NOTIFICATION_ON_OFF)) {
+                MySharedPreference.getInstance().setBooleanData(SharedPrefsConstants.NOTIFICATION_ON_OFF, false);
+                updateNotification("0", MySharedPreference.getInstance().getStringData(SharedPrefsConstants.LANGUAGE_API));
+                binding.ivNotification.setImageResource(R.drawable.ic_notification_off);
+            }else {
                 updateNotification("1", MySharedPreference.getInstance().getStringData(SharedPrefsConstants.LANGUAGE_API));
                 binding.ivNotification.setImageResource(R.drawable.ic_notification_on);
                 MySharedPreference.getInstance().setBooleanData(SharedPrefsConstants.NOTIFICATION_ON_OFF, true);
-            } else {
-                MySharedPreference.getInstance().setBooleanData(SharedPrefsConstants.NOTIFICATION_ON_OFF, false);
-                notiOnOff = true;
-                updateNotification("0", MySharedPreference.getInstance().getStringData(SharedPrefsConstants.LANGUAGE_API));
-                binding.ivNotification.setImageResource(R.drawable.ic_notification_off);
             }
-
 
         });
 
@@ -198,7 +191,13 @@ public class SettingActivity extends BaseActivity implements ApiResponseErrorCal
 
                     languageMethod(lang);
                     MySharedPreference.getInstance().setBooleanData(SharedPrefsConstants.GUEST_FLOW, false);
-                    MySharedPreference.getInstance().setStringData(AppConstants.LANGUAGE, "lang");
+                    MySharedPreference.getInstance().setStringData(AppConstants.LANGUAGE, lang);
+                    if (lang.equalsIgnoreCase("en")) {
+                        MySharedPreference.getInstance().setStringData(SharedPrefsConstants.LANGUAGE_API, "eng");
+                    } else {
+                        MySharedPreference.getInstance().setStringData(SharedPrefsConstants.LANGUAGE_API, "fre");
+                    }
+
                     MySharedPreference.getInstance().setStringData(FIREBASE_TOKEN, token);
                     startActivity(intent);
                     finish();
@@ -277,7 +276,10 @@ public class SettingActivity extends BaseActivity implements ApiResponseErrorCal
                     binding.tvPrivacyPolicy.setText(R.string.privacy_policy);
                     binding.tvContactUs.setText(R.string.contact_us);
                     //binding.tvLogout.setText(R.string.logout);
+                } catch (Exception e) {
+                }
 
+                try {
                     if (MySharedPreference.getInstance().getBooleanData(GUEST_FLOW)) {
                         //binding.cvLogout.setVisibility(View.GONE);
                         binding.tvLogout.setText(R.string.sign_up);
@@ -287,7 +289,10 @@ public class SettingActivity extends BaseActivity implements ApiResponseErrorCal
                         binding.cvLogout.setVisibility(View.VISIBLE);
                         binding.lChangePassword.setVisibility(View.VISIBLE);
                     }
+                } catch (Exception e) {
+                }
 
+                try {
                     if (MySharedPreference.getInstance().getStringData(AppConstants.LANGUAGE).equalsIgnoreCase("en")) {
                         binding.tvSettingEnglish.setTextColor(Color.parseColor("#ffffff"));
                         binding.tvSettingFrench.setTextColor(Color.parseColor("#000000"));
@@ -301,6 +306,18 @@ public class SettingActivity extends BaseActivity implements ApiResponseErrorCal
                     }
                 } catch (Exception e) {
                 }
+
+                try {
+
+                    if (MySharedPreference.getInstance().getBooleanData(SharedPrefsConstants.NOTIFICATION_ON_OFF)) {
+                        binding.ivNotification.setImageResource(R.drawable.ic_notification_on);
+                    } else {
+                        binding.ivNotification.setImageResource(R.drawable.ic_notification_off);
+                    }
+                } catch (Exception e) {
+                }
+
+
             }
         }, 70);
     }
