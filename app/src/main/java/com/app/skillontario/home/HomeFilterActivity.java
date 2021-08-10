@@ -32,7 +32,7 @@ import static com.app.skillontario.constants.ApiConstants.API_INTERFACE;
 public class HomeFilterActivity extends BaseActivity implements KeywordSelected, ApiResponseErrorCallback {
 
     private ActivityHomeFilterBinding binding;
-    // private TagAdapter sectorAdapter, EducationAdapter, redSealAdapter;
+
     ArrayList<SectorModal> sectorarrarylist;
     ArrayList<EducationModal> educationAraylist;
     ArrayList<RedSealModal> redSealarraylist;
@@ -143,6 +143,7 @@ public class HomeFilterActivity extends BaseActivity implements KeywordSelected,
                 intent.putExtra("search", search);
                 startActivity(intent);
                 finish();
+
 
             }
         });

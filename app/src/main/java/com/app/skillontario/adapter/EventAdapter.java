@@ -58,12 +58,37 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.MyViewHolder
             holder.eventsItemBinding.ivCal.setOnClickListener(v -> {
                 try {
                     if (eventsModalArrayList.get(position).getEvtDate() != null) {
-                        if (Utils.checkPermissionCalender(activity)) {
-                            Utils.openD(eventsModalArrayList.get(position).getId(), activity,
-                                    Utils.DateFormate(eventsModalArrayList.get(position).getEvtDate()), Utils.DateFormate(eventsModalArrayList.get(position).getEvtEndDate()), eventsModalArrayList.get(position).getEvtTitle(), eventsModalArrayList.get(position).getEvtDesc());
-                            holder.eventsItemBinding.ivCal.setImageResource(R.drawable.event_added);
-                       } else
-                            Utils.askPermison(activity);
+
+                        boolean val = false;
+                        String eventID = "";
+                        String key = "";
+                        try {
+                            Map<String, Object> inputMap = new HashMap<>();
+                            inputMap = MySharedPreference.getInstance().loadMap();
+                            for (Map.Entry entry : inputMap.entrySet()) {
+                                if (entry.getKey().toString().equalsIgnoreCase(eventsModalArrayList.get(position).getId())) {
+                                    //viewHolder.binding.ivCal.setImageResource(R.drawable.event_added);
+                                    eventID = entry.getValue().toString();
+                                    key = entry.getKey().toString();
+                                    val = true;
+                                    break;
+                                }
+                            }
+
+                        } catch (Exception e) {
+                        }
+                        val =false;
+                        if (val) {
+                            Utils.deleteCalenderEvent(activity, eventID, key);
+                            holder.eventsItemBinding.ivCal.setImageResource(R.drawable.event_calender);
+                        } else {
+                            if (Utils.checkPermissionCalender(activity)) {
+                                Utils.openD(eventsModalArrayList.get(position).getId(), activity,
+                                        Utils.DateFormate(eventsModalArrayList.get(position).getEvtDate()), Utils.DateFormate(eventsModalArrayList.get(position).getEvtEndDate()), eventsModalArrayList.get(position).getEvtTitle(), eventsModalArrayList.get(position).getEvtDesc());
+                                holder.eventsItemBinding.ivCal.setImageResource(R.drawable.event_added);
+                            } else
+                                Utils.askPermison(activity);
+                        }
                     }
                 } catch (Exception e) {
                 }
@@ -88,7 +113,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.MyViewHolder
             Map<String, Object> inputMap = new HashMap<>();
             inputMap = MySharedPreference.getInstance().loadMap();
             for (Map.Entry entry : inputMap.entrySet()) {
-             //   Log.d("Sunny ", " key  " + entry.getKey() + "; value: " + entry.getValue());
+                //   Log.d("Sunny ", " key  " + entry.getKey() + "; value: " + entry.getValue());
 
                 if (entry.getKey().toString().equalsIgnoreCase(eventsModalArrayList.get(position).getId())) {
                     holder.eventsItemBinding.ivCal.setImageResource(R.drawable.event_added);

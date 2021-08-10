@@ -137,11 +137,16 @@ public class BottomBarActivity extends BaseActivity implements ApiResponseErrorC
                     if (className.equalsIgnoreCase("BookmarkAc")) {
                         Intent i = new Intent(BottomBarActivity.this, BookmarkAc.class);
                         startActivity(i);
+
                     } else if (className.equalsIgnoreCase("JobDetailsActivity")) {
                         Intent i = new Intent(BottomBarActivity.this, JobDetailsActivity.class);
                         startActivity(i);
                     }
 
+                    getIntent().replaceExtras(new Bundle());
+                    getIntent().setAction("");
+                    getIntent().setData(null);
+                    getIntent().setFlags(0);
                 } catch (Exception e) {
                 }
 
@@ -154,6 +159,11 @@ public class BottomBarActivity extends BaseActivity implements ApiResponseErrorC
                     } else if (id.equalsIgnoreCase("4")) {
                         binding.bottomNavigationViewLinear.setCurrentActiveItem(3);
                     }
+
+                    getIntent().replaceExtras(new Bundle());
+                    getIntent().setAction("");
+                    getIntent().setData(null);
+                    getIntent().setFlags(0);
                 } catch (Exception e) {
                 }
             }

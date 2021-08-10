@@ -6,12 +6,16 @@ import android.content.Context;
 import android.content.res.Configuration;
 import android.os.Build;
 
+import androidx.lifecycle.LifecycleObserver;
+import androidx.lifecycle.ProcessLifecycleOwner;
 import androidx.multidex.MultiDexApplication;
 
 import com.app.skillontario.utils.LocaleManager;
 import com.google.firebase.messaging.FirebaseMessaging;
 
-public class AppController extends MultiDexApplication {
+import io.branch.referral.Branch;
+
+public class AppController extends MultiDexApplication implements LifecycleObserver {
 
     public static Context context;
 
@@ -38,7 +42,13 @@ public class AppController extends MultiDexApplication {
 
         createNotificationChannel();
 
+        // Branch logging for debugging
+        Branch.enableLogging();
 
+        // Branch object initialization
+        Branch.getAutoInstance(this);
+
+        ProcessLifecycleOwner.get().getLifecycle().addObserver(this);
 
     }
 

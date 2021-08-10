@@ -202,7 +202,7 @@
                 android:layout_marginTop="@dimen/_16sdp"
                 android:layout_marginRight="@dimen/_16sdp"
                 android:layout_toLeftOf="@+id/img_share"
-                android:src="@drawable/ic_book_mark_de"></ImageView>
+                android:src="@drawable/ic_unfilled_bookmark_job"></ImageView>
 
         </RelativeLayout>
 

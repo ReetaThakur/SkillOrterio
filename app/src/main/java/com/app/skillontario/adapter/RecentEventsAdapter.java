@@ -96,16 +96,40 @@ public class RecentEventsAdapter extends RecyclerView.Adapter<RecentEventsAdapte
             @Override
             public void onClick(View v) {
                 if (eventsModalArrayList.get(position).getEvtDate() != null) {
-
+                    boolean val = false;
+                    String eventID = "";
+                    String key = "";
                     try {
-                        if (Utils.checkPermissionCalender(context)) {
-                            Utils.openD(eventsModalArrayList.get(position).getId(), context, Utils.DateFormate(eventsModalArrayList.get(position).getEvtDate()), Utils.DateFormate(eventsModalArrayList.get(position).getEvtEndDate()), eventsModalArrayList.get(position).getEvtTitle(), eventsModalArrayList.get(position).getEvtDesc());
-                            viewHolder.binding.ivCal.setImageResource(R.drawable.event_added);
-                        } else
-                            Utils.askPermison(context);
+                        Map<String, Object> inputMap = new HashMap<>();
+                        inputMap = MySharedPreference.getInstance().loadMap();
+                        for (Map.Entry entry : inputMap.entrySet()) {
+                            if (entry.getKey().toString().equalsIgnoreCase(eventsModalArrayList.get(position).getId())) {
+                                //viewHolder.binding.ivCal.setImageResource(R.drawable.event_added);
+                                eventID = entry.getValue().toString();
+                                key = entry.getKey().toString();
+                                val = true;
+                                break;
+                            }
+                        }
+
                     } catch (Exception e) {
                     }
+                    val =false;
+                    if (val) {
+                        Utils.deleteCalenderEvent(context,eventID,key);
+                        viewHolder.binding.ivCal.setImageResource(R.drawable.event_calender);
+                    } else {
 
+                        try {
+                            if (Utils.checkPermissionCalender(context)) {
+                                Utils.openD(eventsModalArrayList.get(position).getId(), context, Utils.DateFormate(eventsModalArrayList.get(position).getEvtDate()), Utils.DateFormate(eventsModalArrayList.get(position).getEvtEndDate()), eventsModalArrayList.get(position).getEvtTitle(), eventsModalArrayList.get(position).getEvtDesc());
+                                viewHolder.binding.ivCal.setImageResource(R.drawable.event_added);
+                            } else
+                                Utils.askPermison(context);
+                        } catch (Exception e) {
+                        }
+
+                    }
                 }
             }
         });

@@ -17,8 +17,6 @@ import android.view.View;
 
 import com.app.skillontario.callbacks.GetClickBookmark;
 import com.app.skillontario.models.CareerDetailModel;
-import com.app.skillontario.models.EducationModal;
-import com.app.skillontario.models.SectorModal;
 import com.app.skillontario.utils.Utils;
 import com.app.skillorterio.R;
 import com.app.skillontario.adapter.SearchAdapter;
@@ -41,6 +39,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import static com.app.skillontario.constants.ApiConstants.API_INTERFACE;
+
 
 
 public class SearchActivity extends BaseActivity implements ApiResponseErrorCallback, GetClickBookmark {
@@ -267,7 +266,8 @@ public class SearchActivity extends BaseActivity implements ApiResponseErrorCall
                     binding.llNodata.setVisibility(View.VISIBLE);
                     binding.recySearch.setVisibility(View.GONE);
                 }
-            }catch (Exception e){}
+            } catch (Exception e) {
+            }
 
 
         } else if (flag == 1000) {
@@ -320,7 +320,8 @@ public class SearchActivity extends BaseActivity implements ApiResponseErrorCall
                 } else {
                     showToast(responseModel.getMessage());
                 }
-            }catch (Exception e){}
+            } catch (Exception e) {
+            }
 
         } else if (flag == 102) {
             BaseResponseModel<CareerDetailModel> responseModel = (BaseResponseModel<CareerDetailModel>) responseObject;
@@ -450,4 +451,12 @@ public class SearchActivity extends BaseActivity implements ApiResponseErrorCall
             }
         }
     };
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+      /*  sectorarrarylist.clear();
+        educationAraylist.clear();
+        redSealarraylist.clear();*/
+    }
 }

@@ -53,6 +53,9 @@ import com.app.skillontario.activities.SplashActivity;
 import com.app.skillontario.baseClasses.BaseActivity;
 import com.app.skillontario.constants.AppConstants;
 import com.app.skillontario.constants.SharedPrefsConstants;
+import com.app.skillontario.models.EducationModal;
+import com.app.skillontario.models.RedSealModal;
+import com.app.skillontario.models.SectorModal;
 import com.app.skillorterio.R;
 import com.app.skillontario.SignIn.SignInActivity;
 import com.app.skillontario.signup.SignUpActivity;
@@ -76,6 +79,7 @@ import java.time.LocalDateTime;
 import java.time.OffsetDateTime;
 import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -87,6 +91,8 @@ import java.util.TimeZone;
 
 
 public class Utils {
+
+
     public static String emailPattern = "^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,4})$";
 
     /**
@@ -366,6 +372,25 @@ public class Utils {
         }
     }
 
+    public static void deleteCalenderEvent(Context context, String eventID,String id) {
+        try {
+            Uri deleteUri = null;
+            deleteUri = ContentUris.withAppendedId(CalendarContract.Events.CONTENT_URI, Long.parseLong(String.valueOf(eventID)));
+            int rows = context.getContentResolver().delete(deleteUri, null, null);
+
+            try {
+                Map<String, Object> inputMapNew = new HashMap<>();
+                inputMapNew = MySharedPreference.getInstance().loadMap();
+                inputMapNew.remove(id);
+                MySharedPreference.getInstance().saveMap(inputMapNew);
+            } catch (Exception e) {
+            }
+        } catch (Exception e) {
+        }
+
+        // Toast.makeText(this, "Event deleted", Toast.LENGTH_LONG).show();
+    }
+
     public static String DateFormateNews(String str_date) {
         String newDateString = "";
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.US);
@@ -521,7 +546,7 @@ public class Utils {
         return !TextUtils.isEmpty(target) && android.util.Patterns.EMAIL_ADDRESS.matcher(target).matches();
     }
 
-    public static void share(Context context, String title, String text,String url ,String id) {
+    public static void share(Context context, String title, String text, String url, String id) {
 
     /*    BranchUniversalObject buo = new BranchUniversalObject()
                 .setCanonicalIdentifier("content/12345")
