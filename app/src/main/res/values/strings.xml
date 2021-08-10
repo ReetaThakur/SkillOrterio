@@ -570,7 +570,7 @@
     <string name="lbl_g_partner">Government Partners</string>
     <string name="lbl_p_partner">Premium Partners</string>
     <string name="lbl_platinum_partner">Platinum Partners</string>
-    <string name="take_qz">You haven’t take a career quiz yet. Once completed, the results will get saved here</string>
+    <string name="take_qz">You haven’t take a career quiz yet. Once completed, the results will get saved here.</string>
     <string name="take_qz_ttl">Career Quiz Results</string>
     <string name="q_temp">How does meeting new people everyday, and making small talk make you feel?</string>
     <string name="reset">Reset</string>
@@ -593,11 +593,11 @@
     <string name="gender">Gender</string>
     <string name="dash">Dashboard</string>
     <string name="no_internet_msg">Please Check your internet connection.</string>
-    <string name="please_enter_email_address">Enter your email id </string>
-    <string name="please_enter_valid_email_address">Please enter a valid email id</string>
+    <string name="please_enter_email_address">Enter your email ID </string>
+    <string name="please_enter_valid_email_address">Please enter a valid email ID</string>
     <string name="please_enter_password">Enter password </string>
     <string name="please_confirm_password">Enter confirm password </string>
-    <string name="password_not_match">Password not match</string>
+    <string name="password_not_match">Password does not match</string>
     <string name="enter_first_name">Enter your First Name</string>
     <string name="enter_last_name">Enter your Last Name</string>
     <string name="demo_">Diversity, inclusion, and representation are top priorities for Skills Ontario. We work with communities across the province to ensure that we are providing equitable opportunities for all youth and building a diverse and robust skilled workforce. To better understand our impact and reach</string>
@@ -631,7 +631,7 @@
     <string name="general">General</string>
     <string name="discover_more_retake_the_career_quiz">Discover more! Retake the career quiz.</string>
     <string name="retake_quiz">RETAKE QUIZ</string>
-    <string name="enter_new_password">Enter new password </string>
+    <string name="enter_new_password">Enter New Password </string>
     <string name="Partners">Partners</string>
     <string name="platinum_patner">Platinum Partners</string>
     <string name="premimun_ptner">Premium Partners</string>
@@ -724,7 +724,7 @@ identify as female</string>
     <string name="years">Years</string>
     <string name="windsor">Windsor</string>
     <string name="_15_20_years">15-20 Years</string>
-    <string name="wrong_email">Wrong Email id</string>
+    <string name="wrong_email">Wrong Email ID</string>
     <string name="select_age">Select your Age Range</string>
     <string name="select_city">Enter City</string>
     <string name="select_pro">Enter State/Province</string>

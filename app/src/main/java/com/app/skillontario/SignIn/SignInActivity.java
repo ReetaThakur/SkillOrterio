@@ -4,8 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.content.res.AppCompatResources;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.text.TextUtils;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
@@ -20,6 +23,7 @@ import com.app.skillontario.apiConnection.ApiResponseErrorCallback;
 import com.app.skillontario.apiConnection.RequestBodyGenerator;
 import com.app.skillontario.baseClasses.BaseActivity;
 import com.app.skillontario.baseClasses.BaseResponseModel;
+import com.app.skillontario.constants.AppConstants;
 import com.app.skillontario.constants.SharedPrefsConstants;
 import com.app.skillontario.models.RegistrationModal;
 import com.app.skillontario.models.SignUpModel;
@@ -104,6 +108,12 @@ public class SignInActivity extends BaseActivity implements ApiResponseErrorCall
         });
 
         binding.tvHaveAnAccount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(SignInActivity.this, SignUpActivity.class));
+            }
+        });
+        binding.tvHaveAnAccount2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(SignInActivity.this, SignUpActivity.class));
@@ -357,9 +367,28 @@ public class SignInActivity extends BaseActivity implements ApiResponseErrorCall
                     }
 
                     String token = task.getResult();
-                    Log.d("Sunny", "  fcm token > " + token);
                     MySharedPreference.getInstance().setStringData(FIREBASE_TOKEN, token);
 
                 });
+    }
+
+
+    void setText() {
+
+        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                if (MySharedPreference.getInstance().getStringData(AppConstants.LANGUAGE).equalsIgnoreCase("en")) {
+                    binding.by.setVisibility(View.VISIBLE);
+                    binding.showFrenchGuest.setVisibility(View.GONE);
+                } else {
+                    binding.showFrenchGuest.setVisibility(View.VISIBLE);
+                    binding.by.setVisibility(View.GONE);
+                }
+
+
+
+            }
+        }, 70);
     }
 }

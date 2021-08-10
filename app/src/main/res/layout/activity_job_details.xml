@@ -40,6 +40,15 @@
                                 android:scaleType="fitXY"
                                 android:src="@drawable/ic_job_deatils_background"></ImageView>
 
+                            <ProgressBar
+                                android:id="@+id/progress"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:indeterminate="true"
+                                android:indeterminateTint="@color/white"
+                                android:indeterminateTintMode="src_atop"></ProgressBar>
+
                             <ImageView
                                 android:id="@+id/imageP"
                                 android:layout_width="match_parent"
@@ -178,8 +187,8 @@
 
             <ImageView
                 android:id="@+id/img_share"
-                android:layout_width="@dimen/_18sdp"
-                android:layout_height="@dimen/_18sdp"
+                android:layout_width="@dimen/_14sdp"
+                android:layout_height="@dimen/_14sdp"
                 android:layout_alignParentRight="true"
                 android:layout_marginTop="@dimen/_16sdp"
                 android:layout_marginRight="@dimen/_16sdp"
@@ -188,8 +197,8 @@
 
             <ImageView
                 android:id="@+id/imgBookmark"
-                android:layout_width="@dimen/_16sdp"
-                android:layout_height="@dimen/_19sdp"
+                android:layout_width="@dimen/_14sdp"
+                android:layout_height="@dimen/_17sdp"
                 android:layout_marginTop="@dimen/_16sdp"
                 android:layout_marginRight="@dimen/_16sdp"
                 android:layout_toLeftOf="@+id/img_share"

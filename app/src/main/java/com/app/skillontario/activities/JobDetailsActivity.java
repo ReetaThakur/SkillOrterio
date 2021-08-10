@@ -1,11 +1,13 @@
 package com.app.skillontario.activities;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ShareCompat;
 import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewTreeObserver;
@@ -33,11 +35,17 @@ import com.app.skillontario.utils.Utils;
 import com.app.skillorterio.R;
 import com.app.skillorterio.databinding.ActivityJobDetailsBinding;
 import com.app.skillorterio.databinding.ActivitySettingBinding;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.DataSource;
+import com.bumptech.glide.load.engine.GlideException;
+import com.bumptech.glide.request.RequestListener;
+import com.bumptech.glide.request.target.Target;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+
 import static com.app.skillontario.constants.ApiConstants.API_INTERFACE;
 
 public class JobDetailsActivity extends BaseActivity implements ApiResponseErrorCallback {
@@ -126,7 +134,7 @@ public class JobDetailsActivity extends BaseActivity implements ApiResponseError
         binding.imgShare.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Utils.share(JobDetailsActivity.this,"","Hey! I came across this profile on Skills Ontario. Click this link to view",careerListDetails.get(0).getImage(),careerListDetails.get(0).getId());
+                Utils.share(JobDetailsActivity.this, "", "Hey! I came across this profile on Skills Ontario. Click this link to view", careerListDetails.get(0).getImage(), careerListDetails.get(0).getId());
                /* ShareCompat.IntentBuilder.from(JobDetailsActivity.this)
                         .setType("text/plain")
                         .setChooserTitle(R.string.shre_profile)
@@ -337,7 +345,27 @@ public class JobDetailsActivity extends BaseActivity implements ApiResponseError
             clickBookMark = true;
             binding.imgBookmark.setBackgroundResource(R.drawable.ic_book_mark_de_select);
         }
-        Picasso.with(JobDetailsActivity.this).load(careerListDetails.get(0).getImage()).into(binding.imageP);
+       // Picasso.with(JobDetailsActivity.this).load(careerListDetails.get(0).getImage()).into(binding.imageP);
+
+
+        Glide.with(JobDetailsActivity.this)
+                .load(careerListDetails.get(0).getImage())
+                .listener(new RequestListener<Drawable>() {
+                    @Override
+                    public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
+                        binding.progress.setVisibility(View.GONE);
+                        return false;
+                    }
+
+                    @Override
+                    public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
+                        binding.progress.setVisibility(View.GONE);
+                        return false;
+                    }
+                })
+                .into(binding.imageP);
+
+
         binding.textCons.setText(careerListDetails.get(0).getJobSector());
         binding.textWork.setText(careerListDetails.get(0).getJobProfile());
         binding.textFee.setText(careerListDetails.get(0).getFee());
