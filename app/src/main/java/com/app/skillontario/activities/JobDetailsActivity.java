@@ -37,6 +37,7 @@ import com.app.skillorterio.databinding.ActivityJobDetailsBinding;
 import com.app.skillorterio.databinding.ActivitySettingBinding;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.DataSource;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.load.engine.GlideException;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
@@ -117,7 +118,7 @@ public class JobDetailsActivity extends BaseActivity implements ApiResponseError
                         removeBookmark(careerListDetails.get(0).getbId(), careerListDetails.get(0).getId());
                     } else {
                         clickBookMark = true;
-                        binding.imgBookmark.setImageResource(R.drawable.ic_filled_bookmark_job);
+                        binding.imgBookmark.setImageResource(R.drawable.ic_book_mark_de_select);
                         addBookmark(careerListDetails.get(0), careerListDetails.get(0).getId());
                     }
                 } else {
@@ -305,7 +306,7 @@ public class JobDetailsActivity extends BaseActivity implements ApiResponseError
             if (responseModel != null) {
                 if (responseModel.getStatus()) {
                     clickBookMark = true;
-                    binding.imgBookmark.setBackgroundResource(R.drawable.ic_filled_bookmark_job);
+                    binding.imgBookmark.setBackgroundResource(R.drawable.ic_book_mark_de_select);
                 }
             }
         } else if (flag == 121) {
@@ -343,13 +344,15 @@ public class JobDetailsActivity extends BaseActivity implements ApiResponseError
             binding.imgBookmark.setBackgroundResource(R.drawable.ic_book_mark_de);
         } else {
             clickBookMark = true;
-            binding.imgBookmark.setBackgroundResource(R.drawable.ic_filled_bookmark_job);
+            binding.imgBookmark.setBackgroundResource(R.drawable.ic_book_mark_de_select);
         }
-       // Picasso.with(JobDetailsActivity.this).load(careerListDetails.get(0).getImage()).into(binding.imageP);
+        // Picasso.with(JobDetailsActivity.this).load(careerListDetails.get(0).getImage()).into(binding.imageP);
 
 
         Glide.with(JobDetailsActivity.this)
                 .load(careerListDetails.get(0).getImage())
+                .diskCacheStrategy(DiskCacheStrategy.NONE)
+                .skipMemoryCache(true)
                 .listener(new RequestListener<Drawable>() {
                     @Override
                     public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {

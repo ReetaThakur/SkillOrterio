@@ -24,7 +24,7 @@ public class TermsOfServicesActivity extends BaseActivity {
         binding = (ActivityTermsOfServicesBinding) viewBaseBinding;
 
         binding.actionBar.ivBack.setOnClickListener(v -> onBackPressed());
-
+        binding.webview.loadUrl("file:///android_asset/terms.html");
 
     }
 

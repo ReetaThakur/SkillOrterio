@@ -114,7 +114,7 @@ public class RecentEventsAdapter extends RecyclerView.Adapter<RecentEventsAdapte
 
                     } catch (Exception e) {
                     }
-                    val =false;
+                   /// val =false;
                     if (val) {
                         Utils.deleteCalenderEvent(context,eventID,key);
                         viewHolder.binding.ivCal.setImageResource(R.drawable.event_calender);
@@ -122,7 +122,7 @@ public class RecentEventsAdapter extends RecyclerView.Adapter<RecentEventsAdapte
 
                         try {
                             if (Utils.checkPermissionCalender(context)) {
-                                Utils.openD(eventsModalArrayList.get(position).getId(), context, Utils.DateFormate(eventsModalArrayList.get(position).getEvtDate()), Utils.DateFormate(eventsModalArrayList.get(position).getEvtEndDate()), eventsModalArrayList.get(position).getEvtTitle(), eventsModalArrayList.get(position).getEvtDesc());
+                                Utils.openD(eventsModalArrayList.get(position).getId(), context, eventsModalArrayList.get(position).getEvtDate(), eventsModalArrayList.get(position).getEvtEndDate(), eventsModalArrayList.get(position).getEvtTitle(), eventsModalArrayList.get(position).getEvtDesc());
                                 viewHolder.binding.ivCal.setImageResource(R.drawable.event_added);
                             } else
                                 Utils.askPermison(context);

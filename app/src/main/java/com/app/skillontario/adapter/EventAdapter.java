@@ -77,14 +77,14 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.MyViewHolder
 
                         } catch (Exception e) {
                         }
-                        val =false;
+                       // val =false;
                         if (val) {
                             Utils.deleteCalenderEvent(activity, eventID, key);
                             holder.eventsItemBinding.ivCal.setImageResource(R.drawable.event_calender);
                         } else {
                             if (Utils.checkPermissionCalender(activity)) {
                                 Utils.openD(eventsModalArrayList.get(position).getId(), activity,
-                                        Utils.DateFormate(eventsModalArrayList.get(position).getEvtDate()), Utils.DateFormate(eventsModalArrayList.get(position).getEvtEndDate()), eventsModalArrayList.get(position).getEvtTitle(), eventsModalArrayList.get(position).getEvtDesc());
+                                        eventsModalArrayList.get(position).getEvtDate(), eventsModalArrayList.get(position).getEvtEndDate(), eventsModalArrayList.get(position).getEvtTitle(), eventsModalArrayList.get(position).getEvtDesc());
                                 holder.eventsItemBinding.ivCal.setImageResource(R.drawable.event_added);
                             } else
                                 Utils.askPermison(activity);

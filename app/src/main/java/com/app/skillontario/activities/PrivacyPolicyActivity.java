@@ -25,6 +25,8 @@ public class PrivacyPolicyActivity extends BaseActivity {
         binding = (ActivityPrivacyPolicyBinding) viewBaseBinding;
 
         binding.actionBar.ivBack.setOnClickListener(v -> onBackPressed());
+
+        binding.webview.loadUrl("file:///android_asset/privacy.html");
     }
 
     @Override
@@ -36,7 +38,6 @@ public class PrivacyPolicyActivity extends BaseActivity {
     public void onBackPressed() {
         super.onBackPressed();
         overridePendingTransition(R.anim.slide_in_from_left, R.anim.slide_out_from_right);
-
     }
 
     @Override

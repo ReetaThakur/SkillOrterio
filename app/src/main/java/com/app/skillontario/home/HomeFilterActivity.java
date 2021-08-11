@@ -271,9 +271,7 @@ public class HomeFilterActivity extends BaseActivity implements KeywordSelected,
                     @Override
                     public void chipSelected(int index) {
                         sectorarrarylist.get(index).setSelect(true);
-
                     }
-                    //
 
                     @Override
                     public void chipDeselected(int index) {

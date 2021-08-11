@@ -319,13 +319,16 @@ public class Utils {
         Cursor cur = null;
         try {
 
-            SimpleDateFormat S_df = new SimpleDateFormat("MMM dd,yyyy hh:mm a", Locale.ENGLISH);
+            SimpleDateFormat S_df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.ENGLISH);
+            S_df.setTimeZone(TimeZone.getTimeZone("UTC"));
             Calendar S_cal = new GregorianCalendar();
-            SimpleDateFormat E_df = new SimpleDateFormat("MMM dd,yyyy hh:mm a", Locale.ENGLISH);
+            SimpleDateFormat E_df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.ENGLISH);
+            E_df.setTimeZone(TimeZone.getTimeZone("UTC"));
             Calendar E_cal = new GregorianCalendar();
             Date S_date = null;
             Date E_date = null;
             try {
+
                 S_date = S_df.parse(dtstart);
                 S_cal.setTime(S_date);
                 E_date = E_df.parse(enddate);
