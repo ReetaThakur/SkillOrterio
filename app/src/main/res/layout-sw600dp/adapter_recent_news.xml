@@ -30,11 +30,20 @@
                 android:layout_marginTop="@dimen/_12sdp"
                 android:layout_marginRight="@dimen/_12sdp">
 
+                <ProgressBar
+                    android:id="@+id/progress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:indeterminate="true"
+                    android:indeterminateTint="@color/black"
+                    android:indeterminateTintMode="src_atop"></ProgressBar>
+
+
                 <ImageView
                     android:id="@+id/iv_image"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/news_n"
                     android:scaleType="fitXY"></ImageView>
             </RelativeLayout>
 
@@ -50,18 +59,18 @@
                 android:maxLines="2"
                 android:text="Twaice raised $26M to scale its battery analytics software"
                 android:textColor="@color/black"
-                android:textSize="22sp"></TextView>
+                android:textSize="@dimen/_12sdp"></TextView>
 
             <TextView
                 android:id="@+id/tv_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/tv1"
+                android:layout_below="@+id/tv_title"
                 android:layout_marginLeft="@dimen/_12sdp"
                 android:layout_marginTop="@dimen/_2sdp"
                 android:text="May 15, 2021"
                 android:textColor="#91A5B1"
-                android:textSize="18sp"></TextView>
+                android:textSize="@dimen/_11sdp"></TextView>
 
 
         </RelativeLayout>

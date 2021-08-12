@@ -1,18 +1,28 @@
 package com.app.skillontario.adapter;
 
 import android.content.Context;
+import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.app.skillontario.activities.BookmarkAc;
+import com.app.skillontario.activities.JobDetailsActivity;
 import com.app.skillontario.models.careerListModel.CareerListDetails;
 import com.app.skillontario.models.quizModel.QuizResultModel;
 import com.app.skillorterio.R;
 import com.app.skillorterio.databinding.BookmarkItemBinding;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.DataSource;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.load.engine.GlideException;
+import com.bumptech.glide.request.RequestListener;
+import com.bumptech.glide.request.target.Target;
 import com.squareup.picasso.Picasso;
 
 import org.jetbrains.annotations.NotNull;
@@ -68,18 +78,19 @@ public class AdapterQuizResult extends RecyclerView.Adapter<AdapterQuizResult.Vi
                 clickBookmark = true;
                 viewHolder.binding.imgBookmark.setImageResource(R.drawable.ic_bookmark_fill);
             }
-        }catch (Exception e){}
+        } catch (Exception e) {
+        }
 
         viewHolder.binding.imgBookmark.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (quizFinalResultModel.get(position).getbId().equalsIgnoreCase("")) {
-                    deleteBookMark.delete(position, quizFinalResultModel.get(position).getbId(), quizFinalResultModel.get(position).getId(),true);
+                    deleteBookMark.delete(position, quizFinalResultModel.get(position).getbId(), quizFinalResultModel.get(position).getId(), true);
                     clickBookmark = true;
                     viewHolder.binding.imgBookmark.setImageResource(R.drawable.ic_bookmark_fill);
-                }else {
+                } else {
                     clickBookmark = false;
-                    deleteBookMark.delete(position, quizFinalResultModel.get(position).getbId(), quizFinalResultModel.get(position).getId(),false);
+                    deleteBookMark.delete(position, quizFinalResultModel.get(position).getbId(), quizFinalResultModel.get(position).getId(), false);
                     viewHolder.binding.imgBookmark.setImageResource(R.drawable.ic_home_main_batch);
                 }
 
@@ -89,13 +100,46 @@ public class AdapterQuizResult extends RecyclerView.Adapter<AdapterQuizResult.Vi
         //if(careerListDetails.get(position).get)
 
         try {
-            Picasso.with(context).load(quizFinalResultModel.get(position).getImage()).into(viewHolder.binding.imagePerson);
+           // Picasso.with(context).load(quizFinalResultModel.get(position).getImage()).into(viewHolder.binding.imagePerson);
             viewHolder.binding.textCons.setText(quizFinalResultModel.get(position).getJobSector());
             viewHolder.binding.textWork.setText(quizFinalResultModel.get(position).getJobProfile());
             viewHolder.binding.textMoney.setText(quizFinalResultModel.get(position).getFee());
 
         } catch (Exception e) {
         }
+
+        try {
+            viewHolder.binding.relClick.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(context, JobDetailsActivity.class);
+                    intent.putExtra("Popular", quizFinalResultModel.get(position).getId());
+                    context.startActivity(intent);
+                }
+            });
+        } catch (Exception e) {
+        }
+
+        try {
+            try {
+                Glide.with(context)
+                        .load(quizFinalResultModel.get(position).getImage())
+                        .listener(new RequestListener<Drawable>() {
+                            @Override
+                            public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
+                                viewHolder.binding.progress.setVisibility(View.GONE);
+                                return false;
+                            }
+
+                            @Override
+                            public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
+                                viewHolder.binding.progress.setVisibility(View.GONE);
+                                return false;
+                            }
+                        })
+                        .into(viewHolder.binding.imagePerson);
+            }catch (Exception e){}
+        }catch (Exception e){}
 
     }
 

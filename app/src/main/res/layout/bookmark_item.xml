@@ -107,6 +107,15 @@
             </RelativeLayout>
         </RelativeLayout>
 
+        <ProgressBar
+            android:id="@+id/progress"
+            android:layout_width="@dimen/_120sdp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:indeterminate="true"
+            android:indeterminateTint="@color/white"
+            android:indeterminateTintMode="src_atop"></ProgressBar>
+
 
         <ImageView
             android:id="@+id/imagePerson"

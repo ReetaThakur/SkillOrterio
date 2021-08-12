@@ -2,10 +2,12 @@ package com.app.skillontario.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
@@ -19,6 +21,10 @@ import com.app.skillorterio.R;
 import com.app.skillorterio.databinding.AdapterQuizBinding;
 import com.app.skillorterio.databinding.AdapterQuizBinding;
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.DataSource;
+import com.bumptech.glide.load.engine.GlideException;
+import com.bumptech.glide.request.RequestListener;
+import com.bumptech.glide.request.target.Target;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -124,9 +130,9 @@ public class QuizAdapter extends RecyclerView.Adapter<QuizAdapter.ViewHolder> {
                 viewHolder.binding.textWork.setText(careerModalArrayList.get(position).getJobProfile());
                 viewHolder.binding.textMoney.setText(careerModalArrayList.get(position).getFee());
 
-                Glide.with(context).load(careerModalArrayList.get(position).getImage())
+               /* Glide.with(context).load(careerModalArrayList.get(position).getImage())
                         .error(R.drawable.new_person1)
-                        .into(viewHolder.binding.imagePerson);
+                        .into(viewHolder.binding.imagePerson);*/
 
                 if (careerModalArrayList.get(position).getbId().equalsIgnoreCase("")) {
                     viewHolder.binding.ivBookmark.setImageResource(R.drawable.ic_home_main_batch);
@@ -139,6 +145,30 @@ public class QuizAdapter extends RecyclerView.Adapter<QuizAdapter.ViewHolder> {
 
             } catch (Exception e) {
             }
+        } catch (Exception e) {
+        }
+
+        try {
+            try {
+                Glide.with(context)
+                        .load(careerModalArrayList.get(position).getImage())
+                        .listener(new RequestListener<Drawable>() {
+                            @Override
+                            public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
+                                viewHolder.binding.progress.setVisibility(View.GONE);
+                                return false;
+                            }
+
+                            @Override
+                            public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
+                                viewHolder.binding.progress.setVisibility(View.GONE);
+                                return false;
+                            }
+                        })
+                        .into(viewHolder.binding.imagePerson);
+            } catch (Exception e) {
+            }
+
         } catch (Exception e) {
         }
 

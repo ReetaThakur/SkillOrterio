@@ -109,12 +109,20 @@
 
             </RelativeLayout>
 
+            <ProgressBar
+                android:id="@+id/progress"
+                android:layout_width="@dimen/_115sdp"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:indeterminate="true"
+                android:indeterminateTint="@color/white"
+                android:indeterminateTintMode="src_atop"></ProgressBar>
+
             <ImageView
                 android:id="@+id/imagePerson"
                 android:layout_width="@dimen/_115sdp"
                 android:layout_height="match_parent"
-                android:scaleType="fitEnd"
-                android:src="@drawable/new_person1" />
+                android:scaleType="fitEnd" />
         </RelativeLayout>
     </LinearLayout>
 

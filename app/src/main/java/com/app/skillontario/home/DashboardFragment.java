@@ -83,20 +83,7 @@ public class DashboardFragment extends BaseFragment {
 
         if (MySharedPreference.getInstance().getBooleanData(GUEST_FLOW)) {
             binding.editProfile.setVisibility(View.GONE);
-            RegistrationModal registrationModal = new RegistrationModal();
-            registrationModal = MySharedPreference.getInstance().getUserData(SharedPrefsConstants.USER_DATA);
-
-            try {
-                if (registrationModal.getEmail() != null) {
-                    if (!registrationModal.getEmail().equalsIgnoreCase("null")) {
-                        binding.tvUserName.setText("" + registrationModal.getEmail());
-                    }
-                }
-
-
-            } catch (Exception e) {
-                binding.tvUserName.setText(capitalize("" + registrationModal.getEmail()));
-            }
+            binding.tvUserName.setText(R.string.guest_user);
 
         } else {
             binding.editProfile.setVisibility(View.VISIBLE);
@@ -107,12 +94,12 @@ public class DashboardFragment extends BaseFragment {
 
                     try {
                         if (registrationModal.getFname().equalsIgnoreCase("")) {
-                            binding.tvUserName.setText(capitalize("" + registrationModal.getEmail()));
+                            binding.tvUserName.setText("" + registrationModal.getEmail());
                         } else
                             binding.tvUserName.setText(capitalize("" + registrationModal.getFname() + " " + registrationModal.getLname()));
 
                     } catch (Exception e) {
-                        binding.tvUserName.setText(capitalize("" + registrationModal.getEmail()));
+                        binding.tvUserName.setText("" + registrationModal.getEmail());
                     }
 
                 }

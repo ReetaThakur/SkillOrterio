@@ -1,6 +1,7 @@
 package com.app.skillontario.adapter;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.util.Patterns;
 import android.view.LayoutInflater;
@@ -9,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
@@ -20,6 +22,11 @@ import com.app.skillontario.utils.MySharedPreference;
 import com.app.skillontario.utils.Utils;
 import com.app.skillorterio.R;
 import com.app.skillorterio.databinding.EventsItemBinding;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.DataSource;
+import com.bumptech.glide.load.engine.GlideException;
+import com.bumptech.glide.request.RequestListener;
+import com.bumptech.glide.request.target.Target;
 import com.squareup.picasso.Picasso;
 
 import org.json.JSONObject;
@@ -47,8 +54,28 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.MyViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+
         try {
-            Picasso.with(activity).load(eventsModalArrayList.get(position).getEvtImage()).error(R.drawable.place_holder_events).placeholder(R.drawable.place_holder_events).into(holder.eventsItemBinding.ivItem);
+            Glide.with(activity)
+                    .load(eventsModalArrayList.get(position).getEvtImage())
+                    .listener(new RequestListener<Drawable>() {
+                        @Override
+                        public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
+                            holder.eventsItemBinding.progress.setVisibility(View.GONE);
+                            return false;
+                        }
+
+                        @Override
+                        public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
+                            holder.eventsItemBinding.progress.setVisibility(View.GONE);
+                            return false;
+                        }
+                    })
+                    .into(holder.eventsItemBinding.ivItem);
+        }catch (Exception e){}
+
+        try {
+         //   Picasso.with(activity).load(eventsModalArrayList.get(position).getEvtImage()).error(R.drawable.place_holder_events).placeholder(R.drawable.place_holder_events).into(holder.eventsItemBinding.ivItem);
             holder.eventsItemBinding.tvHead.setText(eventsModalArrayList.get(position).getEvtTitle());
             holder.eventsItemBinding.tvAdd.setText(eventsModalArrayList.get(position).getEvtVenue());
             holder.eventsItemBinding.tvEvtCategory.setText(eventsModalArrayList.get(position).getEvtCategory());

@@ -90,13 +90,13 @@ android {
     productFlavors {
 
         development {
-           // buildConfigField "String", "BASE_URL", '"http://ec2-13-234-249-108.ap-south-1.compute.amazonaws.com:3100/api/"'
-            buildConfigField "String", "BASE_URL", '"http://ec2-13-234-249-108.ap-south-1.compute.amazonaws.com:3100/api/"'
+           buildConfigField "String", "BASE_URL", '"http://ec2-13-234-249-108.ap-south-1.compute.amazonaws.com:3100/api/"'
+            //buildConfigField "String", "BASE_URL", '"http://ec2-3-99-57-179.ca-central-1.compute.amazonaws.com:3100/api/"'
         }
 
 
         production {
-            buildConfigField "String", "BASE_URL", '"http://ec2-13-234-249-108.ap-south-1.compute.amazonaws.com:3100/api/"'
+            buildConfigField "String", "BASE_URL", '"http://ec2-3-99-57-179.ca-central-1.compute.amazonaws.com:3100/api/"'
         }
 
 
@@ -170,11 +170,9 @@ dependencies {
 //    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.3'
 
     //firebase api
-    implementation 'com.google.firebase:firebase-crashlytics:17.3.0'
-    implementation 'com.google.firebase:firebase-analytics:18.0.0'
-    //implementation 'com.google.firebase:firebase-analytics:17.5.0'
-    // implementation 'com.crashlytics.sdk.android:crashlytics:2.10.1'
-    // Add the dependency for the Performance Monitoring library
+    //implementation 'com.google.firebase:firebase-crashlytics:17.3.0'  //this
+    //implementation 'com.google.firebase:firebase-analytics:18.0.0'   //this
+
     implementation 'com.google.firebase:firebase-perf:19.0.8'
 
     //Dimensions

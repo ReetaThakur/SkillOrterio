@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -12,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 
+import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.FragmentActivity;
@@ -27,6 +29,10 @@ import com.app.skillorterio.R;
 import com.app.skillorterio.databinding.AdapterRecentBinding;
 import com.app.skillorterio.databinding.AdapterRecentBinding;
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.DataSource;
+import com.bumptech.glide.load.engine.GlideException;
+import com.bumptech.glide.request.RequestListener;
+import com.bumptech.glide.request.target.Target;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -77,12 +83,23 @@ public class RecentEventsAdapter extends RecyclerView.Adapter<RecentEventsAdapte
         }
 
         try {
-            Glide.with(context).load(eventsModalArrayList.get(position).getEvtImage())
-                    .placeholder(R.drawable.place_holder_events)
-                    .error(R.drawable.ic_launcher_background)
+            Glide.with(context)
+                    .load(eventsModalArrayList.get(position).getEvtImage())
+                    .listener(new RequestListener<Drawable>() {
+                        @Override
+                        public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
+                            viewHolder.binding.progress.setVisibility(View.GONE);
+                            return false;
+                        }
+
+                        @Override
+                        public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
+                            viewHolder.binding.progress.setVisibility(View.GONE);
+                            return false;
+                        }
+                    })
                     .into(viewHolder.binding.ivItem);
-        } catch (Exception e) {
-        }
+        }catch (Exception e){}
 
         try {
             if (eventsModalArrayList.get(position).getEvtDate() != null) {

@@ -165,7 +165,7 @@ public class JobDetailsActivity extends BaseActivity implements ApiResponseError
 
     private void CallApi(String carrerId) {
         API_INTERFACE.getCareerList(RequestBodyGenerator.setCareerDetailData(MySharedPreference.getInstance().getStringData(SharedPrefsConstants.USER_ID), carrerId)).enqueue(
-                new ApiCallBack<>(JobDetailsActivity.this, this, 121, true));
+                new ApiCallBack<>(JobDetailsActivity.this, this, 121, false));
     }
 
 

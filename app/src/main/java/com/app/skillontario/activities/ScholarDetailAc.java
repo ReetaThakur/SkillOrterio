@@ -14,6 +14,7 @@ import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.content.res.AppCompatResources;
 
 import com.app.skillontario.baseClasses.BaseActivity;
@@ -22,6 +23,10 @@ import com.app.skillorterio.R;
 import com.app.skillorterio.databinding.ScholarDetailAcBinding;
 import com.app.skillorterio.databinding.ScholarOneAcBinding;
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.DataSource;
+import com.bumptech.glide.load.engine.GlideException;
+import com.bumptech.glide.request.RequestListener;
+import com.bumptech.glide.request.target.Target;
 
 public class ScholarDetailAc extends BaseActivity {
 
@@ -54,11 +59,25 @@ public class ScholarDetailAc extends BaseActivity {
                 //  binding.newsLayout.imageNews.setVisibility(View.GONE);
                 return;
             } else {
-                Glide.with(this)
-                        .load(modal.getImage()) // image url
-                        .placeholder(R.drawable.place_holder_news)
-                        .centerCrop()
-                        .into(binding.image);
+
+                try {
+                    Glide.with(ScholarDetailAc.this)
+                            .load(modal.getImage())
+                            .listener(new RequestListener<Drawable>() {
+                                @Override
+                                public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
+                                    binding.progress.setVisibility(View.GONE);
+                                    return false;
+                                }
+
+                                @Override
+                                public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
+                                    binding.progress.setVisibility(View.GONE);
+                                    return false;
+                                }
+                            })
+                            .into(binding.image);
+                }catch (Exception e){}
             }
 
             if (TextUtils.isEmpty(modal.getDesc())) {

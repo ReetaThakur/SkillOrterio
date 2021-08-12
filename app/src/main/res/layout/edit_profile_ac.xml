@@ -322,7 +322,6 @@
                         android:textColorHint="#8FA1B5"
                         android:inputType="textEmailAddress|textVisiblePassword"
                         android:paddingLeft="@dimen/_15sdp"
-                        android:text="@string/ontario"
                         android:textSize="@dimen/_12sdp"
                         android:textColor="@color/black" />
                 </RelativeLayout>

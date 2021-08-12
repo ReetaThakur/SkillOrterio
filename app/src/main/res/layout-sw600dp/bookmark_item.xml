@@ -65,8 +65,8 @@
                     android:gravity="center"
                     android:paddingLeft="@dimen/_6sdp"
                     android:paddingTop="@dimen/_2sdp"
-                    android:paddingBottom="@dimen/_2sdp"
                     android:paddingRight="@dimen/_10sdp"
+                    android:paddingBottom="@dimen/_2sdp"
                     android:text="Construction"
                     android:textAllCaps="true"
                     android:textColor="@color/white"
@@ -105,14 +105,20 @@
 
             </RelativeLayout>
         </RelativeLayout>
-
+        <ProgressBar
+            android:id="@+id/progress"
+            android:layout_width="@dimen/_120sdp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:indeterminate="true"
+            android:indeterminateTint="@color/white"
+            android:indeterminateTintMode="src_atop"></ProgressBar>
 
         <ImageView
             android:id="@+id/imagePerson"
             android:layout_width="@dimen/_120sdp"
             android:layout_height="@dimen/_140sdp"
-            android:layout_marginBottom="@dimen/_10sdp"
-            android:src="@drawable/home_person" />
+            android:layout_marginBottom="@dimen/_10sdp" />
 
     </RelativeLayout>
 

@@ -41,14 +41,23 @@
                         android:layout_height="@dimen/_80sdp"
                         android:gravity="center"
                         app:cardCornerRadius="8dp"
-                        app:cardElevation="8dp">
+                        app:cardElevation="0dp">
+
+                        <ProgressBar
+                            android:id="@+id/progress"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:indeterminate="true"
+                            android:indeterminateTint="@color/black"
+                            android:indeterminateTintMode="src_atop"></ProgressBar>
+
 
                         <ImageView
                             android:id="@+id/ivItem"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:scaleType="centerCrop"
-                            android:src="@drawable/res_news"
                             tools:ignore="ContentDescription" />
                     </androidx.cardview.widget.CardView>
 

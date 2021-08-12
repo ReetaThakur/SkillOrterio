@@ -1,19 +1,29 @@
 package com.app.skillontario.adapter;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.app.skillontario.activities.JobDetailsActivity;
 import com.app.skillontario.activities.ResourcesDetailsActivity;
 import com.app.skillontario.models.ResourceModal;
 import com.app.skillontario.utils.Utils;
 import com.app.skillorterio.R;
 import com.app.skillorterio.databinding.ResourcesItemBinding;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.DataSource;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.load.engine.GlideException;
+import com.bumptech.glide.request.RequestListener;
+import com.bumptech.glide.request.target.Target;
 import com.squareup.picasso.Picasso;
 
 import java.io.Serializable;
@@ -40,7 +50,7 @@ public class ResourcesAdapter extends RecyclerView.Adapter<ResourcesAdapter.MyVi
         //  holder..ivItem
 
         try {
-            Picasso.with(activity).load(resourceModalArrayList.get(position).getResImage()).into(holder.resourcesItemBinding.ivItem);
+           // Picasso.with(activity).load(resourceModalArrayList.get(position).getResImage()).into(holder.resourcesItemBinding.ivItem);
             holder.resourcesItemBinding.tvTitle.setText(resourceModalArrayList.get(position).getResTitle());
             if (resourceModalArrayList.get(position).getCreatedAt() != null) {
                 holder.resourcesItemBinding.tvDate.setText(Utils.DateFormate(resourceModalArrayList.get(position).getCreatedAt()));
@@ -52,6 +62,25 @@ public class ResourcesAdapter extends RecyclerView.Adapter<ResourcesAdapter.MyVi
             });
         } catch (Exception e) {
         }
+
+        try {
+            Glide.with(activity)
+                    .load(resourceModalArrayList.get(position).getResImage())
+                    .listener(new RequestListener<Drawable>() {
+                        @Override
+                        public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
+                            holder.resourcesItemBinding.progress.setVisibility(View.GONE);
+                            return false;
+                        }
+
+                        @Override
+                        public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
+                            holder.resourcesItemBinding.progress.setVisibility(View.GONE);
+                            return false;
+                        }
+                    })
+                    .into(holder.resourcesItemBinding.ivItem);
+        }catch (Exception e){}
 
 
     }

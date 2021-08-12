@@ -1,11 +1,14 @@
 package com.app.skillontario.adapter;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
@@ -17,6 +20,11 @@ import com.app.skillontario.utils.Utils;
 import com.app.skillorterio.R;
 import com.app.skillorterio.databinding.EventsItemBinding;
 import com.app.skillorterio.databinding.NewsItemBinding;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.DataSource;
+import com.bumptech.glide.load.engine.GlideException;
+import com.bumptech.glide.request.RequestListener;
+import com.bumptech.glide.request.target.Target;
 import com.squareup.picasso.Picasso;
 
 import java.io.Serializable;
@@ -46,7 +54,26 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.MyViewHolder> 
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
 
         try {
-            Picasso.with(activity).load(newsModalArrayList.get(position).getNewsImage()).error(R.drawable.place_holder_news).placeholder(R.drawable.place_holder_news).into(holder.newsItemBinding.ivItem);
+            Glide.with(activity)
+                    .load(newsModalArrayList.get(position).getNewsImage())
+                    .listener(new RequestListener<Drawable>() {
+                        @Override
+                        public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
+                            holder.newsItemBinding.progress.setVisibility(View.GONE);
+                            return false;
+                        }
+
+                        @Override
+                        public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
+                            holder.newsItemBinding.progress.setVisibility(View.GONE);
+                            return false;
+                        }
+                    })
+                    .into(holder.newsItemBinding.ivItem);
+        }catch (Exception e){}
+
+        try {
+          //  Picasso.with(activity).load(newsModalArrayList.get(position).getNewsImage()).error(R.drawable.place_holder_news).placeholder(R.drawable.place_holder_news).into(holder.newsItemBinding.ivItem);
             holder.newsItemBinding.tvHead.setText(newsModalArrayList.get(position).getNewsTitle());
             if (newsModalArrayList.get(position).getCreatedAt() != null) {
                 holder.newsItemBinding.tvDate.setText(changeDate(newsModalArrayList.get(position).getCreatedAt()));

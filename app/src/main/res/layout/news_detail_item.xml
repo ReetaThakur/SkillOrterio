@@ -33,27 +33,38 @@
             android:textColor="@color/black_light"
             android:textSize="@dimen/_10sdp" />
 
-        <ImageView
-            android:id="@+id/image_news"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_5sdp"
-            android:maxHeight="@dimen/_170sdp"
-            android:minHeight="@dimen/_120sdp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/temp_n2" />
+            android:layout_height="wrap_content">
 
+            <ProgressBar
+                android:id="@+id/progress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:indeterminate="true"
+                android:indeterminateTint="@color/black"></ProgressBar>
 
-       <!-- <TextView
-            android:id="@+id/tv_newsDesc"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:fontFamily="@font/poppins_regular"
-            android:lineSpacingExtra="@dimen/_4sdp"
-            android:text="@string/tempd"
-            android:textColor="@color/black_light"
-            android:textSize="@dimen/_12sdp" />-->
+            <ImageView
+                android:id="@+id/image_news"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:maxHeight="@dimen/_170sdp"
+                android:minHeight="@dimen/_120sdp"
+                android:scaleType="centerCrop" />
+        </RelativeLayout>
+
+        <!-- <TextView
+             android:id="@+id/tv_newsDesc"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_marginTop="@dimen/_10sdp"
+             android:fontFamily="@font/poppins_regular"
+             android:lineSpacingExtra="@dimen/_4sdp"
+             android:text="@string/tempd"
+             android:textColor="@color/black_light"
+             android:textSize="@dimen/_12sdp" />-->
 
         <WebView
             android:id="@+id/webView_newsDesc"
