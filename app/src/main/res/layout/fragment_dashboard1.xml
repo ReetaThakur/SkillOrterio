@@ -28,11 +28,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/_16sdp"
-                    android:layout_marginTop="@dimen/_80sdp"
+                    android:layout_marginTop="@dimen/_65sdp"
                     android:fontFamily="@font/poppins_medium"
                     android:text="@string/robert_frost_pattinson"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/_14sdp"></TextView>
+                    android:textSize="@dimen/_15sdp"></TextView>
 
                 <TextView
                     android:id="@+id/dashboradSchool"
@@ -42,8 +42,8 @@
                     android:fontFamily="@font/poppins_medium"
                     android:text="@string/elementary_school"
                     android:textColor="#8FA1B5"
-                    android:textSize="17sp"
-                    android:visibility="gone"></TextView>
+                    android:textSize="@dimen/_12sdp"
+                    android:visibility="visible"></TextView>
 
                 <TextView
                     android:id="@+id/editProfile"

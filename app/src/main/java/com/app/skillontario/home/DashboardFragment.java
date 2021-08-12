@@ -78,34 +78,9 @@ public class DashboardFragment extends BaseFragment {
     @Override
     public void onResume() {
         super.onResume();
-        // binding.tvUserName.setText("");
+        // binding.tvUserName.setText(""); binding.dashboradSchool
         setText();
 
-        if (MySharedPreference.getInstance().getBooleanData(GUEST_FLOW)) {
-            binding.editProfile.setVisibility(View.GONE);
-            binding.tvUserName.setText(R.string.guest_user);
-
-        } else {
-            binding.editProfile.setVisibility(View.VISIBLE);
-            try {
-                if (MySharedPreference.getInstance().getUserData(SharedPrefsConstants.USER_DATA) != null) {
-                    RegistrationModal registrationModal = new RegistrationModal();
-                    registrationModal = MySharedPreference.getInstance().getUserData(SharedPrefsConstants.USER_DATA);
-
-                    try {
-                        if (registrationModal.getFname().equalsIgnoreCase("")) {
-                            binding.tvUserName.setText("" + registrationModal.getEmail());
-                        } else
-                            binding.tvUserName.setText(capitalize("" + registrationModal.getFname() + " " + registrationModal.getLname()));
-
-                    } catch (Exception e) {
-                        binding.tvUserName.setText("" + registrationModal.getEmail());
-                    }
-
-                }
-            } catch (Exception e) {
-            }
-        }
     }
 
     @Override
@@ -142,6 +117,49 @@ public class DashboardFragment extends BaseFragment {
                     binding.tv3.setText(R.string.partners);
                     binding.tv4.setText(R.string.settings);
                 } catch (Exception e) {
+                }
+
+                RegistrationModal registrationModal = new RegistrationModal();
+                if (MySharedPreference.getInstance().getBooleanData(GUEST_FLOW)) {
+                    binding.editProfile.setVisibility(View.GONE);
+                    binding.tvUserName.setText(R.string.guest_user);
+                    binding.dashboradSchool.setVisibility(View.GONE);
+
+                } else {
+                    binding.editProfile.setVisibility(View.VISIBLE);
+                    try {
+                        if (MySharedPreference.getInstance().getUserData(SharedPrefsConstants.USER_DATA) != null) {
+                            registrationModal = MySharedPreference.getInstance().getUserData(SharedPrefsConstants.USER_DATA);
+                            try {
+                                if (registrationModal.getSchool() != null) {
+                                    if (registrationModal.getSchool().equalsIgnoreCase("1")) {
+                                        binding.dashboradSchool.setVisibility(View.VISIBLE);
+                                        binding.dashboradSchool.setText(R.string.primary_school);
+                                    } else if (registrationModal.getSchool().equalsIgnoreCase("2")) {
+                                        binding.dashboradSchool.setVisibility(View.VISIBLE);
+                                        binding.dashboradSchool.setText(R.string.secondary_school);
+                                    } else {
+                                        binding.dashboradSchool.setVisibility(View.GONE);
+                                    }
+
+                                } else
+                                    binding.dashboradSchool.setVisibility(View.GONE);
+                            } catch (Exception e) {
+
+                            }
+                            try {
+                                if (registrationModal.getFname().equalsIgnoreCase("")) {
+                                    binding.tvUserName.setText("" + registrationModal.getEmail());
+                                } else
+                                    binding.tvUserName.setText(capitalize("" + registrationModal.getFname() + " " + registrationModal.getLname()));
+
+                            } catch (Exception e) {
+                                binding.tvUserName.setText("" + registrationModal.getEmail());
+                            }
+
+                        }
+                    } catch (Exception e) {
+                    }
                 }
             }
         }, 70);
