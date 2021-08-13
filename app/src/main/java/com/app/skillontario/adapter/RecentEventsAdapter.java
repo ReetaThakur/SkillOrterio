@@ -1,13 +1,16 @@
 package com.app.skillontario.adapter;
 
+import android.Manifest;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.os.Build;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -153,8 +156,14 @@ public class RecentEventsAdapter extends RecyclerView.Adapter<RecentEventsAdapte
                                     MySharedPreference.getInstance().setBooleanData(SharedPrefsConstants.CHECK_PERMISSION, true);
                                     Utils.askPermison(context);
                                 } else {
-                                    if (checkPermission != null) {
-                                        checkPermission.onCheck();
+                                    if (setCheckPermission(context)) {
+                                        Utils.openD(eventsModalArrayList.get(position).getId(), context, eventsModalArrayList.get(position).getEvtDate(), eventsModalArrayList.get(position).getEvtEndDate(), eventsModalArrayList.get(position).getEvtTitle(), eventsModalArrayList.get(position).getEvtDesc());
+                                        viewHolder.binding.ivCal.setImageResource(R.drawable.event_added);
+                                    } else {
+
+                                        if (checkPermission != null) {
+                                            checkPermission.onCheck();
+                                        }
                                     }
                                 }
                             }
@@ -240,4 +249,22 @@ public class RecentEventsAdapter extends RecyclerView.Adapter<RecentEventsAdapte
         }
     }
 
+
+    public boolean setCheckPermission(Context context) {
+        boolean val = false;
+
+        if (Build.VERSION.SDK_INT >= 23) {
+            int hasPermission = ContextCompat.checkSelfPermission(context, Manifest.permission.WRITE_CALENDAR);
+            int hasPermission1 = ContextCompat.checkSelfPermission(context, Manifest.permission.READ_CALENDAR);
+
+            if (hasPermission == PackageManager.PERMISSION_GRANTED && hasPermission1 == PackageManager.PERMISSION_GRANTED) {
+                MySharedPreference.getInstance().setBooleanData(SharedPrefsConstants.CHECK_PERMISSION, true);
+                val = true;
+            }
+
+
+        }
+
+        return val;
+    }
 }

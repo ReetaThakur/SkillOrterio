@@ -414,6 +414,7 @@ public class EventFragment extends BaseFragment implements XmlClickable, ApiResp
             }
 
 
+
         }
 
     }

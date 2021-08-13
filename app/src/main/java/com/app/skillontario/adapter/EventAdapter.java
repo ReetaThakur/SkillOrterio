@@ -1,7 +1,11 @@
 package com.app.skillontario.adapter;
 
+import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.util.Log;
 import android.util.Patterns;
 import android.view.LayoutInflater;
@@ -11,6 +15,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
@@ -124,11 +129,17 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.MyViewHolder
                                     MySharedPreference.getInstance().setBooleanData(SharedPrefsConstants.CHECK_PERMISSION, true);
                                     Utils.askPermison(activity);
                                 } else {
-                                    if (checkPermission != null) {
-                                        checkPermission.onCheck();
+                                    if (setCheckPermission(activity)) {
+                                        Utils.openD(eventsModalArrayList.get(position).getId(), activity,
+                                                eventsModalArrayList.get(position).getEvtDate(), eventsModalArrayList.get(position).getEvtEndDate(), eventsModalArrayList.get(position).getEvtTitle(), eventsModalArrayList.get(position).getEvtDesc());
+                                        holder.eventsItemBinding.ivCal.setImageResource(R.drawable.event_added);
+                                    } else {
+
+                                        if (checkPermission != null) {
+                                            checkPermission.onCheck();
+                                        }
                                     }
                                 }
-
 
                             }
                         }
@@ -191,5 +202,22 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.MyViewHolder
         }
     }
 
+    public boolean setCheckPermission(Context context) {
+        boolean val = false;
+
+        if (Build.VERSION.SDK_INT >= 23) {
+            int hasPermission = ContextCompat.checkSelfPermission(context, Manifest.permission.WRITE_CALENDAR);
+            int hasPermission1 = ContextCompat.checkSelfPermission(context, Manifest.permission.READ_CALENDAR);
+
+            if (hasPermission == PackageManager.PERMISSION_GRANTED && hasPermission1 == PackageManager.PERMISSION_GRANTED) {
+                MySharedPreference.getInstance().setBooleanData(SharedPrefsConstants.CHECK_PERMISSION, true);
+                val = true;
+            }
+
+
+        }
+
+        return val;
+    }
 
 }
