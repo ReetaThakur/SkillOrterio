@@ -71,7 +71,10 @@ public class MySharedPreference {
     }
 
     public Boolean getBooleanData(String key) {
-        return sharedpreferences.getBoolean(key, false);
+        if (key.equalsIgnoreCase("NOTIFICATION_ON_OFF")) {
+            return sharedpreferences.getBoolean(key, true);
+        } else
+            return sharedpreferences.getBoolean(key, false);
     }
 
 

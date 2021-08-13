@@ -36,6 +36,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
@@ -47,15 +49,10 @@ import io.branch.referral.util.ContentMetadata;
 import io.branch.referral.util.LinkProperties;
 import io.branch.referral.util.ShareSheetStyle;
 
-
-import com.app.skillontario.activities.SettingActivity;
-import com.app.skillontario.activities.SplashActivity;
 import com.app.skillontario.baseClasses.BaseActivity;
 import com.app.skillontario.constants.AppConstants;
 import com.app.skillontario.constants.SharedPrefsConstants;
-import com.app.skillontario.models.EducationModal;
-import com.app.skillontario.models.RedSealModal;
-import com.app.skillontario.models.SectorModal;
+
 import com.app.skillorterio.R;
 import com.app.skillontario.SignIn.SignInActivity;
 import com.app.skillontario.signup.SignUpActivity;
@@ -64,22 +61,14 @@ import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.karumi.dexter.Dexter;
 import com.karumi.dexter.MultiplePermissionsReport;
 import com.karumi.dexter.PermissionToken;
+import com.karumi.dexter.listener.PermissionDeniedResponse;
+import com.karumi.dexter.listener.PermissionGrantedResponse;
 import com.karumi.dexter.listener.PermissionRequest;
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener;
-
-import org.w3c.dom.Document;
-
-import java.io.BufferedReader;
+import com.karumi.dexter.listener.single.PermissionListener;
 import java.io.FileOutputStream;
-import java.io.FileReader;
-import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
-import java.time.OffsetDateTime;
-import java.time.ZoneOffset;
-import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -269,7 +258,7 @@ public class Utils {
         Date date = null;
         try {
             date = df.parse(str_date);
-            df = new SimpleDateFormat("MMM dd, yyyy");
+            df = new SimpleDateFormat("MMM dd, yyyy hh:mm: a");
             df.setTimeZone(TimeZone.getDefault());
             newDateString = df.format(date);
         } catch (ParseException e) {
@@ -375,7 +364,7 @@ public class Utils {
         }
     }
 
-    public static void deleteCalenderEvent(Context context, String eventID,String id) {
+    public static void deleteCalenderEvent(Context context, String eventID, String id) {
         try {
             Uri deleteUri = null;
             deleteUri = ContentUris.withAppendedId(CalendarContract.Events.CONTENT_URI, Long.parseLong(String.valueOf(eventID)));
@@ -488,11 +477,112 @@ public class Utils {
                         Manifest.permission.WRITE_CALENDAR
                 ).withListener(new MultiplePermissionsListener() {
             @Override
-            public void onPermissionsChecked(MultiplePermissionsReport report) {/* ... */}
+            public void onPermissionsChecked(MultiplePermissionsReport report) {
+                Log.d("AppCheck", " MultiplePermissionsReport ");
+            }
+
+            @Override
+            public void onPermissionRationaleShouldBeShown(List<PermissionRequest> permissions, PermissionToken token) {
+                Log.d("AppCheck", " PermissionRequest ");
+            }
+        }).check();
+    }
+
+
+    public static void askPermissionWRITE_CALENDAR(Context context) {
+        Dexter.withContext(context)
+                .withPermission(Manifest.permission.WRITE_CALENDAR)
+                .withListener(new PermissionListener() {
+                    @Override
+                    public void onPermissionGranted(PermissionGrantedResponse response) {
+                    }
+
+                    @Override
+                    public void onPermissionDenied(PermissionDeniedResponse response) {
+                        askPermison(context);
+                    }
+
+                    @Override
+                    public void onPermissionRationaleShouldBeShown(PermissionRequest permission, PermissionToken token) {
+                    }
+                }).check();
+    }
+
+    public static boolean checkPermissionREAD_CALENDAR(Context context) {
+        checkPer = false;
+        Dexter.withContext(context)
+                .withPermissions(
+                        Manifest.permission.READ_CALENDAR
+                ).withListener(new MultiplePermissionsListener() {
+            @Override
+            public void onPermissionsChecked(MultiplePermissionsReport report) {
+                checkPer = report.areAllPermissionsGranted();
+
+            }
 
             @Override
             public void onPermissionRationaleShouldBeShown(List<PermissionRequest> permissions, PermissionToken token) {/* ... */}
         }).check();
+
+        return checkPer;
+    }
+
+    public static boolean checkPermissionWRITE_CALENDAR(Context context) {
+        checkPer = false;
+        Dexter.withContext(context)
+                .withPermissions(
+                        Manifest.permission.WRITE_CALENDAR
+                ).withListener(new MultiplePermissionsListener() {
+            @Override
+            public void onPermissionsChecked(MultiplePermissionsReport report) {
+                checkPer = report.areAllPermissionsGranted();
+
+            }
+
+            @Override
+            public void onPermissionRationaleShouldBeShown(List<PermissionRequest> permissions, PermissionToken token) {/* ... */}
+        }).check();
+
+        return checkPer;
+    }
+
+    public static void askReadCalenderPermission(Context context) {
+       // context.requestPermissions(new String[]{Manifest.permission.READ_CALENDAR}, 1);
+
+
+
+        Dexter.withContext(context)
+                .withPermission(Manifest.permission.READ_CALENDAR)
+                .withListener(new PermissionListener() {
+                    @Override
+                    public void onPermissionGranted(PermissionGrantedResponse response) {
+                    }
+
+                    @Override
+                    public void onPermissionDenied(PermissionDeniedResponse response) {
+                        askPermison(context);
+                    }
+
+                    @Override
+                    public void onPermissionRationaleShouldBeShown(PermissionRequest permission, PermissionToken token) {/* ... */}
+                }).check();
+    }
+    public static void askWriteCalenderPermission(Context context) {
+        Dexter.withContext(context)
+                .withPermission(Manifest.permission.WRITE_CALENDAR)
+                .withListener(new PermissionListener() {
+                    @Override
+                    public void onPermissionGranted(PermissionGrantedResponse response) {
+                    }
+
+                    @Override
+                    public void onPermissionDenied(PermissionDeniedResponse response) {
+                        askPermison(context);
+                    }
+
+                    @Override
+                    public void onPermissionRationaleShouldBeShown(PermissionRequest permission, PermissionToken token) {/* ... */}
+                }).check();
     }
 
 

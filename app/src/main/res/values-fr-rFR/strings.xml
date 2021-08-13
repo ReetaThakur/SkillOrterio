@@ -102,11 +102,11 @@
     <string name="term_codition">Vérifier les termes et conditions </string>
 
     <string name="platinum_patner">Partenaires Platine</string>
-    <string name="premimun_ptner">Partenaires gouvernementaux</string>
+    <string name="premimun_ptner">Partenaires privilégiés</string>
     <string name="silver_patner">Partenaires Argent</string>
     <string name="gold_partners">Partenaires Or</string>
     <string name="bronze_partners">Partenaires Bronze</string>
-    <string name="friends_partners">Amis Partenaires</string>
+    <string name="friends_partners">Amis</string>
     <string name="government_partners">Partenaires gouvernementaux</string>
 
     <string name="email">Courriel</string>
@@ -246,7 +246,9 @@ vous vous identifiez comme une femme</string>
     <string name="wrong_email">Identifiant de messagerie erroné</string>
     <string name="enter_your_email">Entrez l\'e-mail</string>
     <string name="select_age">Sélectionnez la tranche d\'âge</string>
-    <string name="select_city">Enter City</string>
-    <string name="select_pro">Enter State/Province</string>
+    <string name="select_city">Entrez la ville</string>
+    <string name="select_pro">Entrez l\'état/la province</string>
     <string name="okay">d\'accord</string>
+    <string name="permi">Vous avez refusé l\'autorisation</string>
+    <string name="scc">Sans cette autorisation, l\'application ne peut pas ajouter d\'événements. Autoriser le calendrier pour les événements d\'accès</string>
 </resources>

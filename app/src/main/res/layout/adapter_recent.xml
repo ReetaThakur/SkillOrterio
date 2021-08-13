@@ -61,7 +61,7 @@
                         android:id="@+id/tvHead"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/poppins_regular"
+                        android:fontFamily="@font/poppins_medium"
                         android:maxLines="2"
                         android:paddingLeft="@dimen/_12sdp"
                         android:text="@string/discovery_day_cornwall_amp_sdg"

@@ -135,9 +135,7 @@ public class ApiCallBack<T> implements Callback<T>, ConfirmDialogCallback {
             if (context instanceof Activity)
                 ((Activity) context).getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
 
-            CustomAlertDialog alertDialog = new CustomAlertDialog(context, "Please check your internet connection.", "No Internet", this);
-            alertDialog.setCancelable(false);
-            alertDialog.show();
+            Utils.showToast(context, "Please check your internet connection.");
         } else {
             if (!checkInternet()) {
                 Utils.showToast(context, "Please check your internet connection.");

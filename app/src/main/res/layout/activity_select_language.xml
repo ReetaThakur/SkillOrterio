@@ -172,7 +172,7 @@
                                     android:drawableRight="@drawable/back_right"
                                     android:drawablePadding="@dimen/_8sdp"
                                     android:fontFamily="@font/poppins_regular"
-                                    android:text="@string/french"
+                                    android:text="@string/fran_ais"
                                     android:textColor="@color/black"
                                     android:textSize="@dimen/_14sdp"></TextView>
 

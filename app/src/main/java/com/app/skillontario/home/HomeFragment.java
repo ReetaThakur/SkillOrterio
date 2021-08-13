@@ -1,12 +1,20 @@
 package com.app.skillontario.home;
 
+import android.Manifest;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
+import android.provider.Settings;
 import android.view.View;
 import android.widget.TextView;
 
 
+import androidx.core.content.ContextCompat;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.app.skillontario.activities.NotificationActivity;
@@ -22,6 +30,7 @@ import com.app.skillontario.apiConnection.ApiResponseErrorCallback;
 import com.app.skillontario.apiConnection.RequestBodyGenerator;
 import com.app.skillontario.baseClasses.BaseFragment;
 import com.app.skillontario.baseClasses.BaseResponseModel;
+import com.app.skillontario.callbacks.CheckPermission;
 import com.app.skillontario.constants.AppConstants;
 import com.app.skillontario.constants.SharedPrefsConstants;
 import com.app.skillontario.models.CareerDetailModel;
@@ -42,13 +51,14 @@ import static com.app.skillontario.constants.AppConstants.NOTIFICATION_COUNT;
 import static com.app.skillontario.utils.Utils.updatLocalLanguage;
 
 
-public class HomeFragment extends BaseFragment implements ApiResponseErrorCallback, PopularCareerAdapter.BookMarkUpdateDelete {
+public class HomeFragment extends BaseFragment implements ApiResponseErrorCallback, PopularCareerAdapter.BookMarkUpdateDelete, CheckPermission {
 
     private FragmentHomeBinding binding;
     PopularCareerAdapter popularCareerAdapter;
     RecentEventsAdapter eventAdapter;
     RecentNewsAdapter recentNewsAdapter;
     public static TextView tvNotificationCount;
+    CheckPermission checkPermission;
 
     // ApiResponseErrorCallback apiResponseErrorCallback;
     ArrayList<CareerModal> careerModalArrayList = new ArrayList<>();
@@ -67,7 +77,8 @@ public class HomeFragment extends BaseFragment implements ApiResponseErrorCallba
     @Override
     protected void initUi() {
         binding = (FragmentHomeBinding) viewDataBinding;
-        tvNotificationCount = (TextView)findViewById(R.id.tv_notification_count) ;
+        tvNotificationCount = (TextView) findViewById(R.id.tv_notification_count);
+        checkPermission = this;
 
         bookMarkUpdateDelete = this;
         careerModalArrayList.clear();
@@ -102,8 +113,6 @@ public class HomeFragment extends BaseFragment implements ApiResponseErrorCallba
         });
 
 
-
-
         binding.rlFilter.setOnClickListener(v -> {
             Intent intent = new Intent(getActivity(), HomeFilterActivity.class);
             intent.putExtra("search", "");
@@ -115,15 +124,15 @@ public class HomeFragment extends BaseFragment implements ApiResponseErrorCallba
         binding.rlSearch.setOnClickListener(v -> startActivity(new Intent(getActivity(), SearchActivity.class)));
 
         binding.imgNotification.setOnClickListener(v -> {
-           // User_Type = MySharedPreference.getInstance().getBooleanData(SharedPrefsConstants.GUEST_FLOW);
+            // User_Type = MySharedPreference.getInstance().getBooleanData(SharedPrefsConstants.GUEST_FLOW);
 
 
-                HashMap<String, Object> object = new HashMap<>();
-                object.put("userId", MySharedPreference.getInstance().getStringData(SharedPrefsConstants.USER_ID));
-                API_INTERFACE.readNitification(object).enqueue(
-                        new ApiCallBack<>(getActivity(), this, 105, true));
+            HashMap<String, Object> object = new HashMap<>();
+            object.put("userId", MySharedPreference.getInstance().getStringData(SharedPrefsConstants.USER_ID));
+            API_INTERFACE.readNitification(object).enqueue(
+                    new ApiCallBack<>(getActivity(), this, 105, true));
 
-                startActivity(new Intent(getActivity(), NotificationActivity.class));
+            startActivity(new Intent(getActivity(), NotificationActivity.class));
 
 
         });
@@ -160,7 +169,7 @@ public class HomeFragment extends BaseFragment implements ApiResponseErrorCallba
     private void showRecentRecycler() {
         binding.recyRecentEvent.setHasFixedSize(true);
         eventAdapter = new RecentEventsAdapter(getActivity());
-        binding.recyRecentEvent.setAdapter(eventAdapter);
+       // binding.recyRecentEvent.setAdapter(eventAdapter);
     }
 
     private void showRecentNewsRecycler() {
@@ -215,7 +224,7 @@ public class HomeFragment extends BaseFragment implements ApiResponseErrorCallba
                             if (responseModel.getOutput().get(1).getEventData() != null) {
                                 if (responseModel.getOutput().get(1).getEventData().size() > 0) {
                                     eventsModalArrayList.addAll(responseModel.getOutput().get(1).getEventData());
-                                    eventAdapter = new RecentEventsAdapter(eventsModalArrayList, getActivity());
+                                    eventAdapter = new RecentEventsAdapter(eventsModalArrayList, getActivity(),checkPermission);
                                     binding.recyRecentEvent.setAdapter(eventAdapter);
                                 }
                             }
@@ -312,7 +321,7 @@ public class HomeFragment extends BaseFragment implements ApiResponseErrorCallba
                     int count = Integer.parseInt(MySharedPreference.getInstance().getStringData(NOTIFICATION_COUNT));
                     if (count > 0) {
                         binding.tvNotificationCount.setText("" + count);
-                    }else {
+                    } else {
                         binding.tvNotificationCount.setVisibility(View.GONE);
                     }
                 } catch (Exception e) {
@@ -349,5 +358,48 @@ public class HomeFragment extends BaseFragment implements ApiResponseErrorCallba
 
             updatLocalLanguage("en", getActivity());
         }
+    }
+
+    @Override
+    public void onCheck() {
+
+        if (Build.VERSION.SDK_INT >= 23) {
+            int hasPermission = ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.WRITE_CALENDAR);
+            int hasPermission1 = ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.READ_CALENDAR);
+
+            if (hasPermission != PackageManager.PERMISSION_GRANTED) {
+                showDialog();
+                return;
+            }
+
+            if (hasPermission1 != PackageManager.PERMISSION_GRANTED) {
+                showDialog();
+
+            }
+
+        }
+    }
+
+    void showDialog() {
+        new AlertDialog.Builder(getActivity())
+                .setTitle(R.string.permi)
+                .setMessage(R.string.scc)
+
+                // Specifying a listener allows you to take an action before dismissing the dialog.
+                // The dialog is automatically dismissed when a dialog button is clicked.
+                .setPositiveButton(R.string.okay, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        // Continue with delete operation
+                        Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+                        Uri uri = Uri.fromParts("package", getActivity().getPackageName(), null);
+                        intent.setData(uri);
+                        startActivityForResult(intent, 1);
+                    }
+                })
+
+                // A null listener allows the button to dismiss the dialog and take no further action.
+                .setNegativeButton(R.string.no, null)
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .show();
     }
 }

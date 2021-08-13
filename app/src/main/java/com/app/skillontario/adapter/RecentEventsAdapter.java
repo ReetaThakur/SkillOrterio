@@ -3,6 +3,7 @@ package com.app.skillontario.adapter;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
@@ -22,6 +23,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.app.skillontario.activities.NewsDetailAc;
 import com.app.skillontario.activities.WebViewActivity;
 import com.app.skillontario.baseClasses.AppController;
+import com.app.skillontario.callbacks.CheckPermission;
+import com.app.skillontario.constants.SharedPrefsConstants;
 import com.app.skillontario.models.EventsModal;
 import com.app.skillontario.utils.MySharedPreference;
 import com.app.skillontario.utils.Utils;
@@ -44,16 +47,18 @@ public class RecentEventsAdapter extends RecyclerView.Adapter<RecentEventsAdapte
 
     ArrayList<EventsModal> eventsModalArrayList = new ArrayList<>();
     Context context;
+    CheckPermission checkPermission;
+    int permissionCheck = 0;
 
-    public RecentEventsAdapter(Context context) {
-        this.context = context;
+    public RecentEventsAdapter(ArrayList<EventsModal> eventsModalArrayList, Context activity, CheckPermission checkPermission) {
+        this.eventsModalArrayList = eventsModalArrayList;
+        this.context = activity;
+        this.checkPermission = checkPermission;
 
     }
 
-    public RecentEventsAdapter(ArrayList<EventsModal> eventsModalArrayList, Context activity) {
-        this.eventsModalArrayList = eventsModalArrayList;
+    public RecentEventsAdapter(Context activity) {
         this.context = activity;
-
     }
 
 
@@ -99,7 +104,8 @@ public class RecentEventsAdapter extends RecyclerView.Adapter<RecentEventsAdapte
                         }
                     })
                     .into(viewHolder.binding.ivItem);
-        }catch (Exception e){}
+        } catch (Exception e) {
+        }
 
         try {
             if (eventsModalArrayList.get(position).getEvtDate() != null) {
@@ -131,9 +137,9 @@ public class RecentEventsAdapter extends RecyclerView.Adapter<RecentEventsAdapte
 
                     } catch (Exception e) {
                     }
-                   /// val =false;
+                    /// val =false;
                     if (val) {
-                        Utils.deleteCalenderEvent(context,eventID,key);
+                        Utils.deleteCalenderEvent(context, eventID, key);
                         viewHolder.binding.ivCal.setImageResource(R.drawable.event_calender);
                     } else {
 
@@ -141,8 +147,17 @@ public class RecentEventsAdapter extends RecyclerView.Adapter<RecentEventsAdapte
                             if (Utils.checkPermissionCalender(context)) {
                                 Utils.openD(eventsModalArrayList.get(position).getId(), context, eventsModalArrayList.get(position).getEvtDate(), eventsModalArrayList.get(position).getEvtEndDate(), eventsModalArrayList.get(position).getEvtTitle(), eventsModalArrayList.get(position).getEvtDesc());
                                 viewHolder.binding.ivCal.setImageResource(R.drawable.event_added);
-                            } else
-                                Utils.askPermison(context);
+                            } else {
+
+                                if (!MySharedPreference.getInstance().getBooleanData(SharedPrefsConstants.CHECK_PERMISSION)) {
+                                    MySharedPreference.getInstance().setBooleanData(SharedPrefsConstants.CHECK_PERMISSION, true);
+                                    Utils.askPermison(context);
+                                } else {
+                                    if (checkPermission != null) {
+                                        checkPermission.onCheck();
+                                    }
+                                }
+                            }
                         } catch (Exception e) {
                         }
 

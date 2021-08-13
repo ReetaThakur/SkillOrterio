@@ -12,12 +12,12 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/_80sdp"
-            android:layout_marginLeft="@dimen/_10sdp"
             android:background="@drawable/ic_group_copy_3_res">
 
             <RelativeLayout
                 android:id="@+id/llMain"
                 android:layout_width="match_parent"
+                android:layout_marginLeft="@dimen/_16sdp"
                 android:layout_height="match_parent"
                 android:layout_marginRight="@dimen/_12sdp"
                 android:layout_marginBottom="@dimen/_12sdp">

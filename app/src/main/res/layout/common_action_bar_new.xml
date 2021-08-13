@@ -59,11 +59,12 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins_medium"
                     android:gravity="center"
+                    android:singleLine="true"
                     android:paddingLeft="@dimen/_2sdp"
                     android:paddingRight="@dimen/_2sdp"
                     android:text="@string/reset"
                     android:textColor="#0A7AFF"
-                    android:textSize="@dimen/_10sdp"></me.grantland.widget.AutofitTextView>
+                    android:textSize="@dimen/_11sdp"></me.grantland.widget.AutofitTextView>
 
             </RelativeLayout>
         </LinearLayout>

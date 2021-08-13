@@ -22,19 +22,21 @@
             android:layout_marginBottom="@dimen/_10sdp"
             android:background="@drawable/rect_new_back">
 
-            <RelativeLayout
+            <androidx.cardview.widget.CardView
                 android:id="@+id/rl"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_110sdp"
                 android:layout_marginLeft="@dimen/_12sdp"
                 android:layout_marginTop="@dimen/_12sdp"
-                android:layout_marginRight="@dimen/_12sdp">
+                android:layout_marginRight="@dimen/_12sdp"
+                app:cardCornerRadius="@dimen/_8sdp"
+                app:cardElevation="0dp">
 
                 <ProgressBar
                     android:id="@+id/progress"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
+                    android:layout_gravity="center"
                     android:indeterminate="true"
                     android:indeterminateTint="@color/black"
                     android:indeterminateTintMode="src_atop"></ProgressBar>
@@ -44,9 +46,9 @@
                     android:id="@+id/iv_image"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:scaleType="fitXY"></ImageView>
+                    android:scaleType="centerCrop"></ImageView>
 
-            </RelativeLayout>
+            </androidx.cardview.widget.CardView>
 
             <TextView
                 android:id="@+id/tv_title"

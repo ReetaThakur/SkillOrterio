@@ -636,9 +636,9 @@
     <string name="platinum_patner">Platinum Partners</string>
     <string name="premimun_ptner">Premium Partners</string>
     <string name="silver_patner">Silver Partners</string>
-    <string name="gold_partners">Gold Patners</string>
+    <string name="gold_partners">Gold Partners</string>
     <string name="bronze_partners">Bronze Partners</string>
-    <string name="friends_partners">Friends Partners</string>
+    <string name="friends_partners">Friends</string>
     <string name="government_partners">Government Partners</string>
     <string name="empty_title">Please enter title</string>
     <string name="redSeal">Red Seal Program</string>
@@ -728,6 +728,8 @@ identify as female</string>
     <string name="select_age">Select your Age Range</string>
     <string name="select_city">Enter City</string>
     <string name="select_pro">Enter State/Province</string>
+    <string name="permi">You Denied Permission</string>
+    <string name="scc">Without calendar permission the app is unable to add events. Give permission to calendar for access events</string>
 
 
     <!--<string name="Popular_Careers">Carrières populaires </string>

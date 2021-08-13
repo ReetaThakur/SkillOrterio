@@ -159,13 +159,9 @@ public class PopularCareerAdapter extends RecyclerView.Adapter<PopularCareerAdap
                 viewHolder.binding.textWork.setText(careerModalArrayList.get(position).getJobProfile());
                 viewHolder.binding.textMoney.setText(careerModalArrayList.get(position).getFee());
 
-               /* Glide.with(context).load(careerModalArrayList.get(position).getImage())
-                        .error(R.drawable.new_person1)
-                        .into(viewHolder.binding.imagePerson);*/
 
                 Glide.with(context)
                         .load(careerModalArrayList.get(position).getImage())
-                        .skipMemoryCache(true)
                         .listener(new RequestListener<Drawable>() {
                             @Override
                             public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {

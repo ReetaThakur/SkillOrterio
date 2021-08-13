@@ -71,7 +71,7 @@
                         android:textColor="@color/black"
                         android:textSize="@dimen/_12sdp" />
 
-                    <TextView
+                    <me.grantland.widget.AutofitTextView
                         android:id="@+id/tvRetake"
                         android:layout_width="wrap_content"
                         android:layout_height="@dimen/_28sdp"
@@ -82,6 +82,7 @@
                         android:gravity="center"
                         android:paddingLeft="@dimen/_15sdp"
                         android:paddingRight="@dimen/_15sdp"
+                        android:singleLine="true"
                         android:text="@string/retake_quiz"
                         android:textColor="@color/white"
                         android:textSize="@dimen/_11sdp" />

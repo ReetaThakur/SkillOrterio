@@ -21,6 +21,7 @@ public class SharedPrefsConstants {
     public static final String LANGUAGE_API = "language";
     public static final String NOTIFICATION_ON_OFF = "NOTIFICATION_ON_OFF";
     public static final String NOTIFICATION_DATA = "NOTIFICATION_DATA";
+    public static final String CHECK_PERMISSION = "CHECK_PERMISSION";
 
 
 }

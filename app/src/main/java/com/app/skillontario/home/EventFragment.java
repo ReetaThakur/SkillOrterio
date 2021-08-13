@@ -1,18 +1,25 @@
 package com.app.skillontario.home;
 
+import android.Manifest;
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.os.Build;
+import android.provider.Settings;
 import android.view.View;
 import android.view.Window;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
+import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -20,6 +27,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.app.skillontario.BottomBarActivity;
+import com.app.skillontario.MainActivity;
 import com.app.skillontario.activities.NewsDetailAc;
 import com.app.skillontario.adapter.EventAdapter;
 import com.app.skillontario.adapter.NewsAdapter;
@@ -29,6 +37,7 @@ import com.app.skillontario.apiConnection.RequestBodyGenerator;
 import com.app.skillontario.baseClasses.BaseActivity;
 import com.app.skillontario.baseClasses.BaseFragment;
 import com.app.skillontario.baseClasses.BaseResponseModel;
+import com.app.skillontario.callbacks.CheckPermission;
 import com.app.skillontario.callbacks.XmlClickable;
 import com.app.skillontario.constants.SharedPrefsConstants;
 import com.app.skillontario.models.EventsModal;
@@ -50,8 +59,9 @@ import static android.content.Intent.FLAG_ACTIVITY_CLEAR_TOP;
 import static com.app.skillontario.constants.ApiConstants.API_INTERFACE;
 import static com.app.skillontario.utils.Utils.getDeviceId;
 
-public class EventFragment extends BaseFragment implements XmlClickable, ApiResponseErrorCallback {
+public class EventFragment extends BaseFragment implements XmlClickable, ApiResponseErrorCallback, CheckPermission {
 
+    private static final Object REQUEST_LOCATION = 100;
     private FragmentEventBinding binding;
 
     int news_Total_count = 20;
@@ -63,6 +73,7 @@ public class EventFragment extends BaseFragment implements XmlClickable, ApiResp
     ArrayList<NewsModal> newsModalArrayList;
     EventAdapter eventAdapter;
     NewsAdapter newsAdapter;
+    CheckPermission checkPermission;
 
     boolean isLoading = false;
     boolean hasNext = false;
@@ -80,7 +91,7 @@ public class EventFragment extends BaseFragment implements XmlClickable, ApiResp
     protected void initUi() {
         binding = (FragmentEventBinding) viewDataBinding;
         setPhase(this);
-
+        checkPermission = this;
         getEventRequest = new GetEventRequest(getActivity());
         getEventRequestNews = new GetEventRequest(getActivity());
         apiResponseErrorCallback = this;
@@ -337,7 +348,7 @@ public class EventFragment extends BaseFragment implements XmlClickable, ApiResp
                         eventsModalArrayList.clear();
 
                         eventsModalArrayList.addAll(responseModel.getOutput());
-                        eventAdapter = new EventAdapter(eventsModalArrayList, getActivity());
+                        eventAdapter = new EventAdapter(eventsModalArrayList, getActivity(), checkPermission);
                         binding.recyRecentEvent.setAdapter(eventAdapter);
 
                     } else {
@@ -366,5 +377,67 @@ public class EventFragment extends BaseFragment implements XmlClickable, ApiResp
     public void getApiError(Throwable t, int flag) {
         binding.progress1.setVisibility(View.GONE);
         binding.progress.setVisibility(View.GONE);
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.M)
+    @Override
+    public void onCheck() {
+
+        if (Build.VERSION.SDK_INT >= 23) {
+            int hasPermission = ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.WRITE_CALENDAR);
+            int hasPermission1 = ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.READ_CALENDAR);
+
+            if (hasPermission != PackageManager.PERMISSION_GRANTED) {
+                showDialog();
+                return;
+               /* if (shouldShowRequestPermissionRationale(Manifest.permission.WRITE_CALENDAR)) {
+
+                    showDialog();
+                    return;
+                } else {
+                    getActivity().requestPermissions(new String[]{Manifest.permission.WRITE_CALENDAR}, 100);
+
+                }*/
+                //return;
+            }
+
+            if (hasPermission1 != PackageManager.PERMISSION_GRANTED) {
+                showDialog();
+               /* if (shouldShowRequestPermissionRationale(Manifest.permission.READ_CALENDAR)) {
+
+                    return;
+                } else {
+                    getActivity().requestPermissions(new String[]{Manifest.permission.READ_CALENDAR}, 200);
+
+                }
+*/
+            }
+
+
+        }
+
+    }
+
+    void showDialog() {
+        new AlertDialog.Builder(getActivity())
+                .setTitle(R.string.permi)
+                .setMessage(R.string.scc)
+
+                // Specifying a listener allows you to take an action before dismissing the dialog.
+                // The dialog is automatically dismissed when a dialog button is clicked.
+                .setPositiveButton(R.string.okay, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        // Continue with delete operation
+                        Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+                        Uri uri = Uri.fromParts("package", getActivity().getPackageName(), null);
+                        intent.setData(uri);
+                        startActivityForResult(intent, 1);
+                    }
+                })
+
+                // A null listener allows the button to dismiss the dialog and take no further action.
+                .setNegativeButton(R.string.no, null)
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .show();
     }
 }

@@ -17,6 +17,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.app.skillontario.activities.NewsDetailAc;
 import com.app.skillontario.activities.WebViewActivity;
+import com.app.skillontario.callbacks.CheckPermission;
+import com.app.skillontario.constants.SharedPrefsConstants;
 import com.app.skillontario.models.EventsModal;
 import com.app.skillontario.utils.MySharedPreference;
 import com.app.skillontario.utils.Utils;
@@ -39,10 +41,13 @@ import java.util.Map;
 public class EventAdapter extends RecyclerView.Adapter<EventAdapter.MyViewHolder> {
     ArrayList<EventsModal> eventsModalArrayList;
     FragmentActivity activity;
+    int permissionCheck = 0;
+    CheckPermission checkPermission;
 
-    public EventAdapter(ArrayList<EventsModal> eventsModalArrayList, FragmentActivity activity) {
+    public EventAdapter(ArrayList<EventsModal> eventsModalArrayList, FragmentActivity activity, CheckPermission checkPermission) {
         this.eventsModalArrayList = eventsModalArrayList;
         this.activity = activity;
+        this.checkPermission = checkPermission;
     }
 
     @NonNull
@@ -72,10 +77,11 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.MyViewHolder
                         }
                     })
                     .into(holder.eventsItemBinding.ivItem);
-        }catch (Exception e){}
+        } catch (Exception e) {
+        }
 
         try {
-         //   Picasso.with(activity).load(eventsModalArrayList.get(position).getEvtImage()).error(R.drawable.place_holder_events).placeholder(R.drawable.place_holder_events).into(holder.eventsItemBinding.ivItem);
+            //   Picasso.with(activity).load(eventsModalArrayList.get(position).getEvtImage()).error(R.drawable.place_holder_events).placeholder(R.drawable.place_holder_events).into(holder.eventsItemBinding.ivItem);
             holder.eventsItemBinding.tvHead.setText(eventsModalArrayList.get(position).getEvtTitle());
             holder.eventsItemBinding.tvAdd.setText(eventsModalArrayList.get(position).getEvtVenue());
             holder.eventsItemBinding.tvEvtCategory.setText(eventsModalArrayList.get(position).getEvtCategory());
@@ -104,7 +110,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.MyViewHolder
 
                         } catch (Exception e) {
                         }
-                       // val =false;
+                        // val =false;
                         if (val) {
                             Utils.deleteCalenderEvent(activity, eventID, key);
                             holder.eventsItemBinding.ivCal.setImageResource(R.drawable.event_calender);
@@ -113,8 +119,18 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.MyViewHolder
                                 Utils.openD(eventsModalArrayList.get(position).getId(), activity,
                                         eventsModalArrayList.get(position).getEvtDate(), eventsModalArrayList.get(position).getEvtEndDate(), eventsModalArrayList.get(position).getEvtTitle(), eventsModalArrayList.get(position).getEvtDesc());
                                 holder.eventsItemBinding.ivCal.setImageResource(R.drawable.event_added);
-                            } else
-                                Utils.askPermison(activity);
+                            } else {
+                                if (!MySharedPreference.getInstance().getBooleanData(SharedPrefsConstants.CHECK_PERMISSION)) {
+                                    MySharedPreference.getInstance().setBooleanData(SharedPrefsConstants.CHECK_PERMISSION, true);
+                                    Utils.askPermison(activity);
+                                } else {
+                                    if (checkPermission != null) {
+                                        checkPermission.onCheck();
+                                    }
+                                }
+
+
+                            }
                         }
                     }
                 } catch (Exception e) {

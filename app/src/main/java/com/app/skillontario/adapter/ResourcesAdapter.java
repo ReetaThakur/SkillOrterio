@@ -2,6 +2,7 @@ package com.app.skillontario.adapter;
 
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,7 +28,11 @@ import com.bumptech.glide.request.target.Target;
 import com.squareup.picasso.Picasso;
 
 import java.io.Serializable;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Locale;
 
 public class ResourcesAdapter extends RecyclerView.Adapter<ResourcesAdapter.MyViewHolder> {
     ArrayList<ResourceModal> resourceModalArrayList;
@@ -50,10 +55,10 @@ public class ResourcesAdapter extends RecyclerView.Adapter<ResourcesAdapter.MyVi
         //  holder..ivItem
 
         try {
-           // Picasso.with(activity).load(resourceModalArrayList.get(position).getResImage()).into(holder.resourcesItemBinding.ivItem);
+            // Picasso.with(activity).load(resourceModalArrayList.get(position).getResImage()).into(holder.resourcesItemBinding.ivItem);
             holder.resourcesItemBinding.tvTitle.setText(resourceModalArrayList.get(position).getResTitle());
             if (resourceModalArrayList.get(position).getCreatedAt() != null) {
-                holder.resourcesItemBinding.tvDate.setText(Utils.DateFormate(resourceModalArrayList.get(position).getCreatedAt()));
+                holder.resourcesItemBinding.tvDate.setText(changeDate(resourceModalArrayList.get(position).getCreatedAt()));
             }
             holder.resourcesItemBinding.llMain.setOnClickListener(v -> {
                 Intent intent = new Intent(activity, ResourcesDetailsActivity.class);
@@ -80,7 +85,8 @@ public class ResourcesAdapter extends RecyclerView.Adapter<ResourcesAdapter.MyVi
                         }
                     })
                     .into(holder.resourcesItemBinding.ivItem);
-        }catch (Exception e){}
+        } catch (Exception e) {
+        }
 
 
     }
@@ -107,5 +113,39 @@ public class ResourcesAdapter extends RecyclerView.Adapter<ResourcesAdapter.MyVi
             this.resourcesItemBinding = resourcesItemBinding;
 
         }
+    }
+
+    public String changeDate(String dateString) {
+        String dateStr = "", timeStr = "", finalDate = "";
+        try {
+
+            // .//String dateString = dateN;
+
+            String inPattern = "yyyy-MM-dd'T'HH:mm:ss.SSSXXX";
+            //   String outPatternDate = "yyyy-MM-dd";
+            String outPatternDate = "LLL dd, yyyy";
+            String outPatternTime = "HH:mm aa";
+
+            SimpleDateFormat inFormat = new SimpleDateFormat(inPattern, Locale.getDefault());
+            SimpleDateFormat outFormat = new SimpleDateFormat(outPatternDate, Locale.getDefault());
+            SimpleDateFormat outFormatTime = new SimpleDateFormat(outPatternTime, Locale.getDefault());
+
+            try {
+                Date inDate = inFormat.parse(dateString);
+                dateStr = outFormat.format(inDate);
+                timeStr = outFormatTime.format(inDate);
+
+                Log.e("TEST", dateStr);
+                finalDate = "" + dateStr;
+            } catch (ParseException e) {
+                e.printStackTrace();
+                finalDate = dateString;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            finalDate = dateString;
+        }
+
+        return finalDate;
     }
 }
