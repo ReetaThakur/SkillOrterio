@@ -30,6 +30,7 @@ import com.app.skillorterio.databinding.ActivityTermsOfServicesBinding;
 
 import java.util.HashMap;
 
+import static com.app.skillontario.SignIn.SignInActivity.fcm;
 import static com.app.skillontario.constants.ApiConstants.API_INTERFACE;
 import static com.app.skillontario.constants.AppConstants.FIREBASE_TOKEN;
 import static com.app.skillontario.constants.SharedPrefsConstants.GUEST_FLOW;
@@ -40,6 +41,7 @@ public class SettingActivity extends BaseActivity implements ApiResponseErrorCal
 
     private ActivitySettingBinding binding;
     public static boolean language = false;
+
 
     @Override
     protected void initUi() {
@@ -185,13 +187,12 @@ public class SettingActivity extends BaseActivity implements ApiResponseErrorCal
                     showToast(responseModel.getMessage());
                     //languageMethod();
                     String lang = MySharedPreference.getInstance().getStringData(AppConstants.LANGUAGE);
-                    String token = MySharedPreference.getInstance().getStringData(FIREBASE_TOKEN);
+                    fcm = MySharedPreference.getInstance().getStringData(FIREBASE_TOKEN);
                     MySharedPreference.getInstance().clearSharedPrefs();
-
-                    Intent intent = new Intent(SettingActivity.this, SignInActivity.class);
-                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    MySharedPreference.getInstance().setStringData(FIREBASE_TOKEN, fcm);
 
                     languageMethod(lang);
+
                     MySharedPreference.getInstance().setBooleanData(SharedPrefsConstants.GUEST_FLOW, false);
                     MySharedPreference.getInstance().setStringData(AppConstants.LANGUAGE, lang);
                     if (lang.equalsIgnoreCase("en")) {
@@ -200,7 +201,8 @@ public class SettingActivity extends BaseActivity implements ApiResponseErrorCal
                         MySharedPreference.getInstance().setStringData(SharedPrefsConstants.LANGUAGE_API, "fre");
                     }
 
-                    MySharedPreference.getInstance().setStringData(FIREBASE_TOKEN, token);
+                    Intent intent = new Intent(SettingActivity.this, SignInActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(intent);
                     finish();
                 } else {

@@ -167,7 +167,7 @@ public class SignInActivity extends BaseActivity implements ApiResponseErrorCall
     void callSignInApi(String email, String pass, String usertype) {
         HashMap<String, Object> object = new HashMap<>();
 
-        object.put("email", email);
+        object.put("email", email.toLowerCase());
         object.put("password", pass);
         object.put("userType", "2");
         object.put("deviceId", getDeviceId(SignInActivity.this));

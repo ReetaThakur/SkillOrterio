@@ -158,9 +158,11 @@ public class SignUpActivity extends BaseActivity implements ApiResponseErrorCall
                         if (TextUtils.isEmpty(usertype)) {
                             usertype = "2";
                         }
-                        signUpModel.setEmail(binding.etMail.getText().toString().trim());
+                        signUpModel.setEmail(binding.etMail.getText().toString().trim().toLowerCase());
                         signUpModel.setPassword(binding.etPassword.getText().toString().trim());
                         signUpModel.setConfirmPassword(binding.etConfirmPassword.getText().toString().trim());
+
+
                         API_INTERFACE.registerUser(RequestBodyGenerator.registerUser(signUpModel, getDeviceId(SignUpActivity.this), usertype)).enqueue(
                                 new ApiCallBack<>(SignUpActivity.this, apiResponseErrorCallback, 01, true));
 
