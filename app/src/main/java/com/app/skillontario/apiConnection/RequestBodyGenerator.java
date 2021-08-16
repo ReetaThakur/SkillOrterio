@@ -28,7 +28,7 @@ public class RequestBodyGenerator {
     public static HashMap<String, Object> loginUser(String email, String password) {
 
         HashMap<String, Object> object = new HashMap<>();
-        object.put("email", email);
+        object.put("email", email.toLowerCase().trim());
         object.put("password", password);
         object.put("device_id", Settings.Secure.getString(AppController.context.getContentResolver(), Settings.Secure.ANDROID_ID));
         object.put("firebase_token", MySharedPreference.getInstance().getStringData(FIREBASE_TOKEN));
@@ -39,7 +39,7 @@ public class RequestBodyGenerator {
     public static HashMap<String, Object> registerUser(SignUpModel signUpModel, String divece, String userType) {
         HashMap<String, Object> object = new HashMap<>();
 
-        object.put("email", signUpModel.getEmail());
+        object.put("email", signUpModel.getEmail().toLowerCase().trim());
         object.put("password", signUpModel.getPassword());
         object.put("fname", "");
         object.put("lname", "");
@@ -209,14 +209,14 @@ public class RequestBodyGenerator {
     public static HashMap<String, Object> updateProfile(UpdateProfileModal updateProfileModal) {
         HashMap<String, Object> object = new HashMap<>();
         object.put("userId", updateProfileModal.getId());
-        object.put("fname", updateProfileModal.getFname());
-        object.put("lname", updateProfileModal.getLname());
+        object.put("fname", updateProfileModal.getFname().trim());
+        object.put("lname", updateProfileModal.getLname().trim());
         object.put("gender", updateProfileModal.getGender());
-        object.put("email", updateProfileModal.getEmail());
+        object.put("email", updateProfileModal.getEmail().toLowerCase().trim());
         object.put("school", updateProfileModal.getSchool());
         object.put("dob", updateProfileModal.getDob());
-        object.put("city", updateProfileModal.getCity());
-        object.put("country", updateProfileModal.getCountry());
+        object.put("city", updateProfileModal.getCity().trim());
+        object.put("country", updateProfileModal.getCountry().trim());
         return object;
 
     }

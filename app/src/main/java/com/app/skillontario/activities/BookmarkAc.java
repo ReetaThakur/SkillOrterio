@@ -154,7 +154,7 @@ public class BookmarkAc extends BaseActivity implements ApiResponseErrorCallback
                         careerListDetails.clear();
 
                         careerListDetails.addAll(responseModel.getOutput());
-                        bookmarkAdapter = new BookmarkAdapter(this, careerListDetails, deleteBookMark);
+                        bookmarkAdapter = new BookmarkAdapter(BookmarkAc.this, careerListDetails, deleteBookMark);
                         binding.rcyBookmark.setAdapter(bookmarkAdapter);
 
                     } else {

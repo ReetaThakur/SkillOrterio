@@ -98,7 +98,7 @@ public class FeedBackActivity extends BaseActivity implements ApiResponseErrorCa
                             public void onClick(View v) {
                                 HashMap<String, Object> object = new HashMap<>();
                                 object.put("userId", MySharedPreference.getInstance().getStringData(SharedPrefsConstants.USER_ID));
-                                object.put("email", binding.etEmail.getText().toString().trim());
+                                object.put("email", binding.etEmail.getText().toString().trim().toLowerCase());
                                 object.put("title", binding.etTitle.getText().toString().trim());
                                 object.put("message", binding.etMessage.getText().toString().trim());
                                 CallApi(object);

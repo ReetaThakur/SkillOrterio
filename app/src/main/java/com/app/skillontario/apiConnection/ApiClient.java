@@ -94,19 +94,19 @@ public class ApiClient {
             String accessToken = "";
             String language = "";
             Request.Builder request = chain.request().newBuilder();
-            if(MySharedPreference.getInstance().getBooleanData(SharedPrefsConstants.IS_HEADER)) {
+            if (MySharedPreference.getInstance().getBooleanData(SharedPrefsConstants.IS_HEADER)) {
                 if (!TextUtils.isEmpty(MySharedPreference.getInstance().getStringData(USER_TOKEN))) {
                     accessToken = MySharedPreference.getInstance().getStringData(USER_TOKEN);
-                    language = MySharedPreference.getInstance().getStringData(LANGUAGE_API);
                     request.addHeader("x-access-token", accessToken);
-                    request.addHeader("lang",language);
-                    Log.e("ACCESS TOKEN->", accessToken);
-                    Log.e("language->", language);
                 }
             }
-           /* if (!SharedPrefsConstants.SampleAccessToken.equalsIgnoreCase("")) {
-                request.addHeader("accessToken", SharedPrefsConstants.SampleAccessToken);
-            }*/
+            language = MySharedPreference.getInstance().getStringData(LANGUAGE_API);
+            if (TextUtils.isEmpty(language)) {
+                language = "eng";
+            }
+
+            request.addHeader("lang", language);
+
             return chain.proceed(request.build());
         };
     }

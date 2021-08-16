@@ -22,7 +22,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_5sdp"
                 android:gravity="center"
-                android:text="MaxSold"
+                android:text=""
                 android:textColor="@android:color/black"
                 android:textSize="@dimen/_14sdp"
                 android:textStyle="bold"
@@ -34,7 +34,8 @@
                 android:layout_height="@dimen/_110sdp"
                 android:layout_gravity="center_horizontal"
                 android:layout_margin="@dimen/_10sdp"
-                android:src="@mipmap/ic_launcher" />
+                android:src="@mipmap/ic_launcher"
+                android:visibility="gone" />
 
             <TextView
                 android:id="@+id/msg_txt"
@@ -72,7 +73,8 @@
                     android:backgroundTint="@color/white_walk"
                     android:padding="@dimen/_10sdp"
                     android:text="No"
-                    android:textColor="@color/colorPrimary" />
+                    android:textColor="@color/colorPrimary"
+                    android:visibility="gone" />
 
                 <View
                     android:layout_width="0.2dp"
@@ -87,10 +89,10 @@
                     style="@style/ButtonDark"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_5sdp"
+                    android:layout_marginStart="@dimen/_16sdp"
                     android:layout_weight="1"
                     android:padding="@dimen/_10sdp"
-                    android:text="Yes" />
+                    android:text="@string/okay" />
             </LinearLayout>
 
         </LinearLayout>

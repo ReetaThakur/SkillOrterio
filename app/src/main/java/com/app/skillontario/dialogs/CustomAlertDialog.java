@@ -25,6 +25,7 @@ import com.app.skillorterio.R;
 
 import java.util.Objects;
 
+import static com.app.skillontario.constants.AppConstants.FIREBASE_TOKEN;
 import static com.app.skillontario.constants.AppConstants.IS_WALK_THROUGH;
 import static com.google.firebase.analytics.FirebaseAnalytics.Event.LOGIN;
 
@@ -34,21 +35,24 @@ public class CustomAlertDialog extends Dialog implements View.OnClickListener {
     private Context context;
     private String msg, head;
     private ConfirmDialogCallback dialogCallback;
+    private int image;
+    private int requestCode;
+    private String postText = "";
+    private String negText = "";
 
-    public CustomAlertDialog(@NonNull Context context, String msg, String heading) {
+    public CustomAlertDialog(@NonNull Context context, String msg, String heading, String posText,
+                             String negText, int image, ConfirmDialogCallback dialogCallback, int requestCode) {
         super(context);
         this.context = context;
         this.msg = msg;
         this.head = heading;
-    }
-
-    public CustomAlertDialog(@NonNull Context context, String msg, String heading, ConfirmDialogCallback dialogCallback) {
-        super(context);
-        this.context = context;
-        this.msg = msg;
-        this.head = heading;
+        this.postText = posText;
+        this.negText = negText;
+        this.image = image;
+        this.requestCode = requestCode;
         this.dialogCallback = dialogCallback;
     }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,23 +71,22 @@ public class CustomAlertDialog extends Dialog implements View.OnClickListener {
     private void initView() {
         try {
             TextView confirm_msg_txt = findViewById(R.id.msg_txt);
-            TextView confirm_head_txt = findViewById(R.id.heading_txt);
-            TextView ok_btn = findViewById(R.id.ok_btn);
+            // TextView confirm_head_txt = findViewById(R.id.heading_txt);
+            TextView ok_btn = findViewById(R.id.positive_btn);
 
             confirm_msg_txt.setText(msg);
             ok_btn.setOnClickListener(this);
 
-            if (head != null)
-                confirm_head_txt.setText(head);
-            else
-                confirm_head_txt.setText("");
-        }catch (Exception e){}
+
+        } catch (Exception e) {
+        }
 
     }
 
     @Override
     public void onClick(View view) {
-        if (view.getId() == R.id.ok_btn) {
+        if (view.getId() == R.id.positive_btn) {
+            // logout();
             onBackPressed();
             /*if (dialogCallback != null)
                 dialogCallback.onPositiveClick(FILE_SUBMITTED);*/
@@ -93,18 +96,38 @@ public class CustomAlertDialog extends Dialog implements View.OnClickListener {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        if (msg.equalsIgnoreCase(context.getString(R.string.session_espired_msg))) {
-            Intent intent = new Intent(context, SignInActivity.class);
-            intent.putExtra(AppConstants.LOGIN_TYPE, "new");
-            context.startActivity(intent);
-            MySharedPreference.getInstance().clearSharedPrefs();
-            MySharedPreference.getInstance().setBooleanData(SharedPrefsConstants.IS_LOGIN, false);
-            ((Activity) context).finishAffinity();
+        if (requestCode == 98) {
+            logout();
 
         } else {
             if (dialogCallback != null)
                 dialogCallback.onPositiveClick(1);
             dismiss();
+        }
+    }
+
+    void logout() {
+        String lang = MySharedPreference.getInstance().getStringData(AppConstants.LANGUAGE);
+        String token = MySharedPreference.getInstance().getStringData(FIREBASE_TOKEN);
+        MySharedPreference.getInstance().clearSharedPrefs();
+        MySharedPreference.getInstance().setBooleanData(SharedPrefsConstants.GUEST_FLOW, false);
+        MySharedPreference.getInstance().setBooleanData(IS_WALK_THROUGH, true);
+        MySharedPreference.getInstance().setStringData(AppConstants.LANGUAGE, lang);
+        if (lang.equalsIgnoreCase("en")) {
+            MySharedPreference.getInstance().setStringData(SharedPrefsConstants.LANGUAGE_API, "eng");
+        } else {
+            MySharedPreference.getInstance().setStringData(SharedPrefsConstants.LANGUAGE_API, "fre");
+        }
+
+        MySharedPreference.getInstance().setStringData(FIREBASE_TOKEN, token);
+
+        try {
+            Intent intent = new Intent(context, SignInActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            context.startActivity(intent);
+            ((Activity) context).finishAffinity();
+        } catch (Exception e) {
         }
     }
 }

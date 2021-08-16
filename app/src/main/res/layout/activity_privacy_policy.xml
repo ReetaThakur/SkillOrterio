@@ -9,7 +9,6 @@
         android:orientation="vertical"
         android:paddingTop="@dimen/_10sdp">
 
-
         <include
             android:id="@+id/action_bar"
             layout="@layout/common_action_bar" />
@@ -28,15 +27,15 @@
                 android:text="@string/privacy_notice"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_22sdp"
-                android:visibility="gone"></TextView>
+                android:visibility="visible"></TextView>
 
             <WebView
                 android:id="@+id/webview"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_above="@+id/bottom"
-                android:layout_marginTop="-12dp"
                 android:layout_below="@+id/privacyTitle1"
+                android:layout_marginTop="-12dp"
                 android:visibility="visible" />
 
             <LinearLayout

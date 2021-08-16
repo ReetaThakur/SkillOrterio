@@ -18,12 +18,24 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_16sdp"
+                android:layout_marginRight="@dimen/_16sdp"
+                android:fontFamily="@font/poppins_regular"
+                android:text="@string/terms_of_services"
+                android:textColor="@color/black"
+                android:textSize="32sp"></TextView>
+
 
             <WebView
                 android:id="@+id/webview"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_above="@+id/bottom"
+                android:layout_below="@+id/title"
                 android:layout_marginTop="-12dp"
                 android:visibility="visible" />
 
@@ -32,10 +44,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_above="@+id/bottom"
-                android:visibility="gone"
                 android:layout_marginLeft="@dimen/_16sdp"
                 android:layout_marginRight="@dimen/_16sdp"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:visibility="gone">
 
                 <ScrollView
                     android:layout_width="match_parent"
@@ -47,15 +59,6 @@
                         android:layout_height="match_parent"
                         android:orientation="vertical">
 
-
-                        <TextView
-                            android:id="@+id/title"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/poppins_regular"
-                            android:text="@string/terms_of_services"
-                            android:textColor="@color/black"
-                            android:textSize="32sp"></TextView>
 
                         <TextView
                             android:id="@+id/d1"

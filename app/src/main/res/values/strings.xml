@@ -730,6 +730,9 @@ identify as female</string>
     <string name="select_pro">Enter State/Province</string>
     <string name="permi">You Denied Permission</string>
     <string name="scc">Without calendar permission the app is unable to add events. Give permission to calendar for access events</string>
+    <string name="logdevice">You\'ve logged in from other device. Please log in again.</string>
+    <string name="ser">Server Not Responding</string>
+
 
 
     <!--<string name="Popular_Careers">Carrières populaires </string>

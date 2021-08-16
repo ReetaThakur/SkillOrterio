@@ -34,6 +34,7 @@ import java.util.HashMap;
 
 import static com.app.skillontario.activities.SettingActivity.language;
 import static com.app.skillontario.constants.ApiConstants.API_INTERFACE;
+import static com.app.skillontario.constants.AppConstants.IS_WALK_THROUGH;
 import static com.app.skillontario.utils.Utils.updatLocalLanguage;
 
 public class ChangePasswordActivity extends BaseActivity implements ApiResponseErrorCallback {
@@ -194,6 +195,7 @@ public class ChangePasswordActivity extends BaseActivity implements ApiResponseE
                     Intent intent = new Intent(ChangePasswordActivity.this, SignInActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     MySharedPreference.getInstance().clearSharedPrefs();
+                    MySharedPreference.getInstance().setBooleanData(IS_WALK_THROUGH, true);
                     startActivity(intent);
                     showToast(responseModel.getMessage());
 

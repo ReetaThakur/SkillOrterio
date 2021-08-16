@@ -2,6 +2,7 @@ package com.app.skillontario.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -33,6 +34,7 @@ import java.util.HashMap;
 import static com.app.skillontario.SignIn.SignInActivity.fcm;
 import static com.app.skillontario.constants.ApiConstants.API_INTERFACE;
 import static com.app.skillontario.constants.AppConstants.FIREBASE_TOKEN;
+import static com.app.skillontario.constants.AppConstants.IS_WALK_THROUGH;
 import static com.app.skillontario.constants.SharedPrefsConstants.GUEST_FLOW;
 import static com.app.skillontario.constants.SharedPrefsConstants.USER_ID;
 import static com.app.skillontario.utils.Utils.updatLocalLanguage;
@@ -189,6 +191,7 @@ public class SettingActivity extends BaseActivity implements ApiResponseErrorCal
                     String lang = MySharedPreference.getInstance().getStringData(AppConstants.LANGUAGE);
                     fcm = MySharedPreference.getInstance().getStringData(FIREBASE_TOKEN);
                     MySharedPreference.getInstance().clearSharedPrefs();
+                    MySharedPreference.getInstance().setBooleanData(IS_WALK_THROUGH, true);
                     MySharedPreference.getInstance().setStringData(FIREBASE_TOKEN, fcm);
 
                     languageMethod(lang);
@@ -204,11 +207,12 @@ public class SettingActivity extends BaseActivity implements ApiResponseErrorCal
                     Intent intent = new Intent(SettingActivity.this, SignInActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(intent);
-                    finish();
+                    finishAffinity();
                 } else {
                     try {
                         showToast(responseModel.getMessage());
-                    }catch (Exception e){}
+                    } catch (Exception e) {
+                    }
 
                 }
             } catch (Exception e) {

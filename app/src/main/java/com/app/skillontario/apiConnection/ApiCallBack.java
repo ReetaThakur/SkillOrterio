@@ -34,6 +34,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 import static com.app.skillontario.constants.AppConstants.FIREBASE_TOKEN;
+import static com.app.skillontario.constants.AppConstants.IS_WALK_THROUGH;
 
 
 public class ApiCallBack<T> implements Callback<T>, ConfirmDialogCallback {
@@ -42,6 +43,7 @@ public class ApiCallBack<T> implements Callback<T>, ConfirmDialogCallback {
     private ApiResponseErrorCallback responseErrorCallback;
     private int flag;
     private ProgressDialog pDialog;
+    //  CustomAlertDialog customAlertDialog;
 
 
     public ApiCallBack(Context context, ApiResponseErrorCallback responseErrorCallback, int flag, boolean isCustomProgress) {
@@ -85,42 +87,24 @@ public class ApiCallBack<T> implements Callback<T>, ConfirmDialogCallback {
             }
 
         } else if (response.code() == 500) {  /// 101,102,104 error code logout
-            if (response.body() == null) {
-                if (response.errorBody() != null) {
 
-                    try {
-                        JSONObject jObjError = new JSONObject(response.errorBody().string());
-                        Utils.showToast(context, jObjError.getString("message"));
-                    } catch (Exception e) {
-                        Utils.showToast(context, "Server Not Responding");
-                    }
+            try {
+                JSONObject jObjError = new JSONObject(response.errorBody().string());
+                Utils.showToast(context, jObjError.getString("message"));
+
+                int errorCode = jObjError.getInt("errorCode");
+                if (errorCode == 101 || errorCode == 102 || errorCode == 104) {
+                    // logout();
+                    new CustomAlertDialog(context, context.getString(R.string.logdevice), context.getString(R.string.app_name), context.getString(R.string.okay), null, 0, this, 98).show();
                 }
+            } catch (Exception e) {
+                Utils.showToast(context, context.getString(R.string.ser));
             }
 
         } else {
-
-            String lang = MySharedPreference.getInstance().getStringData(AppConstants.LANGUAGE);
-            String token = MySharedPreference.getInstance().getStringData(FIREBASE_TOKEN);
-            MySharedPreference.getInstance().clearSharedPrefs();
-            MySharedPreference.getInstance().setBooleanData(SharedPrefsConstants.GUEST_FLOW, false);
-            MySharedPreference.getInstance().setStringData(AppConstants.LANGUAGE, lang);
-            if (lang.equalsIgnoreCase("en")) {
-                MySharedPreference.getInstance().setStringData(SharedPrefsConstants.LANGUAGE_API, "eng");
-            } else {
-                MySharedPreference.getInstance().setStringData(SharedPrefsConstants.LANGUAGE_API, "fre");
-            }
-
-            MySharedPreference.getInstance().setStringData(FIREBASE_TOKEN, token);
-
-            try {
-                Intent intent = new Intent(context, SignInActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                context.startActivity(intent);
-            } catch (Exception e) {
-            }
+            //logout();
+            new CustomAlertDialog(context, context.getString(R.string.logdevice), context.getString(R.string.app_name), context.getString(R.string.okay), null, 0, this, 98).show();
         }
-        //Utils.showToast(context, "Server Not Responding");
 
     }
 
@@ -135,10 +119,10 @@ public class ApiCallBack<T> implements Callback<T>, ConfirmDialogCallback {
             if (context instanceof Activity)
                 ((Activity) context).getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
 
-            Utils.showToast(context, "Please check your internet connection.");
+            Utils.showToast(context, context.getString(R.string.no_internet_msg));
         } else {
             if (!checkInternet()) {
-                Utils.showToast(context, "Please check your internet connection.");
+                Utils.showToast(context, context.getString(R.string.no_internet_msg));
             } else
                 Utils.showToast(context, t.toString());
         }
@@ -168,9 +152,9 @@ public class ApiCallBack<T> implements Callback<T>, ConfirmDialogCallback {
 
     @Override
     public void onPositiveClick(int requestCode) {
-        Intent intent = new Intent("android.settings.DATA_ROAMING_SETTINGS");
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        context.startActivity(intent);
+        if (requestCode == 98) {
+            logout();
+        }
     }
 
     @Override
@@ -187,5 +171,30 @@ public class ApiCallBack<T> implements Callback<T>, ConfirmDialogCallback {
                 activeNetwork.isConnectedOrConnecting();
 
         return isConnected;
+    }
+
+    void logout() {
+        String lang = MySharedPreference.getInstance().getStringData(AppConstants.LANGUAGE);
+        String token = MySharedPreference.getInstance().getStringData(FIREBASE_TOKEN);
+        MySharedPreference.getInstance().clearSharedPrefs();
+        MySharedPreference.getInstance().setBooleanData(SharedPrefsConstants.GUEST_FLOW, false);
+        MySharedPreference.getInstance().setBooleanData(IS_WALK_THROUGH, true);
+        MySharedPreference.getInstance().setStringData(AppConstants.LANGUAGE, lang);
+        if (lang.equalsIgnoreCase("en")) {
+            MySharedPreference.getInstance().setStringData(SharedPrefsConstants.LANGUAGE_API, "eng");
+        } else {
+            MySharedPreference.getInstance().setStringData(SharedPrefsConstants.LANGUAGE_API, "fre");
+        }
+
+        MySharedPreference.getInstance().setStringData(FIREBASE_TOKEN, token);
+
+        try {
+            Intent intent = new Intent(context, SignInActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            context.startActivity(intent);
+            ((Activity) context).finishAffinity();
+        } catch (Exception e) {
+        }
     }
 }

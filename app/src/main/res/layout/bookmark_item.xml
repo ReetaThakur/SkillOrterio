@@ -66,7 +66,7 @@
                     android:paddingTop="@dimen/_2sdp"
                     android:paddingRight="@dimen/_10sdp"
                     android:paddingBottom="@dimen/_2sdp"
-                    android:text="Construction"
+                    android:text=""
                     android:textAllCaps="true"
                     android:textColor="@color/white"
                     android:textSize="@dimen/_8sdp"></TextView>
@@ -88,7 +88,7 @@
                     android:layout_marginTop="@dimen/_2sdp"
                     android:fontFamily="@font/poppins_medium"
                     android:maxLines="2"
-                    android:text="@string/general_carpente_r"
+                    android:text=""
                     android:textColor="#272F35"
                     android:textSize="@dimen/_12sdp"></TextView>
 
