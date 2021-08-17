@@ -63,7 +63,7 @@ public class RequestBodyGenerator {
             object.put("fcmToken", fcm);
         }
 
-       // object.put("fcmToken", MySharedPreference.getInstance().getStringData(FIREBASE_TOKEN));
+        // object.put("fcmToken", MySharedPreference.getInstance().getStringData(FIREBASE_TOKEN));
         object.put("status", "");
 
         String lang = MySharedPreference.getInstance().getStringData(SharedPrefsConstants.LANGUAGE_API);
@@ -203,6 +203,16 @@ public class RequestBodyGenerator {
         object.put("page", getEventRequest.getPage());
         object.put("pageLimit", getEventRequest.getPageLimit());
         object.put("search", getEventRequest.getSearch());
+        return object;
+    }
+
+    public static HashMap<String, Object> getScholar(String id) {
+        HashMap<String, Object> object = new HashMap<>();
+        object.put("eType", "mgsafai");
+        object.put("eventId", id);
+        object.put("page", 1);
+        object.put("pageLimit", 20);
+        object.put("search", "");
         return object;
     }
 

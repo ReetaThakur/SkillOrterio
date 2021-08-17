@@ -11,16 +11,20 @@ import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.app.skillontario.BottomBarActivity;
+import com.app.skillontario.activities.JobDetailsActivity;
 import com.app.skillontario.activities.ResourcesDetailsActivity;
+import com.app.skillontario.activities.ScholarDetailAc;
 import com.app.skillontario.activities.SplashActivity;
 import com.app.skillontario.activities.WebViewActivity;
 import com.app.skillontario.models.NotificationModal;
 import com.app.skillontario.models.ResourceModal;
+import com.app.skillontario.models.ScholarShipModal;
 import com.app.skillorterio.R;
 import com.app.skillorterio.databinding.AdapterNotificationBinding;
 import com.app.skillorterio.databinding.AdapterNotificationBinding;
 
 import org.jetbrains.annotations.NotNull;
+import org.json.JSONObject;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -103,7 +107,7 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
 
                     ResourceModal model = new ResourceModal();
                     model.setResUrl(arrayListNotify.get(position).getUrl());
-                    model.setId(arrayListNotify.get(position).getId());
+                    model.setId(arrayListNotify.get(position).getSectionId());
                     // model.setResImage(arrayListNotify.get(position).ge);
                     // model.setResDesc(arrayListNotify.get(position).getD);
                     Intent intent = new Intent(context, ResourcesDetailsActivity.class);
@@ -111,16 +115,20 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
                     context.startActivity(intent);
 
                 } else if (arrayListNotify.get(position).getNotifyType().equalsIgnoreCase("mgsafai")) { //  scloarship
-                    Intent intent = new Intent(context, BottomBarActivity.class);
+
+                    Intent intent = new Intent(context, ScholarDetailAc.class);
+                    intent.putExtra("id", arrayListNotify.get(position).getSectionId());
                     context.startActivity(intent);
+
                 } else if (arrayListNotify.get(position).getNotifyType().equalsIgnoreCase("profile")) {
-                    Intent intent = new Intent(context, BottomBarActivity.class);
-                    //intent.putExtra("resData", "");
+                    Intent intent = new Intent(context, JobDetailsActivity.class);
+                    intent.putExtra("Popular", arrayListNotify.get(position).getSectionId());
                     context.startActivity(intent);
 
                 } else if (arrayListNotify.get(position).getNotifyType().equalsIgnoreCase("news")) {
-                    Intent intent = new Intent(context, WebViewActivity.class);
-                    intent.putExtra("url", arrayListNotify.get(position).getUrl());
+                    Intent intent = new Intent(context, BottomBarActivity.class);
+                    intent.putExtra("if", "2");
+                    intent.putExtra("iff", "news");
                     context.startActivity(intent);
                 } else if (arrayListNotify.get(position).getNotifyType().equalsIgnoreCase("push")) {
                     Intent intent = new Intent(context, WebViewActivity.class);

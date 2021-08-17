@@ -26,7 +26,15 @@ public class PrivacyPolicyActivity extends BaseActivity {
 
         binding.actionBar.ivBack.setOnClickListener(v -> onBackPressed());
 
-        binding.webview.loadUrl("file:///android_asset/privacy.html");
+       // binding.webview.loadUrl("file:///android_asset/privacy.html");
+
+        if (MySharedPreference.getInstance().getStringData(AppConstants.LANGUAGE).
+                equalsIgnoreCase("fr")) {
+            binding.webview.loadUrl("file:///android_asset/privacy_fr.html");
+        } else {
+            binding.webview.loadUrl("file:///android_asset/privacy.html");
+        }
+
     }
 
     @Override

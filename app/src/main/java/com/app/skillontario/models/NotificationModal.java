@@ -34,6 +34,18 @@ public class NotificationModal implements Serializable {
     @Expose
     private Integer status;
 
+    @SerializedName("sectionId")
+    @Expose
+    private String sectionId;
+
+    public String getSectionId() {
+        return sectionId;
+    }
+
+    public void setSectionId(String sectionId) {
+        this.sectionId = sectionId;
+    }
+
     public Boolean getRead() {
         return read;
     }

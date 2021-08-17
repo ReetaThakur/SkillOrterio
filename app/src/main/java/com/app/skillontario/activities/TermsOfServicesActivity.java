@@ -24,7 +24,15 @@ public class TermsOfServicesActivity extends BaseActivity {
         binding = (ActivityTermsOfServicesBinding) viewBaseBinding;
 
         binding.actionBar.ivBack.setOnClickListener(v -> onBackPressed());
-        binding.webview.loadUrl("file:///android_asset/terms.html");
+
+        if (MySharedPreference.getInstance().getStringData(AppConstants.LANGUAGE).
+                equalsIgnoreCase("fr")) {
+
+            binding.webview.loadUrl("file:///android_asset/terms_fr.html");
+        } else {
+            binding.webview.loadUrl("file:///android_asset/terms.html");
+        }
+
 
     }
 

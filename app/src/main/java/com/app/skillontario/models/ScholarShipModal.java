@@ -41,7 +41,7 @@ public class ScholarShipModal implements Serializable, Parcelable {
     @Expose
     private String image;
 
-    protected ScholarShipModal(Parcel in) {
+    public ScholarShipModal(Parcel in) {
         id = in.readString();
         lang = in.readString();
         if (in.readByte() == 0) {
@@ -73,6 +73,10 @@ public class ScholarShipModal implements Serializable, Parcelable {
             return new ScholarShipModal[size];
         }
     };
+
+    public ScholarShipModal() {
+
+    }
 
     public String getImage() {
         return image;

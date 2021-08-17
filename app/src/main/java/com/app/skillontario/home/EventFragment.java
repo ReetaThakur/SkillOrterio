@@ -150,6 +150,22 @@ public class EventFragment extends BaseFragment implements XmlClickable, ApiResp
         callNewsAPI(false);
         callEventApi(false);
 
+        try {
+            Intent intent = getActivity().getIntent();
+            String id = intent.getStringExtra("iff");
+            if (id.equalsIgnoreCase("news")) {
+                binding.newsL.setVisibility(View.VISIBLE);
+                binding.eventL.setVisibility(View.GONE);
+
+                binding.tab.tv1.setBackgroundResource(R.drawable.rec_left_white);
+                binding.tab.tv1.setTextColor(Color.BLACK);
+
+                binding.tab.tv2.setBackgroundResource(R.drawable.rec_blue_right);
+                binding.tab.tv2.setTextColor(Color.WHITE);
+            }
+        } catch (Exception e) {
+        }
+
 
     }
 
@@ -412,7 +428,6 @@ public class EventFragment extends BaseFragment implements XmlClickable, ApiResp
                 }
 */
             }
-
 
 
         }

@@ -149,6 +149,7 @@
                         app:tint="@color/white" />
 
                     <TextView
+                        android:id="@+id/tvS"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:fontFamily="@font/poppins_medium"

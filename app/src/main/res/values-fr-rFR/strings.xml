@@ -251,6 +251,6 @@ vous vous identifiez comme une femme</string>
     <string name="okay">d\'accord</string>
     <string name="permi">Vous avez refusé l\'autorisation</string>
     <string name="scc">Sans cette autorisation, l\'application ne peut pas ajouter d\'événements. Autoriser le calendrier pour les événements d\'accès</string>
-    <string name="logdevice">Vous vous êtes connecté depuis un autre appareil. Veuillez vous reconnecter.</string>
+    <string name="logdevice">Vos sessions ont expiré.</string>
     <string name="ser">Le serveur ne répond pas</string>
 </resources>

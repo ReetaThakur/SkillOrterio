@@ -14,6 +14,8 @@
     <uses-permission android:name="android.permission.WRITE_CALENDAR" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
+
+
     <application
         android:name="com.app.skillontario.baseClasses.AppController"
         android:allowBackup="true"
@@ -216,6 +218,16 @@
                 android:resource="@xml/file_path" />
         </provider>
 
+
+        <receiver
+            android:name="com.app.skillontario.firebase.NotificationReceiver"
+            android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+            </intent-filter>
+        </receiver> <!-- FCM SETUP END -->
+
+
         <receiver
             android:name="com.app.skillontario.firebase.FirebaseBroadcastReceiver"
             android:exported="true"
@@ -224,27 +236,13 @@
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
             </intent-filter>
         </receiver>
-        <receiver
-            android:name="com.app.skillontario.firebase.NotificationReceiver"
-            android:permission="com.google.android.c2dm.permission.SEND">
-            <intent-filter>
-                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-            </intent-filter>
-        </receiver> <!-- FCM SETUP END -->
-        <!--
-    <receiver android:name=".controller.settings.NetworkChangeReceiver">
-            <intent-filter>
-                <action
-                    android:name="android.net.conn.CONNECTIVITY_CHANGE"
-                    tools:ignore="BatteryLife" />
-            </intent-filter>
-        </receiver>
-        -->
+
         <service
             android:name="com.app.skillontario.firebase.MyFirebaseMessagingService"
             tools:ignore="ExportedService">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>
         </service>
 

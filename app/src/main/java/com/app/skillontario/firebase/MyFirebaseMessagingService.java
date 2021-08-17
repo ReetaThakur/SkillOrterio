@@ -60,6 +60,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
     @SuppressLint("LongLogTag")
     @Override
+    @RequiresApi(api = Build.VERSION_CODES.M)
     public void onMessageReceived(@NotNull RemoteMessage remoteMessage) {
         showCustomNotification(remoteMessage);
         MySharedPreference.getInstance().setBooleanData(IS_NOTIFICATION, true);

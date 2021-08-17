@@ -12,6 +12,7 @@ import com.app.skillontario.models.NotificationModal;
 import com.app.skillontario.models.PartnerModal;
 import com.app.skillontario.models.RegistrationModal;
 import com.app.skillontario.models.ResourceModal;
+import com.app.skillontario.models.ScholarModel;
 import com.app.skillontario.models.ScholarShipModal;
 import com.app.skillontario.models.careerListModel.CareerListDetails;
 import com.app.skillontario.models.quizModel.QuizResultModel;
@@ -72,6 +73,10 @@ public interface ApiInterface {
 
     @POST("event/list")
     Call<BaseResponseModel<ArrayList<EventsModal>>> getevent(@Body HashMap<String, Object> body);
+
+    @POST("event/list")
+    Call<BaseResponseModel<ArrayList<ScholarModel>>> geteventListScholar(@Body HashMap<String, Object> body);
+
 
     @POST("event/list")
     Call<BaseResponseModel<ArrayList<NewsModal>>> getNews(@Body HashMap<String, Object> body);
