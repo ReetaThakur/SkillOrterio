@@ -90,12 +90,13 @@ public class ApiCallBack<T> implements Callback<T>, ConfirmDialogCallback {
 
             try {
                 JSONObject jObjError = new JSONObject(response.errorBody().string());
-                Utils.showToast(context, jObjError.getString("message"));
 
                 int errorCode = jObjError.getInt("errorCode");
                 if (errorCode == 101 || errorCode == 102 || errorCode == 104) {
                     // logout();
                     new CustomAlertDialog(context, context.getString(R.string.logdevice), context.getString(R.string.app_name), context.getString(R.string.okay), null, 0, this, 98).show();
+                } else {
+                    Utils.showToast(context, jObjError.getString("message"));
                 }
             } catch (Exception e) {
                 Utils.showToast(context, context.getString(R.string.ser));

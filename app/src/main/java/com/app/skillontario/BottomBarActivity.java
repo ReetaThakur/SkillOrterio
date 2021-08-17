@@ -40,7 +40,7 @@ import static com.app.skillontario.activities.SettingActivity.language;
 import static com.app.skillontario.constants.ApiConstants.API_INTERFACE;
 import static com.app.skillontario.utils.Utils.updatLocalLanguage;
 
-public class BottomBarActivity extends BaseActivity implements ApiResponseErrorCallback {
+public class BottomBarActivity extends BaseActivity {
 
     private ActivityBottomBarBinding binding;
     private TabAdapter tabAdapter;
@@ -49,6 +49,13 @@ public class BottomBarActivity extends BaseActivity implements ApiResponseErrorC
     protected void initUi() {
         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_from_left);
         binding = (ActivityBottomBarBinding) viewBaseBinding;
+        if (language) {
+            binding.viewPager.setVisibility(View.INVISIBLE);
+            binding.bottomNavigationViewLinear.setVisibility(View.INVISIBLE);
+        } else {
+            binding.viewPager.setVisibility(View.VISIBLE);
+            binding.bottomNavigationViewLinear.setVisibility(View.VISIBLE);
+        }
 
 
         tabAdapter = new TabAdapter(getSupportFragmentManager(), FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
@@ -71,6 +78,11 @@ public class BottomBarActivity extends BaseActivity implements ApiResponseErrorC
 
         binding.viewPager.setOffscreenPageLimit(4);
 
+        if (language) {
+            binding.bottomNavigationViewLinear.setCurrentActiveItem(3);
+        }
+
+
         binding.viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int i, float v, int i1) {
@@ -88,8 +100,6 @@ public class BottomBarActivity extends BaseActivity implements ApiResponseErrorC
             }
         });
 
-        //  binding.viewPager.setOnTouchListener((v, event) -> true);
-        //   Utils.askPermison(BottomBarActivity.this);
 
         binding.bottomNavigationViewLinear.setNavigationChangeListener((view, position) -> binding.viewPager.setCurrentItem(position, true));
     }
@@ -128,6 +138,15 @@ public class BottomBarActivity extends BaseActivity implements ApiResponseErrorC
                     languageMethod(MySharedPreference.getInstance().getStringData(AppConstants.LANGUAGE));
                     binding.bottomNavigationViewLinear.setCurrentActiveItem(3);
                     language = false;
+                    new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            binding.viewPager.setVisibility(View.VISIBLE);
+                            binding.bottomNavigationViewLinear.setVisibility(View.VISIBLE);
+                            binding.reP.setVisibility(View.GONE);
+                        }
+                    }, 70);
+
                     return;
                 }
 
@@ -148,6 +167,7 @@ public class BottomBarActivity extends BaseActivity implements ApiResponseErrorC
                     getIntent().setData(null);
                     getIntent().setFlags(0);
                 } catch (Exception e) {
+                    binding.reP.setVisibility(View.GONE);
                 }
 
                 try {
@@ -165,7 +185,10 @@ public class BottomBarActivity extends BaseActivity implements ApiResponseErrorC
                     getIntent().setData(null);
                     getIntent().setFlags(0);
                 } catch (Exception e) {
+                    binding.reP.setVisibility(View.GONE);
                 }
+
+                binding.reP.setVisibility(View.GONE);
             }
         }, 50);
 
@@ -186,19 +209,6 @@ public class BottomBarActivity extends BaseActivity implements ApiResponseErrorC
 
             updatLocalLanguage("en", getBaseContext());
         }
-    }
-
-
-    @Override
-    public void getApiResponse(Object responseObject, int flag) {
-        if (flag == 127) {
-
-        }
-    }
-
-    @Override
-    public void getApiError(Throwable t, int flag) {
-
     }
 
 

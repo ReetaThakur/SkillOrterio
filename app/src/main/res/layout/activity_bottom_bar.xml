@@ -35,54 +35,66 @@
                 android:id="@+id/l_item_home"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:bt_active="true"
                 android:layout_weight="1"
+                app:bt_active="true"
                 app:bt_colorActive="@color/white"
                 app:bt_colorInactive="@color/tab1_inactive_color"
                 app:bt_icon="@drawable/ic_tab_home"
-                app:bt_titleSize="12sp"
                 app:bt_shape="@drawable/background_tab1"
-                app:bt_title="@string/home" />
+                app:bt_title="@string/home"
+                app:bt_titleSize="12sp" />
 
             <com.gauravk.bubblenavigation.BubbleToggleView
                 android:id="@+id/l_item_event"
-                android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 app:bt_badgeBackgroundColor="@color/white"
                 app:bt_colorActive="@color/white"
                 app:bt_colorInactive="@color/tab1_inactive_color"
                 app:bt_icon="@drawable/ic_tab_news"
-                app:bt_titleSize="11sp"
                 app:bt_shape="@drawable/background_tab2"
-                app:bt_title="@string/events" />
+                app:bt_title="@string/events"
+                app:bt_titleSize="11sp" />
 
             <com.gauravk.bubblenavigation.BubbleToggleView
                 android:id="@+id/l_item_resource"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:bt_colorActive="@color/white"
                 android:layout_weight="1"
+                app:bt_colorActive="@color/white"
                 app:bt_colorInactive="@color/tab1_inactive_color"
                 app:bt_icon="@drawable/ic_tab_event"
-                app:bt_titleSize="12sp"
                 app:bt_shape="@drawable/background_tab3"
-                app:bt_title="@string/resources" />
+                app:bt_title="@string/resources"
+                app:bt_titleSize="12sp" />
 
             <com.gauravk.bubblenavigation.BubbleToggleView
                 android:id="@+id/l_item_dashboard"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:bt_colorActive="@color/white"
                 android:layout_weight="1"
+                app:bt_colorActive="@color/white"
                 app:bt_colorInactive="@color/tab1_inactive_color"
                 app:bt_icon="@drawable/ic_tab_last"
-                app:bt_titleSize="12sp"
                 app:bt_shape="@drawable/background_tab4"
-                app:bt_title="@string/dash" />
+                app:bt_title="@string/dash"
+                app:bt_titleSize="12sp" />
 
 
         </com.gauravk.bubblenavigation.BubbleNavigationLinearView>
+
+        <RelativeLayout
+            android:id="@+id/reP"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white">
+
+            <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"></ProgressBar>
+        </RelativeLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
