@@ -185,7 +185,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         String adminChannelDescription = "notifications_admin_channel_description";
 
         NotificationChannel adminChannel;
-        adminChannel = new NotificationChannel(ADMIN_CHANNEL_ID, adminChannelName, NotificationManager.IMPORTANCE_LOW);
+        adminChannel = new NotificationChannel(ADMIN_CHANNEL_ID, adminChannelName, NotificationManager.IMPORTANCE_HIGH);
         adminChannel.setDescription(adminChannelDescription);
         adminChannel.enableLights(true);
         adminChannel.setLockscreenVisibility(Notification.VISIBILITY_PUBLIC);

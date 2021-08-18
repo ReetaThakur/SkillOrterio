@@ -13,7 +13,7 @@
     <uses-permission android:name="android.permission.READ_CALENDAR" />
     <uses-permission android:name="android.permission.WRITE_CALENDAR" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
-
+    <uses-permission android:name="android.permission.VIBRATE" />
 
 
     <application
@@ -34,8 +34,8 @@
             tools:ignore="LockedOrientationActivity" />
         <activity
             android:name="com.app.skillontario.activities.PlayVideoActivity"
-            android:screenOrientation="portrait"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.app.skillontario.activities.JobDetailsActivity"
             android:screenOrientation="portrait"
@@ -96,8 +96,9 @@
             android:name="com.app.skillontario.activities.PartnersActivity"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
-        <activity android:name="com.app.skillontario.quiz.QuizAc"
-            android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.app.skillontario.quiz.QuizAc"
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.app.skillontario.home.HomeFilterActivity"
             android:screenOrientation="portrait"
@@ -171,12 +172,26 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
 
-            <!-- Branch URI Scheme -->
-            <intent-filter>
-                <data
-                    android:host="open"
-                    android:scheme="com.skillsontario" />
+            <intent-filter
+                android:launchMode="singleInstance"
+                android:noHistory="true">
+                <action android:name="android.intent.action.VIEW" />
 
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="development.appstudiointernal.ca"
+                    android:pathPrefix="/appdemo.html"
+                    android:scheme="http" />
+                <data
+                    android:host="development.appstudiointernal.ca"
+                    android:pathPrefix="/appdemo.html"
+                    android:scheme="https" />
+            </intent-filter>
+
+            <intent-filter>
+                <data android:scheme="http://com.skills://" />
                 <action android:name="android.intent.action.VIEW" />
 
                 <category android:name="android.intent.category.DEFAULT" />
@@ -191,23 +206,30 @@
                 <category android:name="android.intent.category.BROWSABLE" />
 
                 <data
-                    android:host="wik5t.test-app.link"
+                    android:host="k3edz.app.link"
                     android:scheme="https" />
-                <!-- example-alternate domain is required for App Links when the Journeys/Web SDK and Deepviews are used inside your website. -->
                 <data
-                    android:host="wik5t-alternate.test-app.link"
+                    android:host="k3edz-alternate.app.link"
                     android:scheme="https" />
             </intent-filter>
+
+
         </activity> <!-- Branch init -->
         <meta-data
             android:name="io.branch.sdk.BranchKey"
-            android:value="key_live_pi3EgUeSdtPYa7AHcpresopcuFlLYh4j" />
+            android:value="key_live_na6qi91lGeTsmlz46QiNrdpnFAh7ZVNW" />
         <meta-data
             android:name="io.branch.sdk.BranchKey.test"
-            android:value="key_test_jh6FmQfPiyN3c3EMmbPKrpnnsthV1h1v" />
+            android:value="key_test_of8rj0YmJaSCigAY7VcRxdgnzwl2ZP6j" />
         <meta-data
             android:name="io.branch.sdk.TestMode"
-            android:value="true" /> <!-- Set to true to use Branch_Test_Key (useful when simulating installs and/or switching between debug and production flavors) -->
+            android:value="false" /> <!-- Set to true to use Branch_Test_Key (useful when simulating installs and/or switching between debug and production flavors) -->
+
+        <!-- Optional. Set to true to disable auto deep link feature-->
+        <meta-data
+            android:name="io.branch.sdk.auto_link_disable"
+            android:value="false" />
+
         <provider
             android:name="com.app.skillontario.utils.GenericFileProvider"
             android:authorities="com.app.skillorterio.provider"
@@ -221,6 +243,7 @@
 
         <receiver
             android:name="com.app.skillontario.firebase.NotificationReceiver"
+            android:exported="true"
             android:permission="com.google.android.c2dm.permission.SEND">
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
@@ -228,8 +251,53 @@
         </receiver> <!-- FCM SETUP END -->
 
 
+        <activity
+            android:name="com.app.skillontario.activities.DeepLinkActivity"
+            android:label="@string/app_name">
+            <intent-filter android:label="com.app.skillorterio">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <!-- Accepts URIs that begin with "http://com.roundup” -->
+                <data
+                    android:host="com.skills"
+                    android:scheme="http" />
+                <!-- note that the leading "/" is required for pathPrefix-->
+            </intent-filter>
+            <intent-filter android:label="com.app.skillorterio">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <!-- Accepts URIs that begin with "example://gizmos” -->
+                <data
+                    android:host="com.app.skills"
+                    android:scheme="http" />
+            </intent-filter>
+        </activity>
+
+
+        <!--<service android:name="com.app.skillontario.firebase_new.MyFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+
+        <receiver
+            android:name="com.app.skillontario.firebase_new.FirebaseBroadcastReceiver"
+            android:exported="true"
+            android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+            </intent-filter>
+        </receiver>-->
+
+
         <receiver
             android:name="com.app.skillontario.firebase.FirebaseBroadcastReceiver"
+            android:directBootAware="true"
             android:exported="true"
             android:permission="com.google.android.c2dm.permission.SEND">
             <intent-filter>
@@ -239,12 +307,20 @@
 
         <service
             android:name="com.app.skillontario.firebase.MyFirebaseMessagingService"
-            tools:ignore="ExportedService">
+            android:directBootAware="true"
+            android:exported="true">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>
         </service>
+
+        <!--  <service android:name="com.app.skillontario.firebase.MyFirebaseMessagingService">
+              <intent-filter>
+                  <action android:name="com.google.firebase.MESSAGING_EVENT" />
+                  <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+              </intent-filter>
+          </service>-->
 
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_icon"
@@ -261,9 +337,7 @@
         <meta-data
             android:name="firebase_analytics_collection_deactivated"
             android:value="true" />
-        <meta-data
-            android:name="com.codewaves.youtubethumbnailview.ApiKey"
-            android:value="AIzaSyAgnzI_bu5NaLivA1wVkG6H5LI8ty0Ih3s" />
+
     </application>
 
 </manifest>

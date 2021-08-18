@@ -6,6 +6,7 @@ import android.net.Uri;
 import androidx.core.app.ShareCompat;
 
 import com.app.skillontario.BottomBarActivity;
+import com.app.skillontario.activities.JobDetailsActivity;
 import com.app.skillontario.adapter.AdapterCong;
 import com.app.skillontario.adapter.TabAdapter;
 import com.app.skillontario.baseClasses.BaseActivity;
@@ -27,17 +28,17 @@ public class QuizAc extends BaseActivity {
         binding = (QuizAcBinding) viewBaseBinding;
 
         binding.share.setOnClickListener(v -> {
-            /*ShareCompat.IntentBuilder.from(this)
-                    .setType("text/plain")
-                    .setChooserTitle(R.string.shre)
-                    .setText("https://www.skillsontario.com")
-                    .startChooser();*/
-            Utils.share(this,"","Hey! I played this interesting quiz on Skills Ontario to find out which profession is the best fit for me. Check out the result here","https://www.skillsontario.com",null);
+
+            Utils.share1(QuizAc.this, "Hey! I played this interesting quiz on Skills Ontario to find out which profession is the best fit for me. Check out the result here" +
+                    "", quizFinalResultModel.get(0).getImage(), null, "quiz", quizFinalResultModel.get(0).getId());
+
         });
 
         binding.sendInvite.setOnClickListener(v -> {
-            Utils.share(this,"","Come and join Skills Ontario! It’s the best place to evaluate your skills and useful in finding job opportunities.","https://play.google.com/store/apps/details?id=com.whatsapp",null);
-           // onShareClicked();
+
+            Utils.share1(QuizAc.this, "Come and join Skills Ontario! It’s the best place to evaluate your skills and useful in finding job opportunities." +
+                    "", quizFinalResultModel.get(0).getImage(), null, "home", quizFinalResultModel.get(0).getId());
+
         });
         binding.retake.tvRetake.setOnClickListener(v -> startActivity(new Intent(this, QuizStepAc.class)));
         binding.home.setOnClickListener(v -> startActivity(new Intent(this, BottomBarActivity.class)));

@@ -90,11 +90,11 @@ android {
     productFlavors {
 
         development {
-           buildConfigField "String", "BASE_URL", '"http://ec2-13-234-249-108.ap-south-1.compute.amazonaws.com:3100/api/"' // old build
+          buildConfigField "String", "BASE_URL", '"http://ec2-13-234-249-108.ap-south-1.compute.amazonaws.com:3100/api/"' // old build
          //  buildConfigField "String", "BASE_URL", '"http://ec2-3-99-57-179.ca-central-1.compute.amazonaws.com:3100/api/"'
          //  buildConfigField "String", "BASE_URL", '"https://apiadskills.appstudiointernal.ca/api/"' // dev
           // buildConfigField "String", "BASE_URL", '"https://devapi.appskillsontario.com/api/"' // testing
-          //  buildConfigField "String", "BASE_URL", '"https://api.appskillsontario.com/api/"'  // producation
+           // buildConfigField "String", "BASE_URL", '"https://api.appskillsontario.com/api/"'  // producation
         }
 
 
@@ -136,10 +136,17 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
     implementation 'com.squareup.okhttp3:logging-interceptor:4.9.0'
 
+    implementation 'com.google.firebase:firebase-analytics:17.6.0'
+    implementation 'com.google.firebase:firebase-crashlytics:17.2.2'
+    implementation 'com.google.firebase:firebase-messaging:20.3.0'
+
     //image loading
     implementation 'com.github.bumptech.glide:glide:4.11.0'
     kapt 'com.github.bumptech.glide:compiler:4.11.0'
     implementation 'me.grantland:autofittextview:0.2.+'
+
+    implementation 'io.branch.sdk.android:library:5.0.10'
+
     //youtube player
    // implementation 'com.pierfrancescosoffritti.androidyoutubeplayer:core:10.0.5'
 
@@ -199,7 +206,7 @@ dependencies {
 
     // required
 
-    implementation "io.branch.sdk.android:library:5.+"
+   // implementation "io.branch.sdk.android:library:5.+"
     // required if your app is in the Google Play Store (tip: avoid using bundled play services libs)
     implementation 'com.google.firebase:firebase-appindexing:19.1.0'
     //implementation 'com.google.android.gms:play-services-ads-identifier:16+'

@@ -98,6 +98,7 @@ public class ApiClient {
                 if (!TextUtils.isEmpty(MySharedPreference.getInstance().getStringData(USER_TOKEN))) {
                     accessToken = MySharedPreference.getInstance().getStringData(USER_TOKEN);
                     request.addHeader("x-access-token", accessToken);
+                    Log.d("Access token "," "+accessToken);
                 }
             }
             language = MySharedPreference.getInstance().getStringData(LANGUAGE_API);

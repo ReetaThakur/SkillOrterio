@@ -26,6 +26,9 @@ import com.app.skillorterio.databinding.ActivityHomeFilterBinding;
 import com.app.skillontario.utils.MySharedPreference;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
 
 import static com.app.skillontario.constants.ApiConstants.API_INTERFACE;
 
@@ -39,6 +42,10 @@ public class HomeFilterActivity extends BaseActivity implements KeywordSelected,
     ApiResponseErrorCallback apiResponseErrorCallback;
     String redFlag = "";
     String search = "";
+
+    public static HashMap<Integer, String> sectorHashMap = new HashMap<>();
+    public static HashMap<Integer, String> eduactionHashMap = new HashMap<>();
+    public static HashMap<Integer, String> redHashMap = new HashMap<>();
 
     @Override
     protected void initUi() {
@@ -66,6 +73,13 @@ public class HomeFilterActivity extends BaseActivity implements KeywordSelected,
         binding.actionBarN.ivReset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                try {
+                    eduactionHashMap.clear();
+                    redHashMap.clear();
+                    sectorHashMap.clear();
+                } catch (Exception e) {
+                }
+
                 redFlag = "";
                 String[] stringsarr = new String[sectorarrarylist.size()];
                 for (int i = 0; i < sectorarrarylist.size(); i++) {
@@ -271,14 +285,35 @@ public class HomeFilterActivity extends BaseActivity implements KeywordSelected,
                     @Override
                     public void chipSelected(int index) {
                         sectorarrarylist.get(index).setSelect(true);
+                        try {
+                            sectorHashMap.put(index, String.valueOf(index));
+                        } catch (Exception e) {
+                        }
                     }
 
                     @Override
                     public void chipDeselected(int index) {
                         sectorarrarylist.get(index).setSelect(false);
+                        try {
+                            sectorHashMap.remove(index);
+                        } catch (Exception e) {
+                        }
+
                     }
                 })
                 .build();
+
+        try {
+            for (Map.Entry m : sectorHashMap.entrySet()) {
+                System.out.println(m.getKey() + " " + m.getValue());
+
+                if (binding.cpSector != null && binding.cpSector.getChildCount() != 0) {
+                    int key = (int) m.getKey();
+                    binding.cpSector.setSelectedChip(key);
+                }
+            }
+        } catch (Exception e) {
+        }
 
     }
 
@@ -293,14 +328,34 @@ public class HomeFilterActivity extends BaseActivity implements KeywordSelected,
                     @Override
                     public void chipSelected(int index) {
                         educationAraylist.get(index).setSelector(true);
+
+                        try {
+                            eduactionHashMap.put(index, String.valueOf(index));
+                        } catch (Exception e) {
+                        }
                     }
 
                     @Override
                     public void chipDeselected(int index) {
                         educationAraylist.get(index).setSelector(false);
+                        try {
+                            eduactionHashMap.remove(index);
+                        } catch (Exception e) {
+                        }
                     }
                 })
                 .build();
+
+        try {
+            for (Map.Entry m : eduactionHashMap.entrySet()) {
+
+                if (binding.cpEducation != null && binding.cpEducation.getChildCount() != 0) {
+                    int key = (int) m.getKey();
+                    binding.cpEducation.setSelectedChip(key);
+                }
+            }
+        } catch (Exception e) {
+        }
 
     }
 
@@ -320,14 +375,35 @@ public class HomeFilterActivity extends BaseActivity implements KeywordSelected,
                             redFlag = "1";
                         }*/
                         redSealarraylist.get(index).setSelector(true);
+
+                        try {
+                            redHashMap.put(index, String.valueOf(index));
+                        } catch (Exception e) {
+                        }
                     }
 
                     @Override
                     public void chipDeselected(int index) {
                         redSealarraylist.get(index).setSelector(false);
+
+                        try {
+                            redHashMap.remove(index);
+                        } catch (Exception e) {
+                        }
                     }
                 })
                 .build();
+
+        try {
+            for (Map.Entry m : redHashMap.entrySet()) {
+
+                if (binding.cpRedSeal != null && binding.cpRedSeal.getChildCount() != 0) {
+                    int key = (int) m.getKey();
+                    binding.cpRedSeal.setSelectedChip(key);
+                }
+            }
+        } catch (Exception e) {
+        }
 
     }
 }

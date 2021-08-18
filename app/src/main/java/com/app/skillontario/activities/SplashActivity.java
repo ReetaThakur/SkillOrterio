@@ -20,12 +20,15 @@ import com.app.skillontario.utils.MySharedPreference;
 import com.app.skillorterio.R;
 import com.google.firebase.messaging.FirebaseMessaging;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.Serializable;
 
+import io.branch.indexing.BranchUniversalObject;
 import io.branch.referral.Branch;
 import io.branch.referral.BranchError;
+import io.branch.referral.util.ContentMetadata;
 import io.branch.referral.validators.IntegrationValidator;
 
 import static com.app.skillontario.constants.AppConstants.FIREBASE_TOKEN;
@@ -45,9 +48,7 @@ public class SplashActivity extends BaseActivity {
     protected void initUi() {
 
         IntegrationValidator.validate(SplashActivity.this);
-        //  Branch.sessionBuilder(this).withCallback(branchReferralInitListener).withData(getIntent() != null ? getIntent().getData() : null).init();
 
-        // Branch logging for debugging
         Branch.enableLogging();
 
         // Branch logging for debugging
@@ -56,9 +57,20 @@ public class SplashActivity extends BaseActivity {
         // Branch object initialization
         Branch.getAutoInstance(this);
 
-        imageView = (ImageView) findViewById(R.id.img1);
+        try {
+            BranchUniversalObject buo = new BranchUniversalObject()
+                    .setCanonicalIdentifier("content/12345")
+                    .setTitle("My Content Title")
+                    .setContentDescription("My Content Description")
+                    .setContentImageUrl("https://lorempixel.com/400/400")
+                    .setContentIndexingMode(BranchUniversalObject.CONTENT_INDEX_MODE.PUBLIC)
+                    .setLocalIndexMode(BranchUniversalObject.CONTENT_INDEX_MODE.PUBLIC)
+                    .setContentMetadata(new ContentMetadata().addCustomMetadata("key1", "value1"));
+        } catch (Exception e) {
+        }
 
-        imageView.post(() -> mHandler.postDelayed(runnable, 2000));
+
+        imageView = (ImageView) findViewById(R.id.img1);
 
 
         FirebaseMessaging.getInstance().getToken()
@@ -99,6 +111,8 @@ public class SplashActivity extends BaseActivity {
 
         } catch (Exception e) {
         }
+
+        intitView();
 
     }
 
@@ -287,6 +301,9 @@ public class SplashActivity extends BaseActivity {
             }
         }).withData(this.getIntent().getData()).init();
 
+        Branch.sessionBuilder(this).withCallback(branchReferralInitListener).withData(getIntent() != null ? getIntent().getData() : null).init();
+
+
     }
 
     @Override
@@ -294,26 +311,14 @@ public class SplashActivity extends BaseActivity {
         super.onNewIntent(intent);
         setIntent(intent);
 
-        Branch.getInstance().initSession(new Branch.BranchReferralInitListener() {
-            @Override
-            public void onInitFinished(JSONObject referringParams, BranchError error) {
-                if (error == null) {
-                    Log.i("BRANCH SDK", referringParams.toString());
-
-                } else {
-                    Log.i("BRANCH SDK", error.getMessage());
-                }
-            }
-        }, this.getIntent().getData(), this);
-
-        Branch.sessionBuilder(this).withCallback(branchReferralInitListener).reInit();
+        try {
+            Branch.sessionBuilder(this).withCallback(branchReferralInitListener).reInit();
+        } catch (Exception e) {
+        }
     }
 
-    private Branch.BranchReferralInitListener branchReferralInitListener = new Branch.BranchReferralInitListener() {
-        @Override
-        public void onInitFinished(JSONObject linkProperties, BranchError error) {
-            // do stuff with deep link data (nav to page, display content, etc)
-        }
+    private Branch.BranchReferralInitListener branchReferralInitListener = (linkProperties, error) -> {
+        // do stuff with deep link data (nav to page, display content, etc)
     };
 
     @Override
@@ -355,5 +360,63 @@ public class SplashActivity extends BaseActivity {
                 View.SYSTEM_UI_FLAG_LAYOUT_STABLE
                         | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
                         | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
+    }
+
+    private void intitView() {
+
+        Branch.sessionBuilder(this).withCallback(new Branch.BranchReferralInitListener() {
+            @Override
+            public void onInitFinished(JSONObject referringParams, BranchError error) {
+                if (error == null) {
+
+                    // option 1: log data
+                    Log.i("deeplinkingcallback", referringParams.toString());
+
+                    JSONObject sessionParams = referringParams;
+                    String check = "", type, id;
+                    try {
+                        check = sessionParams.getString("+clicked_branch_link");
+
+                        if (check.equalsIgnoreCase("true")) {
+                            if (sessionParams.has("type")) {
+                                type = sessionParams.getString("type");
+                                id = sessionParams.getString("id");
+                                callDeepLink(type, id);
+                            } else {
+                                imageView.post(() -> mHandler.postDelayed(runnable, 2000));
+                            }
+
+                        } else {
+                            imageView.post(() -> mHandler.postDelayed(runnable, 2000));
+                        }
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                        imageView.post(() -> mHandler.postDelayed(runnable, 2000));
+                    }
+
+
+                } else {
+                    // Log.i("deeplinkingcallback", error.getMessage());
+                    imageView.post(() -> mHandler.postDelayed(runnable, 2000));
+                }
+            }
+        }).withData(this.getIntent().getData()).init();
+
+
+    }
+
+    void callDeepLink(String type, String id) {
+        try {
+            new Handler().postDelayed(() -> {
+                Intent intent = new Intent(SplashActivity.this, DeepLinkActivity.class);
+                intent.putExtra("id", id);
+                intent.putExtra("type", type);
+                startActivity(intent);
+                finish();
+
+            }, 3000);
+        } catch (Exception e) {
+        }
     }
 }

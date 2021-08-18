@@ -732,7 +732,7 @@ identify as female</string>
     <string name="scc">Without calendar permission the app is unable to add events. Give permission to calendar for access events</string>
     <string name="logdevice">Your sessions has been expired.</string>
     <string name="ser">Server Not Responding</string>
-
+    <string name="pro">No Detail Found!</string>
 
 
     <!--<string name="Popular_Careers">Carrières populaires </string>

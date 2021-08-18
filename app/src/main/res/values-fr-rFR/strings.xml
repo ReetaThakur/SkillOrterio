@@ -253,4 +253,5 @@ vous vous identifiez comme une femme</string>
     <string name="scc">Sans cette autorisation, l\'application ne peut pas ajouter d\'événements. Autoriser le calendrier pour les événements d\'accès</string>
     <string name="logdevice">Vos sessions ont expiré.</string>
     <string name="ser">Le serveur ne répond pas</string>
+    <string name="pro">Aucun détail trouvé!</string>
 </resources>

@@ -41,7 +41,6 @@ import java.util.TimerTask;
 import static com.app.skillontario.constants.ApiConstants.API_INTERFACE;
 
 
-
 public class SearchActivity extends BaseActivity implements ApiResponseErrorCallback, GetClickBookmark {
 
     private ActivitySearchBinding binding;
@@ -209,6 +208,13 @@ public class SearchActivity extends BaseActivity implements ApiResponseErrorCall
     @Override
     public void onBackPressed() {
         super.onBackPressed();
+        try {
+            HomeFilterActivity.eduactionHashMap.clear();
+            HomeFilterActivity.redHashMap.clear();
+            HomeFilterActivity.sectorHashMap.clear();
+        } catch (Exception e) {
+        }
+
         overridePendingTransition(R.anim.slide_in_from_left, R.anim.slide_out_from_right);
 
     }

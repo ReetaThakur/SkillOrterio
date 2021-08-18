@@ -66,6 +66,7 @@ import com.karumi.dexter.listener.PermissionGrantedResponse;
 import com.karumi.dexter.listener.PermissionRequest;
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener;
 import com.karumi.dexter.listener.single.PermissionListener;
+
 import java.io.FileOutputStream;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -547,8 +548,7 @@ public class Utils {
     }
 
     public static void askReadCalenderPermission(Context context) {
-       // context.requestPermissions(new String[]{Manifest.permission.READ_CALENDAR}, 1);
-
+        // context.requestPermissions(new String[]{Manifest.permission.READ_CALENDAR}, 1);
 
 
         Dexter.withContext(context)
@@ -567,6 +567,7 @@ public class Utils {
                     public void onPermissionRationaleShouldBeShown(PermissionRequest permission, PermissionToken token) {/* ... */}
                 }).check();
     }
+
     public static void askWriteCalenderPermission(Context context) {
         Dexter.withContext(context)
                 .withPermission(Manifest.permission.WRITE_CALENDAR)
@@ -641,52 +642,6 @@ public class Utils {
 
     public static void share(Context context, String title, String text, String url, String id) {
 
-    /*    BranchUniversalObject buo = new BranchUniversalObject()
-                .setCanonicalIdentifier("content/12345")
-                .setTitle("My Content Title")
-                .setContentDescription("My Content Description")
-                .setContentImageUrl("https://lorempixel.com/400/400")
-                .setContentIndexingMode(BranchUniversalObject.CONTENT_INDEX_MODE.PUBLIC)
-                .setLocalIndexMode(BranchUniversalObject.CONTENT_INDEX_MODE.PUBLIC)
-                .setContentMetadata(new ContentMetadata().addCustomMetadata("key1", "value1"));
-
-        LinkProperties lp = new LinkProperties()
-                .setChannel("facebook")
-                .setFeature("sharing")
-                .setCampaign("content 123 launch")
-                .setStage("new user")
-                .addControlParameter("$desktop_url", "http://example.com/home")
-                .addControlParameter("custom", "data")
-                .addControlParameter("custom_random", Long.toString(Calendar.getInstance().getTimeInMillis()));
-
-        ShareSheetStyle ss = new ShareSheetStyle(context, "Check this out!", "This stuff is awesome: ")
-                .setCopyUrlStyle(ContextCompat.getDrawable(context, android.R.drawable.ic_menu_send), "Copy", "Added to clipboard")
-                .setMoreOptionStyle(ContextCompat.getDrawable(context, android.R.drawable.ic_menu_search), "Show more")
-                .addPreferredSharingOption(SharingHelper.SHARE_WITH.FACEBOOK)
-                .addPreferredSharingOption(SharingHelper.SHARE_WITH.EMAIL)
-                .addPreferredSharingOption(SharingHelper.SHARE_WITH.MESSAGE)
-                .addPreferredSharingOption(SharingHelper.SHARE_WITH.HANGOUT)
-                .addPreferredSharingOption(SharingHelper.SHARE_WITH.WHATS_APP)
-                .addPreferredSharingOption(SharingHelper.SHARE_WITH.INSTAGRAM)
-                .setAsFullWidthStyle(true)
-                .setSharingTitle("Share With");
-
-        buo.showShareSheet(((Activity) context), lp,  ss,  new Branch.BranchLinkShareListener() {
-            @Override
-            public void onShareLinkDialogLaunched() {
-            }
-            @Override
-            public void onShareLinkDialogDismissed() {
-            }
-            @Override
-            public void onLinkShareResponse(String sharedLink, String sharedChannel, BranchError error) {
-            }
-            @Override
-            public void onChannelSelected(String channelName) {
-            }
-        });
-*/
-
         BranchUniversalObject branchUniversalObject = new BranchUniversalObject()
                 .setCanonicalIdentifier("skillsontario/12345")
                 .setTitle(title)
@@ -725,6 +680,72 @@ public class Utils {
 
 
         branchUniversalObject.showShareSheet(((BaseActivity) context), linkProperties, shareSheetStyle, new Branch.BranchLinkShareListener() {
+            @Override
+            public void onShareLinkDialogLaunched() {
+
+            }
+
+            @Override
+            public void onShareLinkDialogDismissed() {
+                Log.i("ShareFunction", "Share screen dismissed");
+            }
+
+            @Override
+            public void onLinkShareResponse(String sharedLink, String sharedChannel, BranchError error) {
+
+
+            }
+
+            @Override
+            public void onChannelSelected(String channelName) {
+
+                if (channelName.equals("Facebook")) {
+
+                }
+
+
+            }
+        });
+
+
+    }
+
+    public static void share1(Context context, String title, String imageUrl, String desc, String key, String val) {
+        BranchUniversalObject branchUniversalObject = new BranchUniversalObject()
+                .setCanonicalIdentifier("SkillsOnatrio/12345")
+                .setTitle(title)///
+                .setContentDescription("I've found this on Skills Onatrio. What do you think?")//
+                .setContentImageUrl(imageUrl)
+                .setContentIndexingMode(BranchUniversalObject.CONTENT_INDEX_MODE.PUBLIC)
+                .setLocalIndexMode(BranchUniversalObject.CONTENT_INDEX_MODE.PUBLIC)
+                .setContentMetadata(new ContentMetadata().addCustomMetadata("id", val).addCustomMetadata("type", key));
+
+        LinkProperties linkProperties = new LinkProperties()
+                .setChannel("The Skills Onatrio")
+                .setFeature("sharing")  //
+                .setCampaign("content 123 launch")  ///
+                .setStage("new user") //
+                .addTag("one")  ///
+                .addTag("two");
+
+        branchUniversalObject.generateShortUrl(context, linkProperties, new Branch.BranchLinkCreateListener() {
+            @Override
+            public void onLinkCreate(String url, BranchError error) {
+                if (error == null) {
+                    Log.i("MyApp", "got my Branch link to share: " + url);
+                }
+            }
+        });
+
+
+        // Define the style of the share sheet
+        ShareSheetStyle shareSheetStyle = new ShareSheetStyle(context, "Check this out!", "I've found this on Skills Onatrio. What do you think?")
+                //ShareSheetStyle shareSheetStyle = new ShareSheetStyle(((Activity)context), "This text will be the user’s message if supported.")
+                .setAsFullWidthStyle(false)
+                .setSharingTitle("Share With");
+
+
+        branchUniversalObject.showShareSheet(((Activity) context), linkProperties, shareSheetStyle, new Branch.BranchLinkShareListener() {
             @Override
             public void onShareLinkDialogLaunched() {
 

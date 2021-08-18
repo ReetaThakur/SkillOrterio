@@ -1,5 +1,6 @@
 package com.app.skillontario.adapter;
 
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -11,29 +12,37 @@ import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.app.skillontario.BottomBarActivity;
+import com.app.skillontario.activities.EditProfileAc;
 import com.app.skillontario.activities.JobDetailsActivity;
 import com.app.skillontario.activities.ResourcesDetailsActivity;
 import com.app.skillontario.activities.ScholarDetailAc;
-import com.app.skillontario.activities.SplashActivity;
 import com.app.skillontario.activities.WebViewActivity;
+import com.app.skillontario.apiConnection.ApiCallBack;
+import com.app.skillontario.apiConnection.ApiResponseErrorCallback;
+import com.app.skillontario.apiConnection.RequestBodyGenerator;
+import com.app.skillontario.baseClasses.BaseResponseModel;
+import com.app.skillontario.constants.SharedPrefsConstants;
+import com.app.skillontario.dialogs.DialogWithMsg;
 import com.app.skillontario.models.NotificationModal;
 import com.app.skillontario.models.ResourceModal;
-import com.app.skillontario.models.ScholarShipModal;
+import com.app.skillontario.models.careerListModel.CareerListDetails;
+import com.app.skillontario.utils.MySharedPreference;
 import com.app.skillorterio.R;
-import com.app.skillorterio.databinding.AdapterNotificationBinding;
 import com.app.skillorterio.databinding.AdapterNotificationBinding;
 
 import org.jetbrains.annotations.NotNull;
-import org.json.JSONObject;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapter.ViewHolder> {
+import static com.app.skillontario.constants.ApiConstants.API_INTERFACE;
+
+public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapter.ViewHolder> implements ApiResponseErrorCallback {
 
 
     Context context;
     ArrayList<NotificationModal> arrayListNotify = new ArrayList<>();
+    String profileID;
 
     public NotificationAdapter(Context context) {
         this.context = context;
@@ -43,7 +52,6 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
     public NotificationAdapter(ArrayList<NotificationModal> arrayListNotify, Context context) {
         this.arrayListNotify = arrayListNotify;
         this.context = context;
-
     }
 
 
@@ -121,9 +129,9 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
                     context.startActivity(intent);
 
                 } else if (arrayListNotify.get(position).getNotifyType().equalsIgnoreCase("profile")) {
-                    Intent intent = new Intent(context, JobDetailsActivity.class);
-                    intent.putExtra("Popular", arrayListNotify.get(position).getSectionId());
-                    context.startActivity(intent);
+                    CallApi(arrayListNotify.get(position).getSectionId());
+                    profileID = arrayListNotify.get(position).getSectionId();
+
 
                 } else if (arrayListNotify.get(position).getNotifyType().equalsIgnoreCase("news")) {
                     Intent intent = new Intent(context, BottomBarActivity.class);
@@ -160,6 +168,41 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
         }
     }
 
+    @Override
+    public void getApiResponse(Object responseObject, int flag) {
+        if (flag == 121) {
+            try {
+                BaseResponseModel<ArrayList<CareerListDetails>> responseModel = (BaseResponseModel<ArrayList<CareerListDetails>>) responseObject;
+
+                if (responseModel.getStatus()) {
+                    try {
+                        if (responseModel.getOutput() != null) {
+                            if (responseModel.getOutput().size() > 0) {
+                                Intent intent = new Intent(context, JobDetailsActivity.class);
+                                intent.putExtra("Popular", profileID);
+                                context.startActivity(intent);
+                            } else {
+                                showDialog();
+                            }
+                        } else {
+                            showDialog();
+                        }
+
+                    } catch (Exception e) {
+                        showDialog();
+                    }
+                }
+            } catch (Exception e) {
+                showDialog();
+            }
+        }
+    }
+
+    @Override
+    public void getApiError(Throwable t, int flag) {
+
+    }
+
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
@@ -174,6 +217,19 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
     @Override
     public int getItemViewType(int position) {
         return position;
+    }
+
+    private void CallApi(String carrerId) {
+        API_INTERFACE.getCareerList(RequestBodyGenerator.setCareerDetailData(MySharedPreference.getInstance().getStringData(SharedPrefsConstants.USER_ID), carrerId)).enqueue(
+                new ApiCallBack<>(context, this, 121, false));
+    }
+
+    void showDialog() {
+        try {
+            DialogWithMsg dialogWithMsg = new DialogWithMsg(context, 0, context.getString(R.string.app_name), context.getString(R.string.pro), context.getString(R.string.okay), null);
+            dialogWithMsg.show();
+        } catch (Exception e) {
+        }
     }
 
 }
