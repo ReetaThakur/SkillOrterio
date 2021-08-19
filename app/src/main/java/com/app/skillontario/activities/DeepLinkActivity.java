@@ -40,8 +40,7 @@ public class DeepLinkActivity extends BaseActivity {
                 finish();
             } else if (type.equalsIgnoreCase("home")) {
                 // final String id = intent.getStringExtra("id");
-                Intent intent1 = new Intent(DeepLinkActivity.this, BottomBarActivity.class);
-                intent1.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                Intent intent1 = new Intent(DeepLinkActivity.this, TakeQuizActivity.class);
                 startActivity(intent1);
                 finish();
             }
