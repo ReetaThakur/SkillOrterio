@@ -1,13 +1,16 @@
 package com.app.skillontario.adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -64,19 +67,22 @@ public class AdapterQuizResult extends RecyclerView.Adapter<AdapterQuizResult.Vi
 
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
-    public void onBindViewHolder(final AdapterQuizResult.ViewHolder viewHolder, final int position) {
+    public void onBindViewHolder(final AdapterQuizResult.ViewHolder viewHolder, @SuppressLint("RecyclerView") final int position) {
         //  viewHolder.binding.imagePerson.setImageResource(dra[position]);
 
         //viewHolder.binding.imgBookmark.setVisibility(View.INVISIBLE);
 
         try {
-            if (quizFinalResultModel.get(position).getbId().equalsIgnoreCase("")) {
+            if (!quizFinalResultModel.get(position).isHasBookmark()) {
                 viewHolder.binding.imgBookmark.setImageResource(R.drawable.ic_home_main_batch);
                 clickBookmark = false;
+                viewHolder.binding.cardCDH.setCardBackgroundColor(context.getColor(R.color.white));
             } else {
                 clickBookmark = true;
                 viewHolder.binding.imgBookmark.setImageResource(R.drawable.ic_bookmark_fill);
+                viewHolder.binding.cardCDH.setCardBackgroundColor(context.getColor(R.color.bookmark_color));
             }
         } catch (Exception e) {
         }
@@ -84,7 +90,7 @@ public class AdapterQuizResult extends RecyclerView.Adapter<AdapterQuizResult.Vi
         viewHolder.binding.imgBookmark.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (quizFinalResultModel.get(position).getbId().equalsIgnoreCase("")) {
+                if (!quizFinalResultModel.get(position).isHasBookmark()) {
                     deleteBookMark.delete(position, quizFinalResultModel.get(position).getbId(), quizFinalResultModel.get(position).getId(), true);
                     clickBookmark = true;
                     viewHolder.binding.imgBookmark.setImageResource(R.drawable.ic_bookmark_fill);
@@ -100,7 +106,7 @@ public class AdapterQuizResult extends RecyclerView.Adapter<AdapterQuizResult.Vi
         //if(careerListDetails.get(position).get)
 
         try {
-           // Picasso.with(context).load(quizFinalResultModel.get(position).getImage()).into(viewHolder.binding.imagePerson);
+            // Picasso.with(context).load(quizFinalResultModel.get(position).getImage()).into(viewHolder.binding.imagePerson);
             viewHolder.binding.textCons.setText(quizFinalResultModel.get(position).getJobSector());
             viewHolder.binding.textWork.setText(quizFinalResultModel.get(position).getJobProfile());
             viewHolder.binding.textMoney.setText(quizFinalResultModel.get(position).getFee());
@@ -138,8 +144,10 @@ public class AdapterQuizResult extends RecyclerView.Adapter<AdapterQuizResult.Vi
                             }
                         })
                         .into(viewHolder.binding.imagePerson);
-            }catch (Exception e){}
-        }catch (Exception e){}
+            } catch (Exception e) {
+            }
+        } catch (Exception e) {
+        }
 
     }
 

@@ -702,8 +702,6 @@ public class Utils {
                 if (channelName.equals("Facebook")) {
 
                 }
-
-
             }
         });
 
@@ -714,7 +712,6 @@ public class Utils {
         BranchUniversalObject branchUniversalObject = new BranchUniversalObject()
                 .setCanonicalIdentifier("SkillsOnatrio/12345")
                 .setTitle(title)///
-                .setContentDescription("I've found this on Skills Onatrio. What do you think?")//
                 .setContentImageUrl(imageUrl)
                 .setContentIndexingMode(BranchUniversalObject.CONTENT_INDEX_MODE.PUBLIC)
                 .setLocalIndexMode(BranchUniversalObject.CONTENT_INDEX_MODE.PUBLIC)
@@ -739,7 +736,7 @@ public class Utils {
 
 
         // Define the style of the share sheet
-        ShareSheetStyle shareSheetStyle = new ShareSheetStyle(context, "Check this out!", "I've found this on Skills Onatrio. What do you think?")
+        ShareSheetStyle shareSheetStyle = new ShareSheetStyle(context, "Check this out!", title)
                 //ShareSheetStyle shareSheetStyle = new ShareSheetStyle(((Activity)context), "This text will be the user’s message if supported.")
                 .setAsFullWidthStyle(false)
                 .setSharingTitle("Share With");

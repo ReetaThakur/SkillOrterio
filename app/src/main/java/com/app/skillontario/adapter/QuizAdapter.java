@@ -1,13 +1,16 @@
 package com.app.skillontario.adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.core.content.ContextCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
@@ -72,8 +75,9 @@ public class QuizAdapter extends RecyclerView.Adapter<QuizAdapter.ViewHolder> {
 
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
-    public void onBindViewHolder(final QuizAdapter.ViewHolder viewHolder, final int position) {
+    public void onBindViewHolder(final QuizAdapter.ViewHolder viewHolder, @SuppressLint("RecyclerView") final int position) {
 
         viewHolder.binding.ivBookmark.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,7 +90,6 @@ public class QuizAdapter extends RecyclerView.Adapter<QuizAdapter.ViewHolder> {
                     }
                 } else {
 
-
                     if (careerModalArrayList.get(position).getbId().equalsIgnoreCase("")) {
                         bookMarkUpdateDelete.checkBookMark("", position, careerModalArrayList.get(position).getId());
                     } else {
@@ -97,9 +100,11 @@ public class QuizAdapter extends RecyclerView.Adapter<QuizAdapter.ViewHolder> {
                     if (clickBookmark) {
                         clickBookmark = false;
                         viewHolder.binding.ivBookmark.setImageResource(R.drawable.ic_home_main_batch);
+                        viewHolder.binding.cardCDH.setCardBackgroundColor(context.getColor(R.color.white));
                     } else {
                         clickBookmark = true;
                         viewHolder.binding.ivBookmark.setImageResource(R.drawable.ic_bookmark_fill);
+                        viewHolder.binding.cardCDH.setCardBackgroundColor(context.getColor(R.color.bookmark_color));
                     }
                 }
             }
@@ -137,9 +142,11 @@ public class QuizAdapter extends RecyclerView.Adapter<QuizAdapter.ViewHolder> {
                 if (careerModalArrayList.get(position).getbId().equalsIgnoreCase("")) {
                     viewHolder.binding.ivBookmark.setImageResource(R.drawable.ic_home_main_batch);
                     clickBookmark = false;
+                    viewHolder.binding.cardCDH.setCardBackgroundColor(context.getColor(R.color.white));
                 } else {
                     clickBookmark = true;
                     viewHolder.binding.ivBookmark.setImageResource(R.drawable.ic_bookmark_fill);
+                    viewHolder.binding.cardCDH.setCardBackgroundColor(context.getColor(R.color.bookmark_color));
                 }
 
 

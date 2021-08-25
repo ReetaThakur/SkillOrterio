@@ -20,12 +20,13 @@
 
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/cardCDH"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_alignParentBottom="true"
                     android:layout_marginTop="@dimen/_5sdp"
                     android:layout_marginRight="@dimen/_10sdp"
-                    app:cardBackgroundColor="@color/quiz_pink"
+                    app:cardBackgroundColor="@color/white"
                     app:cardCornerRadius="@dimen/_10sdp"
                     app:cardElevation="0dp">
 

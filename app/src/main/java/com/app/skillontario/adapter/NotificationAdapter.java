@@ -1,5 +1,6 @@
 package com.app.skillontario.adapter;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -25,6 +26,7 @@ import com.app.skillontario.constants.SharedPrefsConstants;
 import com.app.skillontario.dialogs.DialogWithMsg;
 import com.app.skillontario.models.NotificationModal;
 import com.app.skillontario.models.ResourceModal;
+import com.app.skillontario.models.ScholarModel;
 import com.app.skillontario.models.careerListModel.CareerListDetails;
 import com.app.skillontario.utils.MySharedPreference;
 import com.app.skillorterio.R;
@@ -43,6 +45,7 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
     Context context;
     ArrayList<NotificationModal> arrayListNotify = new ArrayList<>();
     String profileID;
+    String id;
 
     public NotificationAdapter(Context context) {
         this.context = context;
@@ -71,7 +74,7 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
     }
 
     @Override
-    public void onBindViewHolder(final NotificationAdapter.ViewHolder viewHolder, final int position) {
+    public void onBindViewHolder(final NotificationAdapter.ViewHolder viewHolder, @SuppressLint("RecyclerView") final int position) {
 
         try {
             viewHolder.binding.imageBackground.setColorFilter(ContextCompat.getColor(context, R.color.noti_color1));
@@ -112,21 +115,15 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
                     intent.putExtra("if", "2");
                     context.startActivity(intent);
                 } else if (arrayListNotify.get(position).getNotifyType().equalsIgnoreCase("resource")) {
+                    id = arrayListNotify.get(0).getId();
+                    callCommanAPI(false, arrayListNotify.get(0).getId(), "resource", 101);
 
-                    ResourceModal model = new ResourceModal();
-                    model.setResUrl(arrayListNotify.get(position).getUrl());
-                    model.setId(arrayListNotify.get(position).getSectionId());
-                    // model.setResImage(arrayListNotify.get(position).ge);
-                    // model.setResDesc(arrayListNotify.get(position).getD);
-                    Intent intent = new Intent(context, ResourcesDetailsActivity.class);
-                    intent.putExtra("model", (Serializable) model);
-                    context.startActivity(intent);
 
                 } else if (arrayListNotify.get(position).getNotifyType().equalsIgnoreCase("mgsafai")) { //  scloarship
 
-                    Intent intent = new Intent(context, ScholarDetailAc.class);
-                    intent.putExtra("id", arrayListNotify.get(position).getSectionId());
-                    context.startActivity(intent);
+                    id = arrayListNotify.get(0).getId();
+                    callCommanAPI(false, arrayListNotify.get(0).getId(), "mgsafai", 102);
+
 
                 } else if (arrayListNotify.get(position).getNotifyType().equalsIgnoreCase("profile")) {
                     CallApi(arrayListNotify.get(position).getSectionId());
@@ -195,6 +192,41 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
             } catch (Exception e) {
                 showDialog();
             }
+        } else if (flag == 101) {
+            BaseResponseModel<ArrayList<ScholarModel>> responseModel = (BaseResponseModel<ArrayList<ScholarModel>>) responseObject;
+            try {
+                if (responseModel.getStatus()) {
+                    if (responseModel.getOutput().size() > 0) {
+                        Intent intent = new Intent(context, ResourcesDetailsActivity.class);
+                        intent.putExtra("id", id);
+                        context.startActivity(intent);
+                    } else {
+                        showDialog();
+                    }
+
+                }
+            } catch (Exception e) {
+                showDialog();
+            }
+
+        } else if (flag == 102) {
+            BaseResponseModel<ArrayList<ScholarModel>> responseModel = (BaseResponseModel<ArrayList<ScholarModel>>) responseObject;
+            try {
+                if (responseModel.getStatus()) {
+                    if (responseModel.getOutput().size() > 0) {
+                        Intent intent = new Intent(context, ScholarDetailAc.class);
+                        intent.putExtra("id", id);
+                        context.startActivity(intent);
+                    } else {
+                        showDialog();
+                    }
+
+                }
+            } catch (Exception e) {
+                showDialog();
+            }
+
+
         }
     }
 
@@ -230,6 +262,11 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
             dialogWithMsg.show();
         } catch (Exception e) {
         }
+    }
+
+    void callCommanAPI(boolean custome, String id, String type, int flag) {
+        API_INTERFACE.geteventListScholar(RequestBodyGenerator.getCommanAPI(id, type)).enqueue(
+                new ApiCallBack<>(context, this, flag, custome));
     }
 
 }

@@ -68,7 +68,7 @@ public class ScholarDetailAc extends BaseActivity implements ApiResponseErrorCal
 
         if (modal != null) {
             if (TextUtils.isEmpty(modal.getTitle())) {
-                return;
+
             } else {
                 binding.tvTitle.setText(modal.getTitle());
             }
@@ -76,7 +76,7 @@ public class ScholarDetailAc extends BaseActivity implements ApiResponseErrorCal
 
             if (TextUtils.isEmpty(modal.getImage())) {
                 //  binding.newsLayout.imageNews.setVisibility(View.GONE);
-                return;
+
             } else {
 
                 try {
@@ -103,7 +103,7 @@ public class ScholarDetailAc extends BaseActivity implements ApiResponseErrorCal
             if (TextUtils.isEmpty(modal.getDesc())) {
                 //binding.tvDesc1.setVisibility(View.GONE);
                 binding.webViewNewsDesc.setVisibility(View.GONE);
-                return;
+
             } else {
                 binding.webViewNewsDesc.setVisibility(View.VISIBLE);
                 // binding.tvDesc1.setText(modal.getDesc());

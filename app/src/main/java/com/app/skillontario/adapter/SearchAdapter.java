@@ -2,11 +2,13 @@ package com.app.skillontario.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.util.Log;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
+import androidx.annotation.RequiresApi;
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -55,13 +57,10 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
         return list.size();
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     public void onBindViewHolder(final ViewHolder viewHolder, final int position) {
-        /*viewHolder.binding.lay.setOnClickListener(v -> {
-            notifyItemChanged(selected_position);
-            selected_position = position;
-            notifyItemChanged(selected_position);
-        });*/
+
         // imagePerson
         Glide.with(context).load(list.get(position).getImage()).into(viewHolder.binding.imagePerson);
         viewHolder.binding.textCons.setText(list.get(position).getJobSector());
@@ -70,7 +69,9 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
 
         if (list.get(position).getbId().equalsIgnoreCase("")) {
             viewHolder.binding.imgBookmark.setBackgroundResource(R.drawable.bookmark_not_fill);
+            viewHolder.binding.cdH.setCardBackgroundColor(context.getColor(R.color.white));
         } else {
+            viewHolder.binding.cdH.setCardBackgroundColor(context.getColor(R.color.bookmark_color));
             viewHolder.binding.imgBookmark.setBackgroundResource(R.drawable.ic_bookmark_fill);
         }
         viewHolder.binding.imgBookmark.setOnClickListener(v -> {
@@ -85,6 +86,8 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
             if (listiner != null) {
                 listiner.getValueBookmarkClick(false, list.get(position), position);
             }
+
+
         });
         viewHolder.binding.cdH.setOnClickListener(v -> {
             Intent intent = new Intent(context, JobDetailsActivity.class);

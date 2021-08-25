@@ -146,10 +146,29 @@ public class TakeQuizAc extends BaseActivity implements ApiResponseErrorCallback
                         quizFinalResultModel.clear();
 
                         quizFinalResultModel.addAll(responseModel.getOutput());
+
+                        for (int i = 0; i < quizFinalResultModel.size(); i++) {
+                            if (quizFinalResultModel.get(i).getbId().equalsIgnoreCase("")) {
+                                quizFinalResultModel.get(i).setHasBookmark(false);
+                            } else {
+                                quizFinalResultModel.get(i).setHasBookmark(true);
+                            }
+                        }
+
                         adapter = new AdapterQuizResult(TakeQuizAc.this, quizFinalResultModel, listiner);
                         binding.rcyResoursces.setAdapter(adapter);
 
                     } else {
+
+                        for (int i = 0; i < responseModel.output.size(); i++) {
+                            if (responseModel.output.get(i).getbId().equalsIgnoreCase("")) {
+                                responseModel.output.get(i).setHasBookmark(false);
+                            } else {
+                                responseModel.output.get(i).setHasBookmark(true);
+                            }
+                        }
+
+
                         adapter.addList(responseModel.getOutput());
                     }
                     isLoading = false;
@@ -170,7 +189,8 @@ public class TakeQuizAc extends BaseActivity implements ApiResponseErrorCallback
         } else if (flag == 103) {
             BaseResponseModel responseModel = (BaseResponseModel) responseObject;
             if (responseModel.getStatus()) {
-                quizFinalResultModel.remove(position);
+                //quizFinalResultModel.remove(position);
+                quizFinalResultModel.get(position).setHasBookmark(false);
                 adapter.notifyDataSetChanged();
             } else {
                 showToast(responseModel.getMessage());
@@ -180,6 +200,7 @@ public class TakeQuizAc extends BaseActivity implements ApiResponseErrorCallback
                 BaseResponseModel<CareerDetailModel> responseModel = (BaseResponseModel<CareerDetailModel>) responseObject;
                 if (responseModel.getStatus()) {
                     quizFinalResultModel.get(position).setbId(responseModel.getOutput().getId());
+                    quizFinalResultModel.get(position).setHasBookmark(true);
                     adapter.notifyDataSetChanged();
                 }
             } catch (Exception e) {
@@ -208,6 +229,7 @@ public class TakeQuizAc extends BaseActivity implements ApiResponseErrorCallback
             } else {
                 removeBookmark(Bid, Id);
             }
+
         }
     }
 

@@ -18,9 +18,14 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 import com.app.skillontario.BottomBarActivity;
+import com.app.skillontario.apiConnection.ApiCallBack;
+import com.app.skillontario.apiConnection.ApiResponseErrorCallback;
+import com.app.skillontario.apiConnection.RequestBodyGenerator;
 import com.app.skillontario.baseClasses.BaseActivity;
+import com.app.skillontario.baseClasses.BaseResponseModel;
 import com.app.skillontario.constants.AppConstants;
 import com.app.skillontario.models.ResourceModal;
+import com.app.skillontario.models.ScholarModel;
 import com.app.skillontario.utils.MySharedPreference;
 import com.app.skillorterio.R;
 import com.app.skillorterio.databinding.ActivityPrivacyPolicyBinding;
@@ -28,22 +33,22 @@ import com.app.skillorterio.databinding.ActivityResourcesDetailsBinding;
 import com.bumptech.glide.Glide;
 
 import static com.app.skillontario.activities.SettingActivity.language;
+import static com.app.skillontario.constants.ApiConstants.API_INTERFACE;
 import static com.app.skillontario.utils.Utils.updatLocalLanguage;
 
-public class ResourcesDetailsActivity extends BaseActivity {
+import java.util.ArrayList;
+
+public class ResourcesDetailsActivity extends BaseActivity implements ApiResponseErrorCallback {
 
     private ActivityResourcesDetailsBinding binding;
     ResourceModal modal;
+    boolean callFrom = false;
+    String url = "";
 
     @Override
     protected void initUi() {
         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_from_left);
         binding = (ActivityResourcesDetailsBinding) viewBaseBinding;
-
-      /*  binding.cvWebsite.setOnClickListener(v -> {
-            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.skillsontario.com")));
-        });*/
-
 
         Bundle extras = getIntent().getExtras();
 
@@ -53,8 +58,9 @@ public class ResourcesDetailsActivity extends BaseActivity {
         }
 
         if (modal != null) {
+            callFrom = false;
             if (TextUtils.isEmpty(modal.getResTitle())) {
-                return;
+
             } else {
                 binding.tvTitle.setText(modal.getResTitle());
             }
@@ -62,15 +68,10 @@ public class ResourcesDetailsActivity extends BaseActivity {
 
             if (TextUtils.isEmpty(modal.getResDesc())) {
                 binding.webViewNewsDesc.setVisibility(View.GONE);
-                return;
+
             } else {
                 binding.webViewNewsDesc.setVisibility(View.VISIBLE);
-                // binding.tvDesc1.setText(modal.getDesc());
-                /*if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                    binding.tvDesc.setText(Html.fromHtml(modal.getResDesc(), Html.FROM_HTML_MODE_COMPACT));
-                } else {
-                    binding.tvDesc.setText(Html.fromHtml(modal.getResDesc()));
-                }*/
+
                 binding.webViewNewsDesc.getSettings().setJavaScriptEnabled(true);
                 binding.webViewNewsDesc.setWebViewClient(new WebViewClient() {
                     @Override
@@ -106,25 +107,39 @@ public class ResourcesDetailsActivity extends BaseActivity {
             } catch (Exception e) {
                 binding.cvWebsite.setVisibility(View.INVISIBLE);
             }
+        } else {
+            try {
+                String id = getIntent().getStringExtra("id");
+                callScholar(true, id);
+                callFrom = true;
+            } catch (Exception e) {
+            }
+        }
 
-
-            //binding.cvWebsite.setOnClickListener(v -> startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(modal.getNewsUrl()))));
-
-            binding.cvWebsite.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    try {
+        binding.cvWebsite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    if (!callFrom) {
                         if (modal.getResUrl().contains("http:") || modal.getResUrl().contains("https:")) {
                             startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(modal.getResUrl())));
                         }
-
-                    } catch (Exception e) {
-                        showToast("Url not supported");
+                    } else {
+                        if (url.contains("http:") || url.contains("https:")) {
+                            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(modal.getResUrl())));
+                        }
                     }
-                }
-            });
 
-        }
+                } catch (Exception e) {
+                    showToast("Url not supported");
+                }
+            }
+        });
+    }
+
+    void callScholar(boolean custome, String id) {
+        API_INTERFACE.geteventListScholar(RequestBodyGenerator.getRecources(id)).enqueue(
+                new ApiCallBack<>(ResourcesDetailsActivity.this, this, 1018, custome));
     }
 
     @Override
@@ -170,4 +185,61 @@ public class ResourcesDetailsActivity extends BaseActivity {
         }
     }
 
+    @Override
+    public void getApiResponse(Object responseObject, int flag) {
+        if (flag == 1018) {
+            BaseResponseModel<ArrayList<ScholarModel>> responseModel = (BaseResponseModel<ArrayList<ScholarModel>>) responseObject;
+            try {
+                if (responseModel.getStatus()) {
+
+                    binding.tvTitle.setText(responseModel.getOutput().get(0).getTitle());
+                    url = responseModel.getOutput().get(0).getWebUrl();
+
+                    try {
+                        binding.webViewNewsDesc.setVisibility(View.VISIBLE);
+
+                        binding.webViewNewsDesc.getSettings().setJavaScriptEnabled(true);
+                        binding.webViewNewsDesc.setWebViewClient(new WebViewClient() {
+                            @Override
+                            public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
+
+                                Intent intent = new Intent(
+                                        Intent.ACTION_VIEW,
+                                        Uri.parse(request.getUrl().toString())
+                                );
+                                startActivity(intent);
+                                return true;
+                                //return super.shouldOverrideUrlLoading(view, request);
+                            }
+                        });
+                        binding.webViewNewsDesc.loadDataWithBaseURL(
+                                "",
+                                "<html>  <head><style type=\"text/css\"> @font-face {  font-family: Poppins;      src: url(\"file:///android_asset/fonts/poppins_regular.ttf\")  } </style> </head><body>" + responseModel.getOutput().get(0).getDesc() + "</body>",
+                                "text/html",
+                                "utf-8",
+                                null);
+                        binding.webViewNewsDesc.setBackgroundColor(Color.TRANSPARENT);
+                    } catch (Exception e) {
+                    }
+
+                    try {
+                        if (!Patterns.WEB_URL.matcher(responseModel.getOutput().get(0).getWebUrl()).matches()) {
+                            binding.cvWebsite.setVisibility(View.INVISIBLE);
+                        } else {
+                            binding.cvWebsite.setVisibility(View.VISIBLE);
+                        }
+                    } catch (Exception e) {
+                        binding.cvWebsite.setVisibility(View.INVISIBLE);
+                    }
+                }
+            } catch (Exception e) {
+            }
+        }
+
+    }
+
+    @Override
+    public void getApiError(Throwable t, int flag) {
+
+    }
 }

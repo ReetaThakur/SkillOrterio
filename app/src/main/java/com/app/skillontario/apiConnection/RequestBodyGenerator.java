@@ -216,6 +216,26 @@ public class RequestBodyGenerator {
         return object;
     }
 
+    public static HashMap<String, Object> getRecources(String id) {
+        HashMap<String, Object> object = new HashMap<>();
+        object.put("eType", "resource");
+        object.put("eventId", id);
+        object.put("page", 1);
+        object.put("pageLimit", 20);
+        object.put("search", "");
+        return object;
+    }
+
+    public static HashMap<String, Object> getCommanAPI(String id, String eType) {
+        HashMap<String, Object> object = new HashMap<>();
+        object.put("eType", eType);
+        object.put("eventId", id);
+        object.put("page", 1);
+        object.put("pageLimit", 20);
+        object.put("search", "");
+        return object;
+    }
+
     public static HashMap<String, Object> updateProfile(UpdateProfileModal updateProfileModal) {
         HashMap<String, Object> object = new HashMap<>();
         object.put("userId", updateProfileModal.getId());

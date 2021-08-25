@@ -29,14 +29,14 @@ public class QuizAc extends BaseActivity {
 
         binding.share.setOnClickListener(v -> {
 
-            Utils.share1(QuizAc.this, "Hey! I played this interesting quiz on Skills Ontario to find out which profession is the best fit for me. Check out the result here" +
+            Utils.share1(QuizAc.this, getString(R.string.result_share) +
                     "", quizFinalResultModel.get(0).getImage(), null, "quiz", quizFinalResultModel.get(0).getId());
 
         });
 
         binding.sendInvite.setOnClickListener(v -> {
 
-            Utils.share1(QuizAc.this, "Come and join Skills Ontario! It’s the best place to evaluate your skills and useful in finding job opportunities." +
+            Utils.share1(QuizAc.this, getString(R.string.invite_share) +
                     "", quizFinalResultModel.get(0).getImage(), null, "home", quizFinalResultModel.get(0).getId());
 
         });

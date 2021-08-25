@@ -67,6 +67,11 @@ public class CareerListDetails implements Serializable {
     @Expose
     private String bId;
 
+    @SerializedName("hasBookmark")
+    @Expose
+    private boolean hasBookmark;
+
+
     @SerializedName("JobEducat")
     @Expose
     private String jobEducat;
@@ -80,6 +85,14 @@ public class CareerListDetails implements Serializable {
 
     public void setResourceURL(List<ResourceURLModal> resourceURL) {
         this.resourceURL = resourceURL;
+    }
+
+    public boolean isHasBookmark() {
+        return hasBookmark;
+    }
+
+    public void setHasBookmark(boolean hasBookmark) {
+        this.hasBookmark = hasBookmark;
     }
 
     public String getbId() {

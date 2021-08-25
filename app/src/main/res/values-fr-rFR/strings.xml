@@ -98,7 +98,7 @@
     <string name="cancel">Annuler</string>
 
     <string name="guest_user"> Utilisateur invité </string>
-    <string name="guest_singup_login"> Veuillez vous inscrire/vous connecter </string>
+    <string name="guest_singup_login"> Veuillez vous connecter/vous inscrire pour utiliser cette fonctionnalité. </string>
     <string name="term_codition">Vérifier les termes et conditions </string>
 
     <string name="platinum_patner">Partenaires Platine</string>
@@ -117,7 +117,7 @@
     <string name="the_john_lepping_memorial_scholarship">La bourse \n commémorative John Lepping</string>
 
 
-    <string name="default_notification_channel_id">Skills_onatrio</string>
+    <string name="default_notification_channel_id">00001</string>
     <string name="facebook_app_id">471886683746727</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -149,7 +149,7 @@ vous vous identifiez comme une femme</string>
     <string name="enter_first_name">entrez votre prénom</string>
     <string name="enter_last_name">Entrer le nom de famille</string>
     <string name="dummy_sign">Saisir votre nom d\'utilisateur et mot de passe.</string>
-    <string name="notice">Veuillez accepter les conditions &amp; conditions</string>
+    <string name="notice">Veuillez accepter les termes et conditions</string>
     <string name="gen">Général \nMachiniste</string>
     <string name="ho">Horticultural \nTechnician</string>
     <string name="in">Industrial \nMechanic</string>
@@ -254,4 +254,7 @@ vous vous identifiez comme une femme</string>
     <string name="logdevice">Vos sessions ont expiré.</string>
     <string name="ser">Le serveur ne répond pas</string>
     <string name="pro">Aucun détail trouvé!</string>
+   <!-- <string name="profile_share">Hey! Je suis tombé sur ce profil sur Compétences Ontario. Cliquez sur ce lien pour voir</string>
+    <string name="result_share">Hey! J\'ai joué à ce jeu-questionnaire intéressant sur Compétences Ontario pour savoir quelle profession me convient le mieux. Découvrez le résultat ici</string>
+    <string name="invite_share">Venez vous joindre à Compétences Ontario! C\'est le meilleur endroit pour évaluer vos compétences et utile pour trouver des opportunités d\'emploi.</string>-->
 </resources>

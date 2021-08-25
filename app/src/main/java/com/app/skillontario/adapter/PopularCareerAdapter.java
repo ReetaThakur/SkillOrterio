@@ -1,5 +1,6 @@
 package com.app.skillontario.adapter;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -75,7 +76,7 @@ public class PopularCareerAdapter extends RecyclerView.Adapter<PopularCareerAdap
     }
 
     @Override
-    public void onBindViewHolder(final PopularCareerAdapter.ViewHolder viewHolder, final int position) {
+    public void onBindViewHolder(final PopularCareerAdapter.ViewHolder viewHolder, @SuppressLint("RecyclerView") final int position) {
        /* if (popular)
             viewHolder.binding.imageView.setImageResource(imageArray[position]);
         else
@@ -180,9 +181,11 @@ public class PopularCareerAdapter extends RecyclerView.Adapter<PopularCareerAdap
                 if (careerModalArrayList.get(position).getbId().equalsIgnoreCase("")) {
                     viewHolder.binding.ivBookmark.setImageResource(R.drawable.ic_home_main_batch);
                     clickBookmark = false;
+                    viewHolder.binding.imgBackground.setColorFilter(ContextCompat.getColor(context, R.color.white));
                 } else {
                     clickBookmark = true;
                     viewHolder.binding.ivBookmark.setImageResource(R.drawable.ic_bookmark_fill);
+                    viewHolder.binding.imgBackground.setColorFilter(ContextCompat.getColor(context, R.color.bookmark_color));
                 }
 
 
@@ -228,9 +231,11 @@ public class PopularCareerAdapter extends RecyclerView.Adapter<PopularCareerAdap
                     if (clickBookmark) {
                         clickBookmark = false;
                         viewHolder.binding.ivBookmark.setImageResource(R.drawable.ic_home_main_batch);
+                        viewHolder.binding.imgBackground.setColorFilter(ContextCompat.getColor(context, R.color.white));
                     } else {
                         clickBookmark = true;
                         viewHolder.binding.ivBookmark.setImageResource(R.drawable.ic_bookmark_fill);
+                        viewHolder.binding.imgBackground.setColorFilter(ContextCompat.getColor(context, R.color.bookmark_color));
                     }
                 }
             }

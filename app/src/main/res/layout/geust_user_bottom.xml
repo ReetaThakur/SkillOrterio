@@ -23,8 +23,8 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/guest_user"
-                    android:fontFamily="@font/poppins_regular"
+                    android:text="@string/app_name"
+                    android:fontFamily="@font/poppins_medium"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_20sdp" />
                 <TextView
@@ -73,6 +73,7 @@
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/poppins_regular"
                                 android:gravity="center"
+                                android:maxLines="1"
                                 android:padding="@dimen/_10sdp"
                                 android:text="@string/signup"
                                 android:textAllCaps="true"
@@ -109,6 +110,7 @@
                                 android:gravity="center"
                                 android:padding="@dimen/_10sdp"
                                 android:text="@string/sign_in"
+                                android:maxLines="1"
                                 android:textAllCaps="true"
                                 android:textColor="@color/white"
                                 android:textSize="@dimen/_12sdp" />

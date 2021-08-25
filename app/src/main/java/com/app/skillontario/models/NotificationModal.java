@@ -38,6 +38,31 @@ public class NotificationModal implements Serializable {
     @Expose
     private String sectionId;
 
+
+    @SerializedName("resDesc")
+    @Expose
+    private String resDesc;
+
+    @SerializedName("resImage")
+    @Expose
+    private String resImage;
+
+    public String getResDesc() {
+        return resDesc;
+    }
+
+    public void setResDesc(String resDesc) {
+        this.resDesc = resDesc;
+    }
+
+    public String getResImage() {
+        return resImage;
+    }
+
+    public void setResImage(String resImage) {
+        this.resImage = resImage;
+    }
+
     public String getSectionId() {
         return sectionId;
     }

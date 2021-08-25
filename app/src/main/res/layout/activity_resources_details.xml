@@ -50,9 +50,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/_16sdp"
                             android:fontFamily="@font/poppins_regular"
-                            android:text="National Skilled
-Trades and Technology
-Week 2019, Burnaby, B.C."
+                            android:text=""
                             android:textColor="@color/black"
                             android:textSize="@dimen/_18sdp"></TextView>
 

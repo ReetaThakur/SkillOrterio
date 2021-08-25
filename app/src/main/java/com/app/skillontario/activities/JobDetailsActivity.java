@@ -56,7 +56,7 @@ public class JobDetailsActivity extends BaseActivity implements ApiResponseError
     private boolean clickBookMark = false;
     String modal_Id;
     List<SampleGroupBean> list = new ArrayList<>();
-
+    public static String bidData = "";
     ArrayList<CareerListDetails> careerListDetails = new ArrayList<>();
     ArrayList<ResourceURLModal> resourceURLModalArrayList = new ArrayList<>();
 
@@ -74,6 +74,7 @@ public class JobDetailsActivity extends BaseActivity implements ApiResponseError
         if (modal_Id == null) {
             modal_Id = "";
         }
+        bidData = "";
         CallApi(modal_Id);
 
 
@@ -135,7 +136,7 @@ public class JobDetailsActivity extends BaseActivity implements ApiResponseError
         binding.imgShare.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Utils.share1(JobDetailsActivity.this, "Hey! I came across this profile on Skills Ontario. Click this link to view", careerListDetails.get(0).getImage(), null, "jobProfile", careerListDetails.get(0).getId());
+                Utils.share1(JobDetailsActivity.this, getString(R.string.profile_share), careerListDetails.get(0).getImage(), null, "jobProfile", careerListDetails.get(0).getId());
             }
         });
 
@@ -144,7 +145,7 @@ public class JobDetailsActivity extends BaseActivity implements ApiResponseError
 
     void addBookmark(CareerListDetails list, String careerId) {
         API_INTERFACE.addCareerBookmark(RequestBodyGenerator.setBookmark(list, MySharedPreference.getInstance().getStringData(SharedPrefsConstants.USER_ID), careerId)).enqueue(
-                new ApiCallBack<>(JobDetailsActivity.this, this, 102, false));
+                new ApiCallBack<>(JobDetailsActivity.this, this, 102, true));
     }
 
     void removeBookmark(String bid, String careerId) {
@@ -152,10 +153,10 @@ public class JobDetailsActivity extends BaseActivity implements ApiResponseError
 
         object.put("careerId", careerId);
         object.put("userId", MySharedPreference.getInstance().getStringData(SharedPrefsConstants.USER_ID));
-        object.put("bId", bid);
+        object.put("bId", bidData);
 
         API_INTERFACE.deleteCareerBookmark(object).enqueue(
-                new ApiCallBack<>(JobDetailsActivity.this, this, 103, false));
+                new ApiCallBack<>(JobDetailsActivity.this, this, 103, true));
     }
 
     private void CallApi(String carrerId) {
@@ -294,7 +295,7 @@ public class JobDetailsActivity extends BaseActivity implements ApiResponseError
                 clickBookMark = false;
                 binding.imgBookmark.setBackgroundResource(R.drawable.ic_book_mark_de);
             } else {
-                showToast(responseModel.getMessage());
+                //showToast(responseModel.getMessage());
             }
         } else if (flag == 102) {
             BaseResponseModel<CareerDetailModel> responseModel = (BaseResponseModel<CareerDetailModel>) responseObject;
@@ -315,6 +316,7 @@ public class JobDetailsActivity extends BaseActivity implements ApiResponseError
                     try {
                         if (responseModel.getOutput() != null) {
                             if (responseModel.getOutput().size() > 0) {
+                                bidData = responseModel.output.get(0).getbId();
                                 careerListDetails = responseModel.output;
                                 setData(careerListDetails);
                                 showExpandRecycler(careerListDetails);

@@ -165,6 +165,7 @@ public class SplashActivity extends BaseActivity {
                         model.setId(object1.getString("_id"));
                         model.setResImage(object1.getString("resImage"));
                         model.setResDesc(object1.getString("resDesc"));
+                        model.setResTitle(object1.getString("resTitle"));
                         Intent intent = new Intent(SplashActivity.this, ResourcesDetailsActivity.class);
                         intent.putExtra("model", (Serializable) model);
                         startActivity(intent);

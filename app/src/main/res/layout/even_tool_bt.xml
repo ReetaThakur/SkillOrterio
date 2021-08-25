@@ -7,7 +7,10 @@
 
         android:background="#F0FBFF"
         android:orientation="horizontal"
-        android:padding="@dimen/_20sdp">
+        android:paddingLeft="@dimen/_16sdp"
+        android:paddingTop="@dimen/_20sdp"
+        android:paddingRight="@dimen/_16sdp"
+        android:paddingBottom="@dimen/_20sdp">
 
         <TextView
             android:id="@+id/tv1"

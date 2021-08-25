@@ -26,16 +26,12 @@ class WelcomeActivity : BaseActivity() {
 
         binding!!.llNext.setOnClickListener {
             if (binding!!.viewPager.currentItem == 3) {
-                  openLoginPage()
+                openLoginPage()
             } else
                 binding!!.viewPager.currentItem = binding!!.viewPager.currentItem + 1
         }
 
-        /*  binding!!.ivPrev.setOnClickListener {
-              binding!!.viewPager.currentItem = binding!!.viewPager.currentItem - 1
-          }*/
 
-        //  binding!!.tvStarted.setOnClickListener { openLoginPage() }
         binding!!.tvSkip.setOnClickListener { openLoginPage() }
 
         setupPager()
@@ -50,8 +46,13 @@ class WelcomeActivity : BaseActivity() {
     private fun setupPager() {
         val adapter = PagerAdapter(this@WelcomeActivity)
         binding!!.viewPager.adapter = adapter
+        // binding!!.viewPager.transitionName=""
         binding!!.viewPager.addOnPageChangeListener(object : OnPageChangeListener {
-            override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
+            override fun onPageScrolled(
+                position: Int,
+                positionOffset: Float,
+                positionOffsetPixels: Int
+            ) {
                 /*if (position == 0)
                     binding!!.ivPrev.visibility = View.GONE
                 else
@@ -74,9 +75,11 @@ class WelcomeActivity : BaseActivity() {
         })
     }
 
-    class PagerAdapter internal constructor(mContext: Context) : androidx.viewpager.widget.PagerAdapter() {
+    class PagerAdapter internal constructor(mContext: Context) :
+        androidx.viewpager.widget.PagerAdapter() {
         private var context: Context = mContext
-        private val inflater: LayoutInflater = mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+        private val inflater: LayoutInflater =
+            mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
 
         override fun getCount(): Int {
             return 4
@@ -92,7 +95,6 @@ class WelcomeActivity : BaseActivity() {
                 view = inflater.inflate(R.layout.step_1, container, false)
             } else if (position == 1) {
                 view = inflater.inflate(R.layout.step_2, container, false)
-
 
             } else if (position == 2) {
                 view = inflater.inflate(R.layout.step_3, container, false)

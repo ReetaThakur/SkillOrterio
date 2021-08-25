@@ -27,7 +27,7 @@ public class FirebaseBroadcastReceiver extends GCoreWakefulBroadcastReceiver {
 
         MySharedPreference.getInstance().setStringData(NOTIFICATION_COUNT, String.valueOf(++count));
 
-       // ShortcutBadger.removeCount(AppController.context);
-       // ShortcutBadger.applyCount(AppController.context, count);
+        // ShortcutBadger.removeCount(AppController.context);
+        // ShortcutBadger.applyCount(AppController.context, count);
     }
 }

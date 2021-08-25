@@ -62,6 +62,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
     @Override
     @RequiresApi(api = Build.VERSION_CODES.M)
     public void onMessageReceived(@NotNull RemoteMessage remoteMessage) {
+        Log.e("Sunny", " onMessageReceived call ");
         showCustomNotification(remoteMessage);
         MySharedPreference.getInstance().setBooleanData(IS_NOTIFICATION, true);
 
@@ -79,7 +80,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         } catch (Exception e) {
         }
 
-        MySharedPreference.getInstance().setStringData(NOTIFICATION_COUNT, String.valueOf(++count));
+        // MySharedPreference.getInstance().setStringData(NOTIFICATION_COUNT, String.valueOf(++count));
 
         ShortcutBadger.removeCount(this);
         ShortcutBadger.applyCount(this, count);
@@ -96,7 +97,6 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
                 MySharedPreference.getInstance().saveNotificationObject(SharedPrefsConstants.NOTIFICATION_DATA, object);
 
-                Log.e("notification data", String.valueOf(object));
 
                 try {
                     if (object.has("type"))
