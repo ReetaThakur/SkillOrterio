@@ -254,7 +254,10 @@ vous vous identifiez comme une femme</string>
     <string name="logdevice">Vos sessions ont expiré.</string>
     <string name="ser">Le serveur ne répond pas</string>
     <string name="pro">Aucun détail trouvé!</string>
-   <!-- <string name="profile_share">Hey! Je suis tombé sur ce profil sur Compétences Ontario. Cliquez sur ce lien pour voir</string>
-    <string name="result_share">Hey! J\'ai joué à ce jeu-questionnaire intéressant sur Compétences Ontario pour savoir quelle profession me convient le mieux. Découvrez le résultat ici</string>
-    <string name="invite_share">Venez vous joindre à Compétences Ontario! C\'est le meilleur endroit pour évaluer vos compétences et utile pour trouver des opportunités d\'emploi.</string>-->
+    <string name="sign_result">der à une ouverture de session/vous inscrire pour utiliser cette fonction.</string>
+
+    <string name="profile_share">Je suis tombé sur ce profil sur le site de Compétences Ontario. Voici le lien Web</string>
+    <string name="result_share">J\'ai répondu à un questionnaire pour m\'aider à déterminer quelle carrière répond le mieux à mes attentes. Voici les résultats:</string>
+    <string name="invite_share">Je t\'invite à découvrir Compétences Ontario! Il s\'agit de la meilleure ressource pour évaluer tes compétences et trouver des occasions d\'emploi.</string>
+
 </resources>

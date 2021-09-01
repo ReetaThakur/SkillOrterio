@@ -1,6 +1,7 @@
 package com.app.skillontario.activities;
 
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -51,6 +52,7 @@ public class NewsDetailAc extends BaseActivity {
     String url, title;
     NewsModal newsModal;
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void initUi() {
         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_from_left);
@@ -142,8 +144,6 @@ public class NewsDetailAc extends BaseActivity {
                         "utf-8",
                         null);
                 binding.newsLayout.webViewNewsDesc.setBackgroundColor(Color.TRANSPARENT);
-               // binding.newsLayout.webViewNewsDesc.setOnLongClickListener(false);
-               // binding.newsLayout.webViewNewsDesc.isLongClickable()
 
 
             }
@@ -182,66 +182,6 @@ public class NewsDetailAc extends BaseActivity {
 
     }
 
-    private void loadData(String url) {
-        binding.webview.setWebChromeClient(new MyWebChromeClient());
-        binding.webview.getSettings().setLoadWithOverviewMode(true);
-        binding.webview.getSettings().setSupportZoom(true);
-        binding.webview.getSettings().setJavaScriptEnabled(true);
-        WebSettings settings = binding.webview.getSettings();
-        settings.setJavaScriptEnabled(true);
-        settings.setBuiltInZoomControls(true);
-        settings.setLoadWithOverviewMode(true);
-        settings.setUseWideViewPort(true);
-        settings.setDatabaseEnabled(true);
-        settings.setDomStorageEnabled(true);
-
-        binding.webview.setWebViewClient(new WebViewClient() {
-
-            @Override
-            public void onReceivedError(WebView view, WebResourceRequest request,
-                                        WebResourceError error) {
-                super.onReceivedError(view, request, error);
-// Do something
-            }
-        });
-        binding.webview.setWebViewClient(new WebViewClient() {
-
-            @Override
-            public void onPageStarted(WebView view, String url, Bitmap favicon) {
-                super.onPageStarted(view, url, favicon);
-
-// runs when a page starts loading
-                binding.pb.setVisibility(View.VISIBLE);
-            }
-
-            @Override
-            public void onPageFinished(WebView view, String url) {
-                super.onPageFinished(view, url);
-
-// page finishes loading
-                binding.pb.setVisibility(View.GONE);
-            }
-
-            @Override
-            public void onReceivedError(WebView view, WebResourceRequest request, WebResourceError error) {
-                super.onReceivedError(view, request, error);
-
-// runs when there's a failure in loading page
-                binding.pb.setVisibility(View.GONE);
-                showToast("Failure on loading web page");
-            }
-        });
-        binding.webview.loadUrl(url);
-    }
-
-    public class MyWebChromeClient extends WebChromeClient {
-        public void onProgressChanged(WebView view, int newProgress) {
-
-        }
-
-    }
-
-
     @Override
     protected int getLayoutById() {
         return R.layout.news_detail_ac;
@@ -253,6 +193,7 @@ public class NewsDetailAc extends BaseActivity {
         overridePendingTransition(R.anim.slide_in_from_left, R.anim.slide_out_from_right);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     public String changeDate(String dateString) {
         String dateStr = "", timeStr = "", finalDate = "";
         try {

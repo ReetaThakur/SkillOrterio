@@ -7,9 +7,13 @@ import androidx.core.app.ShareCompat;
 
 import com.app.skillontario.BottomBarActivity;
 import com.app.skillontario.activities.JobDetailsActivity;
+import com.app.skillontario.activities.TakeQuizActivity;
 import com.app.skillontario.adapter.AdapterCong;
 import com.app.skillontario.adapter.TabAdapter;
 import com.app.skillontario.baseClasses.BaseActivity;
+import com.app.skillontario.constants.SharedPrefsConstants;
+import com.app.skillontario.dialogs.DialogWithMsg;
+import com.app.skillontario.utils.MySharedPreference;
 import com.app.skillontario.utils.RecyclerItemClickListener;
 import com.app.skillontario.utils.Utils;
 import com.app.skillorterio.R;
@@ -29,8 +33,14 @@ public class QuizAc extends BaseActivity {
 
         binding.share.setOnClickListener(v -> {
 
-            Utils.share1(QuizAc.this, getString(R.string.result_share) +
-                    "", quizFinalResultModel.get(0).getImage(), null, "quiz", quizFinalResultModel.get(0).getId());
+            if (!MySharedPreference.getInstance().getBooleanData(SharedPrefsConstants.GUEST_FLOW)) {
+                Utils.share1(QuizAc.this, getString(R.string.result_share) +
+                        "", quizFinalResultModel.get(0).getImage(), null, "quiz", quizFinalResultModel.get(0).getId());
+
+            } else {
+                showDialog();
+            }
+
 
         });
 
@@ -87,5 +97,13 @@ public class QuizAc extends BaseActivity {
     protected void onDestroy() {
         super.onDestroy();
         quizFinalResultModel = null;
+    }
+
+    void showDialog() {
+        try {
+            DialogWithMsg dialogWithMsg = new DialogWithMsg(QuizAc.this, 0, getString(R.string.app_name), getString(R.string.sign_result), getString(R.string.okay), null,1);
+            dialogWithMsg.show();
+        } catch (Exception e) {
+        }
     }
 }

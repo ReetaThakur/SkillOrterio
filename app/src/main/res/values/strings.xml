@@ -734,8 +734,9 @@ identify as female</string>
     <string name="ser">Server Not Responding</string>
     <string name="pro">No Detail Found!</string>
     <string name="profile_share">Hey! I came across this profile on Skills Ontario. Click this link to view</string>
-    <string name="result_share">Hey! I played this interesting quiz on Skills Ontario to find out which profession is the best fit for me. Check out the result here</string>
-    <string name="invite_share">Come and join Skills Ontario! It’s the best place to evaluate your skills and useful in finding job opportunities.</string>
+    <string name="result_share">I took this interesting quiz to find out which career is the best fit for me. Check out my result:</string>
+    <string name="invite_share">Come and join Skills Ontario! It’s the best place to evaluate your skills and find job opportunities. </string>
+    <string name="sign_result">Please sign in/sign up to use this feature.</string>
 
 
     <!--<string name="Popular_Careers">Carrières populaires </string>

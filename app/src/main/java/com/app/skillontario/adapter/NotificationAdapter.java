@@ -258,7 +258,7 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
 
     void showDialog() {
         try {
-            DialogWithMsg dialogWithMsg = new DialogWithMsg(context, 0, context.getString(R.string.app_name), context.getString(R.string.pro), context.getString(R.string.okay), null);
+            DialogWithMsg dialogWithMsg = new DialogWithMsg(context, 0, context.getString(R.string.app_name), context.getString(R.string.pro), context.getString(R.string.okay), null,1);
             dialogWithMsg.show();
         } catch (Exception e) {
         }

@@ -99,8 +99,9 @@ public class HomeFragment extends BaseFragment implements ApiResponseErrorCallba
         });
 
         binding.rlTakeQuiz.setOnClickListener(v -> {
+            startActivity(new Intent(getActivity(), TakeQuizActivity.class));
 
-            if (!MySharedPreference.getInstance().getBooleanData(SharedPrefsConstants.GUEST_FLOW)) {
+           /* if (!MySharedPreference.getInstance().getBooleanData(SharedPrefsConstants.GUEST_FLOW)) {
                 startActivity(new Intent(getActivity(), TakeQuizActivity.class));
             } else {
                 try {
@@ -108,7 +109,7 @@ public class HomeFragment extends BaseFragment implements ApiResponseErrorCallba
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-            }
+            }*/
 
         });
 

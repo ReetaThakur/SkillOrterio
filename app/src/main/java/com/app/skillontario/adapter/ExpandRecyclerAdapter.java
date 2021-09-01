@@ -1,10 +1,17 @@
 package com.app.skillontario.adapter;
 
+import android.content.Context;
+import android.content.Intent;
+import android.graphics.Color;
+import android.net.Uri;
 import android.os.Build;
 import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebResourceRequest;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -22,9 +29,11 @@ public class ExpandRecyclerAdapter extends
         BaseExpandableRecyclerViewAdapter<SampleGroupBean, SampleChildBean, ExpandRecyclerAdapter.GroupVH, ExpandRecyclerAdapter.ChildVH> {
 
     private List<SampleGroupBean> mList;
+    Context context;
 
-    public ExpandRecyclerAdapter(List<SampleGroupBean> list) {
+    public ExpandRecyclerAdapter(List<SampleGroupBean> list,Context context) {
         mList = list;
+        this.context = context;
     }
 
     @Override
@@ -68,19 +77,43 @@ public class ExpandRecyclerAdapter extends
 
     @Override
     public void onBindChildViewHolder(ChildVH holder, SampleGroupBean groupBean, SampleChildBean sampleChildBean) {
-        holder.nameTv.setText(sampleChildBean.getName());
-
+      //  holder.nameTvWeb.setText(sampleChildBean.getName());
+/*
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            holder.nameTv.setText(Html.fromHtml(sampleChildBean.getName(), Html.FROM_HTML_MODE_COMPACT));
+            holder.nameTvWeb.setText(Html.fromHtml(sampleChildBean.getName(), Html.FROM_HTML_MODE_COMPACT));
         } else {
-            holder.nameTv.setText(Html.fromHtml(sampleChildBean.getName()));
-        }
+            holder.nameTvWeb.setText(Html.fromHtml(sampleChildBean.getName()));
+        }*/
+
+
+        holder.nameTvWeb.setWebViewClient(new WebViewClient(){
+            @Override
+            public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
+
+                Intent intent= new Intent(
+                        Intent.ACTION_VIEW,
+                        Uri.parse(request.getUrl().toString())
+                );
+                context.startActivity(intent);
+                return true;
+                //return super.shouldOverrideUrlLoading(view, request);
+            }
+        });
+        holder.nameTvWeb.loadDataWithBaseURL(
+                "",
+                "<html>  <head><style type=\"text/css\"> @font-face {  font-family: Poppins;      src: url(\"file:///android_asset/fonts/poppins_regular.ttf\")  } </style> </head><body>" + sampleChildBean.getName() + "</body>",
+                "text/html",
+                "utf-8",
+                null);
+        holder.nameTvWeb.setBackgroundColor(Color.TRANSPARENT);
+
+
 
         if (groupBean.isExpandable()) {
-            holder.nameTv.setVisibility(View.VISIBLE);
+           // holder.nameTvWeb.setVisibility(View.VISIBLE);
             holder.linearLayout.setVisibility(View.VISIBLE);
         } else {
-            holder.nameTv.setVisibility(View.GONE);
+            //holder.nameTvWeb.setVisibility(View.GONE);
             holder.linearLayout.setVisibility(View.GONE);
         }
 
@@ -103,12 +136,13 @@ public class ExpandRecyclerAdapter extends
     }
 
     static class ChildVH extends RecyclerView.ViewHolder {
-        TextView nameTv;
+        WebView nameTvWeb;
         LinearLayout linearLayout;
 
         ChildVH(View itemView) {
             super(itemView);
-            nameTv = (TextView) itemView.findViewById(R.id.child_item_name);
+            nameTvWeb = (WebView) itemView.findViewById(R.id.webView_Job);
+            nameTvWeb.getSettings().setJavaScriptEnabled(true);
             linearLayout = (LinearLayout) itemView.findViewById(R.id.lin);
         }
     }

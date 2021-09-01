@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/lin"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:paddingLeft="0dp">
 
-    <TextView
+<!--    <TextView
         android:id="@+id/child_item_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -19,6 +20,16 @@
         android:paddingBottom="@dimen/_12sdp"
         android:textAlignment="textStart"
         android:textColor="#9399B1"
-        android:textSize="@dimen/_14sdp"></TextView>
+        android:textSize="@dimen/_14sdp"></TextView>-->
+
+    <WebView
+        android:id="@+id/webView_Job"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/_16sdp"
+        android:layout_marginRight="@dimen/_16sdp"
+        android:layout_marginBottom="@dimen/_120sdp"
+        android:fontFamily="@font/poppins_regular"
+        tools:ignore="WebViewLayout" />
 
 </LinearLayout>

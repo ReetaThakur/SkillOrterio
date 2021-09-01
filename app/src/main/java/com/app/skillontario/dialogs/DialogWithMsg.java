@@ -6,6 +6,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
@@ -21,7 +22,7 @@ import com.app.skillorterio.databinding.DialogWithMsgBinding;
 public class DialogWithMsg extends Dialog {
 
     private Context context;
-    private int imageId, requestCode;
+    private int imageId, requestCode = 0;
     private String heading, content, actionMsg;
     private ConfirmDialogCallback callback;
     private DialogWithMsgBinding binding;
@@ -35,6 +36,7 @@ public class DialogWithMsg extends Dialog {
         this.content = content;
         this.actionMsg = actionMsg;
         this.callback = callback;
+        requestCode = 0;
     }
 
     public DialogWithMsg(@NonNull Context context, int imageId, String heading, String content,
@@ -48,6 +50,7 @@ public class DialogWithMsg extends Dialog {
         this.callback = callback;
         this.requestCode = requestCode;
     }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +67,11 @@ public class DialogWithMsg extends Dialog {
     }
 
     private void initView() {
+        if (requestCode > 0)
+            binding.confirmHeadingTxt.setVisibility(View.VISIBLE);
+        else
+            binding.confirmHeadingTxt.setVisibility(View.GONE);
+
         binding.confirmHeadingTxt.setText(heading);
         binding.confirmMsgTxt.setText(Html.fromHtml(content));
         binding.okBtn.setText(actionMsg);
@@ -72,12 +80,12 @@ public class DialogWithMsg extends Dialog {
             binding.ivDialogImage.setImageDrawable(ContextCompat.getDrawable(context, imageId));
 
         binding.ivClose.setOnClickListener(v -> {
-          //  callback.onNegativeClick(requestCode);
+            //  callback.onNegativeClick(requestCode);
             dismiss();
         });
 
         binding.okBtn.setOnClickListener(view -> {
-           // callback.onPositiveClick(requestCode);
+            // callback.onPositiveClick(requestCode);
             dismiss();
         });
     }

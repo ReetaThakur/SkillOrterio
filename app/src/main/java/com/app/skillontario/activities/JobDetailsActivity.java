@@ -224,7 +224,7 @@ public class JobDetailsActivity extends BaseActivity implements ApiResponseError
 
         binding.recyExpand.setHasFixedSize(false);
         binding.recyExpand.setNestedScrollingEnabled(false);
-        adapter = new ExpandRecyclerAdapter(list);
+        adapter = new ExpandRecyclerAdapter(list,JobDetailsActivity.this);
         binding.recyExpand.setAdapter(adapter);
 
        /* binding.recyExpand.addOnItemTouchListener(new RecyclerItemClickListener(JobDetailsActivity.this, (view, position) -> {
