@@ -5,12 +5,16 @@
       <map>
         <entry key="..\:/Sunny/new/skills_ontario_android/app/src/main/res/drawable/ic_book_mark_de.xml" value="0.13778501628664494" />
         <entry key="..\:/Sunny/new/skills_ontario_android/app/src/main/res/drawable/ic_book_mark_de_select.xml" value="0.13778501628664494" />
+        <entry key="..\:/Sunny/new/skills_ontario_android/app/src/main/res/drawable/ic_group__dashboard_background.xml" value="0.16" />
         <entry key="..\:/Sunny/new/skills_ontario_android/app/src/main/res/drawable/ic_home_main1.xml" value="0.13778501628664494" />
+        <entry key="..\:/Sunny/new/skills_ontario_android/app/src/main/res/layout-sw600dp/activity_sign_up.xml" value="0.1469265367316342" />
         <entry key="..\:/Sunny/new/skills_ontario_android/app/src/main/res/layout-sw600dp/bookmark_item.xml" value="0.1383495145631068" />
+        <entry key="..\:/Sunny/new/skills_ontario_android/app/src/main/res/layout-sw600dp/fragment_dashboard1.xml" value="0.25" />
         <entry key="..\:/Sunny/new/skills_ontario_android/app/src/main/res/layout-sw600dp/listitem_child.xml" value="0.14375" />
         <entry key="..\:/Sunny/new/skills_ontario_android/app/src/main/res/layout/activity_job_details.xml" value="0.12" />
         <entry key="..\:/Sunny/new/skills_ontario_android/app/src/main/res/layout/activity_notification.xml" value="0.15" />
         <entry key="..\:/Sunny/new/skills_ontario_android/app/src/main/res/layout/activity_resources_details.xml" value="0.1" />
+        <entry key="..\:/Sunny/new/skills_ontario_android/app/src/main/res/layout/activity_select_language.xml" value="0.12" />
         <entry key="..\:/Sunny/new/skills_ontario_android/app/src/main/res/layout/activity_setting.xml" value="0.1" />
         <entry key="..\:/Sunny/new/skills_ontario_android/app/src/main/res/layout/activity_sign_up.xml" value="0.1" />
         <entry key="..\:/Sunny/new/skills_ontario_android/app/src/main/res/layout/activity_take_quiz.xml" value="0.1" />
@@ -20,14 +24,16 @@
         <entry key="..\:/Sunny/new/skills_ontario_android/app/src/main/res/layout/adapter_search.xml" value="0.22" />
         <entry key="..\:/Sunny/new/skills_ontario_android/app/src/main/res/layout/bookmark_item.xml" value="0.1" />
         <entry key="..\:/Sunny/new/skills_ontario_android/app/src/main/res/layout/common_action_bar.xml" value="0.1" />
-        <entry key="..\:/Sunny/new/skills_ontario_android/app/src/main/res/layout/dialog_with_msg.xml" value="0.14399363564041368" />
+        <entry key="..\:/Sunny/new/skills_ontario_android/app/src/main/res/layout/dialog_with_msg.xml" value="0.1" />
         <entry key="..\:/Sunny/new/skills_ontario_android/app/src/main/res/layout/edit_profile_ac.xml" value="0.1" />
         <entry key="..\:/Sunny/new/skills_ontario_android/app/src/main/res/layout/even_tool_bt.xml" value="0.1" />
+        <entry key="..\:/Sunny/new/skills_ontario_android/app/src/main/res/layout/fragment_dashboard1.xml" value="0.14" />
         <entry key="..\:/Sunny/new/skills_ontario_android/app/src/main/res/layout/fragment_event.xml" value="0.2" />
         <entry key="..\:/Sunny/new/skills_ontario_android/app/src/main/res/layout/geust_user_bottom.xml" value="0.13" />
         <entry key="..\:/Sunny/new/skills_ontario_android/app/src/main/res/layout/listitem_child.xml" value="0.1" />
         <entry key="..\:/Sunny/new/skills_ontario_android/app/src/main/res/layout/news_detail_item.xml" value="0.1" />
         <entry key="..\:/Sunny/new/skills_ontario_android/app/src/main/res/layout/no_data_found.xml" value="0.1" />
+        <entry key="..\:/Sunny/new/skills_ontario_android/app/src/main/res/layout/quiz_ac.xml" value="0.1" />
         <entry key="..\:/Sunny/new/skills_ontario_android/app/src/main/res/layout/step_3.xml" value="0.1" />
       </map>
     </option>

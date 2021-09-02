@@ -31,13 +31,17 @@ import com.app.skillontario.apiConnection.RequestBodyGenerator;
 import com.app.skillontario.baseClasses.BaseFragment;
 import com.app.skillontario.baseClasses.BaseResponseModel;
 import com.app.skillontario.callbacks.CheckPermission;
+import com.app.skillontario.callbacks.ConfirmDialogCallback;
 import com.app.skillontario.constants.AppConstants;
 import com.app.skillontario.constants.SharedPrefsConstants;
+import com.app.skillontario.dialogs.DialogWithMsg;
 import com.app.skillontario.models.CareerDetailModel;
 import com.app.skillontario.models.CareerModal;
 import com.app.skillontario.models.EventsModal;
 import com.app.skillontario.models.HomeModal;
 import com.app.skillontario.models.NewsModal;
+import com.app.skillontario.quiz.QuizAc;
+import com.app.skillontario.signup.SignUpActivity;
 import com.app.skillontario.utils.MySharedPreference;
 import com.app.skillontario.utils.Utils;
 import com.app.skillorterio.R;
@@ -51,7 +55,7 @@ import static com.app.skillontario.constants.AppConstants.NOTIFICATION_COUNT;
 import static com.app.skillontario.utils.Utils.updatLocalLanguage;
 
 
-public class HomeFragment extends BaseFragment implements ApiResponseErrorCallback, PopularCareerAdapter.BookMarkUpdateDelete, CheckPermission {
+public class HomeFragment extends BaseFragment implements ApiResponseErrorCallback, PopularCareerAdapter.BookMarkUpdateDelete, CheckPermission, ConfirmDialogCallback {
 
     private FragmentHomeBinding binding;
     PopularCareerAdapter popularCareerAdapter;
@@ -59,6 +63,7 @@ public class HomeFragment extends BaseFragment implements ApiResponseErrorCallba
     RecentNewsAdapter recentNewsAdapter;
     public static TextView tvNotificationCount;
     CheckPermission checkPermission;
+    ConfirmDialogCallback callback;
 
     // ApiResponseErrorCallback apiResponseErrorCallback;
     ArrayList<CareerModal> careerModalArrayList = new ArrayList<>();
@@ -79,6 +84,7 @@ public class HomeFragment extends BaseFragment implements ApiResponseErrorCallba
         binding = (FragmentHomeBinding) viewDataBinding;
         tvNotificationCount = (TextView) findViewById(R.id.tv_notification_count);
         checkPermission = this;
+        callback = this;
 
         bookMarkUpdateDelete = this;
         careerModalArrayList.clear();
@@ -99,17 +105,18 @@ public class HomeFragment extends BaseFragment implements ApiResponseErrorCallba
         });
 
         binding.rlTakeQuiz.setOnClickListener(v -> {
-            startActivity(new Intent(getActivity(), TakeQuizActivity.class));
+            //  startActivity(new Intent(getActivity(), TakeQuizActivity.class));
 
-           /* if (!MySharedPreference.getInstance().getBooleanData(SharedPrefsConstants.GUEST_FLOW)) {
+            if (!MySharedPreference.getInstance().getBooleanData(SharedPrefsConstants.GUEST_FLOW)) {
                 startActivity(new Intent(getActivity(), TakeQuizActivity.class));
             } else {
-                try {
+                showDialogMessage();
+                /*try {
                     Utils.guestMethod(getActivity(), "homeFragment");
                 } catch (Exception e) {
                     e.printStackTrace();
-                }
-            }*/
+                }*/
+            }
 
         });
 
@@ -170,7 +177,7 @@ public class HomeFragment extends BaseFragment implements ApiResponseErrorCallba
     private void showRecentRecycler() {
         binding.recyRecentEvent.setHasFixedSize(true);
         eventAdapter = new RecentEventsAdapter(getActivity());
-       // binding.recyRecentEvent.setAdapter(eventAdapter);
+        // binding.recyRecentEvent.setAdapter(eventAdapter);
     }
 
     private void showRecentNewsRecycler() {
@@ -181,6 +188,14 @@ public class HomeFragment extends BaseFragment implements ApiResponseErrorCallba
        /* binding.recyNews.addOnItemTouchListener(new RecyclerItemClickListener(getActivity(), (view, position) -> {
             startActivity(new Intent(getActivity(), NewsDetailAc.class));
         }));*/
+    }
+
+    void showDialogMessage() {
+        try {
+            DialogWithMsg dialogWithMsg = new DialogWithMsg(getActivity(), 0, getString(R.string.app_name), getString(R.string.sign_result1), getString(R.string.okay), callback, 9);
+            dialogWithMsg.show();
+        } catch (Exception e) {
+        }
     }
 
 
@@ -225,7 +240,7 @@ public class HomeFragment extends BaseFragment implements ApiResponseErrorCallba
                             if (responseModel.getOutput().get(1).getEventData() != null) {
                                 if (responseModel.getOutput().get(1).getEventData().size() > 0) {
                                     eventsModalArrayList.addAll(responseModel.getOutput().get(1).getEventData());
-                                    eventAdapter = new RecentEventsAdapter(eventsModalArrayList, getActivity(),checkPermission);
+                                    eventAdapter = new RecentEventsAdapter(eventsModalArrayList, getActivity(), checkPermission);
                                     binding.recyRecentEvent.setAdapter(eventAdapter);
                                 }
                             }
@@ -402,5 +417,17 @@ public class HomeFragment extends BaseFragment implements ApiResponseErrorCallba
                 .setNegativeButton(R.string.no, null)
                 .setIcon(android.R.drawable.ic_dialog_alert)
                 .show();
+    }
+
+    @Override
+    public void onPositiveClick(int requestCode) {
+
+        startActivity(new Intent(getActivity(), TakeQuizActivity.class));
+
+    }
+
+    @Override
+    public void onNegativeClick(int requestCode) {
+        startActivity(new Intent(getActivity(), TakeQuizActivity.class));
     }
 }

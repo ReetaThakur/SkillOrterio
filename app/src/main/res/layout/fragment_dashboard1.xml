@@ -71,25 +71,31 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/_16sdp"
                 android:layout_marginTop="@dimen/_6sdp"
                 android:orientation="vertical">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="139dp"
-                    android:background="@drawable/ic_group__dashboard_background">
+                    android:layout_height="@dimen/_70sdp"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:layout_marginRight="@dimen/_8sdp">
 
-                    <RelativeLayout
+
+                    <androidx.cardview.widget.CardView
                         android:layout_width="match_parent"
-                        android:layout_height="68dp"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginTop="27dp"
-                        android:layout_marginRight="20dp">
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="@dimen/_2sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:layout_marginRight="@dimen/_5sdp"
+                        android:layout_marginBottom="@dimen/_5sdp"
+                        app:cardCornerRadius="8dp"
+                        app:cardElevation="10dp">
 
                         <RelativeLayout
                             android:id="@+id/rl_takeQuiz"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_height="match_parent"
                             android:layout_centerVertical="true"
                             android:layout_marginLeft="6dp">
 
@@ -111,7 +117,6 @@
                             <me.grantland.widget.AutofitTextView
                                 android:id="@+id/tv1"
                                 android:layout_width="match_parent"
-                                android:maxLines="2"
                                 android:layout_height="wrap_content"
                                 android:layout_centerVertical="true"
                                 android:layout_marginLeft="@dimen/_16sdp"
@@ -119,6 +124,7 @@
                                 android:layout_toLeftOf="@+id/im1"
                                 android:layout_toRightOf="@+id/rl1"
                                 android:fontFamily="@font/poppins_regular"
+                                android:maxLines="2"
                                 android:text="@string/career_quiz_results"
                                 android:textColor="#272F35"
                                 android:textSize="@dimen/_14sdp"></me.grantland.widget.AutofitTextView>
@@ -135,27 +141,33 @@
                         </RelativeLayout>
 
 
-                    </RelativeLayout>
+                    </androidx.cardview.widget.CardView>
+
+
                 </RelativeLayout>
 
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="139dp"
-                    android:layout_marginTop="-50dp"
-                    android:background="@drawable/ic_group__dashboard_background">
+                    android:layout_height="@dimen/_70sdp"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:layout_marginRight="@dimen/_8sdp">
 
-                    <RelativeLayout
+
+                    <androidx.cardview.widget.CardView
                         android:layout_width="match_parent"
-                        android:layout_height="68dp"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginTop="27dp"
-                        android:layout_marginRight="20dp">
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="@dimen/_2sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:layout_marginRight="@dimen/_5sdp"
+                        android:layout_marginBottom="@dimen/_5sdp"
+                        app:cardCornerRadius="8dp"
+                        app:cardElevation="10dp">
 
                         <RelativeLayout
                             android:id="@+id/rl_bookmark"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_height="match_parent"
                             android:layout_centerVertical="true"
                             android:layout_marginLeft="6dp">
 
@@ -179,13 +191,13 @@
                                 android:id="@+id/tv2"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:maxLines="2"
                                 android:layout_centerVertical="true"
                                 android:layout_marginLeft="@dimen/_16sdp"
                                 android:layout_marginRight="@dimen/_6sdp"
                                 android:layout_toLeftOf="@+id/im2"
                                 android:layout_toRightOf="@+id/rl2"
                                 android:fontFamily="@font/poppins_regular"
+                                android:maxLines="2"
                                 android:text="@string/bookmarked_careers"
                                 android:textColor="#272F35"
                                 android:textSize="@dimen/_14sdp"></me.grantland.widget.AutofitTextView>
@@ -201,27 +213,33 @@
                         </RelativeLayout>
 
 
-                    </RelativeLayout>
-                </RelativeLayout>
+                    </androidx.cardview.widget.CardView>
 
+
+                </RelativeLayout>
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="139dp"
-                    android:layout_marginTop="-50dp"
-                    android:background="@drawable/ic_group__dashboard_background">
+                    android:layout_height="@dimen/_70sdp"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:layout_marginRight="@dimen/_8sdp">
 
-                    <RelativeLayout
+
+                    <androidx.cardview.widget.CardView
                         android:layout_width="match_parent"
-                        android:layout_height="68dp"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginTop="27dp"
-                        android:layout_marginRight="20dp">
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="@dimen/_2sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:layout_marginRight="@dimen/_5sdp"
+                        android:layout_marginBottom="@dimen/_5sdp"
+                        app:cardCornerRadius="8dp"
+                        app:cardElevation="10dp">
+
 
                         <RelativeLayout
                             android:id="@+id/rl_patner"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_height="match_parent"
                             android:layout_centerVertical="true"
                             android:layout_marginLeft="6dp">
 
@@ -247,12 +265,12 @@
                                 android:layout_height="wrap_content"
                                 android:layout_centerVertical="true"
                                 android:layout_marginLeft="@dimen/_16sdp"
-                                android:maxLines="2"
-                                android:layout_toRightOf="@+id/rl3"
-                                android:fontFamily="@font/poppins_regular"
-                                android:text="@string/partners"
                                 android:layout_marginRight="@dimen/_6sdp"
                                 android:layout_toLeftOf="@+id/im3"
+                                android:layout_toRightOf="@+id/rl3"
+                                android:fontFamily="@font/poppins_regular"
+                                android:maxLines="2"
+                                android:text="@string/partners"
                                 android:textColor="#272F35"
                                 android:textSize="@dimen/_14sdp"></me.grantland.widget.AutofitTextView>
 
@@ -268,27 +286,33 @@
                         </RelativeLayout>
 
 
-                    </RelativeLayout>
-                </RelativeLayout>
+                    </androidx.cardview.widget.CardView>
 
+
+                </RelativeLayout>
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="139dp"
-                    android:layout_marginTop="-50dp"
-                    android:background="@drawable/ic_group__dashboard_background">
+                    android:layout_height="@dimen/_70sdp"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:layout_marginRight="@dimen/_8sdp">
 
-                    <RelativeLayout
+
+                    <androidx.cardview.widget.CardView
                         android:layout_width="match_parent"
-                        android:layout_height="68dp"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginTop="27dp"
-                        android:layout_marginRight="20dp">
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="@dimen/_2sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:layout_marginRight="@dimen/_5sdp"
+                        android:layout_marginBottom="@dimen/_5sdp"
+                        app:cardCornerRadius="8dp"
+                        app:cardElevation="10dp">
+
 
                         <RelativeLayout
                             android:id="@+id/rl_setting"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_height="match_parent"
                             android:layout_centerVertical="true"
                             android:layout_marginLeft="6dp">
 
@@ -313,14 +337,14 @@
                                 android:id="@+id/tv4"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginRight="@dimen/_6sdp"
-                                android:layout_toLeftOf="@+id/im4"
                                 android:layout_centerVertical="true"
                                 android:layout_marginLeft="@dimen/_16sdp"
+                                android:layout_marginRight="@dimen/_6sdp"
+                                android:layout_toLeftOf="@+id/im4"
                                 android:layout_toRightOf="@+id/rl4"
                                 android:fontFamily="@font/poppins_regular"
-                                android:text="@string/settings"
                                 android:maxLines="2"
+                                android:text="@string/settings"
                                 android:textColor="#272F35"
                                 android:textSize="@dimen/_14sdp"></me.grantland.widget.AutofitTextView>
 
@@ -336,9 +360,10 @@
                         </RelativeLayout>
 
 
-                    </RelativeLayout>
-                </RelativeLayout>
+                    </androidx.cardview.widget.CardView>
 
+
+                </RelativeLayout>
 
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>

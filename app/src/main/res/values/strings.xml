@@ -596,6 +596,7 @@
     <string name="please_enter_email_address">Enter your email ID </string>
     <string name="please_enter_valid_email_address">Please enter a valid email ID</string>
     <string name="please_enter_password">Enter password </string>
+    <string name="please_enter_password1">Passwords must contain at least 6 characters. </string>
     <string name="please_confirm_password">Enter confirm password </string>
     <string name="password_not_match">Password does not match</string>
     <string name="enter_first_name">Enter your First Name</string>
@@ -737,6 +738,7 @@ identify as female</string>
     <string name="result_share">I took this interesting quiz to find out which career is the best fit for me. Check out my result:</string>
     <string name="invite_share">Come and join Skills Ontario! It’s the best place to evaluate your skills and find job opportunities. </string>
     <string name="sign_result">Please sign in/sign up to use this feature.</string>
+    <string name="sign_result1">We recommend that you create an account to save your quiz results! Otherwise, you may continue as a guest.</string>
 
 
     <!--<string name="Popular_Careers">Carrières populaires </string>

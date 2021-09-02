@@ -38,7 +38,12 @@ public class QuizAc extends BaseActivity {
                         "", quizFinalResultModel.get(0).getImage(), null, "quiz", quizFinalResultModel.get(0).getId());
 
             } else {
-                showDialog();
+                // showDialog();
+                try {
+                    Utils.guestMethod(QuizAc.this, "homeFragment");
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
 
 
@@ -55,7 +60,11 @@ public class QuizAc extends BaseActivity {
 
         //setAdapter();
         showRecycler();
+
+        //  binding.mainLay.post(() -> showDialog());
+
     }
+
 
     private void showRecycler() {
         binding.recyCong.setHasFixedSize(true);
@@ -101,7 +110,15 @@ public class QuizAc extends BaseActivity {
 
     void showDialog() {
         try {
-            DialogWithMsg dialogWithMsg = new DialogWithMsg(QuizAc.this, 0, getString(R.string.app_name), getString(R.string.sign_result), getString(R.string.okay), null,1);
+            DialogWithMsg dialogWithMsg = new DialogWithMsg(QuizAc.this, 0, getString(R.string.app_name), getString(R.string.sign_result), getString(R.string.okay), null, 1);
+            dialogWithMsg.show();
+        } catch (Exception e) {
+        }
+    }
+
+    void showDialogMessage() {
+        try {
+            DialogWithMsg dialogWithMsg = new DialogWithMsg(QuizAc.this, 0, getString(R.string.app_name), getString(R.string.sign_result1), getString(R.string.okay), null, 1);
             dialogWithMsg.show();
         } catch (Exception e) {
         }

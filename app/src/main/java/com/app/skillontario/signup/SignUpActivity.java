@@ -418,6 +418,12 @@ public class SignUpActivity extends BaseActivity implements ApiResponseErrorCall
             binding.tvPassError.setVisibility(View.VISIBLE);
             binding.tvPassError.setText(getString(R.string.please_enter_password));
             return false;
+        } else if (binding.etPassword.getText().toString().trim().length() < 6) {
+            //binding.etPassword.setError(getString(R.string.please_enter_password));
+
+            binding.tvPassError.setVisibility(View.VISIBLE);
+            binding.tvPassError.setText(getString(R.string.please_enter_password1));
+            return false;
         } else if (TextUtils.isEmpty(binding.etConfirmPassword.getText().toString().trim())) {
             //  binding.etConfirmPassword.setError(getString(R.string.please_confirm_password));
 

@@ -72,6 +72,9 @@ public class DialogWithMsg extends Dialog {
         else
             binding.confirmHeadingTxt.setVisibility(View.GONE);
 
+
+            binding.ivClose.setVisibility(View.GONE);
+
         binding.confirmHeadingTxt.setText(heading);
         binding.confirmMsgTxt.setText(Html.fromHtml(content));
         binding.okBtn.setText(actionMsg);
@@ -80,12 +83,23 @@ public class DialogWithMsg extends Dialog {
             binding.ivDialogImage.setImageDrawable(ContextCompat.getDrawable(context, imageId));
 
         binding.ivClose.setOnClickListener(v -> {
-            //  callback.onNegativeClick(requestCode);
+          /*  try {
+                if (requestCode == 9)
+                    callback.onNegativeClick(requestCode);
+            } catch (Exception e) {
+            }*/
+
+
             dismiss();
         });
 
         binding.okBtn.setOnClickListener(view -> {
-            // callback.onPositiveClick(requestCode);
+            try {
+                if (requestCode == 9)
+                    callback.onPositiveClick(requestCode);
+            } catch (Exception e) {
+            }
+
             dismiss();
         });
     }

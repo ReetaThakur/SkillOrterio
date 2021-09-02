@@ -30,6 +30,7 @@
     <string name="please_enter_valid_email_address">Saisir une adresse courriel valide</string>
     <string name="please_enter_email_address">Entrez votre identifiant e-mail </string>
     <string name="please_enter_password">Entrer le mot de passe </string>
+    <string name="please_enter_password1">Mot de passe doit contenir au moins 6 caractères.</string>
     <string name="please_confirm_password">Entrez confirmer le mot de passe </string>
     <string name="password_not_match">Le mot de passe ne correspond pas</string>
     <string name="reset_your_password">Réinitialiser votre mot de passe</string>
@@ -259,5 +260,6 @@ vous vous identifiez comme une femme</string>
     <string name="profile_share">Je suis tombé sur ce profil sur le site de Compétences Ontario. Voici le lien Web</string>
     <string name="result_share">J\'ai répondu à un questionnaire pour m\'aider à déterminer quelle carrière répond le mieux à mes attentes. Voici les résultats:</string>
     <string name="invite_share">Je t\'invite à découvrir Compétences Ontario! Il s\'agit de la meilleure ressource pour évaluer tes compétences et trouver des occasions d\'emploi.</string>
+    <string name="sign_result1">Nous vous recommandons de créer un compte pour que vos résultats du questionnaire soient enregistrés! Sinon, vous pouvez poursuivre en tant qu\'invité(e).</string>
 
 </resources>
