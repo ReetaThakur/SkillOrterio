@@ -69,12 +69,12 @@
                         android:layout_marginTop="@dimen/_10sdp"
                         android:background="@drawable/ic_rec_line"
                         android:hint=""
-                        android:textSize="@dimen/_12sdp"
-                        android:textColorHint="#8FA1B5"
                         android:imeOptions="actionNext"
                         android:inputType="textEmailAddress|textVisiblePassword"
                         android:paddingLeft="@dimen/_15sdp"
-                        android:textColor="@color/black" />
+                        android:textColor="@color/black"
+                        android:textColorHint="#8FA1B5"
+                        android:textSize="@dimen/_12sdp" />
 
                     <TextView
                         android:layout_width="wrap_content"

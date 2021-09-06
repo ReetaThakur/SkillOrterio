@@ -69,7 +69,6 @@ public class SplashActivity extends BaseActivity {
         } catch (Exception e) {
         }
 
-
         imageView = (ImageView) findViewById(R.id.img1);
 
 

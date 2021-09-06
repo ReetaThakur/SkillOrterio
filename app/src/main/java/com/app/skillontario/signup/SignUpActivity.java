@@ -507,7 +507,6 @@ public class SignUpActivity extends BaseActivity implements ApiResponseErrorCall
                 updatLocalLanguage(lang, getBaseContext());
             }
         } else {
-
             updatLocalLanguage("en", getBaseContext());
         }
     }

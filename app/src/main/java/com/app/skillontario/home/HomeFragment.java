@@ -1,5 +1,7 @@
 package com.app.skillontario.home;
 
+import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
+
 import android.Manifest;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -21,6 +23,7 @@ import com.app.skillontario.activities.NotificationActivity;
 
 import com.app.skillontario.activities.ScholarOneAc;
 import com.app.skillontario.activities.SearchActivity;
+import com.app.skillontario.activities.SplashActivity;
 import com.app.skillontario.activities.TakeQuizActivity;
 import com.app.skillontario.adapter.PopularCareerAdapter;
 import com.app.skillontario.adapter.RecentEventsAdapter;
@@ -421,13 +424,20 @@ public class HomeFragment extends BaseFragment implements ApiResponseErrorCallba
 
     @Override
     public void onPositiveClick(int requestCode) {
-
-        startActivity(new Intent(getActivity(), TakeQuizActivity.class));
-
+        Intent intent = new Intent(getActivity(), SignUpActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+        getActivity().finish();
+        //startActivity(new Intent(getActivity(), SignUpActivity.class));
     }
 
     @Override
     public void onNegativeClick(int requestCode) {
+
+        // MySharedPreference.getInstance().setStringData(SharedPrefsConstants.GUEST_FLOW_CLASS, "homeFragment");
+
         startActivity(new Intent(getActivity(), TakeQuizActivity.class));
     }
 }

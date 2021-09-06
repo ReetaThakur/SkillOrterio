@@ -73,11 +73,20 @@ public class DialogWithMsg extends Dialog {
             binding.confirmHeadingTxt.setVisibility(View.GONE);
 
 
-            binding.ivClose.setVisibility(View.GONE);
-
+        binding.ivClose.setVisibility(View.GONE);
         binding.confirmHeadingTxt.setText(heading);
         binding.confirmMsgTxt.setText(Html.fromHtml(content));
-        binding.okBtn.setText(actionMsg);
+
+
+        if (requestCode == 9) {
+            binding.okBtn.setText(R.string.signup);
+            binding.tvPayNow1.setVisibility(View.VISIBLE);
+        } else {
+            binding.okBtn.setText(actionMsg);
+            binding.tvPayNow1.setVisibility(View.GONE);
+        }
+
+
 
         if (imageId != 0)
             binding.ivDialogImage.setImageDrawable(ContextCompat.getDrawable(context, imageId));
@@ -91,6 +100,18 @@ public class DialogWithMsg extends Dialog {
 
 
             dismiss();
+        });
+
+        binding.continueAsGuest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    if (requestCode == 9)
+                        callback.onNegativeClick(requestCode);
+                } catch (Exception e) {
+                }
+                dismiss();
+            }
         });
 
         binding.okBtn.setOnClickListener(view -> {

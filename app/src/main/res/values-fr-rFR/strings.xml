@@ -5,9 +5,9 @@
     <string name="french">Français</string>
     <string name="language">Langue</string>
     <string name="new_account">Créer un nouveau compte</string>
-    <string name="email_address">Courriel</string>
-    <string name="password">Mot de passe</string>
-    <string name="confirm_password">Confirmer le mot de passe</string>
+    <string name="email_address">Saisissez votre ID courriel.</string>
+    <string name="password">Saisissez un mot de passe.</string>
+    <string name="confirm_password">Confirmez le mot de passe.</string>
     <!--  <string name="terms_services"><u>En continuant, vous acceptez Compétences Ontario</u></string>-->
 
     <string name="signup">S\'INSCRIRE</string>
@@ -27,12 +27,12 @@
     <string name="sign_in">OUVERTURE DE SESSION</string>
 
     <string name="incorrect_password">Mot de passe erroné.</string>
-    <string name="please_enter_valid_email_address">Saisir une adresse courriel valide</string>
-    <string name="please_enter_email_address">Entrez votre identifiant e-mail </string>
-    <string name="please_enter_password">Entrer le mot de passe </string>
+    <string name="please_enter_valid_email_address">Erreur dans l\'ID courriel.</string>
+    <string name="please_enter_email_address">Saisissez votre ID courriel. </string>
+    <string name="please_enter_password">Saisissez un mot de passe. </string>
     <string name="please_enter_password1">Mot de passe doit contenir au moins 6 caractères.</string>
-    <string name="please_confirm_password">Entrez confirmer le mot de passe </string>
-    <string name="password_not_match">Le mot de passe ne correspond pas</string>
+    <string name="please_confirm_password">Confirmez le mot de passe. </string>
+    <string name="password_not_match">Les mots de passe ne sont pas les mêmes.</string>
     <string name="reset_your_password">Réinitialiser votre mot de passe</string>
     <string name="enter_the_email_address_">Veuillez saisir l\'adresse courriel associée à votre compte et nous vous enverrons un nouveau mot de passe</string>
     <string name="old_password">Ancien mot de passe</string>
@@ -147,8 +147,8 @@ vous vous identifiez comme une femme</string>
     <string name="empty_title">Veuillez entrer le titre</string>
     <string name="filter_select"> Veuillez sélectionner au moins un </string>
     <string name="no_internet_msg">S\'il vous plait, vérifiez votre connexion internet.</string>
-    <string name="enter_first_name">entrez votre prénom</string>
-    <string name="enter_last_name">Entrer le nom de famille</string>
+    <string name="enter_first_name">Saisissez votre prénom.</string>
+    <string name="enter_last_name">Saisissez votre nom de famille.</string>
     <string name="dummy_sign">Saisir votre nom d\'utilisateur et mot de passe.</string>
     <string name="notice">Veuillez accepter les termes et conditions</string>
     <string name="gen">Général \nMachiniste</string>
@@ -222,7 +222,7 @@ vous vous identifiez comme une femme</string>
     <string name="job_interview_video">Vidéo sur l\'entrevue d\'emploi</string>
     <string name="this_quiz_is_a_fun_career_exploration_tool">Ce questionnaire est un outil amusant d\'exploration des carrières!</string>
     <string name="demo_1">Nous vous proposons quelques suggestions de carrières qui pourraient répondre à vos attentes, mais rappelez-vous que les métiers spécialisés et les technologies offrent de nombreuses perspectives; n\'hésitez pas à explorer.</string>
-    <string name="selec">Sélectionnez une réponse</string>
+    <string name="selec">Veuillez sélectionner une réponse.</string>
     <string name="congratulations1">Félicitations!</string>
     <string name="these_careers_might_be_a_good_fit_for_you">Ces carrières pourraient vous intéresser</string>
     <string name="share_result">Partager les résultats</string>
@@ -246,8 +246,8 @@ vous vous identifiez comme une femme</string>
     <string name="_15_20_years">15-20 Années</string>
     <string name="wrong_email">Identifiant de messagerie erroné</string>
     <string name="enter_your_email">Entrez l\'e-mail</string>
-    <string name="select_age">Sélectionnez la tranche d\'âge</string>
-    <string name="select_city">Entrez la ville</string>
+    <string name="select_age">Sélectionnez votre tranche d\'âge</string>
+    <string name="select_city">Saisissez la ville.</string>
     <string name="select_pro">Entrez l\'état/la province</string>
     <string name="okay">d\'accord</string>
     <string name="permi">Vous avez refusé l\'autorisation</string>

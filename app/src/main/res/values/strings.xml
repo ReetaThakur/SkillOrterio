@@ -17,14 +17,14 @@
     <string name="welcome_back">Welcome back!</string>
     <string name="username">Username</string>
     <string name="username_email">Username/Email Address</string>
-    <string name="password">Password</string>
+    <string name="password">Enter password.</string>
     <string name="new_to_taxvolt_create_an_account">New to TaxVolt<font color="#1E8755"><b> Create an Account.</b></font>?<sup><font size="11">®</font></sup></string>
     <string name="by_tapping_sign_in_you_agree_to_our">By tapping Sign In, You agree to our</string>
     <string name="underlined_license_agreement"><u>License Agreement</u></string>
     <string name="terms_Of_services"><u>Terms Of Service</u>  </string>
     <string name="underlined_privacy_policy"> <u>Privacy Notice.</u></string>
-    <string name="confirm_password">Confirm Password</string>
-    <string name="email_address">Email</string>
+    <string name="confirm_password">Confirm password.</string>
+    <string name="email_address">Enter your email ID.</string>
     <string name="already_a_taxvolt_sign_in">Already a TaxVolt<font size="11"><sup>®</sup></font>? <font color="#1E8755"><b>Sign In.</b></font></string>
     <string name="msg_charge">Standard call, messaging, or charges may apply.</string>
     <string name="didn_t_receive_the_code_resend_code">Didn\'t receive the code? <font color="#E65555"><b>Resend Code</b></font></string>
@@ -593,14 +593,14 @@
     <string name="gender">Gender</string>
     <string name="dash">Dashboard</string>
     <string name="no_internet_msg">Please Check your internet connection.</string>
-    <string name="please_enter_email_address">Enter your email ID </string>
-    <string name="please_enter_valid_email_address">Please enter a valid email ID</string>
-    <string name="please_enter_password">Enter password </string>
+    <string name="please_enter_email_address">Enter your email ID. </string>
+    <string name="please_enter_valid_email_address">Wrong Email ID.</string>
+    <string name="please_enter_password">Enter password. </string>
     <string name="please_enter_password1">Passwords must contain at least 6 characters. </string>
-    <string name="please_confirm_password">Enter confirm password </string>
-    <string name="password_not_match">Password does not match</string>
-    <string name="enter_first_name">Enter your First Name</string>
-    <string name="enter_last_name">Enter your Last Name</string>
+    <string name="please_confirm_password">Confirm password. </string>
+    <string name="password_not_match">Passwords do not match.</string>
+    <string name="enter_first_name">Enter your First Name.</string>
+    <string name="enter_last_name">Enter your Last Name.</string>
     <string name="demo_">Diversity, inclusion, and representation are top priorities for Skills Ontario. We work with communities across the province to ensure that we are providing equitable opportunities for all youth and building a diverse and robust skilled workforce. To better understand our impact and reach</string>
     <string name="terms_of_services">Terms \nof Service</string>
     <string name="privacy_notice">Privacy \nNotice</string>
@@ -705,7 +705,7 @@ identify as female</string>
     <string name="you_have">You have</string>
     <string name="new_notifications">new Notifications</string>
     <string name="job_interview_video">Job Interview Video</string>
-    <string name="selec">Select any one answer</string>
+    <string name="selec">Please select one answer.</string>
     <string name="congratulations1">Congratulations!</string>
     <string name="these_careers_might_be_a_good_fit_for_you">These careers might be a good fit for you.</string>
     <string name="share_result">Share Result</string>
@@ -726,8 +726,8 @@ identify as female</string>
     <string name="windsor">Windsor</string>
     <string name="_15_20_years">15-20 Years</string>
     <string name="wrong_email">Wrong Email ID</string>
-    <string name="select_age">Select your Age Range</string>
-    <string name="select_city">Enter City</string>
+    <string name="select_age">Select your Age Range.</string>
+    <string name="select_city">Enter city.</string>
     <string name="select_pro">Enter State/Province</string>
     <string name="permi">You Denied Permission</string>
     <string name="scc">Without calendar permission the app is unable to add events. Give permission to calendar for access events</string>
