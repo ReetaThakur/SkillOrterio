@@ -62,7 +62,7 @@
                     android:text="Construction"
                     android:textAllCaps="true"
                     android:textColor="@color/white"
-                    android:textSize="18sp"></TextView>
+                    android:textSize="@dimen/_11sdp"></TextView>
 
                 <ImageView
                     android:id="@+id/img_bookmark"
@@ -78,11 +78,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/textCons"
-                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
                     android:fontFamily="@font/poppins_medium"
                     android:text="@string/general_carpente_r"
                     android:textColor="@color/black"
-                    android:textSize="22sp"></TextView>
+                    android:textSize="@dimen/_12sdp"></TextView>
 
                 <TextView
                     android:id="@+id/textMoney"
@@ -94,7 +94,7 @@
                     android:gravity="center_vertical"
                     android:text="$20 - $48 per hour"
                     android:textColor="#6A5856"
-                    android:textSize="18sp"></TextView>
+                    android:textSize="@dimen/_11sdp"></TextView>
 
             </RelativeLayout>
         </RelativeLayout>

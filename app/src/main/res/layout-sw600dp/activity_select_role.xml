@@ -56,10 +56,10 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppins_regular"
                         android:lineSpacingExtra="@dimen/_4sdp"
-                        android:visibility="gone"
                         android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
                         android:textColor="#9399B1"
-                        android:textSize="@dimen/_12sdp"></TextView>
+                        android:textSize="@dimen/_12sdp"
+                        android:visibility="gone"></TextView>
 
                     <ImageView
                         android:layout_width="wrap_content"
@@ -69,7 +69,7 @@
 
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/_85sdp"
+                        android:layout_height="@dimen/_120sdp"
                         android:layout_marginTop="@dimen/_16sdp"
                         android:background="@drawable/c1">
 
@@ -84,18 +84,19 @@
 
                             <ImageView
                                 android:id="@+id/im1"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
+                                android:layout_width="@dimen/_150sdp"
+                                android:layout_height="match_parent"
                                 android:layout_alignParentBottom="true"
                                 android:scaleType="fitEnd"
                                 android:src="@drawable/role_student"></ImageView>
 
                             <TextView
-                                android:layout_width="wrap_content"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentRight="true"
                                 android:layout_centerVertical="true"
                                 android:layout_marginRight="@dimen/_16sdp"
+                                android:layout_toRightOf="@+id/im1"
                                 android:drawableRight="@drawable/back_right"
                                 android:drawablePadding="@dimen/_16sdp"
                                 android:fontFamily="@font/poppins_regular"
@@ -111,7 +112,7 @@
 
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/_85sdp"
+                        android:layout_height="@dimen/_120sdp"
                         android:layout_marginTop="@dimen/_6sdp"
                         android:background="@drawable/c1">
 
@@ -126,17 +127,18 @@
 
                             <ImageView
                                 android:id="@+id/im2"
-                                android:layout_width="wrap_content"
+                                android:layout_width="@dimen/_150sdp"
                                 android:layout_height="match_parent"
                                 android:scaleType="fitEnd"
                                 android:src="@drawable/role_parent"></ImageView>
 
                             <TextView
-                                android:layout_width="wrap_content"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentRight="true"
                                 android:layout_centerVertical="true"
                                 android:layout_marginRight="@dimen/_16sdp"
+                                android:layout_toRightOf="@+id/im2"
                                 android:drawableRight="@drawable/back_right"
                                 android:drawablePadding="@dimen/_22sdp"
                                 android:fontFamily="@font/poppins_regular"

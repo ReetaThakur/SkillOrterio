@@ -94,7 +94,7 @@
 
                                 <ImageView
                                     android:id="@+id/im1"
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="@dimen/_260sdp"
                                     android:layout_height="wrap_content"
                                     android:layout_alignParentBottom="true"
                                     android:layout_weight="1"
@@ -153,7 +153,7 @@
 
                                 <ImageView
                                     android:id="@+id/im2"
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="@dimen/_260sdp"
                                     android:layout_height="wrap_content"
                                     android:layout_alignParentBottom="true"
                                     android:layout_weight="1"
