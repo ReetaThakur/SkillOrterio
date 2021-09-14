@@ -21,8 +21,8 @@
 
             <ImageView
                 android:id="@+id/img_ovl"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="@dimen/_90sdp"
+                android:layout_height="@dimen/_90sdp"
                 android:layout_marginLeft="@dimen/_16sdp"
                 android:src="@drawable/ic_home_main_oval"></ImageView>
 
@@ -68,7 +68,7 @@
                     android:paddingLeft="@dimen/_6sdp"
                     android:paddingTop="@dimen/_2sdp"
                     android:paddingRight="@dimen/_10sdp"
-                    android:text="Construction"
+                    android:text=""
                     android:textAllCaps="true"
                     android:textColor="@color/white"
                     android:textSize="@dimen/_8sdp"></TextView>
