@@ -88,7 +88,7 @@
                                 android:text=""
                                 android:textAllCaps="false"
                                 android:textColor="@color/white"
-                                android:textSize="14sp"></TextView>
+                                android:textSize="@dimen/_10sdp"></TextView>
 
                             <TextView
                                 android:id="@+id/textWork"
@@ -98,7 +98,7 @@
                                 android:fontFamily="@font/poppins_medium"
                                 android:text=""
                                 android:textColor="#272F35"
-                                android:textSize="27sp"></TextView>
+                                android:textSize="@dimen/_20sdp"></TextView>
 
                             <TextView
                                 android:id="@+id/textFee"
@@ -108,7 +108,7 @@
                                 android:fontFamily="@font/poppins_regular"
                                 android:text=""
                                 android:textColor="#9399B1"
-                                android:textSize="17sp"></TextView>
+                                android:textSize="@dimen/_12sdp"></TextView>
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -153,7 +153,7 @@
                                 android:fontFamily="@font/poppins_medium"
                                 android:text="@string/helpful_and_relevant_resources"
                                 android:textColor="#272F35"
-                                android:textSize="27sp"></TextView>
+                                android:textSize="@dimen/_20sdp"></TextView>
 
 
                             <androidx.recyclerview.widget.RecyclerView

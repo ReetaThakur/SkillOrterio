@@ -141,7 +141,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/_16sdp"
                         android:layout_marginTop="@dimen/_16sdp"
-                        android:layout_marginBottom="@dimen/_8ssp"
+                        android:layout_marginBottom="@dimen/_8sdp"
                         android:fontFamily="@font/poppins_medium"
                         android:text="@string/Popular_Careers"
                         android:textColor="#3E454A"
@@ -162,7 +162,7 @@
 
                     <androidx.cardview.widget.CardView
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/_90sdp"
+                        android:layout_height="@dimen/_120sdp"
                         android:layout_marginLeft="@dimen/_16sdp"
                         android:layout_marginTop="@dimen/_16sdp"
                         android:layout_marginRight="@dimen/_16sdp"
@@ -192,7 +192,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="10dp"
-                                    android:layout_marginTop="@dimen/_8ssp"
+                                    android:layout_marginTop="@dimen/_8sdp"
                                     android:layout_marginRight="@dimen/_16sdp"
                                     android:fontFamily="@font/poppins_medium"
                                     android:maxLines="2"
@@ -207,7 +207,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_below="@+id/tv"
                                     android:layout_marginLeft="10dp"
-                                    android:layout_marginTop="@dimen/_8ssp"
+                                    android:layout_marginTop="@dimen/_8sdp"
                                     android:layout_marginRight="@dimen/_10sdp"
                                     android:background="@drawable/ic_rectangle__take_quiz"
                                     android:padding="@dimen/_4sdp">
@@ -255,7 +255,7 @@
 
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/_110sdp"
+                        android:layout_height="@dimen/_120sdp"
                         android:layout_marginLeft="@dimen/_16sdp"
                         android:layout_marginTop="@dimen/_16sdp"
                         android:layout_marginRight="@dimen/_16sdp">

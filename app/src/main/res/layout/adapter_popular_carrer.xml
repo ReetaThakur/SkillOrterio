@@ -61,7 +61,7 @@
                         android:text="Construction"
                         android:textAllCaps="true"
                         android:textColor="@color/white"
-                        android:textSize="10sp"></TextView>
+                        android:textSize="@dimen/_9sdp"></TextView>
 
                     <ImageView
                         android:id="@+id/iv_bookmark"
@@ -69,7 +69,7 @@
                         android:layout_height="@dimen/_16sdp"
                         android:layout_alignParentRight="true"
                         android:layout_marginTop="@dimen/_12sdp"
-                        android:layout_marginRight="@dimen/_8ssp"
+                        android:layout_marginRight="@dimen/_8sdp"
                         android:src="@drawable/ic_home_main_batch"></ImageView>
 
                     <TextView
@@ -81,9 +81,9 @@
                         android:layout_marginTop="8dp"
                         android:layout_marginRight="@dimen/_4sdp"
                         android:fontFamily="@font/poppins_medium"
-                        android:text="@string/general_carpente_r"
+                        android:text=""
                         android:textColor="@color/black"
-                        android:textSize="15sp"></TextView>
+                        android:textSize="@dimen/_12sdp"></TextView>
 
                     <TextView
                         android:id="@+id/textMoney"
@@ -94,9 +94,9 @@
                         android:layout_marginBottom="@dimen/_6sdp"
                         android:fontFamily="@font/poppins_regular"
                         android:gravity="center_vertical"
-                        android:text="$20 - $48 per hour"
+                        android:text=""
                         android:textColor="#6A5856"
-                        android:textSize="13sp"></TextView>
+                        android:textSize="@dimen/_11sdp"></TextView>
 
                 </RelativeLayout>
 
@@ -130,7 +130,7 @@
             android:layout_height="match_parent"
             android:layout_marginRight="@dimen/_60sdp"
             android:layout_marginBottom="10dp"
-            android:scaleType="fitXY"></ImageView>
+            android:scaleType="centerCrop"></ImageView>
 
     </RelativeLayout>
 

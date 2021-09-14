@@ -68,7 +68,7 @@
                             android:text="Construction"
                             android:textAllCaps="true"
                             android:textColor="@color/white"
-                            android:textSize="@dimen/_8ssp"></TextView>
+                            android:textSize="@dimen/_8sdp"></TextView>
 
                         <ImageView
                             android:id="@+id/iv_bookmark"
@@ -76,7 +76,7 @@
                             android:layout_height="@dimen/_20sdp"
                             android:layout_alignParentRight="true"
                             android:layout_marginTop="@dimen/_16sdp"
-                            android:layout_marginRight="@dimen/_8ssp"
+                            android:layout_marginRight="@dimen/_8sdp"
                             android:padding="@dimen/_3sdp"
                             android:src="@drawable/ic_home_main_batch" />
 
@@ -97,7 +97,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/textWork"
-                            android:layout_marginTop="@dimen/_8ssp"
+                            android:layout_marginTop="@dimen/_8sdp"
                             android:fontFamily="@font/poppins_regular"
                             android:gravity="center_vertical"
                             android:text="$20 - $48 per hour"

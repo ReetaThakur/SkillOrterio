@@ -50,7 +50,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_8ssp"
+                        android:layout_marginTop="@dimen/_8sdp"
                         android:fontFamily="@font/poppins_medium"
                         android:text="@string/Education"
                         android:textColor="@color/black"
@@ -67,7 +67,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_8ssp"
+                        android:layout_marginTop="@dimen/_8sdp"
                         android:fontFamily="@font/poppins_medium"
                         android:text="@string/training"
                         android:textColor="@color/black"

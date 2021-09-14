@@ -41,7 +41,7 @@
                 android:paddingStart="@dimen/_32sdp"
                 android:paddingEnd="@dimen/_32sdp"
                 android:textColor="@color/black"
-                android:textSize="24sp" />
+                android:textSize="@dimen/_18sdp" />
 
         </RelativeLayout>
 

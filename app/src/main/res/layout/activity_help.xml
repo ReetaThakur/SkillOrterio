@@ -51,7 +51,7 @@
                             android:lineSpacingExtra="@dimen/_4sdp"
                             android:text="@string/terms_text"
                             android:textColor="@color/black"
-                            android:textSize="16sp"></TextView>
+                            android:textSize="@dimen/_14sdp"></TextView>
 
                         <TextView
                             android:layout_width="match_parent"
@@ -61,7 +61,7 @@
                             android:lineSpacingExtra="@dimen/_4sdp"
                             android:text="@string/term1"
                             android:textColor="@color/black"
-                            android:textSize="13sp"></TextView>
+                            android:textSize="@dimen/_12sdp"></TextView>
 
                         <TextView
                             android:layout_width="match_parent"
@@ -71,7 +71,7 @@
                             android:lineSpacingExtra="@dimen/_4sdp"
                             android:text="@string/term1"
                             android:textColor="@color/black"
-                            android:textSize="13sp"></TextView>
+                            android:textSize="@dimen/_12sdp"></TextView>
 
                     </LinearLayout>
                 </ScrollView>

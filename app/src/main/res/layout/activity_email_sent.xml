@@ -29,7 +29,7 @@
                 android:fontFamily="@font/poppins_regular"
                 android:text="@string/email_has_been_sent"
                 android:textColor="@color/black"
-                android:textSize="40sp"></TextView>
+                android:textSize="@dimen/_24sdp"></TextView>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -38,7 +38,7 @@
                 android:fontFamily="@font/poppins_regular"
                 android:text="@string/enter_the_email_address_"
                 android:textColor="@color/textColorMid"
-                android:textSize="14sp"></TextView>
+                android:textSize="@dimen/_12sdp"></TextView>
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cv_signIn"
@@ -83,7 +83,7 @@
                     android:gravity="center"
                     android:text="@string/didn_t_receive_password"
                     android:textColor="@color/textColorVeryLight"
-                    android:textSize="14sp" />
+                    android:textSize="@dimen/_11sdp" />
 
                 <TextView
                     android:id="@+id/tv_resend_mail"
@@ -93,7 +93,7 @@
                     android:gravity="center"
                     android:text="@string/resend"
                     android:textColor="@color/lightGreenColor"
-                    android:textSize="14sp" />
+                    android:textSize="@dimen/_11sdp" />
 
             </LinearLayout>
         </LinearLayout>

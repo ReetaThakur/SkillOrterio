@@ -27,7 +27,7 @@
                 android:fontFamily="@font/poppins_regular"
                 android:text="@string/terms_of_services"
                 android:textColor="@color/black"
-                android:textSize="32sp"></TextView>
+                android:textSize="@dimen/_24sdp"></TextView>
 
 
             <WebView

@@ -3,46 +3,93 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Sunny/new/skills_ontario_android/app/src/main/res/drawable/ic_book_mark_de.xml" value="0.13778501628664494" />
-        <entry key="..\:/Sunny/new/skills_ontario_android/app/src/main/res/drawable/ic_book_mark_de_select.xml" value="0.13778501628664494" />
-        <entry key="..\:/Sunny/new/skills_ontario_android/app/src/main/res/drawable/ic_group__dashboard_background.xml" value="0.16" />
-        <entry key="..\:/Sunny/new/skills_ontario_android/app/src/main/res/drawable/ic_home_main1.xml" value="0.13778501628664494" />
-        <entry key="..\:/Sunny/new/skills_ontario_android/app/src/main/res/drawable/rounded_corner_without_border.xml" value="0.13778501628664494" />
-        <entry key="..\:/Sunny/new/skills_ontario_android/app/src/main/res/layout-sw600dp/activity_sign_up.xml" value="0.1469265367316342" />
-        <entry key="..\:/Sunny/new/skills_ontario_android/app/src/main/res/layout-sw600dp/bookmark_item.xml" value="0.1383495145631068" />
-        <entry key="..\:/Sunny/new/skills_ontario_android/app/src/main/res/layout-sw600dp/fragment_dashboard1.xml" value="0.25" />
-        <entry key="..\:/Sunny/new/skills_ontario_android/app/src/main/res/layout-sw600dp/listitem_child.xml" value="0.14375" />
-        <entry key="..\:/Sunny/new/skills_ontario_android/app/src/main/res/layout/activity_job_details.xml" value="0.12" />
-        <entry key="..\:/Sunny/new/skills_ontario_android/app/src/main/res/layout/activity_notification.xml" value="0.15" />
-        <entry key="..\:/Sunny/new/skills_ontario_android/app/src/main/res/layout/activity_resources_details.xml" value="0.1" />
-        <entry key="..\:/Sunny/new/skills_ontario_android/app/src/main/res/layout/activity_select_language.xml" value="0.12" />
-        <entry key="..\:/Sunny/new/skills_ontario_android/app/src/main/res/layout/activity_setting.xml" value="0.1" />
-        <entry key="..\:/Sunny/new/skills_ontario_android/app/src/main/res/layout/activity_sign_up.xml" value="0.15" />
-        <entry key="..\:/Sunny/new/skills_ontario_android/app/src/main/res/layout/activity_take_quiz.xml" value="0.1" />
-        <entry key="..\:/Sunny/new/skills_ontario_android/app/src/main/res/layout/activity_welcome.xml" value="0.1" />
-        <entry key="..\:/Sunny/new/skills_ontario_android/app/src/main/res/layout/adapter_popular_carrer.xml" value="0.12" />
-        <entry key="..\:/Sunny/new/skills_ontario_android/app/src/main/res/layout/adapter_quiz.xml" value="0.18" />
-        <entry key="..\:/Sunny/new/skills_ontario_android/app/src/main/res/layout/adapter_search.xml" value="0.22" />
-        <entry key="..\:/Sunny/new/skills_ontario_android/app/src/main/res/layout/bookmark_item.xml" value="0.1" />
-        <entry key="..\:/Sunny/new/skills_ontario_android/app/src/main/res/layout/common_action_bar.xml" value="0.1" />
-        <entry key="..\:/Sunny/new/skills_ontario_android/app/src/main/res/layout/dialog_with_msg.xml" value="0.1" />
-        <entry key="..\:/Sunny/new/skills_ontario_android/app/src/main/res/layout/edit_profile_ac.xml" value="0.15" />
-        <entry key="..\:/Sunny/new/skills_ontario_android/app/src/main/res/layout/even_tool_bt.xml" value="0.1" />
-        <entry key="..\:/Sunny/new/skills_ontario_android/app/src/main/res/layout/fragment_dashboard1.xml" value="0.14" />
-        <entry key="..\:/Sunny/new/skills_ontario_android/app/src/main/res/layout/fragment_event.xml" value="0.2" />
-        <entry key="..\:/Sunny/new/skills_ontario_android/app/src/main/res/layout/geust_user_bottom.xml" value="0.13" />
-        <entry key="..\:/Sunny/new/skills_ontario_android/app/src/main/res/layout/listitem_child.xml" value="0.1" />
-        <entry key="..\:/Sunny/new/skills_ontario_android/app/src/main/res/layout/news_detail_item.xml" value="0.1" />
-        <entry key="..\:/Sunny/new/skills_ontario_android/app/src/main/res/layout/no_data_found.xml" value="0.1" />
-        <entry key="..\:/Sunny/new/skills_ontario_android/app/src/main/res/layout/quiz_ac.xml" value="0.1" />
-        <entry key="..\:/Sunny/new/skills_ontario_android/app/src/main/res/layout/step_3.xml" value="0.1" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout-sw600dp/activity_bottom_bar.xml" value="0.14754098360655737" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout-sw600dp/activity_help.xml" value="0.14754098360655737" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout-sw600dp/activity_partners.xml" value="0.14754098360655737" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout-sw600dp/activity_resources_details.xml" value="0.14754098360655737" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout-sw600dp/activity_select_language.xml" value="0.14754098360655737" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout-sw600dp/adapter_popular_carrer.xml" value="0.14754098360655737" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout-sw600dp/fragment_home.xml" value="0.14754098360655737" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout-sw600dp/listitem_group.xml" value="0.14754098360655737" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout/activity_bottom_bar.xml" value="0.1956521739130435" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout/activity_change_password.xml" value="0.1956521739130435" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout/activity_deeplinking.xml" value="0.1956521739130435" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout/activity_email_sent.xml" value="0.1956521739130435" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout/activity_feed_back.xml" value="0.1956521739130435" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout/activity_help.xml" value="0.1956521739130435" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout/activity_home_filter.xml" value="0.1956521739130435" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout/activity_job_details.xml" value="0.1956521739130435" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout/activity_main.xml" value="0.1956521739130435" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout/activity_notification.xml" value="0.1956521739130435" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout/activity_partners.xml" value="0.1956521739130435" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout/activity_play_video.xml" value="0.1956521739130435" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout/activity_privacy_policy.xml" value="0.1956521739130435" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout/activity_reset_password.xml" value="0.1956521739130435" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout/activity_resources_details.xml" value="0.1956521739130435" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout/activity_search.xml" value="0.1956521739130435" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout/activity_select_language.xml" value="0.1956521739130435" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout/activity_select_role.xml" value="0.1956521739130435" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout/activity_setting.xml" value="0.1956521739130435" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout/activity_sign_in.xml" value="0.1956521739130435" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout/activity_sign_up.xml" value="0.1956521739130435" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout/activity_splash.xml" value="0.1956521739130435" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout/activity_terms_of_services.xml" value="0.1956521739130435" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout/activity_web_view.xml" value="0.1956521739130435" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout/activity_welcome.xml" value="0.1956521739130435" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout/adapter_notification.xml" value="0.1956521739130435" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout/adapter_popular_carrer.xml" value="0.1956521739130435" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout/adapter_quiz.xml" value="0.1956521739130435" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout/adapter_recent.xml" value="0.1956521739130435" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout/adapter_recent_news.xml" value="0.1956521739130435" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout/adapter_search.xml" value="0.176" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout/bookmark_ac.xml" value="0.1956521739130435" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout/bottom_nav_bar.xml" value="0.1956521739130435" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout/common_action_bar.xml" value="0.1956521739130435" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout/common_action_bar_new.xml" value="0.1956521739130435" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout/contact_us_ac.xml" value="0.1956521739130435" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout/custom_progress_bar_layout.xml" value="0.1956521739130435" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout/dialog_confirm.xml" value="0.1956521739130435" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout/dialog_custom_alert.xml" value="0.1956521739130435" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout/dialog_feedback.xml" value="0.1956521739130435" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout/dialog_tax_return_done.xml" value="0.1956521739130435" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout/dialog_with_edittext.xml" value="0.1956521739130435" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout/dialog_with_msg.xml" value="0.1956521739130435" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout/edit_profile_ac.xml" value="0.1956521739130435" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout/even_tool_bt.xml" value="0.1956521739130435" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout/events_item.xml" value="0.1956521739130435" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout/fragment_dashboard.xml" value="0.1956521739130435" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout/fragment_event.xml" value="0.1956521739130435" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout/fragment_quiz_c.xml" value="0.1956521739130435" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout/fragment_resources.xml" value="0.1956521739130435" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout/fragment_tab3.xml" value="0.1956521739130435" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout/fragment_tab4.xml" value="0.1956521739130435" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout/geust_user_bottom.xml" value="0.1956521739130435" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout/key_words_layout.xml" value="0.1956521739130435" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout/listitem_child.xml" value="0.1956521739130435" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout/listitem_group.xml" value="0.1956521739130435" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout/news_detail_ac.xml" value="0.1956521739130435" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout/news_detail_item.xml" value="0.1956521739130435" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout/news_dialog.xml" value="0.1956521739130435" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout/news_item.xml" value="0.1956521739130435" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout/no_data_found.xml" value="0.1956521739130435" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout/partners_items.xml" value="0.1956521739130435" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout/progress_dialog.xml" value="0.1956521739130435" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout/quiz_ac.xml" value="0.1956521739130435" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout/quiz_done_bottom_cell.xml" value="0.1956521739130435" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout/quiz_progress_ui.xml" value="0.1956521739130435" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout/quiz_step_ac.xml" value="0.1956521739130435" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout/quiz_step_item_a.xml" value="0.1956521739130435" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout/quiz_step_item_b.xml" value="0.1956521739130435" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout/scholar_detail_ac.xml" value="0.1956521739130435" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout/scholar_one_ac.xml" value="0.1956521739130435" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout/scollar_item1.xml" value="0.1956521739130435" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout/scoller_item.xml" value="0.1956521739130435" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout/value_picker_layout.xml" value="0.1956521739130435" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/tagadapter/src/main/res/layout-sw600dp/row_tag.xml" value="0.14754098360655737" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
-    <output url="file://$PROJECT_DIR$/build/classes" />
-  </component>
-  <component name="ProjectType">
-    <option name="id" value="Android" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="11" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
   </component>
 </project>

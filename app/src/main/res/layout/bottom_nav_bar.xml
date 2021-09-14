@@ -58,7 +58,7 @@
                         android:singleLine="true"
                         android:text="@string/home"
                         android:textColor="@color/white"
-                        android:textSize="@dimen/_8ssp" />
+                        android:textSize="@dimen/_8sdp" />
                 </LinearLayout>
             </RelativeLayout>
 
@@ -96,7 +96,7 @@
                         android:singleLine="true"
                         android:text="@string/event"
                         android:textColor="@color/white"
-                        android:textSize="@dimen/_8ssp"
+                        android:textSize="@dimen/_8sdp"
                         android:visibility="gone" />
                 </LinearLayout>
             </RelativeLayout>
@@ -135,7 +135,7 @@
                         android:singleLine="true"
                         android:text="@string/tab3"
                         android:textColor="@color/white"
-                        android:textSize="@dimen/_8ssp"
+                        android:textSize="@dimen/_8sdp"
                         android:visibility="gone" />
                 </LinearLayout>
             </RelativeLayout>
@@ -174,7 +174,7 @@
                         android:singleLine="true"
                         android:text="@string/tab4"
                         android:textColor="@color/white"
-                        android:textSize="@dimen/_8ssp"
+                        android:textSize="@dimen/_8sdp"
                         android:visibility="gone" />
                 </LinearLayout>
             </RelativeLayout>

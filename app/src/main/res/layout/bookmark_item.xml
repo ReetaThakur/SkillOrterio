@@ -98,7 +98,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/textWork"
-                    android:layout_marginTop="@dimen/_8ssp"
+                    android:layout_marginTop="@dimen/_8sdp"
                     android:fontFamily="@font/poppins_regular"
                     android:gravity="center_vertical"
                     android:text="$20 - $48 per hour"

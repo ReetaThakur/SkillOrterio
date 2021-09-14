@@ -17,7 +17,7 @@
             android:fontFamily="@font/poppins_regular"
             android:text="@string/resources"
             android:textColor="@color/black"
-            android:textSize="24sp"></TextView>
+            android:textSize="@dimen/_18sdp"></TextView>
 
         <LinearLayout
             android:layout_width="match_parent"

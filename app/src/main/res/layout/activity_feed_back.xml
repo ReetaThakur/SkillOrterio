@@ -35,6 +35,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="1dp"
+                    android:textSize="@dimen/_13sdp"
                     android:hint="@string/email_address_feedback"
                     android:imeOptions="actionNext"
                     android:inputType="textEmailAddress|textVisiblePassword" />
@@ -55,6 +56,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="1dp"
                     android:hint="@string/title"
+                    android:textSize="@dimen/_13sdp"
                     android:imeOptions="actionNext"
                     android:inputType="textPersonName" />
 

@@ -2,12 +2,15 @@ package com.app.skillontario.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.util.Log;
 import android.content.Intent;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
@@ -20,6 +23,10 @@ import com.app.skillorterio.R;
 import com.app.skillorterio.databinding.AdapterSearchBinding;
 import com.app.skillontario.models.careerListModel.CareerListDetails;
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.DataSource;
+import com.bumptech.glide.load.engine.GlideException;
+import com.bumptech.glide.request.RequestListener;
+import com.bumptech.glide.request.target.Target;
 import com.squareup.picasso.Picasso;
 
 import org.jetbrains.annotations.NotNull;
@@ -62,7 +69,35 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
     public void onBindViewHolder(final ViewHolder viewHolder, final int position) {
 
         // imagePerson
-        Glide.with(context).load(list.get(position).getImage()).into(viewHolder.binding.imagePerson);
+       // Glide.with(context).load(list.get(position).getImage()).centerCrop().into(viewHolder.binding.imagePerson);
+
+
+        try {
+            try {
+                Glide.with(context)
+                        .load(list.get(position).getImage())
+                        .centerCrop()
+                        .listener(new RequestListener<Drawable>() {
+                            @Override
+                            public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
+                                viewHolder.binding.progress.setVisibility(View.GONE);
+                                return false;
+                            }
+
+                            @Override
+                            public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
+                                viewHolder.binding.progress.setVisibility(View.GONE);
+                                return false;
+                            }
+                        })
+                        .into(viewHolder.binding.imagePerson);
+            } catch (Exception e) {
+            }
+
+        } catch (Exception e) {
+        }
+
+
         viewHolder.binding.textCons.setText(list.get(position).getJobSector());
         viewHolder.binding.textWork.setText(list.get(position).getJobProfile());
         viewHolder.binding.textMoney.setText(list.get(position).getFee());

@@ -38,7 +38,7 @@
                     android:layout_width="@dimen/_70sdp"
                     android:layout_height="@dimen/_70sdp"
                     android:layout_marginLeft="@dimen/_16sdp"
-                    android:layout_marginTop="@dimen/_8ssp"
+                    android:layout_marginTop="@dimen/_8sdp"
                     android:src="@drawable/ic_home_main_oval"></ImageView>
 
 
@@ -122,7 +122,7 @@
             android:layout_height="match_parent"
             android:layout_marginLeft="@dimen/_10sdp"
             android:layout_marginBottom="@dimen/_10sdp"
-            android:scaleType="fitXY"></ImageView>
+            android:scaleType="centerCrop"></ImageView>
 
     </RelativeLayout>
 

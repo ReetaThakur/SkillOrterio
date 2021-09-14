@@ -32,7 +32,7 @@
                     android:fontFamily="@font/poppins_regular"
                     android:text="@string/scoller_and"
                     android:textColor="@color/black"
-                    android:textSize="35sp"></TextView>
+                    android:textSize="@dimen/_24sdp"></TextView>
 
                 <RelativeLayout
                     android:id="@+id/layRecy"

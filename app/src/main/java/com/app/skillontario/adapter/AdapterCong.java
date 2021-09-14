@@ -1,5 +1,6 @@
 package com.app.skillontario.adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
@@ -57,7 +58,7 @@ public class AdapterCong extends RecyclerView.Adapter<AdapterCong.ViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(final AdapterCong.ViewHolder viewHolder, final int position) {
+    public void onBindViewHolder(final AdapterCong.ViewHolder viewHolder, @SuppressLint("RecyclerView") final int position) {
 
         if (val) {
             val = false;

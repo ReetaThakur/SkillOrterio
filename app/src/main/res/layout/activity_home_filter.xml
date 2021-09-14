@@ -55,7 +55,7 @@
                         chipcloud:selectMode="multi"
                         chipcloud:selectedColor="@color/text_error_color"
                         chipcloud:selectedFontColor="@color/white"
-                        chipcloud:textSize="15sp"
+                        chipcloud:textSize="@dimen/_12sdp"
                         chipcloud:verticalSpacing="@dimen/_10sdp" />
 
                     <androidx.recyclerview.widget.RecyclerView
@@ -71,7 +71,7 @@
                         android:id="@+id/tv_education"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_8ssp"
+                        android:layout_marginTop="@dimen/_8sdp"
                         android:fontFamily="@font/poppins_medium"
                         android:text="@string/Education"
                         android:textColor="@color/black"
@@ -92,7 +92,7 @@
                         chipcloud:selectMode="multi"
                         chipcloud:selectedColor="@color/layer_select"
                         chipcloud:selectedFontColor="@color/white"
-                        chipcloud:textSize="15sp"
+                        chipcloud:textSize="@dimen/_12sdp"
                         chipcloud:verticalSpacing="@dimen/_10sdp" />
 
 
@@ -109,7 +109,7 @@
                         android:id="@+id/tv_readseal"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_8ssp"
+                        android:layout_marginTop="@dimen/_8sdp"
                         android:fontFamily="@font/poppins_medium"
                         android:text="@string/redSeal"
                         android:textColor="@color/black"
@@ -130,7 +130,7 @@
                         chipcloud:selectMode="multi"
                         chipcloud:selectedColor="@color/layer_select"
                         chipcloud:selectedFontColor="@color/white"
-                        chipcloud:textSize="15sp"
+                        chipcloud:textSize="@dimen/_12sdp"
                         chipcloud:verticalSpacing="@dimen/_10sdp" />
 
 

@@ -58,7 +58,7 @@
                     android:drawablePadding="@dimen/_5sdp"
                     android:textAllCaps="true"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/_14ssp" />
+                    android:textSize="@dimen/_14sdp" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
