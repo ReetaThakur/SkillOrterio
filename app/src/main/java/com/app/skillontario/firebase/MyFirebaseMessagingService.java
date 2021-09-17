@@ -165,7 +165,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                 new NotificationCompat.Builder(this, ADMIN_CHANNEL_ID)
                         .setLargeIcon(BitmapFactory.decodeResource(this.getResources(),
                                 R.mipmap.ic_launcher))
-                        .setSmallIcon(R.mipmap.ic_launcher)
+                        .setSmallIcon(R.drawable.icon_small)
                         .setBadgeIconType(NotificationCompat.BADGE_ICON_SMALL)
                         .setContentTitle(title)
                         .setContentText(remoteMessage.getNotification().getBody())
@@ -174,6 +174,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                         .setColor(ContextCompat.getColor(getApplicationContext(), R.color.colorPrimary))
                         .setCategory(Notification.CATEGORY_REMINDER)
                         .setContentIntent(pendingIntent);
+
 
         notificationManager.notify(notificationId, notificationBuilder.build());
 //        }
