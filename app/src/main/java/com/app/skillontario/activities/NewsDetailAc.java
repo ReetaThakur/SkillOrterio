@@ -94,6 +94,7 @@ public class NewsDetailAc extends BaseActivity {
                 try {
                     Glide.with(NewsDetailAc.this)
                             .load(newsModal.getNewsImage())
+                            .centerCrop()
                             .listener(new RequestListener<Drawable>() {
                                 @Override
                                 public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
@@ -108,7 +109,8 @@ public class NewsDetailAc extends BaseActivity {
                                 }
                             })
                             .into(binding.newsLayout.imageNews);
-                }catch (Exception e){}
+                } catch (Exception e) {
+                }
             }
 
             if (TextUtils.isEmpty(newsModal.getNewsDesc())) {
@@ -124,11 +126,11 @@ public class NewsDetailAc extends BaseActivity {
                     binding.newsLayout.tvNewsDesc.setText(Html.fromHtml(newsModal.getNewsDesc()));
                 }*/
                 binding.newsLayout.webViewNewsDesc.getSettings().setJavaScriptEnabled(true);
-                binding.newsLayout.webViewNewsDesc.setWebViewClient(new WebViewClient(){
+                binding.newsLayout.webViewNewsDesc.setWebViewClient(new WebViewClient() {
                     @Override
                     public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
 
-                        Intent intent= new Intent(
+                        Intent intent = new Intent(
                                 Intent.ACTION_VIEW,
                                 Uri.parse(request.getUrl().toString())
                         );
@@ -238,7 +240,7 @@ public class NewsDetailAc extends BaseActivity {
             public void run() {
 
                 languageMethod(MySharedPreference.getInstance().getStringData(AppConstants.LANGUAGE));
-               // binding.tv.setText(R.string.visit_website);
+                // binding.tv.setText(R.string.visit_website);
                 try {
                     binding.newsLayout.tvNewsDate.setText(changeDate(newsModal.getCreatedAt()));
                     binding.tv.setText(R.string.visit_website);

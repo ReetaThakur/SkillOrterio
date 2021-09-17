@@ -166,12 +166,12 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                         .setLargeIcon(BitmapFactory.decodeResource(this.getResources(),
                                 R.mipmap.ic_launcher))
                         .setSmallIcon(R.mipmap.ic_launcher)
+                        .setBadgeIconType(NotificationCompat.BADGE_ICON_SMALL)
                         .setContentTitle(title)
                         .setContentText(remoteMessage.getNotification().getBody())
                         .setAutoCancel(true)
                         .setSound(defaultSoundUri)
                         .setColor(ContextCompat.getColor(getApplicationContext(), R.color.colorPrimary))
-                        .setBadgeIconType(NotificationCompat.BADGE_ICON_SMALL)
                         .setCategory(Notification.CATEGORY_REMINDER)
                         .setContentIntent(pendingIntent);
 

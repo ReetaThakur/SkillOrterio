@@ -4,7 +4,7 @@
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_140sdp"
+        android:layout_height="@dimen/_145sdp"
         android:layout_marginBottom="@dimen/_6sdp"
         android:orientation="vertical">
 
@@ -12,7 +12,7 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/cdH"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_110sdp"
+            android:layout_height="@dimen/_115sdp"
             android:layout_alignParentBottom="true"
             app:cardBackgroundColor="@color/white"
             app:cardCornerRadius="@dimen/_10sdp"
@@ -87,7 +87,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/textCons"
-                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
                     android:fontFamily="@font/poppins_medium"
                     android:maxLines="2"
                     android:text=""
@@ -102,7 +102,8 @@
                     android:layout_alignParentBottom="true"
                     android:layout_marginTop="@dimen/_6sdp"
                     android:fontFamily="@font/poppins_regular"
-                    android:gravity="center_vertical"
+                    android:paddingTop="@dimen/_8sdp"
+                    android:paddingBottom="@dimen/_6sdp"
                     android:text=""
                     android:textColor="#6A5856"
                     android:textSize="@dimen/_10sdp"></TextView>

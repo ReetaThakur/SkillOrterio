@@ -3,14 +3,40 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/drawable/ic_home_main_oval.xml" value="0.29875" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout-sw600dp/activity_bottom_bar.xml" value="0.14754098360655737" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout-sw600dp/activity_help.xml" value="0.14754098360655737" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout-sw600dp/activity_partners.xml" value="0.14754098360655737" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout-sw600dp/activity_resources_details.xml" value="0.14754098360655737" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout-sw600dp/activity_select_language.xml" value="0.14754098360655737" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout-sw600dp/activity_select_role.xml" value="0.14754098360655737" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout-sw600dp/activity_sign_in.xml" value="0.176" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout-sw600dp/activity_sign_up.xml" value="0.2621359223300971" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout-sw600dp/activity_take_quiz.xml" value="0.2621359223300971" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout-sw600dp/activity_welcome.xml" value="0.2621359223300971" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout-sw600dp/adapter_popular_carrer.xml" value="0.14754098360655737" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout-sw600dp/adapter_recent.xml" value="0.2621359223300971" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout-sw600dp/adapter_recent_news.xml" value="0.2621359223300971" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout-sw600dp/adapter_search.xml" value="0.2621359223300971" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout-sw600dp/bookmark_item.xml" value="0.2621359223300971" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout-sw600dp/common_action_bar.xml" value="0.2621359223300971" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout-sw600dp/common_action_bar_new.xml" value="0.2621359223300971" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout-sw600dp/edit_profile_ac.xml" value="0.2621359223300971" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout-sw600dp/even_tool_bt.xml" value="0.2621359223300971" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout-sw600dp/events_item.xml" value="0.2621359223300971" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout-sw600dp/fragment_event.xml" value="0.2621359223300971" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout-sw600dp/fragment_home.xml" value="0.14754098360655737" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout-sw600dp/fragment_resources.xml" value="0.2621359223300971" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout-sw600dp/listitem_child.xml" value="0.2621359223300971" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout-sw600dp/listitem_group.xml" value="0.14754098360655737" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout-sw600dp/quiz_step_ac.xml" value="0.2621359223300971" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout-sw600dp/quiz_step_item_a.xml" value="0.2621359223300971" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout-sw600dp/resources_item.xml" value="0.2621359223300971" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout-sw600dp/step_1.xml" value="0.2621359223300971" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout-sw600dp/step_2.xml" value="0.2621359223300971" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout-sw600dp/step_3.xml" value="0.2621359223300971" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout-sw600dp/step_4.xml" value="0.2621359223300971" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout-sw600dp/video_adapter.xml" value="0.2621359223300971" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout/activity_bottom_bar.xml" value="0.1956521739130435" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout/activity_change_password.xml" value="0.1956521739130435" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout/activity_deeplinking.xml" value="0.1956521739130435" />
