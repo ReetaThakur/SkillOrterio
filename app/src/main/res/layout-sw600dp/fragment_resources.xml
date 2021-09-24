@@ -13,7 +13,8 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/_16sdp"
+            android:layout_marginLeft="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_16sdp"
             android:fontFamily="@font/poppins_regular"
             android:text="@string/resources"
             android:textColor="@color/black"
@@ -28,7 +29,7 @@
                 android:id="@+id/newsL"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="@dimen/_6sdp"
                 android:orientation="vertical"
                 android:visibility="visible">
 

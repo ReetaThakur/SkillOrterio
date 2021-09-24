@@ -9,8 +9,6 @@ import com.app.skillontario.home.DashboardFragment;
 import com.app.skillontario.home.EventFragment;
 import com.app.skillontario.home.HomeFragment;
 import com.app.skillontario.home.ResourcesFragment;
-
-import com.app.skillontario.home.Tab4Fragment;
 import com.app.skillorterio.R;
 import com.app.skillorterio.databinding.ActivityMainBinding;
 

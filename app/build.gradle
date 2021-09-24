@@ -94,8 +94,7 @@ android {
             //  buildConfigField "String", "BASE_URL", '"http://ec2-3-99-57-179.ca-central-1.compute.amazonaws.com:3100/api/"'
             //  buildConfigField "String", "BASE_URL", '"https://apiadskills.appstudiointernal.ca/api/"' // dev
             // buildConfigField "String", "BASE_URL", '"https://devapi.appskillsontario.com/api/"' // testing
-            buildConfigField "String", "BASE_URL", '"https://api.appskillsontario.com/api/"'
-            // producation
+            buildConfigField "String", "BASE_URL", '"https://api.appskillsontario.com/api/"'  // producation
         }
 
 

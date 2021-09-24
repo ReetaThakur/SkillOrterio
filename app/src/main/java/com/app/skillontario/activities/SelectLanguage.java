@@ -28,14 +28,14 @@ public class SelectLanguage extends BaseActivity {
         MySharedPreference.getInstance().setBooleanData(SharedPrefsConstants.GUEST_FLOW, false);
 
         binding.imageViewEnglish.setOnClickListener(v -> {
-            MySharedPreference.getInstance().setStringData(SharedPrefsConstants.LANGUAGE_API,"eng");
+            MySharedPreference.getInstance().setStringData(SharedPrefsConstants.LANGUAGE_API, "eng");
             changeLocale("en", this);
             startActivity(new Intent(SelectLanguage.this, WelcomeActivity.class));
             finishAffinity();
         });
 
         binding.imageViewFrench.setOnClickListener(v -> {
-            MySharedPreference.getInstance().setStringData(SharedPrefsConstants.LANGUAGE_API,"fre");
+            MySharedPreference.getInstance().setStringData(SharedPrefsConstants.LANGUAGE_API, "fre");
             changeLocale("fr", this);
             startActivity(new Intent(SelectLanguage.this, WelcomeActivity.class));
             finishAffinity();

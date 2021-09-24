@@ -9,26 +9,38 @@
         android:padding="0dp">
 
         <RelativeLayout
+            android:id="@+id/layOutNormalUser"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:visibility="visible">
 
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_160sdp"
-                android:background="@drawable/ic_bg"
-                android:scaleType="centerCrop"></ImageView>
+                android:layout_height="@dimen/_180sdp"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_bg"></ImageView>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
+                <ImageView
+                    android:id="@+id/img"
+                    android:layout_width="@dimen/_144sdp"
+                    android:layout_height="@dimen/_59sdp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="@dimen/_18sdp"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:scaleType="fitStart"
+                    android:src="@drawable/skills_logo"></ImageView>
+
                 <TextView
                     android:id="@+id/tv_user_Name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/_16sdp"
-                    android:layout_marginTop="@dimen/_65sdp"
+                    android:layout_marginTop="@dimen/_12sdp"
                     android:fontFamily="@font/poppins_medium"
                     android:text="@string/robert_frost_pattinson"
                     android:textColor="@color/black"
@@ -42,8 +54,7 @@
                     android:fontFamily="@font/poppins_medium"
                     android:text="@string/elementary_school"
                     android:textColor="#8FA1B5"
-                    android:textSize="@dimen/_12sdp"
-                    android:visibility="visible"></TextView>
+                    android:textSize="@dimen/_12sdp"></TextView>
 
                 <TextView
                     android:id="@+id/editProfile"
@@ -62,6 +73,48 @@
             </LinearLayout>
         </RelativeLayout>
 
+
+        <RelativeLayout
+            android:id="@+id/layOutGuestUser"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_130sdp"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_bg"></ImageView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/img1"
+                    android:layout_width="@dimen/_144sdp"
+                    android:layout_height="@dimen/_59sdp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="@dimen/_18sdp"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:scaleType="fitStart"
+                    android:src="@drawable/skills_logo"></ImageView>
+
+                <TextView
+                    android:id="@+id/tv_user_Name1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_16sdp"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="@string/guest_user"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_15sdp"></TextView>
+
+            </LinearLayout>
+        </RelativeLayout>
+
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -72,13 +125,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="@dimen/_16sdp"
-                android:layout_marginTop="@dimen/_6sdp"
                 android:orientation="vertical">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_70sdp"
-                    android:layout_marginTop="@dimen/_16sdp"
+                    android:layout_marginTop="@dimen/_12sdp"
                     android:layout_marginRight="@dimen/_8sdp">
 
 

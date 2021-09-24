@@ -554,7 +554,7 @@
     <string name="event">Event</string>
     <string name="tab3">Resources</string>
     <string name="tab4">Dashboard</string>
-    <string name="find_your_dream_career">Find your \nDream Career</string>
+    <string name="find_your_dream_career">Find Your Dream Career</string>
     <string name="search">Search</string>
     <string name="set_your_filter">Set your filter</string>
     <string name="choose_your_sector">Choose your Sector</string>
@@ -577,7 +577,7 @@
     <string name="apply_filter">Apply Filter</string>
     <string name="choose_language">Choose \nLanguage</string>
     <string name="resources">Resources  </string>
-    <string name="discover_a_suitable_career">Discover a \nSuitable Career</string>
+    <string name="discover_a_suitable_career">Discover a Suitable Career</string>
     <string name="discover_a_suitable_career1">This career quiz is designed to match you with suitable skilled trade and technology occupations based on your interests and personality.</string>
     <string name="discovery_day_cornwell_sdg">Discovery \nday cornwall SDG</string>
     <string name="start_career_quiz">Start \nCareer Quiz</string>
@@ -618,7 +618,7 @@
     <string name="default_notification_channel_id">00001</string>
     <string name="facebook_app_id">471886683746727</string>
     <string name="guest_user"> Guest User </string>
-    <string name="guest_singup_login"> Please sign in/sign up to use this feature. </string>
+    <string name="guest_singup_login"> Please create an account or log in to use this feature.</string>
     <string name="no_data_quiz">You haven’t take a career quiz yet. Once completed, The results will get saved here</string>
     <string name="no_data_events">No new events at the moment.</string>
     <string name="no_data_news">No News available at the moment</string>

@@ -21,34 +21,47 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_250sdp">
+                    android:layout_height="wrap_content">
 
                     <ImageView
+                        android:id="@+id/img"
+                        android:layout_width="@dimen/_144sdp"
+                        android:layout_height="@dimen/_59sdp"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/logo_new_add"></ImageView>
+
+                    <ImageView
+                        android:id="@+id/rea"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_height="@dimen/_180sdp"
+                        android:layout_below="@+id/img"
                         android:layout_alignParentRight="true"
+                        android:layout_marginLeft="@dimen/_16sdp"
+                        android:layout_marginTop="@dimen/_16sdp"
                         android:paddingBottom="@dimen/_50sdp"
-                        android:scaleType="fitEnd"
+                        android:scaleType="centerCrop"
                         android:src="@drawable/quiz_main"></ImageView>
 
                     <me.grantland.widget.AutofitTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_below="@+id/rea"
                         android:layout_alignParentBottom="true"
                         android:layout_marginLeft="@dimen/_16sdp"
-                        android:maxLines="2"
+                        android:layout_marginTop="@dimen/_10sdp"
                         android:fontFamily="@font/poppins_bold"
+                        android:maxLines="2"
                         android:text="@string/discover_a_suitable_career"
                         android:textColor="@color/white"
-                        android:textSize="@dimen/_24sdp" />
+                        android:textSize="@dimen/_16sdp" />
 
 
                     <ImageView
                         android:id="@+id/iv_back"
                         android:layout_width="@dimen/_30sdp"
                         android:layout_height="@dimen/_30sdp"
-                        android:layout_marginTop="@dimen/_16sdp"
                         android:layout_marginLeft="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_16sdp"
                         android:padding="@dimen/_8sdp"
                         android:src="@drawable/ic_back"
                         app:tint="@color/white" />
@@ -108,11 +121,11 @@
                             android:layout_height="wrap_content"
                             android:layout_above="@+id/tv_take_quiz"
                             android:layout_marginLeft="@dimen/_16sdp"
-                            android:visibility="gone"
                             android:fontFamily="@font/poppins_medium"
                             android:text="@string/discover_a_suitable_career"
                             android:textColor="@color/black"
-                            android:textSize="@dimen/_22sdp" />
+                            android:textSize="@dimen/_22sdp"
+                            android:visibility="gone" />
 
 
                         <me.grantland.widget.AutofitTextView
@@ -125,10 +138,10 @@
                             android:background="@drawable/take_quiz_"
                             android:fontFamily="@font/poppins_bold"
                             android:gravity="center"
-                            android:text="@string/take_quiz"
-                            android:singleLine="true"
                             android:paddingLeft="@dimen/_6sdp"
                             android:paddingRight="@dimen/_6sdp"
+                            android:singleLine="true"
+                            android:text="@string/take_quiz"
                             android:textAllCaps="true"
                             android:textColor="@color/white"
                             android:textSize="@dimen/_18sdp" />

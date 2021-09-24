@@ -41,6 +41,13 @@ public class DashboardFragment extends BaseFragment {
     protected void initUi() {
         binding = (FragmentDashboard1Binding) viewDataBinding;
 
+        if (MySharedPreference.getInstance().getBooleanData(SharedPrefsConstants.GUEST_FLOW)) {
+            binding.layOutGuestUser.setVisibility(View.VISIBLE);
+            binding.layOutNormalUser.setVisibility(View.GONE);
+        } else {
+            binding.layOutGuestUser.setVisibility(View.GONE);
+            binding.layOutNormalUser.setVisibility(View.VISIBLE);
+        }
 
         binding.rlSetting.setOnClickListener(v -> startActivity(new Intent(getActivity(), SettingActivity.class)));
 
@@ -74,12 +81,18 @@ public class DashboardFragment extends BaseFragment {
         });
 
 
-
     }
 
     @Override
     public void onResume() {
         super.onResume();
+        if (MySharedPreference.getInstance().getBooleanData(SharedPrefsConstants.GUEST_FLOW)) {
+            binding.layOutGuestUser.setVisibility(View.VISIBLE);
+            binding.layOutNormalUser.setVisibility(View.GONE);
+        } else {
+            binding.layOutGuestUser.setVisibility(View.GONE);
+            binding.layOutNormalUser.setVisibility(View.VISIBLE);
+        }
         // binding.tvUserName.setText(""); binding.dashboradSchool
         setText();
 

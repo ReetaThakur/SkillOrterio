@@ -23,15 +23,24 @@
                 android:layout_marginTop="@dimen/_24sdp"
                 android:layout_marginRight="@dimen/_16sdp">
 
+                <ImageView
+                    android:id="@+id/img"
+                    android:layout_width="@dimen/_144sdp"
+                    android:layout_height="@dimen/_59sdp"
+                    android:scaleType="fitStart"
+                    android:src="@drawable/skills_logo"></ImageView>
+
                 <TextView
                     android:id="@+id/tv_findDream"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_below="@+id/img"
+                    android:layout_marginTop="@dimen/_10sdp"
                     android:layout_toLeftOf="@+id/lk"
                     android:fontFamily="@font/poppins_regular"
                     android:text="@string/find_your_dream_career"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/_21sdp"></TextView>
+                    android:textSize="@dimen/_14sdp"></TextView>
 
                 <RelativeLayout
                     android:id="@+id/lk"
@@ -206,11 +215,11 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_below="@+id/tv"
-                                    android:layout_marginLeft="10dp"
+                                    android:layout_marginLeft="@dimen/_10sdp"
                                     android:layout_marginTop="@dimen/_8sdp"
                                     android:layout_marginRight="@dimen/_10sdp"
                                     android:background="@drawable/ic_rectangle__take_quiz"
-                                    android:padding="@dimen/_4sdp">
+                                    android:padding="@dimen/_6sdp">
 
                                     <TextView
                                         android:id="@+id/tv_take_quiz"

@@ -2,19 +2,12 @@ package com.app.skillontario.quiz;
 
 import android.content.Intent;
 import android.net.Uri;
-
-import androidx.core.app.ShareCompat;
-
 import com.app.skillontario.BottomBarActivity;
-import com.app.skillontario.activities.JobDetailsActivity;
-import com.app.skillontario.activities.TakeQuizActivity;
 import com.app.skillontario.adapter.AdapterCong;
-import com.app.skillontario.adapter.TabAdapter;
 import com.app.skillontario.baseClasses.BaseActivity;
 import com.app.skillontario.constants.SharedPrefsConstants;
 import com.app.skillontario.dialogs.DialogWithMsg;
 import com.app.skillontario.utils.MySharedPreference;
-import com.app.skillontario.utils.RecyclerItemClickListener;
 import com.app.skillontario.utils.Utils;
 import com.app.skillorterio.R;
 import com.app.skillorterio.databinding.QuizAcBinding;
