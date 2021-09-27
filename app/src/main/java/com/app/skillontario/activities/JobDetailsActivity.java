@@ -136,7 +136,7 @@ public class JobDetailsActivity extends BaseActivity implements ApiResponseError
         binding.imgShare.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Utils.share1(JobDetailsActivity.this, getString(R.string.profile_share), careerListDetails.get(0).getImage(), null, "jobProfile", careerListDetails.get(0).getId());
+                Utils.share1(JobDetailsActivity.this, getString(R.string.profile_share), careerListDetails.get(0).getImage(), careerListDetails.get(0).getJobDesc(), "jobProfile", careerListDetails.get(0).getId());
             }
         });
 
@@ -224,7 +224,7 @@ public class JobDetailsActivity extends BaseActivity implements ApiResponseError
 
         binding.recyExpand.setHasFixedSize(false);
         binding.recyExpand.setNestedScrollingEnabled(false);
-        adapter = new ExpandRecyclerAdapter(list,JobDetailsActivity.this);
+        adapter = new ExpandRecyclerAdapter(list, JobDetailsActivity.this);
         binding.recyExpand.setAdapter(adapter);
 
        /* binding.recyExpand.addOnItemTouchListener(new RecyclerItemClickListener(JobDetailsActivity.this, (view, position) -> {

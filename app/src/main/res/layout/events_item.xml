@@ -149,7 +149,7 @@
                     android:layout_weight="1"
                     android:fontFamily="@font/poppins_regular"
                     android:minWidth="@dimen/_190sdp"
-                    android:paddingLeft="@dimen/_2sdp"
+                    android:paddingLeft="@dimen/_3sdp"
                     android:text="May 15, 2021 02:00 pm "
                     android:textColor="#1E212F"
                     android:textSize="@dimen/_8sdp" />

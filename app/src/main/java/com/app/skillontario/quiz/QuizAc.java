@@ -2,6 +2,7 @@ package com.app.skillontario.quiz;
 
 import android.content.Intent;
 import android.net.Uri;
+
 import com.app.skillontario.BottomBarActivity;
 import com.app.skillontario.adapter.AdapterCong;
 import com.app.skillontario.baseClasses.BaseActivity;
@@ -28,7 +29,7 @@ public class QuizAc extends BaseActivity {
 
             if (!MySharedPreference.getInstance().getBooleanData(SharedPrefsConstants.GUEST_FLOW)) {
                 Utils.share1(QuizAc.this, getString(R.string.result_share) +
-                        "", quizFinalResultModel.get(0).getImage(), null, "quiz", quizFinalResultModel.get(0).getId());
+                        "", quizFinalResultModel.get(0).getImage(), quizFinalResultModel.get(0).getJobSector(), "quiz", quizFinalResultModel.get(0).getId());
 
             } else {
                 // showDialog();
@@ -45,7 +46,7 @@ public class QuizAc extends BaseActivity {
         binding.sendInvite.setOnClickListener(v -> {
 
             Utils.share1(QuizAc.this, getString(R.string.invite_share) +
-                    "", quizFinalResultModel.get(0).getImage(), null, "home", quizFinalResultModel.get(0).getId());
+                    "", quizFinalResultModel.get(0).getImage(), quizFinalResultModel.get(0).getJobSector(), "home", quizFinalResultModel.get(0).getId());
 
         });
         binding.retake.tvRetake.setOnClickListener(v -> startActivity(new Intent(this, QuizStepAc.class)));

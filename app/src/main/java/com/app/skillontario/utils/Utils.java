@@ -259,7 +259,7 @@ public class Utils {
         Date date = null;
         try {
             date = df.parse(str_date);
-            df = new SimpleDateFormat("MMM dd, yyyy hh:mm: a");
+            df = new SimpleDateFormat("MMM dd, yyyy\nhh:mm a");
             df.setTimeZone(TimeZone.getDefault());
             newDateString = df.format(date);
         } catch (ParseException e) {
@@ -659,6 +659,8 @@ public class Utils {
                 .setFeature("referral")
                 .setCampaign("content 123 launch")
                 .setStage("new user")
+                .addControlParameter("email_html_header", title)
+                .addControlParameter("email_subject", text)
                 .addControlParameter("$desktop_url", "https://www.skillsontario.com")
                 .addControlParameter("ProfileId", id);
 
@@ -723,6 +725,8 @@ public class Utils {
                 .setCampaign("content 123 launch")  ///
                 .setStage("new user") //
                 .addTag("one")  ///
+                .addControlParameter("email_html_header", title)
+                .addControlParameter("email_subject", desc)
                 .addTag("two");
 
         branchUniversalObject.generateShortUrl(context, linkProperties, new Branch.BranchLinkCreateListener() {
@@ -730,6 +734,10 @@ public class Utils {
             public void onLinkCreate(String url, BranchError error) {
                 if (error == null) {
                     Log.i("MyApp", "got my Branch link to share: " + url);
+                    Intent share = new Intent(Intent.ACTION_SEND);
+                    share.setType("text/plain");
+                    share.putExtra(Intent.EXTRA_TEXT, url);
+                    context.startActivity(Intent.createChooser(share, ""));
                 }
             }
         });

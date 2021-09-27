@@ -37,7 +37,7 @@
                     android:layout_below="@+id/img"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:layout_toLeftOf="@+id/lk"
-                    android:fontFamily="@font/poppins_regular"
+                    android:fontFamily="@font/poppins_medium"
                     android:text="@string/find_your_dream_career"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_14sdp"></TextView>
@@ -103,7 +103,7 @@
                         android:layout_centerVertical="true"
                         android:layout_toRightOf="@+id/im"
                         android:text="@string/Search_careers"
-                        android:textColor="@color/search_text_color"
+                        android:textColor="@color/black"
                         android:textSize="@dimen/_12sdp"></TextView>
                 </RelativeLayout>
 

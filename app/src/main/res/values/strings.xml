@@ -24,7 +24,7 @@
     <string name="terms_Of_services"><u>Terms Of Service</u>  </string>
     <string name="underlined_privacy_policy"> <u>Privacy Notice.</u></string>
     <string name="confirm_password">Confirm password.</string>
-    <string name="email_address">Enter your email ID.</string>
+    <string name="email_address">Enter your email.</string>
     <string name="already_a_taxvolt_sign_in">Already a TaxVolt<font size="11"><sup>®</sup></font>? <font color="#1E8755"><b>Sign In.</b></font></string>
     <string name="msg_charge">Standard call, messaging, or charges may apply.</string>
     <string name="didn_t_receive_the_code_resend_code">Didn\'t receive the code? <font color="#E65555"><b>Resend Code</b></font></string>
@@ -644,7 +644,7 @@
     <string name="empty_title">Please enter title</string>
     <string name="redSeal">Red Seal Program</string>
 
-    <string name="Search_careers">Search careers</string>
+    <string name="Search_careers">Search Careers</string>
     <string name="filter_select"> Please select at least one </string>
 
     <string name="Edit_Profile1">Edit Profile </string>
@@ -688,7 +688,7 @@ identify as female</string>
     <string name="by_continuing_you_agree_to_skills_ontario">By continuing, You agree to Skills Ontario </string>
     <string name="and"> and </string>
     <string name="have_an_account">Have an account? </string>
-    <string name="sign_in1"> Sign In</string>
+    <string name="sign_in1">\u0020Sign\u0020In</string>
     <string name="continue_as_guest">Continue As Guest </string>
     <string name="don_t_have_an_account">"Don't have an account? "</string>
     <string name="sign_up">Sign Up</string>

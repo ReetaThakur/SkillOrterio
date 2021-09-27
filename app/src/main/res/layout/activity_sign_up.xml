@@ -360,6 +360,7 @@
                             android:textColor="@color/textColorVeryLight"
                             android:textSize="@dimen/_8sdp" />
 
+
                         <me.grantland.widget.AutofitTextView
                             android:id="@+id/tv_signIN1"
                             android:layout_width="wrap_content"
@@ -384,7 +385,7 @@
                         android:drawableRight="@drawable/ic_sign_up_arrow"
                         android:fontFamily="@font/poppins_regular"
                         android:gravity="end"
-                        android:minWidth="@dimen/_100sdp"
+                        android:minWidth="@dimen/_60sdp"
                         android:singleLine="true"
                         android:text="@string/continue_as_guest"
                         android:textColor="@color/textColorVeryLight"
