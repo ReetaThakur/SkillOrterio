@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
 import android.text.Html;
+import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,7 +32,7 @@ public class ExpandRecyclerAdapter extends
     private List<SampleGroupBean> mList;
     Context context;
 
-    public ExpandRecyclerAdapter(List<SampleGroupBean> list,Context context) {
+    public ExpandRecyclerAdapter(List<SampleGroupBean> list, Context context) {
         mList = list;
         this.context = context;
     }
@@ -77,16 +78,16 @@ public class ExpandRecyclerAdapter extends
 
     @Override
     public void onBindChildViewHolder(ChildVH holder, SampleGroupBean groupBean, SampleChildBean sampleChildBean) {
-      //  holder.nameTvWeb.setText(sampleChildBean.getName());
-/*
+        //  holder.nameTvWeb.setText(sampleChildBean.getName());
+        holder.nameTvWeb.setMovementMethod(LinkMovementMethod.getInstance());
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             holder.nameTvWeb.setText(Html.fromHtml(sampleChildBean.getName(), Html.FROM_HTML_MODE_COMPACT));
         } else {
             holder.nameTvWeb.setText(Html.fromHtml(sampleChildBean.getName()));
-        }*/
+        }
 
 
-        holder.nameTvWeb.setWebViewClient(new WebViewClient(){
+     /*   holder.nameTvWeb.setWebViewClient(new WebViewClient(){
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
 
@@ -105,12 +106,11 @@ public class ExpandRecyclerAdapter extends
                 "text/html",
                 "utf-8",
                 null);
-        holder.nameTvWeb.setBackgroundColor(Color.TRANSPARENT);
-
+        holder.nameTvWeb.setBackgroundColor(Color.TRANSPARENT);*/
 
 
         if (groupBean.isExpandable()) {
-           // holder.nameTvWeb.setVisibility(View.VISIBLE);
+            // holder.nameTvWeb.setVisibility(View.VISIBLE);
             holder.linearLayout.setVisibility(View.VISIBLE);
         } else {
             //holder.nameTvWeb.setVisibility(View.GONE);
@@ -136,13 +136,13 @@ public class ExpandRecyclerAdapter extends
     }
 
     static class ChildVH extends RecyclerView.ViewHolder {
-        WebView nameTvWeb;
+        TextView nameTvWeb;
         LinearLayout linearLayout;
 
         ChildVH(View itemView) {
             super(itemView);
-            nameTvWeb = (WebView) itemView.findViewById(R.id.webView_Job);
-            nameTvWeb.getSettings().setJavaScriptEnabled(true);
+            nameTvWeb = (TextView) itemView.findViewById(R.id.child_item_name);
+            //  nameTvWeb.getSettings().setJavaScriptEnabled(true);
             linearLayout = (LinearLayout) itemView.findViewById(R.id.lin);
         }
     }
