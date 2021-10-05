@@ -186,6 +186,7 @@
             android:id="@+id/by"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:visibility="gone"
             android:layout_alignParentBottom="true"
             android:layout_margin="@dimen/_14sdp"
             android:orientation="horizontal">
@@ -227,7 +228,7 @@
 
         <RelativeLayout
             android:id="@+id/showFrenchGuest"
-            android:visibility="gone"
+            android:visibility="visible"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
@@ -245,7 +246,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins_regular"
                     android:gravity="center"
-                    android:text="@string/have_an_account"
+                    android:text="@string/don_t_have_an_account"
                     android:textColor="@color/textColorVeryLight"
                     android:textSize="@dimen/_8sdp" />
 
@@ -257,7 +258,7 @@
                     android:fontFamily="@font/poppins_regular"
                     android:gravity="left"
                     android:singleLine="true"
-                    android:text="@string/sign_in1"
+                    android:text="@string/sign_up"
                     android:textColor="#49FDA7"
                     android:textSize="@dimen/_8sdp" />
 

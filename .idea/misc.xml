@@ -12,7 +12,7 @@
         <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout-sw600dp/activity_resources_details.xml" value="0.14754098360655737" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout-sw600dp/activity_select_language.xml" value="0.14754098360655737" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout-sw600dp/activity_select_role.xml" value="0.14754098360655737" />
-        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout-sw600dp/activity_sign_in.xml" value="0.176" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout-sw600dp/activity_sign_in.xml" value="0.264" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout-sw600dp/activity_sign_up.xml" value="0.264" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout-sw600dp/activity_take_quiz.xml" value="0.2621359223300971" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout-sw600dp/activity_welcome.xml" value="0.2621359223300971" />
@@ -58,8 +58,8 @@
         <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout/activity_select_language.xml" value="0.1956521739130435" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout/activity_select_role.xml" value="0.1956521739130435" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout/activity_setting.xml" value="0.1956521739130435" />
-        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout/activity_sign_in.xml" value="0.1956521739130435" />
-        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout/activity_sign_up.xml" value="0.176" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout/activity_sign_in.xml" value="0.176" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout/activity_sign_up.xml" value="0.264" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout/activity_splash.xml" value="0.1956521739130435" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout/activity_take_quiz.xml" value="0.176" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout/activity_terms_of_services.xml" value="0.1956521739130435" />
@@ -111,6 +111,7 @@
         <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout/quiz_step_ac.xml" value="0.1956521739130435" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout/quiz_step_item_a.xml" value="0.1956521739130435" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout/quiz_step_item_b.xml" value="0.1956521739130435" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout/resources_item.xml" value="0.181640625" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout/scholar_detail_ac.xml" value="0.1956521739130435" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout/scholar_one_ac.xml" value="0.1956521739130435" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout/scollar_item1.xml" value="0.1956521739130435" />

@@ -688,7 +688,7 @@ identify as female</string>
     <string name="by_continuing_you_agree_to_skills_ontario">By continuing, You agree to Skills Ontario </string>
     <string name="and"> and </string>
     <string name="have_an_account">Have an account? </string>
-    <string name="sign_in1">\u0020Sign\u0020In</string>
+    <string name="sign_in1">Sign\u0020In</string>
     <string name="continue_as_guest">Continue As Guest </string>
     <string name="don_t_have_an_account">"Don't have an account? "</string>
     <string name="sign_up">Sign Up</string>

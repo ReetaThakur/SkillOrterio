@@ -58,6 +58,8 @@ public class SignInActivity extends BaseActivity implements ApiResponseErrorCall
         binding.tvPasswordError.setVisibility(View.GONE);
         Utils.hideKeyBoard(SignInActivity.this);
 
+        setText();
+
         myIcon = AppCompatResources.getDrawable(SignInActivity.this, R.drawable.ic_edit_text_rectangle);
 
         binding.etMail.setOnFocusChangeListener((view, hasFocus) -> {
@@ -78,6 +80,7 @@ public class SignInActivity extends BaseActivity implements ApiResponseErrorCall
                 }
             }
         });
+
 
         binding.cvSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -100,32 +103,19 @@ public class SignInActivity extends BaseActivity implements ApiResponseErrorCall
             }
         });
 
-        binding.forgot.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(SignInActivity.this, ResetPasswordActivity.class));
-            }
-        });
+        binding.forgot.setOnClickListener(v -> startActivity(new Intent(SignInActivity.this, ResetPasswordActivity.class)));
 
-        binding.tvHaveAnAccount.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(SignInActivity.this, SignUpActivity.class));
-            }
-        });
-        binding.tvHaveAnAccount2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(SignInActivity.this, SignUpActivity.class));
-            }
-        });
+        binding.tvHaveAnAccount.setOnClickListener(v -> startActivity(new Intent(SignInActivity.this, SignUpActivity.class)));
+        binding.tvHaveAnAccount2.setOnClickListener(v -> startActivity(new Intent(SignInActivity.this, SignUpActivity.class)));
+
+        binding.tvSignIN1.setOnClickListener(v -> startActivity(new Intent(SignInActivity.this, SignUpActivity.class)));
 
         // binding.tvContinueAsGuest.setOnClickListener(v -> startActivity(new Intent(SignInActivity.this, BottomBarActivity.class)));
         // binding.tvHaveAnAccount.setOnClickListener(v -> startActivity(new Intent(SignInActivity.this, SignUpActivity.class)));
         binding.tvHaveAnAccount1.setOnClickListener(v -> startActivity(new Intent(SignInActivity.this, SignUpActivity.class)));
 
 
-        binding.tvContinueAsGuest.setOnClickListener(new View.OnClickListener() {
+        binding.tvContinueAsGuest1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -378,15 +368,8 @@ public class SignInActivity extends BaseActivity implements ApiResponseErrorCall
         new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
             @Override
             public void run() {
-                if (MySharedPreference.getInstance().getStringData(AppConstants.LANGUAGE).equalsIgnoreCase("en")) {
-                    binding.by.setVisibility(View.VISIBLE);
-                    binding.showFrenchGuest.setVisibility(View.GONE);
-                } else {
-                    binding.showFrenchGuest.setVisibility(View.VISIBLE);
-                    binding.by.setVisibility(View.GONE);
-                }
-
-
+                binding.showFrenchGuest.setVisibility(View.VISIBLE);
+                binding.by.setVisibility(View.GONE);
 
             }
         }, 70);

@@ -116,12 +116,7 @@ public class SignUpActivity extends BaseActivity implements ApiResponseErrorCall
             }
         });
 
-        binding.tvSignIN.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(SignUpActivity.this, SignInActivity.class));
-            }
-        });
+
 
         binding.tvSignIN1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -130,12 +125,7 @@ public class SignUpActivity extends BaseActivity implements ApiResponseErrorCall
             }
         });
 
-        binding.tvHaveAnAccount.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(SignUpActivity.this, SignInActivity.class));
-            }
-        });
+
 
         binding.tvHaveAnAccount1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -231,18 +221,7 @@ public class SignUpActivity extends BaseActivity implements ApiResponseErrorCall
 
                 startActivity(new Intent(SignUpActivity.this, PrivacyPolicyActivity.class)));
 
-        binding.tvContinueAsGuest.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                MySharedPreference.getInstance().setStringData(SharedPrefsConstants.GUEST_FLOW_CLASS, "homeFragment");
-                signUpModel.setEmail("guest@gmail.com");
-                signUpModel.setPassword("123456");
-                signUpModel.setConfirmPassword("123456");
-                API_INTERFACE.registerUser(RequestBodyGenerator.registerUser(signUpModel, getDeviceId(SignUpActivity.this), "4")).enqueue(
-                        new ApiCallBack<>(SignUpActivity.this, apiResponseErrorCallback, 11, true));
 
-            }
-        });
 
         binding.tvContinueAsGuest1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -463,13 +442,8 @@ public class SignUpActivity extends BaseActivity implements ApiResponseErrorCall
                 new Runnable() {
                     @Override
                     public void run() {
-                        if (MySharedPreference.getInstance().getStringData(AppConstants.LANGUAGE).equalsIgnoreCase("en")) {
-                            binding.showEnglishGuest.setVisibility(View.VISIBLE);
-                            binding.showFrenchGuest.setVisibility(View.GONE);
-                        } else {
-                            binding.showFrenchGuest.setVisibility(View.VISIBLE);
-                            binding.showEnglishGuest.setVisibility(View.GONE);
-                        }
+                        binding.showFrenchGuest.setVisibility(View.VISIBLE);
+
 
 
                         try {
@@ -481,9 +455,9 @@ public class SignUpActivity extends BaseActivity implements ApiResponseErrorCall
                             binding.tvAgreement.setText(R.string.terms_Of_services);
                             binding.and.setText(R.string.and);
                             binding.tvPrivacy.setText(R.string.underlined_privacy_policy);
-                            binding.tvHaveAnAccount.setText(R.string.have_an_account);
-                            binding.tvSignIN.setText(R.string.sign_in1);
-                            binding.tvContinueAsGuest.setText(R.string.continue_as_guest);
+                            binding.tvHaveAnAccount1.setText(R.string.have_an_account);
+                            binding.tvSignIN1.setText(R.string.sign_in1);
+                            binding.tvContinueAsGuest1.setText(R.string.continue_as_guest);
 
                             binding.etMail.setHint(R.string.email_address);
                             binding.etPassword.setHint(R.string.password);
