@@ -169,56 +169,69 @@ public class JobDetailsActivity extends BaseActivity implements ApiResponseError
         list.clear();
 
         if (careerListDetails.get(0).getJobDesc() != null) {
-            List<SampleChildBean> childList = new ArrayList<>();
-            childList.add(new SampleChildBean(careerListDetails.get(0).getJobDesc()));
-            list.add(new SampleGroupBean(childList, getString(R.string.job_desc)));
+            if(!careerListDetails.get(0).getJobDesc().isEmpty()) {
+                List<SampleChildBean> childList = new ArrayList<>();
+                childList.add(new SampleChildBean(careerListDetails.get(0).getJobDesc()));
+                list.add(new SampleGroupBean(childList, getString(R.string.job_desc)));
+            }
         }
 
         //   childList.clear();
         if (careerListDetails.get(0).getJobResp() != null) {
-            List<SampleChildBean> childList = new ArrayList<>();
-            childList.add(new SampleChildBean(careerListDetails.get(0).getJobResp()));
-            list.add(new SampleGroupBean(childList, getString(R.string.job_resp)));
+            if (!careerListDetails.get(0).getJobResp().isEmpty()) {
+                List<SampleChildBean> childList = new ArrayList<>();
+                childList.add(new SampleChildBean(careerListDetails.get(0).getJobResp()));
+                list.add(new SampleGroupBean(childList, getString(R.string.job_resp)));
+            }
         }
 
 
         //  childList.clear();
         if (careerListDetails.get(0).getJobArea() != null) {
-            List<SampleChildBean> childList = new ArrayList<>();
-            childList.add(new SampleChildBean(careerListDetails.get(0).getJobArea()));
-            list.add(new SampleGroupBean(childList, getString(R.string.where_they)));
+            if (!careerListDetails.get(0).getJobArea().isEmpty()) {
+                List<SampleChildBean> childList = new ArrayList<>();
+                childList.add(new SampleChildBean(careerListDetails.get(0).getJobArea()));
+                list.add(new SampleGroupBean(childList, getString(R.string.where_they)));
+            }
         }
 
 
         // childList.clear();
         if (careerListDetails.get(0).getAdvice() != null) {
-            List<SampleChildBean> childList = new ArrayList<>();
-            childList.add(new SampleChildBean(careerListDetails.get(0).getAdvice()));
-            list.add(new SampleGroupBean(childList, getString(R.string.advice)));
+            if (!careerListDetails.get(0).getAdvice().isEmpty()) {
+                List<SampleChildBean> childList = new ArrayList<>();
+                childList.add(new SampleChildBean(careerListDetails.get(0).getAdvice()));
+                list.add(new SampleGroupBean(childList, getString(R.string.advice)));
+            }
         }
 
 
         //  childList.clear();
         if (careerListDetails.get(0).getEduReq() != null) {
-            List<SampleChildBean> childList = new ArrayList<>();
-            childList.add(new SampleChildBean(careerListDetails.get(0).getEduReq()));
-            list.add(new SampleGroupBean(childList, getString(R.string.education_required)));
+            if (!careerListDetails.get(0).getEduReq().isEmpty()) {
+                List<SampleChildBean> childList = new ArrayList<>();
+                childList.add(new SampleChildBean(careerListDetails.get(0).getEduReq()));
+                list.add(new SampleGroupBean(childList, getString(R.string.education_required)));
+            }
         }
-
 
         //   childList.clear();
         if (careerListDetails.get(0).getTraReq() != null) {
-            List<SampleChildBean> childList = new ArrayList<>();
-            childList.add(new SampleChildBean(careerListDetails.get(0).getTraReq()));
-            list.add(new SampleGroupBean(childList, getString(R.string.training_req)));
+            if (!careerListDetails.get(0).getTraReq().isEmpty()) {
+                List<SampleChildBean> childList = new ArrayList<>();
+                childList.add(new SampleChildBean(careerListDetails.get(0).getTraReq()));
+                list.add(new SampleGroupBean(childList, getString(R.string.training_req)));
+            }
         }
 
 
         //  childList.clear();
         if (careerListDetails.get(0).getExpeReq() != null) {
-            List<SampleChildBean> childList = new ArrayList<>();
-            childList.add(new SampleChildBean(careerListDetails.get(0).getExpeReq()));
-            list.add(new SampleGroupBean(childList, getString(R.string.exp_req)));
+            if (!careerListDetails.get(0).getExpeReq().isEmpty()) {
+                List<SampleChildBean> childList = new ArrayList<>();
+                childList.add(new SampleChildBean(careerListDetails.get(0).getExpeReq()));
+                list.add(new SampleGroupBean(childList, getString(R.string.exp_req)));
+            }
         }
 
 
