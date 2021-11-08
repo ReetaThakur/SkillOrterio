@@ -390,15 +390,13 @@ public class JobDetailsActivity extends BaseActivity implements ApiResponseError
         resourceURLModalArrayList.clear();
         if (careerListDetails.get(0).getResourceURL() != null) {
 
-            boolean contains = false;
-            for (int i = 0; i < careerListDetails.get(0).getResourceURL().size(); i++) {
+            boolean contains = true;
+           /* for (int i = 0; i < careerListDetails.get(0).getResourceURL().size(); i++) {
                 contains = careerListDetails.get(0).getResourceURL().get(i).getPath()
                         .toLowerCase().contains("https://www.youtube.com/");
 
-                if (contains) {
-                    break;
-                }
-            }
+
+            }*/
 
             if (contains) {
                 binding.tvHelpFull.setVisibility(View.VISIBLE);

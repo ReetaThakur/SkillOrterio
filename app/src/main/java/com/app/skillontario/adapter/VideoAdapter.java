@@ -1,13 +1,18 @@
 package com.app.skillontario.adapter;
 
+import android.annotation.SuppressLint;
+import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.app.skillontario.activities.PlayVideoActivity;
 import com.app.skillontario.models.ResourceURLModal;
 import com.app.skillorterio.R;
@@ -15,6 +20,7 @@ import com.app.skillorterio.databinding.VideoAdapterBinding;
 import com.bumptech.glide.Glide;
 
 import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 
 public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> {
@@ -50,7 +56,7 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> 
     }
 
     @Override
-    public void onBindViewHolder(final VideoAdapter.ViewHolder viewHolder, final int position) {
+    public void onBindViewHolder(final VideoAdapter.ViewHolder viewHolder, @SuppressLint("RecyclerView") final int position) {
 
         try {
             final String videoUrl = resourceURLModalArrayList.get(position).getPath();
@@ -65,6 +71,34 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> 
         } catch (Exception e) {
         }
 
+        viewHolder.binding.ley.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String url = "";
+                if (resourceURLModalArrayList.get(position).getPath().toLowerCase().contains("https") || resourceURLModalArrayList.get(position).getPath().toLowerCase().contains("http")) {
+                    url = "" + resourceURLModalArrayList.get(position).getPath().toLowerCase();
+                    url = url.replaceAll("\\s", "");
+                } else {
+                    url = "https://" + resourceURLModalArrayList.get(position).getPath().toLowerCase();
+                    url = url.replaceAll("\\s", "");
+                }
+
+                try {
+                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    intent.setPackage("com.android.chrome");
+                    try {
+                        context.startActivity(intent);
+                    } catch (ActivityNotFoundException ac) {
+                        // Chrome browser presumably not installed and open Kindle Browser
+                        intent.setPackage("com.amazon.cloud9");
+                        context.startActivity(intent);
+                    }
+                } catch (Exception e) {
+                }
+            }
+        });
+
 
         viewHolder.binding.ivPlay.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,8 +106,7 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> 
                 boolean contains = resourceURLModalArrayList.get(position).getPath()
                         .toLowerCase().contains("https://www.youtube.com/");
 
-
-                if (contains == false)
+                /*if (contains == false)
                     context.startActivity(new Intent(context, PlayVideoActivity.class));
                 else {
                     try {
@@ -81,8 +114,36 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> 
                         intent.setData(Uri.parse(resourceURLModalArrayList.get(position).getPath()));
                         context.startActivity(intent);
                     } catch (Exception e) {
+                    }*/
+
+                    ////new code
+                    String url = "";
+                    if (resourceURLModalArrayList.get(position).getPath().toLowerCase().contains("https") || resourceURLModalArrayList.get(position).getPath().toLowerCase().contains("http")) {
+                        url = "" + resourceURLModalArrayList.get(position).getPath().toLowerCase();
+                        url = url.replaceAll("\\s", "");
+                    } else {
+                        url = "https://" + resourceURLModalArrayList.get(position).getPath().toLowerCase();
+                        url = url.replaceAll("\\s", "");
                     }
-                }
+
+                    try {
+                        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        intent.setPackage("com.android.chrome");
+                        try {
+                            context.startActivity(intent);
+                        } catch (ActivityNotFoundException ac) {
+                            // Chrome browser presumably not installed and open Kindle Browser
+                            intent.setPackage("com.amazon.cloud9");
+                            context.startActivity(intent);
+                        }
+                    } catch (Exception e) {
+                    }
+
+                    /// end here
+
+
+
             }
         });
 
