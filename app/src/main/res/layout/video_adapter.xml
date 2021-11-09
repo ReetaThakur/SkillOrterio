@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
 
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="@dimen/_250sdp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/_8sdp"
         android:layout_marginTop="@dimen/_16sdp"
         android:layout_marginRight="@dimen/_8sdp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        app:cardCornerRadius="@dimen/_10sdp"
+        app:cardElevation="0dp">
 
         <RelativeLayout
             android:id="@+id/ley"
@@ -32,18 +34,14 @@
 
         </RelativeLayout>
 
+        <RelativeLayout
+            android:layout_width="@dimen/_250sdp"
+            android:layout_height="@dimen/_120sdp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/ley"
-            android:layout_marginBottom="@dimen/_16sdp"
-            android:fontFamily="@font/poppins_medium"
-            android:text="@string/job_interview_video"
-            android:textColor="@color/black"
-            android:textSize="@dimen/_12sdp" />
 
-    </RelativeLayout>
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
 
 
 </layout>
