@@ -70,11 +70,11 @@
 
                 <ImageView
                     android:id="@+id/imgDir"
-                    android:layout_width="@dimen/_18sdp"
-                    android:layout_height="@dimen/_18sdp"
+                    android:layout_width="@dimen/_16sdp"
+                    android:layout_height="@dimen/_16sdp"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:layout_marginRight="@dimen/_6sdp"
+                    android:layout_marginRight="@dimen/_8sdp"
                     android:src="@drawable/icon_dir"></ImageView>
 
 
