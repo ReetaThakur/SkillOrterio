@@ -402,7 +402,7 @@ public class JobDetailsActivity extends BaseActivity implements ApiResponseError
                 binding.tvHelpFull.setVisibility(View.VISIBLE);
                 binding.recyVideo.setVisibility(View.VISIBLE);
                 resourceURLModalArrayList.addAll(careerListDetails.get(0).getResourceURL());
-                VideoAdapter videoAdapter = new VideoAdapter(resourceURLModalArrayList, JobDetailsActivity.this);
+                VideoAdapter videoAdapter = new VideoAdapter(resourceURLModalArrayList, JobDetailsActivity.this,careerListDetails.get(0).getJobProfile());
                 binding.recyVideo.setAdapter(videoAdapter);
             } else {
                 binding.recyVideo.setVisibility(View.GONE);

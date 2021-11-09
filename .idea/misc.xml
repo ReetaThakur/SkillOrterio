@@ -5,6 +5,7 @@
       <map>
         <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/drawable-anydpi-v24/ic_notificaion_icon.xml" value="0.295" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/drawable/ic_bg.xml" value="0.3625" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/drawable/ic_home_main1.xml" value="0.19375" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/drawable/ic_home_main_oval.xml" value="0.29875" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout-sw600dp/activity_bottom_bar.xml" value="0.14754098360655737" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout-sw600dp/activity_help.xml" value="0.14754098360655737" />
@@ -117,7 +118,7 @@
         <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout/scollar_item1.xml" value="0.1956521739130435" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout/scoller_item.xml" value="0.1956521739130435" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout/value_picker_layout.xml" value="0.1956521739130435" />
-        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout/video_adapter.xml" value="0.16875" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/app/src/main/res/layout/video_adapter.xml" value="0.2" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/skills_ontario_android/tagadapter/src/main/res/layout-sw600dp/row_tag.xml" value="0.14754098360655737" />
       </map>
     </option>

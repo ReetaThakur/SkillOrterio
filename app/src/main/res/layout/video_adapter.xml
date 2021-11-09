@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+    <androidx.cardview.widget.CardView
         android:layout_width="@dimen/_250sdp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/_8sdp"
@@ -15,7 +15,8 @@
         <RelativeLayout
             android:id="@+id/ley"
             android:layout_width="@dimen/_250sdp"
-            android:layout_height="@dimen/_120sdp">
+            android:layout_height="@dimen/_120sdp"
+            android:visibility="gone">
 
             <ImageView
                 android:id="@+id/video_thumbnail_image_view"
@@ -34,12 +35,52 @@
 
         </RelativeLayout>
 
-        <RelativeLayout
+        <androidx.cardview.widget.CardView
+            android:id="@+id/viewNotYouTube"
             android:layout_width="@dimen/_250sdp"
-            android:layout_height="@dimen/_120sdp">
+            android:layout_height="@dimen/_120sdp"
+            app:cardBackgroundColor="@color/bookmark_color"
+            app:cardCornerRadius="@dimen/_10sdp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/img1"
+                    android:layout_width="@dimen/_70sdp"
+                    android:layout_height="@dimen/_70sdp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/_12sdp"
+                    android:src="@drawable/logo_image"></ImageView>
+
+                <TextView
+                    android:id="@+id/textHelpTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/_6sdp"
+                    android:layout_marginRight="@dimen/_4sdp"
+                    android:layout_toLeftOf="@+id/imgDir"
+                    android:layout_toRightOf="@+id/img1"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text=""
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_14sdp"></TextView>
+
+                <ImageView
+                    android:id="@+id/imgDir"
+                    android:layout_width="@dimen/_18sdp"
+                    android:layout_height="@dimen/_18sdp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/_6sdp"
+                    android:src="@drawable/icon_dir"></ImageView>
 
 
-        </RelativeLayout>
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
 
     </androidx.cardview.widget.CardView>
 

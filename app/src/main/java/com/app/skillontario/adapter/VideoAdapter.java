@@ -27,6 +27,7 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> 
 
 
     Context context;
+    String jobProfile;
 
     public VideoAdapter(Context context) {
         this.context = context;
@@ -34,9 +35,10 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> 
 
     ArrayList<ResourceURLModal> resourceURLModalArrayList;
 
-    public VideoAdapter(ArrayList<ResourceURLModal> resourceURLModalArrayList, Context context) {
+    public VideoAdapter(ArrayList<ResourceURLModal> resourceURLModalArrayList, Context context, String jobProfile) {
         this.resourceURLModalArrayList = resourceURLModalArrayList;
         this.context = context;
+        this.jobProfile = jobProfile;
     }
 
 
@@ -71,80 +73,115 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> 
         } catch (Exception e) {
         }
 
-        viewHolder.binding.ley.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String url = "";
-                if (resourceURLModalArrayList.get(position).getPath().toLowerCase().contains("https") || resourceURLModalArrayList.get(position).getPath().toLowerCase().contains("http")) {
-                    url = "" + resourceURLModalArrayList.get(position).getPath().toLowerCase();
-                    url = url.replaceAll("\\s", "");
-                } else {
-                    url = "https://" + resourceURLModalArrayList.get(position).getPath().toLowerCase();
-                    url = url.replaceAll("\\s", "");
-                }
+        try {
+            viewHolder.binding.textHelpTitle.setText("" +context.getResources().getString(R.string.helpful_and_relevant_resources)+ " "+jobProfile);
+        } catch (Exception e) {
+        }
 
+        try {
+            if (resourceURLModalArrayList.get(position).getPath()
+                    .toLowerCase().contains("https://www.youtube.com/")) {
+                viewHolder.binding.ley.setVisibility(View.VISIBLE);
+                viewHolder.binding.viewNotYouTube.setVisibility(View.GONE);
+            } else {
+                viewHolder.binding.ley.setVisibility(View.GONE);
+                viewHolder.binding.viewNotYouTube.setVisibility(View.VISIBLE);
+            }
+        } catch (Exception e) {
+        }
+
+        viewHolder.binding.viewNotYouTube.setOnClickListener(v -> {
+            String url = "";
+            if (resourceURLModalArrayList.get(position).getPath().toLowerCase().contains("https") || resourceURLModalArrayList.get(position).getPath().toLowerCase().contains("http")) {
+                url = "" + resourceURLModalArrayList.get(position).getPath().toLowerCase();
+                url = url.replaceAll("\\s", "");
+            } else {
+                url = "https://" + resourceURLModalArrayList.get(position).getPath().toLowerCase();
+                url = url.replaceAll("\\s", "");
+            }
+
+            try {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.setPackage("com.android.chrome");
                 try {
-                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    intent.setPackage("com.android.chrome");
-                    try {
-                        context.startActivity(intent);
-                    } catch (ActivityNotFoundException ac) {
-                        // Chrome browser presumably not installed and open Kindle Browser
-                        intent.setPackage("com.amazon.cloud9");
-                        context.startActivity(intent);
-                    }
-                } catch (Exception e) {
+                    context.startActivity(intent);
+                } catch (ActivityNotFoundException ac) {
+                    // Chrome browser presumably not installed and open Kindle Browser
+                    intent.setPackage("com.amazon.cloud9");
+                    context.startActivity(intent);
                 }
+            } catch (Exception e) {
+            }
+        });
+
+        viewHolder.binding.ley.setOnClickListener(v -> {
+            String url = "";
+            if (resourceURLModalArrayList.get(position).getPath().toLowerCase().contains("https") || resourceURLModalArrayList.get(position).getPath().toLowerCase().contains("http")) {
+                url = "" + resourceURLModalArrayList.get(position).getPath().toLowerCase();
+                url = url.replaceAll("\\s", "");
+            } else {
+                url = "https://" + resourceURLModalArrayList.get(position).getPath().toLowerCase();
+                url = url.replaceAll("\\s", "");
+            }
+
+            try {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.setPackage("com.android.chrome");
+                try {
+                    context.startActivity(intent);
+                } catch (ActivityNotFoundException ac) {
+                    // Chrome browser presumably not installed and open Kindle Browser
+                    intent.setPackage("com.amazon.cloud9");
+                    context.startActivity(intent);
+                }
+            } catch (Exception e) {
             }
         });
 
 
-        viewHolder.binding.ivPlay.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                boolean contains = resourceURLModalArrayList.get(position).getPath()
-                        .toLowerCase().contains("https://www.youtube.com/");
+        viewHolder.binding.ivPlay.setOnClickListener(v -> {
+            boolean contains = resourceURLModalArrayList.get(position).getPath()
+                    .toLowerCase().contains("https://www.youtube.com/");
 
-                /*if (contains == false)
-                    context.startActivity(new Intent(context, PlayVideoActivity.class));
-                else {
-                    try {
-                        Intent intent = new Intent(Intent.ACTION_VIEW);
-                        intent.setData(Uri.parse(resourceURLModalArrayList.get(position).getPath()));
-                        context.startActivity(intent);
-                    } catch (Exception e) {
-                    }*/
+            /*if (contains == false)
+                context.startActivity(new Intent(context, PlayVideoActivity.class));
+            else {
+                try {
+                    Intent intent = new Intent(Intent.ACTION_VIEW);
+                    intent.setData(Uri.parse(resourceURLModalArrayList.get(position).getPath()));
+                    context.startActivity(intent);
+                } catch (Exception e) {
+                }*/
 
-                    ////new code
-                    String url = "";
-                    if (resourceURLModalArrayList.get(position).getPath().toLowerCase().contains("https") || resourceURLModalArrayList.get(position).getPath().toLowerCase().contains("http")) {
-                        url = "" + resourceURLModalArrayList.get(position).getPath().toLowerCase();
-                        url = url.replaceAll("\\s", "");
-                    } else {
-                        url = "https://" + resourceURLModalArrayList.get(position).getPath().toLowerCase();
-                        url = url.replaceAll("\\s", "");
-                    }
-
-                    try {
-                        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                        intent.setPackage("com.android.chrome");
-                        try {
-                            context.startActivity(intent);
-                        } catch (ActivityNotFoundException ac) {
-                            // Chrome browser presumably not installed and open Kindle Browser
-                            intent.setPackage("com.amazon.cloud9");
-                            context.startActivity(intent);
-                        }
-                    } catch (Exception e) {
-                    }
-
-                    /// end here
-
-
-
+            ////new code
+            String url = "";
+            if (resourceURLModalArrayList.get(position).getPath().toLowerCase().contains("https") || resourceURLModalArrayList.get(position).getPath().toLowerCase().contains("http")) {
+                url = "" + resourceURLModalArrayList.get(position).getPath().toLowerCase();
+                url = url.replaceAll("\\s", "");
+            } else {
+                url = "https://" + resourceURLModalArrayList.get(position).getPath().toLowerCase();
+                url = url.replaceAll("\\s", "");
             }
+
+            try {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.setPackage("com.android.chrome");
+                try {
+                    context.startActivity(intent);
+                } catch (ActivityNotFoundException ac) {
+                    // Chrome browser presumably not installed and open Kindle Browser
+                    intent.setPackage("com.amazon.cloud9");
+                    context.startActivity(intent);
+                }
+            } catch (Exception e) {
+            }
+
+            /// end here
+
+
         });
 
     }
