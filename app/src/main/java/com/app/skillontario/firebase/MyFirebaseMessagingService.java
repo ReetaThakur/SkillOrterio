@@ -161,11 +161,12 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         if (remoteMessage.getNotification().getTitle() != null)
             title = remoteMessage.getNotification().getTitle();
 
+
         NotificationCompat.Builder notificationBuilder =
                 new NotificationCompat.Builder(this, ADMIN_CHANNEL_ID)
                         .setLargeIcon(BitmapFactory.decodeResource(this.getResources(),
                                 R.mipmap.ic_launcher))
-                        .setSmallIcon(R.drawable.small_icon1)
+                        .setSmallIcon(R.drawable.ic_icon_new_logo)
                         .setBadgeIconType(NotificationCompat.BADGE_ICON_SMALL)
                         .setContentTitle(title)
                         .setContentText(remoteMessage.getNotification().getBody())
