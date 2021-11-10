@@ -74,7 +74,8 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> 
         }
 
         try {
-            viewHolder.binding.textHelpTitle.setText("" +context.getResources().getString(R.string.helpful_and_relevant_resources)+ " "+jobProfile);
+            viewHolder.binding.textHelpTitle.setText("" +context.getResources().getString(R.string.helpful_and_relevant_resources)+
+                    " "+context.getResources().getString(R.string.for1)+" "+jobProfile);
         } catch (Exception e) {
         }
 
