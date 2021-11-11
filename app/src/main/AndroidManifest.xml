@@ -14,6 +14,7 @@
     <uses-permission android:name="android.permission.WRITE_CALENDAR" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
 
 
     <application
@@ -324,9 +325,7 @@
           </service>-->
 
 
-        <meta-data
-            android:name="com.google.firebase.messaging.default_notification_icon"
-            android:resource="@mipmap/ic_launcher" />
+
 
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_channel_id"
@@ -337,6 +336,14 @@
         <meta-data
             android:name="firebase_analytics_collection_deactivated"
             android:value="true" />
+
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/ic_icon_new_logo" />
+        <!--Add notification icon here-->
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@color/notification_color" />
 
     </application>
 

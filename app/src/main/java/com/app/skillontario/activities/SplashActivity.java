@@ -143,7 +143,7 @@ public class SplashActivity extends BaseActivity {
                     typeClass = "";
                 }
 
-
+            Log.d("Sunny","  pending intent  "+typeClass);
                 try {
 
                     if (typeClass.equalsIgnoreCase("news")) {

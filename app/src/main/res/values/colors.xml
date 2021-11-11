@@ -27,6 +27,7 @@
     <color name="grey">#E5E5E5</color>
 
     <color name="darkGrey">#333333</color>
+    <color name="notification_color">#346ef6</color>
 
     <color name="backgroundColor">#F3F5F9</color>
     <color name="bookmark_color">#FFF0EF</color>
