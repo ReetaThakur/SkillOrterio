@@ -63,6 +63,7 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> 
         try {
             final String videoUrl = resourceURLModalArrayList.get(position).getPath();
             String videoId = videoUrl.split("v=")[1];
+            videoId = videoId.replaceAll("/", "");
             String thumbnailHq = "http://img.youtube.com/vi/" + videoId + "/hqdefault.jpg"; //high quality thumbnail
 
             // "http://img.youtube.com/vi/bDtxF7qSofg/hqdefault.jpg
@@ -94,11 +95,9 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> 
         viewHolder.binding.viewNotYouTube.setOnClickListener(v -> {
             String url = "";
             if (resourceURLModalArrayList.get(position).getPath().toLowerCase().contains("https") || resourceURLModalArrayList.get(position).getPath().toLowerCase().contains("http")) {
-                url = "" + resourceURLModalArrayList.get(position).getPath().toLowerCase();
-                url = url.replaceAll("\\s", "");
+                url = "" + resourceURLModalArrayList.get(position).getPath();
             } else {
-                url = "https://" + resourceURLModalArrayList.get(position).getPath().toLowerCase();
-                url = url.replaceAll("\\s", "");
+                url = "https://" + resourceURLModalArrayList.get(position).getPath();
             }
 
             try {
@@ -119,11 +118,9 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> 
         viewHolder.binding.ley.setOnClickListener(v -> {
             String url = "";
             if (resourceURLModalArrayList.get(position).getPath().toLowerCase().contains("https") || resourceURLModalArrayList.get(position).getPath().toLowerCase().contains("http")) {
-                url = "" + resourceURLModalArrayList.get(position).getPath().toLowerCase();
-                url = url.replaceAll("\\s", "");
+                url = resourceURLModalArrayList.get(position).getPath();
             } else {
-                url = "https://" + resourceURLModalArrayList.get(position).getPath().toLowerCase();
-                url = url.replaceAll("\\s", "");
+                url = "https://" + resourceURLModalArrayList.get(position).getPath();
             }
 
             try {
@@ -159,11 +156,9 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> 
             ////new code
             String url = "";
             if (resourceURLModalArrayList.get(position).getPath().toLowerCase().contains("https") || resourceURLModalArrayList.get(position).getPath().toLowerCase().contains("http")) {
-                url = "" + resourceURLModalArrayList.get(position).getPath().toLowerCase();
-                url = url.replaceAll("\\s", "");
+                url = "" + resourceURLModalArrayList.get(position).getPath();
             } else {
-                url = "https://" + resourceURLModalArrayList.get(position).getPath().toLowerCase();
-                url = url.replaceAll("\\s", "");
+                url = "https://" + resourceURLModalArrayList.get(position).getPath();
             }
 
             try {
