@@ -56,19 +56,16 @@ public class TermsOfServicesActivity extends BaseActivity {
 
     void setText() {
 
-        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    languageMethod(MySharedPreference.getInstance().getStringData(AppConstants.LANGUAGE));
-                    // binding.actionBar.tvTitle.setText(R.string.change_password);
-                    binding.title.setText(R.string.terms_of_services);
-                    binding.d1.setText(R.string.terms_text);
-                    binding.d2.setText(R.string.term1);
-                    binding.d3.setText(R.string.term1);
+        new Handler(Looper.getMainLooper()).postDelayed(() -> {
+            try {
+                languageMethod(MySharedPreference.getInstance().getStringData(AppConstants.LANGUAGE));
+                // binding.actionBar.tvTitle.setText(R.string.change_password);
+                binding.title.setText(R.string.terms_of_services);
+                binding.d1.setText(R.string.terms_text);
+                binding.d2.setText(R.string.term1);
+                binding.d3.setText(R.string.term1);
 
-                } catch (Exception e) {
-                }
+            } catch (Exception e) {
             }
         }, 70);
     }

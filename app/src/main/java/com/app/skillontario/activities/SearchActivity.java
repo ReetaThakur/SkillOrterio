@@ -47,8 +47,9 @@ public class SearchActivity extends BaseActivity implements ApiResponseErrorCall
     private SearchAdapter adapter;
     GetClickBookmark getClickBookmark;
     boolean isLoading = false, hasNext = false;
-    LinearLayoutManager linearLayoutManager;
     int pageNo = 1;
+    LinearLayoutManager linearLayoutManager;
+
 
     String searchString = "";
     String sector = "";
