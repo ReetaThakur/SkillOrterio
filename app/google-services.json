@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "823697011016",
+    "project_id": "skills-ontario-23722",
+    "storage_bucket": "skills-ontario-23722.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:823697011016:android:f1bb4958f57c277c70c37d",
+        "android_client_info": {
+          "package_name": "com.app.skillsontario"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "823697011016-hh4h8ibbhcd6phflvk3n1rratcluiaub.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA9mMPRSrZJ4mEymhw1be-fM4-6G5z0f9c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "823697011016-hh4h8ibbhcd6phflvk3n1rratcluiaub.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
