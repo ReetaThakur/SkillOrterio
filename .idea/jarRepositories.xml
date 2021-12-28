@@ -46,5 +46,10 @@
       <option name="name" value="maven4" />
       <option name="url" value="https://customers.pspdfkit.com/maven/" />
     </remote-repository>
+    <remote-repository>
+      <option name="id" value="BintrayJCenter" />
+      <option name="name" value="BintrayJCenter" />
+      <option name="url" value="http://jcenter.bintray.com/" />
+    </remote-repository>
   </component>
 </project>
