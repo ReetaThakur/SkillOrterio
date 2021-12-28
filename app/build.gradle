@@ -34,8 +34,8 @@ android {
         minSdkVersion 21
         multiDexEnabled true
         targetSdkVersion 30
-        versionCode 21
-        versionName "2.0.1"
+        versionCode 22
+        versionName "2.0.2"
         vectorDrawables.useSupportLibrary = true
         flavorDimensions "default"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -90,15 +90,15 @@ android {
     productFlavors {
 
         development {
-            //buildConfigField "String", "BASE_URL", '"http://ec2-13-234-249-108.ap-south-1.compute.amazonaws.com:3100/api/"' // old build
-            //  buildConfigField "String", "BASE_URL", '"http://ec2-3-99-57-179.ca-central-1.compute.amazonaws.com:3100/api/"'
             // buildConfigField "String", "BASE_URL", '"https://apiadskills.appstudiointernal.ca/api/"' // dev
             // buildConfigField "String", "BASE_URL", '"https://devapi.appskillsontario.com/api/"' // testing
             buildConfigField "String", "BASE_URL", '"https://api.appskillsontario.com/api/"'  // producation
+            //buildConfigField "String", "BASE_URL", '"http://skills-dev-8fffdc30f4bfb46c.elb.ca-central-1.amazonaws.com:3100/api/"'  // dev new URl
         }
 
 
         production {
+
             buildConfigField "String", "BASE_URL", '"https://api.appskillsontario.com/api/"'
         }
 
