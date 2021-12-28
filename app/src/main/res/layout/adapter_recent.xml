@@ -41,7 +41,7 @@
                         android:layout_gravity="center"
                         android:indeterminate="true"
                         android:indeterminateTint="@color/black"
-                        android:indeterminateTintMode="src_atop"></ProgressBar>
+                        android:indeterminateTintMode="src_atop" />
 
                     <ImageView
                         android:id="@+id/ivItem"
@@ -99,7 +99,7 @@
                 android:layout_height="1dp"
                 android:layout_marginLeft="@dimen/_16sdp"
                 android:layout_marginRight="@dimen/_16sdp"
-                android:background="@drawable/line1"></TextView>
+                android:background="@drawable/line1" />
 
             <LinearLayout
 

@@ -20,7 +20,7 @@
                 android:id="@+id/ivNoData"
                 android:layout_width="@dimen/_240sdp"
                 android:layout_height="@dimen/_240sdp"
-                android:src="@drawable/ic_n_data_resourse"
+                android:src="@drawable/no_data_resourse"
                 tools:ignore="ContentDescription" />
 
             <LinearLayout

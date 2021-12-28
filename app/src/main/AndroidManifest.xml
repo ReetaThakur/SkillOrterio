@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.app.skillorterio">
+    package="com.app.skillsontario">
 
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -18,7 +18,7 @@
 
 
     <application
-        android:name="com.app.skillontario.baseClasses.AppController"
+        android:name="com.app.skillsontario.baseClasses.AppController"
         android:allowBackup="true"
         android:hardwareAccelerated="true"
         android:icon="@mipmap/ic_launcher"
@@ -28,143 +28,144 @@
         android:supportsRtl="true"
         android:theme="@style/ActivityThemes"
         android:usesCleartextTraffic="true"
+        android:largeHeap="true"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
-            android:name="com.app.skillontario.activities.WebViewActivity"
+            android:name="com.app.skillsontario.activities.WebViewActivity"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name="com.app.skillontario.activities.PlayVideoActivity"
+            android:name="com.app.skillsontario.activities.PlayVideoActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.app.skillontario.activities.JobDetailsActivity"
+            android:name="com.app.skillsontario.activities.JobDetailsActivity"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name="com.app.skillontario.activities.ResourcesDetailsActivity"
+            android:name="com.app.skillsontario.activities.ResourcesDetailsActivity"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name="com.app.skillontario.activities.ScholarOneAc"
+            android:name="com.app.skillsontario.activities.ScholarOneAc"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name="com.app.skillontario.activities.ScholarDetailAc"
+            android:name="com.app.skillsontario.activities.ScholarDetailAc"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name="com.app.skillontario.activities.BookmarkAc"
+            android:name="com.app.skillsontario.activities.BookmarkAc"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name="com.app.skillontario.BottomBarActivity"
+            android:name="com.app.skillsontario.BottomBarActivity"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name="com.app.skillontario.activities.TakeQuizActivity"
+            android:name="com.app.skillsontario.activities.TakeQuizActivity"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name="com.app.skillontario.activities.ContactUsAc"
+            android:name="com.app.skillsontario.activities.ContactUsAc"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name="com.app.skillontario.activities.EditProfileAc"
+            android:name="com.app.skillsontario.activities.EditProfileAc"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name="com.app.skillontario.activities.NewsDetailAc"
+            android:name="com.app.skillsontario.activities.NewsDetailAc"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name="com.app.skillontario.quiz.QuizStepAc"
+            android:name="com.app.skillsontario.quiz.QuizStepAc"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name="com.app.skillontario.quiz.TakeQuizAc"
+            android:name="com.app.skillsontario.quiz.TakeQuizAc"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name="com.app.skillontario.activities.SearchActivity"
+            android:name="com.app.skillsontario.activities.SearchActivity"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name="com.app.skillontario.activities.NotificationActivity"
+            android:name="com.app.skillsontario.activities.NotificationActivity"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name="com.app.skillontario.activities.PartnersActivity"
+            android:name="com.app.skillsontario.activities.PartnersActivity"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name="com.app.skillontario.quiz.QuizAc"
+            android:name="com.app.skillsontario.quiz.QuizAc"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.app.skillontario.home.HomeFilterActivity"
+            android:name="com.app.skillsontario.home.HomeFilterActivity"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name="com.app.skillontario.MainActivity"
+            android:name="com.app.skillsontario.MainActivity"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name="com.app.skillontario.activities.SettingActivity"
+            android:name="com.app.skillsontario.activities.SettingActivity"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name="com.app.skillontario.activities.HelpActivity"
+            android:name="com.app.skillsontario.activities.HelpActivity"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name="com.app.skillontario.activities.FeedBackActivity"
+            android:name="com.app.skillsontario.activities.FeedBackActivity"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name="com.app.skillontario.SignIn.ChangePasswordActivity"
+            android:name="com.app.skillsontario.SignIn.ChangePasswordActivity"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name="com.app.skillontario.SignIn.EmailSentActivity"
+            android:name="com.app.skillsontario.SignIn.EmailSentActivity"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name="com.app.skillontario.SignIn.ResetPasswordActivity"
+            android:name="com.app.skillsontario.SignIn.ResetPasswordActivity"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name="com.app.skillontario.SignIn.SignInActivity"
+            android:name="com.app.skillsontario.SignIn.SignInActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name="com.app.skillontario.SignIn.WelcomeActivity"
+            android:name="com.app.skillsontario.SignIn.WelcomeActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
             android:theme="@style/FullScreenWithStatus"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name="com.app.skillontario.activities.PrivacyPolicyActivity"
+            android:name="com.app.skillsontario.activities.PrivacyPolicyActivity"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name="com.app.skillontario.activities.TermsOfServicesActivity"
+            android:name="com.app.skillsontario.activities.TermsOfServicesActivity"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name="com.app.skillontario.signup.SignUpActivity"
+            android:name="com.app.skillsontario.signup.SignUpActivity"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name="com.app.skillontario.activities.SelectRoleActivity"
+            android:name="com.app.skillsontario.activities.SelectRoleActivity"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name="com.app.skillontario.activities.SelectLanguage"
+            android:name="com.app.skillsontario.activities.SelectLanguage"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name="com.app.skillontario.activities.SplashActivity"
+            android:name="com.app.skillsontario.activities.SplashActivity"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity">
             <intent-filter>
@@ -232,8 +233,8 @@
             android:value="false" />
 
         <provider
-            android:name="com.app.skillontario.utils.GenericFileProvider"
-            android:authorities="com.app.skillorterio.provider"
+            android:name="com.app.skillsontario.utils.GenericFileProvider"
+            android:authorities="com.app.skillsontario.provider"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data
@@ -243,7 +244,7 @@
 
 
         <receiver
-            android:name="com.app.skillontario.firebase.NotificationReceiver"
+            android:name="com.app.skillsontario.firebase.NotificationReceiver"
             android:exported="true"
             android:permission="com.google.android.c2dm.permission.SEND">
             <intent-filter>
@@ -253,9 +254,9 @@
 
 
         <activity
-            android:name="com.app.skillontario.activities.DeepLinkActivity"
+            android:name="com.app.skillsontario.activities.DeepLinkActivity"
             android:label="@string/app_name">
-            <intent-filter android:label="com.app.skillorterio">
+            <intent-filter android:label="com.app.skillsontario">
                 <action android:name="android.intent.action.VIEW" />
 
                 <category android:name="android.intent.category.DEFAULT" />
@@ -266,7 +267,7 @@
                     android:scheme="http" />
                 <!-- note that the leading "/" is required for pathPrefix-->
             </intent-filter>
-            <intent-filter android:label="com.app.skillorterio">
+            <intent-filter android:label="com.app.skillsontario">
                 <action android:name="android.intent.action.VIEW" />
 
                 <category android:name="android.intent.category.DEFAULT" />
@@ -297,7 +298,7 @@
 
 
         <receiver
-            android:name="com.app.skillontario.firebase.FirebaseBroadcastReceiver"
+            android:name="com.app.skillsontario.firebase.FirebaseBroadcastReceiver"
             android:directBootAware="true"
             android:exported="true"
             android:permission="com.google.android.c2dm.permission.SEND">
@@ -307,7 +308,7 @@
         </receiver>
 
         <service
-            android:name="com.app.skillontario.firebase.MyFirebaseMessagingService"
+            android:name="com.app.skillsontario.firebase.MyFirebaseMessagingService"
             android:exported="true"
             android:permission="com.google.android.c2dm.permission.SEND">
             <intent-filter>

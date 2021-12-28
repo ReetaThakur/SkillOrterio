@@ -6,9 +6,9 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="com.app.skillontario.BottomBarActivity">
+        tools:context="com.app.skillsontario.BottomBarActivity">
 
-        <com.app.skillontario.customUi.CustomViewPager
+        <com.app.skillsontario.customUi.CustomViewPager
             android:id="@+id/view_pager"
             android:layout_width="0dp"
             android:layout_height="0dp"

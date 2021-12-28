@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.SkillOrterio" parent="Theme.MaterialComponents.Light.DarkActionBar">
+    <style name="Theme.skillsontario" parent="Theme.MaterialComponents.Light.DarkActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/purple_500</item>
 
@@ -9,14 +9,14 @@
         <!-- Customize your theme here. -->
     </style>
 
-    <style name="Theme.SkillOrterio.NoActionBar">
+    <style name="Theme.skillsontario.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="Theme.SkillOrterio.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="Theme.skillsontario.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
-    <style name="Theme.SkillOrterio.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="Theme.skillsontario.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
     <color name="purple_200">#c800c8</color>
     <color name="purple_500">#9C27B0</color>

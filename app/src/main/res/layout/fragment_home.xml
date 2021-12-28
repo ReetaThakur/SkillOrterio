@@ -2,7 +2,7 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.app.skillontario.home.HomeFragment">
+    tools:context="com.app.skillsontario.home.HomeFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -28,7 +28,7 @@
                     android:layout_width="@dimen/_144sdp"
                     android:layout_height="@dimen/_59sdp"
                     android:scaleType="fitStart"
-                    android:src="@drawable/skills_logo"></ImageView>
+                    android:src="@drawable/skills_logo"/>
 
                 <TextView
                     android:id="@+id/tv_findDream"
@@ -40,7 +40,7 @@
                     android:fontFamily="@font/poppins_medium"
                     android:text="@string/find_your_dream_career"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/_14sdp"></TextView>
+                    android:textSize="@dimen/_14sdp"/>
 
                 <RelativeLayout
                     android:id="@+id/lk"
@@ -55,7 +55,7 @@
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
                         android:padding="@dimen/_10sdp"
-                        android:src="@drawable/ic_notification_home"></ImageView>
+                        android:src="@drawable/ic_notification_home"/>
 
                     <TextView
                         android:id="@+id/tv_notification_count"
@@ -67,7 +67,7 @@
                         android:fontFamily="@font/poppins_semi_bold"
                         android:text=""
                         android:textColor="@color/red"
-                        android:textSize="@dimen/_9sdp"></TextView>
+                        android:textSize="@dimen/_9sdp"/>
                 </RelativeLayout>
             </RelativeLayout>
 
@@ -94,7 +94,7 @@
                         android:layout_marginLeft="@dimen/_6sdp"
                         android:padding="@dimen/_10sdp"
                         android:src="@drawable/ic_search"
-                        app:tint="#D3E3ED"></ImageView>
+                        app:tint="#D3E3ED"/>
 
                     <TextView
                         android:id="@+id/tv_search"
@@ -104,7 +104,7 @@
                         android:layout_toRightOf="@+id/im"
                         android:text="@string/Search_careers"
                         android:textColor="@color/black"
-                        android:textSize="@dimen/_12sdp"></TextView>
+                        android:textSize="@dimen/_12sdp"/>
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -120,7 +120,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
-                        android:src="@drawable/ic_search_white"></ImageView>
+                        android:src="@drawable/ic_search_white"/>
 
                 </RelativeLayout>
 
@@ -154,7 +154,7 @@
                         android:fontFamily="@font/poppins_medium"
                         android:text="@string/Popular_Careers"
                         android:textColor="#3E454A"
-                        android:textSize="@dimen/_11sdp"></TextView>
+                        android:textSize="@dimen/_11sdp"/>
 
 
                     <androidx.recyclerview.widget.RecyclerView
@@ -166,7 +166,7 @@
                         android:orientation="horizontal"
                         android:scrollbars="none"
                         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                        app:reverseLayout="false"></androidx.recyclerview.widget.RecyclerView>
+                        app:reverseLayout="false"/>
 
 
                     <androidx.cardview.widget.CardView
@@ -191,7 +191,7 @@
                                 android:layout_height="match_parent"
                                 android:layout_weight="0.9"
                                 android:background="@drawable/home_nds"
-                                android:scaleType="centerCrop"></ImageView>
+                                android:scaleType="centerCrop"/>
 
                             <RelativeLayout
                                 android:layout_width="match_parent"
@@ -208,7 +208,7 @@
                                     android:maxLines="2"
                                     android:text="@string/discover_a_suitable_career"
                                     android:textColor="@color/white"
-                                    android:textSize="@dimen/_14sdp"></me.grantland.widget.AutofitTextView>
+                                    android:textSize="@dimen/_14sdp"/>
 
 
                                 <RelativeLayout
@@ -232,7 +232,7 @@
                                         android:maxLines="2"
                                         android:text="@string/take_quiz"
                                         android:textColor="@color/white"
-                                        android:textSize="@dimen/_10sdp"></TextView>
+                                        android:textSize="@dimen/_10sdp"/>
                                 </RelativeLayout>
                             </RelativeLayout>
                         </LinearLayout>
@@ -248,7 +248,7 @@
                         android:fontFamily="@font/poppins_medium"
                         android:text="@string/Recent_Events"
                         android:textColor="#3E454A"
-                        android:textSize="@dimen/_11sdp"></TextView>
+                        android:textSize="@dimen/_11sdp"/>
 
 
                     <androidx.recyclerview.widget.RecyclerView
@@ -261,7 +261,7 @@
                         android:orientation="horizontal"
                         android:scrollbars="none"
                         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                        app:reverseLayout="false"></androidx.recyclerview.widget.RecyclerView>
+                        app:reverseLayout="false"/>
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -276,7 +276,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="158dp"
                             android:scaleType="fitXY"
-                            android:src="@drawable/group12"></ImageView>
+                            android:src="@drawable/group12"/>
 
                         <TextView
                             android:id="@+id/tvExplore"
@@ -290,7 +290,7 @@
                             android:paddingRight="@dimen/_10sdp"
                             android:text="@string/explore"
                             android:textColor="@color/white"
-                            android:textSize="@dimen/_10sdp"></TextView>
+                            android:textSize="@dimen/_10sdp"/>
 
                         <TextView
                             android:id="@+id/tv_opp"
@@ -304,7 +304,7 @@
                             android:text="@string/opportunities_amp_scholarships"
                             android:textColor="@color/black"
                             android:textSize="@dimen/_12sdp"
-                            android:visibility="visible"></TextView>
+                            android:visibility="visible"/>
 
                     </RelativeLayout>
 
@@ -317,7 +317,7 @@
                         android:fontFamily="@font/poppins_medium"
                         android:text="@string/Recent_News"
                         android:textColor="#3E454A"
-                        android:textSize="@dimen/_11sdp"></TextView>
+                        android:textSize="@dimen/_11sdp"/>
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/recy_news"
@@ -329,7 +329,7 @@
                         android:orientation="horizontal"
                         android:scrollbars="none"
                         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                        app:reverseLayout="false"></androidx.recyclerview.widget.RecyclerView>
+                        app:reverseLayout="false"/>
 
 
                 </LinearLayout>
