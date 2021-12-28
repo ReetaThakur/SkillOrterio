@@ -30,7 +30,7 @@ android {
     buildToolsVersion "30.0.2"
 
     defaultConfig {
-        applicationId "com.app.skillorterio"
+        applicationId "com.app.skillsontario"
         minSdkVersion 21
         multiDexEnabled true
         targetSdkVersion 30
@@ -52,6 +52,24 @@ android {
             keyPassword 'maxsold@12'
             storeFile file('../keystore.jks')
             storePassword 'maxsold@12'
+        }
+    }
+
+    bundle {
+        language {
+            // Specifies that the app bundle should not support
+            // configuration APKs for language resources. These
+            // resources are instead packaged with each base and
+            // dynamic feature APK.
+            enableSplit = false
+        }
+        density {
+            // This property is set to true by default.
+            enableSplit = true
+        }
+        abi {
+            // This property is set to true by default.
+            enableSplit = true
         }
     }
 
