@@ -52,16 +52,13 @@ public class SettingActivity extends BaseActivity implements ApiResponseErrorCal
         }
 
         binding.actionBar.tvTitle.setText(R.string.settings);
-        binding.actionBar.ivBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (language) {
-                    manageBackPressed();
-                } else {
-                    onBackPressed();
-                }
-                //onBackPressed();
+        binding.actionBar.ivBack.setOnClickListener(v -> {
+            if (language) {
+                manageBackPressed();
+            } else {
+                onBackPressed();
             }
+            //onBackPressed();
         });
 
         binding.lPrivacy.setOnClickListener(v -> startActivity(new Intent(SettingActivity.this, PrivacyPolicyActivity.class)));
@@ -121,18 +118,15 @@ public class SettingActivity extends BaseActivity implements ApiResponseErrorCal
             setText();
         });
 
-        binding.cvLogout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (MySharedPreference.getInstance().getBooleanData(GUEST_FLOW)) {
-                    try {
-                        Utils.guestMethod(SettingActivity.this, "setting");
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                } else
-                    loguot();
-            }
+        binding.cvLogout.setOnClickListener(v -> {
+            if (MySharedPreference.getInstance().getBooleanData(GUEST_FLOW)) {
+                try {
+                    Utils.guestMethod(SettingActivity.this, "setting");
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            } else
+                loguot();
         });
 
 
@@ -248,80 +242,74 @@ public class SettingActivity extends BaseActivity implements ApiResponseErrorCal
 
         if (lang != null) {
             if (lang.isEmpty()) {
-
                 updatLocalLanguage("en", getBaseContext());
 
             } else {
-
                 updatLocalLanguage(lang, getBaseContext());
             }
         } else {
-
             updatLocalLanguage("en", getBaseContext());
         }
     }
 
     void setText() {
 
-        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    languageMethod(MySharedPreference.getInstance().getStringData(AppConstants.LANGUAGE));
-                    binding.actionBar.tvTitle.setText(R.string.settings);
-                    binding.tvNotification.setText(R.string.notification);
-                    binding.tvChangePassword.setText(R.string.change_password);
-                    binding.tvLanguage1.setText(R.string.language);
-                    binding.tvSettingEnglish.setText(R.string.english);
-                    binding.tvSettingFrench.setText(R.string.fran_ais);
-                    binding.tvTermsOfService.setText(R.string.terms_of_service);
-                    binding.tvFeedback.setText(R.string.feedback);
-                    binding.tvPrivacyPolicy.setText(R.string.privacy_policy);
-                    binding.tvContactUs.setText(R.string.contact_us);
-                    //binding.tvLogout.setText(R.string.logout);
-                } catch (Exception e) {
-                }
-
-                try {
-                    if (MySharedPreference.getInstance().getBooleanData(GUEST_FLOW)) {
-                        //binding.cvLogout.setVisibility(View.GONE);
-                        binding.tvLogout.setText(R.string.sign_up);
-                        binding.lChangePassword.setVisibility(View.GONE);
-                    } else {
-                        binding.tvLogout.setText(R.string.logout);
-                        binding.cvLogout.setVisibility(View.VISIBLE);
-                        binding.lChangePassword.setVisibility(View.VISIBLE);
-                    }
-                } catch (Exception e) {
-                }
-
-                try {
-                    if (MySharedPreference.getInstance().getStringData(AppConstants.LANGUAGE).equalsIgnoreCase("en")) {
-                        binding.tvSettingEnglish.setTextColor(Color.parseColor("#ffffff"));
-                        binding.tvSettingFrench.setTextColor(Color.parseColor("#000000"));
-                        binding.tvSettingEnglish.setBackgroundResource(R.drawable.ic_lang_rectangle);
-                        binding.tvSettingFrench.setBackgroundResource(R.drawable.ic_lang_rectangle_transparent);
-                    } else {
-                        binding.tvSettingEnglish.setTextColor(Color.parseColor("#000000"));
-                        binding.tvSettingFrench.setTextColor(Color.parseColor("#ffffff"));
-                        binding.tvSettingFrench.setBackgroundResource(R.drawable.ic_lang_rectangle);
-                        binding.tvSettingEnglish.setBackgroundResource(R.drawable.ic_lang_rectangle_transparent);
-                    }
-                } catch (Exception e) {
-                }
-
-                try {
-
-                    if (MySharedPreference.getInstance().getBooleanData(SharedPrefsConstants.NOTIFICATION_ON_OFF)) {
-                        binding.ivNotification.setImageResource(R.drawable.ic_notification_on);
-                    } else {
-                        binding.ivNotification.setImageResource(R.drawable.ic_notification_off);
-                    }
-                } catch (Exception e) {
-                }
-
-
+        new Handler(Looper.getMainLooper()).postDelayed(() -> {
+            try {
+                languageMethod(MySharedPreference.getInstance().getStringData(AppConstants.LANGUAGE));
+                binding.actionBar.tvTitle.setText(R.string.settings);
+                binding.tvNotification.setText(R.string.notification);
+                binding.tvChangePassword.setText(R.string.change_password);
+                binding.tvLanguage1.setText(R.string.language);
+                binding.tvSettingEnglish.setText(R.string.english);
+                binding.tvSettingFrench.setText(R.string.fran_ais);
+                binding.tvTermsOfService.setText(R.string.terms_of_service);
+                binding.tvFeedback.setText(R.string.feedback);
+                binding.tvPrivacyPolicy.setText(R.string.privacy_policy);
+                binding.tvContactUs.setText(R.string.contact_us);
+                //binding.tvLogout.setText(R.string.logout);
+            } catch (Exception e) {
             }
+
+            try {
+                if (MySharedPreference.getInstance().getBooleanData(GUEST_FLOW)) {
+                    //binding.cvLogout.setVisibility(View.GONE);
+                    binding.tvLogout.setText(R.string.sign_up);
+                    binding.lChangePassword.setVisibility(View.GONE);
+                } else {
+                    binding.tvLogout.setText(R.string.logout);
+                    binding.cvLogout.setVisibility(View.VISIBLE);
+                    binding.lChangePassword.setVisibility(View.VISIBLE);
+                }
+            } catch (Exception e) {
+            }
+
+            try {
+                if (MySharedPreference.getInstance().getStringData(AppConstants.LANGUAGE).equalsIgnoreCase("en")) {
+                    binding.tvSettingEnglish.setTextColor(Color.parseColor("#ffffff"));
+                    binding.tvSettingFrench.setTextColor(Color.parseColor("#000000"));
+                    binding.tvSettingEnglish.setBackgroundResource(R.drawable.ic_lang_rectangle);
+                    binding.tvSettingFrench.setBackgroundResource(R.drawable.ic_lang_rectangle_transparent);
+                } else {
+                    binding.tvSettingEnglish.setTextColor(Color.parseColor("#000000"));
+                    binding.tvSettingFrench.setTextColor(Color.parseColor("#ffffff"));
+                    binding.tvSettingFrench.setBackgroundResource(R.drawable.ic_lang_rectangle);
+                    binding.tvSettingEnglish.setBackgroundResource(R.drawable.ic_lang_rectangle_transparent);
+                }
+            } catch (Exception e) {
+            }
+
+            try {
+
+                if (MySharedPreference.getInstance().getBooleanData(SharedPrefsConstants.NOTIFICATION_ON_OFF)) {
+                    binding.ivNotification.setImageResource(R.drawable.ic_notification_on);
+                } else {
+                    binding.ivNotification.setImageResource(R.drawable.ic_notification_off);
+                }
+            } catch (Exception e) {
+            }
+
+
         }, 70);
     }
 
