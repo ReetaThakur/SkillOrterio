@@ -741,7 +741,7 @@ identify as female</string>
     <string name="sign_result">Please sign in/sign up to use this feature.</string>
     <string name="sign_result1">We recommend that you create an account to save your quiz results! Otherwise, you may continue as a guest.</string>
 
-
+    <string name="temp">Temp</string>
     <!--<string name="Popular_Careers">Carrières populaires </string>
     <string name="Recent_Events">Événements</string>
     <string name="Search_careers">Search careers</string>-->
