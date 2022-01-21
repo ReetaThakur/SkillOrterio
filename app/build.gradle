@@ -35,7 +35,7 @@ android {
         multiDexEnabled true
         targetSdkVersion 30
         versionCode 3
-        versionName "1.0.3"
+        versionName "1.0.4"
         vectorDrawables.useSupportLibrary = true
         flavorDimensions "default"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"

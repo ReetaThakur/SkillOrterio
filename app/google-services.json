@@ -1,34 +1,50 @@
 {
   "project_info": {
-    "project_number": "823697011016",
-    "project_id": "skills-ontario-23722",
-    "storage_bucket": "skills-ontario-23722.appspot.com"
+    "project_number": "984938404827",
+    "project_id": "skills-ontario-d7f52",
+    "storage_bucket": "skills-ontario-d7f52.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:823697011016:android:f1bb4958f57c277c70c37d",
+        "mobilesdk_app_id": "1:984938404827:android:63cd31d28503842b29e5fe",
         "android_client_info": {
           "package_name": "com.app.skillsontario"
         }
       },
       "oauth_client": [
         {
-          "client_id": "823697011016-hh4h8ibbhcd6phflvk3n1rratcluiaub.apps.googleusercontent.com",
+          "client_id": "984938404827-nra5gtf27kvete7gg02kb6jtkp4mnktl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.app.skillsontario",
+            "certificate_hash": "cd2e811b233e70ebac519917280ebc166cd1acfd"
+          }
+        },
+        {
+          "client_id": "984938404827-v2v5qulnguhd9vu5gs70421utk1ent6p.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyA9mMPRSrZJ4mEymhw1be-fM4-6G5z0f9c"
+          "current_key": "AIzaSyDIvVDGPBHuxppgjIVlwidC7JchFnD_cS4"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "823697011016-hh4h8ibbhcd6phflvk3n1rratcluiaub.apps.googleusercontent.com",
+              "client_id": "984938404827-v2v5qulnguhd9vu5gs70421utk1ent6p.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "984938404827-nd58hoa6g4ms6f6mociqpt0hupp3e57q.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.appstudio.Yash.Skills-Ontario",
+                "app_store_id": "1580684347"
+              }
             }
           ]
         }
