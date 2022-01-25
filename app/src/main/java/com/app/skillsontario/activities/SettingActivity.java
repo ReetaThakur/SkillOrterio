@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Handler;
 import android.os.Looper;
+import android.util.Log;
 import android.view.View;
 
 import com.app.skillsontario.BottomBarActivity;
@@ -175,7 +176,17 @@ public class SettingActivity extends BaseActivity implements ApiResponseErrorCal
                     showToast(responseModel.getMessage());
                     //languageMethod();
                     String lang = MySharedPreference.getInstance().getStringData(AppConstants.LANGUAGE);
-                    fcm = MySharedPreference.getInstance().getStringData(FIREBASE_TOKEN);
+
+
+                    if (MySharedPreference.getInstance().getStringData(FIREBASE_TOKEN) != null) {
+                        if (MySharedPreference.getInstance().getStringData(FIREBASE_TOKEN).equalsIgnoreCase("")) {
+
+                        } else {
+                            fcm = MySharedPreference.getInstance().getStringData(FIREBASE_TOKEN);
+                        }
+                    }
+
+                    Log.d("Sunny", " fcm tokn  " + fcm);
                     MySharedPreference.getInstance().clearSharedPrefs();
                     MySharedPreference.getInstance().setBooleanData(IS_WALK_THROUGH, true);
                     MySharedPreference.getInstance().setStringData(FIREBASE_TOKEN, fcm);
@@ -270,6 +281,7 @@ public class SettingActivity extends BaseActivity implements ApiResponseErrorCal
                 //binding.tvLogout.setText(R.string.logout);
             } catch (Exception e) {
             }
+
 
             try {
                 if (MySharedPreference.getInstance().getBooleanData(GUEST_FLOW)) {
