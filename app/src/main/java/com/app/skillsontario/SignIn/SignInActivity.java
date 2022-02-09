@@ -20,6 +20,7 @@ import com.app.skillsontario.apiConnection.ApiResponseErrorCallback;
 import com.app.skillsontario.apiConnection.RequestBodyGenerator;
 import com.app.skillsontario.baseClasses.BaseActivity;
 import com.app.skillsontario.baseClasses.BaseResponseModel;
+import com.app.skillsontario.baseClasses.CrashLogger;
 import com.app.skillsontario.constants.SharedPrefsConstants;
 import com.app.skillsontario.databinding.ActivitySignInBinding;
 import com.app.skillsontario.models.RegistrationModal;
@@ -94,6 +95,12 @@ public class SignInActivity extends BaseActivity implements ApiResponseErrorCall
                     }
                     callSignInApi(binding.etMail.getText().toString().trim(), binding.etPassword.getText().toString().trim(), usertype);
 
+                    try {
+                        CrashLogger.INSTANCE.trackEventsFirebase("Sign_In_User", "SignInActivity");
+                    } catch (Exception e) {
+                    }
+
+
                 }
             }
         });
@@ -125,6 +132,10 @@ public class SignInActivity extends BaseActivity implements ApiResponseErrorCall
                 API_INTERFACE.registerUser(RequestBodyGenerator.registerUser(signUpModel, getDeviceId(SignInActivity.this), "4")).enqueue(
                         new ApiCallBack<>(SignInActivity.this, apiResponseErrorCallback, 01, true));
 
+                try {
+                    CrashLogger.INSTANCE.trackEventsFirebase("Continue_as_guest_User", "SignInActivity");
+                } catch (Exception e) {
+                }
             }
         });
 

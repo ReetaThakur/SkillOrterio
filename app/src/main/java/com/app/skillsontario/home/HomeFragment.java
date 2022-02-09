@@ -148,12 +148,9 @@ public class HomeFragment extends BaseFragment implements ApiResponseErrorCallba
     }
 
     void refreshBookmark() {
-        binding.refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                binding.refreshLayout.setRefreshing(true);
-                callAPI(false);
-            }
+        binding.refreshLayout.setOnRefreshListener(() -> {
+            binding.refreshLayout.setRefreshing(true);
+            callAPI(false);
         });
     }
 

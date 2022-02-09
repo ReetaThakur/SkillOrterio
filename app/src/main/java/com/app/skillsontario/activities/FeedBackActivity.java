@@ -18,6 +18,7 @@ import com.app.skillsontario.apiConnection.ApiCallBack;
 import com.app.skillsontario.apiConnection.ApiResponseErrorCallback;
 import com.app.skillsontario.baseClasses.BaseActivity;
 import com.app.skillsontario.baseClasses.BaseResponseModel;
+import com.app.skillsontario.baseClasses.CrashLogger;
 import com.app.skillsontario.constants.AppConstants;
 import com.app.skillsontario.constants.SharedPrefsConstants;
 import com.app.skillsontario.databinding.ActivityFeedBackBinding;
@@ -104,6 +105,10 @@ public class FeedBackActivity extends BaseActivity implements ApiResponseErrorCa
                                 object.put("message", binding.etMessage.getText().toString().trim());
                                 CallApi(object);
                                 dialog.dismiss();
+
+                                try {
+                                    CrashLogger.INSTANCE.trackEventsFirebase("Users_Giving_The_Feedback", "FeedBackActivity");
+                                }catch (Exception e){}
                             }
                         });
                         dialog.show();

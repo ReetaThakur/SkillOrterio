@@ -16,6 +16,7 @@ import com.app.skillsontario.apiConnection.ApiResponseErrorCallback;
 import com.app.skillsontario.apiConnection.RequestBodyGenerator;
 import com.app.skillsontario.baseClasses.BaseActivity;
 import com.app.skillsontario.baseClasses.BaseResponseModel;
+import com.app.skillsontario.baseClasses.CrashLogger;
 import com.app.skillsontario.constants.AppConstants;
 import com.app.skillsontario.constants.SharedPrefsConstants;
 import com.app.skillsontario.databinding.ActivitySettingBinding;
@@ -81,10 +82,19 @@ public class SettingActivity extends BaseActivity implements ApiResponseErrorCal
                 MySharedPreference.getInstance().setBooleanData(SharedPrefsConstants.NOTIFICATION_ON_OFF, false);
                 updateNotification("0", MySharedPreference.getInstance().getStringData(SharedPrefsConstants.LANGUAGE_API));
                 binding.ivNotification.setImageResource(R.drawable.ic_notification_off);
+
+                try {
+                    CrashLogger.INSTANCE.trackEventsFirebase("Turned_Off_Notification", "SettingActivity");
+                } catch (Exception e) {
+                }
             } else {
                 updateNotification("1", MySharedPreference.getInstance().getStringData(SharedPrefsConstants.LANGUAGE_API));
                 binding.ivNotification.setImageResource(R.drawable.ic_notification_on);
                 MySharedPreference.getInstance().setBooleanData(SharedPrefsConstants.NOTIFICATION_ON_OFF, true);
+                try {
+                    CrashLogger.INSTANCE.trackEventsFirebase("Turned_On_Notification", "SettingActivity");
+                } catch (Exception e) {
+                }
             }
 
         });
@@ -103,6 +113,12 @@ public class SettingActivity extends BaseActivity implements ApiResponseErrorCal
             updateLanguage("eng");
 
             setText();
+
+
+            try {
+                CrashLogger.INSTANCE.trackEventsFirebase("English_Language_Select", "SettingActivity");
+            } catch (Exception e) {
+            }
         });
 
         binding.tvSettingFrench.setOnClickListener(v -> {
@@ -117,6 +133,11 @@ public class SettingActivity extends BaseActivity implements ApiResponseErrorCal
             languageMethod(MySharedPreference.getInstance().getStringData(AppConstants.LANGUAGE));
             updateLanguage("fre");
             setText();
+
+            try {
+                CrashLogger.INSTANCE.trackEventsFirebase("French_Language_Select", "SettingActivity");
+            } catch (Exception e) {
+            }
         });
 
         binding.cvLogout.setOnClickListener(v -> {
@@ -247,6 +268,11 @@ public class SettingActivity extends BaseActivity implements ApiResponseErrorCal
     private void loguot() {
         API_INTERFACE.logout(RequestBodyGenerator.Logout(MySharedPreference.getInstance().getStringData(USER_ID))).enqueue(
                 new ApiCallBack<>(SettingActivity.this, this, 10, true));
+
+        try {
+            CrashLogger.INSTANCE.trackEventsFirebase("User_Logout", "SettingActivity");
+        } catch (Exception e) {
+        }
     }
 
     private void languageMethod(String lang) {

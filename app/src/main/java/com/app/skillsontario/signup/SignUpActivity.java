@@ -25,6 +25,7 @@ import com.app.skillsontario.apiConnection.ApiResponseErrorCallback;
 import com.app.skillsontario.apiConnection.RequestBodyGenerator;
 import com.app.skillsontario.baseClasses.BaseActivity;
 import com.app.skillsontario.baseClasses.BaseResponseModel;
+import com.app.skillsontario.baseClasses.CrashLogger;
 import com.app.skillsontario.constants.AppConstants;
 import com.app.skillsontario.constants.SharedPrefsConstants;
 import com.app.skillsontario.databinding.ActivitySignUpBinding;
@@ -220,6 +221,10 @@ public class SignUpActivity extends BaseActivity implements ApiResponseErrorCall
                 API_INTERFACE.registerUser(RequestBodyGenerator.registerUser(signUpModel, getDeviceId(SignUpActivity.this), "4")).enqueue(
                         new ApiCallBack<>(SignUpActivity.this, apiResponseErrorCallback, 11, true));
 
+                try {
+                    CrashLogger.INSTANCE.trackEventsFirebase("Continue_as_guest_User", "SignUpActivity");
+                } catch (Exception e) {
+                }
             }
         });
 

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.view.View;
 
 import com.app.skillsontario.R;
+import com.app.skillsontario.baseClasses.CrashLogger;
 import com.app.skillsontario.databinding.ActivityPartnersBinding;
 import com.app.skillsontario.models.PartnerModal;
 import com.app.skillsontario.models.PlatinumModal;
@@ -57,6 +58,10 @@ public class PartnersActivity extends BaseActivity implements ApiResponseErrorCa
 
         binding.actionBar.ivBack.setOnClickListener(v -> onBackPressed());
 
+        try {
+            CrashLogger.INSTANCE.trackEventsFirebase("View_Page_Partner", "PartnerActivity");
+        } catch (Exception e) {
+        }
     }
 
     private void showRecycler() {

@@ -14,6 +14,7 @@ import com.app.skillsontario.apiConnection.ApiResponseErrorCallback;
 import com.app.skillsontario.apiConnection.RequestBodyGenerator;
 import com.app.skillsontario.baseClasses.BaseFragment;
 import com.app.skillsontario.baseClasses.BaseResponseModel;
+import com.app.skillsontario.baseClasses.CrashLogger;
 import com.app.skillsontario.constants.SharedPrefsConstants;
 import com.app.skillsontario.databinding.FragmentResourcesBinding;
 import com.app.skillsontario.models.ResourceModal;
@@ -58,6 +59,10 @@ public class ResourcesFragment extends BaseFragment implements ApiResponseErrorC
         callNewsAPI(true);
         setPegination();
         refreshNews();
+
+        try {
+            CrashLogger.INSTANCE.trackEventsFirebase("Check_The_Resources ", "ResourcesFragment");
+        }catch (Exception e){}
     }
 
     @Override

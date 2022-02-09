@@ -8,6 +8,7 @@ import android.content.res.Configuration;
 import com.app.skillsontario.R;
 import com.app.skillsontario.SignIn.WelcomeActivity;
 import com.app.skillsontario.baseClasses.BaseActivity;
+import com.app.skillsontario.baseClasses.CrashLogger;
 import com.app.skillsontario.constants.AppConstants;
 import com.app.skillsontario.constants.SharedPrefsConstants;
 import com.app.skillsontario.databinding.ActivitySelectLanguageBinding;
@@ -28,6 +29,12 @@ public class SelectLanguage extends BaseActivity {
         MySharedPreference.getInstance().setBooleanData(SharedPrefsConstants.GUEST_FLOW, false);
 
         binding.imageViewEnglish.setOnClickListener(v -> {
+
+            try {
+                CrashLogger.INSTANCE.trackEventsFirebase("English_Language_Select", "SelectLanguageActivity");
+            } catch (Exception e) {
+            }
+
             MySharedPreference.getInstance().setStringData(SharedPrefsConstants.LANGUAGE_API, "eng");
             changeLocale("en", this);
             startActivity(new Intent(SelectLanguage.this, WelcomeActivity.class));
@@ -35,10 +42,17 @@ public class SelectLanguage extends BaseActivity {
         });
 
         binding.imageViewFrench.setOnClickListener(v -> {
+            try {
+                CrashLogger.INSTANCE.trackEventsFirebase("French_Language_Select", "SelectLanguageActivity");
+            } catch (Exception e) {
+            }
+
             MySharedPreference.getInstance().setStringData(SharedPrefsConstants.LANGUAGE_API, "fre");
             changeLocale("fr", this);
             startActivity(new Intent(SelectLanguage.this, WelcomeActivity.class));
             finishAffinity();
+
+
         });
     }
 

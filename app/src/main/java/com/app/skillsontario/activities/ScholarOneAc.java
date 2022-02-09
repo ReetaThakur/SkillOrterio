@@ -15,6 +15,7 @@ import com.app.skillsontario.apiConnection.ApiResponseErrorCallback;
 import com.app.skillsontario.apiConnection.RequestBodyGenerator;
 import com.app.skillsontario.baseClasses.BaseActivity;
 import com.app.skillsontario.baseClasses.BaseResponseModel;
+import com.app.skillsontario.baseClasses.CrashLogger;
 import com.app.skillsontario.databinding.ScholarOneAcBinding;
 import com.app.skillsontario.models.ScholarShipModal;
 import com.app.skillsontario.requestmodal.GetEventRequest;
@@ -55,6 +56,10 @@ public class ScholarOneAc extends BaseActivity implements ApiResponseErrorCallba
         Peginattion();
         refreshBookmark();
         //binding.rclick.setOnClickListener(v-> startActivity(new Intent(this,ScholarDetailAc.class)));
+
+        try {
+            CrashLogger.INSTANCE.trackEventsFirebase("Check_The_Scholarship", "ScholarActivity");
+        }catch (Exception e){}
     }
 
     void refreshBookmark() {

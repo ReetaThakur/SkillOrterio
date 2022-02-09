@@ -2,6 +2,7 @@ package com.app.skillsontario.adapter;
 
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,12 +10,14 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.app.skillsontario.R;
 import com.app.skillsontario.activities.NewsDetailAc;
+import com.app.skillsontario.baseClasses.CrashLogger;
 import com.app.skillsontario.databinding.NewsItemBinding;
 import com.app.skillsontario.models.NewsModal;
 
@@ -47,6 +50,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.MyViewHolder> 
         return new NewsAdapter.MyViewHolder(newsItemBinding);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
 
@@ -79,6 +83,10 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.MyViewHolder> 
                 Intent intent = new Intent(activity, NewsDetailAc.class);
                 intent.putExtra("model", (Serializable) newsModalArrayList.get(position));
                 activity.startActivity(intent);
+
+                try {
+                    CrashLogger.INSTANCE.trackEventsFirebase("Read_The_News", "NewsFragment");
+                }catch (Exception e){}
             });
         } catch (Exception e) {
         }
@@ -116,6 +124,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.MyViewHolder> 
         }
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     public String changeDate(String dateString) {
         String dateStr = "", timeStr = "", finalDate = "";
         try {

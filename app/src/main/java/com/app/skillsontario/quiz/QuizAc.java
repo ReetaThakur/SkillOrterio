@@ -2,11 +2,13 @@ package com.app.skillsontario.quiz;
 
 import android.content.Intent;
 import android.net.Uri;
+import android.view.View;
 
 import com.app.skillsontario.BottomBarActivity;
 import com.app.skillsontario.R;
 import com.app.skillsontario.adapter.AdapterCong;
 import com.app.skillsontario.baseClasses.BaseActivity;
+import com.app.skillsontario.baseClasses.CrashLogger;
 import com.app.skillsontario.constants.SharedPrefsConstants;
 import com.app.skillsontario.databinding.QuizAcBinding;
 import com.app.skillsontario.dialogs.DialogWithMsg;
@@ -41,6 +43,10 @@ public class QuizAc extends BaseActivity {
                 }
             }
 
+            try {
+                CrashLogger.INSTANCE.trackEventsFirebase("Share_Quiz_Result", "QuizAc");
+            } catch (Exception e) {
+            }
 
         });
 
@@ -49,14 +55,35 @@ public class QuizAc extends BaseActivity {
             Utils.share1(QuizAc.this, getString(R.string.invite_share) +
                     "", quizFinalResultModel.get(0).getImage(), quizFinalResultModel.get(0).getJobSector(), "home", quizFinalResultModel.get(0).getId());
 
+            try {
+                CrashLogger.INSTANCE.trackEventsFirebase("Send_Invite", "QuizAc");
+            } catch (Exception e) {
+            }
+
         });
-        binding.retake.tvRetake.setOnClickListener(v -> startActivity(new Intent(this, QuizStepAc.class)));
+        // binding.retake.tvRetake.setOnClickListener(v -> startActivity(new Intent(this, QuizStepAc.class)));
         binding.home.setOnClickListener(v -> startActivity(new Intent(this, BottomBarActivity.class)));
 
+
+        binding.retake.tvRetake.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(QuizAc.this, QuizStepAc.class));
+                try {
+                    CrashLogger.INSTANCE.trackEventsFirebase("Retake_a_Quiz", "QuizAc");
+                } catch (Exception e) {
+                }
+            }
+        });
         //setAdapter();
         showRecycler();
 
         //  binding.mainLay.post(() -> showDialog());
+
+        try {
+            CrashLogger.INSTANCE.trackEventsFirebase("Completing_a_Quiz", "QuizAc");
+        } catch (Exception e) {
+        }
 
     }
 

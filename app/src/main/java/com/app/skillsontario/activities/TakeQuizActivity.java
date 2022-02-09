@@ -13,6 +13,7 @@ import com.app.skillsontario.apiConnection.ApiResponseErrorCallback;
 import com.app.skillsontario.apiConnection.RequestBodyGenerator;
 import com.app.skillsontario.baseClasses.BaseActivity;
 import com.app.skillsontario.baseClasses.BaseResponseModel;
+import com.app.skillsontario.baseClasses.CrashLogger;
 import com.app.skillsontario.constants.SharedPrefsConstants;
 import com.app.skillsontario.databinding.ActivityTakeQuizBinding;
 import com.app.skillsontario.models.CareerDetailModel;
@@ -62,6 +63,11 @@ public class TakeQuizActivity extends BaseActivity implements ApiResponseErrorCa
                     dialog.show();
                 } catch (Exception e) {
                     startActivity(new Intent(TakeQuizActivity.this, QuizStepAc.class));
+                }
+
+                try {
+                    CrashLogger.INSTANCE.trackEventsFirebase("Take_a_Quiz", "TakeQuizActivity");
+                } catch (Exception e) {
                 }
 
             }

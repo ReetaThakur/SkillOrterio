@@ -21,6 +21,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.app.skillsontario.R;
 import com.app.skillsontario.activities.WebViewActivity;
+import com.app.skillsontario.baseClasses.CrashLogger;
 import com.app.skillsontario.callbacks.CheckPermission;
 import com.app.skillsontario.constants.SharedPrefsConstants;
 import com.app.skillsontario.databinding.EventsItemBinding;
@@ -152,6 +153,11 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.MyViewHolder
                     intent.putExtra("title", eventsModalArrayList.get(position).getEvtTitle());
                     activity.startActivity(intent);
                 }
+
+                try {
+                    CrashLogger.INSTANCE.trackEventsFirebase("Participate_In_Events ", "EventsFragment");
+                }catch (Exception e){}
+
                 //  activity.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(eventsModalArrayList.get(position).getEvtURL())));
             });
         } catch (Exception e) {
