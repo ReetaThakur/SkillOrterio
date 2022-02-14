@@ -127,8 +127,14 @@ public class JobDetailsActivity extends BaseActivity implements ApiResponseError
         binding.imgShare.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Utils.share1(JobDetailsActivity.this, getString(R.string.profile_share), careerListDetails.get(0).getImage(), careerListDetails.get(0).getJobDesc(), "jobProfile", careerListDetails.get(0).getId());
+                try {
+                    Utils.share1(JobDetailsActivity.this, getString(R.string.profile_share), careerListDetails.get(0).getImage(), careerListDetails.get(0).getJobDesc(), "jobProfile", careerListDetails.get(0).getId());
+
+                } catch (Exception e) {
+                }
             }
+
+
         });
 
 
@@ -160,7 +166,7 @@ public class JobDetailsActivity extends BaseActivity implements ApiResponseError
         list.clear();
 
         if (careerListDetails.get(0).getJobDesc() != null) {
-            if(!careerListDetails.get(0).getJobDesc().isEmpty()) {
+            if (!careerListDetails.get(0).getJobDesc().isEmpty()) {
                 List<SampleChildBean> childList = new ArrayList<>();
                 childList.add(new SampleChildBean(careerListDetails.get(0).getJobDesc()));
                 list.add(new SampleGroupBean(childList, getString(R.string.job_desc)));
@@ -393,7 +399,7 @@ public class JobDetailsActivity extends BaseActivity implements ApiResponseError
                 binding.tvHelpFull.setVisibility(View.VISIBLE);
                 binding.recyVideo.setVisibility(View.VISIBLE);
                 resourceURLModalArrayList.addAll(careerListDetails.get(0).getResourceURL());
-                VideoAdapter videoAdapter = new VideoAdapter(resourceURLModalArrayList, JobDetailsActivity.this,careerListDetails.get(0).getJobProfile());
+                VideoAdapter videoAdapter = new VideoAdapter(resourceURLModalArrayList, JobDetailsActivity.this, careerListDetails.get(0).getJobProfile());
                 binding.recyVideo.setAdapter(videoAdapter);
             } else {
                 binding.recyVideo.setVisibility(View.GONE);

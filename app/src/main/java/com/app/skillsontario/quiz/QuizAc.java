@@ -30,18 +30,20 @@ public class QuizAc extends BaseActivity {
 
         binding.share.setOnClickListener(v -> {
 
-            if (!MySharedPreference.getInstance().getBooleanData(SharedPrefsConstants.GUEST_FLOW)) {
-                Utils.share1(QuizAc.this, getString(R.string.result_share) +
-                        "", quizFinalResultModel.get(0).getImage(), quizFinalResultModel.get(0).getJobSector(), "quiz", quizFinalResultModel.get(0).getId());
+            try {
+                if (!MySharedPreference.getInstance().getBooleanData(SharedPrefsConstants.GUEST_FLOW)) {
+                    Utils.share1(QuizAc.this, getString(R.string.result_share) +
+                            "", quizFinalResultModel.get(0).getImage(), quizFinalResultModel.get(0).getJobSector(), "quiz", quizFinalResultModel.get(0).getId());
 
-            } else {
-                // showDialog();
-                try {
-                    Utils.guestMethod(QuizAc.this, "homeFragment");
-                } catch (Exception e) {
-                    e.printStackTrace();
+                } else {
+                    // showDialog();
+                    try {
+                        Utils.guestMethod(QuizAc.this, "homeFragment");
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                 }
-            }
+            }catch (Exception e){}
 
             try {
                 CrashLogger.INSTANCE.trackEventsFirebase("Share_Quiz_Result", "QuizAc");
@@ -52,8 +54,12 @@ public class QuizAc extends BaseActivity {
 
         binding.sendInvite.setOnClickListener(v -> {
 
-            Utils.share1(QuizAc.this, getString(R.string.invite_share) +
-                    "", quizFinalResultModel.get(0).getImage(), quizFinalResultModel.get(0).getJobSector(), "home", quizFinalResultModel.get(0).getId());
+            try {
+                Utils.share1(QuizAc.this, getString(R.string.invite_share) +
+                        "", quizFinalResultModel.get(0).getImage(), quizFinalResultModel.get(0).getJobSector(), "home", quizFinalResultModel.get(0).getId());
+
+            }catch (Exception e){}
+
 
             try {
                 CrashLogger.INSTANCE.trackEventsFirebase("Send_Invite", "QuizAc");

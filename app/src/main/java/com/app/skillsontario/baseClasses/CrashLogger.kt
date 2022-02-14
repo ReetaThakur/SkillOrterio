@@ -21,7 +21,7 @@ object CrashLogger {
         if (!isDebuggable) {
             try {
                 val mFirebaseAnalytics: FirebaseAnalytics
-                mFirebaseAnalytics = FirebaseAnalytics.getInstance(context)
+                mFirebaseAnalytics = FirebaseAnalytics.getInstance(AppController.getApplicationContext_())
                 val bundle = Bundle()
                 bundle.putString(FirebaseAnalytics.Param.SCREEN_NAME, "CrashLogger Class Error")
                 bundle.putString(FirebaseAnalytics.Param.SCREEN_CLASS, e.message)
@@ -34,7 +34,7 @@ object CrashLogger {
     fun trackEventsFirebase(eventMessage: String, screenName: String) {
         try {
             val mFirebaseAnalytics: FirebaseAnalytics =
-                FirebaseAnalytics.getInstance(context)
+                FirebaseAnalytics.getInstance(AppController.getApplicationContext_())
             val bundle = Bundle()
             bundle.putString(FirebaseAnalytics.Param.SCREEN_NAME, screenName)
             bundle.putString("event_message", eventMessage)

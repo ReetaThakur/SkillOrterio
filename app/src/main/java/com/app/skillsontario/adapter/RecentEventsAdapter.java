@@ -90,13 +90,17 @@ public class RecentEventsAdapter extends RecyclerView.Adapter<RecentEventsAdapte
                     .listener(new RequestListener<Drawable>() {
                         @Override
                         public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
-                            viewHolder.binding.progress.setVisibility(View.GONE);
+                            try {
+                                viewHolder.binding.progress.setVisibility(View.GONE);
+                            }catch (Exception ee){}
                             return false;
                         }
 
                         @Override
                         public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
-                            viewHolder.binding.progress.setVisibility(View.GONE);
+                            try {
+                                viewHolder.binding.progress.setVisibility(View.GONE);
+                            }catch (Exception ee){}
                             return false;
                         }
                     })

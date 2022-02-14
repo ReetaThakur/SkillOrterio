@@ -18,9 +18,19 @@ import io.branch.referral.Branch;
 public class AppController extends MultiDexApplication implements LifecycleObserver {
 
     public static Context context;
+    public static AppController instance;
 
     //  private FirebaseAnalytics mFirebaseAnalytics;
     public static final String CHANNEL_ID = "ServiceChannel";
+
+    {
+        instance = this;
+    }
+
+    public static Context getApplicationContext_() {
+
+        return instance.getApplicationContext();
+    }
 
     @Override
     protected void attachBaseContext(Context base) {
@@ -36,7 +46,7 @@ public class AppController extends MultiDexApplication implements LifecycleObser
     @Override
     public void onCreate() {
         super.onCreate();
-
+        instance = this;
         FirebaseMessaging.getInstance().setAutoInitEnabled(true);
         context = AppController.this;
 
@@ -65,9 +75,9 @@ public class AppController extends MultiDexApplication implements LifecycleObser
         }
     }
 
-    public static Context getApplicationInstance() {
+ /*   public static Context getApplicationInstance() {
         return context;
-    }
+    }*/
 
     public Context getContext() {
         return context;
