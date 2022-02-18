@@ -16,6 +16,7 @@ import com.app.skillsontario.models.ResourceModal;
 import com.app.skillsontario.models.ScholarShipModal;
 import com.app.skillsontario.signup.SignUpActivity;
 import com.app.skillsontario.utils.MySharedPreference;
+import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.messaging.FirebaseMessaging;
 
 import org.json.JSONException;
@@ -43,6 +44,10 @@ public class SplashActivity extends BaseActivity {
 
     @Override
     protected void initUi() {
+
+
+
+       // FirebaseAnalytics mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
 
         IntegrationValidator.validate(SplashActivity.this);
 
@@ -140,7 +145,7 @@ public class SplashActivity extends BaseActivity {
                     typeClass = "";
                 }
 
-            Log.d("Sunny","  pending intent  "+typeClass);
+                Log.d("Sunny", "  pending intent  " + typeClass);
                 try {
 
                     if (typeClass.equalsIgnoreCase("news")) {
@@ -336,6 +341,7 @@ public class SplashActivity extends BaseActivity {
         // Enables regular immersive mode.
         // For "lean back" mode, remove SYSTEM_UI_FLAG_IMMERSIVE.
         // Or for "sticky immersive," replace it with SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+
         View decorView = getWindow().getDecorView();
         decorView.setSystemUiVisibility(
                 View.SYSTEM_UI_FLAG_IMMERSIVE
