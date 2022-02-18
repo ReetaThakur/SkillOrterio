@@ -5,7 +5,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'com.google.gms.google-services'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
-apply plugin: 'com.google.firebase.firebase-perf'
+//apply plugin: 'com.google.firebase.firebase-perf'
 apply plugin: 'com.google.firebase.crashlytics'
 
 repositories {
@@ -146,17 +146,13 @@ dependencies {
 
     implementation "androidx.recyclerview:recyclerview:1.2.1"
     implementation 'com.android.support:multidex:1.0.3'
-    implementation platform('com.google.firebase:firebase-bom:28.4.0')
-
-
-
     //Api connection
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
     implementation 'com.squareup.okhttp3:logging-interceptor:4.9.0'
 
-    implementation 'com.google.firebase:firebase-analytics:20.0.2'
-    implementation 'com.google.firebase:firebase-crashlytics:18.2.7'
+
+   // implementation 'com.google.firebase:firebase-crashlytics:18.2.8'
     implementation 'com.google.firebase:firebase-messaging:23.0.0'
 
     //image loading
@@ -196,23 +192,6 @@ dependencies {
 
     implementation 'com.github.pwittchen:infinitescroll:v0.0.3'
 
-    // Stripe SDK
-    // implementation 'com.stripe:stripe-android:15.1.0'
-
-    // PDF Sign
-    //Docusign Key - 91be1136-c3f7-48e6-b39c-11dfbd9c2e1a
-    //implementation 'com.tom_roush:pdfbox-android:1.8.10.1'
-    //implementation 'id.zelory:compressor:3.0.0'
-
-    //debugImplementation because LeakCanary should only run in debug builds.
-//    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.3'
-
-    //firebase api
-    //implementation 'com.google.firebase:firebase-crashlytics:17.3.0'  //this
-    //implementation 'com.google.firebase:firebase-analytics:18.0.0'   //this
-
-    implementation 'com.google.firebase:firebase-perf:20.0.4'
-
     //Dimensions
     implementation 'com.intuit.ssp:ssp-android:1.0.6'
     implementation 'com.intuit.sdp:sdp-android:1.0.6'
@@ -233,12 +212,17 @@ dependencies {
     implementation 'com.squareup.picasso:picasso:2.5.2'
 
 
-    // required
 
-    // implementation "io.branch.sdk.android:library:5.+"
-    // required if your app is in the Google Play Store (tip: avoid using bundled play services libs)
-    implementation 'com.google.firebase:firebase-appindexing:20.0.0'
-    //implementation 'com.google.android.gms:play-services-ads-identifier:16+'
+
+    implementation platform('com.google.firebase:firebase-bom:29.1.0')
+    implementation 'com.google.firebase:firebase-analytics'
+    implementation 'com.google.firebase:firebase-analytics-ktx'
+    implementation 'com.google.firebase:firebase-crashlytics'
+    implementation 'com.google.firebase:firebase-perf'
+
+
+
+
 
 
 }
