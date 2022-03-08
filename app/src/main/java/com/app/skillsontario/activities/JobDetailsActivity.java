@@ -103,23 +103,25 @@ public class JobDetailsActivity extends BaseActivity implements ApiResponseError
         binding.imgBookmark.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!MySharedPreference.getInstance().getBooleanData(SharedPrefsConstants.GUEST_FLOW)) {
-                    if (clickBookMark) {
-                        clickBookMark = false;
-                        binding.imgBookmark.setImageResource(R.drawable.ic_book_mark_de);
-                        removeBookmark(careerListDetails.get(0).getbId(), careerListDetails.get(0).getId());
+                try {
+                    if (!MySharedPreference.getInstance().getBooleanData(SharedPrefsConstants.GUEST_FLOW)) {
+                        if (clickBookMark) {
+                            clickBookMark = false;
+                            binding.imgBookmark.setImageResource(R.drawable.ic_book_mark_de);
+                            removeBookmark(careerListDetails.get(0).getbId(), careerListDetails.get(0).getId());
+                        } else {
+                            clickBookMark = true;
+                            binding.imgBookmark.setImageResource(R.drawable.ic_book_mark_de_select);
+                            addBookmark(careerListDetails.get(0), careerListDetails.get(0).getId());
+                        }
                     } else {
-                        clickBookMark = true;
-                        binding.imgBookmark.setImageResource(R.drawable.ic_book_mark_de_select);
-                        addBookmark(careerListDetails.get(0), careerListDetails.get(0).getId());
+                        try {
+                            Utils.guestMethod(JobDetailsActivity.this, "JobDetailsActivity");
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
                     }
-                } else {
-                    try {
-                        Utils.guestMethod(JobDetailsActivity.this, "JobDetailsActivity");
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                }
+                }catch (Exception e){}
 
             }
         });

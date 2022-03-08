@@ -84,21 +84,25 @@ public class AdapterQuizResult extends RecyclerView.Adapter<AdapterQuizResult.Vi
         } catch (Exception e) {
         }
 
-        viewHolder.binding.imgBookmark.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (!quizFinalResultModel.get(position).isHasBookmark()) {
-                    deleteBookMark.delete(position, quizFinalResultModel.get(position).getbId(), quizFinalResultModel.get(position).getId(), true);
-                    clickBookmark = true;
-                    viewHolder.binding.imgBookmark.setImageResource(R.drawable.ic_bookmark_fill);
-                } else {
-                    clickBookmark = false;
-                    deleteBookMark.delete(position, quizFinalResultModel.get(position).getbId(), quizFinalResultModel.get(position).getId(), false);
-                    viewHolder.binding.imgBookmark.setImageResource(R.drawable.ic_home_main_batch);
-                }
+        try {
+            viewHolder.binding.imgBookmark.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (!quizFinalResultModel.get(position).isHasBookmark()) {
+                        deleteBookMark.delete(position, quizFinalResultModel.get(position).getbId(), quizFinalResultModel.get(position).getId(), true);
+                        clickBookmark = true;
+                        viewHolder.binding.imgBookmark.setImageResource(R.drawable.ic_bookmark_fill);
+                    } else {
+                        clickBookmark = false;
+                        deleteBookMark.delete(position, quizFinalResultModel.get(position).getbId(), quizFinalResultModel.get(position).getId(), false);
+                        viewHolder.binding.imgBookmark.setImageResource(R.drawable.ic_home_main_batch);
+                    }
 
-            }
-        });
+                }
+            });
+        } catch (Exception e) {
+        }
+
 
         //if(careerListDetails.get(position).get)
 
@@ -132,7 +136,8 @@ public class AdapterQuizResult extends RecyclerView.Adapter<AdapterQuizResult.Vi
                             public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
                                 try {
                                     viewHolder.binding.progress.setVisibility(View.GONE);
-                                }catch (Exception ee){}
+                                } catch (Exception ee) {
+                                }
                                 return false;
                             }
 
@@ -140,7 +145,8 @@ public class AdapterQuizResult extends RecyclerView.Adapter<AdapterQuizResult.Vi
                             public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
                                 try {
                                     viewHolder.binding.progress.setVisibility(View.GONE);
-                                }catch (Exception ee){}
+                                } catch (Exception ee) {
+                                }
                                 return false;
                             }
                         })

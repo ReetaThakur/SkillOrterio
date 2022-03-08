@@ -63,15 +63,14 @@ public class HomeFilterActivity extends BaseActivity implements KeywordSelected,
         API_INTERFACE.jobOption().enqueue(
                 new ApiCallBack<>(HomeFilterActivity.this, apiResponseErrorCallback, 12, true));
 
-        binding.actionBarN.ivBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                manageBackPressed();
-            }
-        });
-        binding.actionBarN.ivReset.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+
+        try {
+            binding.actionBarN.ivBack.setOnClickListener(v -> manageBackPressed());
+        } catch (Exception e) {
+        }
+
+        try {
+            binding.actionBarN.ivReset.setOnClickListener(v -> {
                 try {
                     eduactionHashMap.clear();
                     redHashMap.clear();
@@ -103,10 +102,21 @@ public class HomeFilterActivity extends BaseActivity implements KeywordSelected,
                     }
                 }
                 readDeal(stringred);
-            }
-        });
-        binding.actionBarN.tvTitle.setText(R.string.set_your_filter);
-        binding.actionBarN.ivReset.setVisibility(View.VISIBLE);
+            });
+        } catch (Exception e) {
+        }
+
+        try {
+            binding.actionBarN.tvTitle.setText(R.string.set_your_filter);
+        } catch (Exception e) {
+        }
+
+        try {
+            binding.actionBarN.ivReset.setVisibility(View.VISIBLE);
+        } catch (Exception e) {
+        }
+
+
         binding.cvApplyFilter.setOnClickListener(v -> {
             String sector_id = "";
             String education_id = "";

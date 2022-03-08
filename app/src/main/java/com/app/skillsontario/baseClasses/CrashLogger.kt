@@ -7,6 +7,8 @@ import com.google.firebase.analytics.FirebaseAnalytics
 import java.lang.Exception
 import android.content.pm.PackageManager
 import com.app.skillsontario.baseClasses.AppController.context
+import com.google.firebase.analytics.ktx.analytics
+import com.google.firebase.ktx.Firebase
 
 
 object CrashLogger {
@@ -29,6 +31,8 @@ object CrashLogger {
             } catch (e: Exception) {
             }
         }
+
+
     }
 
     fun trackEventsFirebase(eventMessage: String, screenName: String) {
@@ -38,7 +42,7 @@ object CrashLogger {
             val bundle = Bundle()
             bundle.putString(FirebaseAnalytics.Param.SCREEN_NAME, screenName)
             bundle.putString("event_message", eventMessage)
-            mFirebaseAnalytics.logEvent("Track_Events", bundle)
+            mFirebaseAnalytics.logEvent(eventMessage, bundle)
         } catch (e: Exception) {
         }
     }
