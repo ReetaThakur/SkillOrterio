@@ -425,7 +425,6 @@ public class SignUpActivity extends BaseActivity implements ApiResponseErrorCall
                     }
 
                     String token = task.getResult();
-                    Log.d("Sunny", "  fcm token > " + token);
                     MySharedPreference.getInstance().setStringData(FIREBASE_TOKEN, token);
 
                 });
